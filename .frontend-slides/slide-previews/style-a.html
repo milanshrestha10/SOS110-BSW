@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SETs in Sustainability</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+
+:root{--stage-bg:#e9e7e2;--slide-bg:#fff;--ink:#0d0d0d;--red:#ff3300;--grid:rgba(0,0,0,.07)}
+.slide{font-family:'Nunito',sans-serif;color:var(--ink);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:160px 120px}
+.num{position:absolute;left:120px;top:96px;font:800 34px 'Archivo';letter-spacing:.02em}
+.num b{color:var(--red)}
+.meta{position:absolute;right:120px;top:96px;text-align:right;font:600 22px 'Nunito';line-height:1.6;letter-spacing:.06em;text-transform:uppercase}
+h1{position:absolute;left:120px;top:300px;width:1060px;font:800 118px/0.95 'Archivo';letter-spacing:-.035em}
+h1 em{font-style:normal;color:var(--red)}
+.rule{position:absolute;left:120px;top:820px;width:0;height:10px;background:var(--ink);transition:width 1s cubic-bezier(.16,1,.3,1) .5s}
+.slide.visible .rule{width:480px}
+.author{position:absolute;left:120px;top:870px;font:700 34px 'Archivo'}
+.org{position:absolute;left:120px;top:920px;font:400 24px 'Nunito';color:#555}
+.venn{position:absolute;right:130px;top:260px;width:620px;height:640px}
+.venn circle{fill:none;stroke:var(--ink);stroke-width:6;stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1)}
+.slide.visible .venn circle{stroke-dashoffset:0}
+.venn circle:nth-of-type(2){transition-delay:.2s}.venn circle:nth-of-type(3){transition-delay:.4s}
+.venn .core{fill:var(--red);opacity:0;transition:opacity .6s 1.3s}.slide.visible .venn .core{opacity:1}
+.venn text{font:800 22px 'Archivo';letter-spacing:.14em;fill:var(--ink)}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.slide.visible .reveal{opacity:1;transform:none}
+.slide.visible .reveal.d2{transition-delay:.15s}.slide.visible .reveal.d3{transition-delay:.3s}
+</style></head><body><div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active">
+<div class="num reveal">L<b>02</b></div>
+<div class="meta reveal d2">Module 1 — Sustainability for Our Planet<br>Lecture 02 — Environmental Sustainability</div>
+<h1 class="reveal d2">Socio-ecological-technological Systems in <em>Sustainability</em></h1>
+<svg class="venn" viewBox="0 0 620 640"><circle cx="220" cy="230" r="190"/><circle cx="400" cy="230" r="190"/><circle cx="310" cy="390" r="190"/>
+<path class="core" d="M310 128 A190 190 0 0 1 395 290 A190 190 0 0 1 225 290 A190 190 0 0 1 310 128Z" transform="translate(0,20)"/>
+<text x="60" y="30">SOCIAL</text><text x="420" y="30">ECOLOGICAL</text><text x="350" y="612">TECHNOLOGICAL</text></svg>
+<div class="rule"></div><div class="author reveal d3">Dr. Milan Shrestha</div><div class="org reveal d3">School of Sustainability · Arizona State University</div>
+</section></main></div><script>
+const st=document.getElementById('deckStage');
+function sc(){const f=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+sc();addEventListener('resize',sc);
+requestAnimationFrame(()=>document.querySelector('.slide').classList.add('visible'));
+</script></body></html>
