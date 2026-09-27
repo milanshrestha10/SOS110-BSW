@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOS110 Slide Styles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* === GALLERY THEME === course palette from the main deck */
+:root{--bg:#f6f2e9;--ink:#10313d;--mute:#4c6670;--card:#fff;--line:#ece5d6;--Blue:#0d7397}
+@media (prefers-color-scheme:dark){:root{--bg:#0a2a35;--ink:#f6f2e9;--mute:#a9c1c7;--card:#10313d;--line:#1d4553;--Blue:#42a8bf}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'PT Serif',Georgia,serif;padding:48px 16px 80px}
+header{max-width:1400px;margin:0 auto 36px}
+h1{font:400 clamp(34px,5vw,56px)/1.05 'DM Serif Display',serif}
+header p{color:var(--mute);margin-top:10px;max-width:760px;line-height:1.5}
+.grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.card:hover,.card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.15)}
+/* === THUMBNAIL === each sample renders live inside a 16:9 frame */
+.thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.cap{display:flex;gap:14px;padding:16px 18px 18px;align-items:flex-start}
+.n{font:400 28px/1 'DM Serif Display',serif;color:var(--Blue)}
+.cap b{font-size:18px}.cap p{color:var(--mute);font-size:15px;line-height:1.4;margin-top:4px}
+</style></head><body>
+<header><h1>SOS110 slide styles</h1><p>Sixteen title-slide styles for Lecture 02, Socio-ecological-technological Systems in Sustainability. Open any card to see it full screen, then pick one to use for the lecture series.</p></header>
+<main class="grid">
+<a class="card" href="01-swiss-grid.html"><div class="thumb"><iframe src="01-swiss-grid.html" loading="lazy" tabindex="-1" title="Swiss Grid"></iframe></div><div class="cap"><span class="n">01</span><div><b>Swiss Grid</b><p>Visible grid, red accent, drawn Venn diagram.</p></div></div></a>
+<a class="card" href="02-grove.html"><div class="thumb"><iframe src="02-grove.html" loading="lazy" tabindex="-1" title="Grove"></iframe></div><div class="cap"><span class="n">02</span><div><b>Grove</b><p>Forest-green literary serif with a leaf line drawing.</p></div></div></a>
+<a class="card" href="03-topo-venn.html"><div class="thumb"><iframe src="03-topo-venn.html" loading="lazy" tabindex="-1" title="Topo Venn"></iframe></div><div class="cap"><span class="n">03</span><div><b>Topo Venn</b><p>Topographic lines and glowing S-E-T Venn.</p></div></div></a>
+<a class="card" href="04-paper-ink.html"><div class="thumb"><iframe src="04-paper-ink.html" loading="lazy" tabindex="-1" title="Paper & Ink"></iframe></div><div class="cap"><span class="n">04</span><div><b>Paper & Ink</b><p>Literary cream page, crimson drop cap, elegant rules.</p></div></div></a>
+<a class="card" href="05-vintage-editorial.html"><div class="thumb"><iframe src="05-vintage-editorial.html" loading="lazy" tabindex="-1" title="Vintage Editorial"></iframe></div><div class="cap"><span class="n">05</span><div><b>Vintage Editorial</b><p>Witty magazine cream with Fraunces and geometric accents.</p></div></div></a>
+<a class="card" href="06-notebook-tabs.html"><div class="thumb"><iframe src="06-notebook-tabs.html" loading="lazy" tabindex="-1" title="Notebook Tabs"></iframe></div><div class="cap"><span class="n">06</span><div><b>Notebook Tabs</b><p>Paper card on dark desk with colored section tabs.</p></div></div></a>
+<a class="card" href="07-pastel-geometry.html"><div class="thumb"><iframe src="07-pastel-geometry.html" loading="lazy" tabindex="-1" title="Pastel Geometry"></iframe></div><div class="cap"><span class="n">07</span><div><b>Pastel Geometry</b><p>Friendly rounded card with stepped pastel pills.</p></div></div></a>
+<a class="card" href="08-terminal-green.html"><div class="thumb"><iframe src="08-terminal-green.html" loading="lazy" tabindex="-1" title="Terminal Green"></iframe></div><div class="cap"><span class="n">08</span><div><b>Terminal Green</b><p>Data-lab console look for analysis-heavy lectures.</p></div></div></a>
+<a class="card" href="09-stencil-tablet.html"><div class="thumb"><iframe src="09-stencil-tablet.html" loading="lazy" tabindex="-1" title="Stencil & Tablet"></iframe></div><div class="cap"><span class="n">09</span><div><b>Stencil & Tablet</b><p>Archival field-manual poster with earth-tone tablets.</p></div></div></a>
+<a class="card" href="10-peoples-platform.html"><div class="thumb"><iframe src="10-peoples-platform.html" loading="lazy" tabindex="-1" title="People's Platform"></iframe></div><div class="cap"><span class="n">10</span><div><b>People's Platform</b><p>Activist poster: slab type, stacked red shadow, paper grain.</p></div></div></a>
+<a class="card" href="11-cobalt-grid.html"><div class="thumb"><iframe src="11-cobalt-grid.html" loading="lazy" tabindex="-1" title="Cobalt Grid"></iframe></div><div class="cap"><span class="n">11</span><div><b>Cobalt Grid</b><p>Two-color research bulletin on graph paper.</p></div></div></a>
+<a class="card" href="12-vellum.html"><div class="thumb"><iframe src="12-vellum.html" loading="lazy" tabindex="-1" title="Vellum"></iframe></div><div class="cap"><span class="n">12</span><div><b>Vellum</b><p>Scholarly navy field with warm-yellow italic serif.</p></div></div></a>
+<a class="card" href="13-broadside.html"><div class="thumb"><iframe src="13-broadside.html" loading="lazy" tabindex="-1" title="Broadside"></iframe></div><div class="cap"><span class="n">13</span><div><b>Broadside</b><p>Huge lowercase type, dark ink and one fire-orange.</p></div></div></a>
+<a class="card" href="14-dark-botanical.html"><div class="thumb"><iframe src="14-dark-botanical.html" loading="lazy" tabindex="-1" title="Dark Botanical"></iframe></div><div class="cap"><span class="n">14</span><div><b>Dark Botanical</b><p>Premium dark canvas with soft blurred warm orbs.</p></div></div></a>
+<a class="card" href="15-retro-zine.html"><div class="thumb"><iframe src="15-retro-zine.html" loading="lazy" tabindex="-1" title="Retro Zine"></iframe></div><div class="cap"><span class="n">15</span><div><b>Retro Zine</b><p>Riso-printed zine: taped scraps, Bebas + handwriting.</p></div></div></a>
+<a class="card" href="16-course-brand.html"><div class="thumb"><iframe src="16-course-brand.html" loading="lazy" tabindex="-1" title="Course Brand"></iframe></div><div class="cap"><span class="n">16</span><div><b>Course Brand</b><p>Your own palette and fonts from the repo's main deck.</p></div></div></a>
+</main></body></html>
