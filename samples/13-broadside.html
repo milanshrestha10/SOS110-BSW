@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M5·L2 The FEWs nexus and energy systems · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;900&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+
+
+:root{--stage-bg:#000;--slide-bg:#111;--orange:#e85d26;--cream:#f0ece5;--mute:#888880;--line:#282826}
+.slide{font-family:'Barlow',sans-serif;color:var(--cream)}
+.top{position:absolute;left:80px;right:80px;top:60px;padding-bottom:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font:400 20px 'IBM Plex Mono';color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+h1{position:absolute;left:70px;top:150px;font:900 270px/.82 'Barlow';letter-spacing:-.05em;text-transform:lowercase}
+h1 span{display:block}h1 .o{color:var(--orange)}
+.side{position:absolute;right:110px;top:190px;width:560px;text-align:right;font:400 30px/1.4 'Barlow'}
+.side small{display:block;margin-top:18px;font:400 20px 'IBM Plex Mono';color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.terms{position:absolute;left:80px;right:80px;bottom:70px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:40px;font:400 22px 'IBM Plex Mono';letter-spacing:.06em;text-transform:uppercase}
+.terms .t::before{content:'■ ';color:var(--orange)}
+.blk{position:absolute;right:0;top:0;width:0;height:1080px;background:var(--orange);transition:width 1.2s cubic-bezier(.16,1,.3,1) .2s}
+.slide.visible .blk{width:40px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .d2{transition-delay:.15s}.slide.visible .d3{transition-delay:.3s}.slide.visible .d4{transition-delay:.5s}
+</style></head><body><div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active">
+<div class="blk"></div>
+<div class="top reveal"><span>SOS110 — Module 5 · Lecture 2</span><span>Interconnected SETs and Sustainability Issues</span></div>
+<h1><span class="reveal">food.</span><span class="reveal d2">energy.</span><span class="reveal d3 o">water.</span></h1>
+<div class="side reveal d4">The FEWs nexus and energy systems — Dr. Milan Shrestha<small>Thu Oct 22 · S&amp;M Ch. 13 &amp; 14</small></div>
+<div class="terms reveal d4"><span class="t">Food-Energy-Water (FEW) Nexus</span> <span class="t">Fossil Fuel</span> <span class="t">Carbon Emissions</span> <span class="t">Energy Return on Investment (EROI)</span></div>
+</section></main></div><script>
+const st=document.getElementById('deckStage');
+function sc(){const f=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+sc();addEventListener('resize',sc);
+requestAnimationFrame(()=>document.querySelector('.slide').classList.add('visible'));
+</script></body></html>

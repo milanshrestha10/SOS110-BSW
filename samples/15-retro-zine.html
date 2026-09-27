@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M6·L1 Waste management and circular economy · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+
+
+:root{--stage-bg:#c9bfa8;--slide-bg:#e9e1cf;--ink:#1d1d1b;--green:#2f8f4e;--pink:#e86a8c}
+.slide{font-family:'Space Mono',monospace;color:var(--ink)}
+.slide::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(29,29,27,.12) 1px,transparent 1.2px);background-size:7px 7px}
+.scrap{position:absolute;background:#f7f2e6;box-shadow:4px 6px 0 rgba(0,0,0,.12)}
+.tape{position:absolute;width:150px;height:44px;background:rgba(232,106,140,.55)}
+h1{position:absolute;left:150px;top:180px;width:1180px;font:400 150px/.88 'Bebas Neue';letter-spacing:.005em}
+h1 .g{color:var(--green)}
+.hand{position:absolute;left:170px;top:520px;font:700 76px 'Caveat';color:var(--green);transform:rotate(-2.5deg)}
+.lab{position:absolute;left:150px;top:110px;font:700 22px 'Space Mono';letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#e9e1cf;padding:6px 14px}
+.terms{position:absolute;left:150px;top:680px;width:1000px;display:flex;flex-wrap:wrap;gap:18px}
+.terms .t{background:#f7f2e6;padding:10px 20px;font:700 24px 'Space Mono';box-shadow:3px 4px 0 rgba(0,0,0,.14)}
+.terms .t:nth-child(odd){transform:rotate(-1.5deg)}.terms .t:nth-child(even){transform:rotate(1.2deg);background:#fde3ea}
+.card{position:absolute;right:140px;top:600px;width:520px;padding:36px;transform:rotate(3deg);font:400 22px/1.6 'Space Mono'}
+.card b{display:block;font:400 48px 'Bebas Neue';letter-spacing:.02em}
+.circ{position:absolute;right:230px;top:150px;width:360px;height:360px;border-radius:50%;background:var(--green);mix-blend-mode:multiply;opacity:.85}
+.circ2{position:absolute;right:120px;top:260px;width:300px;height:300px;border-radius:50%;background:var(--pink);mix-blend-mode:multiply;opacity:.85}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .d2{transition-delay:.15s}.slide.visible .d3{transition-delay:.3s}.slide.visible .d4{transition-delay:.5s}
+</style></head><body><div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active">
+<div class="circ reveal d2"></div><div class="circ2 reveal d3"></div>
+<div class="lab reveal">SOS110 · M6·L1 · Tue Nov 3</div>
+<h1 class="reveal d2">Waste &amp; the <span class="g">circular</span> economy</h1>
+<div class="hand reveal d3">…what if nothing were thrown away?</div>
+<div class="terms reveal d3"><span class="t">Linear Economy</span> <span class="t">Circular Economy</span> <span class="t">Zero Waste</span> <span class="t">Sustainable Consumption</span></div>
+<div class="scrap card reveal d4"><div class="tape" style="left:180px;top:-22px;transform:rotate(-4deg)"></div><b>Dr. Milan Shrestha</b>School of Sustainability · Arizona State University<br>Reading: S&amp;M Ch. 15; Bocken et al. (2016)</div>
+</section></main></div><script>
+const st=document.getElementById('deckStage');
+function sc(){const f=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+sc();addEventListener('resize',sc);
+requestAnimationFrame(()=>document.querySelector('.slide').classList.add('visible'));
+</script></body></html>

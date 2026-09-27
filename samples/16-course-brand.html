@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M8·L1 Policy and governance in sustainability · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+
+
+:root{--stage-bg:#0a2a35;--slide-bg:#f6f2e9;--Green:#75a29f;--golden:#eccf72;--Sky:#42a8bf;--Blue:#0d7397;--ink:#10313d;--mute:#4c6670}
+.slide{font-family:'PT Serif',serif;color:var(--ink)}
+.band{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--Blue);transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.slide.visible .band{width:620px}
+.sw{position:absolute;left:120px;bottom:120px;display:flex;gap:16px}
+.sw i{width:64px;height:64px;border-radius:50%;border:3px solid #f6f2e9}
+.lnum{position:absolute;left:110px;top:140px;font:400 230px/1 'DM Serif Display';color:#f6f2e9}
+.lnum em{color:var(--golden);font-style:normal}
+.mod{position:absolute;left:120px;top:470px;width:420px;font:400 28px/1.5 'PT Serif';color:rgba(246,242,233,.9)}
+.mod small{display:block;margin-top:18px;font-size:22px;opacity:.8}
+.k{position:absolute;left:740px;top:200px;font:700 22px 'PT Serif';letter-spacing:.18em;text-transform:uppercase;color:var(--Blue)}
+h1{position:absolute;left:740px;top:260px;width:1120px;font:400 100px/1.06 'DM Serif Display';letter-spacing:-.01em}
+h1 em{color:var(--Sky)}
+.terms{position:absolute;left:740px;top:560px;display:flex;gap:14px}
+.terms .t{border:2px solid var(--Green);border-radius:8px;padding:10px 22px;font:700 24px 'PT Serif';color:var(--ink);background:rgba(117,162,159,.12)}
+.gl{position:absolute;left:740px;top:790px;width:0;height:6px;background:var(--golden);transition:width 1s .5s cubic-bezier(.16,1,.3,1)}
+.slide.visible .gl{width:200px}
+.who{position:absolute;left:740px;top:830px;font:400 40px 'DM Serif Display'}
+.org{position:absolute;left:740px;top:890px;font:400 24px 'PT Serif';color:var(--mute)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .d2{transition-delay:.15s}.slide.visible .d3{transition-delay:.3s}.slide.visible .d4{transition-delay:.5s}
+</style></head><body><div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active">
+<div class="band"></div>
+<div class="lnum reveal">M<em>08</em></div>
+<div class="mod reveal d2">Collaboration, Partnership and Sustainable Futures<small>Lecture 1 · Tue Dec 1<br>S&amp;M Ch. 20</small></div>
+<div class="sw reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:#0a4f68"></i></div>
+<div class="k reveal">Due: Final project presentation</div>
+<h1 class="reveal d2">Policy and <em>governance</em> in sustainability</h1>
+<div class="terms reveal d3"><span class="t">Public Policy</span> <span class="t">Stakeholder</span> <span class="t">Adaptive Governance</span></div>
+<div class="gl"></div>
+<div class="who reveal d3">Dr. Milan Shrestha</div><div class="org reveal d4">School of Sustainability · Arizona State University</div>
+</section></main></div><script>
+const st=document.getElementById('deckStage');
+function sc(){const f=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+sc();addEventListener('resize',sc);
+requestAnimationFrame(()=>document.querySelector('.slide').classList.add('visible'));
+</script></body></html>

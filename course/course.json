@@ -1,0 +1,1253 @@
+{
+ "course": "SOS110 — Building a Sustainable World",
+ "term": "Fall C 2026",
+ "meets": "Tue/Thu 10:30–11:45, BAC16",
+ "instructor": "Dr. Milan Shrestha",
+ "unit": "School of Sustainability · Arizona State University",
+ "textbook": "Sherman, D. J., & Montgomery, D. R. (2023). Environmental Science and Sustainability (2nd ed.). W. W. Norton.",
+ "learning_outcomes": [
+  "Identify and explain the boundaries and interconnectedness of social, ecological, and technological systems associated with major global sustainability challenges",
+  "Explain the structure, functions, and interactions of Earth’s natural systems and describe indicators of their capacities and limits",
+  "Use systems thinking and fundamental concepts from natural sciences to examine environmental sustainability challenges",
+  "Explore the social, economic, political, and cultural factors that influence sustainability and human-environmental wellbeing",
+  "Evaluate and communicate sustainability-informed approaches to addressing contemporary environmental and societal challenges"
+ ],
+ "notes": "Session term lists are a draft mapping of the glossary onto the schedule; the fourth session of each module is the TA-led review session.",
+ "modules": [
+  {
+   "module": 0,
+   "title": "Welcome and Course Introduction",
+   "objectives": [],
+   "assessments": [
+    "Quiz practice and course readiness confirmation",
+    "iClicker registration"
+   ],
+   "sessions": [
+    {
+     "date": "2026-08-20",
+     "topic": "Welcome and Course Introduction",
+     "readings": "Syllabus",
+     "due": "Quiz practice and confirm course readiness; iClicker registration",
+     "kind": "lecture",
+     "terms": [],
+     "id": "m0-s1"
+    }
+   ]
+  },
+  {
+   "module": 1,
+   "title": "Sustainability for Our Planet",
+   "glossary_module": 1,
+   "objectives": [
+    "Triple bottom line sustainability",
+    "Systems thinking in sustainability",
+    "Externalities and socio-economic forces",
+    "Environmental ethics"
+   ],
+   "assessments": [
+    "InQuizitive 1 and 2",
+    "Review Exercise practice: learn to draw SETs",
+    "Video introduction"
+   ],
+   "sessions": [
+    {
+     "date": "2026-08-25",
+     "topic": "The Triple Bottom Line of Sustainability",
+     "readings": "What is the Triple Bottom Line? What’s Systems Thinking?",
+     "due": "Group division",
+     "kind": "lecture",
+     "terms": [
+      "Sustainability",
+      "Triple Bottom Line (TBL)",
+      "Sustainable Development Goals (SDGs)",
+      "Wicked Problems"
+     ],
+     "id": "m1-s1"
+    },
+    {
+     "date": "2026-08-27",
+     "topic": "Environmental science in sustainability",
+     "readings": "S&M Ch. 1",
+     "due": "Short Survey 1",
+     "kind": "lecture",
+     "terms": [
+      "Intrinsic Value",
+      "Utilitarian Value",
+      "Resilience",
+      "Tipping Point"
+     ],
+     "id": "m1-s2"
+    },
+    {
+     "date": "2026-09-01",
+     "topic": "Social sustainability",
+     "readings": "S&M Ch. 2",
+     "due": "Introduce yourself (video)",
+     "kind": "lecture",
+     "terms": [
+      "Externality",
+      "Trade-off",
+      "Tragedy of the Commons",
+      "Collective Action",
+      "Environmental Justice"
+     ],
+     "id": "m1-s3"
+    },
+    {
+     "date": "2026-09-03",
+     "topic": "Socio-ecological-technological systems",
+     "readings": "",
+     "due": "Review Exercise practice",
+     "kind": "review",
+     "terms": [
+      "Socio-Ecological-Technological System (SETs)",
+      "Feedback Loop"
+     ],
+     "id": "m1-s4"
+    }
+   ]
+  },
+  {
+   "module": 2,
+   "title": "Why Do We Need Healthy Ecosystems?",
+   "glossary_module": 2,
+   "objectives": [
+    "Planetary boundaries and sustainability",
+    "Thermodynamics, energy flows, and life on Earth",
+    "Healthy ecosystems and ecosystem services",
+    "Biodiversity and restoration"
+   ],
+   "assessments": [
+    "InQuizitive 3, 4 and 5",
+    "Quiz: Biomimicry",
+    "What Would You Do? Exercise 1",
+    "Review Exercise 1: Ecosystem Services and Biomimicry"
+   ],
+   "sessions": [
+    {
+     "date": "2026-09-08",
+     "topic": "Thermodynamics, energy, and matter",
+     "readings": "S&M Ch. 3",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "First Law of Thermodynamics",
+      "Second Law of Thermodynamics",
+      "Net Primary Productivity (NPP)",
+      "Food Web",
+      "Trophic Cascade"
+     ],
+     "id": "m2-s1"
+    },
+    {
+     "date": "2026-09-10",
+     "topic": "Biodiversity and other ecosystem services",
+     "readings": "S&M Ch. 4 & 5",
+     "due": "WWYD 1 video",
+     "kind": "lecture",
+     "terms": [
+      "Biodiversity",
+      "Restoration Ecology",
+      "Rewilding",
+      "Ecosystem Services",
+      "Provisioning Services",
+      "Regulating Services",
+      "Cultural Services"
+     ],
+     "id": "m2-s2"
+    },
+    {
+     "date": "2026-09-15",
+     "topic": "Biomimicry and nature-inspired designs",
+     "readings": "Baumeister et al. (2012)",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Biomimicry"
+     ],
+     "id": "m2-s3"
+    },
+    {
+     "date": "2026-09-17",
+     "topic": "Planetary boundaries and disruptions",
+     "readings": "",
+     "due": "Review Exercise 1: Ecosystem Services",
+     "kind": "review",
+     "terms": [
+      "Planetary Boundaries",
+      "Demographic Transition",
+      "Ecological Footprint"
+     ],
+     "id": "m2-s4"
+    }
+   ]
+  },
+  {
+   "module": 3,
+   "title": "Societal Role in Maintaining Healthy Life-Supporting Systems",
+   "glossary_module": 3,
+   "objectives": [
+    "Life support from air, water, and land",
+    "Earth’s natural systems and processes",
+    "Human-driven alterations and impacts on Earth’s systems",
+    "Conservation measures"
+   ],
+   "assessments": [
+    "InQuizitive 6, 7 and 8",
+    "ASU Library Tutorials confirmation",
+    "Mid-term Test 1 (Modules 1–3)"
+   ],
+   "sessions": [
+    {
+     "date": "2026-09-22",
+     "topic": "Population and consumption",
+     "readings": "S&M Ch. 6",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Life-support Systems",
+      "Demographic Transition Model (DTM)",
+      "Ecological Footprint",
+      "Carrying Capacity"
+     ],
+     "id": "m3-s1"
+    },
+    {
+     "date": "2026-09-24",
+     "topic": "Water cycle and human impacts",
+     "readings": "S&M Ch. 7",
+     "due": "ASU Library Tutorials confirmation",
+     "kind": "lecture",
+     "terms": [
+      "Water Budget",
+      "Eutrophication",
+      "Watershed",
+      "Groundwater"
+     ],
+     "id": "m3-s2"
+    },
+    {
+     "date": "2026-09-29",
+     "topic": "Atmosphere, weather, and climate",
+     "readings": "S&M Ch. 8",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Primary Pollutant",
+      "Secondary Pollutant",
+      "Ozone",
+      "Acid Rain"
+     ],
+     "id": "m3-s3"
+    },
+    {
+     "date": "2026-10-01",
+     "topic": "Conservation of life-supporting systems",
+     "readings": "",
+     "due": "Mid-term Test 1",
+     "kind": "review",
+     "terms": [
+      "Soil Erosion",
+      "Land Use Change",
+      "Conservation",
+      "Anthropogenic Impact"
+     ],
+     "id": "m3-s4"
+    }
+   ]
+  },
+  {
+   "module": 4,
+   "title": "Systems Dynamics in Sustainability",
+   "glossary_module": 4,
+   "objectives": [
+    "System dynamics, causal loops and pressure points",
+    "Biogeochemical cycles in sustaining Earth’s life forms",
+    "Climate science and socio-ecological impacts",
+    "Social responses to climate impacts"
+   ],
+   "assessments": [
+    "InQuizitive 9, 10 and 11",
+    "What Would You Do? Exercise 2",
+    "Review Exercise 2: Biogeochemical Cycles and Human Impacts"
+   ],
+   "sessions": [
+    {
+     "date": "2026-10-06",
+     "topic": "Geosphere, soil, and land use",
+     "readings": "S&M Ch. 9",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Open System",
+      "Closed System",
+      "Threshold"
+     ],
+     "id": "m4-s1"
+    },
+    {
+     "date": "2026-10-08",
+     "topic": "Stocks-and-flows (systems dynamics)",
+     "readings": "S&M Ch. 10",
+     "due": "WWYD 2 video",
+     "kind": "lecture",
+     "terms": [
+      "Stock",
+      "Flow",
+      "Positive Feedback Loop",
+      "Negative Feedback Loop",
+      "Leverage Point",
+      "Causal Loop Diagram (CLD)",
+      "System Dynamics",
+      "Tipping Point"
+     ],
+     "id": "m4-s2"
+    },
+    {
+     "date": "2026-10-15",
+     "topic": "Carbon cycle and climate change",
+     "readings": "S&M Ch. 11",
+     "due": "Review Exercise 2: Biogeochemical Cycles and Human Impacts",
+     "kind": "lecture",
+     "terms": [
+      "Mitigation",
+      "Adaptation",
+      "Adaptive Capacity",
+      "Precautionary Principle"
+     ],
+     "id": "m4-s3"
+    }
+   ]
+  },
+  {
+   "module": 5,
+   "title": "Interconnected SETs and Sustainability Issues",
+   "glossary_module": 5,
+   "objectives": [
+    "Historical changes in food and energy systems",
+    "Interconnectedness and complexity of sustainability issues",
+    "Examples of the food-energy-water nexus",
+    "Renewable energy and energy transition policies"
+   ],
+   "assessments": [
+    "InQuizitive 12, 13 and 14",
+    "Quiz: US Energy Transition",
+    "What Would You Do? Exercise 3",
+    "Research topic selection and presentation outline"
+   ],
+   "sessions": [
+    {
+     "date": "2026-10-20",
+     "topic": "Sustainable food systems",
+     "readings": "S&M Ch. 12",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Agricultural Intensification",
+      "Food Security",
+      "Food Sovereignty"
+     ],
+     "id": "m5-s1"
+    },
+    {
+     "date": "2026-10-22",
+     "topic": "The FEWs nexus and energy systems",
+     "readings": "S&M Ch. 13 & 14",
+     "due": "WWYD 3 video",
+     "kind": "lecture",
+     "terms": [
+      "Food-Energy-Water (FEW) Nexus",
+      "Fossil Fuel",
+      "Carbon Emissions",
+      "Energy Return on Investment (EROI)"
+     ],
+     "id": "m5-s2"
+    },
+    {
+     "date": "2026-10-27",
+     "topic": "Alternative energy and energy equity",
+     "readings": "US EPA (2018)",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Renewable Energy",
+      "Energy Transition",
+      "Energy Efficiency",
+      "Decarbonization"
+     ],
+     "id": "m5-s3"
+    },
+    {
+     "date": "2026-10-29",
+     "topic": "Complexity and cascading risks",
+     "readings": "",
+     "due": "Project presentation topic selection and outline",
+     "kind": "review",
+     "terms": [
+      "Coupled Systems",
+      "Cascading Risk",
+      "Sustainability Trade-off",
+      "Anthropogenic Pressure",
+      "Systems Mapping"
+     ],
+     "id": "m5-s4"
+    }
+   ]
+  },
+  {
+   "module": 6,
+   "title": "Complex Socio-economic Issues and Sustainable Innovations",
+   "glossary_module": 6,
+   "objectives": [
+    "Reducing waste and implementing a circular economy",
+    "Urban sustainability issues",
+    "Environmental health issues",
+    "Equity, justice and resilience"
+   ],
+   "assessments": [
+    "InQuizitive 15, 16 and 17",
+    "Quiz: Circular Economy",
+    "What Would You Do? Exercise 4",
+    "Mid-term Test 2 (Modules 4–6)"
+   ],
+   "sessions": [
+    {
+     "date": "2026-11-03",
+     "topic": "Waste management and circular economy",
+     "readings": "S&M Ch. 15; Bocken et al. (2016)",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Linear Economy",
+      "Circular Economy",
+      "Zero Waste",
+      "Sustainable Consumption"
+     ],
+     "id": "m6-s1"
+    },
+    {
+     "date": "2026-11-05",
+     "topic": "Urban ecology and cities",
+     "readings": "S&M Ch. 16",
+     "due": "WWYD 4",
+     "kind": "lecture",
+     "terms": [
+      "Urban Ecology",
+      "Sustainable Cities"
+     ],
+     "id": "m6-s2"
+    },
+    {
+     "date": "2026-11-10",
+     "topic": "Environmental health and vulnerability",
+     "readings": "S&M Ch. 17",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Environmental Health",
+      "Toxicology",
+      "Epidemiology",
+      "Hazard",
+      "Vulnerability",
+      "Risk"
+     ],
+     "id": "m6-s3"
+    },
+    {
+     "date": "2026-11-12",
+     "topic": "Equity and community resilience",
+     "readings": "",
+     "due": "Mid-term Test 2",
+     "kind": "review",
+     "terms": [
+      "Environmental Equity",
+      "Environmental Justice",
+      "Community Resilience"
+     ],
+     "id": "m6-s4"
+    }
+   ]
+  },
+  {
+   "module": 7,
+   "title": "Institutional Change for Sustainability",
+   "glossary_module": 7,
+   "objectives": [
+    "Indigenous sustainability and lessons",
+    "Human decision-making",
+    "Rules, rights, and governance",
+    "Policy and governance"
+   ],
+   "assessments": [
+    "InQuizitive 18, 19 and 20",
+    "Quiz: Indigenous Sustainability",
+    "Review Exercise 3: Systems Analysis for Sustainability"
+   ],
+   "sessions": [
+    {
+     "date": "2026-11-17",
+     "topic": "Indigenous sustainability",
+     "readings": "Nelson (2017)",
+     "due": "",
+     "kind": "lecture",
+     "terms": [
+      "Indigenous Knowledge",
+      "Traditional Ecological Knowledge (TEK)"
+     ],
+     "id": "m7-s1"
+    },
+    {
+     "date": "2026-11-19",
+     "topic": "Human behavior and decision-making",
+     "readings": "S&M Ch. 18",
+     "due": "Short Survey 2",
+     "kind": "lecture",
+     "terms": [
+      "Behavioral Economics",
+      "Incentive",
+      "Ecosystem Valuation"
+     ],
+     "id": "m7-s2"
+    },
+    {
+     "date": "2026-11-24",
+     "topic": "Institutional approach to sustainability",
+     "readings": "S&M Ch. 19",
+     "due": "Review Exercise 3: Systems Analysis for Sustainability",
+     "kind": "lecture",
+     "terms": [
+      "Institution",
+      "Governance",
+      "Property Rights",
+      "Regulation"
+     ],
+     "id": "m7-s3"
+    }
+   ]
+  },
+  {
+   "module": 8,
+   "title": "Collaboration, Partnership and Sustainable Futures",
+   "glossary_module": 7,
+   "objectives": [],
+   "assessments": [
+    "Final project presentation",
+    "Final project reflection and peer feedback",
+    "Course evaluation"
+   ],
+   "sessions": [
+    {
+     "date": "2026-12-01",
+     "topic": "Policy and governance in sustainability",
+     "readings": "S&M Ch. 20",
+     "due": "Final project presentation",
+     "kind": "lecture",
+     "terms": [
+      "Public Policy",
+      "Stakeholder",
+      "Adaptive Governance"
+     ],
+     "id": "m8-s1"
+    },
+    {
+     "date": "2026-12-03",
+     "topic": "Sustainable futures and course recap",
+     "readings": "",
+     "due": "Final project reflection and feedback; course evaluation",
+     "kind": "lecture",
+     "terms": [
+      "Sustainable Transition",
+      "Sustainability Leadership"
+     ],
+     "id": "m8-s2"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "module": 1,
+   "focus": "Foundations of sustainability, ethical choices, environmental policy, economic impacts, and system interactions.",
+   "terms": [
+    {
+     "term": "Sustainability",
+     "definition": "Using natural resources in a way that meets current needs without exhausting them or preventing future generations from meeting their own needs.",
+     "example": "Harvesting timber at a rate that allows forests to naturally grow back.",
+     "significance": "Ensures humans can live well today while preserving a healthy planet for tomorrow."
+    },
+    {
+     "term": "Triple Bottom Line (TBL)",
+     "definition": "A framework that measures success using three areas: environmental protection (Planet), social well-being (People), and economic health (Profit).",
+     "example": "A company choosing packaging that cuts plastic waste, pays workers fair wages, and still turns a profit.",
+     "significance": "Encourages organizations to look beyond money and consider environmental and human impacts."
+    },
+    {
+     "term": "Sustainable Development Goals (SDGs)",
+     "definition": "A collection of 17 global goals created to tackle major global issues like poverty, climate change, clean water, and inequality.",
+     "example": "A city upgrading its water facilities to support the goal for clean water and sanitation.",
+     "significance": "Provides a shared global roadmap to improve human life and safeguard the planet."
+    },
+    {
+     "term": "Wicked Problems",
+     "definition": "Complex, interconnected problems that are difficult to solve because they have no simple answers, shifting requirements, and multiple conflicting perspectives.",
+     "example": "Addressing global climate change, which involves economics, energy, equity, and politics across all nations.",
+     "significance": "Reminds decision-makers that major sustainability challenges require flexible, ongoing, multi-faceted solutions."
+    },
+    {
+     "term": "Externality",
+     "definition": "A side effect or consequence of an economic activity that affects people who were not involved in that activity, usually without financial compensation.",
+     "example": "Smoke from a factory causing breathing issues for local residents who receive no compensation.",
+     "significance": "Shows how costs are often passed on to the public or nature rather than paid by the polluter."
+    },
+    {
+     "term": "Trade-off",
+     "definition": "A compromise where giving up or reducing one option allows you to gain another.",
+     "example": "Using land to grow crops for biofuel instead of food crops.",
+     "significance": "Helps people weigh competing options when making environmental and economic choices."
+    },
+    {
+     "term": "Tragedy of the Commons",
+     "definition": "A situation where individuals freely use a shared public resource for their own benefit, ultimately overusing and ruining it for everyone.",
+     "example": "Overfishing in open oceans where no single country controls the water.",
+     "significance": "Highlights why shared resources require community rules or government guidelines to survive."
+    },
+    {
+     "term": "Collective Action",
+     "definition": "People or groups working together to address a shared problem or reach a common goal.",
+     "example": "Local farmers forming a cooperative to set fair groundwater pumping limits.",
+     "significance": "Proves that communities can protect shared natural resources by cooperating."
+    },
+    {
+     "term": "Environmental Justice",
+     "definition": "Fair treatment for all people, regardless of background or income, regarding how environmental policies are made and enforced.",
+     "example": "Stopping industrial dump sites from always being placed in low-income neighborhoods.",
+     "significance": "Ensures environmental burdens and benefits are shared fairly across society."
+    },
+    {
+     "term": "Intrinsic Value",
+     "definition": "The belief that living things and ecosystems have value simply by existing, regardless of whether they are useful to humans.",
+     "example": "Protecting a rare, non-edible wildflower just because it belongs in nature and it has value of its own.",
+     "significance": "Encourages human respect and care for nature beyond its material usefulness."
+    },
+    {
+     "term": "Utilitarian Value",
+     "definition": "The value a natural resource has based on how useful it is for human needs or financial gain.",
+     "example": "Valuing a forest based on the dollar amount of lumber it can yield.",
+     "significance": "Reflects standard economic thinking where natural elements are viewed as practical resources."
+    },
+    {
+     "term": "Socio-Ecological-Technological System (SETs)",
+     "definition": "A way of viewing the world where people, nature, and technology are all closely linked and constantly affecting each other.",
+     "example": "A modern city where power grids (technology) rely on river flows (ecology) and power usage by residents (society).",
+     "significance": "Helps us understand modern environmental challenges that involve both human behavior and technology."
+    },
+    {
+     "term": "Feedback Loop",
+     "definition": "A process where the output of a system speeds up (positive feedback) or slows down (negative feedback) the original action.",
+     "example": "Rising temperatures melting ice, which uncovers dark sea water that absorbs more heat and melts more ice.",
+     "significance": "Crucial for understanding how environmental changes can rapidly grow or stay balanced."
+    },
+    {
+     "term": "Tipping Point",
+     "definition": "A critical limit where a small extra change causes a rapid, massive, and often irreversible shift in a system.",
+     "example": "A lake suddenly shifting from clear to covered in permanent green algae due to gradual fertilizer buildup.",
+     "significance": "Warns us about dangerous boundaries where ecological damage cannot easily be undone."
+    },
+    {
+     "term": "Resilience",
+     "definition": "The ability of a system, community, or ecosystem to handle a sudden shock or change and still recover its original function.",
+     "example": "A forest recovering and growing back after a natural wildfire.",
+     "significance": "Focuses on helping natural and human systems withstand unexpected changes and disasters."
+    }
+   ]
+  },
+  {
+   "module": 2,
+   "focus": "Energy flow, food webs, ecosystem health, biological diversity, nature-inspired design, and planetary limits.",
+   "terms": [
+    {
+     "term": "Planetary Boundaries",
+     "definition": "A set of nine environmental limits (such as climate change, ocean acidification, and land use) within which humanity can safely live and thrive.",
+     "example": "Keeping global carbon emissions low enough to prevent dangerous climate destabilization.",
+     "significance": "Defines safe ecological boundaries to prevent severe, large- scale damage to Earth's systems."
+    },
+    {
+     "term": "First Law of Thermodynamics",
+     "definition": "Energy cannot be created or destroyed; it can only change from one form to another.",
+     "example": "Plants converting sunlight into chemical energy stored in leaves during photosynthesis.",
+     "significance": "Reminds us that energy in nature must come from somewhere and simply changes form."
+    },
+    {
+     "term": "Second Law of Thermodynamics",
+     "definition": "Whenever energy changes form, some of it is lost as heat, meaning usable energy decreases over time.",
+     "example": "Animals losing most of their food energy as body heat while moving and living.",
+     "significance": "Explains why energy decreases as it moves up from plants to herbivores and carnivores."
+    },
+    {
+     "term": "Net Primary Productivity (NPP)",
+     "definition": "The amount of new plant growth created in an ecosystem after plants use the energy they need to survive.",
+     "example": "The total weight of new wood, leaves, and roots produced in a forest each year.",
+     "significance": "Shows the total plant energy available to feed all animal life on Earth."
+    },
+    {
+     "term": "Food Web",
+     "definition": "A network of interconnected food chains showing what eats what in a natural community.",
+     "example": "Insects eating grass, frogs eating insects, snakes eating frogs, and hawks eating snakes.",
+     "significance": "Provides a full picture of how energy moves through different living organisms in nature."
+    },
+    {
+     "term": "Trophic Cascade",
+     "definition": "A dramatic ripple effect through an ecosystem caused by removing or adding a top predator.",
+     "example": "Bringing wolves back to an area, which reduces overgrazing by deer and lets trees grow tall again.",
+     "significance": "Shows that top predators are essential for keeping entire ecosystems healthy and balanced."
+    },
+    {
+     "term": "Biodiversity",
+     "definition": "The total variety of life on Earth, including different genes, species, and types of ecosystems.",
+     "example": "A healthy meadow containing dozens of wildflower species, insects, birds, and soil microbes.",
+     "significance": "Makes ecosystems stronger, more flexible, and better able to recover from disturbances."
+    },
+    {
+     "term": "Restoration Ecology",
+     "definition": "The practice of repairing and rebuilding ecosystems that have been damaged or destroyed by human activities.",
+     "example": "Planting native grass and removing weeds in a damaged wetland area.",
+     "significance": "Helps reverse environmental damage and bring back lost natural habitats."
+    },
+    {
+     "term": "Rewilding",
+     "definition": "A conservation strategy focused on restoring natural ecosystem processes and reintroducing missing key wildlife species.",
+     "example": "Reintroducing native species like beavers to build dams and create natural wetlands.",
+     "significance": "Allows nature to heal itself and function naturally with less human effort."
+    },
+    {
+     "term": "Ecosystem Services",
+     "definition": "The free benefits and resources that healthy natural ecosystems provide to people.",
+     "example": "Trees cleaning air, wetlands filtering water, and bees pollinating food crops.",
+     "significance": "Demonstrates how human health and economics directly rely on nature."
+    },
+    {
+     "term": "Provisioning Services",
+     "definition": "Direct physical resources collected from nature to meet basic human needs.",
+     "example": "Fresh drinking water, wood for building, wild fish, and medicinal plants.",
+     "significance": "Supplies the basic physical materials needed for daily human survival and industry."
+    },
+    {
+     "term": "Regulating Services",
+     "definition": "Benefits provided when ecosystems naturally manage and balance environmental conditions.",
+     "example": "Forests storing carbon to balance climate, or plant roots stopping soil erosion during storms.",
+     "significance": "Keeps local and global weather, water, and air conditions stable and safe."
+    },
+    {
+     "term": "Cultural Services",
+     "definition": "Non-material benefits people gain from nature, such as recreation, artistic inspiration, and mental well-being.",
+     "example": "Hiking in a national park, fishing, or finding spiritual peace in natural settings.",
+     "significance": "Supports human mental health, outdoor recreation, and cultural traditions."
+    },
+    {
+     "term": "Demographic Transition",
+     "definition": "A long-term shift where a population moves from high birth and death rates to low birth and death rates as living standards improve.",
+     "example": "Countries experiencing smaller family sizes as healthcare, education, and economic conditions rise.",
+     "significance": "Helps us forecast population trends and long-term demand for global resources."
+    },
+    {
+     "term": "Ecological Footprint",
+     "definition": "A measure of how much land and water area a person or community needs to produce what they use and absorb their waste.",
+     "example": "Comparing how many planet Earths would be needed if everyone lived like an average urban resident.",
+     "significance": "Reveals whether human consumption habits are staying within Earth's natural limits."
+    },
+    {
+     "term": "Biomimicry",
+     "definition": "Designing products, buildings, and systems by copying clever patterns and solutions found in nature.",
+     "example": "Designing quiet high-speed trains based on the shape of a kingfisher's bird beak.",
+     "significance": "Encourages sustainable innovation based on millions of years of natural design."
+    }
+   ]
+  },
+  {
+   "module": 3,
+   "focus": "Human impacts on air, water, and soil systems, resource management, pollution types, and nature protection.",
+   "terms": [
+    {
+     "term": "Life-support Systems",
+     "definition": "The natural biophysical networks—including air, clean water, fertile soil, and climate regulation—that provide the essential conditions necessary for living organisms to survive.",
+     "example": "The global water cycle continuously purifying and delivering fresh water across continents.",
+     "significance": "Emphasizes that human society and economics completely depend on healthy natural systems."
+    },
+    {
+     "term": "Demographic Transition Model (DTM)",
+     "definition": "A chart model that shows how population growth changes over time as societies develop better sanitation, healthcare, and education.",
+     "example": "Watching population growth slow down as a nation becomes more urbanized.",
+     "significance": "Useful for predicting how human resource needs will change in the future."
+    },
+    {
+     "term": "Ecological Footprint",
+     "definition": "The amount of productive natural space needed to supply an individual or group with food, energy, and waste disposal.",
+     "example": "Measuring the total environmental space needed to support a city's daily food and fuel demands.",
+     "significance": "Shows where human lifestyles exceed local and global environmental capacities."
+    },
+    {
+     "term": "Water Budget",
+     "definition": "A balance sheet tracking all water entering, flowing through, and leaving a water basin or area over time.",
+     "example": "Comparing annual rainfall in a valley against water pumped out for farms and homes.",
+     "significance": "Prevents running out of freshwater by tracking water supply versus water use."
+    },
+    {
+     "term": "Eutrophication",
+     "definition": "A process where excessive nutrients in water cause rapid algae growth, leading to oxygen loss and harming fish and aquatic life.",
+     "example": "Fertilizer washing off farms into a pond, turning the water green and suffocating fish.",
+     "significance": "Shows how agricultural runoff can disrupt and ruin aquatic environments."
+    },
+    {
+     "term": "Watershed",
+     "definition": "An area of land where all rain and melted snow drain into a single river, lake, or ocean outlet.",
+     "example": "A mountain valley where all streams flow down into one main central river.",
+     "significance": "Serves as the main practical area for managing clean water supplies and runoff."
+    },
+    {
+     "term": "Groundwater",
+     "definition": "Water held underground in soil and in deep rock formations known as aquifers.",
+     "example": "Pumping water from deep underground wells to irrigate crop fields.",
+     "significance": "Acts as an essential source of drinking and farming water that needs careful management."
+    },
+    {
+     "term": "Primary Pollutant",
+     "definition": "A harmful substance put directly into the air or environment from an identifiable source.",
+     "example": "Exhaust gases coming directly out of an automobile tailpipe or factory chimney.",
+     "significance": "Directly targeted by laws and clean air policies to stop pollution at the source."
+    },
+    {
+     "term": "Secondary Pollutant",
+     "definition": "A pollutant that forms in the air when primary pollutants react chemically with sunlight, moisture, or other chemicals.",
+     "example": "Smog and ground-level ozone forming on hot, sunny afternoons from vehicle fumes.",
+     "significance": "Requires addressing multiple pollution sources at once because it forms in the atmosphere."
+    },
+    {
+     "term": "Ozone",
+     "definition": "A gas made of three oxygen atoms that protects us high in the atmosphere but causes harmful smog when near ground level.",
+     "example": "Ground-level ozone irritating lungs and damaging crops during warm summer months.",
+     "significance": "Demonstrates how a substance can be helpful high up in nature but toxic down where people breathe."
+    },
+    {
+     "term": "Acid Rain",
+     "definition": "Rain made unusually acidic by air pollution from burning coal and oil, which damages trees, soils, and lakes.",
+     "example": "Pollution from power stations creating rain that damages forest leaves and acidifies streams.",
+     "significance": "Shows how air pollution can travel long distances and harm distant ecosystems."
+    },
+    {
+     "term": "Soil Erosion",
+     "definition": "The wearing away and loss of topsoil caused by water, wind, or poor farming practices.",
+     "example": "Heavy rain washing topsoil off bare, plowed fields into nearby rivers.",
+     "significance": "Endangers farming and food production by removing the fertile soil layer."
+    },
+    {
+     "term": "Land Use Change",
+     "definition": "Conversion or modification of one land type like forests, prairies, or wetlands to agricultural, urban, or industrial areas, or vice versa.",
+     "example": "Clearing natural forests to build suburban housing or farm pasture.",
+     "significance": "The leading direct cause of habitat loss and wildlife declines worldwide."
+    },
+    {
+     "term": "Carrying Capacity",
+     "definition": "The maximum number of individuals of a species that an area can support long-term without damaging the environment.",
+     "example": "Determining how many cattle can graze on a pasture without turning it into desert land.",
+     "significance": "Helps establish safe limits for resource use and population growth."
+    },
+    {
+     "term": "Conservation",
+     "definition": "The wise, sustainable use and protection of natural resources and wild areas so they last for future generations.",
+     "example": "Setting seasonal limits on fishing so fish populations can reproduce and stay healthy.",
+     "significance": "Balances human resource needs with long-term ecosystem health."
+    },
+    {
+     "term": "Anthropogenic Impact",
+     "definition": "Changes, damage, or shifts in natural environments caused directly by human actions.",
+     "example": "Plastic trash accumulating in oceans due to human manufacturing and waste disposal.",
+     "significance": "Focuses attention on human responsibility for environmental changes."
+    }
+   ]
+  },
+  {
+   "module": 4,
+   "focus": "Understanding how system components fit together, feedback loops, key places to intervene, climate adaptation, and dynamic planning.",
+   "terms": [
+    {
+     "term": "Stock",
+     "definition": "An accumulation or reservoir of material, energy, or information that builds up or drains over time.",
+     "example": "The amount of water stored in a lake, or the total amount of greenhouse gas in the atmosphere.",
+     "significance": "Buffers systems against sudden changes and gives them stability or inertia."
+    },
+    {
+     "term": "Flow",
+     "definition": "The speed or rate at which material, energy, or information moves into or out of a stock over time.",
+     "example": "The amount of water flowing into a reservoir through rain versus out through pipes.",
+     "significance": "Changing flows is the main way to change the amount of material in a stock."
+    },
+    {
+     "term": "Open System",
+     "definition": "A system that continuously takes in and gives out both energy and physical matter to its surrounding environment.",
+     "example": "A river ecosystem taking in rainwater and sunlight while letting leaves and water flow downstream.",
+     "significance": "Matches how most real natural systems interact freely with their surroundings."
+    },
+    {
+     "term": "Closed System",
+     "definition": "A system that exchanges energy with the outside world, but keeps all of its physical matter inside.",
+     "example": "Planet Earth, which receives solar energy and radiates heat, but keeps the same physical matter on the planet.",
+     "significance": "Reminds us that physical resources on Earth are limited and must be recycled."
+    },
+    {
+     "term": "Positive Feedback Loop",
+     "definition": "A cycle where a change in a system causes actions that amplify, reinforce and speed up that same change.",
+     "example": "Warming temperatures melting ice, which absorbs more solar heat and speeds up warming.",
+     "significance": "Pushes systems toward fast growth or sudden collapse."
+    },
+    {
+     "term": "Negative Feedback Loop",
+     "definition": "A self-correcting cycle where a change triggers a response that brings the system back toward balance.",
+     "example": "Sweating to cool your body down when you get too hot.",
+     "significance": "Maintains stability and keeps systems working within safe boundaries."
+    },
+    {
+     "term": "Leverage Point",
+     "definition": "A specific place within a system where making a small change can produce big, lasting improvements.",
+     "example": "Changing community rules or goals rather than just tweaking small numbers like fine amounts.",
+     "significance": "Helps people focus efforts on high-impact solutions for complex problems."
+    },
+    {
+     "term": "Threshold",
+     "definition": "A point where a small extra step causes a sudden, dramatic shift in how a system works.",
+     "example": "Adding a little more phosphorus to a pond, causing it to suddenly turn green and cloudy.",
+     "significance": "Shows why we must keep environmental pressures below dangerous limits."
+    },
+    {
+     "term": "Tipping Point",
+     "definition": "The moment of no return where a system changes into a completely new state that is hard or impossible to reverse.",
+     "example": "A dense forest turning into a dry grassland due to severe drought and fire.",
+     "significance": "Highlights critical warning signs in climate and ecological health."
+    },
+    {
+     "term": "Causal Loop Diagram (CLD)",
+     "definition": "A visual diagram showing how different variables in a system affect each other through connected feedback loops.",
+     "example": "Drawing arrows to connect traffic levels, air pollution, public health costs, and transit funding.",
+     "significance": "Helps people see hidden connections and avoid unintended consequences."
+    },
+    {
+     "term": "Adaptive Capacity",
+     "definition": "The ability of a community, system, or organization to adjust, handle damage, and recover from environmental disruptions.",
+     "example": "A town building sea walls and planting coastal mangroves to manage sea level rise.",
+     "significance": "Determines how well communities survive climate shocks and changing conditions."
+    },
+    {
+     "term": "Mitigation",
+     "definition": "Direct actions taken to reduce or stop the root causes of environmental problems like climate change.",
+     "example": "Switching power plants from coal to solar energy to cut carbon emissions.",
+     "significance": "Stops environmental problems from getting worse in the future."
+    },
+    {
+     "term": "Adaptation",
+     "definition": "Changing habits, designs, or structures to handle environmental changes that are already happening.",
+     "example": "Farming drought-tolerant crops in areas where rainfall has decreased.",
+     "significance": "Keeps communities safe and functioning despite ongoing environmental changes."
+    },
+    {
+     "term": "Precautionary Principle",
+     "definition": "Taking protective action to prevent severe environmental harm, even if full scientific certainty is not yet established.",
+     "example": "Restricting a new industrial chemical before decades of testing prove its exact long-term harm.",
+     "significance": "Puts safety first when dealing with high-risk environmental choices."
+    },
+    {
+     "term": "System Dynamics",
+     "definition": "A method for studying and modeling how complex systems change over time using stocks, flows, and feedback loops.",
+     "example": "Using computer models to see how city growth, water use, and rainfall connect over decades.",
+     "significance": "Helps planners test solutions in a model before trying them in real life."
+    }
+   ]
+  },
+  {
+   "module": 5,
+   "focus": "The Food-Energy-Water nexus, connected human and natural systems, farming trends, clean energy transitions, and system mapping.",
+   "terms": [
+    {
+     "term": "Food-Energy-Water (FEW) Nexus",
+     "definition": "The close connection between food, energy, and water systems, where changes in one directly affect the other two.",
+     "example": "Using water to grow crops for biofuels, which leaves less water for drinking and food crops.",
+     "significance": "Prevents managing food, water, or energy in isolation without seeing the big picture."
+    },
+    {
+     "term": "Coupled Systems",
+     "definition": "Systems where human society and natural environments are closely connected and constantly influence one another.",
+     "example": "A coastal fishing town whose local economy directly depends on healthy local coral reefs.",
+     "significance": "Shows that human communities and natural ecosystems share a single connected future."
+    },
+    {
+     "term": "Cascading Risk",
+     "definition": "A chain reaction where a failure or disruption in one system causes a series of failures in connected systems.",
+     "example": "A severe heatwave causing power outages, which then shuts down water treatment plants.",
+     "significance": "Highlights vulnerabilities across modern connected city services and infrastructure."
+    },
+    {
+     "term": "Agricultural Intensification",
+     "definition": "Increasing crop production on existing farmland using technology, fertilizer, irrigation, and better methods.",
+     "example": "Using precision watering and targeted fertilizers to double crop yields per field.",
+     "significance": "Produces more food on less land, though it must be managed to avoid soil damage."
+    },
+    {
+     "term": "Food Security",
+     "definition": "When all people have consistent, reliable access to enough safe and nutritious food to live a healthy life.",
+     "example": "A region maintaining affordable food markets and emergency grain stores during droughts.",
+     "significance": "A fundamental goal for human health, community stability, and social well-being."
+    },
+    {
+     "term": "Food Sovereignty",
+     "definition": "The right of people and communities to control how food is produced, distributed, and consumed in ways that are socially, culturally, and environmentally sustainable.",
+     "example": "A local farming community choosing to grow traditional crops using sustainable farming practices rather than relying on imported food or industrial agriculture",
+     "significance": "Food sovereignty promotes local control, food security, cultural preservation, environmental stewardship, and resilient food systems."
+    },
+    {
+     "term": "Fossil Fuel",
+     "definition": "Non-renewable energy sources like coal, oil, and natural gas formed from ancient plant and animal remains buried underground.",
+     "example": "Burning natural gas in power plants to generate electricity for homes.",
+     "significance": "Powered modern industrial growth, but is the leading cause of greenhouse gas pollution."
+    },
+    {
+     "term": "Carbon Emissions",
+     "definition": "Greenhouse gases like carbon dioxide released into the atmosphere from human activities.",
+     "example": "Exhaust fumes produced by driving gas-powered cars or running coal power stations.",
+     "significance": "Traps heat in the atmosphere, driving global warming and ocean changes."
+    },
+    {
+     "term": "Decarbonization",
+     "definition": "The process of phasing out carbon emissions from power generation, transport, heating, and industry.",
+     "example": "Replacing gas-powered city buses with electric buses powered by solar energy.",
+     "significance": "Crucial for stopping climate change and shifting to clean energy systems."
+    },
+    {
+     "term": "Renewable Energy",
+     "definition": "Energy collected from natural resources that naturally replenish themselves faster than they are consumed.",
+     "example": "Generating electricity using wind turbines, solar panels, and geothermal heat.",
+     "significance": "Provides energy without exhausting finite resources or creating carbon pollution."
+    },
+    {
+     "term": "Energy Transition",
+     "definition": "A major global shift away from fossil fuels toward clean, renewable energy sources.",
+     "example": "Closing down old coal plants and building regional wind and solar farms.",
+     "significance": "Represents one of the biggest infrastructure shifts needed for a sustainable future."
+    },
+    {
+     "term": "Energy Efficiency",
+     "definition": "Using less energy to perform the exact same task or achieve the same goal.",
+     "example": "Switching old incandescent light bulbs to modern LED bulbs that use a fraction of the electricity.",
+     "significance": "Saves money and reduces energy demand and pollution quickly."
+    },
+    {
+     "term": "Energy Return on Investment (EROI)",
+     "definition": "The ratio of usable energy delivered by a source compared to the energy spent getting and refining it.",
+     "example": "An oil well yielding 30 barrels of usable oil for every 1 barrel of energy spent drilling.",
+     "significance": "Helps evaluate whether a new energy source delivers a good net energy gain."
+    },
+    {
+     "term": "Sustainability Trade-off",
+     "definition": "A situation where making progress toward one green goal creates unintended challenges for another.",
+     "example": "Clearing trees to install large fields of solar panels.",
+     "significance": "Requires balanced planning to ensure solutions do not create new environmental issues."
+    },
+    {
+     "term": "Anthropogenic Pressure",
+     "definition": "The total strain put on nature by human activity, including land development, pollution, and resource extraction.",
+     "example": "Overfishing, chemical runoff, and warm water combined stressing coastal coral reefs.",
+     "significance": "Measures total human burden on the planet's natural ecosystems."
+    },
+    {
+     "term": "Systems Mapping",
+     "definition": "Creating a visual map of a complex process to show how resources, choices, pollution, and people interact.",
+     "example": "Mapping out all the water, energy, transport, and waste steps involved in making jeans.",
+     "significance": "Helps planners find smart places to cut waste and improve efficiency."
+    }
+   ]
+  },
+  {
+   "module": 6,
+   "focus": "Linear versus circular economic models, zero waste goals, urban ecology, health risks, equity, and resilient communities.",
+   "terms": [
+    {
+     "term": "Linear Economy",
+     "definition": "A traditional economic model based on taking raw materials, making products, using them once, and throwing them away as trash.",
+     "example": "Buying single-use plastic water bottles that are thrown straight into the garbage after drinking.",
+     "significance": "Leads to rapid resource loss and huge piles of unnecessary waste."
+    },
+    {
+     "term": "Circular Economy",
+     "definition": "An economic model designed to cut waste by keeping products, materials, and resources in use as long as possible.",
+     "example": "Designing mobile phones with easy-to-replace parts so they can be repaired, upgraded, or recycled easily.",
+     "significance": "Allows economic activity while minimizing natural resource extraction and pollution."
+    },
+    {
+     "term": "Zero Waste",
+     "definition": "A goal and approach that encourages redesigning products so all materials are reused, recycled, or composted without sending trash to landfills.",
+     "example": "A town mandating food composting, plastic packaging reduction, and widespread recycling.",
+     "significance": "Eliminates wasteful habits and protects land, water, and air from toxic trash buildup."
+    },
+    {
+     "term": "Sustainable Consumption",
+     "definition": "Buying and using products in ways that fulfill basic needs while minimizing damage to the environment.",
+     "example": "Choosing durable clothing, riding public transit, and eating locally grown foods.",
+     "significance": "Reduces individual and societal demand for wasteful production."
+    },
+    {
+     "term": "Urban Ecology",
+     "definition": "The study of how plants, animals, and humans interact within city and town environments.",
+     "example": "Planting trees along city streets to cool neighborhood air and provide shade and wild bird habitats.",
+     "significance": "Helps design cleaner, greener, and healthier cities for growing populations."
+    },
+    {
+     "term": "Environmental Health",
+     "definition": "The field of public health that looks at how surrounding environmental factors—like clean water and air—affect human well-being.",
+     "example": "Replacing old lead pipes to make sure drinking water is safe for neighborhood children.",
+     "significance": "Protects communities by ensuring living environments are safe and non-toxic."
+    },
+    {
+     "term": "Toxicology",
+     "definition": "The scientific study of harmful effects that synthetic chemicals, poisons, and pollutants have on living bodies and nature.",
+     "example": "Testing how microplastic pollution affects fish and ocean health.",
+     "significance": "Helps set safe health standards and limits for exposure to chemicals."
+    },
+    {
+     "term": "Epidemiology",
+     "definition": "The branch of science that studies patterns, causes, and health effects of illnesses in populations.",
+     "example": "Studying how high traffic air pollution connects to asthma rates in city neighborhoods.",
+     "significance": "Provides clear proof needed to create stronger public health and pollution laws."
+    },
+    {
+     "term": "Hazard",
+     "definition": "A dangerous event, substance, or situation that could cause harm, damage, or loss of life.",
+     "example": "Severe heatwaves, toxic chemical leaks, flash floods, or wild forest fires.",
+     "significance": "The main threat factor examined in safety and environmental risk planning."
+    },
+    {
+     "term": "Vulnerability",
+     "definition": "How easily a community, ecosystem, or structure can be harmed by environmental threats or climate disruptions.",
+     "example": "Low-lying homes near rivers being at high risk during seasonal flash flooding.",
+     "significance": "Shows planners where help and protective investments are needed most urgently."
+    },
+    {
+     "term": "Risk",
+     "definition": "The chance or likelihood of damage, loss, or harm happening when a hazard hits an exposed and vulnerable area.",
+     "example": "Calculating potential damage from coastal storms based on storm strength, building design, and location.",
+     "significance": "Forms the baseline for planning disaster safety and neighborhood emergency responses."
+    },
+    {
+     "term": "Environmental Equity",
+     "definition": "Making sure everyone enjoys equal protection under environmental laws and equal access to clean parks, air, and water.",
+     "example": "Building equal numbers of clean parks and green spaces in both low-income and high-income neighborhoods.",
+     "significance": "Removes unfair differences in environmental quality across different communities."
+    },
+    {
+     "term": "Environmental Justice",
+     "definition": "A social movement working to ensure that no group of people bears an unfair share of environmental pollution or health risks.",
+     "example": "Community members organizing against building a new hazardous waste facility in their neighborhood.",
+     "significance": "Puts human fairness and civil rights at the heart of environmental decision-making."
+    },
+    {
+     "term": "Community Resilience",
+     "definition": "The ability of a local neighborhood or town to withstand, bounce back from, and adapt to natural disasters or economic shocks.",
+     "example": "A neighborhood opening community solar power and shared food gardens to prepare for power outages.",
+     "significance": "Helps local communities stay strong and self-reliant during crises."
+    },
+    {
+     "term": "Sustainable Cities",
+     "definition": "Cities planned and built to cut pollution, save energy, offer great public transit, and provide a high quality of life for residents.",
+     "example": "Cities built with extensive bike lanes, electric buses, energy-saving buildings, and public parks.",
+     "significance": "Turns urban areas into efficient centers of sustainable living."
+    }
+   ]
+  },
+  {
+   "module": 7,
+   "focus": "Indigenous traditions, behavioral incentives, community governance, laws, public policy, and adaptive leadership.",
+   "terms": [
+    {
+     "term": "Indigenous Knowledge",
+     "definition": "Local wisdom, understandings, and practices developed by Indigenous peoples over generations of living closely with nature.",
+     "example": "Using traditional controlled burn techniques to clear dry brush and prevent big wildfires.",
+     "significance": "Offers practical and time-tested methods for living sustainably with nature."
+    },
+    {
+     "term": "Traditional Ecological Knowledge (TEK)",
+     "definition": "A deep body of knowledge, beliefs, and practices about plant, animal, and landscape relationships handed down over generations.",
+     "example": "Traditional native fishing practices that adjust harvest times to keep fish populations strong.",
+     "significance": "Complements modern scientific research with long-term real- world observations."
+    },
+    {
+     "term": "Behavioral Economics",
+     "definition": "A field studying how human psychology and habits shape everyday economic choices and decisions.",
+     "example": "Automatically enrolling homeowners in clean energy options unless they choose to opt out.",
+     "significance": "Helps design simple strategies that make sustainable choices easy for everyday people."
+    },
+    {
+     "term": "Ecosystem Valuation",
+     "definition": "Putting a value—monetary or qualitative—on the benefits provided by nature so they can be considered in planning.",
+     "example": "Estimating how much money a coastal wetland saves a city by preventing flood damage during storms.",
+     "significance": "Helps decision-makers see that natural areas provide immense practical and economic value."
+    },
+    {
+     "term": "Incentive",
+     "definition": "A reward, financial benefit, or push designed to encourage people to make choices aligned with sustainability goals.",
+     "example": "Offering cash rebates or tax savings to people who install solar panels or buy electric cars.",
+     "significance": "Makes sustainable options financially attractive to individuals and businesses."
+    },
+    {
+     "term": "Institution",
+     "definition": "The established rules, laws, organizations, and cultural customs that shape how a society operates and uses resources.",
+     "example": "Water conservation boards, environmental laws, or community land agreements.",
+     "significance": "Determines how natural resources are shared, managed, and protected across society."
+    },
+    {
+     "term": "Governance",
+     "definition": "The overall system of decision-making, rules, and management through which communities, leaders, and organizations direct public affairs.",
+     "example": "Towns, businesses, and environmental groups meeting together to manage a shared river basin.",
+     "significance": "Determines how effectively rules are carried out to protect nature and people."
+    },
+    {
+     "term": "Property Rights",
+     "definition": "Legal and social rules defining who owns, can use, or manages land, water, and natural resources.",
+     "example": "Granting local communities official legal rights to manage and protect their surrounding forests.",
+     "significance": "Gives communities clear authority to protect local natural areas from over-use."
+    },
+    {
+     "term": "Regulation",
+     "definition": "Official rules and mandatory standards created and enforced by government agencies to limit environmental harm.",
+     "example": "Setting strict mandatory legal limits on chemical exhaust from industrial facilities.",
+     "significance": "Sets clear ground rules to protect public health and common natural resources."
+    },
+    {
+     "term": "Public Policy",
+     "definition": "Government decisions, plans, laws, and spending priorities created to solve major societal issues.",
+     "example": "Passing national legislation requiring clean electricity across all states by 2050.",
+     "significance": "Uses official public funding and authority to tackle big environmental challenges."
+    },
+    {
+     "term": "Stakeholder",
+     "definition": "Any person, group, or organization affected by, or having an interest in, an issue or community project.",
+     "example": "Local residents, farm owners, business managers, and river guides participating in a water supply meeting.",
+     "significance": "Ensures decisions consider everyone impacted so solutions are fair and lasting."
+    },
+    {
+     "term": "Sustainable Transition",
+     "definition": "A long-term transformation across society, technology, and industry toward environmentally friendly practices.",
+     "example": "Overhauling a city's transport system from gas vehicles to electric trains, buses, and safe bike lanes.",
+     "significance": "Guides large-scale shifts toward cleaner and fairer systems."
+    },
+    {
+     "term": "Adaptive Governance",
+     "definition": "A flexible, learning-focused way of governing that updates rules and plans based on new environmental data.",
+     "example": "Adjusting water allocation amounts each season based on real-time river flow measurements.",
+     "significance": "Helps institutions handle unexpected weather events and climate shifts effectively."
+    },
+    {
+     "term": "Sustainability Leadership",
+     "definition": "Guiding, inspiring, and organizing people, businesses, and communities toward ecologically responsible and fair choices.",
+     "example": "A mayor leading a city effort to switch to zero-waste practices and 100% clean power.",
+     "significance": "Spurs positive institutional change and builds momentum for a sustainable future."
+    }
+   ]
+  }
+ ]
+}
