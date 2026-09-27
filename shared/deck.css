@@ -1,0 +1,273 @@
+*{margin:0;padding:0;box-sizing:border-box}
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+
+
+
+/* ===========================================
+   SOS110 COURSE BRAND
+   Chosen from samples/16-course-brand.html.
+   DM Serif Display for headings, PT Serif for body.
+   =========================================== */
+:root{
+  --stage-bg:#0a2a35;--slide-bg:#f6f2e9;
+  --Green:#75a29f;--golden:#eccf72;--Sky:#42a8bf;--Blue:#0d7397;--deep:#0a4f68;
+  --ink:#10313d;--mute:#4c6670;--paper:#f6f2e9;--paper-2:#ece5d6;--card:#fffdf8;
+  --display:'DM Serif Display',Georgia,serif;--body:'PT Serif',Georgia,serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+.slide{font-family:var(--body);color:var(--ink);font-size:30px;line-height:1.45}
+
+/* === REVEAL === children with .reveal fade up when the slide becomes visible */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.slide.visible .reveal{opacity:1;transform:none}
+.slide.visible .d2{transition-delay:.12s}.slide.visible .d3{transition-delay:.24s}.slide.visible .d4{transition-delay:.4s}
+
+/* === TITLE SLIDE === wide blue band on the left */
+.band{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--Blue);transition:width 1.1s var(--ease)}
+.slide.visible .band{width:620px}
+.band-num{position:absolute;left:110px;top:140px;font:400 230px/1 var(--display);color:var(--paper)}
+.band-num em{color:var(--golden);font-style:normal}
+.band-text{position:absolute;left:120px;top:470px;width:420px;font:400 28px/1.5 var(--body);color:rgba(246,242,233,.92)}
+.band-text small{display:block;margin-top:18px;font-size:22px;opacity:.85}
+.swatches{position:absolute;left:120px;bottom:120px;display:flex;gap:16px}
+.swatches i{width:64px;height:64px;border-radius:50%;border:3px solid var(--paper)}
+.title-k{position:absolute;left:740px;top:200px;font:700 22px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--Blue)}
+.title-h{position:absolute;left:740px;top:260px;width:1100px;font:400 104px/1.06 var(--display);letter-spacing:-.01em}
+.title-h em{color:var(--Sky);font-style:normal}
+.title-terms{position:absolute;left:740px;top:600px;display:flex;flex-wrap:wrap;gap:14px;width:1080px}
+.goldline{position:absolute;left:740px;top:790px;width:0;height:6px;background:var(--golden);transition:width 1s .5s var(--ease)}
+.slide.visible .goldline{width:200px}
+.title-who{position:absolute;left:740px;top:830px;font:400 40px var(--display)}
+.title-org{position:absolute;left:740px;top:890px;font:400 24px var(--body);color:var(--mute)}
+
+/* === CONTENT SLIDE === narrow blue rail carries the section label */
+.rail{position:absolute;left:0;top:0;bottom:0;width:120px;background:var(--Blue)}
+.rail span{position:absolute;left:0;right:0;bottom:120px;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto;font:700 18px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--paper);white-space:nowrap}
+.rail b{position:absolute;left:0;right:0;top:56px;text-align:center;font:400 44px var(--display);color:var(--golden)}
+.content{position:absolute;left:220px;top:110px;right:140px;bottom:120px}
+.k{font:700 22px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--Blue)}
+h2{font:400 84px/1.05 var(--display);letter-spacing:-.01em;margin:14px 0 36px}
+h2 em{color:var(--Sky);font-style:normal}
+h3{font:400 40px/1.15 var(--display);margin-bottom:12px}
+.lead{font-size:34px;line-height:1.45;max-width:1300px;color:var(--ink)}
+.mute{color:var(--mute)}
+.small{font-size:24px}
+.gold-rule{width:120px;height:6px;background:var(--golden);margin:28px 0}
+
+/* === GRIDS AND CARDS === */
+.grid{display:grid;gap:28px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:32px 36px}
+.card.accent{border-top:8px solid var(--Sky)}
+.card.green{border-top:8px solid var(--Green)}.card.gold{border-top:8px solid var(--golden)}.card.blue{border-top:8px solid var(--Blue)}
+.card p{font-size:26px;line-height:1.45}
+.card .tag{display:inline-block;font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+ul.clean{list-style:none}
+ul.clean li{position:relative;padding-left:44px;margin:12px 0}
+ul.clean li::before{content:'';position:absolute;left:0;top:.55em;width:18px;height:18px;border-radius:50%;background:var(--Green)}
+ol.num{list-style:none;counter-reset:n}
+ol.num li{counter-increment:n;position:relative;padding-left:76px;margin:18px 0}
+ol.num li::before{content:counter(n);position:absolute;left:0;top:-4px;width:52px;height:52px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 30px/52px var(--display);text-align:center}
+
+/* === CHIPS (glossary terms) === */
+.chip{display:inline-block;border:2px solid var(--Green);border-radius:8px;padding:8px 20px;font:700 22px var(--body);background:rgba(117,162,159,.12);color:var(--ink)}
+
+/* === AGENDA TABLE === */
+.agenda{width:100%;border-collapse:collapse;font-size:27px}
+.agenda td{padding:13px 0;border-bottom:1px solid var(--paper-2);vertical-align:top}
+.agenda td:first-child{width:190px;font:400 30px var(--display);color:var(--Blue)}
+
+/* === VOCABULARY CARDS === click to flip between definition and example */
+.vocab{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.vcard{position:relative;height:280px;perspective:1600px;cursor:pointer}
+.vcard .in{position:absolute;inset:0;transition:transform .7s var(--ease);transform-style:preserve-3d}
+.vcard.flip .in{transform:rotateY(180deg)}
+.vcard .f,.vcard .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:28px 34px;display:flex;flex-direction:column}
+.vcard .f{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--Sky)}
+.vcard .b{background:var(--Blue);color:var(--paper);transform:rotateY(180deg)}
+.vcard h4{font:400 38px/1.1 var(--display);margin-bottom:12px}
+.vcard p{font-size:23px;line-height:1.4}
+.vcard .hint{margin-top:auto;font-size:18px;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+
+/* === BUTTONS AND INPUTS === */
+.btn{font:700 26px var(--body);border:0;border-radius:12px;padding:16px 34px;background:var(--Blue);color:var(--paper);cursor:pointer}
+.btn:hover{background:var(--deep)}
+.btn.ghost{background:transparent;color:var(--Blue);border:2px solid var(--Blue)}
+.btn:disabled{opacity:.45;cursor:default}
+.field{font:400 34px var(--body);padding:16px 24px;border:2px solid var(--paper-2);border-radius:12px;background:var(--card);color:var(--ink);width:360px}
+.status{font-size:24px;margin-top:18px;min-height:36px;color:var(--mute)}
+.status.ok{color:#2e7d5b}.status.err{color:#b3452c}
+
+/* === POLL === */
+.poll{display:grid;gap:18px;max-width:1300px}
+.opt{display:flex;align-items:center;gap:24px;text-align:left;font:400 30px var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:22px 30px;cursor:pointer;transition:border-color .2s,background .2s}
+.opt b{width:52px;height:52px;flex:none;border-radius:50%;background:var(--paper-2);font:400 28px/52px var(--display);text-align:center}
+.opt:hover{border-color:var(--Sky)}
+.opt.picked{border-color:var(--Blue);background:rgba(66,168,191,.12)}.opt.picked b{background:var(--Blue);color:var(--paper)}
+.opt.right{border-color:#2e7d5b}.opt.right b{background:#2e7d5b;color:#fff}
+.opt.wrong{border-color:#b3452c}
+
+/* === SIMULATION === */
+.sim{display:grid;grid-template-columns:1fr 620px;gap:48px;align-items:start}
+.slider{margin:0 0 30px}
+.slider label{display:flex;justify-content:space-between;font-size:26px;margin-bottom:10px}
+.slider label output{font:400 30px var(--display);color:var(--Blue)}
+input[type=range]{width:100%;height:14px;accent-color:var(--Blue)}
+.gauge{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:34px;text-align:center}
+.gauge .v{font:400 150px/1 var(--display)}
+.gauge .u{font-size:26px;color:var(--mute)}
+.gauge .cat{display:inline-block;margin-top:20px;padding:10px 26px;border-radius:999px;font:700 26px var(--body)}
+.aqi-bar{display:flex;height:22px;border-radius:11px;overflow:hidden;margin-top:26px}
+.aqi-bar i{flex:1}
+
+/* === MEDIA === */
+.video{position:relative;width:1200px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--ink)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--paper);text-align:center;padding:60px;background:repeating-linear-gradient(135deg,#10313d 0 22px,#12394a 22px 44px)}
+.video .ph b{font:400 46px var(--display)}
+.chart-box{position:relative;background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:28px}
+
+/* === LAYERS DIAGRAM === */
+.layers{display:flex;flex-direction:column;gap:6px;width:760px}
+.layer{display:flex;justify-content:space-between;align-items:center;padding:0 30px;border-radius:12px;color:var(--ink);font-size:26px}
+.layer b{font:400 34px var(--display)}
+
+/* === DECK CHROME === outside the slide design (not scaled) */
+.deck-progress{position:fixed;left:0;top:0;height:4px;background:var(--golden);z-index:1001;transition:width .4s var(--ease)}
+.deck-controls{display:flex;gap:10px;align-items:center;font:700 14px var(--body);color:#f6f2e9;background:rgba(10,42,53,.8);padding:8px 14px;border-radius:999px;opacity:.25;transition:opacity .3s}
+.deck-controls:hover,.deck-controls:focus-within{opacity:1}
+.deck-controls button{font:inherit;color:inherit;background:none;border:1px solid rgba(246,242,233,.4);border-radius:999px;padding:6px 14px;cursor:pointer}
+aside.notes{display:none}

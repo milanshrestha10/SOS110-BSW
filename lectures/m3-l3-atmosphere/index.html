@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3 L3 Atmosphere, weather, and climate · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--paper-2);font-size:30px}
+.sort-row button{font:700 22px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 20px;cursor:pointer}
+.sort-row button.on{background:var(--Blue);color:var(--paper)}
+.sort-row.good button.on{background:#2e7d5b;border-color:#2e7d5b}
+.sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
+.eq{display:flex;align-items:center;gap:26px;font:400 44px var(--display);margin:30px 0 40px}
+.eq .p{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:22px 30px;text-align:center}
+.eq .p small{display:block;font:400 22px var(--body);color:var(--mute);margin-top:6px}
+.eq .o3{background:var(--Blue);color:var(--paper);border-color:var(--Blue)}
+.eq .o3 small{color:rgba(246,242,233,.8)}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:30px;border-top:6px solid var(--golden)}
+.timeline div{padding:26px 22px 0 0;position:relative}
+.timeline div::before{content:'';position:absolute;top:-17px;left:0;width:28px;height:28px;border-radius:50%;background:var(--Blue);border:5px solid var(--paper)}
+.timeline b{display:block;font:400 48px var(--display);color:var(--Blue)}
+.timeline p{font-size:23px;line-height:1.4}
+/* pH bars: one series, direct labels, values in text ink */
+.ph{display:grid;gap:10px}
+.ph-row{display:grid;grid-template-columns:290px 1fr;align-items:center;gap:18px;font-size:24px}
+.ph-track{position:relative;height:36px}
+.ph-bar{height:100%;border-radius:0 4px 4px 0;background:var(--Sky);transition:width 1s var(--ease)}
+.ph-row.rain .ph-bar{background:var(--Blue)}
+.ph-row span.v{position:absolute;top:0;line-height:36px;padding-left:12px;font:700 22px var(--body);color:var(--ink)}
+.ph-axis{display:grid;grid-template-columns:290px 1fr;gap:18px;font-size:18px;color:var(--mute)}
+.ph-axis div{display:flex;justify-content:space-between;border-top:1px solid var(--paper-2);padding-top:6px}
+select.field{width:auto;font-size:28px;padding:10px 16px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>03</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 3 · <span data-fill="date">Tue Sep 29</span><br><span data-fill="reading">S&amp;M Ch. 8</span></small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Lecture 3 · Life-support from the air</div>
+  <h1 class="title-h reveal d2">Atmosphere, <em>weather</em>, and climate</h1>
+  <div class="title-terms reveal d3" data-fill="chips"></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Dr. Milan Shrestha</div>
+  <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
+  <aside class="notes">Welcome. Today is the third lecture of Module 3. Thursday is the review session and Mid-term Test 1, so flag which slides are most test-relevant.</aside>
+</section>
+
+<!-- 2. LESSON PLAN -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Lesson plan</span></div>
+  <div class="content">
+    <div class="k reveal">Today's 75 minutes</div>
+    <h2 class="reveal d2">Lesson <em>plan</em></h2>
+    <table class="agenda reveal d3">
+      <tr><td>0–5</td><td>Check in and warm-up poll</td></tr>
+      <tr><td>5–15</td><td>The atmosphere as a life-support system: layers and composition</td></tr>
+      <tr><td>15–22</td><td>Weather versus climate</td></tr>
+      <tr><td>22–42</td><td>Primary and secondary pollutants, ground-level ozone, and the Ozone Day simulation</td></tr>
+      <tr><td>42–55</td><td>The ozone layer and the Montreal Protocol (video)</td></tr>
+      <tr><td>55–67</td><td>Acid rain and the pH data activity</td></tr>
+      <tr><td>67–75</td><td>Exit ticket, assignments, and Test 1 reminders</td></tr>
+    </table>
+  </div>
+  <aside class="notes">Keep the simulation to about 10 minutes. If time is short, the pH activity can move to Thursday's review session.</aside>
+</section>
+
+<!-- 3. OBJECTIVES -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Objectives</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of class you can</div>
+    <h2 class="reveal d2">Learning <em>objectives</em></h2>
+    <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:56px">
+      <ol class="num reveal d3" style="font-size:28px">
+        <li>Describe the atmosphere's layers and composition, and explain why it is a life-support system.</li>
+        <li>Tell weather apart from climate.</li>
+        <li>Classify air pollutants as primary or secondary.</li>
+        <li>Explain how ground-level ozone forms and why ozone high up protects life.</li>
+        <li>Explain how acid rain forms and how policy reduced it.</li>
+      </ol>
+      <div class="card blue reveal d4">
+        <span class="tag">Module 3 objectives</span>
+        <ul class="clean small" data-fill="objectives"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>3.3</b><span>Attendance</span></div>
+  <div class="content">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin" data-signin>
+        <input class="field" data-name placeholder="Your full name" autocomplete="name">
+        <button class="btn" type="button" data-signin-btn>Sign in</button>
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Warm-up poll</span></div>
+  <div class="content">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">On a hot Phoenix summer afternoon, which pollutant is most likely to trigger a <em>High Pollution Advisory</em>?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>Dust (coarse particulate matter, PM10)</button>
+      <button class="opt" type="button"><b>B</b>Ground-level ozone</button>
+      <button class="opt" type="button"><b>C</b>Carbon monoxide</button>
+      <button class="opt" type="button"><b>D</b>Sulfur dioxide</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">Show results from the admin page. Summer advisories in the Phoenix area are usually for ozone; dust (PM10) advisories cluster around monsoon storms. Come back to this after the ozone slides.</aside>
+</section>
+
+<!-- 6. VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Key vocabulary</span></div>
+  <div class="content">
+    <div class="k reveal">Glossary · Module 3 · tap a card for its example</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
+    <div class="vocab reveal d3" data-fill="vocab"></div>
+  </div>
+</section>
+
+<!-- 7. LIFE-SUPPORT SYSTEM -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Life-support system</span></div>
+  <div class="content">
+    <div class="k reveal">Why air is a life-support system</div>
+    <h2 class="reveal d2">A thin layer doing <em>big jobs</em></h2>
+    <div class="grid" style="grid-template-columns:760px 1fr;gap:70px;align-items:start">
+      <div class="layers reveal d3">
+        <div class="layer" style="height:96px;background:#dcecef"><b>Thermosphere</b><span>~85–600 km</span></div>
+        <div class="layer" style="height:96px;background:#bfdde4"><b>Mesosphere</b><span>~50–85 km</span></div>
+        <div class="layer" style="height:132px;background:#9ccfdb"><b>Stratosphere</b><span>~12–50 km · ozone layer</span></div>
+        <div class="layer" style="height:160px;background:var(--Sky);color:#fff"><b>Troposphere</b><span>0–~12 km · all our weather</span></div>
+      </div>
+      <div class="reveal d4">
+        <h3>Dry air by volume</h3>
+        <p class="small">Nitrogen <b>78%</b> · Oxygen <b>21%</b> · Argon <b>0.9%</b> · Carbon dioxide <b>~0.04%</b></p>
+        <div class="gold-rule"></div>
+        <ul class="clean small">
+          <li>Oxygen for breathing, CO₂ for photosynthesis</li>
+          <li>Stratospheric ozone blocks most harmful UV light</li>
+          <li>Greenhouse gases keep Earth near 15 °C on average instead of about −18 °C</li>
+          <li>Moves heat and water around the planet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Layer heights vary with latitude and season, so they are rounded. Link back to the Module 3 idea of life-support systems: air, water and land.</aside>
+</section>
+
+<!-- 8. WEATHER VS CLIMATE -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Weather vs climate</span></div>
+  <div class="content">
+    <div class="k reveal">Same air, two time scales</div>
+    <h2 class="reveal d2">Weather is what you get. Climate is what you <em>expect</em>.</h2>
+    <div class="grid g2 reveal d3">
+      <div class="card accent"><span class="tag">Weather</span><h3>Hours to days</h3><p>The state of the atmosphere at a place and time: temperature, rain, wind, humidity.</p><p class="mute" style="margin-top:14px">"It's 115 °F in Tempe this afternoon."</p></div>
+      <div class="card gold"><span class="tag">Climate</span><h3>Decades</h3><p>The long-term average and range of weather in a region, usually over 30 years.</p><p class="mute" style="margin-top:14px">"Phoenix Julys average highs above 100 °F."</p></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:36px">Quick check: is one record-cold week proof that climate isn't warming? <span class="mute">Talk to a neighbour for 60 seconds.</span></p>
+  </div>
+</section>
+
+<!-- 9. SORTING GAME -->
+<section class="slide" id="sorter">
+  <div class="rail"><b>3.3</b><span>Sorting game</span></div>
+  <div class="content">
+    <div class="k reveal">Game · primary or secondary?</div>
+    <h2 class="reveal d2" style="margin-bottom:20px">Sort the <em>pollutants</em></h2>
+    <p class="small mute reveal d2" style="margin-bottom:16px"><b>Primary</b>: released directly from a source. <b>Secondary</b>: formed in the air when primary pollutants react.</p>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
+      <div class="sort-row" data-answer="p"><span>Carbon monoxide from car exhaust</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="s"><span>Ground-level ozone</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>Sulfur dioxide from a coal plant</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="s"><span>Sulfuric acid in rain</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>Nitrogen oxides from engines</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="s"><span>Nitric acid in rain</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>Dust kicked up by a haboob</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>VOCs from gasoline vapour</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+    </div>
+    <div style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 10. GROUND-LEVEL OZONE -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Ground-level ozone</span></div>
+  <div class="content">
+    <div class="k reveal">A secondary pollutant</div>
+    <h2 class="reveal d2">How ground-level <em>ozone</em> forms</h2>
+    <div class="eq reveal d3">
+      <div class="p">NOₓ<small>engines, power plants</small></div>+
+      <div class="p">VOCs<small>fuel vapour, solvents, plants</small></div>+
+      <div class="p">☀ Sunlight + heat<small>long, hot afternoons</small></div>→
+      <div class="p o3">O₃<small>ground-level ozone</small></div>
+    </div>
+    <div class="grid g2 reveal d4">
+      <div class="card green"><span class="tag">Good up high</span><p>In the stratosphere, ozone absorbs ultraviolet light before it reaches us.</p></div>
+      <div class="card gold"><span class="tag">Bad nearby</span><p>At ground level the same molecule irritates lungs, worsens asthma and damages crops.</p></div>
+    </div>
+  </div>
+  <aside class="notes">Return to the warm-up poll: Phoenix's hot, sunny, still summer afternoons are ideal for ozone formation. The US health standard is 70 ppb averaged over 8 hours.</aside>
+</section>
+
+<!-- 11. SIMULATION -->
+<section class="slide" id="ozone-sim">
+  <div class="rail"><b>3.3</b><span>Simulation</span></div>
+  <div class="content">
+    <div class="k reveal">Simulation · Ozone Day in the Valley</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Can you keep ozone under <em>70 ppb</em>?</h2>
+    <div class="sim reveal d3">
+      <div>
+        <div class="slider"><label for="s-traffic">Traffic and power-plant emissions (NOₓ, VOCs) <output data-out="traffic"></output></label><input type="range" id="s-traffic" min="0" max="100" value="60"></div>
+        <div class="slider"><label for="s-sun">Afternoon high temperature <output data-out="sun"></output></label><input type="range" id="s-sun" min="70" max="118" value="104"></div>
+        <div class="slider"><label for="s-wind">Wind speed <output data-out="wind"></output></label><input type="range" id="s-wind" min="0" max="25" value="5"></div>
+        <p class="small mute">A teaching model, not a forecast: ozone rises when emissions and heat are both high, and wind spreads it out.</p>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:18px"><button class="btn" type="button" id="sim-save">Submit my scenario</button><span class="status" id="sim-status" style="margin:0"></span></div>
+      </div>
+      <div class="gauge">
+        <div class="u">8-hour ozone</div>
+        <div class="v" id="o3">0</div>
+        <div class="u">parts per billion</div>
+        <div class="cat" id="o3-cat">Good</div>
+        <div class="aqi-bar"><i style="background:#8cc68c"></i><i style="background:#eccf72"></i><i style="background:#f0a45a"></i><i style="background:#d9604c"></i><i style="background:#8f5a9c"></i></div>
+        <div class="small mute" style="display:flex;justify-content:space-between;margin-top:8px"><span>Good</span><span>Unhealthy</span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Ask pairs to find two different ways to get under 70 ppb on a 110 °F day. Which lever can people actually control? The admin page shows the class's submitted scenarios.</aside>
+</section>
+
+<!-- 12. VIDEO -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Video</span></div>
+  <div class="content">
+    <div class="k reveal">Watch · about 4 minutes</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">The ozone <em>hole</em></h2>
+    <!-- Paste a YouTube video ID into data-youtube, e.g. data-youtube="abc123XYZ" -->
+    <div class="video reveal d3" data-youtube="">
+      <div class="ph"><b>Video goes here</b><span>Suggested: a NASA visualization of the Antarctic ozone hole over time.<br>Add its YouTube ID to this slide's data-youtube attribute.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. MONTREAL PROTOCOL -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Stratospheric ozone</span></div>
+  <div class="content">
+    <div class="k reveal">A policy success story</div>
+    <h2 class="reveal d2">Fixing the <em>ozone layer</em></h2>
+    <p class="lead reveal d3">Chlorofluorocarbons (CFCs) from spray cans, fridges and air conditioners drift up to the stratosphere, where UV light frees chlorine that destroys ozone.</p>
+    <div class="timeline reveal d4">
+      <div><b>1974</b><p>Molina and Rowland warn that CFCs can destroy ozone</p></div>
+      <div><b>1985</b><p>Scientists report the Antarctic ozone hole</p></div>
+      <div><b>1987</b><p>Montreal Protocol agrees to phase out CFCs</p></div>
+      <div><b>2009</b><p>First UN treaty ratified by every country</p></div>
+      <div><b>2016</b><p>Kigali Amendment phases down HFCs</p></div>
+      <div><b>~2066</b><p>Antarctic ozone projected back to 1980 levels</p></div>
+    </div>
+  </div>
+  <aside class="notes">Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? (Few producers, available substitutes, visible harm.)</aside>
+</section>
+
+<!-- 14. ACID RAIN -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Acid rain</span></div>
+  <div class="content">
+    <div class="k reveal">Another secondary pollutant</div>
+    <h2 class="reveal d2">How <em>acid rain</em> forms</h2>
+    <div class="eq reveal d3" style="font-size:38px">
+      <div class="p">SO₂ + NOₓ<small>coal plants, vehicles</small></div>+
+      <div class="p">Water vapour<small>in clouds</small></div>→
+      <div class="p o3">H₂SO₄ + HNO₃<small>sulfuric and nitric acid</small></div>→
+      <div class="p">Rain below pH 5.6</div>
+    </div>
+    <div class="grid g3 reveal d4">
+      <div class="card accent"><span class="tag">Water</span><p>Acidified lakes lose fish and amphibians.</p></div>
+      <div class="card green"><span class="tag">Land</span><p>Leaches nutrients from forest soils and damages trees.</p></div>
+      <div class="card gold"><span class="tag">Policy</span><p>The 1990 Clean Air Act Amendments capped SO₂ from power plants with tradable allowances.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. DATA ANALYSIS -->
+<section class="slide" id="ph-data">
+  <div class="rail"><b>3.3</b><span>Data analysis</span></div>
+  <div class="content">
+    <div class="k reveal">Data · the pH scale is logarithmic</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">How acidic is <em>acid rain</em>?</h2>
+    <div class="grid" style="grid-template-columns:1fr 560px;gap:60px;align-items:start">
+      <div class="reveal d3">
+        <div class="ph" data-ph></div>
+        <div class="ph-axis"><span></span><div><span>0 · more acidic</span><span>7 · neutral</span><span>14</span></div></div>
+        <p class="small mute" style="margin-top:12px">Approximate typical values. Dark bars are rain.</p>
+      </div>
+      <div class="card blue reveal d4">
+        <span class="tag">Your turn</span>
+        <p>Each step down the pH scale is <b>10 times</b> more acidic. Compare two samples:</p>
+        <div style="display:flex;gap:12px;align-items:center;margin:18px 0;flex-wrap:wrap"><select class="field" id="ph-a"></select><span>vs</span><select class="field" id="ph-b"></select></div>
+        <p id="ph-out" style="font:400 36px/1.25 var(--display)"></p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Ask: how many times more acidic is pH 4.2 rain than normal pH 5.6 rain? 10^1.4, about 25 times. Then compare with vinegar.</aside>
+</section>
+
+<!-- 16. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Exit ticket</span></div>
+  <div class="content">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2">Which of these is a <em>secondary</em> pollutant?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="2">
+      <button class="opt" type="button"><b>A</b>Carbon monoxide</button>
+      <button class="opt" type="button"><b>B</b>Sulfur dioxide</button>
+      <button class="opt" type="button"><b>C</b>Ground-level ozone</button>
+      <button class="opt" type="button"><b>D</b>Dust from a haboob</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 17. ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>3.3</b><span>Assignments</span></div>
+  <div class="content">
+    <div class="k reveal">Module 3 · what's due</div>
+    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module 3 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Before next class</span>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>Review the Module 3 glossary terms and today's slides. Test 1 covers Modules 1–3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. TAKEAWAYS -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">3<em>.3</em></div>
+  <div class="band-text reveal d2">Atmosphere, weather, and climate<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
+  <div class="title-k reveal">Three things to remember</div>
+  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
+    <li>The atmosphere is a life-support system: it gives us oxygen, blocks UV and keeps Earth warm enough for life.</li>
+    <li>Primary pollutants come straight from sources. Secondary ones, like ground-level ozone and acid rain, form in the air.</li>
+    <li>Policy has fixed air problems before: the Montreal Protocol and the SO₂ cap show collective action works.</li>
+  </ol>
+  <div class="goldline" style="top:900px"></div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm3-s3';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+
+/* === COURSE DATA === glossary, objectives and assignments from course.json */
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
+  $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+});
+
+/* === LIVE === attendance, polls, simulation results */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+const nameBox = $('[data-signin]');
+function showUser() {
+  const u = live.user();
+  nameBox.style.display = u ? 'none' : '';
+  if (u) say($('#checkin-status'), `Signed in as ${u.name}.`);
+}
+if (live.mode === 'firebase') $('[data-name]').style.display = 'none';
+$('[data-signin-btn]').addEventListener('click', async () => {
+  try { await live.signIn($('[data-name]').value); showUser(); } catch (e) { say($('#checkin-status'), e.message, 'err'); }
+});
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  if (live.mode === 'firebase') { try { await live.signIn(); showUser(); return true; } catch { /* fall through */ } }
+  say(statusEl, 'Sign in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  if (!await ensureUser(st)) return;
+  try { await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per student, changeable */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SORTING GAME === */
+$$('[data-sort] .sort-row').forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
+  $$('button', row).forEach(x => x.classList.toggle('on', x === b));
+  row.classList.remove('good', 'bad');
+})));
+$('[data-sort-check]').addEventListener('click', () => {
+  const rows = $$('[data-sort] .sort-row');
+  let right = 0;
+  rows.forEach(r => {
+    const on = $('button.on', r);
+    const ok = on && on.dataset.pick === r.dataset.answer;
+    r.classList.toggle('good', !!ok); r.classList.toggle('bad', !!on && !ok);
+    if (ok) right++;
+  });
+  $('[data-sort-score]').textContent = `${right} of ${rows.length} correct`;
+});
+
+/* === OZONE DAY SIMULATION === a simple teaching model, not a forecast */
+const AQI = [[54, 'Good', '#8cc68c'], [70, 'Moderate', '#eccf72'], [85, 'Unhealthy for sensitive groups', '#f0a45a'], [105, 'Unhealthy', '#d9604c'], [Infinity, 'Very unhealthy', '#8f5a9c']];
+const sim = { traffic: $('#s-traffic'), sun: $('#s-sun'), wind: $('#s-wind') };
+function ozone() {
+  const t = sim.traffic.value / 100, h = (sim.sun.value - 70) / 48, w = +sim.wind.value;
+  return Math.round(30 + 110 * Math.pow(t, 0.7) * Math.pow(h, 1.3) / (1 + w / 12));
+}
+function drawSim() {
+  $('[data-out="traffic"]').textContent = `${sim.traffic.value}%`;
+  $('[data-out="sun"]').textContent = `${sim.sun.value} °F`;
+  $('[data-out="wind"]').textContent = `${sim.wind.value} mph`;
+  const v = ozone(), [, label, color] = AQI.find(([max]) => v <= max);
+  $('#o3').textContent = v;
+  const c = $('#o3-cat'); c.textContent = label; c.style.background = color;
+}
+Object.values(sim).forEach(s => s.addEventListener('input', drawSim));
+drawSim();
+$('#sim-save').addEventListener('click', async () => {
+  const st = $('#sim-status');
+  if (!await ensureUser(st)) return;
+  const data = { traffic: +sim.traffic.value, temp: +sim.sun.value, wind: +sim.wind.value, ozone: ozone() };
+  try { await live.saveSim('ozone-day', data); say(st, `Submitted: ${data.ozone} ppb.`, 'ok'); } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === pH DATA === approximate typical values */
+const PH = [['Battery acid', 1], ['Lemon juice', 2], ['Vinegar', 2.8], ['Acid rain (typical)', 4.2, true], ['Normal rain', 5.6, true], ['Pure water', 7], ['Seawater', 8.1], ['Baking soda', 9]];
+$('[data-ph]').innerHTML = PH.map(([n, v, rain]) => `<div class="ph-row${rain ? ' rain' : ''}"><span>${n}</span><div class="ph-track" title="${n}: pH ${v}"><div class="ph-bar" style="width:${v / 14 * 100}%"></div><span class="v" style="left:${v / 14 * 100}%">${v}</span></div></div>`).join('');
+const opts = PH.map(([n, v], i) => `<option value="${i}">${n} (${v})</option>`).join('');
+$('#ph-a').innerHTML = opts; $('#ph-b').innerHTML = opts;
+$('#ph-a').value = 3; $('#ph-b').value = 4;
+function compare() {
+  const [a, va] = PH[$('#ph-a').value], [b, vb] = PH[$('#ph-b').value];
+  if (va === vb) { $('#ph-out').textContent = 'Pick two different samples.'; return; }
+  const [lo, hi] = va < vb ? [[a, va], [b, vb]] : [[b, vb], [a, va]];
+  const x = Math.pow(10, hi[1] - lo[1]);
+  $('#ph-out').textContent = `${lo[0]} is about ${x >= 100 ? Math.round(x).toLocaleString() : x.toFixed(x < 10 ? 1 : 0)} times more acidic than ${hi[0].toLowerCase()}.`;
+}
+$('#ph-a').addEventListener('change', compare); $('#ph-b').addEventListener('change', compare); compare();
+
+/* === VIDEO === embed when a YouTube ID is filled in */
+$$('[data-youtube]').forEach(v => {
+  const id = v.dataset.youtube.trim();
+  if (id) v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}" title="Lecture video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+});
+</script>
+</body>
+</html>
