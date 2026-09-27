@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SETs in Sustainability</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M4·L2 Stocks-and-flows (systems dynamics) · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box}
@@ -144,20 +144,23 @@ svg {
 .win{position:absolute;left:120px;top:100px;right:120px;height:56px;border-bottom:1px solid #30363d;display:flex;align-items:center;gap:14px;font:400 20px 'JetBrains Mono';color:var(--mute)}
 .win i{width:16px;height:16px;border-radius:50%;background:#30363d}
 .win span{margin-left:20px}
-.cmd{position:absolute;left:120px;top:230px;font:400 30px 'JetBrains Mono';color:var(--mute)}
+.cmd{position:absolute;left:120px;top:210px;font:400 30px 'JetBrains Mono';color:var(--mute)}
 .cmd b{color:var(--g);font-weight:700}
-h1{position:absolute;left:120px;top:300px;width:1500px;font:800 100px/1.08 'JetBrains Mono';letter-spacing:-.04em;color:#f0f6fc}
+h1{position:absolute;left:120px;top:270px;width:1500px;font:800 118px/1.05 'JetBrains Mono';letter-spacing:-.04em;color:#f0f6fc}
 h1 .s{color:var(--amber)}h1 .e{color:var(--g)}h1 .t{color:var(--blue)}
 .cur{display:inline-block;width:.55em;height:.9em;background:var(--g);vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.out{position:absolute;left:120px;top:760px;font:400 28px/1.7 'JetBrains Mono';color:var(--mute)}
+.terms{position:absolute;left:120px;top:560px;width:1680px;font:400 26px/1.8 'JetBrains Mono';color:var(--mute)}
+.terms .t{color:var(--g);margin-right:24px;white-space:nowrap}.terms .t::before{content:'"';color:var(--mute)}.terms .t::after{content:'",';color:var(--mute)}
+.out{position:absolute;left:120px;top:800px;font:400 28px/1.7 'JetBrains Mono';color:var(--mute)}
 .out b{color:var(--fg);font-weight:400}.out em{font-style:normal;color:var(--g)}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .d2{transition-delay:.15s}.slide.visible .d3{transition-delay:.3s}.slide.visible .d4{transition-delay:.5s}
 </style></head><body><div class="deck-viewport"><main class="deck-stage" id="deckStage"><section class="slide active">
-<div class="win"><i></i><i></i><i></i><span>sos110 / module-1 / lecture-02</span></div>
-<div class="cmd reveal">$ <b>open</b> environmental-sustainability</div>
-<h1 class="reveal d2"><span class="s">socio</span>-<span class="e">ecological</span>-<br><span class="t">technological</span> systems<br>in sustainability<span class="cur"></span></h1>
-<div class="out reveal d3"><em>✓</em> instructor: <b>Dr. Milan Shrestha</b><br><em>✓</em> unit: <b>School of Sustainability · Arizona State University</b></div>
+<div class="win"><i></i><i></i><i></i><span>sos110 / module-4 / lecture-2 — Thu Oct 8</span></div>
+<div class="cmd reveal">$ <b>open</b> s&amp;m ch. 10</div>
+<h1 class="reveal d2"><span class="s">stocks</span>-and-<span class="e">flows</span><br><span class="t">systems</span> dynamics<span class="cur"></span></h1>
+<div class="terms reveal d3">key_terms = [ <span class="t">Stock</span> <span class="t">Flow</span> <span class="t">Positive Feedback Loop</span> <span class="t">Negative Feedback Loop</span> <span class="t">Leverage Point</span> <span class="t">Causal Loop Diagram (CLD)</span> <span class="t">System Dynamics</span> <span class="t">Tipping Point</span>]</div>
+<div class="out reveal d4"><em>✓</em> module: <b>Systems Dynamics in Sustainability</b><br><em>✓</em> instructor: <b>Dr. Milan Shrestha</b></div>
 </section></main></div><script>
 const st=document.getElementById('deckStage');
 function sc(){const f=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
