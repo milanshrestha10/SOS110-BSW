@@ -1,0 +1,44 @@
+rules_version = '2';
+// SOS110 lecture data. Keep the admin email in sync with shared/firebase-config.js.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.token.email in ['mshrest1@asu.edu']; }
+    function isStudent() { return signedIn() && request.auth.token.email.matches('.*@asu[.]edu$'); }
+    function owns(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /lectures/{lecture} {
+      // Which poll is open. Students only need to read it.
+      allow read: if signedIn();
+      allow write: if isAdmin();
+
+      // Today's attendance code: never readable by students.
+      match /private/{doc} {
+        allow read, write: if isAdmin();
+      }
+
+      // A student checks in only with the current code, and only as themselves.
+      match /attendance/{uid} {
+        allow create, update: if isStudent() && owns(uid)
+          && request.resource.data.code == get(/databases/$(database)/documents/lectures/$(lecture)/private/code).data.code;
+        allow read, delete: if isAdmin();
+      }
+
+      // One vote per poll per student; students may change their answer.
+      match /votes/{id} {
+        allow create, update: if isStudent() && id == request.resource.data.poll + '__' + request.auth.uid
+          && request.resource.data.uid == request.auth.uid;
+        allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+        allow delete: if isAdmin();
+      }
+
+      // Simulation results, same pattern as votes.
+      match /sims/{id} {
+        allow create, update: if isStudent() && id == request.resource.data.sim + '__' + request.auth.uid
+          && request.resource.data.uid == request.auth.uid;
+        allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+        allow delete: if isAdmin();
+      }
+    }
+  }
+}
