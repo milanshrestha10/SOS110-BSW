@@ -1,6 +1,6 @@
 {
  "course": "SOS110 — Building a Sustainable World",
- "unit": "School of Sustainability · Arizona State University",
+ "unit": "Arizona State University",
  "textbook": "Sherman, D. J., & Montgomery, D. R. (2023). Environmental Science and Sustainability (2nd ed.). W. W. Norton.",
  "learning_outcomes": [
   "Identify and explain the boundaries and interconnectedness of social, ecological, and technological systems associated with major global sustainability challenges",
@@ -545,7 +545,7 @@
     },
     {
      "term": "Triple Bottom Line (TBL)",
-     "definition": "A framework that measures success using three areas: environmental protection (Planet), social well-being (People), and economic health (Profit).",
+     "definition": "A framework that measures success using three areas: environmental protection (Planet), social well-being (People), and economic health (Prosperity).",
      "example": "A company choosing packaging that cuts plastic waste, pays workers fair wages, and still turns a profit.",
      "significance": "Encourages organizations to look beyond money and consider environmental and human impacts."
     },
