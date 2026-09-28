@@ -28,11 +28,11 @@ Until Firebase is connected everything runs in **demo mode**: check-ins, votes a
 ## Going live with Firebase
 
 1. Create a Firebase project and add a Web app.
-2. Turn on Authentication > Google, and create a Cloud Firestore database.
+2. Turn on Authentication > Google (for the instructor) and Anonymous (for students), and create a Cloud Firestore database.
 3. Paste the web app config into `shared/firebase-config.js` and check `adminEmails`.
 4. Deploy `firebase/firestore.rules` (Firebase console > Firestore > Rules). Keep its admin email in sync with the config.
 
-Students then sign in with their ASU Google account. Only the admin account can read attendance and results, and the attendance code is never readable by students.
+Students check in by typing their name, email and the code on screen; no account is needed. Only the admin account can read attendance and results, and the attendance code is never readable by students.
 
 ## Adding a lecture
 

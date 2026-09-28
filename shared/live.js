@@ -1,7 +1,8 @@
 /* ===========================================
    SOS110 LIVE: attendance, polls and simulation results
    One API, two back ends:
-   - Firebase (Google sign-in + Firestore) when shared/firebase-config.js has a config
+   - Firebase (Firestore; students check in anonymously with a name and email,
+     the instructor signs in with Google) when shared/firebase-config.js has a config
    - Demo mode otherwise: data lives in this browser's localStorage, and open tabs
      stay in sync, so the student and admin pages can be tried side by side.
 
@@ -12,7 +13,22 @@
      lectures/{id}/votes/{poll}__{uid}{ poll, choice, uid, at }
      lectures/{id}/sims/{sim}__{uid}  { sim, uid, name, data, at }
    =========================================== */
-import { firebaseConfig, adminEmails, studentDomain } from './firebase-config.js';
+import { firebaseConfig, adminEmails } from './firebase-config.js';
+
+/* Students check in with just a name and email (no account). The profile is
+   remembered in this browser; in Firebase mode it rides on an anonymous
+   sign-in so each browser gets its own uid. */
+const PROFILE = 'sos110-student';
+const readProfile = () => { try { return JSON.parse(localStorage.getItem(PROFILE)); } catch { return null; } };
+function saveProfile(name, email) {
+  name = String(name || '').trim(); email = String(email || '').trim().toLowerCase();
+  if (!name) throw new Error('Enter your full name.');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('Enter a valid email address.');
+  if (name.length > 120 || email.length > 120) throw new Error('Name and email must be under 120 characters.');
+  const p = { name, email };
+  try { localStorage.setItem(PROFILE, JSON.stringify(p)); } catch { /* storage blocked */ }
+  return p;
+}
 
 const FB = 'https://www.gstatic.com/firebasejs/10.12.2/';
 
@@ -35,32 +51,32 @@ function demoBackend(lectureId) {
 
   let me = null;
   try { me = JSON.parse(localStorage.getItem('sos110-demo-user')); } catch { /* ignore */ }
+  if (me && !me.email) me = null; // profile from before email was collected
 
   return {
     mode: 'demo',
     user: () => me,
     isAdmin: () => true,
-    async signIn(name) {
-      name = (name || '').trim();
-      if (!name) throw new Error('Enter your name first.');
-      me = { uid: me?.uid || Math.random().toString(36).slice(2, 10), name, email: '' };
+    async signIn(name, email) {
+      const p = saveProfile(name, email);
+      me = { uid: me?.uid || Math.random().toString(36).slice(2, 10), ...p };
       try { localStorage.setItem('sos110-demo-user', JSON.stringify(me)); } catch { /* ignore */ }
       return me;
     },
     async signOut() { me = null; try { localStorage.removeItem('sos110-demo-user'); } catch { /* ignore */ } },
     onLecture: watch(d => d.lecture || {}),
     async checkIn(code) {
-      if (!me) throw new Error('Sign in first.');
+      if (!me) throw new Error('Check in on the attendance slide first.');
       const want = (store.read().lecture || {}).code;
       if (want && want.toUpperCase() !== String(code).trim().toUpperCase()) throw new Error('That code does not match the one on screen.');
       update(d => { (d.attendance ||= {})[me.uid] = { name: me.name, email: me.email, at: Date.now() }; });
     },
     async vote(poll, choice) {
-      if (!me) throw new Error('Sign in first.');
+      if (!me) throw new Error('Check in on the attendance slide first.');
       update(d => { (d.votes ||= {})[`${poll}__${me.uid}`] = { poll, choice, uid: me.uid, at: Date.now() }; });
     },
     async saveSim(sim, data) {
-      if (!me) throw new Error('Sign in first.');
+      if (!me) throw new Error('Check in on the attendance slide first.');
       update(d => { (d.sims ||= {})[`${sim}__${me.uid}`] = { sim, uid: me.uid, name: me.name, data, at: Date.now() }; });
     },
     /* admin */
@@ -83,20 +99,25 @@ async function firebaseBackend(lectureId) {
   const db = fs.getFirestore(app);
   const lecRef = fs.doc(db, 'lectures', lectureId);
   const col = name => fs.collection(db, 'lectures', lectureId, name);
-  const toUser = u => u && { uid: u.uid, name: u.displayName || u.email, email: u.email };
+  const toUser = u => {
+    if (!u) return null;
+    if (!u.isAnonymous) return { uid: u.uid, name: u.displayName || u.email, email: u.email };
+    const p = readProfile();
+    return p ? { uid: u.uid, ...p } : null;
+  };
   let me = toUser(a.currentUser);
   await new Promise(r => { const off = auth.onAuthStateChanged(a, u => { me = toUser(u); off(); r(); }); });
-  const need = () => { if (!me) throw new Error('Sign in first.'); };
+  const need = () => { if (!me) throw new Error('Check in on the attendance slide first.'); };
   const list = (name, cb) => fs.onSnapshot(col(name), s => cb(s.docs.map(d => ({ id: d.id, ...d.data() }))), () => cb([]));
 
   return {
     mode: 'firebase',
     user: () => me,
     isAdmin: () => !!me && adminEmails.includes(me.email),
-    async signIn() {
-      const p = new auth.GoogleAuthProvider();
-      if (studentDomain) p.setCustomParameters({ hd: studentDomain });
-      me = toUser((await auth.signInWithPopup(a, p)).user);
+    async signIn(name, email) {
+      const p = saveProfile(name, email);
+      const u = a.currentUser || (await auth.signInAnonymously(a)).user;
+      me = { uid: u.uid, ...p };
       return me;
     },
     async signOut() { await auth.signOut(a); me = null; },

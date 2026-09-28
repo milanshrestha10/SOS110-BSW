@@ -100,9 +100,9 @@
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
     <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
     <div class="reveal d3">
-      <div class="signin" data-signin>
-        <input class="field" data-name placeholder="Your full name" autocomplete="name">
-        <button class="btn" type="button" data-signin-btn>Sign in</button>
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
       </div>
       <div class="signin">
         <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
@@ -390,30 +390,25 @@ loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
 const live = await connect(LECTURE);
 const note = $('[data-mode-note]');
 if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
-const nameBox = $('[data-signin]');
 function showUser() {
   const u = live.user();
-  nameBox.style.display = u ? 'none' : '';
-  if (u) say($('#checkin-status'), `Signed in as ${u.name}.`);
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
 }
-if (live.mode === 'firebase') $('[data-name]').style.display = 'none';
-$('[data-signin-btn]').addEventListener('click', async () => {
-  try { await live.signIn($('[data-name]').value); showUser(); } catch (e) { say($('#checkin-status'), e.message, 'err'); }
-});
 showUser();
 
 async function ensureUser(statusEl) {
   if (live.user()) return true;
-  if (live.mode === 'firebase') { try { await live.signIn(); showUser(); return true; } catch { /* fall through */ } }
-  say(statusEl, 'Sign in on the attendance slide first.', 'err');
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
   return false;
 }
 
 $('#checkin').addEventListener('click', async () => {
   const st = $('#checkin-status');
-  if (!await ensureUser(st)) return;
-  try { await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); }
-  catch (e) { say(st, e.message, 'err'); }
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+  } catch (e) { say(st, e.message, 'err'); }
 });
 
 /* Polls: one answer per student, changeable */
