@@ -14,9 +14,9 @@
 <style>
 /* ===========================================
    COURSE HOME
-   A normal scrolling page (not a deck) in the Course Brand palette.
-   The schedule comes from course/course.json; PAGES below says which
-   sessions have a lecture page yet.
+   A plain landing page in the Course Brand palette. It deliberately lists
+   no lectures: students get each lecture link in class, and the full list
+   lives on the private admin site.
    =========================================== */
 :root {
   --Green:#75a29f; --golden:#eccf72; --Sky:#42a8bf; --Blue:#0d7397; --deep:#0a4f68;
@@ -42,30 +42,8 @@ header p { max-width:640px; color:rgba(246,242,233,.9); }
 main { padding:48px 16px 72px; }
 h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
 
-/* === MODULES === one section per module, a card per session */
-.module { margin-top:44px; }
-.module:first-of-type { margin-top:8px; }
-.module h2 { padding-bottom:10px; border-bottom:3px solid var(--Green); }
-.module h2 span { display:block; font:700 14px var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--Blue); margin-bottom:6px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
-.card { display:block; text-decoration:none; color:inherit; background:var(--card);
-  border:2px solid var(--paper-2); border-top:8px solid var(--Sky); border-radius:16px; padding:20px 22px;
-  transition:transform .2s, border-color .2s; }
-a.card:hover, a.card:focus-visible { transform:translateY(-3px); border-color:var(--Sky); outline:none; }
-.card .meta { font:700 12px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
-.card h3 { font:400 23px/1.2 var(--display); margin:8px 0 8px; color:var(--ink); }
-.card p { font-size:15px; color:var(--mute); }
-.card .go { display:inline-block; margin-top:12px; font-weight:700; color:var(--Blue); }
-.card.off { background:transparent; border-top-color:var(--paper-2); }
-.card.off h3 { color:var(--mute); }
-.card.off .go { color:var(--mute); font-weight:400; font-style:italic; }
-.card.review { border-top-color:var(--golden); }
-.err { color:var(--mute); font-style:italic; margin-top:24px; }
-.gate { max-width:560px; margin:24px 0; }
-.gate p { color:var(--mute); }
-.gate button { margin-top:22px; font:700 17px var(--body); color:var(--paper); background:var(--Blue);
-  border:0; border-radius:999px; padding:14px 28px; cursor:pointer; }
-.gate button:hover, .gate button:focus-visible { background:var(--deep); }
+.note { max-width:620px; margin:8px 0; }
+.note p { color:var(--mute); }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
@@ -85,72 +63,15 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 </header>
 
 <main class="wrap">
-  <!-- The module list only renders after the admin account signs in -->
-  <section class="gate" id="gate">
-    <h2>Instructor sign-in</h2>
-    <p>Students: open your lecture from the link shared in class.</p>
-    <button type="button" id="gate-btn">Sign in as instructor</button>
-    <p class="err" id="gate-msg"></p>
+  <section class="note">
+    <h2>Welcome</h2>
+    <p>Open each lecture from the link shared in class.</p>
   </section>
-  <div id="modules"></div>
 </main>
 
 <footer>
   <div class="wrap">Use arrow keys, space or swipe to move through a lecture. Sign in with your ASU Google account when a slide asks you to check in or vote.</div>
 </footer>
 
-<script type="module">
-import { connect } from './shared/live.js';
-
-// Session id (from course.json) → lecture folder. Add a line here for each new lecture.
-const PAGES = {
-  'm1-s1': 'lectures/m1-l1-triple-bottom-line/',
-  'm1-s2': 'lectures/m1-l2-environmental-science/',
-  'm1-s3': 'lectures/m1-l3-social-sustainability/',
-  'm3-s3': 'lectures/m3-l3-atmosphere/',
-};
-// Page titles that differ from the course.json topic
-const TITLES = { 'm3-s3': 'Atmosphere, weather, and pollution' };
-
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-async function showModules() {
-  const course = await (await fetch('course/course.json')).json();
-  document.getElementById('term').textContent = `${course.unit.split('·')[0].trim()} · ${course.term}`;
-  document.getElementById('meets').textContent = `${course.instructor} · ${course.meets}`;
-
-  // Course-wide lecture numbers count lecture sessions only (TA reviews are not numbered)
-  let n = 0;
-  const card = (m, s, i) => {
-    const lecture = s.kind === 'lecture' ? ++n : null;
-    const meta = lecture ? `Lecture ${lecture} · M${m.module} L${i + 1}` : `M${m.module} · TA-led review`;
-    const cls = `card${s.kind === 'review' ? ' review' : ''}${PAGES[s.id] ? '' : ' off'}`;
-    const body = `<div class="meta">${meta}</div><h3>${esc(TITLES[s.id] || s.topic)}</h3>${s.readings ? `<p>${esc(s.readings)}</p>` : ''}`;
-    return PAGES[s.id]
-      ? `<a class="${cls}" href="${PAGES[s.id]}">${body}<span class="go">Open lecture →</span></a>`
-      : `<div class="${cls}">${body}<span class="go">Not posted yet</span></div>`;
-  };
-
-  document.getElementById('modules').innerHTML = course.modules.map(m => `
-    <section class="module">
-      <h2><span>Module ${m.module}</span>${esc(m.title)}</h2>
-      <div class="grid">${m.sessions.map((s, i) => card(m, s, i)).join('')}</div>
-    </section>`).join('');
-}
-
-/* === ACCESS === only the admin account sees the module list; demo mode (no Firebase config) is open */
-const $ = id => document.getElementById(id);
-const open = () => { $('gate').hidden = true; showModules().catch(() => { $('modules').innerHTML = '<p class="err">The module list could not load.</p>'; }); };
-try {
-  const live = await connect('home');
-  if (live.mode !== 'firebase' || live.isAdmin()) open();
-  else $('gate-btn').onclick = async () => {
-    try { await live.signIn(); } catch (e) { $('gate-msg').textContent = e.message; return; }
-    if (live.isAdmin()) open(); else $('gate-msg').textContent = `${live.user().email} is not an instructor account.`;
-  };
-} catch (e) {
-  $('gate-msg').textContent = 'Sign-in could not load. Try again later.';
-}
-</script>
 </body>
 </html>
