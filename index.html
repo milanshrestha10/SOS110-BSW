@@ -61,6 +61,11 @@ a.card:hover, a.card:focus-visible { transform:translateY(-3px); border-color:va
 .card.off .go { color:var(--mute); font-weight:400; font-style:italic; }
 .card.review { border-top-color:var(--golden); }
 .err { color:var(--mute); font-style:italic; margin-top:24px; }
+.gate { max-width:560px; margin:24px 0; }
+.gate p { color:var(--mute); }
+.gate button { margin-top:22px; font:700 17px var(--body); color:var(--paper); background:var(--Blue);
+  border:0; border-radius:999px; padding:14px 28px; cursor:pointer; }
+.gate button:hover, .gate button:focus-visible { background:var(--deep); }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
@@ -79,17 +84,15 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
   </div>
 </header>
 
-<main class="wrap" id="modules">
-  <!-- Static fallback so the links work even if course.json fails to load -->
-  <section class="module">
-    <h2>Lectures</h2>
-    <div class="grid">
-      <a class="card" href="lectures/m1-l1-triple-bottom-line/"><h3>The Triple Bottom Line of Sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m1-l2-environmental-science/"><h3>Environmental science in sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m1-l3-social-sustainability/"><h3>Social sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m3-l3-atmosphere/"><h3>Atmosphere, weather, and pollution</h3><span class="go">Open lecture →</span></a>
-    </div>
+<main class="wrap">
+  <!-- The module list only renders after the admin account signs in -->
+  <section class="gate" id="gate">
+    <h2>Instructor sign-in</h2>
+    <p>Students: open your lecture from the link shared in class.</p>
+    <button type="button" id="gate-btn">Sign in as instructor</button>
+    <p class="err" id="gate-msg"></p>
   </section>
+  <div id="modules"></div>
 </main>
 
 <footer>
@@ -97,6 +100,8 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 </footer>
 
 <script type="module">
+import { connect } from './shared/live.js';
+
 // Session id (from course.json) → lecture folder. Add a line here for each new lecture.
 const PAGES = {
   'm1-s1': 'lectures/m1-l1-triple-bottom-line/',
@@ -109,7 +114,7 @@ const TITLES = { 'm3-s3': 'Atmosphere, weather, and pollution' };
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-try {
+async function showModules() {
   const course = await (await fetch('course/course.json')).json();
   document.getElementById('term').textContent = `${course.unit.split('·')[0].trim()} · ${course.term}`;
   document.getElementById('meets').textContent = `${course.instructor} · ${course.meets}`;
@@ -131,8 +136,20 @@ try {
       <h2><span>Module ${m.module}</span>${esc(m.title)}</h2>
       <div class="grid">${m.sessions.map((s, i) => card(m, s, i)).join('')}</div>
     </section>`).join('');
+}
+
+/* === ACCESS === only the admin account sees the module list; demo mode (no Firebase config) is open */
+const $ = id => document.getElementById(id);
+const open = () => { $('gate').hidden = true; showModules().catch(() => { $('modules').innerHTML = '<p class="err">The module list could not load.</p>'; }); };
+try {
+  const live = await connect('home');
+  if (live.mode !== 'firebase' || live.isAdmin()) open();
+  else $('gate-btn').onclick = async () => {
+    try { await live.signIn(); } catch (e) { $('gate-msg').textContent = e.message; return; }
+    if (live.isAdmin()) open(); else $('gate-msg').textContent = `${live.user().email} is not an instructor account.`;
+  };
 } catch (e) {
-  document.getElementById('modules').insertAdjacentHTML('beforeend', '<p class="err">The full module list could not load. The lecture links above still work.</p>');
+  $('gate-msg').textContent = 'Sign-in could not load. Try again later.';
 }
 </script>
 </body>
