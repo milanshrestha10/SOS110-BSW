@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../../shared/deck.css">
 <style>
 /* === LECTURE-ONLY STYLES === */
-/* pillar colours: People = golden, Planet = Green, Profit = Blue */
+/* pillar colours: People = golden, Planet = Green, Prosperity = Blue */
 .sort-row{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--paper-2);font-size:27px;line-height:1.3}
 .sort-row.two{grid-template-columns:1fr auto auto}
 .sort-row button{font:700 21px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:7px 18px;cursor:pointer}
@@ -25,7 +25,7 @@
 .venn .c{position:absolute;width:380px;height:380px;border-radius:50%;mix-blend-mode:multiply;display:flex;justify-content:center;font:400 38px var(--display);color:var(--ink)}
 .venn .people{left:140px;top:0;background:rgba(236,207,114,.75);align-items:flex-start;padding-top:70px}
 .venn .planet{left:0;top:220px;background:rgba(117,162,159,.7);align-items:flex-end;padding-bottom:80px;justify-content:flex-start;padding-left:60px}
-.venn .profit{left:280px;top:220px;background:rgba(66,168,191,.6);align-items:flex-end;padding-bottom:80px;justify-content:flex-end;padding-right:70px}
+.venn .prosperity{left:280px;top:220px;background:rgba(66,168,191,.6);align-items:flex-end;padding-bottom:80px;justify-content:flex-end;padding-right:70px}
 .venn .mid{position:absolute;left:330px;top:340px;transform:translate(-50%,-50%);font:700 22px var(--body);background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:6px 16px;white-space:nowrap}
 .venn .pair{position:absolute;font:700 18px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 .pillars{display:grid;gap:22px}
@@ -36,7 +36,7 @@
 .budget{display:flex;justify-content:space-between;align-items:center;font-size:26px;padding:12px 20px;border-radius:12px;background:var(--card);border:2px solid var(--paper-2);margin-bottom:6px}
 .budget b{font:400 34px var(--display)}
 .budget.over{border-color:#b3452c;color:#b3452c}
-.pbar{display:grid;grid-template-columns:120px 1fr 64px;gap:14px;align-items:center;font-size:24px;text-align:left;margin-top:16px}
+.pbar{display:grid;grid-template-columns:150px 1fr 64px;gap:14px;align-items:center;font-size:24px;text-align:left;margin-top:16px}
 .pbar .t{height:30px;background:var(--paper-2);border-radius:4px;overflow:hidden}
 .pbar .t i{display:block;height:100%;border-radius:0 4px 4px 0;transition:width .5s var(--ease)}
 .pbar b{font:400 32px var(--display);text-align:right}
@@ -76,11 +76,11 @@
   <div class="band-num reveal">M<em>01</em></div>
   <div class="band-text reveal d2"><span data-fill="module-title">Sustainability for Our Planet</span><small>Lecture 1<br><span data-fill="reading">What is the Triple Bottom Line? What's Systems Thinking?</span></small></div>
   <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
-  <div class="title-k reveal">Lecture 1 · People, planet, profit</div>
+  <div class="title-k reveal">Lecture 1 · People, planet, prosperity</div>
   <h1 class="title-h reveal d2" style="font-size:96px">The <em>triple bottom line</em> of sustainability</h1>
   <div class="title-terms reveal d3" data-fill="chips"></div>
   <div class="goldline"></div>
-  <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
+  <div class="title-org reveal d4">Arizona State University</div>
   <aside class="notes">Welcome to Module 1, the first content lecture. Today sets up the language for the whole course: sustainability, the triple bottom line, the SDGs and wicked problems. Groups are formed at the end of class (group division is due today), so keep the last few minutes free.</aside>
 </section>
 
@@ -175,19 +175,19 @@
     <div class="k reveal">Term 2 · Triple Bottom Line (TBL)</div>
     <h2 class="reveal d2">Three ways to <em>measure success</em></h2>
     <div class="grid" style="grid-template-columns:660px 1fr;gap:70px;align-items:start">
-      <div class="venn reveal d3" aria-label="Venn diagram: People, Planet and Profit overlap in the middle, labelled Sustainable">
+      <div class="venn reveal d3" aria-label="Venn diagram: People, Planet and Prosperity overlap in the middle, labelled Sustainable">
         <div class="c people">People</div>
         <div class="c planet">Planet</div>
-        <div class="c profit">Profit</div>
+        <div class="c prosperity">Prosperity</div>
         <span class="pair" style="left:120px;top:250px">Bearable</span>
         <span class="pair" style="left:440px;top:250px">Equitable</span>
         <span class="pair" style="left:295px;top:520px">Viable</span>
         <div class="mid">Sustainable</div>
       </div>
       <div class="pillars reveal d4">
-        <div class="card people"><span class="tag">People · social</span><p>Are workers and neighbours healthy, safe and treated fairly?</p></div>
-        <div class="card green"><span class="tag">Planet · environmental</span><p>Does it protect air, water, land and wildlife, and cut waste?</p></div>
-        <div class="card blue"><span class="tag">Profit · economic</span><p>Can it pay its way, create jobs and last over time?</p></div>
+        <div class="card people"><span class="tag">People · equity</span><p>Are workers and neighbours healthy, safe and treated fairly?</p></div>
+        <div class="card green"><span class="tag">Planet · environment</span><p>Does it protect air, water, land and wildlife, and cut waste?</p></div>
+        <div class="card blue"><span class="tag">Prosperity · economy</span><p>Can it pay its way, create jobs and last over time?</p></div>
         <p class="small mute">A normal "bottom line" counts only money. The triple bottom line counts all three.</p>
       </div>
     </div>
@@ -200,20 +200,20 @@
   <div class="rail"><b>1.1</b><span>Sorting game</span></div>
   <div class="content">
     <div class="k reveal">Game · which pillar does it help most?</div>
-    <h2 class="reveal d2" style="margin-bottom:20px">Sort into <em>People, Planet, Profit</em></h2>
+    <h2 class="reveal d2" style="margin-bottom:20px">Sort into <em>People, Planet, Prosperity</em></h2>
     <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
-      <div class="sort-row" data-answer="pe"><span>Paying workers a living wage</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pl"><span>Restoring a wetland along a river</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pr"><span>A local bakery growing its sales by 20%</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pe"><span>Opening a free health clinic</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pl"><span>Cutting plastic packaging waste</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pr"><span>Lowering a factory's operating costs</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pe"><span>Adding wheelchair ramps to a library</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
-      <div class="sort-row" data-answer="pl"><span>Planting native plants for bees</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Profit</button></div>
+      <div class="sort-row" data-answer="pe"><span>Paying workers a living wage</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pl"><span>Restoring a wetland along a river</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pr"><span>A local bakery growing its sales by 20%</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pe"><span>Opening a free health clinic</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pl"><span>Cutting plastic packaging waste</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pr"><span>Lowering a factory's operating costs</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pe"><span>Adding wheelchair ramps to a library</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
+      <div class="sort-row" data-answer="pl"><span>Planting native plants for bees</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
     </div>
     <div class="reveal d4" style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
   </div>
-  <aside class="notes">Give 2 minutes, then check. The follow-up is the real lesson: which items help more than one pillar? The wetland also filters water for people; lower factory costs could come from saving energy (planet); a living wage also keeps staff and saves hiring costs (profit). Real decisions rarely sit in one box.</aside>
+  <aside class="notes">Give 2 minutes, then check. The follow-up is the real lesson: which items help more than one pillar? The wetland also filters water for people; lower factory costs could come from saving energy (planet); a living wage also keeps staff and saves hiring costs (prosperity). Real decisions rarely sit in one box.</aside>
 </section>
 
 <!-- 9. SIMULATION -->
@@ -249,11 +249,11 @@
   <div class="content">
     <div class="k reveal">Term 3 · Sustainable Development Goals</div>
     <h2 class="reveal d2" style="margin-bottom:14px">17 goals, one <em>shared roadmap</em></h2>
-    <p class="small reveal d2" style="margin-bottom:22px">Adopted by all 193 UN member states in 2015, with targets for 2030. With a neighbour: which goals are mainly about <b>Planet</b>, <b>People</b> or <b>Profit</b>?</p>
+    <p class="small reveal d2" style="margin-bottom:22px">Adopted by all 193 UN member states in 2015, with targets for 2030. With a neighbour: which goals are mainly about <b>Planet</b>, <b>People</b> or <b>Prosperity</b>?</p>
     <div class="sdgs reveal d3" id="sdg-grid"></div>
     <div class="reveal d4" style="margin-top:22px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="cake-btn">Show one way to group them</button><span class="small mute" id="cake-note"></span></div>
   </div>
-  <aside class="notes">The UN adopted the 2030 Agenda and its 17 SDGs in September 2015. The grouping revealed by the button is the "SDG wedding cake" from the Stockholm Resilience Centre (Rockström and Sukhdev, 2016): the biosphere goals (6, 13, 14, 15) are the base, society sits on top of them, the economy on top of society, and Goal 17 (partnerships) ties them together. Point out that this matches People, Planet, Profit, but with the planet as the foundation. Glossary example: a city upgrading its water system supports Goal 6.</aside>
+  <aside class="notes">The UN adopted the 2030 Agenda and its 17 SDGs in September 2015. The grouping revealed by the button is the "SDG wedding cake" from the Stockholm Resilience Centre (Rockström and Sukhdev, 2016): the biosphere goals (6, 13, 14, 15) are the base, society sits on top of them, the economy on top of society, and Goal 17 (partnerships) ties them together. Point out that this matches People, Planet, Prosperity, but with the planet as the foundation. Glossary example: a city upgrading its water system supports Goal 6.</aside>
 </section>
 
 <!-- 11. DATA ANALYSIS -->
@@ -322,11 +322,11 @@
       <button class="opt" type="button"><b>A</b>A wicked problem</button>
       <button class="opt" type="button"><b>B</b>The triple bottom line</button>
       <button class="opt" type="button"><b>C</b>A tame problem</button>
-      <button class="opt" type="button"><b>D</b>Profit as the only bottom line</button>
+      <button class="opt" type="button"><b>D</b>Money as the only bottom line</button>
     </div>
     <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
   </div>
-  <aside class="notes">Correct answer: B. The company succeeds on Planet (less plastic), People (fair wages) and Profit. This is the glossary example for the Triple Bottom Line.</aside>
+  <aside class="notes">Correct answer: B. The company succeeds on Planet (less plastic), People (fair wages) and Prosperity (still profitable). This is the glossary example for the Triple Bottom Line.</aside>
 </section>
 
 <!-- 14. ASSIGNMENTS -->
@@ -353,11 +353,11 @@
 <section class="slide">
   <div class="band"></div>
   <div class="band-num reveal">1<em>.1</em></div>
-  <div class="band-text reveal d2">The triple bottom line of sustainability<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
+  <div class="band-text reveal d2">The triple bottom line of sustainability<small>Questions? Ask in class or come to office hours.</small></div>
   <div class="title-k reveal">Three things to remember</div>
   <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
     <li>Sustainability means meeting today's needs without taking away the ability of future generations to meet theirs.</li>
-    <li>The triple bottom line judges success by People, Planet and Profit together, not by money alone.</li>
+    <li>The triple bottom line judges success by People, Planet and Prosperity together, not by money alone.</li>
     <li>The 17 SDGs give the world a shared roadmap, but most sustainability challenges are wicked problems with no single right answer.</li>
   </ol>
   <div class="goldline" style="top:900px"></div>
@@ -407,7 +407,7 @@ const SDG = ['No poverty', 'Zero hunger', 'Good health and well-being', 'Quality
 const CAKE = { bio: [6, 13, 14, 15], eco: [8, 9, 10, 12], part: [17] };
 const group = n => Object.keys(CAKE).find(k => CAKE[k].includes(n)) || 'soc';
 $('#sdg-grid').innerHTML = SDG.map((t, i) => `<div class="sdg ${group(i + 1)}"><b>${i + 1}</b>${t}</div>`).join('')
-  + '<div class="sdg legend"><span><i style="background:var(--Green)"></i>Planet (biosphere)</span><span><i style="background:var(--golden)"></i>People (society)</span><span><i style="background:var(--Blue)"></i>Profit (economy)</span><span><i style="background:var(--deep)"></i>Ties them together</span></div>';
+  + '<div class="sdg legend"><span><i style="background:var(--Green)"></i>Planet (biosphere)</span><span><i style="background:var(--golden)"></i>People (society)</span><span><i style="background:var(--Blue)"></i>Prosperity (economy)</span><span><i style="background:var(--deep)"></i>Ties them together</span></div>';
 $('#cake-btn').addEventListener('click', () => {
   const on = $('#sdg-grid').classList.toggle('cake');
   $('#cake-btn').textContent = on ? 'Hide the grouping' : 'Show one way to group them';
@@ -423,7 +423,7 @@ const PROGRAMS = {
   bus: { el: $('#s-bus'), w: [0.35, 0.30, 0.20] },
   tax: { el: $('#s-tax'), w: [0.15, 0.00, 0.50] },
 };
-const PILLARS = [['People', 'var(--golden)'], ['Planet', 'var(--Green)'], ['Profit', 'var(--Blue)']];
+const PILLARS = [['People', 'var(--golden)'], ['Planet', 'var(--Green)'], ['Prosperity', 'var(--Blue)']];
 $('#pillars').innerHTML = PILLARS.map(([n]) => `<div class="pbar" data-p="${n}"><span>${n}</span><div class="t"><i></i></div><b>0</b></div>`).join('');
 function model() {
   const spend = Object.fromEntries(Object.entries(PROGRAMS).map(([k, p]) => [k, +p.el.value]));
