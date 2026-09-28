@@ -14,9 +14,9 @@
 <style>
 /* ===========================================
    COURSE HOME
-   A plain landing page in the Course Brand palette. It deliberately lists
-   no lectures: students get each lecture link in class, and the full list
-   lives on the private admin site.
+   Two doors: students sign in with ASU Google (the sign-in carries over to
+   the lecture pages for check-ins and votes); instructors go to the private
+   admin site. The lecture list is admin-only and never appears here.
    =========================================== */
 :root {
   --Green:#75a29f; --golden:#eccf72; --Sky:#42a8bf; --Blue:#0d7397; --deep:#0a4f68;
@@ -42,8 +42,17 @@ header p { max-width:640px; color:rgba(246,242,233,.9); }
 main { padding:48px 16px 72px; }
 h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
 
-.note { max-width:620px; margin:8px 0; }
-.note p { color:var(--mute); }
+[hidden] { display:none !important; }
+.doors { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px; margin-top:8px; }
+.door { background:var(--card); border:2px solid var(--paper-2); border-top:8px solid var(--Sky); border-radius:16px; padding:26px 26px 28px; }
+.door.inst { border-top-color:var(--golden); }
+.door h2 { margin:6px 0 8px; }
+.door p { color:var(--mute); }
+.btn { display:inline-block; margin-top:20px; font:700 17px var(--body); color:var(--paper); background:var(--Blue);
+  border:0; border-radius:999px; padding:14px 28px; cursor:pointer; text-decoration:none; }
+.btn:hover, .btn:focus-visible { background:var(--deep); }
+.msg { color:var(--mute); font-style:italic; margin-top:14px; min-height:1.5em; }
+.msg:empty { display:none; }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
@@ -55,7 +64,6 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
   <div class="wrap">
     <div class="k" id="term">School of Sustainability</div>
     <h1>SOS110 Building a <em>Sustainable</em> World</h1>
-    <p id="meets">Tue/Thu 10:30–11:45, BAC16</p>
     <div class="swatches" aria-hidden="true">
       <i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i>
     </div>
@@ -63,15 +71,52 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 </header>
 
 <main class="wrap">
-  <section class="note">
-    <h2>Welcome</h2>
-    <p>Open each lecture from the link shared in class.</p>
-  </section>
+  <div class="doors" id="doors">
+    <section class="door">
+      <div class="k">Students</div>
+      <h2>Student sign-in</h2>
+      <p>Sign in with your ASU Google account, then open each lecture from the link shared in class. You stay signed in for check-ins and votes.</p>
+      <button type="button" class="btn" id="student-btn">Sign in with ASU Google</button>
+      <p class="msg" id="student-msg"></p>
+      <p class="msg" id="who" hidden></p>
+    </section>
+    <section class="door inst">
+      <div class="k">Instructor</div>
+      <h2>Instructor sign-in</h2>
+      <p>Attendance codes, poll and simulation results, and speaker notes.</p>
+      <a class="btn" href="https://sos110-ce7a1.web.app/">Go to instructor pages</a>
+    </section>
+  </div>
 </main>
 
 <footer>
   <div class="wrap">Use arrow keys, space or swipe to move through a lecture. Sign in with your ASU Google account when a slide asks you to check in or vote.</div>
 </footer>
+
+<script type="module">
+import { connect } from './shared/live.js';
+
+const $ = id => document.getElementById(id);
+let live;
+function show() {
+  $('student-btn').textContent = 'Sign out';
+  $('who').hidden = false;
+  $('who').textContent = `Signed in as ${live.user().email || live.user().name}. Open your lecture from the link shared in class.`;
+}
+
+try {
+  live = await connect('home');
+  if (live.user()) show();
+  $('student-btn').onclick = async () => {
+    try {
+      if (live.user()) { await live.signOut(); location.reload(); return; }
+      await live.signIn(live.mode === 'demo' ? 'Demo student' : undefined); show();
+    } catch (e) { $('student-msg').textContent = e.message; }
+  };
+} catch (e) {
+  $('student-msg').textContent = 'Sign-in could not load. Try again later.';
+}
+</script>
 
 </body>
 </html>
