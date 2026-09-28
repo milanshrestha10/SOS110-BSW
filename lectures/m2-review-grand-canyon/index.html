@@ -21,13 +21,13 @@ h2.tight{font-size:66px;margin:10px 0 26px}
 .due b{display:block;font-size:30px;line-height:1.3}
 .due span{display:block;font-size:22px;line-height:1.35;color:var(--mute);margin-top:2px}
 /* logistics strip */
-.facts{display:flex;flex-wrap:wrap;gap:12px 14px;margin:0 0 24px}
-.fact{font:700 20px var(--body);border-radius:999px;padding:8px 18px;background:rgba(66,168,191,.14);color:var(--deep)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 12px;margin:0 0 20px}
+.fact{font:700 18px var(--body);border-radius:999px;padding:7px 16px;background:rgba(66,168,191,.14);color:var(--deep)}
 .fact i{font-style:normal;font-weight:400;color:var(--mute);margin-right:6px}
 .obj{font-size:27px;line-height:1.4;max-width:1540px;margin-bottom:18px}
 .obj b{color:var(--Blue)}
 /* task cards */
-.tasks{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:24px;align-items:stretch}
+.tasks{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px;align-items:stretch}
 .task{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Green);border-radius:18px;padding:22px 26px;font-size:21px;line-height:1.4}
 .task.t2{border-top-color:var(--Sky)}.task.t3{border-top-color:var(--golden)}
 .task .n{font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
@@ -43,21 +43,34 @@ h2.tight{font-size:66px;margin:10px 0 26px}
 .svc{display:grid;grid-template-columns:150px 1fr 26px 1fr;gap:6px 8px;align-items:center;font-size:18px;margin:6px 0 10px}
 .svc .h{font:700 14px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .svc .type{font:700 18px var(--body);color:#fff;background:var(--Blue);border-radius:8px;padding:6px 10px}
-.svc .box{border:2px dashed var(--Sky);border-radius:8px;padding:5px 10px;color:var(--mute);background:#fff}
+.svc .box{border:2px dashed var(--Sky);border-radius:8px;padding:5px 10px;white-space:nowrap;color:var(--mute);background:#fff}
 .svc .arr{color:var(--Blue);font-weight:700;text-align:center}
 .task .note{font-size:18px;color:var(--mute);border-top:1px solid var(--paper-2);padding-top:8px}
-/* checklist */
-.lists{display:grid;grid-template-columns:1.35fr 1fr;gap:34px}
-.lists h3{font-size:36px;margin-bottom:12px}
-.lists h3 small{display:block;font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
-.tick{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;width:100%;text-align:left;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:13px 18px;margin-bottom:11px;font:400 22px/1.38 var(--body);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s}
-.tick:hover{border-color:var(--Sky)}
-.tick i{width:36px;height:36px;border-radius:9px;border:3px solid var(--Blue);font:700 24px/30px var(--body);text-align:center;color:#fff;font-style:normal}
-.tick.on{border-color:#2e7d5b;background:rgba(46,125,91,.07)}
+/* rubric */
+.rub-lead{display:flex;align-items:center;justify-content:space-between;gap:30px;margin:-6px 0 14px}
+.rub-lead p{font-size:27px;line-height:1.35}
+.rub-lead .total{flex:none;font:700 20px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--deep);background:var(--golden);border-radius:999px;padding:8px 22px}
+.rub-lead .total b{font:400 32px var(--display);letter-spacing:0;margin-right:6px}
+.ptbar{display:flex;gap:6px;height:34px;margin-bottom:18px}
+.ptbar i{display:flex;align-items:center;justify-content:center;border-radius:8px;font:700 18px var(--body);font-style:normal;color:#fff}
+.c1{--c:var(--Green)}.c2{--c:var(--Sky)}.c3{--c:var(--Blue)}.c4{--c:#b8922a}
+.ptbar i{background:var(--c)}
+.rubric{display:grid;grid-template-columns:1fr 1fr 1.25fr .85fr;gap:20px;align-items:stretch}
+.rcard{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--c);border-radius:18px;padding:16px 18px}
+.rhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.rn{width:40px;height:40px;border-radius:50%;background:var(--c);color:#fff;font:400 24px/40px var(--display);text-align:center}
+.pts{font:700 19px var(--body);color:var(--deep);border:2px solid var(--c);border-radius:999px;padding:3px 14px}
+.rcard h3{font-size:29px;line-height:1.12;margin:8px 0 12px;min-height:66px}
+.tick{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;width:100%;text-align:left;background:transparent;border:0;border-top:1px solid var(--paper-2);padding:9px 2px;font:400 19px/1.36 var(--body);color:var(--ink);cursor:pointer;transition:background .2s}
+.tick:hover{background:rgba(66,168,191,.08)}
+.tick i{width:26px;height:26px;border-radius:7px;border:3px solid var(--c);font:700 17px/20px var(--body);text-align:center;color:#fff;font-style:normal;margin-top:1px}
 .tick.on i{background:#2e7d5b;border-color:#2e7d5b}
 .tick.on i::after{content:'✓'}
 .tick b{color:var(--deep)}
-.tick-count{font-size:21px;color:var(--mute);margin-top:6px}
+.remember{display:flex;gap:24px;align-items:center;margin-top:18px;background:var(--Blue);color:var(--paper);border-radius:16px;padding:14px 26px}
+.remember b{flex:none;font:400 34px var(--display);color:var(--golden)}
+.remember p{font-size:22px;line-height:1.4}
+.tick-count{margin-top:8px;font-size:18px;color:var(--mute)}
 </style>
 </head>
 <body>
@@ -104,31 +117,33 @@ h2.tight{font-size:66px;margin:10px 0 26px}
     <p class="obj reveal d2"><b>Objective:</b> collaboratively analyze the ecosystem services of Grand Canyon National Park (GCNP) and evaluate how human-driven changes affect its long-term sustainability.</p>
     <div class="facts reveal d3">
       <span class="fact"><i>Time</i>30–45 minutes</span>
-      <span class="fact"><i>Team</i>Up to 5 (your sign-up group)</span>
-      <span class="fact"><i>Tools</i>Zoom Whiteboard, InsightMaker, Canva, Miro, Google Slides or similar</span>
+      <span class="fact"><i>Team</i>Up to 5, your sign-up group</span>
+      <span class="fact"><i>Tools</i>Zoom Whiteboard, InsightMaker, Canva, Miro, Google Slides</span>
+      <span class="fact"><i>Sources</i>NPS.gov and USGS.gov</span>
     </div>
     <div class="tasks reveal d3">
       <div class="task t1">
         <div class="n">Task 1</div>
-        <h3>Native biodiversity list</h3>
-        <p>Identify the biological "engine" of the park. Use only official sources: <span class="src">nps.gov</span><span class="src">usgs.gov</span></p>
-        <ul>
-          <li><b>Plants:</b> 3+ representative plant communities <span class="eg">(e.g., Ponderosa pine, desert scrub)</span></li>
-          <li><b>Animals:</b> 3+ native animal species <span class="eg">(e.g., California condor, Kaibab squirrel)</span></li>
-        </ul>
+        <h3>Ecosystem services mapping</h3>
+        <p>A grid or table: one specific, new GCNP example per category, linked to a sustainability outcome.</p>
+        <div class="svc">
+          <span class="h">Service</span><span class="h">GCNP example</span><span></span><span class="h">Outcome / feedback</span>
+          <span class="type">Provisioning</span><span class="box">Your example</span><span class="arr">→</span><span class="box">Outcome</span>
+          <span class="type">Regulating</span><span class="box">Your example</span><span class="arr">→</span><span class="box">Outcome</span>
+          <span class="type">Supporting</span><span class="box">Your example</span><span class="arr">→</span><span class="box">Outcome</span>
+          <span class="type">Cultural</span><span class="box">Your example</span><span class="arr">→</span><span class="box">Outcome</span>
+        </div>
+        <p class="note">Past examples (springs and megafauna, soil stabilization and river siltation) don't count: find new ones.</p>
       </div>
       <div class="task t2">
         <div class="n">Task 2</div>
-        <h3>Ecosystem services mapping</h3>
-        <p>A grid or web: one specific GCNP example per category, with an arrow to a sustainability outcome.</p>
-        <div class="svc">
-          <span class="h">Service</span><span class="h">GCNP example</span><span></span><span class="h">Outcome / feedback</span>
-          <span class="type">Provisioning</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
-          <span class="type">Regulating</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
-          <span class="type">Supporting</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
-          <span class="type">Cultural</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
-        </div>
-        <p class="note">Format: <i>Provisioning: Freshwater springs → supports desert megafauna survival.</i> Past examples (springs and megafauna, soil stabilization and river siltation) don't count: find new ones.</p>
+        <h3>Diagram</h3>
+        <p>Turn the Task 1 links into a diagram of how the park's ecosystem services work together.</p>
+        <ul>
+          <li><b>Build from Task 1:</b> every service and link from your grid appears here</li>
+          <li><b>Show the park at work:</b> connect services to GCNP's native plants and animals <span class="eg">(e.g., Ponderosa pine, desert scrub, California condor, Kaibab squirrel)</span></li>
+          <li><b>Show outcomes both ways:</b> mark positive (+) and negative (−) sustainability outcomes</li>
+        </ul>
       </div>
       <div class="task t3">
         <div class="n">Task 3</div>
@@ -136,41 +151,58 @@ h2.tight{font-size:66px;margin:10px 0 26px}
         <p>One team paragraph, 4–6 sentences, written on the map:</p>
         <ul>
           <li><b>The challenge:</b> one major threat <span class="eg">(drought, invasive species, climate disruption)</span></li>
-          <li><b>The link:</b> the Task 2 service it harms most</li>
+          <li><b>The link:</b> the Task 1 service it harms most</li>
           <li><b>The human factor:</b> how people drive it <span class="eg">(dam management, over-tourism)</span></li>
-          <li><b>The solution:</b> one viable strategy to reduce the impact</li>
+          <li><b>The solution:</b> at least one strategy to reduce the impact</li>
         </ul>
       </div>
     </div>
   </div>
-  <aside class="notes">Walk through the three sections left to right; they become three labeled areas on the team's mind map. Task 1: only nps.gov or usgs.gov count as sources. Task 2 is the heart of it: four service types, one Grand Canyon example each, and an arrow to a concrete outcome. The two past examples are shown so teams know not to reuse them. Task 3 ties it together: the threat must name one service from their own Task 2. Suggest teams split up Tasks 1 and 2 for the first 15 minutes, then write Task 3 together.</aside>
+  <aside class="notes">Walk through the three sections left to right; they become three labeled areas on the team's mind map. Task 1: four service types, one new Grand Canyon example each, linked to an outcome. The two past examples are shown so teams know not to reuse them. Task 2 carries 40 points: the diagram grows out of the Task 1 links and should show both positive and negative outcomes. Task 3 ties it together: the threat must name one service from their own Task 1. Sources should be NPS.gov and USGS.gov (10 points for references). Suggest teams finish Task 1 in the first 10 minutes, then split the diagram and the paragraph.</aside>
 </section>
 
-<!-- 3B. ASSIGNMENT PROMPT: REVIEW CHECKLIST -->
+<!-- 3B. ASSIGNMENT PROMPT: RUBRIC -->
 <section class="slide">
   <div class="rail"><b>2.4</b><span>Prompt · 2 of 2</span></div>
   <div class="content" style="top:90px;bottom:90px">
     <div class="k reveal">Assignment prompt · 2 of 2</div>
-    <h2 class="tight reveal d2">Review: <em>what to include</em></h2>
-    <div class="lists reveal d3" data-checklist>
-      <div>
-        <h3><small>Final deliverable</small>On your mind map</h3>
-        <button type="button" class="tick"><i></i><span><b>Three labeled sections:</b> biodiversity list, ecosystem services map, impact analysis.</span></button>
-        <button type="button" class="tick"><i></i><span><b>3+ plant communities and 3+ native animals</b>, taken only from nps.gov or usgs.gov.</span></button>
-        <button type="button" class="tick"><i></i><span><b>One GCNP example for each service type</b> (provisioning, regulating, supporting, cultural), each with an arrow to a sustainability outcome.</span></button>
-        <button type="button" class="tick"><i></i><span><b>New examples</b>, not the past ones (springs and megafauna, soil and siltation).</span></button>
-        <button type="button" class="tick"><i></i><span><b>A 4–6 sentence paragraph</b> naming the challenge, the service it harms, the human factor and a solution.</span></button>
+    <h2 class="tight reveal d2">Review Exercise 1: <em>what to include</em></h2>
+    <div class="rub-lead reveal d2"><p>Follow each task closely and make every required element easy to identify.</p><span class="total"><b>100</b> points</span></div>
+    <div class="ptbar reveal d3" aria-hidden="true"><i class="c1" style="flex:10">10</i><i class="c2" style="flex:40">40</i><i class="c3" style="flex:40">40</i><i class="c4" style="flex:10">10</i></div>
+    <div class="rubric reveal d3" data-checklist>
+      <div class="rcard c1">
+        <div class="rhead"><span class="rn">1</span><span class="pts">10 pts</span></div>
+        <h3>Ecosystem services mapping</h3>
+        <button type="button" class="tick"><i></i><span>Classify provisioning, regulating, supporting and cultural services in a <b>grid or table</b>.</span></button>
+        <button type="button" class="tick"><i></i><span>Give <b>one specific, new GCNP example</b> for each category.</span></button>
+        <button type="button" class="tick"><i></i><span><b>Link each example</b> to a sustainability relationship or feedback loop.</span></button>
       </div>
-      <div>
-        <h3><small>Submission</small>When you hand it in</h3>
-        <button type="button" class="tick"><i></i><span><b>Export</b> the mind map as a PDF or a high-resolution image (.png or .jpeg).</span></button>
-        <button type="button" class="tick"><i></i><span><b>Full names</b> of every team member written on the graphic itself.</span></button>
-        <button type="button" class="tick"><i></i><span><b>Everyone submits.</b> It's a team effort, but each student uploads their own copy to Canvas to get credit.</span></button>
-        <p class="tick-count" data-tick-count>Tap each item as your team checks it.</p>
+      <div class="rcard c2">
+        <div class="rhead"><span class="rn">2</span><span class="pts">40 pts</span></div>
+        <h3>Diagram</h3>
+        <button type="button" class="tick"><i></i><span>Build the diagram from the <b>connections made in Task 1</b>.</span></button>
+        <button type="button" class="tick"><i></i><span>Show <b>how the ecosystem services work</b> within Grand Canyon National Park.</span></button>
+        <button type="button" class="tick"><i></i><span>Include the possible sustainability outcomes, <b>positive and negative</b>.</span></button>
+      </div>
+      <div class="rcard c3">
+        <div class="rhead"><span class="rn">3</span><span class="pts">40 pts</span></div>
+        <h3>Sustainability impact analysis</h3>
+        <button type="button" class="tick"><i></i><span>Write <b>no more than 4–6 sentences</b>.</span></button>
+        <button type="button" class="tick"><i></i><span>Identify <b>one major threat</b> to Grand Canyon National Park.</span></button>
+        <button type="button" class="tick"><i></i><span>Identify <b>one Task 1 ecosystem service</b> that the threat affects.</span></button>
+        <button type="button" class="tick"><i></i><span>Explain the impact of <b>human activity</b> on the challenge.</span></button>
+        <button type="button" class="tick"><i></i><span>Propose <b>at least one solution</b> to mitigate the threat.</span></button>
+      </div>
+      <div class="rcard c4">
+        <div class="rhead"><span class="rn">4</span><span class="pts">10 pts</span></div>
+        <h3>References</h3>
+        <button type="button" class="tick"><i></i><span>Focus on <b>official sources</b>, such as NPS.gov and USGS.gov.</span></button>
       </div>
     </div>
+    <div class="remember reveal d4"><b>Remember</b><p>Every student submits their own copy on Canvas. Export the mind map as a PDF or a high-resolution image, put your name and the title of your work on it, and list your references.</p></div>
+    <p class="tick-count" data-tick-count>Tap each item as your team checks it.</p>
   </div>
-  <aside class="notes">Leave this slide up for the last five minutes as a checklist. Teams can tap each item as they confirm it (the ticks are not saved). The most common misses: no team names on the graphic, reusing the past examples, and only one team member submitting on Canvas.</aside>
+  <aside class="notes">Leave this slide up for the last five minutes as a checklist. The bar at the top shows where the points are: the diagram and the impact analysis are 40 each, so teams should not spend all their time on the grid. Teams can tap each item as they confirm it (the ticks are not saved). Common misses: reusing the past examples, a diagram with only positive outcomes, a paragraph longer than six sentences, no names, title or references on the graphic, and only one team member submitting on Canvas.</aside>
 </section>
 
 </main></div>
@@ -188,11 +220,11 @@ loadSession(LECTURE).then(d => fill(document, { ...d, next: d.next && { ...d.nex
 /* === CHECKLIST === tap to tick; nothing is saved */
 $$('[data-checklist]').forEach(list => {
   const ticks = $$('.tick', list);
-  const count = list.querySelector('[data-tick-count]');
+  const count = list.closest('.slide').querySelector('[data-tick-count]');
   ticks.forEach(t => t.addEventListener('click', () => {
     t.classList.toggle('on');
     const n = ticks.filter(x => x.classList.contains('on')).length;
-    count.textContent = n === ticks.length ? 'All 8 checked. Export it and submit your own copy.' : `${n} of ${ticks.length} checked`;
+    count.textContent = n === ticks.length ? `All ${ticks.length} checked. Export it and submit your own copy.` : `${n} of ${ticks.length} checked`;
   }));
 });
 </script>
