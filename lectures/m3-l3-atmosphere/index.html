@@ -66,7 +66,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
       <tr><td>5–15</td><td>The atmosphere as a life-support system: layers and composition</td></tr>
       <tr><td>15–22</td><td>Weather versus climate</td></tr>
       <tr><td>22–42</td><td>Primary and secondary pollutants, ground-level ozone, and the Ozone Day simulation</td></tr>
-      <tr><td>42–55</td><td>The ozone layer and the Montreal Protocol (video)</td></tr>
+      <tr><td>42–55</td><td>The ozone layer and the Montreal Protocol</td></tr>
       <tr><td>55–67</td><td>Acid rain and the pH data activity</td></tr>
       <tr><td>67–75</td><td>Exit ticket, assignments, and Test 1 reminders</td></tr>
     </table>
@@ -256,20 +256,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <aside class="notes">Ask pairs to find two different ways to get under 70 ppb on a 110 °F day. Which lever can people actually control? The admin page shows the class's submitted scenarios.</aside>
 </section>
 
-<!-- 12. VIDEO -->
-<section class="slide">
-  <div class="rail"><b>3.3</b><span>Video</span></div>
-  <div class="content">
-    <div class="k reveal">Watch · about 4 minutes</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">The ozone <em>hole</em></h2>
-    <!-- Paste a YouTube video ID into data-youtube, e.g. data-youtube="abc123XYZ" -->
-    <div class="video reveal d3" data-youtube="">
-      <div class="ph"><b>Video goes here</b><span>Suggested: a NASA visualization of the Antarctic ozone hole over time.<br>Add its YouTube ID to this slide's data-youtube attribute.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 13. MONTREAL PROTOCOL -->
+<!-- 12. MONTREAL PROTOCOL -->
 <section class="slide">
   <div class="rail"><b>3.3</b><span>Stratospheric ozone</span></div>
   <div class="content">
@@ -288,7 +275,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <aside class="notes">Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? (Few producers, available substitutes, visible harm.)</aside>
 </section>
 
-<!-- 14. ACID RAIN -->
+<!-- 13. ACID RAIN -->
 <section class="slide">
   <div class="rail"><b>3.3</b><span>Acid rain</span></div>
   <div class="content">
@@ -308,7 +295,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   </div>
 </section>
 
-<!-- 15. DATA ANALYSIS -->
+<!-- 14. DATA ANALYSIS -->
 <section class="slide" id="ph-data">
   <div class="rail"><b>3.3</b><span>Data analysis</span></div>
   <div class="content">
@@ -331,7 +318,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <aside class="notes">Ask: how many times more acidic is pH 4.2 rain than normal pH 5.6 rain? 10^1.4, about 25 times. Then compare with vinegar.</aside>
 </section>
 
-<!-- 16. EXIT TICKET -->
+<!-- 15. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>3.3</b><span>Exit ticket</span></div>
   <div class="content">
@@ -347,7 +334,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   </div>
 </section>
 
-<!-- 17. ASSIGNMENTS -->
+<!-- 16. ASSIGNMENTS -->
 <section class="slide">
   <div class="rail"><b>3.3</b><span>Assignments</span></div>
   <div class="content">
@@ -364,7 +351,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   </div>
 </section>
 
-<!-- 18. TAKEAWAYS -->
+<!-- 17. TAKEAWAYS -->
 <section class="slide">
   <div class="band"></div>
   <div class="band-num reveal">3<em>.3</em></div>
@@ -497,12 +484,6 @@ function compare() {
   $('#ph-out').textContent = `${lo[0]} is about ${x >= 100 ? Math.round(x).toLocaleString() : x.toFixed(x < 10 ? 1 : 0)} times more acidic than ${hi[0].toLowerCase()}.`;
 }
 $('#ph-a').addEventListener('change', compare); $('#ph-b').addEventListener('change', compare); compare();
-
-/* === VIDEO === embed when a YouTube ID is filled in */
-$$('[data-youtube]').forEach(v => {
-  const id = v.dataset.youtube.trim();
-  if (id) v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}" title="Lecture video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-});
 </script>
 </body>
 </html>
