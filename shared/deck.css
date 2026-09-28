@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 /* ===========================================
    FIXED 16:9 STAGE: MANDATORY BASE STYLES
@@ -146,7 +146,7 @@ svg {
   --stage-bg:#0a2a35;--slide-bg:#f6f2e9;
   --Green:#75a29f;--golden:#eccf72;--Sky:#42a8bf;--Blue:#0d7397;--deep:#0a4f68;
   --ink:#10313d;--mute:#4c6670;--paper:#f6f2e9;--paper-2:#ece5d6;--card:#fffdf8;
-  --display:'DM Serif Display',Georgia,serif;--body:'PT Serif',Georgia,serif;--sans:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+  --display:'DM Serif Display',Georgia,serif;--body:'PT Serif',Georgia,serif;--sans:'Inter','Helvetica Neue',Arial,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
 .slide{font-family:var(--body);color:var(--ink);font-size:30px;line-height:1.45}
@@ -162,7 +162,7 @@ svg {
 .band-num{position:absolute;left:120px;top:150px;font:400 96px/1 var(--display);color:var(--paper)}
 .band-num em{color:var(--golden);font-style:normal}
 .band-text{position:absolute;left:120px;top:330px;width:440px;font:400 28px/1.5 var(--body);color:rgba(246,242,233,.92)}
-.band-text>span:first-child{display:block;font:600 36px/1.2 var(--sans);letter-spacing:-.005em;color:var(--paper)}
+.band-text>span:first-child{display:block;font:600 44px/1.15 var(--sans);letter-spacing:-.015em;color:var(--paper)}
 .band-text small{display:block;margin-top:18px;font-size:27px;line-height:1.4;opacity:.9}
 .swatches{position:absolute;left:120px;bottom:120px;display:flex;gap:16px}
 .swatches i{width:64px;height:64px;border-radius:50%;border:3px solid var(--paper)}
