@@ -1,6 +1,7 @@
 /* ===========================================
    SOS110 DECK: fixed 1920x1080 stage + navigation
-   Arrow keys / Space / PageUp-Down / Home / End, swipe on touch,
+   Side and bottom buttons, arrow keys / Space / PageUp-Down / Home / End,
+   swipe on touch;
    the #n hash remembers the slide. Fires "deck:slide" on document.
    =========================================== */
 (function () {
@@ -16,15 +17,29 @@
   scale();
   addEventListener('resize', scale);
 
-  /* === CHROME === progress bar and small prev/next controls outside the stage */
+  /* === CHROME === progress bar, side flip buttons and a bottom pager, all outside the stage */
   const bar = document.createElement('div');
   bar.className = 'deck-progress';
   document.body.appendChild(bar);
+  const chev = d => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const LEFT = chev('M15 5l-7 7 7 7'), RIGHT = chev('M9 5l7 7-7 7');
+  const side = document.createElement('div');
+  side.className = 'deck-side';
+  side.innerHTML = `<button type="button" class="prev" data-go="-1" aria-label="Previous slide">${LEFT}<small>Back</small></button>`
+    + `<button type="button" class="next" data-go="1" aria-label="Next slide">${RIGHT}<small>Next</small></button>`;
+  document.body.appendChild(side);
   const ctl = document.createElement('nav');
   ctl.className = 'deck-controls';
-  ctl.innerHTML = '<button type="button" data-go="-1" aria-label="Previous slide">‹</button><span></span><button type="button" data-go="1" aria-label="Next slide">›</button>';
+  ctl.setAttribute('aria-label', 'Slide navigation');
+  ctl.innerHTML = `<button type="button" data-go="-1" aria-label="Previous slide">${LEFT}</button><span></span><button type="button" data-go="1" aria-label="Next slide">${RIGHT}</button>`;
   document.body.appendChild(ctl);
-  ctl.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) go(current + Number(b.dataset.go)); });
+  [side, ctl].forEach(el => el.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) { go(current + Number(b.dataset.go)); b.blur(); } }));
+
+  /* Buttons fade out after the pointer rests, so they never sit on a projected slide */
+  let idle;
+  const wake = () => { document.body.classList.remove('deck-idle'); clearTimeout(idle); idle = setTimeout(() => document.body.classList.add('deck-idle'), 2500); };
+  ['mousemove', 'pointerdown', 'touchstart'].forEach(t => addEventListener(t, wake, { passive: true }));
+  wake();
 
   function go(i) {
     i = Math.max(0, Math.min(slides.length - 1, i));
@@ -35,6 +50,7 @@
     current = i;
     bar.style.width = `${((i + 1) / slides.length) * 100}%`;
     ctl.querySelector('span').textContent = `${i + 1} / ${slides.length}`;
+    [side, ctl].forEach(el => { el.querySelector('[data-go="-1"]').disabled = i === 0; el.querySelector('[data-go="1"]').disabled = i === slides.length - 1; });
     if (location.hash !== `#${i + 1}`) history.replaceState(null, '', `#${i + 1}`);
     document.dispatchEvent(new CustomEvent('deck:slide', { detail: { index: i, slide: s } }));
   }
