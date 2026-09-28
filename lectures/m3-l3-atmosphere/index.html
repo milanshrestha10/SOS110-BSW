@@ -3,20 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M3 L3 Atmosphere, weather, and climate · SOS110</title>
+<title>Lecture 10 Atmosphere, weather, and pollution · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css">
 <style>
 /* === LECTURE-ONLY STYLES === */
-.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--paper-2);font-size:30px}
+.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--paper-2);font-size:28px}
 .sort-row button{font:700 22px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 20px;cursor:pointer}
 .sort-row button.on{background:var(--Blue);color:var(--paper)}
 .sort-row.good button.on{background:#2e7d5b;border-color:#2e7d5b}
 .sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
-.eq{display:flex;align-items:center;gap:26px;font:400 44px var(--display);margin:30px 0 40px}
-.eq .p{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:22px 30px;text-align:center}
-.eq .p small{display:block;font:400 22px var(--body);color:var(--mute);margin-top:6px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+select.field{width:auto;font-size:28px;padding:10px 16px}
+/* five vocabulary cards: three on top, two centred below */
+.vocab.five{grid-template-columns:repeat(6,1fr)}
+.vocab.five .vcard{grid-column:span 2;height:318px}
+.vocab.five .vcard:nth-child(4){grid-column:2/span 2}
+.vocab.five .vcard h4{font-size:34px}
+.vocab.five .vcard p{font-size:21px}
+.vocab.five .vcard .b p{font-size:19px}
+/* Earth and Mars */
+.planets{display:grid;grid-template-columns:1fr auto 1fr;gap:34px;align-items:center}
+.pl{border-radius:18px;padding:26px 34px;border:2px solid var(--paper-2);background:var(--card)}
+.pl.earth{border-top:8px solid var(--Sky)}.pl.mars{border-top:8px solid #c0674a}
+.pl h3{font-size:46px}
+.pl dl{display:grid;grid-template-columns:170px 1fr;gap:10px 18px;font-size:24px;line-height:1.35}
+.pl dt{font-weight:700;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;font-size:18px;padding-top:4px}
+.vs{font:400 60px var(--display);color:var(--golden)}
+.take{margin-top:36px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:26px 36px;font-size:30px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+/* chain: society, economy, environment */
+.chain{display:flex;align-items:stretch;gap:16px;margin:6px 0 34px}
+.chain div{flex:1;background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:18px 22px;font-size:23px;line-height:1.35}
+.chain div b{display:block;font:400 30px var(--display);color:var(--Blue)}
+.chain i{font:400 40px var(--display);color:var(--golden);align-self:center;font-style:normal}
+/* good vs bad ozone table */
+.otab{width:100%;border-collapse:collapse;font-size:24px;line-height:1.35}
+.otab th{text-align:left;font:400 38px var(--display);padding:0 18px 14px}
+.otab th.good{color:#2e7d5b}.otab th.bad{color:#b3452c}
+.otab td{padding:13px 18px;border-top:1px solid var(--paper-2);vertical-align:top}
+.otab td:first-child{width:220px;padding-left:0;font:700 18px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:17px}
+/* layers diagram */
+.eq{display:flex;align-items:center;gap:22px;font:400 38px var(--display);margin:24px 0 34px}
+.eq .p{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:18px 26px;text-align:center}
+.eq .p small{display:block;font:400 21px var(--body);color:var(--mute);margin-top:6px}
 .eq .o3{background:var(--Blue);color:var(--paper);border-color:var(--Blue)}
 .eq .o3 small{color:rgba(246,242,233,.8)}
 .timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:30px;border-top:6px solid var(--golden)}
@@ -24,17 +55,60 @@
 .timeline div::before{content:'';position:absolute;top:-17px;left:0;width:28px;height:28px;border-radius:50%;background:var(--Blue);border:5px solid var(--paper)}
 .timeline b{display:block;font:400 48px var(--display);color:var(--Blue)}
 .timeline p{font-size:23px;line-height:1.4}
-/* pH bars: one series, direct labels, values in text ink */
+/* stat blocks */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:34px}
+.stats div{border-left:6px solid var(--golden);padding:4px 0 4px 20px}
+.stats b{display:block;font:400 50px/1.05 var(--display);color:var(--Blue);font-variant-numeric:tabular-nums}
+.stats span{font-size:21px;line-height:1.35;color:var(--mute);display:block;margin-top:6px}
+.stats.col{grid-template-columns:1fr 1fr;margin-top:0;row-gap:34px}
+.src{font-size:18px;color:var(--mute);margin-top:22px}
+/* pH bars */
 .ph{display:grid;gap:10px}
 .ph-row{display:grid;grid-template-columns:290px 1fr;align-items:center;gap:18px;font-size:24px}
 .ph-track{position:relative;height:36px}
-.ph-bar{height:100%;border-radius:0 4px 4px 0;background:var(--Sky);transition:width 1s var(--ease)}
+.ph-bar{height:100%;border-radius:0 4px 4px 0;background:var(--Sky)}
 .ph-row.rain .ph-bar{background:var(--Blue)}
 .ph-row span.v{position:absolute;top:0;line-height:36px;padding-left:12px;font:700 22px var(--body);color:var(--ink)}
 .ph-axis{display:grid;grid-template-columns:290px 1fr;gap:18px;font-size:18px;color:var(--mute)}
 .ph-axis div{display:flex;justify-content:space-between;border-top:1px solid var(--paper-2);padding-top:6px}
-select.field{width:auto;font-size:28px;padding:10px 16px}
-.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+/* simulation games: two hands of action cards plus a result panel */
+.game{display:grid;grid-template-columns:1fr 1fr 470px;gap:30px;align-items:start}
+.side{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:20px 22px 18px}
+.side.dem{border-top:8px solid var(--Green)}.side.sup{border-top:8px solid var(--Blue)}
+.side-h b{display:block;font:400 34px/1.1 var(--display)}
+.side-h span{display:block;font-size:20px;color:var(--mute);margin:4px 0 12px}
+.slider.mini{margin:0 0 12px}.slider.mini label{font-size:20px;margin-bottom:4px}.slider.mini output{font-size:24px}
+.hand{display:grid;gap:8px}
+.act{display:grid;grid-template-columns:1fr auto;gap:2px 12px;text-align:left;font:400 20px/1.3 var(--body);color:var(--ink);background:var(--paper);border:2px solid var(--paper-2);border-radius:12px;padding:9px 14px;cursor:pointer;transition:border-color .2s,background .2s,opacity .2s}
+.act b{font-weight:700}
+.act small{grid-column:1;font-size:17px;color:var(--mute)}
+.act .c{grid-row:1/3;grid-column:2;align-self:center;font:700 17px var(--body);border-radius:999px;padding:4px 12px;background:var(--paper-2);white-space:nowrap}
+.act:hover{border-color:var(--Sky)}
+.act:focus-visible{outline:3px solid var(--Sky);outline-offset:2px}
+.act.on{border-color:var(--Blue);background:rgba(66,168,191,.14)}
+.act.on .c{background:var(--Blue);color:var(--paper)}
+.act.no{opacity:.42;cursor:not-allowed}
+.act.dud.on{border-color:#b3452c;background:rgba(179,69,44,.08)}
+.meter{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-top:12px;font-size:19px;color:var(--mute)}
+.meter i{height:12px;border-radius:6px;background:var(--paper-2);overflow:hidden}
+.meter em{display:block;height:100%;background:var(--golden);transition:width .3s var(--ease)}
+.meter b{color:var(--ink);font-variant-numeric:tabular-nums}
+.game .gauge{padding:24px 26px}
+.game .gauge .v{font-size:120px;font-variant-numeric:tabular-nums}
+.bar-sv{width:100%;height:auto;margin-top:16px}
+.bar-sv text{font:700 15px var(--body);fill:var(--ink)}
+.bar-sv .lim{stroke:#b3452c;stroke-width:3;stroke-dasharray:6 5}
+.readouts{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+.readouts span{display:block;font-size:19px;color:var(--mute)}
+.readouts b{font:400 60px/1.05 var(--display);font-variant-numeric:tabular-nums}
+.pw{position:relative;height:30px;border-radius:15px;background:var(--paper-2);margin:8px 0;overflow:hidden}
+.pw i{position:absolute;left:0;top:0;bottom:0;background:var(--Sky);transition:width .3s var(--ease),background .3s}
+.pw em{position:absolute;left:83.3%;top:-4px;bottom:-4px;width:4px;background:var(--ink)}
+.game .cat{color:var(--ink)}
+.game .msg{text-align:left;margin-top:10px;font-size:21px;line-height:1.4;color:var(--mute);min-height:88px}
+.save{display:flex;gap:14px;align-items:center;margin-top:12px;text-align:left}
+.save .btn{font-size:21px;padding:12px 22px}
+.save .status{font-size:19px;margin:0;min-height:0}
 </style>
 </head>
 <body>
@@ -44,61 +118,92 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 <section class="slide">
   <div class="band"></div>
   <div class="band-num reveal">M<em>03</em></div>
-  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 3 · <span data-fill="date">Tue Sep 29</span><br><span data-fill="reading">S&amp;M Ch. 8</span></small></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 10 · <span data-fill="date">Tue Sep 29</span><br>Sherman &amp; Montgomery (2023), Ch. 8</small></div>
   <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
-  <div class="title-k reveal">Lecture 3 · Life-support from the air</div>
-  <h1 class="title-h reveal d2">Atmosphere, <em>weather</em>, and climate</h1>
-  <div class="title-terms reveal d3" data-fill="chips"></div>
+  <div class="title-k reveal">Lecture 10 · S&amp;M Chapter 8</div>
+  <h1 class="title-h reveal d2" style="font-size:96px">Atmosphere, weather, and <em>pollution</em></h1>
+  <div class="title-terms reveal d3"><span data-fill="chips"></span> <span class="chip">Urban Heat Island</span></div>
   <div class="goldline"></div>
   <div class="title-who reveal d3">Dr. Milan Shrestha</div>
   <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
-  <aside class="notes">Welcome. Today is the third lecture of Module 3. Thursday is the review session and Mid-term Test 1, so flag which slides are most test-relevant.</aside>
+  <aside class="notes">Welcome to Lecture 10, the last lecture of Module 3. Thursday is the TA review session and Mid-term Test 1 covers Modules 1–3, so flag the slides that matter most for the test. Reading: Sherman and Montgomery (2023), Chapter 8.</aside>
 </section>
 
-<!-- 2. LESSON PLAN -->
+<!-- 2. WHAT'S DUE -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Lesson plan</span></div>
+  <div class="rail"><b>10</b><span>What's due</span></div>
+  <div class="content">
+    <div class="k reveal">Module 3 · before we start</div>
+    <h2 class="reveal d2">What's due and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module 3 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Next class</span>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>Read S&amp;M Chapter 8 and review the Module 3 glossary terms. Test 1 covers Modules 1–3.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Next class is the TA-led review with Amanda Abraham, and Mid-term Test 1 is due. Remind students which InQuizitive assignments are still open.</aside>
+</section>
+
+<!-- 3. BIG IDEA: NO OTHER PLACE LIKE EARTH -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>The big idea</span></div>
+  <div class="content">
+    <div class="k reveal">The big idea · why sustain Earth?</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">There is no other place <em>like Earth</em></h2>
+    <div class="planets reveal d3">
+      <div class="pl earth"><h3>Earth</h3>
+        <dl><dt>Air</dt><dd>21% oxygen; a thick blanket of air</dd><dt>Water</dt><dd>Liquid oceans, rivers and rain</dd><dt>Temperature</dt><dd>About 59 °F on average</dd><dt>Shield</dt><dd>Ozone layer and magnetic field block harmful radiation</dd></dl></div>
+      <div class="vs">vs</div>
+      <div class="pl mars"><h3>Mars</h3>
+        <dl><dt>Air</dt><dd>Less than 1% of Earth's pressure, about 95% CO₂</dd><dt>Water</dt><dd>Frozen in polar ice and underground</dd><dt>Temperature</dt><dd>About −80 °F on average</dd><dt>Shield</dt><dd>No ozone layer and no global magnetic field</dd></dl></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:30px">Some propose making Mars habitable. A NASA-funded study (2018) found Mars does not have enough carbon dioxide to warm it, even using all of it. Think how much energy that would take. <b>The better idea is to sustain the planet we have.</b></p>
+  </div>
+  <aside class="notes">The simple reason to sustain Earth: nowhere else has air, water and temperature that are just right for life. Ask: what would it take to give Mars breathable air, liquid water and a shield from radiation? The 2018 study is Jakosky and Edwards, "Inventory of CO₂ available for terraforming Mars", Nature Astronomy 2, funded in part by NASA. They concluded terraforming is not possible with present-day technology. Mars figures are NASA fact-sheet averages, rounded.</aside>
+</section>
+
+<!-- 4. BIG IDEAS FOR TODAY -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big ideas</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of class</div>
+    <h2 class="reveal d2" style="margin-bottom:18px">Today's big <em>ideas</em></h2>
+    <p class="lead reveal d2" style="margin-bottom:30px">Sustainability connects to the atmosphere mostly through three key issues: 1) weather and climate, 2) air pollution and acid rain, and 3) the ozone layer.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="tag">1 · Atmospheric processes</span><h3>Layers and composition</h3><p>How human actions have altered the air: burning fossil fuels, vehicles, industry and land clearing.</p></div>
+      <div class="card green"><span class="tag">2 · Ozone layer</span><h3>Depletion and solutions</h3><p>What destroys ozone, what the impacts are, and how global cooperation and innovation fixed it.</p></div>
+      <div class="card gold"><span class="tag">3 · Acid rain</span><h3>Impacts and solutions</h3><p>What acid rain is, how people cause it and feel it, and how we have reduced it.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Our socio-economic choices disrupt natural cycles and processes, so we are also responsible for the solutions.</div>
+  </div>
+  <aside class="notes">These three big ideas replace a list of objectives. Each gets its own section today, marked on the side rail. Come back to the takeaway on the last slide.</aside>
+</section>
+
+<!-- 5. LESSON PLAN -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Lesson plan</span></div>
   <div class="content">
     <div class="k reveal">Today's 75 minutes</div>
     <h2 class="reveal d2">Lesson <em>plan</em></h2>
     <table class="agenda reveal d3">
-      <tr><td>0–5</td><td>Check in and warm-up poll</td></tr>
-      <tr><td>5–15</td><td>The atmosphere as a life-support system: layers and composition</td></tr>
-      <tr><td>15–22</td><td>Weather versus climate</td></tr>
-      <tr><td>22–42</td><td>Primary and secondary pollutants, ground-level ozone, and the Ozone Day simulation</td></tr>
-      <tr><td>42–55</td><td>The ozone layer and the Montreal Protocol</td></tr>
-      <tr><td>55–67</td><td>Acid rain and the pH data activity</td></tr>
-      <tr><td>67–75</td><td>Exit ticket, assignments, and Test 1 reminders</td></tr>
+      <tr><td>0–8</td><td>What's due, the big idea, check in and warm-up poll</td></tr>
+      <tr><td>8–12</td><td>Key vocabulary</td></tr>
+      <tr><td>12–25</td><td>Big idea 1: layers, human impacts, weather and climate, good and bad ozone</td></tr>
+      <tr><td>25–48</td><td>Solutions: Ozone Action Day, the urban heat island and Cool the Block</td></tr>
+      <tr><td>48–58</td><td>Big idea 2: ozone layer depletion and the Montreal Protocol</td></tr>
+      <tr><td>58–70</td><td>Big idea 3: acid rain, pH data and tradeable allowances</td></tr>
+      <tr><td>70–75</td><td>Exit ticket and takeaway</td></tr>
     </table>
   </div>
-  <aside class="notes">Keep the simulation to about 10 minutes. If time is short, the pH activity can move to Thursday's review session.</aside>
+  <aside class="notes">The two games are the centrepiece; protect about ten minutes for each. If time runs short, move the pH data activity to Thursday's review.</aside>
 </section>
 
-<!-- 3. OBJECTIVES -->
-<section class="slide">
-  <div class="rail"><b>3.3</b><span>Objectives</span></div>
-  <div class="content">
-    <div class="k reveal">By the end of class you can</div>
-    <h2 class="reveal d2">Learning <em>objectives</em></h2>
-    <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:56px">
-      <ol class="num reveal d3" style="font-size:28px">
-        <li>Describe the atmosphere's layers and composition, and explain why it is a life-support system.</li>
-        <li>Tell weather apart from climate.</li>
-        <li>Classify air pollutants as primary or secondary.</li>
-        <li>Explain how ground-level ozone forms and why ozone high up protects life.</li>
-        <li>Explain how acid rain forms and how policy reduced it.</li>
-      </ol>
-      <div class="card blue reveal d4">
-        <span class="tag">Module 3 objectives</span>
-        <ul class="clean small" data-fill="objectives"></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. ATTENDANCE -->
+<!-- 6. ATTENDANCE -->
 <section class="slide" id="attendance">
-  <div class="rail"><b>3.3</b><span>Attendance</span></div>
+  <div class="rail"><b>10</b><span>Attendance</span></div>
   <div class="content">
     <div class="k reveal">Check in</div>
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
@@ -116,11 +221,12 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
       <p class="small mute" data-mode-note></p>
     </div>
   </div>
+  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes.</aside>
 </section>
 
-<!-- 5. WARM-UP POLL -->
+<!-- 7. WARM-UP POLL -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Warm-up poll</span></div>
+  <div class="rail"><b>10</b><span>Warm-up poll</span></div>
   <div class="content">
     <div class="k reveal">Warm-up · no wrong answers</div>
     <h2 class="reveal d2" style="font-size:66px;max-width:1450px">On a hot Phoenix summer afternoon, which pollutant is most likely to trigger a <em>High Pollution Advisory</em>?</h2>
@@ -132,24 +238,25 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     </div>
     <div class="status" data-poll-status="warmup"></div>
   </div>
-  <aside class="notes">Show results from the admin page. Summer advisories in the Phoenix area are usually for ozone; dust (PM10) advisories cluster around monsoon storms. Come back to this after the ozone slides.</aside>
+  <aside class="notes">Show results from the admin page. Summer advisories in the Phoenix area are usually for ozone (the county's ozone season runs April to September); dust (PM10) advisories cluster around monsoon storms. Come back to this at the good-and-bad ozone slide.</aside>
 </section>
 
-<!-- 6. VOCABULARY -->
+<!-- 8. VOCABULARY -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Key vocabulary</span></div>
+  <div class="rail"><b>10</b><span>Key vocabulary</span></div>
   <div class="content">
     <div class="k reveal">Glossary · Module 3 · tap a card for its example</div>
     <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
-    <div class="vocab reveal d3" data-fill="vocab"></div>
+    <div class="vocab five reveal d3" data-fill="vocab"></div>
   </div>
+  <aside class="notes">Four terms come from the Module 3 glossary. Urban heat island is added for today's Phoenix heat activity. Read each definition aloud and flip one card. Point out that ozone and acid rain are both secondary pollutants.</aside>
 </section>
 
-<!-- 7. LIFE-SUPPORT SYSTEM -->
+<!-- 9. BIG IDEA 1: LIFE SUPPORT -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Life-support system</span></div>
+  <div class="rail"><b>10</b><span>Big idea 1 · Processes</span></div>
   <div class="content">
-    <div class="k reveal">Why air is a life-support system</div>
+    <div class="k reveal">Big idea 1 · atmospheric processes</div>
     <h2 class="reveal d2">A thin layer doing <em>big jobs</em></h2>
     <div class="grid" style="grid-template-columns:760px 1fr;gap:70px;align-items:start">
       <div class="layers reveal d3">
@@ -162,107 +269,288 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
         <h3>Dry air by volume</h3>
         <p class="small">Nitrogen <b>78%</b> · Oxygen <b>21%</b> · Argon <b>0.9%</b> · Carbon dioxide <b>~0.04%</b></p>
         <div class="gold-rule"></div>
+        <h3>How it supports life</h3>
         <ul class="clean small">
-          <li>Oxygen for breathing, CO₂ for photosynthesis</li>
-          <li>Stratospheric ozone blocks most harmful UV light</li>
-          <li>Greenhouse gases keep Earth near 15 °C on average instead of about −18 °C</li>
-          <li>Moves heat and water around the planet</li>
+          <li>Provides <b>oxygen</b> for breathing and CO₂ for photosynthesis</li>
+          <li>Protects us from <b>harmful solar radiation</b>: stratospheric ozone blocks most UV</li>
+          <li>Regulates <b>temperature</b>: greenhouse gases keep Earth near 59 °F instead of about 0 °F</li>
+          <li>Drives the <b>water cycle</b>, moving heat and water around the planet</li>
         </ul>
       </div>
     </div>
   </div>
-  <aside class="notes">Layer heights vary with latitude and season, so they are rounded. Link back to the Module 3 idea of life-support systems: air, water and land.</aside>
+  <aside class="notes">Layer heights vary with latitude and season, so they are rounded. Without greenhouse gases Earth's average would be about −18 °C (0 °F) instead of about 15 °C (59 °F). Link back to Module 3's life-support systems: air, water and land.</aside>
 </section>
 
-<!-- 8. WEATHER VS CLIMATE -->
+<!-- 10. HOW HUMANS ALTER THE AIR -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Weather vs climate</span></div>
+  <div class="rail"><b>10</b><span>Big idea 1 · Processes</span></div>
+  <div class="content">
+    <div class="k reveal">Big idea 1 · the human factor</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">How humans <em>alter</em> the atmosphere</h2>
+    <div class="chain reveal d3">
+      <div><b>Economy</b>A growing economy produces and consumes more</div><i>→</i>
+      <div><b>Society</b>Society gets bigger and uses more energy</div><i>→</i>
+      <div><b>Environment</b>More pervasive impacts on the air</div><i>→</i>
+      <div><b>Ethics</b>Planetary boundaries are threatened, here the atmosphere</div>
+    </div>
+    <div class="grid g4 reveal d4" style="gap:22px">
+      <div class="card accent"><span class="tag">Burning fossil fuels</span><p style="font-size:23px">Power plants and engines release CO₂, NOₓ and SO₂.</p></div>
+      <div class="card green"><span class="tag">Vehicles and industry</span><p style="font-size:23px">Exhaust, fuel vapour, paints and solvents release VOCs.</p></div>
+      <div class="card gold"><span class="tag">Chemicals</span><p style="font-size:23px">CFCs from fridges, AC and sprays thinned the ozone layer.</p></div>
+      <div class="card blue"><span class="tag">Land change</span><p style="font-size:23px">Clearing land raises dust; paving cities traps heat.</p></div>
+    </div>
+  </div>
+  <aside class="notes">The chain uses the triple bottom line from Module 1 plus ethics. Each human-induced factor maps to a later section: fossil fuels and vehicles to ozone and acid rain, CFCs to the ozone layer, land change to the urban heat island.</aside>
+</section>
+
+<!-- 11. WEATHER VS CLIMATE -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 1 · Weather</span></div>
   <div class="content">
     <div class="k reveal">Same air, two time scales</div>
     <h2 class="reveal d2">Weather is what you get. Climate is what you <em>expect</em>.</h2>
-    <div class="grid g2 reveal d3">
-      <div class="card accent"><span class="tag">Weather</span><h3>Hours to days</h3><p>The state of the atmosphere at a place and time: temperature, rain, wind, humidity.</p><p class="mute" style="margin-top:14px">"It's 115 °F in Tempe this afternoon."</p></div>
-      <div class="card gold"><span class="tag">Climate</span><h3>Decades</h3><p>The long-term average and range of weather in a region, usually over 30 years.</p><p class="mute" style="margin-top:14px">"Phoenix Julys average highs above 100 °F."</p></div>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="tag">Weather</span><h3>Hours to days</h3><p>Short-term changes in temperature, moisture and wind at one place.</p><p class="mute" style="margin-top:14px">"It's 115 °F in Tempe this afternoon."</p></div>
+      <div class="card gold"><span class="tag">Climate</span><h3>30-year average</h3><p>The long-term average of weather conditions for a region.</p><p class="mute" style="margin-top:14px">"Phoenix Julys average highs above 100 °F."</p></div>
+      <div class="card green"><span class="tag">Heat index</span><h3>What it feels like</h3><p>Combines air temperature and relative humidity in the shade into a "feels like" temperature.</p></div>
     </div>
-    <p class="lead reveal d4" style="margin-top:36px">Quick check: is one record-cold week proof that climate isn't warming? <span class="mute">Talk to a neighbour for 60 seconds.</span></p>
+    <p class="lead reveal d4" style="margin-top:32px">Temperature varies across Earth's surface mostly because each latitude receives a different amount of solar radiation.</p>
   </div>
+  <aside class="notes">Quick check: is one record-cold week proof that climate isn't warming? Give pairs 60 seconds. The heat index matters during Phoenix's humid monsoon, when 105 °F can feel much hotter.</aside>
 </section>
 
-<!-- 9. SORTING GAME -->
+<!-- 12. GOOD AND BAD OZONE -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 1 · Ozone</span></div>
+  <div class="content">
+    <div class="k reveal">Structure and functions · the same molecule, O₃</div>
+    <h2 class="reveal d2" style="margin-bottom:22px">Good ozone, <em>bad ozone</em></h2>
+    <table class="otab reveal d3">
+      <tr><td></td><th class="good">Good ozone, up high</th><th class="bad">Bad ozone, near the ground</th></tr>
+      <tr><td>Altitude</td><td>Stratosphere, about 10–30 miles up</td><td>Troposphere, the air we breathe</td></tr>
+      <tr><td>Formation</td><td>Sunlight splits oxygen molecules (O₂) into atoms that join O₂ to make O₃</td><td>NOₓ + VOCs + sunlight and heat, on long, hot afternoons</td></tr>
+      <tr><td>Effects</td><td>A protective shield that absorbs harmful UV for people, plants and crops</td><td>Harms lungs and breathing, worsens asthma, damages plants and ecosystems</td></tr>
+      <tr><td>Regulation</td><td>Montreal Protocol bans the chemicals that destroy it</td><td>Clean Air Act health standard: 70 ppb over 8 hours</td></tr>
+      <tr><td>Concentration</td><td>High, in the ozone layer</td><td>Lower than the ozone layer, but harmful to breathe</td></tr>
+    </table>
+  </div>
+  <aside class="notes">Answer the warm-up poll here: B, ground-level ozone. Phoenix's hot, sunny, still summer afternoons are ideal for ozone to form. Ground-level ozone is a secondary pollutant: nothing emits it directly. Source for the diagram in the original slides: NOAA Chemical Sciences Laboratory (csl.noaa.gov).</aside>
+</section>
+
+<!-- 13. SORTING GAME -->
 <section class="slide" id="sorter">
-  <div class="rail"><b>3.3</b><span>Sorting game</span></div>
+  <div class="rail"><b>10</b><span>Big idea 1 · Pollutants</span></div>
   <div class="content">
     <div class="k reveal">Game · primary or secondary?</div>
     <h2 class="reveal d2" style="margin-bottom:20px">Sort the <em>pollutants</em></h2>
-    <p class="small mute reveal d2" style="margin-bottom:16px"><b>Primary</b>: released directly from a source. <b>Secondary</b>: formed in the air when primary pollutants react.</p>
-    <div class="grid" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
+    <p class="small mute reveal d2" style="margin-bottom:16px"><b>Primary</b>: harmful in the form it is emitted. <b>Secondary</b>: formed in the air when primary pollutants react.</p>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
       <div class="sort-row" data-answer="p"><span>Carbon monoxide from car exhaust</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
       <div class="sort-row" data-answer="s"><span>Ground-level ozone</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
       <div class="sort-row" data-answer="p"><span>Sulfur dioxide from a coal plant</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
       <div class="sort-row" data-answer="s"><span>Sulfuric acid in rain</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
-      <div class="sort-row" data-answer="p"><span>Nitrogen oxides from engines</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
-      <div class="sort-row" data-answer="s"><span>Nitric acid in rain</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>Benzene and other VOCs from gasoline</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="s"><span>Photochemical smog</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
       <div class="sort-row" data-answer="p"><span>Dust kicked up by a haboob</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
-      <div class="sort-row" data-answer="p"><span>VOCs from gasoline vapour</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
+      <div class="sort-row" data-answer="p"><span>Lead and asbestos</span><button type="button" data-pick="p">Primary</button><button type="button" data-pick="s">Secondary</button></div>
     </div>
-    <div style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+    <div class="reveal d4" style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
   </div>
+  <aside class="notes">Examples follow the lecture notes: primary pollutants include CO, pesticides, benzene, asbestos, lead and VOCs; secondary pollutants include smog, ground-level ozone and nitrogen dioxide. Wind can carry dust and small particles great distances, which is why dust counts as a primary pollutant even far from its source.</aside>
 </section>
 
-<!-- 10. GROUND-LEVEL OZONE -->
+<!-- 14. AIR QUALITY MATTERS -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Ground-level ozone</span></div>
+  <div class="rail"><b>10</b><span>Air quality</span></div>
   <div class="content">
-    <div class="k reveal">A secondary pollutant</div>
-    <h2 class="reveal d2">How ground-level <em>ozone</em> forms</h2>
-    <div class="eq reveal d3">
-      <div class="p">NOₓ<small>engines, power plants</small></div>+
-      <div class="p">VOCs<small>fuel vapour, solvents, plants</small></div>+
-      <div class="p">☀ Sunlight + heat<small>long, hot afternoons</small></div>→
-      <div class="p o3">O₃<small>ground-level ozone</small></div>
+    <div class="k reveal">Data · Maricopa County Air Quality Department</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Air quality matters for <em>our health</em></h2>
+    <p class="lead reveal d3">Losing the good ozone and breathing the bad ozone both have severe health impacts. In Maricopa County, asthma shows who pays the price.</p>
+    <div class="stats reveal d3">
+      <div><b>412,752</b><span>Maricopa residents have asthma</span></div>
+      <div><b>83,547</b><span>of them are children</span></div>
+      <div><b>25% → 40%</b><span>children are 25% of the population but 40% of asthma cases</span></div>
+      <div><b>~1 in 3</b><span>Americans are sensitive to ozone</span></div>
     </div>
-    <div class="grid g2 reveal d4">
-      <div class="card green"><span class="tag">Good up high</span><p>In the stratosphere, ozone absorbs ultraviolet light before it reaches us.</p></div>
-      <div class="card gold"><span class="tag">Bad nearby</span><p>At ground level the same molecule irritates lungs, worsens asthma and damages crops.</p></div>
+    <div class="stats reveal d4" style="margin-top:30px">
+      <div><b>156,502</b><span>Arizona ER visits mentioning asthma in 2020</span></div>
+      <div><b>3 days</b><span>average hospital stay for asthma</span></div>
+      <div><b>~25</b><span>air monitoring stations across the county</span></div>
+      <div><b>Apr–Sep</b><span>the Valley's ozone season</span></div>
     </div>
+    <p class="src reveal d4">Source: maricopa.gov/5914/Outreach, citing Arizona Department of Health Services asthma data.</p>
   </div>
-  <aside class="notes">Return to the warm-up poll: Phoenix's hot, sunny, still summer afternoons are ideal for ozone formation. The US health standard is 70 ppb averaged over 8 hours.</aside>
+  <aside class="notes">Ask: who is most exposed to bad ozone? Children breathe more air for their size and play outdoors; outdoor workers and people with asthma are also at higher risk. Ozone is worst on hot afternoons, so timing matters.</aside>
 </section>
 
-<!-- 11. SIMULATION -->
-<section class="slide" id="ozone-sim">
-  <div class="rail"><b>3.3</b><span>Simulation</span></div>
+<!-- 15. SUSTAINABILITY SOLUTIONS -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Solutions</span></div>
   <div class="content">
-    <div class="k reveal">Simulation · Ozone Day in the Valley</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">Can you keep ozone under <em>70 ppb</em>?</h2>
-    <div class="sim reveal d3">
-      <div>
-        <div class="slider"><label for="s-traffic">Traffic and power-plant emissions (NOₓ, VOCs) <output data-out="traffic"></output></label><input type="range" id="s-traffic" min="0" max="100" value="60"></div>
-        <div class="slider"><label for="s-sun">Afternoon high temperature <output data-out="sun"></output></label><input type="range" id="s-sun" min="70" max="118" value="104"></div>
-        <div class="slider"><label for="s-wind">Wind speed <output data-out="wind"></output></label><input type="range" id="s-wind" min="0" max="25" value="5"></div>
-        <p class="small mute">A teaching model, not a forecast: ozone rises when emissions and heat are both high, and wind spreads it out.</p>
-        <div style="display:flex;gap:18px;align-items:center;margin-top:18px"><button class="btn" type="button" id="sim-save">Submit my scenario</button><span class="status" id="sim-status" style="margin:0"></span></div>
+    <div class="k reveal">Sustainability solutions · Maricopa County Air Quality</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">What can we do about <em>bad ozone</em>?</h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card green"><span class="tag">Demand side · what people choose</span>
+        <ul class="clean">
+          <li>Transportation: carpool, transit, bike, walk, telework</li>
+          <li>Be idle-free; avoid long drive-thru lines and rush-hour traffic</li>
+          <li>Reduce wood burning; refuel after dark</li>
+          <li>Skip gas leaf blowers and off-road vehicles on ozone days</li>
+        </ul></div>
+      <div class="card blue"><span class="tag">Supply side · rules for producers</span>
+        <ul class="clean">
+          <li>Industrial emissions: caps, permits, surface-coating rules</li>
+          <li>Product and solvent controls; cleaner-burning gasoline</li>
+          <li>Energy efficiency and renewable power</li>
+          <li>Commercial fleets and equipment: idling limits, energy transition</li>
+        </ul></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:30px">County campaign: <b>Help Keep Ozone Away, Commit to One Day!</b> Make cleaner air choices at least one day a week.</p>
+  </div>
+  <aside class="notes">Ask first: what are the things you could be doing to reduce bad ozone? Collect ideas, then reveal the two lists. Demand-side actions change how much pollution we ask for; supply-side actions change how cleanly things are produced. The next slide lets students try both. Source: maricopa.gov/5914/Outreach and the Commit to One Day campaign page.</aside>
+</section>
+
+<!-- 16. SIMULATION: OZONE ACTION DAY -->
+<section class="slide" id="oz">
+  <div class="rail"><b>10</b><span>Simulation</span></div>
+  <div class="content">
+    <div class="k reveal">Simulation · Ozone Action Day · 110 °F, light wind, 3 pm</div>
+    <h2 class="reveal d2" style="margin-bottom:18px;font-size:68px">Can the Valley stay under <em>70 ppb</em>?</h2>
+    <div class="game reveal d3">
+      <div class="side dem">
+        <div class="side-h"><b>Demand side</b><span>You, a Valley resident. Commit to 3 actions.</span></div>
+        <div class="slider mini"><label for="oz-p">Residents who join you <output id="oz-p-out"></output></label><input type="range" id="oz-p" min="5" max="60" step="5" value="25"></div>
+        <div class="hand" id="oz-demand"></div>
+        <div class="meter"><span>Commitments</span><i><em id="oz-d-bar"></em></i><b id="oz-d-left"></b></div>
+      </div>
+      <div class="side sup">
+        <div class="side-h"><b>Supply side</b><span>You, the county air board. Spend a $10M budget.</span></div>
+        <div class="hand" id="oz-supply"></div>
+        <div class="meter"><span>Budget</span><i><em id="oz-s-bar"></em></i><b id="oz-s-left"></b></div>
       </div>
       <div class="gauge">
         <div class="u">8-hour ozone</div>
-        <div class="v" id="o3">0</div>
+        <div class="v" id="oz-v">84</div>
         <div class="u">parts per billion</div>
-        <div class="cat" id="o3-cat">Good</div>
-        <div class="aqi-bar"><i style="background:#8cc68c"></i><i style="background:#eccf72"></i><i style="background:#f0a45a"></i><i style="background:#d9604c"></i><i style="background:#8f5a9c"></i></div>
-        <div class="small mute" style="display:flex;justify-content:space-between;margin-top:8px"><span>Good</span><span>Unhealthy</span></div>
+        <div class="cat" id="oz-cat"></div>
+        <svg class="bar-sv" viewBox="0 0 400 100" role="img" aria-label="Ozone split into background, what remains local, and the cuts made by each side"><g id="oz-split"></g></svg>
+        <p class="msg" id="oz-msg"></p>
+        <div class="save"><button class="btn" type="button" id="oz-save">Submit my plan</button><span class="status" id="oz-status"></span></div>
       </div>
     </div>
   </div>
-  <aside class="notes">Ask pairs to find two different ways to get under 70 ppb on a 110 °F day. Which lever can people actually control? The admin page shows the class's submitted scenarios.</aside>
+  <aside class="notes">Pairs work best: one plays the resident, the other the air board, on one screen. The key finding: neither side alone gets a 110 °F day under 70 ppb; both together can if enough residents join. About 50 ppb drifts in from outside the Valley and nobody here can cut it; in March 2026 the EPA agreed that international emissions pushed Maricopa over the standard. "Skip the fireplace" is a trap card: wood smoke is a winter particle problem (Burn Cleaner, Burn Better), not summer ozone. Teaching model, not a forecast: the sector shares and card effects are rounded teaching numbers, while the actions come from the county's own campaigns. The admin page shows each student's plan and the class's average ozone.</aside>
 </section>
 
-<!-- 12. MONTREAL PROTOCOL -->
+<!-- 17. URBAN HEAT ISLAND -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Stratospheric ozone</span></div>
+  <div class="rail"><b>10</b><span>Urban heat island</span></div>
   <div class="content">
-    <div class="k reveal">A policy success story</div>
-    <h2 class="reveal d2">Fixing the <em>ozone layer</em></h2>
-    <p class="lead reveal d3">Chlorofluorocarbons (CFCs) from spray cans, fridges and air conditioners drift up to the stratosphere, where UV light frees chlorine that destroys ozone.</p>
+    <div class="k reveal">Phoenix · heat made by the city itself</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">The urban heat island <em>effect</em></h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="reveal d3">
+        <ul class="clean">
+          <li>Phoenix's temperature is <b>compounded by the heat island</b>.</li>
+          <li>Concrete and asphalt <b>absorb and trap heat</b> all day and release it at night.</li>
+          <li>High temperatures harm <b>human health</b> and can be deadly.</li>
+          <li>Impacts are worse for <b>vulnerable and minority groups</b>: people outdoors, older adults, homes without working AC.</li>
+        </ul>
+      </div>
+      <div class="stats col reveal d4">
+        <div><b>+9 °F</b><span>rise in Phoenix nighttime temperatures, 1948–2000, as the city grew</span></div>
+        <div><b>602</b><span>heat deaths confirmed in Maricopa County in 2024 (645 in 2023)</span></div>
+        <div><b>70%</b><span>of AC units in indoor heat deaths (2024) were not working</span></div>
+        <div><b>10% → 25%</b><span>Phoenix tree canopy today and its 2030 goal</span></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Sources: ASU and City of Phoenix urban forest study; Maricopa County 2024 heat deaths report.</p>
+  </div>
+  <aside class="notes">The heat island is strongest at night: pavement and buildings release stored heat, so the city never cools down and bodies never recover. That is why overnight lows matter as much as daytime highs. The 2024 figure is the county's March 2025 count of 602 confirmed deaths. Among indoor deaths where an AC unit was present, 70% of the units were not working.</aside>
+</section>
+
+<!-- 18. VIDEO -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Video</span></div>
+  <div class="content">
+    <div class="k reveal">Watch · Prof. Jennifer Vanos, ASU School of Sustainability</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Extreme heat and <em>our health</em></h2>
+    <div class="video reveal d3" data-youtube="IaqNyOHbRC8">
+      <div class="ph"><b>Prof. Jennifer Vanos on extreme heat</b><span>The video loads here when the page is online.</span></div>
+    </div>
+  </div>
+  <aside class="notes">Before playing, ask students to note one reason heat hurts some people more than others. Use their answers to set up the next game: who on the block is most at risk?</aside>
+</section>
+
+<!-- 19. SIMULATION: COOL THE BLOCK -->
+<section class="slide" id="uhi">
+  <div class="rail"><b>10</b><span>Simulation</span></div>
+  <div class="content">
+    <div class="k reveal">Simulation · Cool the Block · a 115 °F July heat wave in Phoenix</div>
+    <h2 class="reveal d2" style="margin-bottom:18px;font-size:68px">Keep the lights on and the <em>block cool</em></h2>
+    <div class="game reveal d3">
+      <div class="side dem">
+        <div class="side-h"><b>Demand side</b><span>Your household. Pick 3 habits for the heat wave.</span></div>
+        <div class="hand" id="uhi-demand"></div>
+        <div class="meter"><span>Habits</span><i><em id="uhi-d-bar"></em></i><b id="uhi-d-left"></b></div>
+      </div>
+      <div class="side sup">
+        <div class="side-h"><b>Supply side</b><span>The city and the utility. Spend a $10M budget.</span></div>
+        <div class="hand" id="uhi-supply"></div>
+        <div class="meter"><span>Budget</span><i><em id="uhi-s-bar"></em></i><b id="uhi-s-left"></b></div>
+      </div>
+      <div class="gauge">
+        <div class="readouts">
+          <div><span>Street surface, 3 pm</span><b id="uhi-surf"></b></div>
+          <div><span>Overnight low</span><b id="uhi-night"></b></div>
+        </div>
+        <div style="margin-top:18px"><div class="u" style="text-align:left">Evening power demand vs. supply</div>
+          <div class="pw"><i id="uhi-pw"></i><em id="uhi-cap"></em></div>
+          <div class="small" id="uhi-pw-txt" style="text-align:left;font-size:21px"></div></div>
+        <div class="cat" id="uhi-risk"></div>
+        <p class="msg" id="uhi-msg"></p>
+        <div class="save"><button class="btn" type="button" id="uhi-save">Submit my plan</button><span class="status" id="uhi-status"></span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Demand is how much cooling and power people use; supply is the shade, cool surfaces, power and help that the city and utility provide. At the start, evening power demand is above supply, so the block faces rolling outages. Households can fix the grid alone but not the dangerous nights; the city can cool streets and help vulnerable people but cannot afford everything. "Turn the AC off and use fans" is the trap card: it saves power but fans cannot cool a body in extreme heat. Real figures: cool pavement runs up to 12 °F cooler at the surface but only about 0.5 °F cooler in the night air (City of Phoenix and ASU, 2024); raising canopy from 10% to 25% could cool a typical neighbourhood by about 4.3 °F (ASU). Other card effects and the risk score are teaching numbers.</aside>
+</section>
+
+<!-- 20. BIG IDEA 2: OZONE LAYER DEPLETION -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 2 · Ozone layer</span></div>
+  <div class="content">
+    <div class="k reveal">Big idea 2 · adapted from Sherman &amp; Montgomery (2023)</div>
+    <h2 class="reveal d2" style="margin-bottom:22px">A cool invention that <em>thinned the shield</em></h2>
+    <p class="lead reveal d3">Chlorofluorocarbons (CFCs) were cheap, safe to handle and didn't burn. We used them everywhere:</p>
+    <div class="grid g4 reveal d3" style="gap:22px;margin-top:26px">
+      <div class="card accent"><span class="tag">Cooling</span><p>Refrigeration and air conditioning</p></div>
+      <div class="card green"><span class="tag">Sprays</span><p>Propellants in medical and household aerosols</p></div>
+      <div class="card gold"><span class="tag">Foams</span><p>Blowing agents for foam packaging and insulation</p></div>
+      <div class="card blue"><span class="tag">Cleaning</span><p>Solvents and cleaning agents</p></div>
+    </div>
+    <div class="eq reveal d4" style="font-size:32px">
+      <div class="p">CFCs drift up<small>to the stratosphere</small></div>→
+      <div class="p">UV frees chlorine<small>one atom destroys many O₃</small></div>→
+      <div class="p o3">Thinner ozone layer<small>more UV-B reaches the ground</small></div>→
+      <div class="p">Skin cancer, cataracts<small>crop and ocean damage</small></div>
+    </div>
+  </div>
+  <aside class="notes">The ozone layer absorbs nearly all UV-C and most UV-B. When it thins, more UV-B reaches the surface. Illustration in the original slides: theozonehole.com/cfc.htm. Ask: CFCs were a real invention that solved problems; why couldn't anyone see the harm at first? (Stable molecules, delayed effects, far away in the stratosphere.)</aside>
+</section>
+
+<!-- 21. MONTREAL PROTOCOL -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 2 · Solutions</span></div>
+  <div class="content">
+    <div class="k reveal">Big idea 2 · finding sustainable solutions</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">Fixing the <em>ozone layer</em></h2>
+    <div class="grid g3 reveal d3" style="gap:24px">
+      <div class="card accent"><span class="tag">Phase out</span><p>Stop producing CFCs and other ozone-destroying chemicals.</p></div>
+      <div class="card green"><span class="tag">Innovate</span><p>Alternative chemicals, backed by economic incentives.</p></div>
+      <div class="card gold"><span class="tag">Cooperate</span><p>Global agreement: signed in 1987, in force in 1989.</p></div>
+    </div>
     <div class="timeline reveal d4">
       <div><b>1974</b><p>Molina and Rowland warn that CFCs can destroy ozone</p></div>
       <div><b>1985</b><p>Scientists report the Antarctic ozone hole</p></div>
@@ -272,32 +560,36 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
       <div><b>~2066</b><p>Antarctic ozone projected back to 1980 levels</p></div>
     </div>
   </div>
-  <aside class="notes">Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? (Few producers, available substitutes, visible harm.)</aside>
+  <aside class="notes">Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? Few producers, substitutes were available, and the harm was visible. Kigali targets HFCs, the CFC replacements, because they are strong greenhouse gases.</aside>
 </section>
 
-<!-- 13. ACID RAIN -->
+<!-- 22. BIG IDEA 3: ACID RAIN -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Acid rain</span></div>
+  <div class="rail"><b>10</b><span>Big idea 3 · Acid rain</span></div>
   <div class="content">
-    <div class="k reveal">Another secondary pollutant</div>
-    <h2 class="reveal d2">How <em>acid rain</em> forms</h2>
-    <div class="eq reveal d3" style="font-size:38px">
+    <div class="k reveal">Big idea 3 · a major issue of the 1970s and 1980s</div>
+    <h2 class="reveal d2" style="margin-bottom:10px">Acid rain: sources and <em>impacts</em></h2>
+    <div class="eq reveal d3" style="font-size:34px">
       <div class="p">SO₂ + NOₓ<small>coal plants, vehicles</small></div>+
       <div class="p">Water vapour<small>in clouds</small></div>→
       <div class="p o3">H₂SO₄ + HNO₃<small>sulfuric and nitric acid</small></div>→
       <div class="p">Rain below pH 5.6</div>
     </div>
-    <div class="grid g3 reveal d4">
-      <div class="card accent"><span class="tag">Water</span><p>Acidified lakes lose fish and amphibians.</p></div>
-      <div class="card green"><span class="tag">Land</span><p>Leaches nutrients from forest soils and damages trees.</p></div>
-      <div class="card gold"><span class="tag">Policy</span><p>The 1990 Clean Air Act Amendments capped SO₂ from power plants with tradable allowances.</p></div>
+    <div class="grid g3 reveal d4" style="gap:20px">
+      <div class="card accent"><span class="tag">Monuments</span><p>Dissolves marble and limestone buildings and statues</p></div>
+      <div class="card green"><span class="tag">Terrestrial ecosystems</span><p>Leaches soil nutrients and damages forests</p></div>
+      <div class="card gold"><span class="tag">Public health</span><p>The same SO₂ and NOₓ irritate lungs</p></div>
+      <div class="card blue"><span class="tag">Crops, soil and food</span><p>Acid soils lower crop yields</p></div>
+      <div class="card gold"><span class="tag">Animal and meat industry</span><p>Poorer pasture and feed for livestock</p></div>
+      <div class="card accent"><span class="tag">Fish and aquatic systems</span><p>Acid lakes lose fish and amphibians</p></div>
     </div>
   </div>
+  <aside class="notes">SO₂ and NOₓ are the main precursors, which makes acid rain a secondary pollutant. It can fall hundreds of miles downwind of the power plants that caused it, so the people harmed are often not the people polluting. Impact categories follow Layzer (2016).</aside>
 </section>
 
-<!-- 14. DATA ANALYSIS -->
+<!-- 23. DATA ANALYSIS -->
 <section class="slide" id="ph-data">
-  <div class="rail"><b>3.3</b><span>Data analysis</span></div>
+  <div class="rail"><b>10</b><span>Big idea 3 · Data</span></div>
   <div class="content">
     <div class="k reveal">Data · the pH scale is logarithmic</div>
     <h2 class="reveal d2" style="margin-bottom:24px">How acidic is <em>acid rain</em>?</h2>
@@ -318,9 +610,25 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <aside class="notes">Ask: how many times more acidic is pH 4.2 rain than normal pH 5.6 rain? 10^1.4, about 25 times. Then compare with vinegar.</aside>
 </section>
 
-<!-- 15. EXIT TICKET -->
+<!-- 24. TRADEABLE ALLOWANCES -->
 <section class="slide">
-  <div class="rail"><b>3.3</b><span>Exit ticket</span></div>
+  <div class="rail"><b>10</b><span>Big idea 3 · Solutions</span></div>
+  <div class="content">
+    <div class="k reveal">Big idea 3 · reducing the threat of acid rain</div>
+    <h2 class="reveal d2" style="margin-bottom:22px">Cap the pollution, <em>trade the permits</em></h2>
+    <p class="lead reveal d3">In 1990 the Clean Air Act Amendments created a <b>tradeable emission allowance</b> program. The plan aimed to cut SO₂ emissions by 10 million tons by 2000. By 2010, SO₂ emissions were well below the cap, about half of their earlier level.</p>
+    <div class="grid g2 reveal d3" style="gap:40px;margin-top:30px">
+      <div class="card green"><span class="tag">Strengths</span><ul class="clean small"><li>A voluntary market with incentives</li><li>Rewards innovation and cost-effective cuts</li><li>Moderate, predictable change for industry</li></ul></div>
+      <div class="card gold"><span class="tag">Weaknesses</span><ul class="clean small"><li>No change in pollution behaviour is required of any one plant</li><li>Leaves systemic problems in place</li><li>Pollution can stay concentrated near plants that buy permits</li></ul></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:26px"><b>Debate in pairs:</b> is it fair to let a company pay to keep polluting if the total goes down?</p>
+  </div>
+  <aside class="notes">Plants got a fixed number of allowances; a plant that cut SO₂ cheaply could sell its spare allowances to one that couldn't. Link to the ozone game: a cap is a supply-side tool. The last weakness is an environmental justice question, which ties back to Module 1. Source for the policy history: Layzer (2016).</aside>
+</section>
+
+<!-- 25. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Exit ticket</span></div>
   <div class="content">
     <div class="k reveal">Exit ticket · counts for participation</div>
     <h2 class="reveal d2">Which of these is a <em>secondary</em> pollutant?</h2>
@@ -332,37 +640,22 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     </div>
     <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
   </div>
+  <aside class="notes">Correct answer: C. Ground-level ozone forms in the air from NOₓ and VOCs in sunlight. The others are emitted directly. If many pick B, point out that SO₂ is primary, but the acid it forms in clouds is secondary.</aside>
 </section>
 
-<!-- 16. ASSIGNMENTS -->
-<section class="slide">
-  <div class="rail"><b>3.3</b><span>Assignments</span></div>
-  <div class="content">
-    <div class="k reveal">Module 3 · what's due</div>
-    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
-    <div class="grid g2 reveal d3" style="gap:40px">
-      <div class="card blue"><span class="tag">Module 3 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
-      <div class="card gold"><span class="tag">Before next class</span>
-        <p><b>Next:</b> <span data-fill="next"></span></p>
-        <div class="gold-rule" style="margin:22px 0"></div>
-        <p>Review the Module 3 glossary terms and today's slides. Test 1 covers Modules 1–3.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 17. TAKEAWAYS -->
+<!-- 26. TAKEAWAY -->
 <section class="slide">
   <div class="band"></div>
-  <div class="band-num reveal">3<em>.3</em></div>
-  <div class="band-text reveal d2">Atmosphere, weather, and climate<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
-  <div class="title-k reveal">Three things to remember</div>
-  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
-    <li>The atmosphere is a life-support system: it gives us oxygen, blocks UV and keeps Earth warm enough for life.</li>
-    <li>Primary pollutants come straight from sources. Secondary ones, like ground-level ozone and acid rain, form in the air.</li>
-    <li>Policy has fixed air problems before: the Montreal Protocol and the SO₂ cap show collective action works.</li>
+  <div class="band-num reveal">L<em>10</em></div>
+  <div class="band-text reveal d2">Atmosphere, weather, and pollution<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
+  <div class="title-k reveal">The takeaway</div>
+  <p class="reveal d2" style="position:absolute;left:740px;top:260px;width:1060px;font:400 50px/1.2 var(--display)">Our socio-economic factors disrupt natural cycles and processes, but we should also be responsible for the <em style="color:var(--Sky);font-style:normal">solutions</em>.</p>
+  <ol class="num reveal d3" style="position:absolute;left:740px;top:540px;width:1060px;font-size:28px">
+    <li>The atmosphere is Earth's life support; human activity changes its composition and heat.</li>
+    <li>The Montreal Protocol shows global cooperation and innovation can repair the ozone layer.</li>
+    <li>Caps and trading cut acid rain; solutions work best on both the demand and supply side.</li>
   </ol>
-  <div class="goldline" style="top:900px"></div>
+  <div class="goldline" style="top:950px"></div>
 </section>
 
 </main></div>
@@ -376,10 +669,38 @@ const LECTURE = 'm3-s3';
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-/* === COURSE DATA === glossary, objectives and assignments from course.json */
-loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
+/* === COURSE DATA === glossary, assignments and dates from course.json.
+   Urban heat island is not in the Module 3 glossary, so its card is added here. */
+const EXTRA_TERM = {
+  term: 'Urban Heat Island',
+  definition: 'A city area that is noticeably warmer than the land around it because pavement and buildings absorb and hold heat.',
+  example: 'Phoenix nights are about 9 °F warmer than they were before the city grew, so streets and homes never fully cool down.',
+  significance: 'Makes heat waves more deadly, especially for people without shade or working air conditioning.',
+};
+function addExtraCard() {
+  const box = $('[data-fill="vocab"]');
+  box.insertAdjacentHTML('beforeend', `
+    <div class="vcard" tabindex="0" role="button" aria-label="${esc(EXTRA_TERM.term)}: show example">
+      <div class="in">
+        <div class="f"><h4>${esc(EXTRA_TERM.term)}</h4><p>${esc(EXTRA_TERM.definition)}</p><span class="hint">Tap for example</span></div>
+        <div class="b"><h4>Example</h4><p>${esc(EXTRA_TERM.example)}</p><p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(EXTRA_TERM.significance)}</p></div>
+      </div>
+    </div>`);
+  const c = box.lastElementChild;
+  const flip = () => c.classList.toggle('flip');
+  c.addEventListener('click', flip);
+  c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
+}
+loadSession(LECTURE).then(d => { fill(document, d); addExtraCard(); }).catch(() => {
   $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+});
+
+/* === VIDEO === embed the YouTube video named in data-youtube */
+$$('[data-youtube]').forEach(v => {
+  const id = v.dataset.youtube;
+  if (id) v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}" title="Prof. Jennifer Vanos on extreme heat" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 });
 
 /* === LIVE === attendance, polls, simulation results */
@@ -429,7 +750,7 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
   $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
 }));
 
-/* === SORTING GAME === */
+/* === SORTING GAME === primary or secondary */
 $$('[data-sort] .sort-row').forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
   $$('button', row).forEach(x => x.classList.toggle('on', x === b));
   row.classList.remove('good', 'bad');
@@ -446,31 +767,165 @@ $('[data-sort-check]').addEventListener('click', () => {
   $('[data-sort-score]').textContent = `${right} of ${rows.length} correct`;
 });
 
-/* === OZONE DAY SIMULATION === a simple teaching model, not a forecast */
-const AQI = [[54, 'Good', '#8cc68c'], [70, 'Moderate', '#eccf72'], [85, 'Unhealthy for sensitive groups', '#f0a45a'], [105, 'Unhealthy', '#d9604c'], [Infinity, 'Very unhealthy', '#8f5a9c']];
-const sim = { traffic: $('#s-traffic'), sun: $('#s-sun'), wind: $('#s-wind') };
-function ozone() {
-  const t = sim.traffic.value / 100, h = (sim.sun.value - 70) / 48, w = +sim.wind.value;
-  return Math.round(30 + 110 * Math.pow(t, 0.7) * Math.pow(h, 1.3) / (1 + w / 12));
+/* === CARD HANDS === shared by both games. Demand picks are limited by count,
+   supply picks by a $10M budget. */
+function hand(el, cards, { limit, budget, onChange, costLabel }) {
+  const picked = new Set();
+  const cap = budget || limit;
+  const price = c => (budget ? c.cost : 1);
+  const used = () => [...picked].reduce((s, id) => s + price(cards.find(c => c.id === id)), 0);
+  el.innerHTML = cards.map(c => `<button type="button" class="act${c.dud ? ' dud' : ''}" data-id="${c.id}" aria-pressed="false"><b>${esc(c.name)}</b><span class="c">${costLabel(c)}</span><small>${esc(c.note)}</small></button>`).join('');
+  function paint() {
+    const u = used();
+    $$('.act', el).forEach(b => {
+      const c = cards.find(x => x.id === b.dataset.id), on = picked.has(c.id);
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on);
+      b.classList.toggle('no', !on && u + price(c) > cap);
+    });
+    return u;
+  }
+  el.addEventListener('click', e => {
+    const b = e.target.closest('.act'); if (!b) return;
+    const c = cards.find(x => x.id === b.dataset.id);
+    if (picked.has(c.id)) picked.delete(c.id);
+    else if (used() + price(c) <= cap) picked.add(c.id);
+    onChange();
+  });
+  return { picked, paint, chosen: () => cards.filter(c => picked.has(c.id)) };
 }
-function drawSim() {
-  $('[data-out="traffic"]').textContent = `${sim.traffic.value}%`;
-  $('[data-out="sun"]').textContent = `${sim.sun.value} °F`;
-  $('[data-out="wind"]').textContent = `${sim.wind.value} mph`;
-  const v = ozone(), [, label, color] = AQI.find(([max]) => v <= max);
-  $('#o3').textContent = v;
-  const c = $('#o3-cat'); c.textContent = label; c.style.background = color;
+const meter = (bar, left, used, cap, fmt) => { $(bar).style.width = `${Math.min(100, used / cap * 100)}%`; $(left).textContent = fmt(cap - used); };
+
+/* === OZONE ACTION DAY === a teaching model, not a forecast.
+   Ozone = background carried in from outside the Valley + a local part made from
+   NOx and VOCs. Sector shares and card effects are rounded teaching numbers. */
+const NOX = { road: 45, power: 20, ind: 10, off: 20, oth: 5 };
+const VOC = { road: 25, refuel: 10, solv: 30, lawn: 10, ind: 15, oth: 10 };
+const BG = 50, LOCAL = 34;
+const OZ_DEMAND = [
+  { id: 'drive', name: 'Carpool, ride the bus, bike or telework', note: 'Fewer car trips: less NOx and VOCs', cut: { nroad: .5, vroad: .5 } },
+  { id: 'idle', name: 'Be idle-free; park and walk in', note: 'Skip long drive-thru lines', cut: { nroad: .12, vroad: .15 } },
+  { id: 'refuel', name: 'Refuel after dark', note: 'Gas vapors (VOCs) miss the afternoon sun', cut: { vrefuel: .8 } },
+  { id: 'yard', name: 'Trade the gas leaf blower for electric', note: 'Mowing Down Pollution exchange', cut: { vlawn: .9, noff: .1 } },
+  { id: 'paint', name: 'Delay painting; buy low-VOC cleaners', note: 'Fewer solvent vapors', cut: { vsolv: .4 } },
+  { id: 'wood', name: 'Skip the fireplace', note: 'Burn Cleaner, Burn Better', cut: {}, dud: 'Wood smoke is a winter particle problem. It barely changes summer ozone.' },
+];
+const OZ_SUPPLY = [
+  { id: 'permit', name: 'Tighter industrial permits and caps', note: 'Factories cut NOx and VOCs', cost: 3, cut: { nind: .4, vind: .4 } },
+  { id: 'coat', name: 'Surface-coating and solvent rules', note: 'Only low-VOC products on shelves', cost: 2, cut: { vsolv: .45 } },
+  { id: 'gas', name: 'Cleaner-burning gasoline', note: 'Less evaporation at the pump', cost: 2, cut: { vroad: .15, vrefuel: .3 } },
+  { id: 'solar', name: 'Shift power plants to solar', note: 'Renewables replace gas turbines', cost: 4, cut: { npower: .6 } },
+  { id: 'fleet', name: 'Clean commercial fleets and equipment', note: 'Idling limits, electric landscaping crews', cost: 3, cut: { noff: .4, vlawn: .4 } },
+  { id: 'transit', name: 'More buses and light rail', note: 'More ways to leave the car at home', cost: 3, cut: { nroad: .1, vroad: .1 } },
+];
+function ozone(demand, p, supply) {
+  const cut = {};
+  const add = (c, scale) => Object.entries(c).forEach(([k, v]) => { cut[k] = 1 - (1 - (cut[k] || 0)) * (1 - v * scale); });
+  demand.forEach(c => add(c.cut, p));
+  supply.forEach(c => add(c.cut, 1));
+  const n = Object.entries(NOX).reduce((s, [k, w]) => s + w * (1 - (cut['n' + k] || 0)), 0) / 100;
+  const v = Object.entries(VOC).reduce((s, [k, w]) => s + w * (1 - (cut['v' + k] || 0)), 0) / 100;
+  return BG + LOCAL * n ** 1.1 * v ** 0.5;
 }
-Object.values(sim).forEach(s => s.addEventListener('input', drawSim));
-drawSim();
-$('#sim-save').addEventListener('click', async () => {
-  const st = $('#sim-status');
+const AQI = [[54, 'Good', '#8cc68c'], [70, 'Moderate', '#eccf72'], [85, 'Unhealthy for sensitive groups', '#f0a45a'], [105, 'Unhealthy', '#d9604c']];
+const ozP = $('#oz-p');
+const ozD = hand($('#oz-demand'), OZ_DEMAND, { limit: 3, onChange: drawOz, costLabel: () => '1 day' });
+const ozS = hand($('#oz-supply'), OZ_SUPPLY, { budget: 10, onChange: drawOz, costLabel: c => `$${c.cost}M` });
+let ozNow = null;
+function drawOz() {
+  const p = ozP.value / 100;
+  $('#oz-p-out').textContent = `${ozP.value}%`;
+  const dem = ozD.chosen(), sup = ozS.chosen();
+  meter('#oz-d-bar', '#oz-d-left', ozD.paint(), 3, n => `${n} left`);
+  meter('#oz-s-bar', '#oz-s-left', ozS.paint(), 10, n => `$${n}M left`);
+  const base = ozone([], 0, []), onlyD = ozone(dem, p, []), onlyS = ozone([], 0, sup), both = ozone(dem, p, sup);
+  const v = Math.round(both);
+  const dCut = base - onlyD, sCut = base - onlyS, tot = base - both, sh = dCut + sCut || 1;
+  ozNow = { demand: dem.map(c => c.id), participation: +ozP.value, supply: sup.map(c => c.id), ozone: v, demandCut: +(tot * dCut / sh).toFixed(1), supplyCut: +(tot * sCut / sh).toFixed(1) };
+  $('#oz-v').textContent = v;
+  const [, label, col] = AQI.find(([m]) => v <= m) || AQI[3];
+  const cat = $('#oz-cat'); cat.textContent = label; cat.style.background = col;
+  /* stacked bar: background | local ozone left | demand cut | supply cut (a shared cut is split in proportion) */
+  const segs = [[BG, '#9fb4bb', 'Background'], [both - BG, '#f0a45a', 'Local'], [ozNow.demandCut, 'var(--Green)', 'Demand'], [ozNow.supplyCut, 'var(--Blue)', 'Supply']];
+  const X = u => u / 90 * 400;
+  let x = 0;
+  $('#oz-split').innerHTML = segs.map(([u, c, t]) => {
+    const w = Math.max(0, X(u)), g = `<rect x="${x}" y="24" width="${w}" height="40" style="fill:${c}"/>${w > 52 ? `<text x="${x + 6}" y="84">${t}</text>` : ''}`;
+    x += w; return g;
+  }).join('') + `<line class="lim" x1="${X(70)}" x2="${X(70)}" y1="14" y2="72"/><text x="${X(70) - 30}" y="11">70 ppb</text>`;
+  const dud = dem.find(c => c.dud);
+  $('#oz-msg').textContent = dud ? dud.dud
+    : !dem.length && !sup.length ? 'Pick actions on both sides. Each card shows what it costs.'
+    : v <= 70 ? `Under the standard. Residents cut ${ozNow.demandCut} ppb and the county cut ${ozNow.supplyCut} ppb. The grey ${BG} ppb comes from outside the Valley.`
+    : `Still ${v - 70} ppb over. Asthma alerts go out to 412,752 residents. Which side can do more?`;
+}
+ozP.addEventListener('input', drawOz);
+drawOz();
+$('#oz-save').addEventListener('click', async () => {
+  const st = $('#oz-status');
   if (!await ensureUser(st)) return;
-  const data = { traffic: +sim.traffic.value, temp: +sim.sun.value, wind: +sim.wind.value, ozone: ozone() };
-  try { await live.saveSim('ozone-day', data); say(st, `Submitted: ${data.ozone} ppb.`, 'ok'); } catch (e) { say(st, e.message, 'err'); }
+  if (!ozNow.demand.length || !ozNow.supply.length) { say(st, 'Pick cards on both sides first.', 'err'); return; }
+  try { await live.saveSim('ozone-action-day', ozNow); say(st, `Submitted: ${ozNow.ozone} ppb.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
 });
 
-/* === pH DATA === approximate typical values */
+/* === COOL THE BLOCK === a teaching model of one Phoenix neighbourhood in a heat wave.
+   Demand = how much cooling and power people use; supply = shade, cool surfaces,
+   power and help from the city and utility. */
+const UHI_DEMAND = [
+  { id: 'thermo', name: 'AC at 78 °F; pre-cool in the morning', note: 'Shifts power use off the evening peak', fx: { peak: -6 } },
+  { id: 'late', name: 'Run laundry and dishes after 8 pm', note: 'Lower evening demand', fx: { peak: -4 } },
+  { id: 'roof', name: 'Paint the roof white', note: 'A cool roof reflects sunlight', fx: { peak: -3, night: -.5 } },
+  { id: 'tree', name: 'Plant a shade tree on the west wall', note: 'Shade on the house and sidewalk', fx: { peak: -1, surf: -4, night: -.3 } },
+  { id: 'tune', name: 'Get the AC checked before the heat', note: 'Most indoor victims had broken AC', fx: { risk: -12 } },
+  { id: 'buddy', name: 'Check on an older neighbor daily', note: 'Buddy system for people living alone', fx: { risk: -10 } },
+  { id: 'fans', name: 'Turn the AC off and use fans', note: 'Saves the most power', fx: { peak: -8, risk: 18 }, dud: 'Saves power, but fans cannot cool a body when it is this hot. Heat risk went up.' },
+];
+const UHI_SUPPLY = [
+  { id: 'canopy', name: 'Plant street trees toward 25% canopy', note: 'Shade cools air and pavement', cost: 4, fx: { surf: -15, night: -2, peak: -3, risk: -4 } },
+  { id: 'pave', name: 'Cool pavement on 200 miles of streets', note: 'Up to 12 °F cooler surface', cost: 3, fx: { surf: -11, night: -.5 } },
+  { id: 'shade', name: 'Shade at bus stops and sidewalks', note: 'Protects people who walk and wait', cost: 2, fx: { risk: -6 } },
+  { id: 'centers', name: 'Overnight cooling centers with free rides', note: 'Heat-relief network', cost: 2, fx: { risk: -12 } },
+  { id: 'solar', name: 'Solar plus batteries for the evening', note: 'Adds 8% power supply at the peak', cost: 4, fx: { cap: 8 } },
+  { id: 'code', name: 'Cool-roof code for new buildings', note: 'Less heat stored in rooftops', cost: 2, fx: { night: -1, peak: -2 } },
+  { id: 'aid', name: 'AC repair aid for low-income homes', note: 'Fix units before the heat wave', cost: 3, fx: { risk: -12 } },
+];
+const uhD = hand($('#uhi-demand'), UHI_DEMAND, { limit: 3, onChange: drawUhi, costLabel: () => 'habit' });
+const uhS = hand($('#uhi-supply'), UHI_SUPPLY, { budget: 10, onChange: drawUhi, costLabel: c => `$${c.cost}M` });
+let uhNow = null;
+function drawUhi() {
+  const dem = uhD.chosen(), sup = uhS.chosen();
+  meter('#uhi-d-bar', '#uhi-d-left', uhD.paint(), 3, n => `${n} left`);
+  meter('#uhi-s-bar', '#uhi-s-left', uhS.paint(), 10, n => `$${n}M left`);
+  const t = { surf: 150, night: 94, peak: 108, cap: 100, risk: 0 };
+  [...dem, ...sup].forEach(c => Object.entries(c.fx).forEach(([k, v]) => { t[k] += v; }));
+  const outage = t.peak > t.cap;
+  const risk = Math.round(40 + (t.night - 84) * 4 + t.risk + (outage ? 35 : 0));
+  uhNow = { demand: dem.map(c => c.id), supply: sup.map(c => c.id), surface: Math.round(t.surf), night: +t.night.toFixed(1), peak: t.peak, supplyCap: t.cap, outage, risk };
+  $('#uhi-surf').textContent = `${uhNow.surface} °F`;
+  $('#uhi-night').textContent = `${uhNow.night.toFixed(1)} °F`;
+  const pw = $('#uhi-pw'); pw.style.width = `${Math.min(100, t.peak / 120 * 100)}%`; pw.style.background = outage ? '#d9604c' : 'var(--Sky)';
+  $('#uhi-cap').style.left = `${t.cap / 120 * 100}%`;
+  $('#uhi-pw-txt').textContent = outage ? `Demand is ${t.peak}% of supply: rolling outages, AC goes dark` : `Demand is ${t.peak}% of supply: the lights stay on`;
+  const [label, col] = risk >= 90 ? ['Extreme heat risk', '#8f5a9c'] : risk >= 60 ? ['High heat risk', '#d9604c'] : risk >= 35 ? ['Elevated heat risk', '#f0a45a'] : ['Lower heat risk', '#8cc68c'];
+  const cat = $('#uhi-risk'); cat.textContent = label; cat.style.background = col; cat.style.color = risk >= 90 ? '#fff' : 'var(--ink)';
+  uhNow.level = label;
+  const dud = dem.find(c => c.dud);
+  $('#uhi-msg').textContent = dud ? dud.dud
+    : !dem.length && !sup.length ? 'Evening demand is higher than supply. Pick habits and projects to cool the block.'
+    : outage ? 'Power demand is still above supply. Cut demand, add supply, or both.'
+    : risk < 35 ? 'The block made it through. Which of your choices helped the most vulnerable neighbors?'
+    : 'The lights are on, but the nights are still dangerous. Who is still at risk?';
+}
+drawUhi();
+$('#uhi-save').addEventListener('click', async () => {
+  const st = $('#uhi-status');
+  if (!await ensureUser(st)) return;
+  if (!uhNow.demand.length || !uhNow.supply.length) { say(st, 'Pick cards on both sides first.', 'err'); return; }
+  try { await live.saveSim('cool-the-block', uhNow); say(st, `Submitted: ${uhNow.level.toLowerCase()}.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === PH DATA === approximate typical values */
 const PH = [['Battery acid', 1], ['Lemon juice', 2], ['Vinegar', 2.8], ['Acid rain (typical)', 4.2, true], ['Normal rain', 5.6, true], ['Pure water', 7], ['Seawater', 8.1], ['Baking soda', 9]];
 $('[data-ph]').innerHTML = PH.map(([n, v, rain]) => `<div class="ph-row${rain ? ' rain' : ''}"><span>${n}</span><div class="ph-track" title="${n}: pH ${v}"><div class="ph-bar" style="width:${v / 14 * 100}%"></div><span class="v" style="left:${v / 14 * 100}%">${v}</span></div></div>`).join('');
 const opts = PH.map(([n, v], i) => `<option value="${i}">${n} (${v})</option>`).join('');
