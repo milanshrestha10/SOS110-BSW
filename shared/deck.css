@@ -267,7 +267,29 @@ input[type=range]{width:100%;height:14px;accent-color:var(--Blue)}
 
 /* === DECK CHROME === outside the slide design (not scaled) */
 .deck-progress{position:fixed;left:0;top:0;height:4px;background:var(--golden);z-index:1001;transition:width .4s var(--ease)}
-.deck-controls{display:flex;gap:10px;align-items:center;font:700 14px var(--body);color:#f6f2e9;background:rgba(10,42,53,.8);padding:8px 14px;border-radius:999px;opacity:.25;transition:opacity .3s}
+/* Side flip buttons and bottom pager share the samples gallery card look:
+   warm white card, soft border, lift and shadow on hover, course blue accent */
+.deck-side button,.deck-controls{background:var(--card);color:var(--ink);border:1px solid var(--paper-2);box-shadow:0 6px 18px rgba(10,42,53,.18)}
+.deck-side button{position:fixed;top:50%;z-index:1000;width:64px;height:112px;margin-top:-56px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;opacity:.72;transition:opacity .3s,transform .25s var(--ease),box-shadow .25s,background .2s,color .2s}
+.deck-side .prev{left:18px}.deck-side .next{right:18px}
+.deck-side svg{width:30px;height:30px}
+.deck-side small{font:inherit;color:var(--Blue);transition:color .2s}
+.deck-side button:hover,.deck-side button:focus-visible{opacity:1;background:var(--Blue);color:var(--paper);border-color:var(--Blue);box-shadow:0 12px 30px rgba(10,42,53,.3)}
+.deck-side button:hover small,.deck-side button:focus-visible small{color:var(--golden)}
+.deck-side .prev:hover,.deck-side .prev:focus-visible{transform:translateX(-3px)}
+.deck-side .next:hover,.deck-side .next:focus-visible{transform:translateX(3px)}
+.deck-side button:active{transform:scale(.96)}
+.deck-controls{display:flex;gap:12px;align-items:center;font:700 15px var(--body);padding:6px;border-radius:14px;opacity:.72;transition:opacity .3s}
+.deck-controls span{min-width:74px;text-align:center;font-variant-numeric:tabular-nums;color:var(--ink)}
+.deck-controls button{display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:10px;background:var(--paper);color:var(--Blue);cursor:pointer;transition:background .2s,color .2s}
+.deck-controls button:hover,.deck-controls button:focus-visible{background:var(--Blue);color:var(--paper)}
+.deck-controls svg{width:22px;height:22px}
 .deck-controls:hover,.deck-controls:focus-within{opacity:1}
-.deck-controls button{font:inherit;color:inherit;background:none;border:1px solid rgba(246,242,233,.4);border-radius:999px;padding:6px 14px;cursor:pointer}
+.deck-side button:disabled,.deck-controls button:disabled{opacity:0;pointer-events:none}
+.deck-controls button:disabled{opacity:.3}
+.deck-side button:focus-visible,.deck-controls button:focus-visible{outline:3px solid var(--golden);outline-offset:3px}
+/* Resting pointer: everything fades away; any movement brings it back */
+body.deck-idle .deck-side button,body.deck-idle .deck-controls{opacity:0;pointer-events:none}
+@media (hover:none){body.deck-idle .deck-side button:not(:disabled),body.deck-idle .deck-controls{opacity:.72;pointer-events:auto}.deck-side button{width:52px;height:88px;margin-top:-44px}}
+@media print{.deck-side,.deck-progress{display:none!important}}
 aside.notes{display:none}

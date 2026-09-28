@@ -1,6 +1,6 @@
 # SOS110 lectures
 
-Each lecture is a folder with the student deck, `index.html` (arrow keys, space or swipe to move; `#3` in the URL jumps to slide 3).
+Each lecture is a folder with the student deck, `index.html` (the Back and Next buttons, arrow keys, space or swipe move between slides; `#3` in the URL jumps to slide 3).
 
 The instructor pages (attendance code, check-ins, poll and simulation results, speaker notes) live in the private repo `milanshrestha10/SOS110-admin`, hosted at https://sos110-ce7a1.web.app. They load `shared/` and `course/course.json` from this site, so changes here reach them too.
 
@@ -9,7 +9,7 @@ Shared pieces live in `../shared/`:
 | File | What it does |
 |---|---|
 | `deck.css` | The Course Brand design (sample 16) on a fixed 1920×1080 stage |
-| `deck.js` | Scaling, keyboard, swipe and progress bar |
+| `deck.js` | Scaling, Back/Next side buttons, bottom pager, keyboard, swipe and progress bar |
 | `course.js` | Fills objectives, glossary cards and assignments from `../course/course.json` |
 | `live.js` | Attendance, polls and simulation results, through Firebase or demo mode |
 | `firebase-config.js` | Paste the Firebase web config here to go live |
