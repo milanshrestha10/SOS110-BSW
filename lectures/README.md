@@ -1,9 +1,8 @@
 # SOS110 lectures
 
-Each lecture is a folder with two pages:
+Each lecture is a folder with the student deck, `index.html` (arrow keys, space or swipe to move; `#4` in the URL jumps to slide 4).
 
-- `index.html`: the student deck (arrow keys, space or swipe to move; `#4` in the URL jumps to slide 4)
-- `admin.html`: the instructor page with the attendance code, check-ins, poll results, simulation results and speaker notes
+The instructor pages (attendance code, check-ins, poll and simulation results, speaker notes) live in the private repo `milanshrestha10/SOS110-admin`, hosted at https://sos110-ce7a1.web.app. They load `shared/` and `course/course.json` from this site, so changes here reach them too.
 
 Shared pieces live in `../shared/`:
 
@@ -24,7 +23,7 @@ python3 -m http.server 8000
 # then open http://localhost:8000/lectures/m3-l3-atmosphere/
 ```
 
-Until Firebase is connected everything runs in **demo mode**. Check-ins, votes and simulation runs are stored in your browser, and the admin page in another tab of the same browser shows them live.
+Until Firebase is connected everything runs in **demo mode**: check-ins, votes and simulation runs are stored in your browser only.
 
 ## Going live with Firebase
 
@@ -37,4 +36,4 @@ Students then sign in with their ASU Google account. Only the admin account can 
 
 ## Adding a lecture
 
-Copy a lecture folder, change `LECTURE` in both pages to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives, dates and assignments fill in on their own.
+Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives, dates and assignments fill in on their own. Then add the matching admin page in the private repo.
