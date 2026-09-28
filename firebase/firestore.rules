@@ -3,13 +3,17 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function isAdmin() { return signedIn() && request.auth.token.email in ['mshrest1@asu.edu']; }
-    function isStudent() { return signedIn() && request.auth.token.email.matches('.*@asu[.]edu$'); }
+    function verified() { return signedIn() && request.auth.token.email_verified == true; }
+    function isAdmin() { return verified() && request.auth.token.email in ['mshrest1@asu.edu']; }
+    function isStudent() { return verified() && request.auth.token.email.matches('.*@asu[.]edu$'); }
     function owns(uid) { return signedIn() && request.auth.uid == uid; }
+    // Student records are shown to the instructor, so keep them small and typed.
+    function shortText(v) { return v is string && v.size() <= 120; }
+    function stamped() { return request.resource.data.at == request.time; }
 
     match /lectures/{lecture} {
       // Which poll is open. Students only need to read it.
-      allow read: if signedIn();
+      allow read: if isStudent() || isAdmin();
       allow write: if isAdmin();
 
       // Today's attendance code: never readable by students.
@@ -17,9 +21,14 @@ service cloud.firestore {
         allow read, write: if isAdmin();
       }
 
-      // A student checks in only with the current code, and only as themselves.
+      // A student checks in only with the current code, only as themselves,
+      // and under the email on their Google account.
       match /attendance/{uid} {
         allow create, update: if isStudent() && owns(uid)
+          && request.resource.data.keys().hasOnly(['name', 'email', 'code', 'at'])
+          && shortText(request.resource.data.name)
+          && request.resource.data.email == request.auth.token.email
+          && stamped()
           && request.resource.data.code == get(/databases/$(database)/documents/lectures/$(lecture)/private/code).data.code;
         allow read, delete: if isAdmin();
       }
@@ -27,7 +36,11 @@ service cloud.firestore {
       // One vote per poll per student; students may change their answer.
       match /votes/{id} {
         allow create, update: if isStudent() && id == request.resource.data.poll + '__' + request.auth.uid
-          && request.resource.data.uid == request.auth.uid;
+          && request.resource.data.keys().hasOnly(['poll', 'choice', 'uid', 'at'])
+          && shortText(request.resource.data.poll)
+          && request.resource.data.choice is int && request.resource.data.choice >= 0 && request.resource.data.choice < 10
+          && request.resource.data.uid == request.auth.uid
+          && stamped();
         allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
         allow delete: if isAdmin();
       }
@@ -35,7 +48,12 @@ service cloud.firestore {
       // Simulation results, same pattern as votes.
       match /sims/{id} {
         allow create, update: if isStudent() && id == request.resource.data.sim + '__' + request.auth.uid
-          && request.resource.data.uid == request.auth.uid;
+          && request.resource.data.keys().hasOnly(['sim', 'uid', 'name', 'data', 'at'])
+          && shortText(request.resource.data.sim)
+          && shortText(request.resource.data.name)
+          && request.resource.data.data is map
+          && request.resource.data.uid == request.auth.uid
+          && stamped();
         allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
         allow delete: if isAdmin();
       }
