@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3 Demographic Transition Game · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+:root{--birth:#0a78ad;--death:#c0462a;--pop:#5f8f8b;--ok:#2e7d5b;--bad:#b3452c;--sans:'Inter','Helvetica Neue',Arial,sans-serif}
+/* title slide: small module badge and a sans-serif module title (same as the other decks) */
+.band-num{left:120px;top:150px;font-size:96px}
+.band-text{top:330px;width:440px}
+.band-text>span:first-child{display:block;font:600 44px/1.15 var(--sans);letter-spacing:-.015em;color:var(--paper)}
+.tagline{position:absolute;left:740px;top:520px;width:1080px;font:italic 400 40px/1.3 var(--body);color:var(--mute)}
+.title-terms{top:640px}
+h2.tight{font-size:66px;margin:10px 0 24px}
+/* check-in */
+.signin{display:flex;gap:18px;align-items:flex-end;margin-top:22px}
+.signin label{display:flex;flex-direction:column;gap:8px;font:700 20px var(--body);letter-spacing:.06em;color:var(--mute)}
+.signin label span{text-transform:uppercase}
+.signin .field{width:560px}
+.privacy{font-size:22px;color:var(--mute);margin-top:10px;max-width:1300px}
+/* locked slides: the practice and the game open after check-in */
+.lock{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;background:rgba(246,242,233,.94)}
+.slide.locked .lock{display:flex}
+.lock .box{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--golden);border-radius:20px;padding:50px 70px;text-align:center;max-width:980px}
+.lock h3{font-size:56px;margin-bottom:16px}
+.lock p{font-size:28px;color:var(--mute);margin-bottom:28px}
+/* explanation 1: video */
+.vid-grid{display:grid;grid-template-columns:1040px 1fr;gap:50px;align-items:start}
+.vid-grid .video{width:1040px}
+.watch{list-style:none;display:grid;gap:18px}
+.watch li{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--Sky);border-radius:14px;padding:16px 22px;font-size:24px;line-height:1.38}
+.watch b{font-family:var(--display);font-weight:400;font-size:30px;color:var(--Blue);display:block}
+.src{font-size:18px;color:var(--mute);line-height:1.35}
+/* explanation 2: the model */
+.dtm-svg{display:block;width:1580px;height:auto}
+.vars{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:16px}
+.var{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:14px 18px;font-size:19px;line-height:1.35}
+.var b{display:block;font:400 25px/1.15 var(--display);color:var(--Blue);margin-bottom:4px}
+/* practice */
+.prac{display:grid;grid-template-columns:700px 1fr;gap:50px;align-items:start}
+.readouts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.tile{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 16px}
+.tile small{display:block;font:700 15px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.tile b{display:block;font:400 40px/1.1 var(--display);color:var(--ink);margin-top:4px}
+.tile i{font-style:normal;font-size:17px;color:var(--mute)}
+.missions{list-style:none;display:grid;gap:12px;margin-top:6px}
+.missions li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;font-size:23px;line-height:1.3;background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:12px 16px}
+.missions li i{width:38px;height:38px;border-radius:50%;border:3px solid var(--paper-2);font:700 22px/32px var(--body);text-align:center;font-style:normal;color:#fff}
+.missions li.done{border-color:var(--ok)}
+.missions li.done i{background:var(--ok);border-color:var(--ok)}
+.chart{display:block;width:100%;height:auto;background:var(--card);border:2px solid var(--paper-2);border-radius:18px}
+.stage-pill{display:inline-block;border-radius:999px;padding:4px 18px;font:700 20px var(--body);color:#fff;background:var(--Blue)}
+/* country picker */
+.countries{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.country{text-align:left;font:400 20px/1.35 var(--body);color:var(--ink);background:var(--card);border:3px solid var(--paper-2);border-radius:18px;padding:20px 22px;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
+.country:hover,.country:focus-visible{border-color:var(--Sky);transform:translateY(-3px);outline:none}
+.country h3{font-size:38px;margin:0}
+.country dl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:19px;margin:6px 0}
+.country dt{color:var(--mute)}.country dd{font-weight:700;text-align:right}
+.country .mission{font-size:19px;border-top:1px solid var(--paper-2);padding-top:10px;margin-top:auto}
+.country .go{font-weight:700;color:var(--Blue)}
+.s1{background:#6b5a3a}.s2{background:#c0462a}.s3{background:#b8922a}.s4{background:#2e7d5b}.s5{background:#0a4f68}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.how div{background:var(--Blue);color:var(--paper);border-radius:16px;padding:18px 24px;font-size:22px;line-height:1.38}
+.how b{color:var(--golden);font:400 28px var(--display);display:block}
+/* game board */
+.board{position:absolute;left:170px;top:50px;right:70px;bottom:40px}
+.gbar{display:flex;justify-content:space-between;align-items:center;height:78px}
+.gbar h3{font-size:46px;margin:0}
+.gbar .k{margin-bottom:2px}
+.pts{font:700 24px var(--body);background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:8px 22px}
+.pts b{font:400 32px var(--display);color:var(--Blue)}
+.gmain{display:grid;grid-template-columns:640px 1fr;gap:30px;margin-top:12px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pcard{position:relative;text-align:left;font:400 17px/1.3 var(--body);color:var(--ink);background:var(--card);border:3px solid var(--paper-2);border-radius:14px;padding:12px 14px 12px 16px;cursor:pointer;min-height:118px;transition:border-color .2s,background .2s}
+.pcard h4{font:700 20px/1.2 var(--body);margin:0 64px 5px 0}
+.pcard .cost{position:absolute;top:10px;right:10px;font:700 17px var(--body);background:var(--paper-2);border-radius:999px;padding:2px 10px}
+.pcard.trap .cost{background:var(--golden)}
+.pcard:hover{border-color:var(--Sky)}
+.pcard.on{border-color:var(--Blue);background:rgba(66,168,191,.14)}
+.pcard.on .cost{background:var(--Blue);color:#fff}
+.pcard:disabled{opacity:.4;cursor:default}
+.gact{display:flex;gap:14px;align-items:center;margin-top:14px}
+.gact .btn{font-size:24px;padding:14px 28px}
+.msg{margin-top:14px;background:var(--Blue);color:var(--paper);border-radius:14px;padding:16px 20px;font-size:21px;line-height:1.4;min-height:150px}
+.msg b{color:var(--golden)}
+.msg.trap{background:#7a2e1c}
+.gright{display:grid;gap:16px}
+.gcharts{display:grid;grid-template-columns:470px 1fr;gap:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.stats .tile{padding:8px 14px}
+.stats .tile b{font-size:30px}
+.stats .tile small{font-size:13px}
+/* end of game */
+.result{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;background:rgba(10,42,53,.55)}
+.result.show{display:flex}
+.result .box{background:var(--card);border-radius:22px;padding:40px 56px;width:1180px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.result h3{font-size:56px}
+.stars{font-size:52px;color:var(--golden);letter-spacing:.1em}
+.checks{list-style:none;display:grid;gap:10px;margin:18px 0}
+.checks li{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;font-size:23px;border-bottom:1px solid var(--paper-2);padding-bottom:8px}
+.checks li i{width:36px;height:36px;border-radius:50%;font:700 22px/36px var(--body);text-align:center;font-style:normal;color:#fff;background:var(--bad)}
+.checks li.ok i{background:var(--ok)}
+.checks li span{color:var(--mute);font-size:20px}
+/* debrief */
+.qs li{font-size:30px;margin:14px 0}
+.take{background:var(--Blue);color:var(--paper);border-radius:18px;padding:26px 34px;font-size:30px;line-height:1.4;margin-top:26px}
+.take b{color:var(--golden)}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>03</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 8 · Classroom exercise<br>S&amp;M (2023) Ch. 6</small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Population and consumption · Simulation game</div>
+  <h1 class="title-h reveal d2">The <em>demographic transition</em> game</h1>
+  <p class="tagline reveal d3">Why do some countries grow fast while others shrink?</p>
+  <div class="title-terms reveal d3"><span class="chip">Demographic Transition Model (DTM)</span> <span class="chip">Birth rate</span> <span class="chip">Death rate</span> <span class="chip">Total fertility rate</span></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Birth rates, death rates and five stages</div>
+  <aside class="notes">Today students run a country through the Demographic Transition Model. The order is: check in (the code opens the exercise), a short video on China, one slide on the model and its variables, a quick birth-rate and death-rate practice, and then the game. Set the attendance code on the admin page before class. The game data are teaching numbers built from rounded UN figures (via Our World in Data), not forecasts.</aside>
+</section>
+
+<!-- 2. CHECK-IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>3.1</b><span>Check in</span></div>
+  <div class="content">
+    <div class="k reveal">Open the exercise</div>
+    <h2 class="reveal d2">Check in to <em>start</em></h2>
+    <p class="lead reveal d3">Type your name and email exactly as they appear in your university account, then the code on screen. The code opens the practice and the game.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <label><span>Full name</span><input class="field" data-name placeholder="As in your university account" autocomplete="name" maxlength="120"></label>
+        <label><span>University email</span><input class="field" data-email type="email" placeholder="you@university.edu" autocomplete="email" maxlength="120"></label>
+      </div>
+      <div class="signin">
+        <label><span>Code</span><input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px"></label>
+        <button class="btn" type="button" id="checkin">Open the exercise</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="privacy">Your name, email and game results go only to your instructor. They are used for participation credit.</p>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+  <aside class="notes">Generate the code on the admin page ("New code") and read it out. Students must use the name and email from their university account so check-ins match the roster. The practice and game slides stay locked on each laptop until that student checks in. To project the game yourself, check in once on the classroom computer with any name.</aside>
+</section>
+
+<!-- 3. EXPLANATION 1: VIDEO -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Watch</span></div>
+  <div class="content" style="top:80px">
+    <div class="k reveal">A country in stage 5</div>
+    <h2 class="tight reveal d2">Why China's population is <em>shrinking</em></h2>
+    <div class="vid-grid reveal d3">
+      <div>
+        <div class="video" data-youtube="gmehUgOy5ok"></div>
+        <p class="src" style="margin-top:10px">Video: Vox, "Why China's population is shrinking" (YouTube).</p>
+      </div>
+      <ul class="watch">
+        <li><b>Fewer births</b>About 9 million babies were born in China in 2023, roughly half as many as in 2016.</li>
+        <li><b>More deaths than births</b>In 2022 China's population fell for the first time in about 60 years.</li>
+        <li><b>Fertility far below 2.1</b>Women now have about 1 child each on average. A population needs about 2.1 to replace itself.</li>
+        <li><b>An older country</b>Fewer young workers will support more retirees in the coming decades.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">Play the video (about 7 minutes). Ask students to watch for the four numbers on the right. China moved through the whole transition in about 70 years, much faster than Europe did in 150 to 200 years; the one-child policy (1980 to 2015) came after fertility had already fallen from about 6 to under 3 in the 1970s. Figures are rounded from China's National Bureau of Statistics and the UN; please check them against the video before class.</aside>
+</section>
+
+<!-- 4. EXPLANATION 2: THE MODEL -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>The model</span></div>
+  <div class="content" style="top:70px;right:100px">
+    <div class="k reveal">Demographic Transition Model</div>
+    <h2 class="tight reveal d2" style="font-size:60px;margin-bottom:10px">Deaths fall first, births <em>follow later</em></h2>
+    <svg class="dtm-svg reveal d3" id="dtm-model" viewBox="0 0 1580 470" role="img" aria-label="Demographic Transition Model: birth and death rates across five stages"></svg>
+    <div class="vars reveal d4">
+      <div class="var"><b>Birth rate (CBR)</b>Babies born each year per 1,000 people.</div>
+      <div class="var"><b>Death rate (CDR)</b>Deaths each year per 1,000 people.</div>
+      <div class="var"><b>Natural increase</b>Birth rate minus death rate. 20 per 1,000 is 2% growth a year.</div>
+      <div class="var"><b>Total fertility (TFR)</b>Children per woman over her life. About 2.1 replaces the parents.</div>
+      <div class="var"><b>Life expectancy</b>Years a newborn can expect to live at today's death rates.</div>
+    </div>
+    <p class="src" style="margin-top:10px">After Max Roser (2019), "Demographic transition: Why is rapid population growth a temporary phenomenon?", Our World in Data. Curves are a sketch, not data.</p>
+  </div>
+  <aside class="notes">Walk through the stages left to right. Stage 1: high births and high deaths, little growth (Sweden before 1800). Stage 2: better food, clean water and medicine cut deaths, but families stay large, so the population booms (Niger today). Stage 3: as child deaths fall, schooling spreads and people move to cities, families get smaller (Kenya). Stage 4: both rates low, little growth (United States). Stage 5: deaths exceed births (Japan, China). Roser's key point: if fertility had fallen at the same time as mortality, there would have been no population boom at all; the boom is the gap between the two lines.</aside>
+</section>
+
+<!-- 5. PRACTICE -->
+<section class="slide" id="practice">
+  <div class="rail"><b>3.1</b><span>Practice</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">Quick practice · 10 million people</div>
+    <h2 class="tight reveal d2">Move the <em>birth</em> and <em>death</em> rates</h2>
+    <div class="prac reveal d3">
+      <div>
+        <div class="slider"><label>Birth rate (per 1,000 per year)<output id="p-cbr-o">40</output></label><input type="range" id="p-cbr" min="5" max="50" step="1" value="40"></div>
+        <div class="slider"><label>Death rate (per 1,000 per year)<output id="p-cdr-o">15</output></label><input type="range" id="p-cdr" min="5" max="50" step="1" value="15"></div>
+        <div class="k" style="margin-top:6px">Missions</div>
+        <ul class="missions" id="p-missions"></ul>
+        <div class="status" id="p-status"></div>
+      </div>
+      <div>
+        <svg class="chart" id="p-chart" viewBox="0 0 900 470" role="img" aria-label="Population over 100 years"></svg>
+        <div class="readouts" id="p-read"></div>
+      </div>
+    </div>
+  </div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <aside class="notes">Give students 5 minutes. Missions 2 and 3 are the punchline: a stage 1 country and a stage 4 country can both have zero growth, but for very different reasons. Ask: "What rule of thumb gives the doubling time?" (70 divided by the growth rate in percent). Mission progress is saved to the admin page.</aside>
+</section>
+
+<!-- 6. GAME SETUP -->
+<section class="slide" id="setup">
+  <div class="rail"><b>3.1</b><span>The game</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">Simulation game · pick a country</div>
+    <h2 class="tight reveal d2">Lead a country for <em>80 years</em></h2>
+    <div class="countries reveal d3" id="countries"></div>
+    <div class="how reveal d4">
+      <div><b>1 · Spend</b>Each round is 10 years. You get 6 points to spend on policy cards.</div>
+      <div><b>2 · Run</b>Families decide how many children to have. Watch births and deaths respond.</div>
+      <div><b>3 · Score</b>After 8 rounds you get up to 5 stars for a healthy, steady population.</div>
+    </div>
+  </div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <aside class="notes">Assign countries so every stage is covered, for example by row. China is the hardest: its costs of raising children are so high that even strong family policy has a small effect, which matches what East Asian governments have found. Starting values are rounded from UN World Population Prospects (via Our World in Data); everything after that is a teaching model.</aside>
+</section>
+
+<!-- 7. GAME BOARD -->
+<section class="slide" id="game">
+  <div class="rail"><b>3.1</b><span>Play</span></div>
+  <div class="board">
+    <div class="gbar">
+      <div><div class="k" id="g-round">Round 1 of 8</div><h3 id="g-title">Pick a country first</h3></div>
+      <div style="display:flex;gap:14px;align-items:center"><span class="stage-pill" id="g-stage">Stage</span><span class="pts">Points left <b id="g-pts">6</b> / 6</span></div>
+    </div>
+    <div class="gmain">
+      <div>
+        <div class="cards" id="g-cards"></div>
+        <div class="gact"><button class="btn" type="button" id="g-run">Run 10 years ▶</button><button class="btn ghost" type="button" id="g-new">Change country</button></div>
+        <div class="msg" id="g-msg">Choose policy cards, then run the next 10 years.</div>
+      </div>
+      <div class="gright">
+        <svg class="chart" id="g-dtm" viewBox="0 0 1010 400" role="img" aria-label="Your country's birth and death rates"></svg>
+        <div class="gcharts">
+          <svg class="chart" id="g-pyr" viewBox="0 0 470 390" role="img" aria-label="Age pyramid"></svg>
+          <div class="stats" id="g-stats"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="result" id="g-result"><div class="box">
+    <div class="k" id="r-k">2105 · final report</div>
+    <h3 id="r-title">Your country</h3>
+    <div class="stars" id="r-stars"></div>
+    <ul class="checks" id="r-checks"></ul>
+    <p class="src" id="r-note" style="font-size:20px"></p>
+    <div class="gact"><button class="btn" type="button" id="r-again">Play again</button><button class="btn ghost" type="button" id="r-other">Try another country</button><button class="btn ghost" type="button" id="r-close">Look at the charts</button></div>
+    <div class="status" id="r-status"></div>
+  </div></div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <aside class="notes">Circulate while students play (15 to 20 minutes). Common surprises: in Niger, health spending alone makes the population explode (stage 2), because families stay large until schooling, jobs and family planning catch up. In Kenya, pushing hard on everything overshoots below replacement. In Japan and China, only family support, immigration and a later retirement age help. The "Cut clinic budget" card is the trap: more children die, so parents have more births, and the country fails the health checks. Each finished game is saved to the admin page.</aside>
+</section>
+
+<!-- 8. DEBRIEF -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Debrief</span></div>
+  <div class="content">
+    <div class="k reveal">Talk with your neighbor</div>
+    <h2 class="reveal d2">What did your country <em>teach</em> you?</h2>
+    <ol class="num qs reveal d3">
+      <li>Why did the population grow fastest just after deaths fell?</li>
+      <li>Which cards lowered fertility, and why did they take a generation to work?</li>
+      <li>Why is a shrinking, aging country a sustainability problem too?</li>
+    </ol>
+    <div class="take reveal d4"><b>Takeaway:</b> rapid population growth is a temporary gap between falling deaths and falling births. Health, schooling for girls and choice over family size close that gap, not higher death rates.</div>
+  </div>
+  <aside class="notes">Ask two or three students from different countries to share their star count and one decision. Link back to carrying capacity and the ecological footprint: population size matters, but so does how much each person consumes, which is where the rest of this module goes.</aside>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm3-s1';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const say = (el, msg, kind = '') => { el.textContent = msg; el.className = `status ${kind}`; };
+const fmt = (x, d = 1) => Number(x).toFixed(d);
+const people = m => m >= 1000 ? `${fmt(m / 1000, 2)} billion` : m >= 10 ? `${Math.round(m)} million` : `${fmt(m, 1)} million`;
+
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {});
+
+/* === VIDEO === */
+$$('[data-youtube]').forEach(v => {
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}" title="Vox: Why China's population is shrinking" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+});
+$$('[data-goto]').forEach(b => b.addEventListener('click', () => window.Deck.go(Number(b.dataset.goto))));
+
+/* === SVG HELPERS === */
+const NS = 'http://www.w3.org/2000/svg';
+const F = "'PT Serif', Georgia, serif";
+const path = pts => pts.map((p, i) => `${i ? 'L' : 'M'}${fmt(p[0])},${fmt(p[1])}`).join('');
+const txt = (x, y, s, o = {}) => `<text x="${x}" y="${y}" font-family="${F}" font-size="${o.size || 18}" fill="${o.fill || '#4c6670'}" text-anchor="${o.anchor || 'start'}"${o.weight ? ` font-weight="${o.weight}"` : ''}>${s}</text>`;
+const STAGE = ['', 'Stage 1 · High birth and death rates', 'Stage 2 · Deaths fall, births stay high', 'Stage 3 · Births fall', 'Stage 4 · Both low', 'Stage 5 · Deaths exceed births'];
+const STAGE_SHORT = ['', 'Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Stage 5'];
+function stageOf(cbr, cdr) {
+  if (cbr < cdr - 1) return 5;
+  if (cbr > 30) return cdr > 25 ? 1 : 2;
+  if (cbr > 18) return 3;
+  return 4;
+}
+
+/* === EXPLANATION 2: the model sketch (not data) === */
+(function drawModel() {
+  const W = 1580, H = 470, x0 = 70, x1 = 1560, y0 = 60, y1 = 400, max = 45;
+  const X = t => x0 + t * (x1 - x0), Y = v => y1 - v / max * (y1 - y0);
+  // [position 0..1, birth, death] control points, smoothed by interpolation
+  const b = [[0, 38], [0.2, 39], [0.4, 37], [0.5, 30], [0.6, 18], [0.8, 12], [1, 8]];
+  const d = [[0, 35], [0.08, 40], [0.14, 33], [0.2, 36], [0.3, 22], [0.4, 13], [0.6, 10], [0.8, 10], [1, 12]];
+  const at = (cp, t) => { for (let i = 1; i < cp.length; i++) if (t <= cp[i][0]) { const [ta, va] = cp[i - 1], [tb, vb] = cp[i]; const u = (t - ta) / (tb - ta); const s = u * u * (3 - 2 * u); return va + (vb - va) * s; } return cp.at(-1)[1]; };
+  const ts = Array.from({ length: 201 }, (_, i) => i / 200);
+  const bp = ts.map(t => [X(t), Y(at(b, t))]), dp = ts.map(t => [X(t), Y(at(d, t))]);
+  let s = '';
+  const edges = [0, 0.2, 0.4, 0.6, 0.8, 1];
+  const names = [['Stage 1', 'Sweden before 1800'], ['Stage 2', 'Niger, Chad'], ['Stage 3', 'Kenya, India'], ['Stage 4', 'United States'], ['Stage 5', 'Japan, China']];
+  for (let i = 0; i < 5; i++) {
+    s += `<rect x="${X(edges[i])}" y="${y0 - 50}" width="${X(edges[i + 1]) - X(edges[i]) - 2}" height="${y1 - y0 + 50}" fill="${i % 2 ? '#fffdf8' : '#f1ece0'}"/>`;
+    s += txt(X(edges[i]) + 14, y0 - 24, names[i][0], { size: 24, fill: '#10313d', weight: 700 });
+    s += txt(X(edges[i]) + 14, y0 + 0, names[i][1], { size: 18 });
+  }
+  [0, 10, 20, 30, 40].forEach(v => { s += `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5d6" stroke-width="1"/>` + txt(x0 - 12, Y(v) + 6, v, { anchor: 'end', size: 16 }); });
+  // natural increase: the gap while births exceed deaths
+  s += `<path d="${path(bp)}${path(dp.slice().reverse()).replace('M', 'L')}Z" fill="rgba(10,120,173,.12)"/>`;
+  s += `<path d="${path(bp)}" fill="none" stroke="#0a78ad" stroke-width="4"/>`;
+  s += `<path d="${path(dp)}" fill="none" stroke="#c0462a" stroke-width="4"/>`;
+  s += txt(X(0.24), Y(41) - 4, 'Birth rate', { size: 22, fill: '#10313d', weight: 700 }) + `<circle cx="${X(0.24) - 14}" cy="${Y(41) - 11}" r="7" fill="#0a78ad"/>`;
+  s += txt(X(0.35), Y(10), 'Death rate', { size: 22, fill: '#10313d', weight: 700 }) + `<circle cx="${X(0.35) - 14}" cy="${Y(10) - 7}" r="7" fill="#c0462a"/>`;
+  s += txt(X(0.335), Y(29), 'The gap =', { size: 22, fill: '#0a4f68', weight: 700, anchor: 'middle' }) + txt(X(0.335), Y(29) + 28, 'population growth', { size: 22, fill: '#0a4f68', weight: 700, anchor: 'middle' });
+  s += txt(X(0.87), Y(15), 'Deaths exceed births', { size: 18, fill: '#10313d', anchor: 'middle' });
+  s += txt(x0 - 50, y0 - 30, 'per 1,000', { size: 16 });
+  s += txt((x0 + x1) / 2, H - 30, 'Time →', { size: 20, anchor: 'middle' });
+  $('#dtm-model').innerHTML = s;
+})();
+
+/* === PRACTICE === simple growth: each year the population changes by (births − deaths) per 1,000 */
+const MISSIONS = [
+  { id: 'double', text: 'Boom: make the population double in 35 years or less.', ok: (b, d) => (b - d) / 10 >= 2 },
+  { id: 'stage1', text: 'Stage 1: hold it steady with both rates above 30.', ok: (b, d) => Math.abs(b - d) <= 1 && b > 30 && d > 30 },
+  { id: 'stage4', text: 'Stage 4: hold it steady with both rates below 15.', ok: (b, d) => Math.abs(b - d) <= 1 && b < 15 && d < 15 },
+  { id: 'shrink', text: 'Stage 5: make the population shrink.', ok: (b, d) => d > b },
+];
+const done = new Set();
+$('#p-missions').innerHTML = MISSIONS.map(m => `<li data-m="${m.id}"><i>✓</i><span>${m.text}</span></li>`).join('');
+function practice() {
+  const b = +$('#p-cbr').value, d = +$('#p-cdr').value;
+  $('#p-cbr-o').textContent = b; $('#p-cdr-o').textContent = d;
+  const r = (b - d) / 1000, pop = Array.from({ length: 101 }, (_, t) => 10 * Math.pow(1 + r, t));
+  const W = 900, H = 470, x0 = 80, x1 = 870, y0 = 30, y1 = 410;
+  const top = Math.max(20, ...pop), nice = [20, 40, 60, 100, 200, 400, 600, 1000, 2000, 4000, 10000].find(v => v >= top) || top;
+  const X = t => x0 + t / 100 * (x1 - x0), Y = v => y1 - v / nice * (y1 - y0);
+  let s = '';
+  for (let i = 0; i <= 4; i++) { const v = nice * i / 4; s += `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5d6"/>` + txt(x0 - 10, Y(v) + 6, v >= 1000 ? `${v / 1000}B` : `${v}M`, { anchor: 'end', size: 17 }); }
+  [0, 25, 50, 75, 100].forEach(t => { s += txt(X(t), y1 + 30, `${t} yrs`, { anchor: 'middle', size: 17 }); });
+  s += `<line x1="${x0}" x2="${x1}" y1="${Y(10)}" y2="${Y(10)}" stroke="#4c6670" stroke-dasharray="6 6"/>` + txt(x1, Y(10) - 8, 'start: 10 million', { anchor: 'end', size: 16 });
+  s += `<path d="${path(pop.map((p, t) => [X(t), Y(p)]))}" fill="none" stroke="#5f8f8b" stroke-width="4"/>`;
+  [25, 50, 75, 100].forEach(t => { s += `<circle cx="${X(t)}" cy="${Y(pop[t])}" r="8" fill="#5f8f8b" stroke="#fffdf8" stroke-width="2"><title>After ${t} years: ${people(pop[t])}</title></circle>`; });
+  s += txt(x0, y0 - 6, 'Population', { size: 18, fill: '#10313d', weight: 700 });
+  $('#p-chart').innerHTML = s;
+  const pct = (b - d) / 10, st = stageOf(b, d);
+  const dbl = pct > 0.05 ? `${Math.round(70 / pct)} yrs` : pct < -0.05 ? `${Math.round(70 / -pct)} yrs` : '—';
+  $('#p-read').innerHTML = `
+    <div class="tile"><small>Natural increase</small><b>${b - d > 0 ? '+' : ''}${b - d}</b><i>per 1,000 a year</i></div>
+    <div class="tile"><small>Growth</small><b>${pct > 0 ? '+' : ''}${fmt(pct)}%</b><i>per year</i></div>
+    <div class="tile"><small>${pct < 0 ? 'Halves in' : 'Doubles in'}</small><b>${dbl}</b><i>about 70 ÷ growth %</i></div>
+    <div class="tile"><small>After 50 years</small><b>${people(pop[50]).replace(' million', 'M').replace(' billion', 'B')}</b><i><span class="stage-pill s${st}" style="font-size:14px;padding:2px 10px">${STAGE_SHORT[st]}</span></i></div>`;
+  let fresh = false;
+  MISSIONS.forEach(m => { if (m.ok(b, d) && !done.has(m.id)) { done.add(m.id); fresh = true; } $(`[data-m="${m.id}"]`).classList.toggle('done', done.has(m.id)); });
+  if (fresh) savePractice(b, d);
+}
+['#p-cbr', '#p-cdr'].forEach(id => $(id).addEventListener('input', practice));
+
+/* === GAME MODEL ===
+   A cohort model with 21 five-year age groups. Mortality comes from life
+   expectancy; births come from the total fertility rate. Families set fertility:
+   it falls with girls' schooling, jobs and city life, and with child survival,
+   and family planning lets them reach the size they want. It changes slowly (a
+   generation lag), while health gains arrive fast: that lag is the transition. */
+const G = 21, SHARE = [0, 0, 0, 0.05, 0.2, 0.27, 0.24, 0.15, 0.07, 0.02];
+const hazHi = a => 0.003 * Math.exp(-1.5 * a) + 0.0002 + 0.000012 * Math.exp(0.1 * a);
+const hazLo = a => 0.3 * Math.exp(-0.9 * a) + 0.007 + 0.0004 * Math.exp(0.075 * a);
+function table(t) {
+  const l = [1];
+  for (let a = 0; a < 125; a++) l.push(l[a] * Math.exp(-Math.exp((1 - t) * Math.log(hazHi(a + 0.5)) + t * Math.log(hazLo(a + 0.5)))));
+  const L = [];
+  for (let g = 0; g < G; g++) { let s = 0; const end = g === G - 1 ? 125 : 5 * g + 5; for (let a = 5 * g; a < end; a++) s += (l[a] + l[a + 1]) / 2; L.push(s); }
+  return { l, L, e0: L.reduce((x, y) => x + y, 0) };
+}
+const LT = new Map();
+function lifeTable(e0) {
+  const k = Math.round(e0 * 10) / 10;
+  if (!LT.has(k)) {
+    let lo = -1.2, hi = 1.3;
+    for (let i = 0; i < 40; i++) { const mid = (lo + hi) / 2; if (table(mid).e0 > k) lo = mid; else hi = mid; }
+    const t = table((lo + hi) / 2);
+    LT.set(k, { ...t, S: t.L.map((x, g) => g < G - 2 ? t.L[g + 1] / x : 0), openS: t.L[G - 1] / (t.L[G - 2] + t.L[G - 1]), s5: t.l[5] });
+  }
+  return LT.get(k);
+}
+const sum = a => a.reduce((x, y) => x + y, 0);
+function stable(total, r, e0, y) {
+  const n = lifeTable(e0).L.map((x, g) => x * Math.exp(-r * (5 * g + 2.5)) * (g < 4 ? y ** ((4 - g) / 4) : 1));
+  const s = sum(n); return n.map(x => x * total / s);
+}
+function step(N, tfr, e0, mig) {
+  const lt = lifeTable(e0), out = new Array(G).fill(0), tot = sum(N);
+  for (let g = 0; g < G - 2; g++) out[g + 1] = N[g] * lt.S[g];
+  out[G - 1] = (N[G - 2] + N[G - 1]) * lt.openS;
+  const migrants = mig * tot * 5;
+  for (let g = 4; g < 8; g++) out[g] += migrants / 4;
+  let B = 0;
+  for (let g = 3; g <= 9; g++) B += tfr * SHARE[g] * 0.49 * (N[g] + out[g]) / 2;
+  out[0] = B * lt.L[0] / 5;
+  const tot2 = sum(out), avg = (tot + tot2) / 2;
+  return { N: out, cbr: B / 5 / avg * 1000, cdr: (tot + B + migrants - tot2) / 5 / avg * 1000 };
+}
+
+/* Starting points: rounded UN World Population Prospects figures (via Our World in Data).
+   r and y shape the starting age pyramid; E, W, F are teaching indices (0 to 1). */
+const COUNTRIES = {
+  niger: { name: 'Niger', pop: 27, tfr: 6.1, e0: 62, r: 0.038, y: 0.72, E: 0.12, W: 0.15, F: 0.15, mig: 0, mission: 'Bring child deaths down, then help families choose smaller families.' },
+  kenya: { name: 'Kenya', pop: 56, tfr: 3.2, e0: 63, r: 0.038, y: 0.5, E: 0.75, W: 0.65, F: 0.8, mig: 0, mission: 'Finish the transition without overshooting below replacement.' },
+  usa: { name: 'United States', pop: 340, tfr: 1.6, e0: 79, r: 0.008, y: 0.78, E: 0.95, W: 0.95, F: 0.97, mig: 0.003, mission: 'Stay in stage 4 as the baby boomers age.' },
+  japan: { name: 'Japan', pop: 124, tfr: 1.2, e0: 85, r: -0.005, y: 1.58, E: 0.97, W: 0.97, F: 0.97, mig: 0.001, mission: 'Slow the shrink and keep enough workers per retiree.' },
+  china: { name: 'China', pop: 1410, tfr: 1.0, e0: 79, r: 0.009, y: 1.36, E: 0.95, W: 0.95, F: 0.97, mig: 0, mission: 'Hard mode: the country in the video. Can you stop the fall?' },
+};
+const e0Of = H => 35 + 52 * H;
+function targetTfr(s) {
+  const wanted = Math.max(0.6, 1.4 + 4.6 * (1 - 0.55 * s.E - 0.45 * s.W) + 0.1 * s.support + s.adj);
+  const births = wanted / lifeTable(e0Of(s.H)).s5; // parents make up for children who die
+  return Math.min(7.5, births + Math.max(0, 7 - births) * 0.45 * (1 - s.F));
+}
+const up = (x, k) => x + k * (1 - x);
+const CARDS = [
+  { id: 'health', name: 'Clinics, vaccines and clean water', cost: 2, text: 'Fewer children and adults die. Life expectancy rises fast.', apply: s => { s.H = up(s.H, 0.3); } },
+  { id: 'school', name: 'Keep girls in school', cost: 2, text: 'Women marry later and choose smaller families.', apply: s => { s.E = up(s.E, 0.3); } },
+  { id: 'fp', name: 'Family planning services', cost: 1, text: 'Couples can have the number of children they want.', apply: s => { s.F = up(s.F, 0.4); } },
+  { id: 'jobs', name: 'Jobs and growing cities', cost: 3, text: 'Children cost more in cities; better incomes help health too.', apply: s => { s.W = up(s.W, 0.3); s.H = up(s.H, 0.06); } },
+  { id: 'family', name: 'Childcare and parental leave', cost: 2, text: 'Makes it easier to have the children people want. Small effect.', apply: s => { s.support = Math.min(5, s.support + 1); } },
+  { id: 'migrate', name: 'Welcome immigrants', cost: 1, text: 'Adds young adults: +0.1% of the population each year.', apply: s => { s.mig = Math.min(0.006, s.mig + 0.001); } },
+  { id: 'retire', name: 'Retirement age 65 → 70', cost: 1, text: 'More workers per retiree. Once per game.', apply: s => { s.retire = 70; } },
+  { id: 'cut', name: 'Cut clinic budget to slow growth', cost: -2, trap: true, text: 'Frees 2 points. More deaths means fewer people… right?', apply: s => { s.H = Math.max(0.2, s.H - 0.2); } },
+];
+const ROUNDS = 8, BUDGET = 6;
+function init(id) {
+  const c = COUNTRIES[id];
+  const s = { id, year: 2025, round: 0, N: stable(c.pop, c.r, c.e0, c.y), tfr: c.tfr, e0: c.e0, H: (c.e0 - 35) / 52, E: c.E, W: c.W, F: c.F, adj: 0, support: 0, mig: c.mig, retire: 65, used: {}, trap: 0 };
+  s.adj = c.tfr - targetTfr(s); // country-specific costs of raising children, so it starts where it is today
+  const f = step(s.N, s.tfr, s.e0, s.mig);
+  s.cbr = f.cbr; s.cdr = f.cdr; s.N0 = s.N.slice();
+  s.hist = [snap(s)];
+  return s;
+}
+const u5 = s => (1 - lifeTable(s.e0).s5) * 1000;
+const supportRatio = s => sum(s.N.slice(4, s.retire / 5)) / sum(s.N.slice(s.retire / 5));
+const snap = s => ({ year: s.year, pop: sum(s.N), cbr: s.cbr, cdr: s.cdr, tfr: s.tfr, e0: s.e0 });
+function decade(s, picks) {
+  picks.forEach(id => { CARDS.find(c => c.id === id).apply(s); s.used[id] = (s.used[id] || 0) + 1; });
+  if (picks.includes('cut')) s.trap++;
+  const e0t = e0Of(s.H), tt = targetTfr(s);
+  let cb = 0, cd = 0;
+  for (let i = 0; i < 2; i++) {
+    s.e0 += (e0t - s.e0) * 0.6;   // health gains arrive fast
+    s.tfr += (tt - s.tfr) * 0.3;  // family size changes slowly
+    const r = step(s.N, s.tfr, s.e0, s.mig); s.N = r.N; cb += r.cbr / 2; cd += r.cdr / 2;
+  }
+  s.cbr = cb; s.cdr = cd; s.year += 10; s.round++;
+  s.hist.push(snap(s));
+}
+function growth(s) { const h = s.hist; return h.length < 2 ? (s.cbr - s.cdr) / 10 + s.mig * 100 : (Math.pow(h.at(-1).pop / h.at(-2).pop, 1 / 10) - 1) * 100; }
+function score(s) {
+  const g = growth(s), sup = supportRatio(s), child = u5(s);
+  const checks = [
+    { id: 'life', label: 'Long lives', detail: 'Life expectancy of 75 years or more', ok: s.e0 >= 75, value: `${fmt(s.e0, 0)} yrs` },
+    { id: 'child', label: 'Few child deaths', detail: 'Under 25 per 1,000 births die before age 5 (a UN SDG target)', ok: child < 25, value: `${fmt(child, 0)} per 1,000` },
+    { id: 'fert', label: 'Fertility near replacement', detail: 'Total fertility between 1.6 and 2.4', ok: s.tfr >= 1.6 && s.tfr <= 2.4, value: `${fmt(s.tfr, 2)} children` },
+    { id: 'steady', label: 'Steady population', detail: 'Growth between −0.5% and +1% a year', ok: g >= -0.5 && g <= 1, value: `${g > 0 ? '+' : ''}${fmt(g, 2)}% a year` },
+    { id: 'workers', label: 'Enough workers', detail: `At least 2.5 people aged 20 to ${s.retire - 1} per person ${s.retire}+`, ok: sup >= 2.5, value: fmt(sup, 1) },
+  ];
+  return { checks, stars: checks.filter(c => c.ok).length, growth: g, support: sup, child };
+}
+
+/* === GAME UI === */
+let game = null, picks = new Set();
+$('#countries').innerHTML = Object.entries(COUNTRIES).map(([id, c]) => {
+  const s = init(id), st = stageOf(s.cbr, s.cdr);
+  return `<button class="country" type="button" data-country="${id}">
+    <span class="stage-pill s${st}" style="font-size:16px;align-self:flex-start">${STAGE_SHORT[st]}</span>
+    <h3>${esc(c.name)}</h3>
+    <dl><dt>People</dt><dd>${people(c.pop)}</dd><dt>Births / 1,000</dt><dd>${fmt(s.cbr, 0)}</dd><dt>Deaths / 1,000</dt><dd>${fmt(s.cdr, 0)}</dd><dt>Children per woman</dt><dd>${fmt(c.tfr)}</dd><dt>Life expectancy</dt><dd>${c.e0} yrs</dd></dl>
+    <p class="mission">${esc(c.mission)}</p><span class="go">Play ${esc(c.name)} →</span></button>`;
+}).join('');
+$$('[data-country]').forEach(b => b.addEventListener('click', () => { start(b.dataset.country); window.Deck.go(6); }));
+$('#g-cards').innerHTML = CARDS.map(c => `<button class="pcard${c.trap ? ' trap' : ''}" type="button" data-card="${c.id}"><span class="cost">${c.cost > 0 ? `${c.cost} pt${c.cost > 1 ? 's' : ''}` : `+${-c.cost} pts`}</span><h4>${esc(c.name)}</h4>${esc(c.text)}</button>`).join('');
+
+function start(id) {
+  game = init(id); picks = new Set();
+  $('#g-result').classList.remove('show');
+  say($('#r-status'), '');
+  $('#g-msg').className = 'msg';
+  $('#g-msg').innerHTML = `<b>${esc(COUNTRIES[id].name)}, 2025.</b> ${esc(COUNTRIES[id].mission)} Pick cards worth up to 6 points, then run the next 10 years.`;
+  render();
+}
+const left = () => BUDGET - [...picks].reduce((t, id) => t + CARDS.find(c => c.id === id).cost, 0);
+$$('[data-card]').forEach(b => b.addEventListener('click', () => {
+  if (!game || game.round >= ROUNDS) return;
+  const id = b.dataset.card;
+  if (picks.has(id)) picks.delete(id);
+  else if (CARDS.find(c => c.id === id).cost <= left()) picks.add(id);
+  // dropping the trap card takes its 2 points back: drop the newest picks until the budget fits
+  while (left() < 0) picks.delete([...picks].at(-1));
+  render();
+}));
+$('#g-run').addEventListener('click', () => {
+  if (!game || game.round >= ROUNDS) return;
+  const before = stageOf(game.cbr, game.cdr), trapped = picks.has('cut');
+  decade(game, [...picks]); picks = new Set();
+  const now = stageOf(game.cbr, game.cdr), sup = supportRatio(game);
+  const lines = {
+    1: 'Births and deaths are both high, so the population barely grows.',
+    2: 'Deaths are low but families are still large, so the population grows fast.',
+    3: 'Families are getting smaller now, so growth is slowing.',
+    4: 'Births and deaths are both low, so growth is close to zero.',
+    5: 'Deaths now outnumber births. Without immigrants the population shrinks.',
+  };
+  let m = `<b>${game.year}: ${STAGE_SHORT[now]}${now !== before ? ` (was ${STAGE_SHORT[before]})` : ''}.</b> ${lines[now]}`;
+  if (sup < 2.5) m += ` Only ${fmt(sup, 1)} workers per retiree.`;
+  if (trapped) m = `<b>Trap!</b> More children died, so parents had more babies to make up for it (fertility ${fmt(game.tfr, 1)}). In real countries, saving children's lives is what leads to smaller families. ` + m;
+  $('#g-msg').className = `msg${trapped ? ' trap' : ''}`;
+  $('#g-msg').innerHTML = m;
+  render();
+  if (game.round >= ROUNDS) finish();
+});
+$('#g-new').addEventListener('click', () => window.Deck.go(5));
+$('#r-again').addEventListener('click', () => start(game.id));
+$('#r-other').addEventListener('click', () => window.Deck.go(5));
+$('#r-close').addEventListener('click', () => $('#g-result').classList.remove('show'));
+
+function render() {
+  if (!game) return;
+  const c = COUNTRIES[game.id], st = stageOf(game.cbr, game.cdr), over = game.round >= ROUNDS;
+  $('#g-title').textContent = `${c.name}, ${game.year}`;
+  $('#g-round').textContent = over ? 'Game over' : `Round ${game.round + 1} of ${ROUNDS} · ${game.year}–${game.year + 10}`;
+  $('#g-stage').textContent = STAGE[st]; $('#g-stage').className = `stage-pill s${st}`;
+  $('#g-pts').textContent = left();
+  $$('[data-card]').forEach(b => {
+    const card = CARDS.find(x => x.id === b.dataset.card);
+    b.classList.toggle('on', picks.has(card.id));
+    b.disabled = over || (card.id === 'retire' && game.retire === 70) || (!picks.has(card.id) && card.cost > left());
+  });
+  $('#g-run').disabled = over;
+  drawDtm(); drawPyramid(); drawStats();
+}
+
+function drawDtm() {
+  const h = game.hist, W = 1010, H = 400, x0 = 70, x1 = 980, y0 = 50, y1 = 350, max = 50;
+  const X = yr => x0 + (yr - 2025) / 80 * (x1 - x0), Y = v => y1 - Math.min(v, max) / max * (y1 - y0);
+  let s = txt(x0 - 50, 30, 'Your country: births and deaths per 1,000 people a year', { size: 20, fill: '#10313d', weight: 700 });
+  [0, 10, 20, 30, 40, 50].forEach(v => { s += `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5d6"/>` + txt(x0 - 12, Y(v) + 6, v, { anchor: 'end', size: 16 }); });
+  for (let yr = 2025; yr <= 2105; yr += 20) s += txt(X(yr), y1 + 30, yr, { anchor: 'middle', size: 16 });
+  const bp = h.map(p => [X(p.year), Y(p.cbr)]), dp = h.map(p => [X(p.year), Y(p.cdr)]);
+  if (h.length > 1) {
+    for (let i = 1; i < h.length; i++) {
+      const grow = (h[i].cbr + h[i - 1].cbr) > (h[i].cdr + h[i - 1].cdr);
+      s += `<path d="${path([bp[i - 1], bp[i], dp[i], dp[i - 1]])}Z" fill="${grow ? 'rgba(10,120,173,.13)' : 'rgba(192,70,42,.13)'}"/>`;
+    }
+  }
+  s += `<path d="${path(bp)}" fill="none" stroke="#0a78ad" stroke-width="3"/><path d="${path(dp)}" fill="none" stroke="#c0462a" stroke-width="3"/>`;
+  h.forEach((p, i) => {
+    s += `<circle cx="${bp[i][0]}" cy="${bp[i][1]}" r="7" fill="#0a78ad" stroke="#fffdf8" stroke-width="2"><title>${p.year}: ${fmt(p.cbr)} births per 1,000</title></circle>`;
+    s += `<circle cx="${dp[i][0]}" cy="${dp[i][1]}" r="7" fill="#c0462a" stroke="#fffdf8" stroke-width="2"><title>${p.year}: ${fmt(p.cdr)} deaths per 1,000</title></circle>`;
+  });
+  // direct labels at the newest point: to the right while there is room, else above/below the points
+  const last = h.at(-1), lb = Y(last.cbr), ld = Y(last.cdr), bTop = lb <= ld;
+  const lab = (y, top, t) => last.year < 2090
+    ? txt(X(last.year) + 16, y + 6 + (Math.abs(lb - ld) < 26 ? (top ? -13 : 13) : 0), t, { size: 18, fill: '#10313d', weight: 700 })
+    : txt(X(last.year) - 12, top ? y - 16 : y + 30, t, { size: 18, fill: '#10313d', weight: 700, anchor: 'end' });
+  s += lab(lb, bTop, `Births ${fmt(last.cbr, 0)}`) + lab(ld, !bTop, `Deaths ${fmt(last.cdr, 0)}`);
+  $('#g-dtm').innerHTML = s;
+}
+
+function drawPyramid() {
+  const W = 470, cx = 235, y0 = 44, bh = 14.8, N = game.N, N0 = game.N0;
+  const t = sum(N), t0 = sum(N0);
+  const sh = N.map(v => v / t), sh0 = N0.map(v => v / t0), max = Math.max(...sh, ...sh0) * 1.05;
+  const wide = v => v / max * (W / 2 - 50);
+  let s = txt(18, 26, 'Age pyramid', { size: 20, fill: '#10313d', weight: 700 }) + txt(W - 14, 26, '- - - 2025', { size: 16, anchor: 'end' });
+  for (let g = 0; g < G; g++) {
+    const y = y0 + (G - 1 - g) * bh, w = wide(sh[g]), w0 = wide(sh0[g]);
+    const oldAge = g >= game.retire / 5;
+    s += `<rect x="${cx - w}" y="${y}" width="${w * 2}" height="${bh - 2}" rx="2" fill="${oldAge ? '#b8922a' : '#42a8bf'}"><title>Ages ${g === G - 1 ? '100+' : `${5 * g}–${5 * g + 4}`}: ${fmt(sh[g] * 100)}% of people</title></rect>`;
+    if (g % 4 === 0) s += txt(12, y + 12, g === 20 ? '100+' : 5 * g, { size: 14 });
+  }
+  // 2025 outline: the silhouette of the starting pyramid
+  const edge = side => { const pts = []; for (let g = 0; g < G; g++) { const y = y0 + (G - 1 - g) * bh, x = cx + side * wide(sh0[g]); pts.push([x, y + bh - 1], [x, y - 1]); } return pts; };
+  s += `<path d="${path(edge(1))}" fill="none" stroke="#10313d" stroke-width="2" stroke-dasharray="5 4"/><path d="${path(edge(-1))}" fill="none" stroke="#10313d" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s += txt(cx, y0 + G * bh + 22, `gold = ${game.retire}+, blue = under ${game.retire}`, { size: 15, anchor: 'middle' });
+  $('#g-pyr').innerHTML = s;
+}
+
+function drawStats() {
+  const g = growth(game), sup = supportRatio(game);
+  const tile = (k, v, i = '') => `<div class="tile"><small>${k}</small><b>${v}</b>${i ? `<i>${i}</i>` : ''}</div>`;
+  $('#g-stats').innerHTML = [
+    tile('Population', people(sum(game.N)).replace(' million', 'M').replace(' billion', 'B'), `${g > 0 ? '+' : ''}${fmt(g, 2)}% a year`),
+    tile('Children per woman', fmt(game.tfr, 2), 'replacement ≈ 2.1'),
+    tile('Births per 1,000', fmt(game.cbr, 1)),
+    tile('Deaths per 1,000', fmt(game.cdr, 1)),
+    tile('Life expectancy', `${fmt(game.e0, 0)} yrs`),
+    tile('Child deaths', fmt(u5(game), 0), 'per 1,000 before age 5'),
+    tile('Workers per retiree', fmt(sup, 1), `ages 20–${game.retire - 1} per ${game.retire}+`),
+    tile('Immigration', `${fmt(game.mig * 100, 1)}%`, 'of population a year'),
+  ].join('');
+}
+
+async function finish() {
+  const sc = score(game), c = COUNTRIES[game.id], first = game.hist[0], last = game.hist.at(-1);
+  $('#r-title').textContent = `${c.name}: ${STAGE_SHORT[stageOf(first.cbr, first.cdr)]} → ${STAGE_SHORT[stageOf(last.cbr, last.cdr)]}`;
+  $('#r-stars').textContent = '★'.repeat(sc.stars) + '☆'.repeat(5 - sc.stars);
+  $('#r-checks').innerHTML = sc.checks.map(k => `<li class="${k.ok ? 'ok' : ''}"><i>${k.ok ? '✓' : '✗'}</i><div><b>${k.label}</b><br><span>${k.detail}</span></div><b>${k.value}</b></li>`).join('');
+  $('#r-note').textContent = `Population ${people(first.pop)} → ${people(last.pop)}. ${game.trap ? 'You used the trap card: cutting health care raised child deaths, and families had more babies to make up for it. ' : ''}These are teaching numbers from a simple model, not forecasts.`;
+  $('#g-result').classList.add('show');
+  const record = {
+    country: game.id, stars: sc.stars, checks: Object.fromEntries(sc.checks.map(k => [k.id, k.ok])),
+    startStage: stageOf(first.cbr, first.cdr), endStage: stageOf(last.cbr, last.cdr),
+    startPop: Math.round(first.pop * 10) / 10, endPop: Math.round(last.pop * 10) / 10,
+    tfr: Math.round(game.tfr * 100) / 100, e0: Math.round(game.e0 * 10) / 10, cbr: Math.round(last.cbr * 10) / 10, cdr: Math.round(last.cdr * 10) / 10,
+    growth: Math.round(sc.growth * 100) / 100, support: Math.round(sc.support * 10) / 10, childDeaths: Math.round(sc.child),
+    cards: game.used, trap: game.trap,
+  };
+  if (!live?.user()) return say($('#r-status'), 'Check in on slide 2 to save your result.', 'err');
+  try { await live.saveSim('dtm-game', record); say($('#r-status'), 'Result saved. You can play again; your latest game is the one that counts.', 'ok'); }
+  catch (e) { say($('#r-status'), e.message, 'err'); }
+}
+
+/* === LIVE === check-in opens the exercise; practice and game results are saved */
+const OPEN = `sos110-open:${LECTURE}`;
+const isOpen = () => { try { return localStorage.getItem(OPEN) === '1'; } catch { return false; } };
+const lock = () => ['#practice', '#setup', '#game'].forEach(id => $(id).classList.toggle('locked', !isOpen() || !live?.user()));
+let live = null;
+async function savePractice(b, d) {
+  if (!live?.user()) return;
+  try { await live.saveSim('dtm-practice', { done: [...done], cbr: b, cdr: d }); say($('#p-status'), `Mission complete: ${done.size} of ${MISSIONS.length}.`, 'ok'); }
+  catch (e) { say($('#p-status'), e.message, 'err'); }
+}
+practice();
+
+try { live = await connect(LECTURE); }
+catch (e) { say($('#checkin-status'), `Could not connect: ${e.message}`, 'err'); }
+if (live) {
+  if (live.mode === 'demo') $('[data-mode-note]').textContent = 'Demo mode: check-ins and results stay in this browser until Firebase is connected.';
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+  if (u && isOpen()) say($('#checkin-status'), `Checked in as ${u.name}. The exercise is open.`, 'ok');
+}
+lock();
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  if (!live) return say(st, 'Not connected. Reload the page and try again.', 'err');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    try { localStorage.setItem(OPEN, '1'); } catch { /* storage blocked: stays open until reload */ }
+    say(st, `Checked in. Thanks, ${live.user().name}! The exercise is open.`, 'ok');
+    ['#practice', '#setup', '#game'].forEach(id => $(id).classList.remove('locked'));
+  } catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
