@@ -14,9 +14,9 @@
 <style>
 /* ===========================================
    COURSE HOME
-   A normal scrolling page (not a deck) in the Course Brand palette.
-   The schedule comes from course/course.json; PAGES below says which
-   sessions have a lecture page yet.
+   A plain landing page in the Course Brand palette. It deliberately lists
+   no lectures: students get each lecture link in class, and the full list
+   lives on the private admin site.
    =========================================== */
 :root {
   --Green:#75a29f; --golden:#eccf72; --Sky:#42a8bf; --Blue:#0d7397; --deep:#0a4f68;
@@ -42,38 +42,11 @@ header p { max-width:640px; color:rgba(246,242,233,.9); }
 main { padding:48px 16px 72px; }
 h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
 
-/* === AVAILABLE NOW === cards for every lecture that has a page */
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px; }
-.card { display:block; text-decoration:none; color:inherit; background:var(--card);
-  border:2px solid var(--paper-2); border-top:8px solid var(--Sky); border-radius:16px; padding:22px 24px;
-  transition:transform .2s, border-color .2s; }
-.card:hover, .card:focus-visible { transform:translateY(-3px); border-color:var(--Sky); outline:none; }
-.card .meta { font:700 13px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
-.card h3 { font:400 26px/1.2 var(--display); margin:8px 0 10px; color:var(--ink); }
-.card p { font-size:16px; color:var(--mute); }
-.card .go { display:inline-block; margin-top:14px; font-weight:700; color:var(--Blue); }
-
-/* === SCHEDULE === every module and session, linked where a page exists */
-.schedule { margin-top:56px; }
-.module { margin-top:34px; }
-.module h3 { font:400 24px/1.25 var(--display); padding-bottom:8px; border-bottom:3px solid var(--Green); }
-.module h3 span { color:var(--Blue); margin-right:10px; }
-.row { display:grid; grid-template-columns:110px 1fr auto; gap:14px; align-items:baseline;
-  padding:12px 0; border-bottom:1px solid var(--paper-2); }
-.row .d { color:var(--Blue); font-family:var(--display); font-size:19px; }
-.row .t { font-weight:700; }
-.row .t small { display:block; font-weight:400; font-size:15px; color:var(--mute); }
-.row .s { font-size:14px; color:var(--mute); white-space:nowrap; }
-.row a.s { font-weight:700; color:var(--Blue); }
-.row.review .t { font-weight:400; font-style:italic; }
-.err { color:var(--mute); font-style:italic; }
+.note { max-width:620px; margin:8px 0; }
+.note p { color:var(--mute); }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
-@media (max-width:600px) {
-  .row { grid-template-columns:1fr auto; }
-  .row .d { grid-column:1 / -1; font-size:17px; }
-}
 </style>
 </head>
 <body>
@@ -90,22 +63,9 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 </header>
 
 <main class="wrap">
-  <section aria-labelledby="now">
-    <div class="k">Lecture pages</div>
-    <h2 id="now">Open a lecture</h2>
-    <div class="grid" id="cards">
-      <!-- Static fallback so the links work even if course.json fails to load -->
-      <a class="card" href="lectures/m1-l1-triple-bottom-line/"><h3>The Triple Bottom Line of Sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m1-l2-environmental-science/"><h3>Environmental science in sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m1-l3-social-sustainability/"><h3>Social sustainability</h3><span class="go">Open lecture →</span></a>
-      <a class="card" href="lectures/m3-l3-atmosphere/"><h3>Atmosphere, weather, and pollution</h3><span class="go">Open lecture →</span></a>
-    </div>
-  </section>
-
-  <section class="schedule" aria-labelledby="sched">
-    <div class="k">Fall C 2026</div>
-    <h2 id="sched">Course schedule</h2>
-    <div id="modules"><p class="err">Loading the schedule…</p></div>
+  <section class="note">
+    <h2>Welcome</h2>
+    <p>Open each lecture from the link shared in class.</p>
   </section>
 </main>
 
@@ -113,54 +73,5 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
   <div class="wrap">Use arrow keys, space or swipe to move through a lecture. Sign in with your ASU Google account when a slide asks you to check in or vote.</div>
 </footer>
 
-<script type="module">
-// Session id (from course.json) → lecture folder. Add a line here for each new lecture.
-const PAGES = {
-  'm1-s1': 'lectures/m1-l1-triple-bottom-line/',
-  'm1-s2': 'lectures/m1-l2-environmental-science/',
-  'm1-s3': 'lectures/m1-l3-social-sustainability/',
-  'm3-s3': 'lectures/m3-l3-atmosphere/',
-};
-// Page titles that differ from the course.json topic
-const TITLES = { 'm3-s3': 'Atmosphere, weather, and pollution' };
-
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const today = new Date().toISOString().slice(0, 10);
-const niceDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-
-try {
-  const course = await (await fetch('course/course.json')).json();
-  document.getElementById('term').textContent = `${course.unit.split('·')[0].trim()} · ${course.term}`;
-  document.getElementById('meets').textContent = course.meets;
-
-  // Course-wide lecture numbers count lecture sessions only (TA reviews are not numbered)
-  let n = 0;
-  const modules = course.modules.map(m => ({ ...m, sessions: m.sessions.map((s, i) => ({
-    ...s, inModule: i + 1, lecture: s.kind === 'lecture' ? ++n : null, title: TITLES[s.id] || s.topic,
-  })) }));
-
-  const built = modules.flatMap(m => m.sessions.filter(s => PAGES[s.id]).map(s => ({ s, m })));
-  document.getElementById('cards').innerHTML = built.map(({ s, m }) => `
-    <a class="card" href="${PAGES[s.id]}">
-      <div class="meta">Lecture ${s.lecture} · M${m.module} L${s.inModule} · ${esc(niceDate(s.date))}</div>
-      <h3>${esc(s.title)}</h3>
-      <p>${esc(s.readings || m.title)}</p>
-      <span class="go">Open lecture →</span>
-    </a>`).join('');
-
-  document.getElementById('modules').innerHTML = modules.map(m => `
-    <div class="module">
-      <h3><span>Module ${m.module}</span>${esc(m.title)}</h3>
-      ${m.sessions.map(s => `
-        <div class="row${s.kind === 'review' ? ' review' : ''}">
-          <div class="d">${esc(niceDate(s.date))}</div>
-          <div class="t">${esc(s.title)}<small>${s.kind === 'review' ? 'TA-led review' : `Lecture ${s.lecture}`}${s.readings ? ` · ${esc(s.readings)}` : ''}</small></div>
-          ${PAGES[s.id] ? `<a class="s" href="${PAGES[s.id]}">Open →</a>` : (s.date >= today ? '<span class="s">Coming soon</span>' : '<span class="s"></span>')}
-        </div>`).join('')}
-    </div>`).join('');
-} catch (e) {
-  document.getElementById('modules').innerHTML = '<p class="err">The schedule could not load. The lecture links above still work.</p>';
-}
-</script>
 </body>
 </html>
