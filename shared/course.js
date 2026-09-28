@@ -1,6 +1,6 @@
 /* ===========================================
    SOS110 COURSE DATA
-   Fills lecture pages from course/course.json so the schedule, objectives,
+   Fills lecture pages from course/course.json so the sessions, objectives,
    assignments and glossary are written once. Elements opt in with
    data-fill="<name>"; see fill() below for the names.
    Pages must be served over http(s) (GitHub Pages, or `python3 -m http.server`
@@ -19,21 +19,18 @@ export async function loadSession(sessionId, courseUrl = '../../course/course.js
   return { course, session: s, next: all[i + 1], terms };
 }
 
-export const niceDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-
 export function fill(root, { session: s, next, terms }) {
   const put = (name, html) => root.querySelectorAll(`[data-fill="${name}"]`).forEach(el => { el.innerHTML = html; });
   put('module-title', esc(s.module.title));
   put('module-num', s.module.module);
   put('lecture-num', s.n);
-  put('date', esc(niceDate(s.date)));
   put('reading', esc(s.readings || 'No reading'));
   put('topic', esc(s.topic));
   put('due', esc(s.due || 'Nothing due today'));
   put('chips', terms.map(t => `<span class="chip">${esc(t.term)}</span>`).join(' '));
   put('objectives', s.module.objectives.map(o => `<li>${esc(o)}</li>`).join(''));
   put('assessments', s.module.assessments.map(a => `<li>${esc(a)}</li>`).join(''));
-  put('next', next ? `${esc(niceDate(next.date))}: ${esc(next.topic)}${next.due ? ` <span class="mute">(due: ${esc(next.due)})</span>` : ''}` : 'End of course');
+  put('next', next ? `${esc(next.topic)}${next.due ? ` <span class="mute">(due: ${esc(next.due)})</span>` : ''}` : 'End of course');
   put('vocab', terms.map(t => `
     <div class="vcard" tabindex="0" role="button" aria-label="${esc(t.term)}: show example">
       <div class="in">

@@ -1,6 +1,5 @@
 {
  "course": "SOS110 — Building a Sustainable World",
- "meets": "Tue/Thu 10:30–11:45, BAC16",
  "unit": "School of Sustainability · Arizona State University",
  "textbook": "Sherman, D. J., & Montgomery, D. R. (2023). Environmental Science and Sustainability (2nd ed.). W. W. Norton.",
  "learning_outcomes": [
@@ -10,7 +9,7 @@
   "Explore the social, economic, political, and cultural factors that influence sustainability and human-environmental wellbeing",
   "Evaluate and communicate sustainability-informed approaches to addressing contemporary environmental and societal challenges"
  ],
- "notes": "Session term lists are a draft mapping of the glossary onto the schedule; the fourth session of each module is the TA-led review session.",
+ "notes": "Session term lists are a draft mapping of the glossary onto the sessions; the fourth session of each module is the TA-led review session.",
  "modules": [
   {
    "module": 0,
@@ -22,7 +21,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-08-20",
      "topic": "Welcome and Course Introduction",
      "readings": "Syllabus",
      "due": "Quiz practice and confirm course readiness; iClicker registration",
@@ -49,7 +47,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-08-25",
      "topic": "The Triple Bottom Line of Sustainability",
      "readings": "What is the Triple Bottom Line? What’s Systems Thinking?",
      "due": "Group division",
@@ -63,7 +60,6 @@
      "id": "m1-s1"
     },
     {
-     "date": "2026-08-27",
      "topic": "Environmental science in sustainability",
      "readings": "S&M Ch. 1",
      "due": "Short Survey 1",
@@ -77,7 +73,6 @@
      "id": "m1-s2"
     },
     {
-     "date": "2026-09-01",
      "topic": "Social sustainability",
      "readings": "S&M Ch. 2",
      "due": "Introduce yourself (video)",
@@ -92,7 +87,6 @@
      "id": "m1-s3"
     },
     {
-     "date": "2026-09-03",
      "topic": "Socio-ecological-technological systems",
      "readings": "",
      "due": "Review Exercise practice",
@@ -123,7 +117,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-09-08",
      "topic": "Thermodynamics, energy, and matter",
      "readings": "S&M Ch. 3",
      "due": "",
@@ -138,7 +131,6 @@
      "id": "m2-s1"
     },
     {
-     "date": "2026-09-10",
      "topic": "Biodiversity and other ecosystem services",
      "readings": "S&M Ch. 4 & 5",
      "due": "WWYD 1 video",
@@ -155,7 +147,6 @@
      "id": "m2-s2"
     },
     {
-     "date": "2026-09-15",
      "topic": "Biomimicry and nature-inspired designs",
      "readings": "Baumeister et al. (2012)",
      "due": "",
@@ -166,7 +157,6 @@
      "id": "m2-s3"
     },
     {
-     "date": "2026-09-17",
      "topic": "Planetary boundaries and disruptions",
      "readings": "",
      "due": "Review Exercise 1: Ecosystem Services",
@@ -197,7 +187,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-09-22",
      "topic": "Population and consumption",
      "readings": "S&M Ch. 6",
      "due": "",
@@ -211,7 +200,6 @@
      "id": "m3-s1"
     },
     {
-     "date": "2026-09-24",
      "topic": "Water cycle and human impacts",
      "readings": "S&M Ch. 7",
      "due": "ASU Library Tutorials confirmation",
@@ -225,7 +213,6 @@
      "id": "m3-s2"
     },
     {
-     "date": "2026-09-29",
      "topic": "Atmosphere, weather, and climate",
      "readings": "S&M Ch. 8",
      "due": "",
@@ -239,7 +226,6 @@
      "id": "m3-s3"
     },
     {
-     "date": "2026-10-01",
      "topic": "Conservation of life-supporting systems",
      "readings": "",
      "due": "Mid-term Test 1",
@@ -271,7 +257,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-10-06",
      "topic": "Geosphere, soil, and land use",
      "readings": "S&M Ch. 9",
      "due": "",
@@ -284,7 +269,6 @@
      "id": "m4-s1"
     },
     {
-     "date": "2026-10-08",
      "topic": "Stocks-and-flows (systems dynamics)",
      "readings": "S&M Ch. 10",
      "due": "WWYD 2 video",
@@ -302,7 +286,6 @@
      "id": "m4-s2"
     },
     {
-     "date": "2026-10-15",
      "topic": "Carbon cycle and climate change",
      "readings": "S&M Ch. 11",
      "due": "Review Exercise 2: Biogeochemical Cycles and Human Impacts",
@@ -335,7 +318,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-10-20",
      "topic": "Sustainable food systems",
      "readings": "S&M Ch. 12",
      "due": "",
@@ -348,7 +330,6 @@
      "id": "m5-s1"
     },
     {
-     "date": "2026-10-22",
      "topic": "The FEWs nexus and energy systems",
      "readings": "S&M Ch. 13 & 14",
      "due": "WWYD 3 video",
@@ -362,7 +343,6 @@
      "id": "m5-s2"
     },
     {
-     "date": "2026-10-27",
      "topic": "Alternative energy and energy equity",
      "readings": "US EPA (2018)",
      "due": "",
@@ -376,7 +356,6 @@
      "id": "m5-s3"
     },
     {
-     "date": "2026-10-29",
      "topic": "Complexity and cascading risks",
      "readings": "",
      "due": "Project presentation topic selection and outline",
@@ -410,7 +389,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-11-03",
      "topic": "Waste management and circular economy",
      "readings": "S&M Ch. 15; Bocken et al. (2016)",
      "due": "",
@@ -424,7 +402,6 @@
      "id": "m6-s1"
     },
     {
-     "date": "2026-11-05",
      "topic": "Urban ecology and cities",
      "readings": "S&M Ch. 16",
      "due": "WWYD 4",
@@ -436,7 +413,6 @@
      "id": "m6-s2"
     },
     {
-     "date": "2026-11-10",
      "topic": "Environmental health and vulnerability",
      "readings": "S&M Ch. 17",
      "due": "",
@@ -452,7 +428,6 @@
      "id": "m6-s3"
     },
     {
-     "date": "2026-11-12",
      "topic": "Equity and community resilience",
      "readings": "",
      "due": "Mid-term Test 2",
@@ -483,7 +458,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-11-17",
      "topic": "Indigenous sustainability",
      "readings": "Nelson (2017)",
      "due": "",
@@ -495,7 +469,6 @@
      "id": "m7-s1"
     },
     {
-     "date": "2026-11-19",
      "topic": "Human behavior and decision-making",
      "readings": "S&M Ch. 18",
      "due": "Short Survey 2",
@@ -508,7 +481,6 @@
      "id": "m7-s2"
     },
     {
-     "date": "2026-11-24",
      "topic": "Institutional approach to sustainability",
      "readings": "S&M Ch. 19",
      "due": "Review Exercise 3: Systems Analysis for Sustainability",
@@ -535,7 +507,6 @@
    ],
    "sessions": [
     {
-     "date": "2026-12-01",
      "topic": "Policy and governance in sustainability",
      "readings": "S&M Ch. 20",
      "due": "Final project presentation",
@@ -548,7 +519,6 @@
      "id": "m8-s1"
     },
     {
-     "date": "2026-12-03",
      "topic": "Sustainable futures and course recap",
      "readings": "",
      "due": "Final project reflection and feedback; course evaluation",

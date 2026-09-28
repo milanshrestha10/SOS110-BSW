@@ -10,7 +10,7 @@ Shared pieces live in `../shared/`:
 |---|---|
 | `deck.css` | The Course Brand design (sample 16) on a fixed 1920×1080 stage |
 | `deck.js` | Scaling, keyboard, swipe and progress bar |
-| `course.js` | Fills objectives, glossary cards, assignments and dates from `../course/course.json` |
+| `course.js` | Fills objectives, glossary cards and assignments from `../course/course.json` |
 | `live.js` | Attendance, polls and simulation results, through Firebase or demo mode |
 | `firebase-config.js` | Paste the Firebase web config here to go live |
 
@@ -36,4 +36,4 @@ Students then sign in with their ASU Google account. Only the admin account can 
 
 ## Adding a lecture
 
-Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives, dates and assignments fill in on their own. Then add the matching admin page in the private repo.
+Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives and assignments fill in on their own. Then add the matching admin page in the private repo.
