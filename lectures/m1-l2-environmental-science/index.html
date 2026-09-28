@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1 L2 Environmental science in sustainability · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--paper-2);font-size:27px;line-height:1.3}
+.sort-row button{font:700 21px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 18px;cursor:pointer}
+.sort-row button.on{background:var(--Blue);color:var(--paper)}
+.sort-row.good button.on{background:#2e7d5b;border-color:#2e7d5b}
+.sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
+/* science wheel on slide 7 */
+.flow{display:flex;align-items:center;gap:18px;margin-top:34px;font-size:24px}
+.flow span{background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:10px 24px}
+.flow i{font-style:normal;color:var(--Blue);font:400 34px var(--display)}
+/* ball-and-valley diagrams */
+.valleys{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:10px}
+.valley{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:22px 28px 20px}
+.valley svg{display:block;width:100%;height:auto}
+.valley .land{fill:none;stroke:var(--deep);stroke-width:6;stroke-linecap:round}
+.valley .ball{fill:var(--golden);stroke:var(--ink);stroke-width:3}
+.valley .lbl{font:700 20px 'PT Serif',Georgia,serif;fill:var(--mute)}
+.valley .push{stroke:var(--Blue);stroke-width:4;fill:none;marker-end:url(#arr)}
+.valley h3{font-size:34px;margin-bottom:4px}
+.valley p{font-size:24px;line-height:1.4}
+/* shallow lake simulation */
+.lake{height:170px;border-radius:50% / 40%;display:flex;flex-direction:column;align-items:center;justify-content:center;font:400 34px var(--display);color:#fff;transition:background 1s var(--ease);margin:8px 0 14px}
+.lake small{display:block;font:400 20px var(--body);opacity:.9}
+.gauge .v.sm{font-size:92px}
+.hyst{display:block;width:100%;height:auto;margin-top:10px}
+.hyst .ax{stroke:var(--mute);stroke-width:1.5}
+.hyst text{font:400 15px 'PT Serif',Georgia,serif;fill:var(--mute)}
+.hyst polyline{fill:none;stroke:var(--Blue);stroke-width:3;stroke-linejoin:round}
+.hyst circle{fill:var(--golden);stroke:var(--ink);stroke-width:2}
+.sim .btn{font-size:24px;padding:14px 28px}
+.sim ol.num li{padding-left:58px;margin:6px 0 14px}
+.sim ol.num li::before{width:40px;height:40px;top:-2px;font-size:22px;line-height:40px}
+/* CO2 chart */
+.co2 svg{display:block;width:100%;height:auto}
+.co2 .grid-l{stroke:var(--paper-2);stroke-width:1.5}
+.co2 .line{fill:none;stroke:var(--Blue);stroke-width:5;stroke-linejoin:round}
+.co2 .dot{fill:var(--Blue);stroke:var(--card);stroke-width:3}
+.co2 .dot.sel{fill:var(--golden);stroke:var(--ink)}
+.co2 text{font:400 20px 'PT Serif',Georgia,serif;fill:var(--mute)}
+.co2 text.val{font-weight:700;fill:var(--ink)}
+select.field{width:auto;font-size:28px;padding:10px 16px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.steps{display:flex;gap:18px;margin-top:30px}
+.steps div{flex:1;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:18px 22px;font-size:24px;line-height:1.35}
+.steps b{display:block;font:400 30px var(--display);color:var(--Blue)}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>01</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Sustainability for Our Planet</span><small>Lecture 2 · <span data-fill="date">Thu Aug 27</span><br><span data-fill="reading">S&amp;M Ch. 1</span></small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Lecture 2 · Why nature matters, and how it changes</div>
+  <h1 class="title-h reveal d2" style="font-size:96px">Environmental <em>science</em> in sustainability</h1>
+  <div class="title-terms reveal d3" data-fill="chips"></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Dr. Milan Shrestha</div>
+  <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
+  <aside class="notes">Welcome to the second lecture of Module 1. Short Survey 1 is due today, so remind students before they leave. Today builds on Tuesday's triple bottom line: environmental science supplies the evidence for the "planet" part, and today's four glossary terms (intrinsic value, utilitarian value, resilience, tipping point) drive every activity.</aside>
+</section>
+
+<!-- 2. LESSON PLAN -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Lesson plan</span></div>
+  <div class="content">
+    <div class="k reveal">Today's 75 minutes</div>
+    <h2 class="reveal d2">Lesson <em>plan</em></h2>
+    <table class="agenda reveal d3">
+      <tr><td>0–5</td><td>Check in and warm-up poll</td></tr>
+      <tr><td>5–15</td><td>What environmental science is and how it supports sustainability</td></tr>
+      <tr><td>15–30</td><td>Two ways to value nature, and the sorting game</td></tr>
+      <tr><td>30–50</td><td>Resilience, tipping points, and the Shallow Lake simulation</td></tr>
+      <tr><td>50–60</td><td>Reading real data: the Mauna Loa carbon dioxide record</td></tr>
+      <tr><td>60–70</td><td>Ethics discussion: should we pay to save the lake?</td></tr>
+      <tr><td>70–75</td><td>Exit ticket and what's due</td></tr>
+    </table>
+  </div>
+  <aside class="notes">The simulation is the centrepiece; protect its 20 minutes. If time runs short, shorten the data slide to one question and keep the ethics discussion, since environmental ethics is a module objective.</aside>
+</section>
+
+<!-- 3. OBJECTIVES -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Objectives</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of class you can</div>
+    <h2 class="reveal d2">Learning <em>objectives</em></h2>
+    <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:56px">
+      <ol class="num reveal d3" style="font-size:28px">
+        <li>Explain what environmental science is and why sustainability depends on it.</li>
+        <li>Tell intrinsic value apart from utilitarian value, and spot each in everyday arguments.</li>
+        <li>Describe resilience and explain what happens when a system passes a tipping point.</li>
+        <li>Read a long-term data record and describe how fast it is changing.</li>
+        <li>Use both kinds of value to argue an environmental ethics question.</li>
+      </ol>
+      <div class="card blue reveal d4">
+        <span class="tag">Module 1 objectives</span>
+        <ul class="clean small" data-fill="objectives"></ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Objectives 2 and 5 map to the module objective on environmental ethics; objective 3 builds the systems thinking from Tuesday.</aside>
+</section>
+
+<!-- 4. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>1.2</b><span>Attendance</span></div>
+  <div class="content">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin" data-signin>
+        <input class="field" data-name placeholder="Your full name" autocomplete="name">
+        <button class="btn" type="button" data-signin-btn>Sign in</button>
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes.</aside>
+</section>
+
+<!-- 5. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Warm-up poll</span></div>
+  <div class="content">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">A city has a <em>wetland</em> on its edge. What is the best reason to protect it?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>It cleans water and soaks up floods, which saves the city money</button>
+      <button class="opt" type="button"><b>B</b>The wetland and its wildlife matter for their own sake</button>
+      <button class="opt" type="button"><b>C</b>Both reasons matter about equally</button>
+      <button class="opt" type="button"><b>D</b>It should not be protected if the land is needed for homes</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">Show results from the admin page but do not label the answers yet. Option A is a utilitarian reason, B is an intrinsic reason, C mixes both, and D weighs other human needs more heavily. Come back to this split on the values slide and again in the ethics discussion.</aside>
+</section>
+
+<!-- 6. VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Key vocabulary</span></div>
+  <div class="content">
+    <div class="k reveal">Glossary · Module 1 · tap a card for its example</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
+    <div class="vocab reveal d3" data-fill="vocab"></div>
+  </div>
+  <aside class="notes">These four terms are the backbone of today. Read each definition aloud, then flip one card to show the example. Point out that they come in two pairs: two ways to value nature, and two ways to describe how nature responds to pressure.</aside>
+</section>
+
+<!-- 7. WHAT IS ENVIRONMENTAL SCIENCE -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Environmental science</span></div>
+  <div class="content">
+    <div class="k reveal">S&amp;M Chapter 1</div>
+    <h2 class="reveal d2">What is environmental <em>science</em>?</h2>
+    <p class="lead reveal d3">The study of how the natural world works, and how people and the environment affect each other.</p>
+    <div class="grid g3 reveal d3" style="margin-top:34px">
+      <div class="card accent"><span class="tag">Natural sciences</span><p>Biology, chemistry, geology and climate science explain how ecosystems, water and air work.</p></div>
+      <div class="card gold"><span class="tag">Social sciences</span><p>Economics, policy and ethics explain why people make the choices they do.</p></div>
+      <div class="card green"><span class="tag">Sustainability</span><p>Uses that evidence to meet today's needs without harming future generations.</p></div>
+    </div>
+    <div class="flow reveal d4"><span>Observe</span><i>→</i><span>Ask a question</span><i>→</i><span>Hypothesize</span><i>→</i><span>Test with data</span><i>→</i><span>Share and revise</span></div>
+  </div>
+  <aside class="notes">Stress that environmental science is interdisciplinary. It is also different from environmentalism: science describes what is happening and why, while ethics and values (next slides) ask what we should do about it. Sustainability needs both. The scientific process at the bottom is the one S&amp;M use in Chapter 1.</aside>
+</section>
+
+<!-- 8. TWO WAYS TO VALUE NATURE -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Valuing nature</span></div>
+  <div class="content">
+    <div class="k reveal">Environmental ethics</div>
+    <h2 class="reveal d2">Two ways to <em>value</em> nature</h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card green"><span class="tag">Intrinsic value</span><h3>Worth protecting for its own sake</h3><p>Living things and ecosystems have value simply because they exist.</p><p class="mute" style="margin-top:14px">"A saguaro deserves to live whether or not anyone ever sees it."</p></div>
+      <div class="card gold"><span class="tag">Utilitarian value</span><h3>Worth protecting because it helps us</h3><p>Nature is valued for what it gives people: food, water, timber, money.</p><p class="mute" style="margin-top:14px">"Desert tourism brings visitors and jobs to Arizona."</p></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:36px">Most real decisions mix both. Look back at the warm-up poll: which answer used which kind of value?</p>
+  </div>
+  <aside class="notes">Answer the warm-up: A is utilitarian, B is intrinsic. Ask: which argument is easier to put in a budget? Which one protects species that have no known use? Utilitarian arguments are persuasive in economic decisions but can leave "useless" species unprotected; intrinsic arguments cover them but are harder to weigh against costs.</aside>
+</section>
+
+<!-- 9. SORTING GAME -->
+<section class="slide" id="sorter">
+  <div class="rail"><b>1.2</b><span>Sorting game</span></div>
+  <div class="content">
+    <div class="k reveal">Game · intrinsic or utilitarian?</div>
+    <h2 class="reveal d2" style="margin-bottom:20px">Sort the <em>reasons</em></h2>
+    <p class="small mute reveal d2" style="margin-bottom:16px"><b>Intrinsic</b>: it matters for its own sake. <b>Utilitarian</b>: it matters because it is useful to people.</p>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
+      <div class="sort-row" data-answer="u"><span>Bees pollinate crops worth billions of dollars.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="i"><span>A rare desert pupfish has a right to exist, even with no use to us.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="i"><span>A mountain lake nobody visits is still worth protecting.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="u"><span>Keep the forest because its timber can be sold.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="u"><span>Wetlands save cities money by cleaning water.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="i"><span>We should not drive any species extinct.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="i"><span>Old-growth trees deserve respect for their age alone.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+      <div class="sort-row" data-answer="u"><span>The Grand Canyon brings tourism dollars to Arizona.</span><button type="button" data-pick="i">Intrinsic</button><button type="button" data-pick="u">Utilitarian</button></div>
+    </div>
+    <div class="reveal d4" style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Give pairs three minutes, then check. Good follow-up: take one intrinsic reason and rewrite it as a utilitarian one (for example, the pupfish could be valued for research or as an indicator of spring health). This shows the same thing can be defended with either kind of value. The desert pupfish is an endangered fish native to Arizona and California.</aside>
+</section>
+
+<!-- 10. RESILIENCE AND TIPPING POINTS -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Resilience</span></div>
+  <div class="content">
+    <div class="k reveal">How systems respond to pressure</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">Resilience and <em>tipping points</em></h2>
+    <div class="valleys reveal d3">
+      <div class="valley">
+        <h3>High resilience</h3>
+        <svg viewBox="0 0 700 250" role="img" aria-label="A ball resting in a deep valley rolls back after a push">
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--Blue)"/></marker></defs>
+          <path class="land" d="M20 40 C120 40 150 210 250 210 C350 210 380 40 450 40 C520 40 560 150 680 150"/>
+          <circle class="ball" cx="250" cy="186" r="22"/>
+          <path class="push" d="M205 150 Q250 110 300 140"/>
+          <text class="lbl" x="170" y="245">clear lake</text>
+          <text class="lbl" x="390" y="28">tipping point</text>
+          <text class="lbl" x="560" y="190">murky lake</text>
+        </svg>
+        <p>A deep valley: a shock (a storm, a dry year) pushes the ball, but it rolls back. The system recovers.</p>
+      </div>
+      <div class="valley">
+        <h3>Low resilience</h3>
+        <svg viewBox="0 0 700 250" role="img" aria-label="A ball in a shallow valley tips over the ridge into a different valley">
+          <path class="land" d="M20 90 C120 90 170 150 250 150 C330 150 360 110 400 110 C470 110 540 215 680 215"/>
+          <circle class="ball" cx="250" cy="126" r="22" style="opacity:.35"/>
+          <circle class="ball" cx="600" cy="186" r="22"/>
+          <path class="push" d="M280 110 Q420 40 560 150"/>
+          <text class="lbl" x="170" y="185">clear lake</text>
+          <text class="lbl" x="345" y="200">tipping point</text>
+          <text class="lbl" x="560" y="245">murky lake</text>
+        </svg>
+        <p>Years of pollution make the valley shallow. Now a small push tips the system into a new state that is hard to leave.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">This is the "ball and cup" picture used by ecologists. Resilience is the depth of the valley: how big a shock the system can absorb and still recover. A tipping point is the ridge. Slow pressure (like fertilizer building up) does not change the lake much at first, it just makes the valley shallower, so the change looks sudden when it comes. Other examples to mention: coral reefs turning into algae-covered reefs, and grasslands turning into shrubland. Source for the shallow-lake example: Scheffer et al. (2001), "Catastrophic shifts in ecosystems", Nature 413.</aside>
+</section>
+
+<!-- 11. SIMULATION -->
+<section class="slide" id="lake-sim">
+  <div class="rail"><b>1.2</b><span>Simulation</span></div>
+  <div class="content">
+    <div class="k reveal">Simulation · the Shallow Lake</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">When does your lake <em>tip</em>?</h2>
+    <div class="sim reveal d3">
+      <div>
+        <div class="slider"><label for="s-plants">Water plants along the shore <output data-out="plants"></output></label><input type="range" id="s-plants" min="0" max="100" value="50"></div>
+        <div class="slider"><label for="s-load">Nutrient runoff from farms and lawns <output data-out="load"></output></label><input type="range" id="s-load" min="0" max="100" value="10" step="1"></div>
+        <ol class="num small" style="margin:0 0 6px">
+          <li>Set your water plants. Then raise the runoff slowly, one step at a time.</li>
+          <li>Note the level where your lake turns murky.</li>
+          <li>Now cut runoff back down. When does it clear again?</li>
+        </ol>
+        <p class="small mute">A teaching model, not a real lake. Every lake has a slightly different tipping point.</p>
+        <div style="display:flex;gap:16px;align-items:center;margin-top:14px;flex-wrap:wrap"><button class="btn" type="button" id="sim-save">Submit my lake</button><button class="btn ghost" type="button" id="sim-reset">Start a new lake</button><span class="status" id="sim-status" style="margin:0"></span></div>
+      </div>
+      <div class="gauge" style="padding:26px 30px">
+        <div class="u">Water clarity</div>
+        <div class="lake" id="lake">Clear<small>plants, fish, swimming</small></div>
+        <div class="u"><span id="clarity">0</span> out of 100 · <span id="flip-note">not tipped yet</span></div>
+        <svg class="hyst" viewBox="0 0 560 230" role="img" aria-label="Your lake's path: clarity against nutrient runoff">
+          <line class="ax" x1="50" y1="190" x2="545" y2="190"/><line class="ax" x1="50" y1="10" x2="50" y2="190"/>
+          <text x="210" y="222">nutrient runoff →</text>
+          <text x="0" y="16">clear</text><text x="0" y="190">murky</text>
+          <polyline id="path" points=""/>
+          <circle id="here" r="8" cx="50" cy="190"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Pairs run the lake twice: once with few water plants and once with many. More plants means more resilience, so the lake tips later. The key moment is the way back: cutting runoff to the level where it tipped does not clear the lake; it has to go much lower. The line on the graph traces a loop, not a single line. In real shallow lakes, algae shade out the plants, and without plants the mud stirs up and releases more nutrients: a feedback that keeps the lake murky. Ask: if you managed this lake, what would you do before it tips? The admin page shows where each student's lake tipped and whether it recovered.</aside>
+</section>
+
+<!-- 12. DATA ANALYSIS -->
+<section class="slide" id="co2-data">
+  <div class="rail"><b>1.2</b><span>Data analysis</span></div>
+  <div class="content">
+    <div class="k reveal">Data · Mauna Loa, Hawaiʻi</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">How fast is carbon dioxide <em>rising</em>?</h2>
+    <div class="grid" style="grid-template-columns:1fr 560px;gap:60px;align-items:start">
+      <div class="co2 chart-box reveal d3">
+        <svg viewBox="0 0 900 520" id="co2-chart" role="img" aria-label="Line chart of approximate annual mean carbon dioxide at Mauna Loa from 1960 to 2020"></svg>
+        <p class="small mute" style="margin-top:8px">Approximate yearly averages in parts per million (ppm), rounded. The axis starts at 300 ppm.</p>
+      </div>
+      <div class="card blue reveal d4">
+        <span class="tag">Your turn</span>
+        <p>Pick two years. How much did CO₂ rise each year, on average?</p>
+        <div style="display:flex;gap:12px;align-items:center;margin:18px 0;flex-wrap:wrap"><select class="field" id="yr-a"></select><span>to</span><select class="field" id="yr-b"></select></div>
+        <p id="co2-out" style="font:400 34px/1.25 var(--display)"></p>
+        <div class="gold-rule" style="margin:20px 0"></div>
+        <p>Compare the 1960s with the 2010s. Is the rise steady, or speeding up?</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Source: NOAA Global Monitoring Laboratory, Mauna Loa CO₂ annual mean record (Keeling curve, measurements started in 1958 by Charles David Keeling). Values are rounded annual means: 1960 about 317, 1970 about 326, 1980 about 339, 1990 about 354, 2000 about 370, 2010 about 390, 2020 about 414 ppm. Pre-industrial levels were about 280 ppm. The average yearly rise was a little under 1 ppm per year in the 1960s and about 2.4 ppm per year in the 2010s. Link to tipping points: scientists watch long records like this because many climate tipping points (for example ice sheets) respond to slow, steady pressure. Link to the scientific process: this is the "test with data" step.</aside>
+</section>
+
+<!-- 13. ETHICS DISCUSSION -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Ethics discussion</span></div>
+  <div class="content">
+    <div class="k reveal">Think · pair · share</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">Should the town pay to <em>save the lake</em>?</h2>
+    <p class="lead reveal d3">A small farm town's lake has tipped and turned murky. Restoring it means paying farmers to cut fertilizer and replanting the shore for many years.</p>
+    <div class="grid g3 reveal d3" style="margin-top:30px">
+      <div class="card gold"><span class="tag">Utilitarian view</span><p>Clean water brings back fishing, tourism and safe drinking water. Do the benefits cover the cost?</p></div>
+      <div class="card green"><span class="tag">Intrinsic view</span><p>The fish, birds and plants of the lake matter for their own sake, whatever it costs.</p></div>
+      <div class="card accent"><span class="tag">Resilience view</span><p>Prevention is cheaper than recovery. Should we protect nearby lakes before they tip?</p></div>
+    </div>
+    <div class="steps reveal d4">
+      <div><b>1 minute</b>Think alone: which view is closest to yours?</div>
+      <div><b>3 minutes</b>Pair: who should pay, the farmers, the town or taxpayers?</div>
+      <div><b>3 minutes</b>Share: one argument your partner made that you had not considered.</div>
+    </div>
+  </div>
+  <aside class="notes">This is the environmental ethics objective in practice. Push students to name which kind of value their argument uses. Good probes: farmers' livelihoods are also part of the triple bottom line (people and profit). Who is harmed by the murky lake but did not cause it? That question previews externalities, which is Tuesday's topic.</aside>
+</section>
+
+<!-- 14. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Exit ticket</span></div>
+  <div class="content">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1500px">Farms cut fertilizer back to earlier levels, but the lake <em>stays murky</em>. Which idea best explains this?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>The lake is highly resilient, so it bounces back quickly</button>
+      <button class="opt" type="button"><b>B</b>The lake passed a tipping point, so recovery needs much lower nutrients</button>
+      <button class="opt" type="button"><b>C</b>The lake only has utilitarian value</button>
+      <button class="opt" type="button"><b>D</b>Fertilizer has no effect on lakes</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Correct answer: B. A describes the opposite of what happened. C mixes up a value with a process. D contradicts the simulation. If many students pick A, revisit the valley picture: the lake is now resting in the "murky" valley, and it is resilient there too.</aside>
+</section>
+
+<!-- 15. ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>1.2</b><span>Assignments</span></div>
+  <div class="content">
+    <div class="k reveal">Module 1 · what's due</div>
+    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module 1 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Before next class</span>
+        <p><b>Due today:</b> Short Survey 1.</p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>Review today's four glossary terms and read S&amp;M Chapter 2.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Remind students that Short Survey 1 is due today. Next class is Social sustainability (S&amp;M Ch. 2), with the "Introduce yourself" video due.</aside>
+</section>
+
+<!-- 16. TAKEAWAYS -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">1<em>.2</em></div>
+  <div class="band-text reveal d2">Environmental science in sustainability<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
+  <div class="title-k reveal">Three things to remember</div>
+  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
+    <li>Environmental science gives sustainability its evidence: how nature works and how people change it.</li>
+    <li>We value nature for its own sake (intrinsic value) and for what it gives us (utilitarian value). Most choices mix both.</li>
+    <li>Resilient systems bounce back, but past a tipping point change is sudden and hard to undo. Prevention beats repair.</li>
+  </ol>
+  <div class="goldline" style="top:900px"></div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm1-s2';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+
+/* === COURSE DATA === glossary, objectives and assignments from course.json */
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
+  $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+});
+
+/* === LIVE === attendance, polls, simulation results */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+const nameBox = $('[data-signin]');
+function showUser() {
+  const u = live.user();
+  nameBox.style.display = u ? 'none' : '';
+  if (u) say($('#checkin-status'), `Signed in as ${u.name}.`);
+}
+if (live.mode === 'firebase') $('[data-name]').style.display = 'none';
+$('[data-signin-btn]').addEventListener('click', async () => {
+  try { await live.signIn($('[data-name]').value); showUser(); } catch (e) { say($('#checkin-status'), e.message, 'err'); }
+});
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  if (live.mode === 'firebase') { try { await live.signIn(); showUser(); return true; } catch { /* fall through */ } }
+  say(statusEl, 'Sign in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  if (!await ensureUser(st)) return;
+  try { await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per student, changeable */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SORTING GAME === intrinsic or utilitarian */
+$$('[data-sort] .sort-row').forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
+  $$('button', row).forEach(x => x.classList.toggle('on', x === b));
+  row.classList.remove('good', 'bad');
+})));
+$('[data-sort-check]').addEventListener('click', () => {
+  const rows = $$('[data-sort] .sort-row');
+  let right = 0;
+  rows.forEach(r => {
+    const on = $('button.on', r);
+    const ok = on && on.dataset.pick === r.dataset.answer;
+    r.classList.toggle('good', !!ok); r.classList.toggle('bad', !!on && !ok);
+    if (ok) right++;
+  });
+  $('[data-sort-score]').textContent = `${right} of ${rows.length} correct`;
+});
+
+/* === SHALLOW LAKE SIMULATION === a teaching model with hysteresis, not a real lake.
+   The lake tips from clear to murky when runoff passes tipUp, and only clears
+   again when runoff drops below tipDown, which is much lower. */
+const sim = { plants: $('#s-plants'), load: $('#s-load') };
+let lake;
+function newLake() {
+  lake = { murky: false, jitter: Math.round(Math.random() * 8 - 4), flippedAt: null, recoveredAt: null, path: [] };
+}
+const tipUp = () => Math.round(45 + 0.3 * sim.plants.value + lake.jitter);   // 41 to 79
+const tipDown = () => Math.round(tipUp() * 0.45);                             // about 18 to 36
+function clarity(load) {
+  return Math.round(lake.murky ? Math.max(5, 28 - 0.2 * load) : Math.max(40, 95 - 0.35 * load));
+}
+function stepLake() {
+  const load = +sim.load.value;
+  if (!lake.murky && load >= tipUp()) { lake.murky = true; lake.flippedAt = load; lake.recoveredAt = null; }
+  else if (lake.murky && load <= tipDown()) { lake.murky = false; lake.recoveredAt = load; }
+  const c = clarity(load);
+  lake.path.push([load, c]);
+  if (lake.path.length > 400) lake.path.shift();
+  drawLake(load, c);
+}
+function drawLake(load, c) {
+  $('[data-out="plants"]').textContent = ['Few', 'Some', 'Many'][Math.min(2, Math.floor(sim.plants.value / 34))];
+  $('[data-out="load"]').textContent = load;
+  const el = $('#lake');
+  el.innerHTML = lake.murky ? 'Murky<small>algae bloom, few fish</small>' : 'Clear<small>plants, fish, swimming</small>';
+  const t = Math.max(0, Math.min(1, (c - 5) / 90)), A = [0x6f, 0x7f, 0x3e], B = [0x42, 0xa8, 0xbf];
+  el.style.background = `rgb(${A.map((a, i) => Math.round(a + (B[i] - a) * t)).join(',')})`;
+  $('#clarity').textContent = c;
+  $('#flip-note').textContent = lake.flippedAt === null ? 'not tipped yet'
+    : lake.recoveredAt !== null ? `tipped at ${lake.flippedAt}, cleared at ${lake.recoveredAt}`
+    : `tipped at ${lake.flippedAt}`;
+  const X = v => 50 + v * 4.95, Y = v => 190 - v * 1.8;
+  $('#path').setAttribute('points', lake.path.map(([l, v]) => `${X(l).toFixed(1)},${Y(v).toFixed(1)}`).join(' '));
+  $('#here').setAttribute('cx', X(load)); $('#here').setAttribute('cy', Y(c));
+}
+sim.load.addEventListener('input', stepLake);
+sim.plants.addEventListener('input', stepLake);
+$('#sim-reset').addEventListener('click', () => { newLake(); sim.load.value = 10; stepLake(); say($('#sim-status'), ''); });
+newLake(); stepLake();
+$('#sim-save').addEventListener('click', async () => {
+  const st = $('#sim-status');
+  if (!await ensureUser(st)) return;
+  if (lake.flippedAt === null) { say(st, 'Your lake has not tipped yet. Keep raising the runoff.', 'err'); return; }
+  const data = { plants: +sim.plants.value, flippedAt: lake.flippedAt, recoveredAt: lake.recoveredAt, murky: lake.murky };
+  try {
+    await live.saveSim('shallow-lake', data);
+    say(st, `Submitted: tipped at ${data.flippedAt}${data.recoveredAt !== null ? `, cleared at ${data.recoveredAt}` : ''}.`, 'ok');
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === CO2 DATA === NOAA GML Mauna Loa annual means, rounded to whole ppm (approximate) */
+const CO2 = [[1960, 317], [1970, 326], [1980, 339], [1990, 354], [2000, 370], [2010, 390], [2020, 414]];
+const cx = y => 90 + (y - 1960) / 60 * 770, cy = v => 470 - (v - 300) / 130 * 440;
+function drawCO2(sel = []) {
+  const ticks = [300, 340, 380, 420];
+  $('#co2-chart').innerHTML =
+    ticks.map(t => `<line class="grid-l" x1="90" x2="870" y1="${cy(t)}" y2="${cy(t)}"/><text x="78" y="${cy(t) + 7}" text-anchor="end">${t}</text>`).join('') +
+    CO2.map(([y]) => `<text x="${cx(y)}" y="505" text-anchor="middle">${y}</text>`).join('') +
+    `<polyline class="line" points="${CO2.map(([y, v]) => `${cx(y)},${cy(v)}`).join(' ')}"/>` +
+    CO2.map(([y, v]) => `<circle class="dot${sel.includes(y) ? ' sel' : ''}" cx="${cx(y)}" cy="${cy(v)}" r="10"><title>${y}: about ${v} ppm</title></circle><text class="val" x="${cx(y)}" y="${cy(v) - 22}" text-anchor="middle">${v}</text>`).join('');
+}
+const yrOpts = CO2.map(([y, v], i) => `<option value="${i}">${y} (${v})</option>`).join('');
+$('#yr-a').innerHTML = yrOpts; $('#yr-b').innerHTML = yrOpts;
+$('#yr-a').value = 0; $('#yr-b').value = 1;
+function compareCO2() {
+  let [a, b] = [CO2[$('#yr-a').value], CO2[$('#yr-b').value]];
+  if (a[0] > b[0]) [a, b] = [b, a];
+  drawCO2([a[0], b[0]]);
+  if (a[0] === b[0]) { $('#co2-out').textContent = 'Pick two different years.'; return; }
+  const rise = b[1] - a[1], per = rise / (b[0] - a[0]);
+  $('#co2-out').textContent = `From ${a[0]} to ${b[0]}: up about ${rise} ppm, or ${per.toFixed(1)} ppm per year.`;
+}
+$('#yr-a').addEventListener('change', compareCO2); $('#yr-b').addEventListener('change', compareCO2); compareCO2();
+</script>
+</body>
+</html>
