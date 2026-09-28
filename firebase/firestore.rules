@@ -5,11 +5,13 @@ service cloud.firestore {
     function signedIn() { return request.auth != null; }
     function verified() { return signedIn() && request.auth.token.email_verified == true; }
     function isAdmin() { return verified() && request.auth.token.email in ['mshrest1@asu.edu']; }
-    function isStudent() { return verified() && request.auth.token.email.matches('.*@asu[.]edu$'); }
+    // Students check in with a name and email over an anonymous sign-in (no account).
+    function isStudent() { return signedIn() && !isAdmin(); }
     function owns(uid) { return signedIn() && request.auth.uid == uid; }
     // Student records are shown to the instructor, so keep them small and typed.
     function shortText(v) { return v is string && v.size() <= 120; }
     function stamped() { return request.resource.data.at == request.time; }
+    function isEmail(v) { return shortText(v) && v.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$'); }
 
     match /lectures/{lecture} {
       // Which poll is open. Students only need to read it.
@@ -21,13 +23,13 @@ service cloud.firestore {
         allow read, write: if isAdmin();
       }
 
-      // A student checks in only with the current code, only as themselves,
-      // and under the email on their Google account.
+      // A student checks in only with the current code and only as their own
+      // browser's uid. Name and email are typed in by the student.
       match /attendance/{uid} {
         allow create, update: if isStudent() && owns(uid)
           && request.resource.data.keys().hasOnly(['name', 'email', 'code', 'at'])
-          && shortText(request.resource.data.name)
-          && request.resource.data.email == request.auth.token.email
+          && shortText(request.resource.data.name) && request.resource.data.name.size() > 0
+          && isEmail(request.resource.data.email)
           && stamped()
           && request.resource.data.code == get(/databases/$(database)/documents/lectures/$(lecture)/private/code).data.code;
         allow read, delete: if isAdmin();
