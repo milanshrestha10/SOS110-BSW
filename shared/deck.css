@@ -161,7 +161,7 @@ svg {
 .band-num{position:absolute;left:110px;top:140px;font:400 230px/1 var(--display);color:var(--paper)}
 .band-num em{color:var(--golden);font-style:normal}
 .band-text{position:absolute;left:120px;top:470px;width:420px;font:400 28px/1.5 var(--body);color:rgba(246,242,233,.92)}
-.band-text small{display:block;margin-top:18px;font-size:22px;opacity:.85}
+.band-text small{display:block;margin-top:18px;font-size:27px;line-height:1.4;opacity:.9}
 .swatches{position:absolute;left:120px;bottom:120px;display:flex;gap:16px}
 .swatches i{width:64px;height:64px;border-radius:50%;border:3px solid var(--paper)}
 .title-k{position:absolute;left:740px;top:200px;font:700 22px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--Blue)}
