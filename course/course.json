@@ -1,6 +1,5 @@
 {
  "course": "SOS110 — Building a Sustainable World",
- "unit": "Arizona State University",
  "textbook": "Sherman, D. J., & Montgomery, D. R. (2023). Environmental Science and Sustainability (2nd ed.). W. W. Norton.",
  "learning_outcomes": [
   "Identify and explain the boundaries and interconnectedness of social, ecological, and technological systems associated with major global sustainability challenges",
@@ -182,7 +181,7 @@
    ],
    "assessments": [
     "InQuizitive 6, 7 and 8",
-    "ASU Library Tutorials confirmation",
+    "Library Tutorials confirmation",
     "Mid-term Test 1 (Modules 1–3)"
    ],
    "sessions": [
@@ -202,7 +201,7 @@
     {
      "topic": "Water cycle and human impacts",
      "readings": "S&M Ch. 7",
-     "due": "ASU Library Tutorials confirmation",
+     "due": "Library Tutorials confirmation",
      "kind": "lecture",
      "terms": [
       "Water Budget",

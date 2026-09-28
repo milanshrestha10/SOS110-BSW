@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 /* ===========================================
    FIXED 16:9 STAGE: MANDATORY BASE STYLES
@@ -145,7 +146,7 @@ svg {
   --stage-bg:#0a2a35;--slide-bg:#f6f2e9;
   --Green:#75a29f;--golden:#eccf72;--Sky:#42a8bf;--Blue:#0d7397;--deep:#0a4f68;
   --ink:#10313d;--mute:#4c6670;--paper:#f6f2e9;--paper-2:#ece5d6;--card:#fffdf8;
-  --display:'DM Serif Display',Georgia,serif;--body:'PT Serif',Georgia,serif;
+  --display:'DM Serif Display',Georgia,serif;--body:'PT Serif',Georgia,serif;--sans:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
 .slide{font-family:var(--body);color:var(--ink);font-size:30px;line-height:1.45}
@@ -158,9 +159,10 @@ svg {
 /* === TITLE SLIDE === wide blue band on the left */
 .band{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--Blue);transition:width 1.1s var(--ease)}
 .slide.visible .band{width:620px}
-.band-num{position:absolute;left:110px;top:140px;font:400 230px/1 var(--display);color:var(--paper)}
+.band-num{position:absolute;left:120px;top:150px;font:400 96px/1 var(--display);color:var(--paper)}
 .band-num em{color:var(--golden);font-style:normal}
-.band-text{position:absolute;left:120px;top:470px;width:420px;font:400 28px/1.5 var(--body);color:rgba(246,242,233,.92)}
+.band-text{position:absolute;left:120px;top:330px;width:440px;font:400 28px/1.5 var(--body);color:rgba(246,242,233,.92)}
+.band-text>span:first-child{display:block;font:600 36px/1.2 var(--sans);letter-spacing:-.005em;color:var(--paper)}
 .band-text small{display:block;margin-top:18px;font-size:27px;line-height:1.4;opacity:.9}
 .swatches{position:absolute;left:120px;bottom:120px;display:flex;gap:16px}
 .swatches i{width:64px;height:64px;border-radius:50%;border:3px solid var(--paper)}
@@ -171,7 +173,6 @@ svg {
 .goldline{position:absolute;left:740px;top:790px;width:0;height:6px;background:var(--golden);transition:width 1s .5s var(--ease)}
 .slide.visible .goldline{width:200px}
 .title-who{position:absolute;left:740px;top:830px;font:400 40px var(--display)}
-.title-org{position:absolute;left:740px;top:890px;font:400 24px var(--body);color:var(--mute)}
 
 /* === CONTENT SLIDE === narrow blue rail carries the section label */
 .rail{position:absolute;left:0;top:0;bottom:0;width:120px;background:var(--Blue)}
@@ -204,11 +205,6 @@ ol.num li::before{content:counter(n);position:absolute;left:0;top:-4px;width:52p
 
 /* === CHIPS (glossary terms) === */
 .chip{display:inline-block;border:2px solid var(--Green);border-radius:8px;padding:8px 20px;font:700 22px var(--body);background:rgba(117,162,159,.12);color:var(--ink)}
-
-/* === AGENDA TABLE === */
-.agenda{width:100%;border-collapse:collapse;font-size:27px}
-.agenda td{padding:13px 0;border-bottom:1px solid var(--paper-2);vertical-align:top}
-.agenda td:first-child{width:190px;font:400 30px var(--display);color:var(--Blue)}
 
 /* === VOCABULARY CARDS === click to flip between definition and example */
 .vocab{display:grid;grid-template-columns:1fr 1fr;gap:24px}

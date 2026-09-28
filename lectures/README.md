@@ -32,8 +32,14 @@ Until Firebase is connected everything runs in **demo mode**: check-ins, votes a
 3. Paste the web app config into `shared/firebase-config.js` and check `adminEmails`.
 4. Deploy `firebase/firestore.rules` (Firebase console > Firestore > Rules). Keep its admin email in sync with the config.
 
-Students then sign in with their ASU Google account. Only the admin account can read attendance and results, and the attendance code is never readable by students.
+Students then sign in with their university Google account. Only the admin account can read attendance and results, and the attendance code is never readable by students.
 
 ## Adding a lecture
 
 Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives and assignments fill in on their own. Then add the matching admin page in the private repo.
+
+Deck rules, so every lecture works in any semester:
+
+- No lesson plan or agenda slide. Attendance comes right after the opening slides.
+- No calendar dates, weekdays, meeting times, rooms, office hours details, term names, TA or instructor names, school or university names.
+- The title slide keeps the small module badge (`M01`) and the module title in the sans-serif style from `deck.css`. Don't add a university line.
