@@ -14,11 +14,9 @@
 <style>
 /* ===========================================
    COURSE HOME
-   Two doors: students sign in with ASU Google and see the lectures the
-   instructor has published; instructors go to the private admin site.
-   The lecture list is not in this file. It lives in Firestore at
-   lectures/_site (written by the admin home page), readable only after
-   sign-in.
+   Two doors: students sign in with ASU Google (the sign-in carries over to
+   the lecture pages for check-ins and votes); instructors go to the private
+   admin site. The lecture list is admin-only and never appears here.
    =========================================== */
 :root {
   --Green:#75a29f; --golden:#eccf72; --Sky:#42a8bf; --Blue:#0d7397; --deep:#0a4f68;
@@ -54,20 +52,7 @@ h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
   border:0; border-radius:999px; padding:14px 28px; cursor:pointer; text-decoration:none; }
 .btn:hover, .btn:focus-visible { background:var(--deep); }
 .msg { color:var(--mute); font-style:italic; margin-top:14px; min-height:1.5em; }
-
-/* === STUDENT LECTURES === shown after sign-in */
-.who { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; color:var(--mute); }
-.who button { background:none; border:0; color:var(--Blue); font:700 16px var(--body); cursor:pointer; }
-.module { margin-top:36px; }
-.module h2 { padding-bottom:10px; border-bottom:3px solid var(--Green); }
-.module h2 span { display:block; font:700 14px var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--Blue); margin-bottom:6px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
-.card { display:block; text-decoration:none; color:inherit; background:var(--card);
-  border:2px solid var(--paper-2); border-top:8px solid var(--Sky); border-radius:16px; padding:20px 22px; transition:transform .2s, border-color .2s; }
-.card:hover, .card:focus-visible { transform:translateY(-3px); border-color:var(--Sky); outline:none; }
-.card .meta { font:700 12px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
-.card h3 { font:400 23px/1.2 var(--display); margin:8px 0; }
-.card .go { display:inline-block; margin-top:8px; font-weight:700; color:var(--Blue); }
+.msg:empty { display:none; }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
@@ -91,9 +76,10 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
     <section class="door">
       <div class="k">Students</div>
       <h2>Student sign-in</h2>
-      <p>Sign in with your ASU Google account to see this term's lectures.</p>
+      <p>Sign in with your ASU Google account, then open each lecture from the link shared in class. You stay signed in for check-ins and votes.</p>
       <button type="button" class="btn" id="student-btn">Sign in with ASU Google</button>
       <p class="msg" id="student-msg"></p>
+      <p class="msg" id="who" hidden></p>
     </section>
     <section class="door inst">
       <div class="k">Instructor</div>
@@ -101,10 +87,6 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
       <p>Attendance codes, poll and simulation results, and speaker notes.</p>
       <a class="btn" href="https://sos110-ce7a1.web.app/">Go to instructor pages</a>
     </section>
-  </div>
-  <div id="lectures" hidden>
-    <div class="who"><span id="who"></span><button type="button" id="signout">Sign out</button></div>
-    <div id="modules"></div>
   </div>
 </main>
 
@@ -116,36 +98,22 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 import { connect } from './shared/live.js';
 
 const $ = id => document.getElementById(id);
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-// Only follow links into this site's lectures folder
-const safe = u => /^lectures\/[a-z0-9-]+\/$/.test(u || '') ? u : '#';
-
-function render(data) {
-  const modules = (data.modules || []).filter(m => (m.lectures || []).length);
-  $('modules').innerHTML = modules.length ? modules.map(m => `
-    <section class="module">
-      <h2><span>Module ${esc(m.module)}</span>${esc(m.title)}</h2>
-      <div class="grid">${m.lectures.map(l => `
-        <a class="card" href="${safe(l.url)}"><div class="meta">${esc(l.meta)}</div><h3>${esc(l.title)}</h3><span class="go">Open lecture →</span></a>`).join('')}
-      </div>
-    </section>`).join('') : '<p class="msg">No lectures are posted yet.</p>';
-}
-
 let live;
 function show() {
-  $('doors').hidden = true; $('lectures').hidden = false;
-  $('who').textContent = `Signed in as ${live.user().email || live.user().name}`;
-  live.onLecture(render);
+  $('student-btn').textContent = 'Sign out';
+  $('who').hidden = false;
+  $('who').textContent = `Signed in as ${live.user().email || live.user().name}. Open your lecture from the link shared in class.`;
 }
 
 try {
-  live = await connect('_site');
-  if (live.mode === 'firebase' && live.user()) show();
+  live = await connect('home');
+  if (live.user()) show();
   $('student-btn').onclick = async () => {
-    try { await live.signIn(live.mode === 'demo' ? 'Demo student' : undefined); show(); }
-    catch (e) { $('student-msg').textContent = e.message; }
+    try {
+      if (live.user()) { await live.signOut(); location.reload(); return; }
+      await live.signIn(live.mode === 'demo' ? 'Demo student' : undefined); show();
+    } catch (e) { $('student-msg').textContent = e.message; }
   };
-  $('signout').onclick = async () => { await live.signOut(); location.reload(); };
 } catch (e) {
   $('student-msg').textContent = 'Sign-in could not load. Try again later.';
 }
