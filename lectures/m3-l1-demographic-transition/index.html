@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M3 Demographic Transition Game · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css">
 <style>
 /* === LECTURE-ONLY STYLES === */
-:root{--birth:#0a78ad;--death:#c0462a;--pop:#5f8f8b;--ok:#2e7d5b;--bad:#b3452c;--sans:'Inter','Helvetica Neue',Arial,sans-serif}
-/* title slide: small module badge and a sans-serif module title (same as the other decks) */
+:root{--birth:#0a78ad;--death:#c0462a;--pop:#5f8f8b;--ok:#2e7d5b;--bad:#b3452c}
+/* title slide: small module badge and a Montserrat ExtraBold module title */
 .band-num{left:120px;top:150px;font-size:96px}
 .band-text{top:330px;width:440px}
-.band-text>span:first-child{display:block;font:600 44px/1.15 var(--sans);letter-spacing:-.015em;color:var(--paper)}
+.band-text>span:first-child{display:block;font:800 42px/1.15 'Montserrat','Helvetica Neue',Arial,sans-serif;letter-spacing:-.01em;color:var(--paper)}
 .tagline{position:absolute;left:740px;top:520px;width:1080px;font:italic 400 40px/1.3 var(--body);color:var(--mute)}
 .title-terms{top:640px}
 h2.tight{font-size:66px;margin:10px 0 24px}
@@ -111,6 +111,65 @@ h2.tight{font-size:66px;margin:10px 0 24px}
 .qs li{font-size:30px;margin:14px 0}
 .take{background:var(--Blue);color:var(--paper);border-radius:18px;padding:26px 34px;font-size:30px;line-height:1.4;margin-top:26px}
 .take b{color:var(--golden)}
+
+/* what's coming */
+.coming{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.coming .card h3{font-size:40px}
+.coming .card p,.coming .card li{font-size:26px;line-height:1.4}
+.coming .card ul{padding-left:26px}
+/* big ideas */
+.frame{font-size:34px;line-height:1.4;max-width:1500px;color:var(--ink);margin-bottom:34px}
+.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.idea{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Sky);border-radius:18px;padding:28px 32px}
+.idea b{display:block;font:400 64px/1 var(--display);color:var(--golden);margin-bottom:10px}
+.idea h3{font-size:36px}
+.idea p{font-size:25px;line-height:1.42}
+/* vocabulary: 6 cards in 3 columns */
+.vocab.v3{grid-template-columns:repeat(3,1fr)}
+.vocab.v3 .vcard{height:300px}
+.vocab.v3 .vcard p{font-size:21px}
+.vocab.v3 .vcard h4{font-size:32px}
+/* population ecology */
+.eco{display:grid;grid-template-columns:1000px 1fr;gap:44px;align-items:start}
+.tabs{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.tab{font:700 20px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 18px;cursor:pointer}
+.tab.on{background:var(--Blue);color:var(--paper)}
+.eq{font:400 34px var(--display);color:var(--Blue);margin:6px 0 12px}
+.explain h3{font-size:40px}
+.explain p{font-size:25px;line-height:1.45;margin-bottom:12px}
+.explain .terms{list-style:none;display:grid;gap:10px;margin-top:10px}
+.explain .terms li{font-size:22px;line-height:1.35;background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 16px}
+.explain .terms b{color:var(--Blue)}
+/* Malthus */
+.malthus{display:grid;grid-template-columns:360px 1fr;gap:44px;align-items:start}
+.portrait{width:360px;height:450px;border-radius:18px;overflow:hidden;background:var(--Blue);border:6px solid var(--card);box-shadow:0 12px 30px rgba(10,42,53,.25);position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .ph{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;color:var(--paper);text-align:center;padding:24px;font:400 30px/1.2 var(--display)}
+.portrait.noimg .ph{display:flex}
+.portrait.noimg img{display:none}
+.cap{font-size:19px;color:var(--mute);margin-top:10px;line-height:1.35}
+.quote{font:italic 400 27px/1.4 var(--body);border-left:8px solid var(--golden);padding:4px 0 4px 22px;margin:8px 0 18px}
+.mcharts{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+/* world map */
+.mapgrid{display:grid;grid-template-columns:1180px 1fr;gap:40px;align-items:start}
+.mapframe{position:relative;width:1180px;height:700px;border-radius:18px;overflow:hidden;background:var(--card);border:2px solid var(--paper-2)}
+.mapframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.facts{list-style:none;display:grid;gap:16px}
+.facts li{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--Green);border-radius:14px;padding:14px 20px;font-size:23px;line-height:1.38}
+.facts b{display:block;font:400 40px/1.1 var(--display);color:var(--Blue)}
+/* I = PAT */
+.ipat{display:grid;grid-template-columns:900px 1fr;gap:50px;align-items:start}
+.formula{display:flex;align-items:center;gap:14px;font:400 60px var(--display);color:var(--ink);margin:4px 0 14px}
+.formula span{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
+.formula small{font:700 16px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.formula .op{color:var(--golden)}
+.presets{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 16px}
+.ipat .slider{margin:0 0 16px}
+.ipat .slider label{font-size:22px}
+.impact{background:var(--Blue);color:var(--paper);border-radius:16px;padding:18px 24px;display:flex;align-items:baseline;gap:18px;font-size:22px}
+.impact b{font:400 60px/1 var(--display);color:var(--golden)}
+.fp h3{font-size:40px}
+.fp p{font-size:23px;line-height:1.42;margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -120,18 +179,33 @@ h2.tight{font-size:66px;margin:10px 0 24px}
 <section class="slide">
   <div class="band"></div>
   <div class="band-num reveal">M<em>03</em></div>
-  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 8 · Classroom exercise<br>S&amp;M (2023) Ch. 6</small></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Societal Role in Maintaining Healthy Life-Supporting Systems</span><small>Lecture 8<br>S&amp;M (2023) Ch. 6</small></div>
   <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
-  <div class="title-k reveal">Population and consumption · Simulation game</div>
-  <h1 class="title-h reveal d2">The <em>demographic transition</em> game</h1>
-  <p class="tagline reveal d3">Why do some countries grow fast while others shrink?</p>
-  <div class="title-terms reveal d3"><span class="chip">Demographic Transition Model (DTM)</span> <span class="chip">Birth rate</span> <span class="chip">Death rate</span> <span class="chip">Total fertility rate</span></div>
+  <div class="title-k reveal">Lecture 8 · Module 3 Lecture 1</div>
+  <h1 class="title-h reveal d2">Population and <em>consumption</em></h1>
+  <p class="tagline reveal d3">How many people can Earth support?</p>
+  <div class="title-terms reveal d3" data-fill="chips"><span class="chip">Life-support Systems</span> <span class="chip">Demographic Transition Model (DTM)</span> <span class="chip">Ecological Footprint</span> <span class="chip">Carrying Capacity</span></div>
   <div class="goldline"></div>
-  <div class="title-who reveal d3">Birth rates, death rates and five stages</div>
-  <aside class="notes">Today students run a country through the Demographic Transition Model. The order is: check in (the code opens the exercise), a short video on China, one slide on the model and its variables, a quick birth-rate and death-rate practice, and then the game. Set the attendance code on the admin page before class. The game data are teaching numbers built from rounded UN figures (via Our World in Data), not forecasts.</aside>
+  <div class="title-who reveal d3">With the demographic transition game</div>
+  <aside class="notes">Lecture 8 on population and consumption. The order is: what's coming, check in (the code opens the practice and the game), objectives, big ideas, vocabulary, population ecology, Malthus, the world map, the video, the Demographic Transition Model, I = PAT and the footprint, then the practice and the game. Set the attendance code on the admin page before class. The game data are teaching numbers built from rounded UN figures (via Our World in Data), not forecasts.</aside>
 </section>
 
-<!-- 2. CHECK-IN -->
+<!-- 2. WHAT'S COMING -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>What's coming</span></div>
+  <div class="content">
+    <div class="k reveal">Module <span data-fill="module-num">3</span> · coming up</div>
+    <h2 class="reveal d2">What's <em>coming</em></h2>
+    <div class="coming reveal d3">
+      <div class="card blue"><span class="tag">Today</span><h3>Population and consumption</h3><p>Reading: <span data-fill="reading">S&amp;M Ch. 6</span></p><p class="mute" style="margin-top:10px">Due today: <span data-fill="due">Nothing due today</span></p></div>
+      <div class="card green"><span class="tag">Next class</span><h3 data-fill="next">Water</h3><p class="mute" id="next-due" style="margin-top:10px"></p></div>
+      <div class="card gold"><span class="tag">Module 3 assessments</span><ul data-fill="assessments"><li>InQuizitive 6, 7 and 8</li><li>Mid-term Test 1 (Modules 1–3)</li></ul></div>
+    </div>
+  </div>
+  <aside class="notes">Quick look ahead. Remind students which Module 3 assessments are open and that Mid-term Test 1 covers Modules 1 to 3. The due items and next class come from course.json.</aside>
+</section>
+
+<!-- 3. CHECK-IN -->
 <section class="slide" id="attendance">
   <div class="rail"><b>3.1</b><span>Check in</span></div>
   <div class="content">
@@ -155,29 +229,141 @@ h2.tight{font-size:66px;margin:10px 0 24px}
   <aside class="notes">Generate the code on the admin page ("New code") and read it out. Students must use the name and email from their university account so check-ins match the roster. The practice and game slides stay locked on each laptop until that student checks in. To project the game yourself, check in once on the classroom computer with any name.</aside>
 </section>
 
-<!-- 3. EXPLANATION 1: VIDEO -->
+<!-- 4. LEARNING OBJECTIVES -->
 <section class="slide">
-  <div class="rail"><b>3.1</b><span>Watch</span></div>
+  <div class="rail"><b>3.1</b><span>Objectives</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of today you can</div>
+    <h2 class="reveal d2">Learning <em>objectives</em></h2>
+    <ol class="num reveal d3" style="font-size:36px;max-width:1500px">
+      <li>Explain exponential and logistic (S-curve) growth, carrying capacity and overshoot.</li>
+      <li>Describe Malthus's argument and why the "Malthusian trap" did not hold for most of the world.</li>
+      <li>Use birth rates, death rates and total fertility to place a country in a stage of the Demographic Transition Model.</li>
+      <li>Use I = PAT and the ecological footprint to explain why consumption matters as much as the number of people.</li>
+    </ol>
+  </div>
+  <aside class="notes">These four objectives come from the Module 3 objectives "Life support from air, water, and land" and "Human-driven alterations and impacts on Earth's systems". Objective 3 is what the game practises.</aside>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Big ideas</span></div>
+  <div class="content">
+    <div class="k reveal">Big ideas</div>
+    <h2 class="reveal d2">How many people can Earth <em>support</em>?</h2>
+    <p class="frame reveal d3">It depends on how fast we grow, where we live, and how much each of us uses from Earth's life-support systems.</p>
+    <div class="ideas reveal d4">
+      <div class="idea"><b>1</b><h3>Growth has limits</h3><p>Every population meets a carrying capacity. Overshooting it can damage the capacity itself.</p></div>
+      <div class="idea"><b>2</b><h3>Booms are temporary</h3><p>Deaths fall first and births follow later. The gap between them is the population boom, and it closes.</p></div>
+      <div class="idea"><b>3</b><h3>Consumption counts</h3><p>Our impact is people times consumption times technology, so the number of people is only part of the story.</p></div>
+    </div>
+  </div>
+  <aside class="notes">Frame the lecture with the question on the slide. Ask for a show of hands: too many people, or too much consumption? Come back to the same question on the I = PAT slide.</aside>
+</section>
+
+<!-- 6. KEY VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Vocabulary</span></div>
   <div class="content" style="top:80px">
-    <div class="k reveal">A country in stage 5</div>
-    <h2 class="tight reveal d2">Why China's population is <em>shrinking</em></h2>
-    <div class="vid-grid reveal d3">
+    <div class="k reveal">Key vocabulary · tap a card for an example</div>
+    <h2 class="tight reveal d2">Glossary <em>terms</em></h2>
+    <div class="vocab v3 reveal d3" id="vocab" data-fill="vocab"></div>
+  </div>
+  <aside class="notes">Four cards are the glossary terms for this lecture (from course.json): Life-support Systems, Demographic Transition Model, Ecological Footprint and Carrying Capacity. The last two cards, Overshoot and I = PAT, are extra concepts used today that are not in the glossary.</aside>
+</section>
+
+<!-- 7. POPULATION ECOLOGY -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Population ecology</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">What population ecology teaches us</div>
+    <h2 class="tight reveal d2">J-curves, S-curves and <em>overshoot</em></h2>
+    <div class="eco reveal d3">
       <div>
-        <div class="video" data-youtube="gmehUgOy5ok"></div>
-        <p class="src" style="margin-top:10px">Video: Vox, "Why China's population is shrinking" (YouTube).</p>
+        <div class="tabs" id="eco-tabs">
+          <button class="tab on" type="button" data-eco="exp">Exponential (J)</button>
+          <button class="tab" type="button" data-eco="log">Logistic (S)</button>
+          <button class="tab" type="button" data-eco="over">Overshoot</button>
+          <button class="tab" type="button" data-eco="degrade">Overshoot and degradation</button>
+        </div>
+        <svg class="chart" id="eco-chart" viewBox="0 0 1000 560" role="img" aria-label="Population growth curves"></svg>
       </div>
-      <ul class="watch">
-        <li><b>Fewer births</b>About 9 million babies were born in China in 2023, roughly half as many as in 2016.</li>
-        <li><b>More deaths than births</b>In 2022 China's population fell for the first time in about 60 years.</li>
-        <li><b>Fertility far below 2.1</b>Women now have about 1 child each on average. A population needs about 2.1 to replace itself.</li>
-        <li><b>An older country</b>Fewer young workers will support more retirees in the coming decades.</li>
+      <div class="explain" id="eco-text"></div>
+    </div>
+  </div>
+  <aside class="notes">Click through the four tabs. Exponential: growth in proportion to size, the J-curve (bacteria in a dish, reindeer on St. Matthew Island at first). Logistic: growth slows as the population nears carrying capacity K and levels off in an S-curve. Overshoot: when feedback is delayed the population shoots past K and then falls back. Degradation: if the overshoot damages the resource base (overgrazed grass, eroded soil, depleted aquifers), K itself falls and the population crashes to a lower level. Curves are a model, not data.</aside>
+</section>
+
+<!-- 8. MALTHUS -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Malthus</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">Thomas Robert Malthus (1766–1834)</div>
+    <h2 class="tight reveal d2">The Malthusian <em>trap</em></h2>
+    <div class="malthus reveal d3">
+      <div>
+        <div class="portrait" id="malthus-pic"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thomas_Robert_Malthus_Wellcome_L0069037_-crop.jpg?width=600" alt="Portrait of Thomas Robert Malthus" loading="lazy"><div class="ph">Thomas Robert Malthus<br>1766–1834</div></div>
+        <p class="cap">Portrait after John Linnell (1834). Wellcome Collection, CC BY 4.0, via Wikimedia Commons.</p>
+      </div>
+      <div>
+        <p class="quote">"Population, when unchecked, increases in a geometrical ratio. Subsistence increases only in an arithmetical ratio." (An Essay on the Principle of Population, 1798)</p>
+        <div class="mcharts">
+          <svg class="chart" id="malthus-ratio" viewBox="0 0 620 400" role="img" aria-label="Malthus: population grows geometrically, food arithmetically"></svg>
+          <svg class="chart" id="malthus-trap" viewBox="0 0 620 400" role="img" aria-label="The Malthusian trap and the escape after 1800"></svg>
+        </div>
+        <p class="src" style="margin-top:10px;font-size:20px">Left: Malthus's two ratios. Right: for most of history, extra food became extra people, not richer people, so income per person stayed flat. After about 1800, farming and industrial technology, then the demographic transition, broke the trap. Both curves are sketches, not data.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Malthus argued that population always catches up with food, so famine, disease and war ("positive checks") keep most people poor. That held for thousands of years: income per person barely moved before 1800. He missed two things: technology that raised food output far faster than arithmetic (the Agricultural and Industrial Revolutions, later the Green Revolution), and the demographic transition, where people choose smaller families as they get richer. Ask: is he still wrong if we count the ecological footprint and not just food? That is the bridge to I = PAT.</aside>
+</section>
+
+<!-- 9. WORLD POPULATION MAP -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Where we live</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">World population distribution</div>
+    <h2 class="tight reveal d2">Where do 8 billion people <em>live</em>?</h2>
+    <div class="mapgrid reveal d3">
+      <div>
+        <div class="tabs"><button class="tab on" type="button" data-map="population">People per country</button><button class="tab" type="button" data-map="population-density">People per km²</button></div>
+        <div class="mapframe" id="map"></div>
+        <p class="src" style="margin-top:8px">Map: Our World in Data, based on UN World Population Prospects. Hover a country for its number; drag the timeline to go back in time.</p>
+      </div>
+      <ul class="facts">
+        <li><b>8.2 billion</b>people in the world in 2024.</li>
+        <li><b>About 6 in 10</b>live in Asia. India and China each have about 1.4 billion.</li>
+        <li><b>About 1 in 5</b>live in Africa, the fastest-growing region.</li>
+        <li><b>1 → 8 billion</b>took about 200 years, from around 1800 to 2022.</li>
       </ul>
     </div>
   </div>
-  <aside class="notes">Play the video (about 7 minutes). Ask students to watch for the four numbers on the right. China moved through the whole transition in about 70 years, much faster than Europe did in 150 to 200 years; the one-child policy (1980 to 2015) came after fertility had already fallen from about 6 to under 3 in the 1970s. Figures are rounded from China's National Bureau of Statistics and the UN; please check them against the video before class.</aside>
+  <aside class="notes">The map is Our World in Data's live chart, so it needs an internet connection. Switch to people per km² to show that density and total population tell different stories (Bangladesh vs Russia). Use the timeline to show 1800 vs today. The four numbers are rounded from UN World Population Prospects 2024; please check them against the map before class.</aside>
 </section>
 
-<!-- 4. EXPLANATION 2: THE MODEL -->
+<!-- 10. VIDEO -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>Watch</span></div>
+  <div class="content" style="top:80px">
+    <div class="k reveal">Video</div>
+    <h2 class="tight reveal d2">7 billion and <em>counting</em></h2>
+    <div class="vid-grid reveal d3">
+      <div>
+        <div class="video" data-youtube="d1dIAtvSFLM" data-title="Population Reference Bureau: 7 Billion and Counting"></div>
+        <p class="src" style="margin-top:10px">Video: Population Reference Bureau, "7 Billion and Counting" (YouTube).</p>
+      </div>
+      <ul class="watch">
+        <li><b>How fast?</b>How long did it take to add each new billion people?</li>
+        <li><b>Where?</b>Which parts of the world are growing fastest, and which are not?</li>
+        <li><b>Why?</b>What makes birth rates fall in a country?</li>
+        <li><b>So what?</b>What does growth mean for food, water and resources?</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">Play the Population Reference Bureau video. Students watch for the answers to the four questions, then share one with a neighbor. The world passed 7 billion in 2011 and 8 billion in 2022 (UN).</aside>
+</section>
+
+<!-- 11. THE DEMOGRAPHIC TRANSITION MODEL -->
 <section class="slide">
   <div class="rail"><b>3.1</b><span>The model</span></div>
   <div class="content" style="top:70px;right:100px">
@@ -196,7 +382,39 @@ h2.tight{font-size:66px;margin:10px 0 24px}
   <aside class="notes">Walk through the stages left to right. Stage 1: high births and high deaths, little growth (Sweden before 1800). Stage 2: better food, clean water and medicine cut deaths, but families stay large, so the population booms (Niger today). Stage 3: as child deaths fall, schooling spreads and people move to cities, families get smaller (Kenya). Stage 4: both rates low, little growth (United States). Stage 5: deaths exceed births (Japan, China). Roser's key point: if fertility had fallen at the same time as mortality, there would have been no population boom at all; the boom is the gap between the two lines.</aside>
 </section>
 
-<!-- 5. PRACTICE -->
+<!-- 12. I = PAT AND THE ECOLOGICAL FOOTPRINT -->
+<section class="slide">
+  <div class="rail"><b>3.1</b><span>I = PAT</span></div>
+  <div class="content" style="top:70px">
+    <div class="k reveal">Measuring our impact</div>
+    <h2 class="tight reveal d2">I = PAT and the ecological <em>footprint</em></h2>
+    <div class="ipat reveal d3">
+      <div>
+        <div class="formula"><span>I<small>Impact</small></span><span class="op">=</span><span>P<small>Population</small></span><span class="op">×</span><span>A<small>Affluence</small></span><span class="op">×</span><span>T<small>Technology</small></span></div>
+        <div class="presets" id="ipat-presets">
+          <button class="tab on" type="button" data-ipat="world">World today</button>
+          <button class="tab" type="button" data-ipat="fewer">25% fewer people</button>
+          <button class="tab" type="button" data-ipat="richer">Consumption doubles</button>
+          <button class="tab" type="button" data-ipat="clean">Cleaner technology</button>
+        </div>
+        <div class="slider"><label>P · people (billions)<output id="ip-p-o"></output></label><input type="range" id="ip-p" min="1" max="12" step="0.1"></div>
+        <div class="slider"><label>A · consumption per person (thousand $ a year)<output id="ip-a-o"></output></label><input type="range" id="ip-a" min="2" max="60" step="1"></div>
+        <div class="slider"><label>T · CO₂ per $1,000 spent (tonnes)<output id="ip-t-o"></output></label><input type="range" id="ip-t" min="0.02" max="0.6" step="0.01"></div>
+        <div class="impact"><span>I · CO₂ a year</span><b id="ip-i"></b><span id="ip-i-note"></span></div>
+      </div>
+      <div class="fp">
+        <h3>Ecological footprint</h3>
+        <p>The land and sea area needed to grow our food, fiber and timber, hold our buildings and roads, and absorb our carbon, measured in global hectares.</p>
+        <p>Earth has about <b>1.6 global hectares</b> per person. The world uses about <b>1.7 Earths</b> a year: that is overshoot.</p>
+        <svg class="chart" id="fp-chart" viewBox="0 0 760 420" role="img" aria-label="Earths needed if everyone lived like the average person in each country"></svg>
+        <p class="src" style="margin-top:8px">Earths needed if everyone lived like the average person in each country. Rounded from the Global Footprint Network (National Footprint and Biocapacity Accounts).</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">I = PAT (Ehrlich and Holdren, 1971) says impact is population times affluence (consumption per person) times technology (impact per unit of consumption). The "World today" preset uses CO₂ as the impact: about 8.1 billion people × about $17,000 of output per person × about 0.27 tonnes of CO₂ per $1,000 gives roughly 37 billion tonnes, close to world fossil CO₂ emissions. Try the presets: 25% fewer people cuts impact by 25%, but doubling consumption doubles it, and cleaner technology can cut it more than either. The ecological footprint turns all of this into area: the average American's footprint would need about 5 Earths if everyone lived that way; the average Kenyan's, well under one. All numbers are rounded teaching numbers; please check the footprint values against the latest Global Footprint Network data.</aside>
+</section>
+
+<!-- 13. PRACTICE -->
 <section class="slide" id="practice">
   <div class="rail"><b>3.1</b><span>Practice</span></div>
   <div class="content" style="top:70px">
@@ -216,11 +434,11 @@ h2.tight{font-size:66px;margin:10px 0 24px}
       </div>
     </div>
   </div>
-  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="attendance">Go to check-in</button></div></div>
   <aside class="notes">Give students 5 minutes. Missions 2 and 3 are the punchline: a stage 1 country and a stage 4 country can both have zero growth, but for very different reasons. Ask: "What rule of thumb gives the doubling time?" (70 divided by the growth rate in percent). Mission progress is saved to the admin page.</aside>
 </section>
 
-<!-- 6. GAME SETUP -->
+<!-- 14. GAME SETUP -->
 <section class="slide" id="setup">
   <div class="rail"><b>3.1</b><span>The game</span></div>
   <div class="content" style="top:70px">
@@ -233,11 +451,11 @@ h2.tight{font-size:66px;margin:10px 0 24px}
       <div><b>3 · Score</b>After 8 rounds you get up to 5 stars for a healthy, steady population.</div>
     </div>
   </div>
-  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="attendance">Go to check-in</button></div></div>
   <aside class="notes">Assign countries so every stage is covered, for example by row. China is the hardest: its costs of raising children are so high that even strong family policy has a small effect, which matches what East Asian governments have found. Starting values are rounded from UN World Population Prospects (via Our World in Data); everything after that is a teaching model.</aside>
 </section>
 
-<!-- 7. GAME BOARD -->
+<!-- 15. GAME BOARD -->
 <section class="slide" id="game">
   <div class="rail"><b>3.1</b><span>Play</span></div>
   <div class="board">
@@ -269,11 +487,11 @@ h2.tight{font-size:66px;margin:10px 0 24px}
     <div class="gact"><button class="btn" type="button" id="r-again">Play again</button><button class="btn ghost" type="button" id="r-other">Try another country</button><button class="btn ghost" type="button" id="r-close">Look at the charts</button></div>
     <div class="status" id="r-status"></div>
   </div></div>
-  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="1">Go to check-in</button></div></div>
+  <div class="lock"><div class="box"><h3>Check in to open</h3><p>Enter your name, email and today's code on the check-in slide.</p><button class="btn" type="button" data-goto="attendance">Go to check-in</button></div></div>
   <aside class="notes">Circulate while students play (15 to 20 minutes). Common surprises: in Niger, health spending alone makes the population explode (stage 2), because families stay large until schooling, jobs and family planning catch up. In Kenya, pushing hard on everything overshoots below replacement. In Japan and China, only family support, immigration and a later retirement age help. The "Cut clinic budget" card is the trap: more children die, so parents have more births, and the country fails the health checks. Each finished game is saved to the admin page.</aside>
 </section>
 
-<!-- 8. DEBRIEF -->
+<!-- 16. DEBRIEF -->
 <section class="slide">
   <div class="rail"><b>3.1</b><span>Debrief</span></div>
   <div class="content">
@@ -282,11 +500,11 @@ h2.tight{font-size:66px;margin:10px 0 24px}
     <ol class="num qs reveal d3">
       <li>Why did the population grow fastest just after deaths fell?</li>
       <li>Which cards lowered fertility, and why did they take a generation to work?</li>
-      <li>Why is a shrinking, aging country a sustainability problem too?</li>
+      <li>Using I = PAT, which matters more for your country's impact: more people or more consumption?</li>
     </ol>
-    <div class="take reveal d4"><b>Takeaway:</b> rapid population growth is a temporary gap between falling deaths and falling births. Health, schooling for girls and choice over family size close that gap, not higher death rates.</div>
+    <div class="take reveal d4"><b>Takeaway:</b> population booms are a temporary gap between falling deaths and falling births, and health, schooling and choice close that gap. What each of us consumes decides whether Earth's carrying capacity holds.</div>
   </div>
-  <aside class="notes">Ask two or three students from different countries to share their star count and one decision. Link back to carrying capacity and the ecological footprint: population size matters, but so does how much each person consumes, which is where the rest of this module goes.</aside>
+  <aside class="notes">Ask two or three students from different countries to share their star count and one decision. Link back to the big ideas: carrying capacity, the temporary boom, and I = PAT. A shrinking, aging country can still have a large footprint if each person consumes a lot.</aside>
 </section>
 
 </main></div>
@@ -304,13 +522,37 @@ const say = (el, msg, kind = '') => { el.textContent = msg; el.className = `stat
 const fmt = (x, d = 1) => Number(x).toFixed(d);
 const people = m => m >= 1000 ? `${fmt(m / 1000, 2)} billion` : m >= 10 ? `${Math.round(m)} million` : `${fmt(m, 1)} million`;
 
-loadSession(LECTURE).then(d => fill(document, d)).catch(() => {});
+/* Two extra cards for concepts used today that are not in the glossary */
+const EXTRA = [
+  { term: 'Overshoot', definition: 'When a population grows past the carrying capacity of its environment, usually because limits are felt late.', example: 'Humanity uses about 1.7 Earths of resources a year, so we are drawing down forests, fish and soil faster than they renew.', significance: 'Overshoot can damage the resource base itself and lower the future carrying capacity.' },
+  { term: 'I = PAT', definition: 'Impact = Population × Affluence (consumption per person) × Technology (impact per unit of consumption).', example: 'The same number of people can have twice the impact if each person consumes twice as much.', significance: 'Shows that consumption and technology matter as much as the number of people.' },
+];
+function addExtraCards() {
+  const box = document.getElementById('vocab');
+  EXTRA.forEach(t => {
+    const c = document.createElement('div');
+    c.className = 'vcard'; c.tabIndex = 0; c.setAttribute('role', 'button'); c.setAttribute('aria-label', `${t.term}: show example`);
+    c.innerHTML = `<div class="in"><div class="f"><h4>${esc(t.term)}</h4><p>${esc(t.definition)}</p><span class="hint">Tap for example</span></div><div class="b"><h4>Example</h4><p>${esc(t.example)}</p><p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(t.significance)}</p></div></div>`;
+    c.addEventListener('click', () => c.classList.toggle('flip'));
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); c.classList.toggle('flip'); } });
+    box.appendChild(c);
+  });
+}
+loadSession(LECTURE).then(d => {
+  fill(document, d); addExtraCards();
+  // pages never name the university: drop it from assignment names that come from course.json
+  const plain = t => String(t).replace(/\bASU\s+/g, '');
+  $$('[data-fill="assessments"] li, [data-fill="due"]').forEach(el => { el.textContent = plain(el.textContent); });
+  $$('[data-fill="next"]').forEach(el => { el.textContent = d.next ? d.next.topic : 'End of course'; });
+  if (d.next?.due) $('#next-due').textContent = `Due: ${plain(d.next.due)}`;
+}).catch(() => {});
 
 /* === VIDEO === */
 $$('[data-youtube]').forEach(v => {
-  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}" title="Vox: Why China's population is shrinking" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}" title="${esc(v.dataset.title || 'Video')}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 });
-$$('[data-goto]').forEach(b => b.addEventListener('click', () => window.Deck.go(Number(b.dataset.goto))));
+const goId = id => window.Deck.go(window.Deck.slides.indexOf(document.getElementById(id)));
+$$('[data-goto]').forEach(b => b.addEventListener('click', () => goId(b.dataset.goto)));
 
 /* === SVG HELPERS === */
 const NS = 'http://www.w3.org/2000/svg';
@@ -356,6 +598,132 @@ function stageOf(cbr, cdr) {
   s += txt(x0 - 50, y0 - 30, 'per 1,000', { size: 16 });
   s += txt((x0 + x1) / 2, H - 30, 'Time →', { size: 20, anchor: 'middle' });
   $('#dtm-model').innerHTML = s;
+})();
+
+
+/* === POPULATION ECOLOGY === four growth models (a model, not data) */
+const ECO = {
+  exp: { title: 'Exponential growth: the J-curve', eq: 'dN/dt = rN', text: ['With plenty of food and space, a population grows in proportion to its size: the more individuals, the more births. It doubles again and again.', 'No real population can grow like this for long.'], terms: [['r', 'growth rate per individual'], ['N', 'population size']] },
+  log: { title: 'Logistic growth: the S-curve', eq: 'dN/dt = rN (1 − N/K)', text: ['As the population nears the carrying capacity K, food and space run short. Births fall and deaths rise, so growth slows and levels off at K.'], terms: [['K', 'carrying capacity: the largest population the environment can support long-term'], ['1 − N/K', 'the room left to grow']] },
+  over: { title: 'Overshoot', eq: 'limits felt late', text: ['When a population feels its limits late (a lag), it shoots past K, then falls back below it, and swings around K until it settles.', 'Example: deer after predators are removed.'], terms: [['Overshoot', 'the population above K'], ['Lag', 'the time between using a resource and feeling the shortage']] },
+  degrade: { title: 'Overshoot and degradation', eq: 'K falls while N > K', text: ['If the overshoot damages the resource base, the carrying capacity itself shrinks. The population crashes to a lower level than before.', 'Example: reindeer on St. Matthew Island overgrazed their lichen and crashed (1944 to 1966).'], terms: [['Degradation', 'overgrazed land, eroded soil, emptied aquifers'], ['Lesson', 'overshoot costs the future, not just the present']] },
+};
+function ecoRun(mode) {
+  const dt = 0.05, T = 60, r = mode === 'exp' ? 0.12 : 0.25, lag = mode === 'log' || mode === 'exp' ? 0 : 5;
+  let N = 5, K = 100; const hist = [], out = [];
+  for (let t = 0; t <= T + 1e-9; t += dt) {
+    hist.push(N);
+    if (Math.abs(t / 1 - Math.round(t)) < dt / 2) out.push([t, N, K]);
+    const Nl = lag ? hist[Math.max(0, hist.length - 1 - Math.round(lag / dt))] : N;
+    const dN = mode === 'exp' ? r * N : r * N * (1 - Nl / K);
+    if (mode === 'degrade' && N > K) K = Math.max(30, K - 0.15 * (N - K) * dt);
+    N = Math.max(0.1, N + dN * dt);
+  }
+  return out;
+}
+function drawEco(mode) {
+  const W = 1000, H = 560, x0 = 80, x1 = 970, y0 = 30, y1 = 500, max = 180;
+  const X = t => x0 + t / 60 * (x1 - x0), Y = v => y1 - Math.min(v, max) / max * (y1 - y0);
+  const d = ecoRun(mode);
+  let s = '';
+  [0, 50, 100, 150].forEach(v => { s += `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5d6"/>` + txt(x0 - 12, Y(v) + 6, v, { anchor: 'end', size: 17 }); });
+  [0, 20, 40, 60].forEach(t => { s += txt(X(t), y1 + 30, t, { anchor: 'middle', size: 17 }); });
+  s += txt((x0 + x1) / 2, y1 + 56, 'Time', { anchor: 'middle', size: 18 }) + txt(x0 - 60, y0 - 8, 'Population', { size: 18, fill: '#10313d', weight: 700 });
+  if (mode !== 'exp') {
+    s += `<path d="${path(d.map(p => [X(p[0]), Y(p[2])]))}" fill="none" stroke="#b8922a" stroke-width="3" stroke-dasharray="10 8"/>`;
+    s += txt(X(1), Y(100) - 12, 'Carrying capacity K', { size: 19, fill: '#10313d', weight: 700 });
+    if (mode === 'degrade') { const last = d.at(-1); s += txt(X(47), Y(last[2]) - 14, `K after degradation: ${Math.round(last[2])}`, { size: 19, fill: '#b8922a', weight: 700 }); }
+  } else {
+    s += `<line x1="${x0}" x2="${x1}" y1="${Y(100)}" y2="${Y(100)}" stroke="#b8922a" stroke-width="3" stroke-dasharray="10 8" opacity=".35"/>` + txt(x1 - 4, Y(100) - 12, 'K (ignored)', { anchor: 'end', size: 18 });
+  }
+  const pts = d.filter(p => p[1] <= max * 1.02).map(p => [X(p[0]), Y(p[1])]);
+  if (mode === 'exp') { const l = d.find(p => p[1] > max); if (l) pts.push([X(l[0]), Y(max)]); }
+  s += `<path d="${path(pts)}" fill="none" stroke="#0a78ad" stroke-width="4"/>`;
+  if (mode === 'exp') { const e = pts.at(-1); s += `<path d="M${e[0] - 12},${e[1] + 16}L${e[0]},${e[1]}L${e[0] + 14},${e[1] + 12}" fill="none" stroke="#0a78ad" stroke-width="4"/>` + txt(e[0] + 18, e[1] + 30, 'off the chart', { size: 18, fill: '#10313d', weight: 700 }); }
+  else { const q = d.find(p => p[0] >= 8); s += txt(X(q[0]) + 14, Y(q[1]) + 6, 'Population N', { size: 19, fill: '#0a78ad', weight: 700 }); }
+  if (mode === 'over' || mode === 'degrade') { const peak = d.reduce((a, b) => b[1] > a[1] ? b : a); s += `<circle cx="${X(peak[0])}" cy="${Y(peak[1])}" r="8" fill="#0a78ad" stroke="#fffdf8" stroke-width="2"/>` + txt(X(peak[0]) + 14, Y(peak[1]) - 8, 'overshoot', { size: 19, fill: '#10313d', weight: 700 }); }
+  $('#eco-chart').innerHTML = s;
+  const e = ECO[mode];
+  $('#eco-text').innerHTML = `<h3>${e.title}</h3><div class="eq">${e.eq}</div>${e.text.map(t => `<p>${t}</p>`).join('')}<ul class="terms">${e.terms.map(([a, b]) => `<li><b>${a}</b> · ${b}</li>`).join('')}</ul>`;
+  $$('[data-eco]').forEach(b => b.classList.toggle('on', b.dataset.eco === mode));
+}
+$$('[data-eco]').forEach(b => b.addEventListener('click', () => drawEco(b.dataset.eco)));
+drawEco('exp');
+
+/* === MALTHUS === his two ratios, and the trap (sketches, not data) */
+(function drawMalthus() {
+  const W = 620, x0 = 60, x1 = 600, y0 = 44, y1 = 340;
+  let s = txt(20, 28, 'Malthus\'s two ratios', { size: 20, fill: '#10313d', weight: 700 });
+  const gens = [0, 1, 2, 3, 4, 5, 6], pop = gens.map(g => 2 ** g), food = gens.map(g => g + 1), max = 70;
+  const X = g => x0 + g / 6 * (x1 - x0), Y = v => y1 - v / max * (y1 - y0);
+  [0, 20, 40, 60].forEach(v => { s += `<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5d6"/>` + txt(x0 - 10, Y(v) + 6, v, { anchor: 'end', size: 15 }); });
+  gens.forEach(g => { s += txt(X(g), y1 + 24, g * 25, { anchor: 'middle', size: 15 }); });
+  s += txt((x0 + x1) / 2, y1 + 48, 'Years', { anchor: 'middle', size: 16 });
+  s += `<path d="${path(gens.map(g => [X(g), Y(pop[g])]))}${path(gens.slice().reverse().map(g => [X(g), Y(food[g])])).replace('M', 'L')}Z" fill="rgba(192,70,42,.12)"/>`;
+  s += `<path d="${path(gens.map(g => [X(g), Y(pop[g])]))}" fill="none" stroke="#c0462a" stroke-width="3"/><path d="${path(gens.map(g => [X(g), Y(food[g])]))}" fill="none" stroke="#5f8f8b" stroke-width="3"/>`;
+  gens.forEach(g => { s += `<circle cx="${X(g)}" cy="${Y(pop[g])}" r="6" fill="#c0462a"><title>Population ×${pop[g]}</title></circle><circle cx="${X(g)}" cy="${Y(food[g])}" r="6" fill="#5f8f8b"><title>Food ×${food[g]}</title></circle>`; });
+  s += txt(X(6) - 10, Y(64) + 26, 'People: 1, 2, 4, 8…', { anchor: 'end', size: 17, fill: '#10313d', weight: 700 });
+  s += txt(X(6) - 10, Y(7) - 12, 'Food: 1, 2, 3, 4…', { anchor: 'end', size: 17, fill: '#10313d', weight: 700 });
+  s += txt(X(5.7), Y(18), 'shortfall', { anchor: 'end', size: 17, fill: '#c0462a', weight: 700 });
+  $('#malthus-ratio').innerHTML = s;
+
+  // the trap: income per person flat for centuries, then the escape after about 1800
+  let t = txt(20, 28, 'Income per person', { size: 20, fill: '#10313d', weight: 700 });
+  const X2 = yr => x0 + (yr - 1000) / 1020 * (x1 - x0), Y2 = v => y1 - v / 12 * (y1 - y0);
+  const inc = yr => yr < 1800 ? 1 + 0.12 * Math.sin(yr / 37) + 0.08 * Math.sin(yr / 11) : 1 + 0.12 * Math.sin(1800 / 37) + 0.08 * Math.sin(1800 / 11) + 10 * ((yr - 1800) / 220) ** 2.4;
+  const pts = []; for (let yr = 1000; yr <= 2020; yr += 5) pts.push([X2(yr), Y2(inc(yr))]);
+  t += `<rect x="${x0}" y="${y0}" width="${X2(1800) - x0}" height="${y1 - y0}" fill="#f1ece0"/>`;
+  [1000, 1400, 1800, 2000].forEach(yr => { t += txt(X2(yr), y1 + 24, yr, { anchor: 'middle', size: 15 }); });
+  t += `<line x1="${x0}" x2="${x1}" y1="${y1}" y2="${y1}" stroke="#4c6670"/>`;
+  t += `<path d="${path(pts)}" fill="none" stroke="#0a78ad" stroke-width="3"/>`;
+  t += txt((x0 + X2(1800)) / 2, Y2(3), 'The Malthusian trap', { anchor: 'middle', size: 19, fill: '#10313d', weight: 700 }) + txt((x0 + X2(1800)) / 2, Y2(3) + 24, 'more food → more people', { anchor: 'middle', size: 16 });
+  t += txt(X2(1790), Y2(10), 'Escape after 1800 →', { anchor: 'end', size: 19, fill: '#10313d', weight: 700 }) + txt(X2(1790), Y2(10) + 22, 'technology + smaller families', { anchor: 'end', size: 16 });
+  $('#malthus-trap').innerHTML = t;
+  const pic = $('#malthus-pic'), img = $('img', pic);
+  img.addEventListener('error', () => pic.classList.add('noimg'));
+  if (img.complete && !img.naturalWidth) pic.classList.add('noimg');
+})();
+
+/* === WORLD MAP === Our World in Data's live map */
+function showMap(id) {
+  $('#map').innerHTML = `<div class="ph" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:24px;text-align:center;padding:40px">Loading the Our World in Data map…<br>It needs an internet connection.</div><iframe src="https://ourworldindata.org/grapher/${id}?tab=map" title="Our World in Data: ${id === 'population' ? 'population' : 'population density'} map" loading="lazy" allow="web-share; clipboard-write"></iframe>`;
+  $$('[data-map]').forEach(b => b.classList.toggle('on', b.dataset.map === id));
+}
+$$('[data-map]').forEach(b => b.addEventListener('click', () => showMap(b.dataset.map)));
+showMap('population');
+
+/* === I = PAT === CO2 as the impact; rounded teaching numbers */
+const IPAT = { world: [8.1, 17, 0.27], fewer: [6.1, 17, 0.27], richer: [8.1, 34, 0.27], clean: [8.1, 17, 0.13] };
+const BASE = 8.1 * 17 * 0.27;
+function ipat() {
+  const p = +$('#ip-p').value, a = +$('#ip-a').value, t = +$('#ip-t').value, i = p * a * t;
+  $('#ip-p-o').textContent = `${fmt(p)} billion`; $('#ip-a-o').textContent = `$${a},000`; $('#ip-t-o').textContent = fmt(t, 2);
+  $('#ip-i').textContent = `${fmt(i, 0)} billion t`;
+  const pct = (i / BASE - 1) * 100;
+  $('#ip-i-note').textContent = Math.abs(pct) < 1 ? 'about world CO₂ today' : `${pct > 0 ? '+' : ''}${fmt(pct, 0)}% vs world today`;
+}
+function preset(k) {
+  const [p, a, t] = IPAT[k]; $('#ip-p').value = p; $('#ip-a').value = a; $('#ip-t').value = t;
+  $$('[data-ipat]').forEach(b => b.classList.toggle('on', b.dataset.ipat === k)); ipat();
+}
+$$('[data-ipat]').forEach(b => b.addEventListener('click', () => preset(b.dataset.ipat)));
+['#ip-p', '#ip-a', '#ip-t'].forEach(id => $(id).addEventListener('input', () => { $$('[data-ipat]').forEach(b => b.classList.remove('on')); ipat(); }));
+preset('world');
+
+/* Ecological footprint: Earths needed if everyone lived like each country (rounded, Global Footprint Network) */
+(function drawFootprint() {
+  const rows = [['United States', 5.1], ['Japan', 2.9], ['China', 2.4], ['World', 1.7], ['India', 0.8], ['Kenya', 0.6]];
+  const x0 = 170, x1 = 700, y0 = 20, bh = 46, max = 6, X = v => x0 + v / max * (x1 - x0);
+  let s = '';
+  rows.forEach(([n, v], i) => {
+    const y = y0 + i * (bh + 12);
+    s += txt(x0 - 12, y + bh / 2 + 7, n, { anchor: 'end', size: 19, fill: '#10313d', weight: n === 'World' ? 700 : 400 });
+    s += `<rect x="${x0}" y="${y}" width="${X(v) - x0}" height="${bh}" rx="4" fill="${n === 'World' ? '#b8922a' : '#42a8bf'}"><title>${n}: about ${v} Earths</title></rect>`;
+    s += txt(Math.max(X(v), X(1) + 4) + 10, y + bh / 2 + 7, `${v}`, { size: 19, fill: '#10313d', weight: 700 });
+  });
+  const yb = y0 + rows.length * (bh + 12);
+  s += `<line x1="${X(1)}" x2="${X(1)}" y1="${y0 - 8}" y2="${yb}" stroke="#10313d" stroke-width="2" stroke-dasharray="6 5"/>` + txt(X(1) + 6, yb + 20, '1 Earth', { size: 17, fill: '#10313d', weight: 700 });
+  $('#fp-chart').innerHTML = s;
 })();
 
 /* === PRACTICE === simple growth: each year the population changes by (births − deaths) per 1,000 */
@@ -515,7 +883,7 @@ $('#countries').innerHTML = Object.entries(COUNTRIES).map(([id, c]) => {
     <dl><dt>People</dt><dd>${people(c.pop)}</dd><dt>Births / 1,000</dt><dd>${fmt(s.cbr, 0)}</dd><dt>Deaths / 1,000</dt><dd>${fmt(s.cdr, 0)}</dd><dt>Children per woman</dt><dd>${fmt(c.tfr)}</dd><dt>Life expectancy</dt><dd>${c.e0} yrs</dd></dl>
     <p class="mission">${esc(c.mission)}</p><span class="go">Play ${esc(c.name)} →</span></button>`;
 }).join('');
-$$('[data-country]').forEach(b => b.addEventListener('click', () => { start(b.dataset.country); window.Deck.go(6); }));
+$$('[data-country]').forEach(b => b.addEventListener('click', () => { start(b.dataset.country); goId('game'); }));
 $('#g-cards').innerHTML = CARDS.map(c => `<button class="pcard${c.trap ? ' trap' : ''}" type="button" data-card="${c.id}"><span class="cost">${c.cost > 0 ? `${c.cost} pt${c.cost > 1 ? 's' : ''}` : `+${-c.cost} pts`}</span><h4>${esc(c.name)}</h4>${esc(c.text)}</button>`).join('');
 
 function start(id) {
@@ -556,9 +924,9 @@ $('#g-run').addEventListener('click', () => {
   render();
   if (game.round >= ROUNDS) finish();
 });
-$('#g-new').addEventListener('click', () => window.Deck.go(5));
+$('#g-new').addEventListener('click', () => goId('setup'));
 $('#r-again').addEventListener('click', () => start(game.id));
-$('#r-other').addEventListener('click', () => window.Deck.go(5));
+$('#r-other').addEventListener('click', () => goId('setup'));
 $('#r-close').addEventListener('click', () => $('#g-result').classList.remove('show'));
 
 function render() {
@@ -653,7 +1021,7 @@ async function finish() {
     growth: Math.round(sc.growth * 100) / 100, support: Math.round(sc.support * 10) / 10, childDeaths: Math.round(sc.child),
     cards: game.used, trap: game.trap,
   };
-  if (!live?.user()) return say($('#r-status'), 'Check in on slide 2 to save your result.', 'err');
+  if (!live?.user()) return say($('#r-status'), 'Check in on the check-in slide to save your result.', 'err');
   try { await live.saveSim('dtm-game', record); say($('#r-status'), 'Result saved. You can play again; your latest game is the one that counts.', 'ok'); }
   catch (e) { say($('#r-status'), e.message, 'err'); }
 }
