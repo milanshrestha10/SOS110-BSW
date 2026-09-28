@@ -82,7 +82,7 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
   <div class="wrap">
     <div class="k" id="term">School of Sustainability · Fall C 2026</div>
     <h1>SOS110 Building a <em>Sustainable</em> World</h1>
-    <p id="meets">Dr. Milan Shrestha · Tue/Thu 10:30–11:45, BAC16</p>
+    <p id="meets">Tue/Thu 10:30–11:45, BAC16</p>
     <div class="swatches" aria-hidden="true">
       <i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i>
     </div>
@@ -131,7 +131,7 @@ const niceDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', 
 try {
   const course = await (await fetch('course/course.json')).json();
   document.getElementById('term').textContent = `${course.unit.split('·')[0].trim()} · ${course.term}`;
-  document.getElementById('meets').textContent = `${course.instructor} · ${course.meets}`;
+  document.getElementById('meets').textContent = course.meets;
 
   // Course-wide lecture numbers count lecture sessions only (TA reviews are not numbered)
   let n = 0;
