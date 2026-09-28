@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1 Review Drawing SETs diagrams · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+/* part kinds: ecological, social, technological */
+:root{--eco:#5f8f8b;--eco-bg:#e4efee;--soc:#b8922a;--soc-bg:#fbf0cf;--tech:#2f93aa;--tech-bg:#d8eef4;--plus:#0a4f68;--minus:#b3452c}
+.kind-card{border-radius:18px;padding:24px 28px;border:2px solid var(--paper-2);background:var(--card)}
+.kind-card h3{font-size:34px;margin-bottom:6px}
+.kind-card p{font-size:23px;line-height:1.4}
+.kind-card.eco{border-left:12px solid var(--eco)}.kind-card.soc{border-left:12px solid var(--soc)}.kind-card.tech{border-left:12px solid var(--tech)}
+ol.steps{list-style:none;counter-reset:n}
+ol.steps li{counter-increment:n;position:relative;padding-left:70px;margin:0 0 22px;font-size:26px;line-height:1.4}
+ol.steps li::before{content:counter(n);position:absolute;left:0;top:-2px;width:48px;height:48px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 28px/48px var(--display);text-align:center}
+ol.steps b{font-weight:700}
+.sign{display:inline-block;min-width:36px;height:36px;border-radius:50%;color:#fff;font:700 26px/36px var(--body);text-align:center;vertical-align:middle}
+.sign.p{background:var(--plus)}.sign.m{background:var(--minus)}
+/* diagrams drawn by drawSets() */
+.sets-svg{display:block;width:100%;height:auto;background:var(--card);border:2px solid var(--paper-2);border-radius:18px}
+.rule{background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 30px;font-size:26px;line-height:1.4}
+.rule b{color:var(--golden)}
+/* loop sorting game */
+.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--paper-2);font-size:26px;line-height:1.3}
+.sort-row button{font:700 21px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 18px;cursor:pointer}
+.sort-row button.on{background:var(--Blue);color:var(--paper)}
+.sort-row.good button.on{background:#2e7d5b;border-color:#2e7d5b}
+.sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
+.sort-row .m{color:var(--minus);font-weight:700}.sort-row .p{color:var(--plus);font-weight:700}
+/* biome picker */
+.biomes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.biome{position:relative;text-align:left;font:400 22px/1.4 var(--body);color:var(--ink);background:var(--card);border:3px solid var(--paper-2);border-radius:18px;padding:22px 26px;cursor:pointer;min-height:236px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,background .2s}
+.biome:hover{border-color:var(--Sky)}
+.biome.on{border-color:var(--Blue);background:rgba(66,168,191,.12)}
+.biome.on::after{content:'✓ Picked';position:absolute;top:18px;right:20px;font:700 18px var(--body);color:var(--paper);background:var(--Blue);border-radius:999px;padding:4px 14px}
+.biome h3{font-size:34px;margin:0}
+.biome .where{color:var(--mute);font-size:21px}
+.biome .ideas{font-size:20px;line-height:1.45;margin-top:auto}
+.biome .ideas i{font-style:normal;font-weight:700}
+.biome .ideas .e{color:var(--eco)}.biome .ideas .s{color:var(--soc)}.biome .ideas .t{color:var(--tech)}
+.biome input{font:400 22px var(--body);padding:8px 12px;border:2px solid var(--paper-2);border-radius:10px;background:#fff;color:var(--ink);width:100%}
+/* diagram builder */
+.builder{display:grid;grid-template-columns:540px 1fr;gap:34px;align-items:start}
+.bpanel h4{font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.bpanel .box{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:16px 18px;margin-bottom:16px}
+.bfield{font:400 22px var(--body);padding:9px 12px;border:2px solid var(--paper-2);border-radius:10px;background:#fff;color:var(--ink);min-width:0}
+.brow{display:flex;gap:10px;align-items:center;margin-top:10px}
+.kbtn{font:700 19px var(--body);border:2px solid currentColor;background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.kbtn.eco{color:var(--eco)}.kbtn.soc{color:var(--soc)}.kbtn.tech{color:var(--tech)}
+.kbtn.on{color:#fff}.kbtn.eco.on{background:var(--eco);border-color:var(--eco)}.kbtn.soc.on{background:var(--soc);border-color:var(--soc)}.kbtn.tech.on{background:var(--tech);border-color:var(--tech)}
+.sbtn{font:700 19px var(--body);border:2px solid currentColor;background:transparent;border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.sbtn.p{color:var(--plus)}.sbtn.m{color:var(--minus)}
+.sbtn.on.p{background:var(--plus);color:#fff;border-color:var(--plus)}.sbtn.on.m{background:var(--minus);color:#fff;border-color:var(--minus)}
+.btn.sm{font-size:20px;padding:9px 18px;border-radius:10px;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:40px;max-height:164px;overflow:auto;margin-top:12px}
+.pchip{display:inline-flex;align-items:center;gap:2px;font:700 17px var(--body);border-radius:8px;padding:2px 2px 2px 10px;border:2px solid}
+.pchip.eco{border-color:var(--eco);background:var(--eco-bg)}.pchip.soc{border-color:var(--soc);background:var(--soc-bg)}.pchip.tech{border-color:var(--tech);background:var(--tech-bg)}
+.x{font:700 20px/1 var(--body);border:0;background:transparent;color:var(--mute);cursor:pointer;padding:4px 8px;border-radius:6px}
+.x:hover{background:rgba(0,0,0,.08);color:var(--minus)}
+.links{list-style:none;max-height:226px;overflow:auto;margin-top:10px}
+.links li{display:grid;grid-template-columns:1fr 150px auto auto;gap:6px;align-items:center;padding:5px 0;border-top:1px solid var(--paper-2);font-size:17px;line-height:1.2}
+.links li .ft{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.links li input{font:400 17px var(--body);padding:5px 8px;border:2px solid var(--paper-2);border-radius:8px;width:100%;background:#fff;color:var(--ink)}
+.links li input.need{border-color:var(--minus)}
+.links li .sbtn{font-size:17px;padding:2px 10px}
+.empty{font-size:18px;color:var(--mute);font-style:italic}
+.bnote{font-size:18px;color:var(--mute);min-height:26px;margin-top:8px;line-height:1.3}
+.bnote.err{color:var(--minus)}.bnote.ok{color:#2e7d5b}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin-top:14px}
+.check{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;font-size:19px;line-height:1.3}
+.check i{width:30px;height:30px;border-radius:50%;border:3px solid var(--paper-2);font:700 18px/24px var(--body);text-align:center;color:#fff;font-style:normal}
+.check.ok i{background:#2e7d5b;border-color:#2e7d5b}
+.check b{display:block}
+.check span{color:var(--mute)}
+.bact{display:flex;gap:12px;align-items:center;margin-top:14px}
+.biome-now{font:400 30px var(--display);color:var(--Blue)}
+/* peer review */
+.pr li{font-size:25px;line-height:1.38;margin:12px 0}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>01</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Sustainability for Our Planet</span><small>Review session · <span data-fill="date">Thu Sep 3</span><br>Practice for the Review Exercise</small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Review session · Practice</div>
+  <h1 class="title-h reveal d2">Drawing <em>SETs</em> diagrams</h1>
+  <div class="title-terms reveal d3" data-fill="chips"></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Led by your TA, Amanda Abraham</div>
+  <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
+  <aside class="notes">Welcome. This is the Module 1 review, and it is all practice: students learn to draw a socio-ecological-technological system (SETs) diagram, which is exactly what the graded Review Exercise asks for. Today students should leave with one diagram of their own that they can build on. Set the attendance code on the admin page before class starts.</aside>
+</section>
+
+<!-- 2. OBJECTIVES -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Objectives</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of the session you can</div>
+    <h2 class="reveal d2">Learning <em>objectives</em></h2>
+    <ol class="num reveal d3" style="font-size:36px;max-width:1450px">
+        <li>Explain what a socio-ecological-technological system (SETs) is, with an example.</li>
+        <li>Sort the parts of a system into ecological, social and technological.</li>
+        <li>Draw arrows that say what flows or what changes, and mark each one + or −.</li>
+        <li>Find a feedback loop and tell whether it is reinforcing or balancing.</li>
+      </ol>
+  </div>
+  <aside class="notes">Point at the Module 1 objective "Systems thinking in sustainability": today is where that objective gets practised. Objectives 2 to 4 match the checklist in the diagram builder, so students will see them again.</aside>
+</section>
+
+<!-- 3. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>1.4</b><span>Attendance</span></div>
+  <div class="content">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your TA shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin" data-signin>
+        <input class="field" data-name placeholder="Your full name" autocomplete="name">
+        <button class="btn" type="button" data-signin-btn>Sign in</button>
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+  <aside class="notes">Generate the code on the admin page ("New code") and read it out. Students must be signed in to submit their diagram later, so make sure everyone signs in now.</aside>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Warm-up poll</span></div>
+  <div class="content">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">When you turn on a tap in the Phoenix area, where do you think the <em>water</em> comes from?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>Rivers, carried to the city by dams and canals</button>
+      <button class="opt" type="button"><b>B</b>Groundwater, pumped up from wells</button>
+      <button class="opt" type="button"><b>C</b>A mix of rivers and groundwater</button>
+      <button class="opt" type="button"><b>D</b>I have never thought about it</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">Show results from the admin page. For most Valley cities the honest answer is C, leaning toward A: the City of Phoenix gets most of its water from the Salt and Verde rivers (delivered by SRP) and the Colorado River (delivered by the Central Arizona Project canal), with a small and changing share from groundwater wells. Shares differ by city and by year, so do not quote exact numbers. The point: a glass of tap water depends on snow in the mountains (ecological), dams and canals (technological) and water rules and people's choices (social). That is a SETs, and it is our worked example later.</aside>
+</section>
+
+<!-- 5. VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Key vocabulary</span></div>
+  <div class="content">
+    <div class="k reveal">Glossary · Module 1 · tap a card for its example</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
+    <div class="vocab reveal d3" data-fill="vocab"></div>
+    <p class="lead reveal d4" style="margin-top:34px">In a SETs diagram, the <b>parts</b> are boxes and the <b>effects</b> are arrows. A <b>feedback loop</b> is a path of arrows that leads back to where it started.</p>
+  </div>
+  <aside class="notes">Flip both cards. The glossary calls a speeding-up loop "positive feedback" and a slowing-down loop "negative feedback". In this session we use the clearer words reinforcing (speeds up the change) and balancing (pushes back against the change), because students often read "positive" as "good". The ice melting example on the back of the card is a reinforcing loop, and it appears in the loop check game.</aside>
+</section>
+
+<!-- 6. HOW TO DRAW -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>How to draw it</span></div>
+  <div class="content">
+    <div class="k reveal">Four steps</div>
+    <h2 class="reveal d2" style="margin-bottom:30px">How to draw a <em>SETs diagram</em></h2>
+    <div class="grid" style="grid-template-columns:600px 1fr;gap:60px;align-items:start">
+      <div class="grid reveal d3" style="gap:18px">
+        <div class="kind-card eco"><h3>Ecological</h3><p>Nature: water, soil, air, climate, plants, animals. <span class="mute">Rivers, heat, fish, forests.</span></p></div>
+        <div class="kind-card soc"><h3>Social</h3><p>People and their choices: groups, jobs, rules, money. <span class="mute">Farmers, residents, laws, prices.</span></p></div>
+        <div class="kind-card tech"><h3>Technological</h3><p>Things people build and use. <span class="mute">Dams, canals, pumps, cars, air conditioners.</span></p></div>
+      </div>
+      <ol class="steps reveal d4">
+        <li><b>List the parts</b> of your system and tag each one ecological, social or technological. Aim for at least two of each.</li>
+        <li><b>Draw arrows</b> from a cause to what it affects. Write on each arrow what flows or what changes, for example "irrigation water" or "pumping lowers the water table".</li>
+        <li><b>Mark each arrow + or −.</b> <span class="sign p">+</span> means the two parts move the same way: more snow, more river water. <span class="sign m">−</span> means they move in opposite ways: more pumping, a lower water table.</li>
+        <li><b>Find a feedback loop</b>: follow the arrows until you get back to where you started. Then say if the loop is reinforcing or balancing (next slide).</li>
+      </ol>
+    </div>
+  </div>
+  <aside class="notes">Stress step 2: an arrow with no words is the most common mistake on the Review Exercise. Some parts are hard to tag (is a farm social or technological?). Tell students there is often more than one fair answer; what matters is that they can explain their choice. Tip: if a part is a group of people or a rule, call it social; if people built it, call it technological.</aside>
+</section>
+
+<!-- 7. SIGNS AND LOOPS -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Signs and loops</span></div>
+  <div class="content">
+    <div class="k reveal">Reading + and − around a loop</div>
+    <h2 class="reveal d2" style="margin-bottom:28px">Two kinds of <em>feedback loop</em></h2>
+    <div class="grid g2 reveal d3" style="gap:36px">
+      <div>
+        <h3>Reinforcing: the change keeps growing</h3>
+        <svg class="sets-svg" id="mini-r" viewBox="0 0 740 330" role="img" aria-label="Reinforcing loop: warmer Arctic, less sea ice, more heat absorbed, warmer Arctic"></svg>
+        <p class="small" style="margin-top:12px">Two <span class="sign m">−</span> links (an even number), so the loop is <b>reinforcing</b>. Melting speeds up more melting.</p>
+      </div>
+      <div>
+        <h3>Balancing: the change gets pushed back</h3>
+        <svg class="sets-svg" id="mini-b" viewBox="0 0 740 330" role="img" aria-label="Balancing loop: more fish, bigger catch, fewer fish"></svg>
+        <p class="small" style="margin-top:12px">One <span class="sign m">−</span> link (an odd number), so the loop is <b>balancing</b>. A bigger catch pulls the fish stock back down.</p>
+      </div>
+    </div>
+    <div class="rule reveal d4" style="margin-top:30px">Count the <span class="sign m">−</span> links around the loop. <b>Even</b> (0, 2, 4…) means <b>reinforcing</b>. <b>Odd</b> (1, 3…) means <b>balancing</b>.</div>
+  </div>
+  <aside class="notes">Walk the reinforcing loop out loud: warmer Arctic, so less sea ice (opposite way, −); less ice, so the ocean absorbs more heat (opposite way, −); more heat, so a warmer Arctic (same way, +). Two minus signs cancel, so the loop feeds itself. The balancing loop comes from Tuesday's fishery simulation: more fish lets boats catch more (+), and more catch leaves fewer fish (−). Also mention that a reinforcing loop can run downhill too (fewer fish, fewer young, even fewer fish).</aside>
+</section>
+
+<!-- 8. LOOP CHECK GAME -->
+<section class="slide" id="sorter">
+  <div class="rail"><b>1.4</b><span>Loop check</span></div>
+  <div class="content">
+    <div class="k reveal">Game · count the − links</div>
+    <h2 class="reveal d2" style="margin-bottom:16px">Reinforcing or <em>balancing</em>?</h2>
+    <p class="small mute reveal d2" style="margin-bottom:6px">Each loop ends where it started. The sign after each arrow tells you if the next part goes the same way (+) or the opposite way (−).</p>
+    <div class="reveal d3" data-sort>
+      <div class="sort-row" data-answer="r"><span>Warmer Arctic → <span class="m">−</span> sea ice → <span class="m">−</span> heat absorbed by the ocean → <span class="p">+</span> warmer Arctic</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+      <div class="sort-row" data-answer="b"><span>Rabbits → <span class="p">+</span> foxes → <span class="m">−</span> rabbits</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+      <div class="sort-row" data-answer="r"><span>People in a city → <span class="p">+</span> jobs → <span class="p">+</span> people moving in</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+      <div class="sort-row" data-answer="b"><span>Room temperature → <span class="p">+</span> air conditioner running → <span class="m">−</span> room temperature</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+      <div class="sort-row" data-answer="r"><span>Traffic → <span class="p">+</span> wider roads built → <span class="p">+</span> easier driving → <span class="p">+</span> traffic</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+      <div class="sort-row" data-answer="b"><span>Groundwater pumping → <span class="m">−</span> water table → <span class="m">−</span> pumping cost → <span class="m">−</span> groundwater pumping</span><button type="button" data-pick="r">Reinforcing</button><button type="button" data-pick="b">Balancing</button></div>
+    </div>
+    <div class="reveal d4" style="margin-top:22px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Give pairs 3 minutes. Answers: reinforcing, balancing, reinforcing, balancing, reinforcing, balancing. Debrief the last row carefully because it has three minus signs: more pumping lowers the water table (−); a lower water table makes pumping cost more (−, because deeper wells need more energy); higher cost means less pumping (−). Three is odd, so balancing. The traffic row is called "induced demand": wider roads often fill up again.</aside>
+</section>
+
+<!-- 9. WORKED EXAMPLE -->
+<section class="slide" id="worked">
+  <div class="rail"><b>1.4</b><span>Worked example</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal">Worked example · Sonoran Desert</div>
+    <h2 class="reveal d2" style="font-size:64px;margin-bottom:22px">Water in the <em>Salt River Valley</em></h2>
+    <div class="grid" style="grid-template-columns:1160px 1fr;gap:30px;align-items:start">
+      <svg class="sets-svg reveal d3" id="worked-svg" viewBox="0 0 1240 700" role="img" aria-label="SETs diagram of the Salt River Valley water system"></svg>
+      <div class="reveal d4">
+        <div class="card gold" style="padding:24px 26px">
+          <span class="tag" id="wk-tag">Highlighted loop · balancing</span>
+          <p id="wk-text" style="font-size:21px">Pumping lowers the groundwater (−). Falling groundwater led to stricter water rules (−). Rules limit pumping (−). Three − links is odd, so this loop is <b>balancing</b>.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:18px"><button class="btn ghost sm" type="button" id="wk-next">Show the other loop</button></div>
+        <div style="display:grid;gap:8px;margin-top:22px;font-size:20px">
+          <div><span class="pchip eco" style="padding:2px 12px">Ecological</span> 5 parts</div>
+          <div><span class="pchip tech" style="padding:2px 12px">Technological</span> 4 parts</div>
+          <div><span class="pchip soc" style="padding:2px 12px">Social</span> 3 parts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Trace the water from top left: snow and rain feed the Salt, Verde and Colorado rivers; SRP dams on the Salt and Verde (Theodore Roosevelt Dam was finished in 1911) store it; SRP canals and the 336-mile Central Arizona Project canal (Colorado River water) deliver it to farms and cities. Below the dams the Salt River through Phoenix is dry most of the year, which is why riparian (streamside) habitat gets a − arrow. The highlighted balancing loop is real history: falling groundwater levels led to Arizona's 1980 Groundwater Management Act, which set up Active Management Areas (including Phoenix) that limit pumping. Click "Show the other loop" for the reinforcing heat loop: hotter days mean more air conditioning, and air conditioners push waste heat outside; research in Phoenix (Salamanca and others, 2014) found this can warm nights by more than 1 °C in some places. Ask: which arrows cross from ecological to social or technological and back?</aside>
+</section>
+
+<!-- 10. PICK A SYSTEM -->
+<section class="slide" id="pick">
+  <div class="rail"><b>1.4</b><span>Pick a system</span></div>
+  <div class="content">
+    <div class="k reveal">Practice · step 1</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Pick a biome or <em>ecosystem</em></h2>
+    <div class="biomes reveal d3" id="biomes">
+      <button type="button" class="biome" data-biome="sonoran"><h3>Sonoran Desert city</h3><span class="where">Phoenix and the Salt River Valley. Find links that are not in our example.</span><span class="ideas"><i class="e">Eco:</i> saguaros, monsoon rain · <i class="s">Soc:</i> neighbourhoods · <i class="t">Tech:</i> pavement</span></button>
+      <button type="button" class="biome" data-biome="reef"><h3>Coral reef</h3><span class="where">For example, the Great Barrier Reef in Australia.</span><span class="ideas"><i class="e">Eco:</i> corals, ocean heat · <i class="s">Soc:</i> tourists, fishers · <i class="t">Tech:</i> dive boats, coal power</span></button>
+      <button type="button" class="biome" data-biome="amazon"><h3>Amazon rainforest</h3><span class="where">The largest tropical rainforest, mostly in Brazil.</span><span class="ideas"><i class="e">Eco:</i> trees, rainfall · <i class="s">Soc:</i> ranchers, Indigenous communities · <i class="t">Tech:</i> roads, satellites</span></button>
+      <button type="button" class="biome" data-biome="tundra"><h3>Arctic tundra</h3><span class="where">Cold, treeless land around the Arctic Ocean.</span><span class="ideas"><i class="e">Eco:</i> permafrost, caribou · <i class="s">Soc:</i> hunters, oil companies · <i class="t">Tech:</i> pipelines</span></button>
+      <button type="button" class="biome" data-biome="basin"><h3>Farm river basin</h3><span class="where">For example, the Mississippi River and the Gulf of Mexico.</span><span class="ideas"><i class="e">Eco:</i> soil, the river · <i class="s">Soc:</i> farmers, shrimpers · <i class="t">Tech:</i> fertilizer, tractors</span></button>
+      <div class="biome" data-biome="own" role="button" tabindex="0"><h3>My own system</h3><span class="where">A place you know: a hometown, a park, a campus.</span><input type="text" id="own-name" maxlength="40" placeholder="Name your system" aria-label="Name your own system"><span class="ideas">Pick something with water, energy or food in it.</span></div>
+    </div>
+    <p class="status reveal d4" id="pick-status" style="margin-top:20px">Tap a card to choose. Then go to the next slide to build your diagram.</p>
+  </div>
+  <aside class="notes">Give students one minute to choose. Encourage a spread across the class so the gallery walk is more interesting. Students who pick the Sonoran Desert city should add parts that are not in the worked example (monsoon storms, saguaros, solar farms, neighbourhood tree shade). The starter ideas are only prompts: students may use none of them.</aside>
+</section>
+
+<!-- 11. BUILDER -->
+<section class="slide" id="builder">
+  <div class="rail"><b>1.4</b><span>Build your diagram</span></div>
+  <div class="content" style="top:80px;bottom:70px">
+    <div class="k reveal">Practice · step 2 · build, check, submit</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline" class="reveal d2">
+      <h2 style="font-size:52px;margin:6px 0 0">Build your SETs <em>diagram</em></h2>
+      <div class="biome-now">Your system: <span id="biome-now">not picked yet</span></div>
+    </div>
+    <div class="builder reveal d3" id="bld" style="margin-top:16px">
+      <div class="bpanel">
+        <div class="box">
+          <h4>1 · Add a part</h4>
+          <div class="brow" style="margin-top:0"><input class="bfield" id="p-name" maxlength="28" placeholder="Name, e.g. Colorado River" style="flex:1" autocomplete="off"><button class="btn sm" type="button" id="p-add">Add</button></div>
+          <div class="brow" role="radiogroup" aria-label="Kind of part">
+            <button type="button" class="kbtn eco on" data-kind="eco" role="radio" aria-checked="true">Ecological</button>
+            <button type="button" class="kbtn soc" data-kind="soc" role="radio" aria-checked="false">Social</button>
+            <button type="button" class="kbtn tech" data-kind="tech" role="radio" aria-checked="false">Technological</button>
+          </div>
+          <div class="chips" id="p-list"></div>
+        </div>
+        <div class="box">
+          <h4>2 · Add a link</h4>
+          <div class="brow" style="margin-top:0"><select class="bfield" id="l-from" aria-label="From" style="flex:1"></select><span>→</span><select class="bfield" id="l-to" aria-label="To" style="flex:1"></select></div>
+          <div class="brow"><input class="bfield" id="l-label" maxlength="30" placeholder="What flows or changes?" style="flex:1" autocomplete="off">
+            <button type="button" class="sbtn p on" data-sign="+" title="Same direction: more leads to more">+</button><button type="button" class="sbtn m" data-sign="-" title="Opposite direction: more leads to less">−</button>
+            <button class="btn sm" type="button" id="l-add">Add</button></div>
+          <ul class="links" id="l-list"></ul>
+        </div>
+        <div class="bnote" id="b-note">Up to 12 parts and 16 links. Press Enter to add.</div>
+      </div>
+      <div>
+        <svg class="sets-svg" id="b-svg" viewBox="0 0 1000 560" role="img" aria-label="Your SETs diagram"></svg>
+        <div class="checks" id="checks"></div>
+        <div class="bact">
+          <button class="btn sm" type="button" id="b-submit">Submit my diagram</button>
+          <button class="btn ghost sm" type="button" id="b-png">Download image</button>
+          <button class="btn ghost sm" type="button" id="b-txt">Download text</button>
+          <button class="btn ghost sm" type="button" id="b-clear">Clear</button>
+        </div>
+        <div class="status" id="b-status" style="margin-top:8px;font-size:20px;min-height:28px"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">About 20 minutes. First 5 minutes: parts only (at least 2 of each kind). Next 10 minutes: links, with words on every arrow and a + or −. Last 5 minutes: find a loop; the checklist turns green as each rubric item is met and names the loop it found. If a student has no loop, ask "what does the last part in your chain change back at the start?" Students click Submit (they can resubmit; the latest one counts) and then Download image and text to keep for the graded Review Exercise. The diagram is not saved if the page is reloaded, so remind them to download. Watch the admin page to pick two or three strong diagrams to project during the gallery walk.</aside>
+</section>
+
+<!-- 12. PEER REVIEW -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Gallery walk</span></div>
+  <div class="content">
+    <div class="k reveal">Partner review · 4 minutes each way</div>
+    <h2 class="reveal d2">Check a partner's <em>diagram</em></h2>
+    <div class="grid" style="grid-template-columns:1.2fr 1fr;gap:44px;align-items:start">
+      <div class="card blue reveal d3">
+        <span class="tag">The practice rubric</span>
+        <ol class="num pr" style="margin-top:4px">
+          <li>Are there at least <b>two parts of each kind</b>: ecological, social and technological? Is each one tagged fairly?</li>
+          <li>Does at least one arrow go <b>from nature to people or technology</b>, and another come <b>back to nature</b>?</li>
+          <li>Does <b>every arrow have words</b> and a + or −? Do you agree with each sign?</li>
+          <li>Can your partner <b>trace a feedback loop</b> out loud and say if it is reinforcing or balancing?</li>
+        </ol>
+      </div>
+      <div class="reveal d4">
+        <div class="card gold"><span class="tag">Then talk</span>
+          <ul class="clean" style="font-size:25px">
+            <li>One thing that works well in the diagram.</li>
+            <li>One part or arrow that is missing. Who or what is left out?</li>
+            <li>One arrow you would change, and why.</li>
+          </ul>
+        </div>
+        <p class="small mute" style="margin-top:22px">Fix your diagram on the builder slide, then submit it again. Your latest version is the one that counts.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Pairs swap laptops (or walk around and look at open screens). Four minutes per diagram, then two minutes to fix. Then project two or three diagrams from the admin page (click a row to view it read-only) and ask the class to trace the loop. Good prompts: "Who is left out?" often surfaces environmental justice from Tuesday. "Where is the money?" often surfaces a missing social part.</aside>
+</section>
+
+<!-- 13. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Exit ticket</span></div>
+  <div class="content">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1500px">Reservoir level → <span style="color:var(--minus)">−</span> water price → <span style="color:var(--minus)">−</span> water use → <span style="color:var(--minus)">−</span> reservoir level. What kind of <em>loop</em> is this?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Reinforcing: the change keeps growing</button>
+      <button class="opt" type="button"><b>B</b>Balancing: the change gets pushed back</button>
+      <button class="opt" type="button"><b>C</b>It is not a feedback loop</button>
+      <button class="opt" type="button"><b>D</b>You cannot tell without numbers</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Correct answer: B. There are three − links, an odd number, so the loop is balancing: when the reservoir drops, the city raises the price, people use less, and the reservoir recovers. Some cities really do use drought pricing like this. If time allows, ask which parts are ecological, social and technological (reservoir level: ecological; price and water use: social; the reservoir itself is built, so some students may call it technological, which is fine if they explain it).</aside>
+</section>
+
+<!-- 14. ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>1.4</b><span>Assignments</span></div>
+  <div class="content">
+    <div class="k reveal">Module 1 · what's due</div>
+    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module 1 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Before next class</span>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>For the Review Exercise, start from today's diagram. Use the same four checks: parts of each kind, links that cross, words and a sign on every arrow, and a loop you can name.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Remind students that the Review Exercise ("learn to draw SETs") is graded, and today was practice for it. They should have downloaded their image and text from the builder. Module 2 starts next week with energy and matter; the SETs habit (parts, arrows, loops) will come back in every module.</aside>
+</section>
+
+<!-- 15. TAKEAWAYS -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">1<em>.4</em></div>
+  <div class="band-text reveal d2">Drawing SETs diagrams<small>This review is led by your TA. Questions? Ask your TA or come to office hours <span style="white-space:nowrap">Tue 12:00–1:00 pm</span>, WCPH 374E</small></div>
+  <div class="title-k reveal">Three things to remember</div>
+  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
+    <li>A SETs diagram links three kinds of parts: ecological, social and technological.</li>
+    <li>Every arrow needs words that say what flows or changes, and a + (same way) or − (opposite way).</li>
+    <li>Follow the arrows back to the start to find a feedback loop. An even number of − links means reinforcing; an odd number means balancing.</li>
+  </ol>
+  <div class="goldline" style="top:900px"></div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm1-s4';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* === COURSE DATA === glossary, objectives and assignments from course.json */
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
+  $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+});
+
+/* === SETS DIAGRAMS === analysis and drawing. The admin page keeps a copy of
+   analyseSets() and drawSets(): change both together. */
+const KINDS = {
+  eco: { label: 'Ecological', fill: '#e4efee', stroke: '#5f8f8b' },
+  soc: { label: 'Social', fill: '#fbf0cf', stroke: '#b8922a' },
+  tech: { label: 'Technological', fill: '#d8eef4', stroke: '#2f93aa' },
+};
+const SIGN = { '+': '#0a4f68', '-': '#b3452c' };
+
+/* Counts, rubric checks and every simple directed cycle (feedback loop). */
+function analyseSets(model) {
+  const { nodes, links } = model;
+  const kindOf = Object.fromEntries(nodes.map(n => [n.id, n.kind]));
+  const nameOf = Object.fromEntries(nodes.map(n => [n.id, n.name]));
+  const counts = { eco: 0, soc: 0, tech: 0 };
+  nodes.forEach(n => { counts[n.kind]++; });
+  const crossOut = links.some(l => kindOf[l.from] === 'eco' && kindOf[l.to] !== 'eco');
+  const crossBack = links.some(l => kindOf[l.from] !== 'eco' && kindOf[l.to] === 'eco');
+  const unlabelled = links.filter(l => !String(l.label || '').trim()).length;
+  const order = Object.fromEntries(nodes.map((n, i) => [n.id, i]));
+  const out = {};
+  links.forEach((l, i) => { (out[l.from] ||= []).push(i); });
+  const loops = [];
+  nodes.forEach((s, si) => {
+    const walk = (at, seen, path) => {
+      for (const li of out[at] || []) {
+        if (loops.length >= 40) return;
+        const to = links[li].to;
+        if (to === s.id) loops.push([...path, li]);
+        else if (order[to] > si && !seen.has(to)) { seen.add(to); walk(to, seen, [...path, li]); seen.delete(to); }
+      }
+    };
+    walk(s.id, new Set([s.id]), []);
+  });
+  const loopInfo = loops.map(ls => {
+    const minus = ls.filter(i => links[i].sign === '-').length;
+    return { links: ls, path: [...ls.map(i => nameOf[links[i].from]), nameOf[links[ls[0]].from]], minus, type: minus % 2 ? 'balancing' : 'reinforcing' };
+  }).sort((a, b) => a.links.length - b.links.length);
+  const rubric = {
+    kinds: counts.eco >= 2 && counts.soc >= 2 && counts.tech >= 2,
+    cross: crossOut && crossBack,
+    labels: links.length > 0 && unlabelled === 0,
+    loop: loopInfo.length > 0,
+  };
+  return { counts, crossOut, crossBack, unlabelled, loops: loopInfo, rubric, met: Object.values(rubric).filter(Boolean).length };
+}
+
+/* Two-line text wrap for a box label */
+function wrap(name, max) {
+  const words = String(name).split(/\s+/).filter(Boolean);
+  const lines = [''];
+  for (const w of words) {
+    const cur = lines[lines.length - 1];
+    if (!cur) lines[lines.length - 1] = w;
+    else if ((cur + ' ' + w).length <= max) lines[lines.length - 1] = cur + ' ' + w;
+    else lines.push(w);
+  }
+  if (lines.length > 2) { lines.length = 2; lines[1] = lines[1].slice(0, max - 1) + '…'; }
+  return lines.map(l => (l.length > max ? l.slice(0, max - 1) + '…' : l));
+}
+
+/* Order parts around the ellipse so linked parts sit near each other and
+   arrows cross as little as possible (small swap search; at most 12 parts). */
+function ringOrder(nodes, links) {
+  const rank = { eco: 0, tech: 1, soc: 2 };
+  let ord = nodes.map((n, i) => i).sort((a, b) => rank[nodes[a].kind] - rank[nodes[b].kind] || a - b);
+  const n = ord.length;
+  if (n < 4 || nodes.every(x => x.x != null)) return ord.map(i => nodes[i]);
+  const idx = Object.fromEntries(nodes.map((x, i) => [x.id, i]));
+  const seen = new Set(), E = [];
+  links.forEach(l => { const a = idx[l.from], b = idx[l.to]; if (a == null || b == null) return; const k = Math.min(a, b) + ':' + Math.max(a, b); if (!seen.has(k)) { seen.add(k); E.push([a, b]); } });
+  const cost = () => {
+    const at = []; ord.forEach((v, k) => { at[v] = k; });
+    let c = 0;
+    const P = E.map(([a, b]) => { const x = at[a], y = at[b]; const d = Math.abs(x - y); c += Math.min(d, n - d); return x < y ? [x, y] : [y, x]; });
+    for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++) {
+      const [a, b] = P[i], [p, q] = P[j];
+      if (a === p || a === q || b === p || b === q) continue;
+      if ((a < p && p < b) !== (a < q && q < b)) c += 6;
+    }
+    for (let k = 0; k < n; k++) if (nodes[ord[k]].kind !== nodes[ord[(k + 1) % n]].kind) c += 0.3;
+    return c;
+  };
+  let best = cost();
+  for (let pass = 0, better = true; better && pass < 40; pass++) {
+    better = false;
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
+      [ord[i], ord[j]] = [ord[j], ord[i]];
+      const c = cost();
+      if (c < best - 1e-9) { best = c; better = true; } else [ord[i], ord[j]] = [ord[j], ord[i]];
+    }
+  }
+  return ord.map(i => nodes[i]);
+}
+
+/* Returns SVG markup. Nodes with x and y keep them; otherwise they sit on an
+   ellipse grouped by kind. opts: w, h, box {w, h, font}, highlight (Set of link
+   indexes), id (unique marker prefix), font. Colours are literal so the markup
+   also works as a standalone file. */
+function drawSets(model, opts = {}) {
+  const W = opts.w || 1000, H = opts.h || 560;
+  const B = { w: 172, h: 56, font: 17, ...(opts.box || {}) };
+  const id = opts.id || 'd';
+  const hl = opts.highlight || new Set();
+  const font = opts.font || "'PT Serif', Georgia, serif";
+  const { nodes, links } = model;
+  if (!nodes.length) return `<text x="${W / 2}" y="${H / 2}" text-anchor="middle" font-family="${font}" font-size="24" fill="#4c6670" font-style="italic">Add parts on the left to start your diagram.</text>`;
+  const pos = {};
+  const cx = W / 2, cy = H / 2, rx = W / 2 - B.w / 2 - 20, ry = H / 2 - B.h / 2 - 16;
+  const ring = ringOrder(nodes, links);
+  ring.forEach((n, k) => {
+    if (n.x != null && n.y != null) { pos[n.id] = { x: n.x, y: n.y }; return; }
+    const t = -Math.PI * 0.75 + (2 * Math.PI * k) / ring.length;
+    pos[n.id] = { x: cx + rx * Math.sin(t) * (ring.length === 1 ? 0 : 1), y: cy - ry * Math.cos(t) * (ring.length === 1 ? 0 : 1) };
+  });
+  const clip = (c, toward) => {
+    const dx = toward.x - c.x, dy = toward.y - c.y;
+    const t = Math.min((B.w / 2 + 6) / Math.abs(dx || 1e-6), (B.h / 2 + 6) / Math.abs(dy || 1e-6));
+    return { x: c.x + dx * t, y: c.y + dy * t };
+  };
+  const pair = new Set(links.map(l => `${l.from}>${l.to}`));
+  const fs = B.font - 3;
+  /* label boxes already placed (and node boxes) so labels can dodge them */
+  const taken = nodes.map(n => ({ x0: pos[n.id].x - B.w / 2, x1: pos[n.id].x + B.w / 2, y0: pos[n.id].y - B.h / 2, y1: pos[n.id].y + B.h / 2 }));
+  const hits = r => taken.filter(q => r.x0 < q.x1 && r.x1 > q.x0 && r.y0 < q.y1 && r.y1 > q.y0).length;
+  let under = '', edges = '', labels = '';
+  links.forEach((l, i) => {
+    const a = pos[l.from], b = pos[l.to];
+    if (!a || !b) return;
+    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    const len = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+    const nx = -(b.y - a.y) / len, ny = (b.x - a.x) / len;
+    const pull = opts.fixed ? 0 : 0.16;
+    const bend = l.bend ?? (pair.has(`${l.to}>${l.from}`) ? Math.max(40, len * 0.14) : 0);
+    const c = { x: mx + (cx - mx) * pull + nx * bend, y: my + (cy - my) * pull + ny * bend };
+    const p0 = clip(a, c), p2 = clip(b, c);
+    const d = `M${p0.x.toFixed(1)},${p0.y.toFixed(1)} Q${c.x.toFixed(1)},${c.y.toFixed(1)} ${p2.x.toFixed(1)},${p2.y.toFixed(1)}`;
+    const col = SIGN[l.sign] || SIGN['+'];
+    if (hl.has(i)) under += `<path d="${d}" fill="none" stroke="#eccf72" stroke-width="16" stroke-linecap="round" opacity=".95"/>`;
+    edges += `<path d="${d}" fill="none" stroke="${col}" stroke-width="${hl.has(i) ? 4 : 2.6}" marker-end="url(#${id}-${l.sign === '-' ? 'm' : 'p'})"/>`;
+    const raw = String(l.label || '').trim();
+    const txt = raw ? (raw.length > 24 ? raw.slice(0, 23) + '…' : raw) : 'add words';
+    const lw = txt.length * fs * 0.5 + fs * 2.2;
+    const at = t => ({ x: (1 - t) * (1 - t) * p0.x + 2 * (1 - t) * t * c.x + t * t * p2.x, y: (1 - t) * (1 - t) * p0.y + 2 * (1 - t) * t * c.y + t * t * p2.y });
+    const box = q => ({ x0: q.x - lw / 2, x1: q.x + lw / 2, y0: q.y - fs * 0.8, y1: q.y + fs * 0.8 });
+    let best = null;
+    search: for (const off of [l.lo ?? 0, 1.3, -1.3]) for (const t of [l.lt ?? 0.5, 0.4, 0.6, 0.32, 0.68, 0.25, 0.75]) {
+      const m = at(t), q = { x: m.x + nx * off * fs, y: m.y + ny * off * fs }, r = box(q);
+      const bad = hits(r) + (r.x0 < 0 || r.x1 > W || r.y0 < 0 || r.y1 > H ? 1 : 0);
+      if (!best || bad < best.bad) best = { q, r, bad };
+      if (!bad) break search;
+    }
+    taken.push(best.r);
+    const { r } = best, bx = r.x0 + fs * 0.85, ly = best.q.y;
+    labels += `<g><rect x="${r.x0.toFixed(1)}" y="${r.y0.toFixed(1)}" width="${lw.toFixed(1)}" height="${(fs * 1.6).toFixed(1)}" rx="6" fill="#fffdf8" opacity=".92"/>`
+      + `<circle cx="${bx.toFixed(1)}" cy="${ly.toFixed(1)}" r="${fs * 0.62}" fill="${col}"/><text x="${bx.toFixed(1)}" y="${(ly + fs * 0.36).toFixed(1)}" text-anchor="middle" font-family="${font}" font-weight="700" font-size="${fs + 2}" fill="#fff">${l.sign === '-' ? '−' : '+'}</text>`
+      + `<text x="${(bx + fs * 0.9).toFixed(1)}" y="${(ly + fs * 0.36).toFixed(1)}" font-family="${font}" font-size="${fs}" fill="${raw ? '#10313d' : '#b3452c'}"${raw ? '' : ' font-style="italic"'}>${esc(txt)}</text></g>`;
+  });
+  const boxes = nodes.map(n => {
+    const p = pos[n.id], k = KINDS[n.kind] || KINDS.eco;
+    const lines = wrap(n.name, Math.floor(B.w / (B.font * 0.52)));
+    const y0 = p.y - (lines.length - 1) * B.font * 0.6 + B.font * 0.35;
+    return `<g><rect x="${(p.x - B.w / 2).toFixed(1)}" y="${(p.y - B.h / 2).toFixed(1)}" width="${B.w}" height="${B.h}" rx="12" fill="${k.fill}" stroke="${k.stroke}" stroke-width="3"/>`
+      + lines.map((ln, j) => `<text x="${p.x.toFixed(1)}" y="${(y0 + j * B.font * 1.2).toFixed(1)}" text-anchor="middle" font-family="${font}" font-weight="700" font-size="${B.font}" fill="#10313d">${esc(ln)}</text>`).join('') + '</g>';
+  }).join('');
+  const marker = (k, c) => `<marker id="${id}-${k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`;
+  return `<defs>${marker('p', SIGN['+'])}${marker('m', SIGN['-'])}</defs>${under}${edges}${boxes}${labels}`;
+}
+
+/* === MINI LOOPS === slide 7 */
+const miniR = { nodes: [
+  { id: 'a', name: 'Warmer Arctic', kind: 'eco', x: 150, y: 70 }, { id: 'b', name: 'Sea ice', kind: 'eco', x: 590, y: 70 }, { id: 'c', name: 'Heat absorbed by ocean', kind: 'eco', x: 370, y: 262 }],
+  links: [{ from: 'a', to: 'b', label: 'melts ice', sign: '-' }, { from: 'b', to: 'c', label: 'less ice, more heat', sign: '-' }, { from: 'c', to: 'a', label: 'warms', sign: '+' }] };
+const miniB = { nodes: [
+  { id: 'a', name: 'Fish stock', kind: 'eco', x: 150, y: 165 }, { id: 'b', name: 'Catch by boats', kind: 'soc', x: 590, y: 165 }],
+  links: [{ from: 'a', to: 'b', label: 'more fish to catch', sign: '+', bend: 90 }, { from: 'b', to: 'a', label: 'fish removed', sign: '-', bend: 90 }] };
+const all = s => new Set(s.links.map((_, i) => i));
+$('#mini-r').innerHTML = drawSets(miniR, { w: 740, h: 330, id: 'mr', fixed: true, box: { w: 230, h: 62, font: 21 }, highlight: all(miniR) });
+$('#mini-b').innerHTML = drawSets(miniB, { w: 740, h: 330, id: 'mb', fixed: true, box: { w: 230, h: 62, font: 21 }, highlight: all(miniB) });
+
+/* === WORKED EXAMPLE === Salt River Valley water; positions set by hand */
+const N = (id, name, kind, x, y) => ({ id, name, kind, x, y });
+const L = (from, to, sign, label, more = {}) => ({ from, to, sign, label, ...more });
+const worked = {
+  nodes: [
+    N('snow', 'Snowpack and rain', 'eco', 115, 60), N('river', 'Salt, Verde and Colorado rivers', 'eco', 115, 290), N('rip', 'Riparian habitat', 'eco', 115, 500),
+    N('gw', 'Groundwater', 'eco', 445, 630), N('heat', 'Summer heat', 'eco', 1090, 290),
+    N('dams', 'Dams and reservoirs', 'tech', 445, 60), N('canal', 'Canals (SRP, CAP)', 'tech', 775, 60), N('wells', 'Wells and pumps', 'tech', 775, 500), N('ac', 'Air conditioning', 'tech', 1090, 500),
+    N('farms', 'Farms', 'soc', 775, 290), N('city', 'Cities and residents', 'soc', 1090, 60), N('rules', 'Water rules (1980 law)', 'soc', 530, 390),
+  ],
+  links: [
+    L('snow', 'river', '+', 'snowmelt runoff'), L('river', 'dams', '+', 'water stored'), L('dams', 'canal', '+', 'releases', { lo: -1.4 }),
+    L('dams', 'rip', '-', 'less flow downstream'), L('canal', 'city', '+', 'tap water', { lo: -1.4 }), L('canal', 'farms', '+', 'irrigation'),
+    L('farms', 'wells', '+', 'pump in dry years'), L('wells', 'gw', '-', 'lowers water table'), L('gw', 'rip', '+', 'keeps roots wet'),
+    L('gw', 'rules', '-', 'low levels, new limits'), L('rules', 'wells', '-', 'caps pumping'),
+    L('city', 'heat', '+', 'pavement holds heat'), L('heat', 'ac', '+', 'more cooling'), L('ac', 'heat', '+', 'waste heat at night'),
+  ],
+};
+const WK = [
+  { links: [7, 9, 10], tag: 'Highlighted loop · balancing', text: 'Pumping lowers the groundwater (−). Falling groundwater led to stricter water rules (−). Rules limit pumping (−). Three − links is odd, so this loop is <b>balancing</b>.', btn: 'Show the other loop' },
+  { links: [12, 13], tag: 'Highlighted loop · reinforcing', text: 'Hotter days mean more air conditioning (+). Air conditioners push waste heat outside, so nights get hotter (+). Zero − links is even, so this loop is <b>reinforcing</b>.', btn: 'Show the first loop' },
+];
+let wk = 0;
+function drawWorked() {
+  const w = WK[wk];
+  $('#worked-svg').innerHTML = drawSets(worked, { w: 1240, h: 700, id: 'wk', fixed: true, box: { w: 196, h: 62, font: 19 }, highlight: new Set(w.links) });
+  $('#wk-tag').textContent = w.tag; $('#wk-text').innerHTML = w.text; $('#wk-next').textContent = w.btn;
+}
+$('#wk-next').addEventListener('click', () => { wk = 1 - wk; drawWorked(); });
+drawWorked();
+
+/* === LOOP CHECK GAME === */
+$$('[data-sort] .sort-row').forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
+  $$('button', row).forEach(x => x.classList.toggle('on', x === b));
+  row.classList.remove('good', 'bad');
+})));
+$('[data-sort-check]').addEventListener('click', () => {
+  const rows = $$('[data-sort] .sort-row');
+  let right = 0;
+  rows.forEach(r => {
+    const on = $('button.on', r);
+    const ok = on && on.dataset.pick === r.dataset.answer;
+    r.classList.toggle('good', !!ok); r.classList.toggle('bad', !!on && !ok);
+    if (ok) right++;
+  });
+  $('[data-sort-score]').textContent = `${right} of ${rows.length} correct`;
+});
+
+/* === BUILDER STATE === kept in the page only */
+const BIOMES = { sonoran: 'Sonoran Desert city', reef: 'Coral reef', amazon: 'Amazon rainforest', tundra: 'Arctic tundra', basin: 'Farm river basin', own: 'My own system' };
+const MAX_NODES = 12, MAX_LINKS = 16;
+const model = { biomeId: '', biome: '', nodes: [], links: [] };
+let nextId = 1, kind = 'eco', sign = '+', loopPick = 0, result = analyseSets(model);
+
+/* keep builder typing, taps and swipes away from slide navigation */
+['#pick', '#builder'].forEach(sel => {
+  const root = $(sel);
+  root.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
+  root.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && e.target.closest('button, [role="button"]')) e.stopPropagation(); });
+});
+
+/* biome picker */
+function pickBiome(id) {
+  model.biomeId = id;
+  const own = $('#own-name').value.trim();
+  model.biome = id === 'own' ? (own || 'My own system') : BIOMES[id];
+  $$('.biome').forEach(b => b.classList.toggle('on', b.dataset.biome === id));
+  $('#biome-now').textContent = model.biome;
+  say($('#pick-status'), id === 'own' && !own ? 'Picked: my own system. Type its name in the card.' : `Picked: ${model.biome}. Go to the next slide to build your diagram.`, 'ok');
+}
+$$('.biome').forEach(b => b.addEventListener('click', e => { if (e.target.id !== 'own-name' || b.dataset.biome !== model.biomeId) pickBiome(b.dataset.biome); }));
+$('[data-biome="own"]').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.id !== 'own-name') pickBiome('own'); });
+$('#own-name').addEventListener('input', () => { if (model.biomeId === 'own') pickBiome('own'); });
+
+const note = (msg, cls = '') => { const n = $('#b-note'); n.textContent = msg; n.className = `bnote ${cls}`; };
+
+/* kind and sign toggles */
+$$('.kbtn').forEach(b => b.addEventListener('click', () => {
+  kind = b.dataset.kind;
+  $$('.kbtn').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-checked', x === b); });
+}));
+$$('#bld .brow .sbtn').forEach(b => b.addEventListener('click', () => {
+  sign = b.dataset.sign;
+  $$('#bld .brow .sbtn').forEach(x => x.classList.toggle('on', x === b));
+}));
+
+function addPart() {
+  const name = $('#p-name').value.trim().replace(/\s+/g, ' ');
+  if (!name) return note('Type a name for the part first.', 'err');
+  if (model.nodes.length >= MAX_NODES) return note(`You have ${MAX_NODES} parts, the most that stay readable. Remove one to add another.`, 'err');
+  if (model.nodes.some(n => n.name.toLowerCase() === name.toLowerCase())) return note(`"${name}" is already in your diagram.`, 'err');
+  model.nodes.push({ id: `n${nextId++}`, name, kind });
+  $('#p-name').value = '';
+  note(`Added "${name}" as ${KINDS[kind].label.toLowerCase()}.`, 'ok');
+  update();
+  $('#p-name').focus();
+}
+$('#p-add').addEventListener('click', addPart);
+$('#p-name').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addPart(); } });
+
+function addLink() {
+  const from = $('#l-from').value, to = $('#l-to').value, label = $('#l-label').value.trim();
+  if (model.nodes.length < 2) return note('Add at least two parts before you link them.', 'err');
+  if (!from || !to || from === to) return note('Pick two different parts for From and To.', 'err');
+  if (model.links.length >= MAX_LINKS) return note(`You have ${MAX_LINKS} links, the most that stay readable. Remove one to add another.`, 'err');
+  if (model.links.some(l => l.from === from && l.to === to)) return note('Those two parts are already linked in this direction. Edit that link below.', 'err');
+  model.links.push({ from, to, label, sign });
+  $('#l-label').value = '';
+  note(label ? 'Link added.' : 'Link added. Give it some words in the list below.', label ? 'ok' : 'err');
+  update();
+}
+$('#l-add').addEventListener('click', addLink);
+$('#l-label').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addLink(); } });
+
+const nameOf = id => model.nodes.find(n => n.id === id)?.name || '?';
+function renderLists() {
+  $('#p-list').innerHTML = model.nodes.map(n => `<span class="pchip ${n.kind}">${esc(n.name)}<button type="button" class="x" data-del-node="${n.id}" aria-label="Remove ${esc(n.name)}">×</button></span>`).join('')
+    || '<span class="empty">No parts yet.</span>';
+  const opts = model.nodes.map(n => `<option value="${n.id}">${esc(n.name)}</option>`).join('');
+  for (const [sel, fallback] of [['#l-from', 0], ['#l-to', 1]]) {
+    const el = $(sel), keep = el.value;
+    el.innerHTML = opts;
+    el.value = model.nodes.some(n => n.id === keep) ? keep : (model.nodes[fallback]?.id || model.nodes[0]?.id || '');
+  }
+  $('#l-list').innerHTML = model.links.map((l, i) => `<li><span class="ft" title="${esc(nameOf(l.from))} → ${esc(nameOf(l.to))}"><b>${esc(nameOf(l.from))}</b> → <b>${esc(nameOf(l.to))}</b></span><input data-lab="${i}" maxlength="30" value="${esc(l.label)}" placeholder="add words" aria-label="Words on this link"${l.label.trim() ? '' : ' class="need"'}><button type="button" class="sbtn ${l.sign === '-' ? 'm' : 'p'} on" data-flip="${i}" title="Switch + and −">${l.sign === '-' ? '−' : '+'}</button><button type="button" class="x" data-del-link="${i}" aria-label="Remove link">×</button></li>`).join('')
+    || '<li style="display:block;border:0"><span class="empty">No links yet.</span></li>';
+}
+$('#p-list').addEventListener('click', e => {
+  const b = e.target.closest('[data-del-node]'); if (!b) return;
+  const id = b.dataset.delNode;
+  model.nodes = model.nodes.filter(n => n.id !== id);
+  model.links = model.links.filter(l => l.from !== id && l.to !== id);
+  note('Part removed, with its links.'); update();
+});
+$('#l-list').addEventListener('click', e => {
+  const f = e.target.closest('[data-flip]'), d = e.target.closest('[data-del-link]');
+  if (f) { const l = model.links[+f.dataset.flip]; l.sign = l.sign === '-' ? '+' : '-'; update(); }
+  if (d) { model.links.splice(+d.dataset.delLink, 1); note('Link removed.'); update(); }
+});
+$('#l-list').addEventListener('input', e => {
+  const i = e.target.dataset.lab; if (i === undefined) return;
+  model.links[+i].label = e.target.value;
+  e.target.classList.toggle('need', !e.target.value.trim());
+  update(false);
+});
+
+function renderChecks() {
+  const r = result, c = r.counts, loop = r.loops[loopPick % (r.loops.length || 1)];
+  const item = (ok, title, detail) => `<div class="check${ok ? ' ok' : ''}"><i>${ok ? '✓' : ''}</i><div><b>${title}</b><span>${detail}</span></div></div>`;
+  $('#checks').innerHTML =
+    item(r.rubric.kinds, 'Two parts of each kind', `Ecological ${c.eco} · Social ${c.soc} · Technological ${c.tech}`)
+    + item(r.rubric.cross, 'Crosses from nature and back', `From ecological: ${r.crossOut ? 'yes' : 'not yet'} · Back to ecological: ${r.crossBack ? 'yes' : 'not yet'}`)
+    + item(r.rubric.labels, 'Every link has words', model.links.length ? (r.unlabelled ? `${r.unlabelled} link${r.unlabelled > 1 ? 's' : ''} still need${r.unlabelled > 1 ? '' : 's'} words` : `All ${model.links.length} links labelled`) : 'No links yet')
+    + item(r.rubric.loop, 'A feedback loop', loop
+      ? `${esc(loop.path.join(' → '))}: <b style="display:inline;color:${loop.type === 'balancing' ? '#b3452c' : '#0a4f68'}">${loop.type}</b> (${loop.minus} − link${loop.minus === 1 ? '' : 's'})${r.loops.length > 1 ? ` · <button type="button" class="x" id="loop-next" style="font-size:17px;color:var(--Blue);text-decoration:underline">next loop (${loopPick % r.loops.length + 1} of ${r.loops.length}${r.loops.length >= 40 ? '+' : ''})</button>` : ''}`
+      : 'Follow your arrows: none lead back to where they started yet');
+  $('#loop-next')?.addEventListener('click', () => { loopPick++; update(false); });
+}
+
+function update(lists = true) {
+  result = analyseSets(model);
+  if (lists) renderLists();
+  const loop = result.loops[loopPick % (result.loops.length || 1)];
+  $('#b-svg').innerHTML = drawSets(model, { w: 1000, h: 560, id: 'bd', highlight: new Set(loop ? loop.links : []) });
+  renderChecks();
+}
+update();
+
+/* === EXPORT === the submitted record and the downloads share this */
+function record() {
+  const r = analyseSets(model);
+  const byType = t => r.loops.filter(l => l.type === t).length;
+  return {
+    biome: model.biome || 'Not picked', biomeId: model.biomeId || '',
+    nodes: model.nodes.map(({ id, name, kind }) => ({ id, name, kind })),
+    links: model.links.map(({ from, to, label, sign }) => ({ from, to, label: label.trim(), sign })),
+    counts: r.counts, linkCount: model.links.length,
+    crossOut: r.crossOut, crossBack: r.crossBack, unlabelled: r.unlabelled,
+    loopFound: r.loops.length > 0, loopType: r.loops[0]?.type || null,
+    loopCount: r.loops.length, reinforcingLoops: byType('reinforcing'), balancingLoops: byType('balancing'),
+    loops: r.loops.slice(0, 5).map(l => ({ path: l.path, type: l.type, minus: l.minus })),
+    rubric: r.rubric, rubricMet: r.met,
+  };
+}
+function exportSvg() {
+  const r = analyseSets(model), loop = r.loops[loopPick % (r.loops.length || 1)];
+  const F = 'Georgia, serif';
+  const leg = Object.values(KINDS).map((k, i) => `<rect x="${24 + i * 190}" y="672" width="26" height="20" rx="4" fill="${k.fill}" stroke="${k.stroke}" stroke-width="2"/><text x="${58 + i * 190}" y="688" font-family="${F}" font-size="17" fill="#10313d">${k.label}</text>`).join('');
+  let who = '';
+  try { who = live.user()?.name ? ` · ${live.user().name}` : ''; } catch { /* live not ready yet */ }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1420" viewBox="0 0 1000 710"><rect width="1000" height="710" fill="#fffdf8"/>`
+    + `<text x="24" y="36" font-family="${F}" font-size="24" fill="#0d7397">SETs diagram: ${esc(model.biome || 'my system')}</text><text x="24" y="60" font-family="${F}" font-size="15" fill="#4c6670">SOS110 Module 1 review${esc(who)}${loop ? ` · highlighted loop: ${loop.type}` : ''}</text>`
+    + `<g transform="translate(0,90)">${drawSets(model, { w: 1000, h: 560, id: 'ex', font: F, highlight: new Set(loop ? loop.links : []) })}</g>${leg}`
+    + `<text x="620" y="688" font-family="${F}" font-size="17" fill="#10313d"><tspan fill="#0a4f68" font-weight="700">+</tspan> same way   <tspan fill="#b3452c" font-weight="700">−</tspan> opposite way</text></svg>`;
+}
+function download(blob, name) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+const fileBase = () => `sets-${(model.biome || 'diagram').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'diagram'}`;
+$('#b-png').addEventListener('click', () => {
+  if (!model.nodes.length) return say($('#b-status'), 'Add some parts first.', 'err');
+  const url = URL.createObjectURL(new Blob([exportSvg()], { type: 'image/svg+xml' }));
+  const img = new Image();
+  img.onload = () => {
+    const cv = document.createElement('canvas'); cv.width = 2000; cv.height = 1420;
+    cv.getContext('2d').drawImage(img, 0, 0, 2000, 1420);
+    URL.revokeObjectURL(url);
+    cv.toBlob(b => { download(b, `${fileBase()}.png`); say($('#b-status'), 'Image downloaded. Keep it for the Review Exercise.', 'ok'); }, 'image/png');
+  };
+  img.onerror = () => { URL.revokeObjectURL(url); download(new Blob([exportSvg()], { type: 'image/svg+xml' }), `${fileBase()}.svg`); say($('#b-status'), 'Image downloaded as SVG.', 'ok'); };
+  img.src = url;
+});
+$('#b-txt').addEventListener('click', () => {
+  const d = record(), name = id => d.nodes.find(n => n.id === id)?.name || '?';
+  const lines = [`SETs diagram: ${d.biome}`, '',
+    ...['eco', 'soc', 'tech'].flatMap(k => [`${KINDS[k].label} parts (${d.counts[k]}):`, ...d.nodes.filter(n => n.kind === k).map(n => `  - ${n.name}`), '']),
+    `Links (${d.linkCount}):`, ...d.links.map(l => `  - ${name(l.from)} -> ${name(l.to)} (${l.sign === '-' ? '-' : '+'}): ${l.label || '[needs words]'}`), '',
+    `Feedback loops (${d.loopCount}):`, ...(d.loops.length ? d.loops.map(l => `  - ${l.path.join(' -> ')}: ${l.type} (${l.minus} minus link${l.minus === 1 ? '' : 's'})`) : ['  - none yet']), '',
+    'Practice rubric:',
+    `  [${d.rubric.kinds ? 'x' : ' '}] At least 2 ecological, 2 social and 2 technological parts`,
+    `  [${d.rubric.cross ? 'x' : ' '}] A link from ecological to social or technological, and one back`,
+    `  [${d.rubric.labels ? 'x' : ' '}] Every link has words`,
+    `  [${d.rubric.loop ? 'x' : ' '}] At least one feedback loop`];
+  download(new Blob([lines.join('\n')], { type: 'text/plain' }), `${fileBase()}.txt`);
+  say($('#b-status'), 'Text downloaded.', 'ok');
+});
+$('#b-clear').addEventListener('click', () => {
+  if ((model.nodes.length || model.links.length) && !confirm('Clear your whole diagram?')) return;
+  model.nodes = []; model.links = []; loopPick = 0;
+  note('Diagram cleared.'); say($('#b-status'), ''); update();
+});
+
+/* === LIVE === attendance, polls, diagram submission */
+const live = await connect(LECTURE);
+const modeNote = $('[data-mode-note]');
+if (live.mode === 'demo') modeNote.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+const nameBox = $('[data-signin]');
+function showUser() {
+  const u = live.user();
+  nameBox.style.display = u ? 'none' : '';
+  if (u) say($('#checkin-status'), `Signed in as ${u.name}.`);
+}
+if (live.mode === 'firebase') $('[data-name]').style.display = 'none';
+$('[data-signin-btn]').addEventListener('click', async () => {
+  try { await live.signIn($('[data-name]').value); showUser(); } catch (e) { say($('#checkin-status'), e.message, 'err'); }
+});
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  if (live.mode === 'firebase') { try { await live.signIn(); showUser(); return true; } catch { /* fall through */ } }
+  say(statusEl, 'Sign in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  if (!await ensureUser(st)) return;
+  try { await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per student, changeable */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* Submit the diagram */
+$('#b-submit').addEventListener('click', async () => {
+  const st = $('#b-status');
+  if (!model.nodes.length) return say(st, 'Add some parts and links first.', 'err');
+  if (!await ensureUser(st)) return;
+  const data = record();
+  try {
+    await live.saveSim('sets-diagram', data);
+    say(st, `Submitted: ${data.nodes.length} parts, ${data.linkCount} links, ${data.rubricMet} of 4 checks met${data.loopFound ? `, ${data.loopType} loop` : ''}. You can submit again after changes.`, 'ok');
+  } catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
