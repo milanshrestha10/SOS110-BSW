@@ -59,7 +59,7 @@ function demoBackend(lectureId) {
     isAdmin: () => true,
     async signIn(name, email) {
       const p = saveProfile(name, email);
-      me = { uid: me?.uid || Math.random().toString(36).slice(2, 10), ...p };
+      me = { uid: me?.uid || crypto.randomUUID(), ...p };
       try { localStorage.setItem('sos110-demo-user', JSON.stringify(me)); } catch { /* ignore */ }
       return me;
     },
