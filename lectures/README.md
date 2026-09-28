@@ -37,3 +37,9 @@ Students check in by typing their name, email and the code on screen; no account
 ## Adding a lecture
 
 Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives and assignments fill in on their own. Then add the matching admin page in the private repo.
+
+Deck rules, so every lecture works in any semester:
+
+- No lesson plan or agenda slide. Attendance comes right after the opening slides.
+- No calendar dates, weekdays, meeting times, rooms, office hours details, term names, TA or instructor names, school or university names.
+- The title slide keeps the small module badge (`M01`) and the module title in the sans-serif style from `deck.css`. Don't add a university line.
