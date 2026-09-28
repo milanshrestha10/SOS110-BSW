@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M2 Review Ecosystem Services of the Grand Canyon · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+.tagline{position:absolute;left:740px;top:520px;width:1080px;font:italic 400 40px/1.3 var(--body);color:var(--mute)}
+.title-terms{top:640px}
+h2.tight{font-size:66px;margin:10px 0 26px}
+/* due list */
+.due{list-style:none;display:grid;gap:14px;max-width:1500px}
+.due li{display:grid;grid-template-columns:330px 1fr;gap:30px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:20px 28px}
+.due li.now{border-color:var(--Blue);border-left:12px solid var(--Blue)}
+.due .when{font:400 32px/1.15 var(--display);color:var(--Blue)}
+.due li.now .when{color:var(--deep)}
+.due b{display:block;font-size:30px;line-height:1.3}
+.due span{display:block;font-size:22px;line-height:1.35;color:var(--mute);margin-top:2px}
+/* logistics strip */
+.facts{display:flex;flex-wrap:wrap;gap:12px 14px;margin:0 0 24px}
+.fact{font:700 20px var(--body);border-radius:999px;padding:8px 18px;background:rgba(66,168,191,.14);color:var(--deep)}
+.fact i{font-style:normal;font-weight:400;color:var(--mute);margin-right:6px}
+.obj{font-size:27px;line-height:1.4;max-width:1540px;margin-bottom:18px}
+.obj b{color:var(--Blue)}
+/* task cards */
+.tasks{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:24px;align-items:stretch}
+.task{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Green);border-radius:18px;padding:22px 26px;font-size:21px;line-height:1.4}
+.task.t2{border-top-color:var(--Sky)}.task.t3{border-top-color:var(--golden)}
+.task .n{font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.task h3{font-size:34px;margin:4px 0 10px}
+.task p{margin-bottom:10px}
+.task ul{list-style:none}
+.task ul li{position:relative;padding-left:24px;margin:7px 0}
+.task ul li::before{content:'';position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--Green)}
+.task.t3 ul li::before{background:var(--golden)}
+.task .eg{color:var(--mute);font-style:italic}
+.src{display:inline-block;font:700 17px var(--body);border:2px solid var(--Green);border-radius:8px;padding:2px 10px;margin-right:6px}
+/* services grid */
+.svc{display:grid;grid-template-columns:150px 1fr 26px 1fr;gap:6px 8px;align-items:center;font-size:18px;margin:6px 0 10px}
+.svc .h{font:700 14px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.svc .type{font:700 18px var(--body);color:#fff;background:var(--Blue);border-radius:8px;padding:6px 10px}
+.svc .box{border:2px dashed var(--Sky);border-radius:8px;padding:5px 10px;color:var(--mute);background:#fff}
+.svc .arr{color:var(--Blue);font-weight:700;text-align:center}
+.task .note{font-size:18px;color:var(--mute);border-top:1px solid var(--paper-2);padding-top:8px}
+/* checklist */
+.lists{display:grid;grid-template-columns:1.35fr 1fr;gap:34px}
+.lists h3{font-size:36px;margin-bottom:12px}
+.lists h3 small{display:block;font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.tick{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;width:100%;text-align:left;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:13px 18px;margin-bottom:11px;font:400 22px/1.38 var(--body);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s}
+.tick:hover{border-color:var(--Sky)}
+.tick i{width:36px;height:36px;border-radius:9px;border:3px solid var(--Blue);font:700 24px/30px var(--body);text-align:center;color:#fff;font-style:normal}
+.tick.on{border-color:#2e7d5b;background:rgba(46,125,91,.07)}
+.tick.on i{background:#2e7d5b;border-color:#2e7d5b}
+.tick.on i::after{content:'✓'}
+.tick b{color:var(--deep)}
+.tick-count{font-size:21px;color:var(--mute);margin-top:6px}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>02</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Why Do We Need Healthy Ecosystems?</span><small>Review session<br>Review Exercise 1</small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Review Exercise 1 · Team mind map</div>
+  <h1 class="title-h reveal d2">Ecosystem services of the <em>Grand Canyon</em></h1>
+  <p class="tagline reveal d3">What the park gives us – and what we are doing to it.</p>
+  <div class="title-terms reveal d3"><span class="chip">Provisioning</span> <span class="chip">Regulating</span> <span class="chip">Supporting</span> <span class="chip">Cultural</span></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Led by your TA</div>
+  <aside class="notes">Welcome to the Module 2 review. Today is Review Exercise 1: teams of up to five build one digital mind map about Grand Canyon National Park (GCNP) in 30 to 45 minutes. It pulls together the ecosystem services from Lecture 6 (provisioning, regulating, supporting, cultural) and asks how human activity threatens them. Have students sit with their sign-up group before you start.</aside>
+</section>
+
+<!-- 2. UPCOMING ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>2.4</b><span>What's due</span></div>
+  <div class="content">
+    <div class="k reveal">Module 2 · coming up</div>
+    <h2 class="tight reveal d2">Upcoming <em>assignments</em></h2>
+    <ul class="due reveal d3">
+      <li class="now"><div class="when">End of this session</div><div><b>Review Exercise 1: Ecosystem Services of the Grand Canyon</b><span>Team mind map, but every student submits their own copy on Canvas.</span></div></li>
+      <li><div class="when">End of Module 2</div><div><b>InQuizitive 3, 4 and 5</b><span>Covers S&amp;M Ch. 3, 4 and 5.</span></div></li>
+      <li><div class="when">End of Module 2</div><div><b>Quiz: Biomimicry</b><span>Based on the biomimicry lecture and Baumeister et al. (2012).</span></div></li>
+      <li><div class="when">Before next class</div><div><b>Read S&amp;M Ch. 6</b><span>Next class: <span data-fill="next" style="display:inline;margin:0">Population and consumption</span></span></div></li>
+      <li><div class="when">End of Module 3</div><div><b>Mid-term Test 1 (Modules 1–3)</b><span>Today's ecosystem services work is fair game.</span></div></li>
+    </ul>
+  </div>
+  <aside class="notes">Point out the first row: today's mind map is due by the end of this session, and each student uploads their own copy even though the work is shared. InQuizitive 3 to 5 and the Biomimicry quiz close out Module 2. Mid-term Test 1 covers Modules 1 to 3.</aside>
+</section>
+
+<!-- 3A. ASSIGNMENT PROMPT: THE THREE SECTIONS -->
+<section class="slide">
+  <div class="rail"><b>2.4</b><span>Prompt · 1 of 2</span></div>
+  <div class="content" style="top:90px;bottom:90px">
+    <div class="k reveal">Assignment prompt · 1 of 2</div>
+    <h2 class="tight reveal d2">One mind map, <em>three sections</em></h2>
+    <p class="obj reveal d2"><b>Objective:</b> collaboratively analyze the ecosystem services of Grand Canyon National Park (GCNP) and evaluate how human-driven changes affect its long-term sustainability.</p>
+    <div class="facts reveal d3">
+      <span class="fact"><i>Time</i>30–45 minutes</span>
+      <span class="fact"><i>Team</i>Up to 5 (your sign-up group)</span>
+      <span class="fact"><i>Tools</i>Zoom Whiteboard, InsightMaker, Canva, Miro, Google Slides or similar</span>
+    </div>
+    <div class="tasks reveal d3">
+      <div class="task t1">
+        <div class="n">Task 1</div>
+        <h3>Native biodiversity list</h3>
+        <p>Identify the biological "engine" of the park. Use only official sources: <span class="src">nps.gov</span><span class="src">usgs.gov</span></p>
+        <ul>
+          <li><b>Plants:</b> 3+ representative plant communities <span class="eg">(e.g., Ponderosa pine, desert scrub)</span></li>
+          <li><b>Animals:</b> 3+ native animal species <span class="eg">(e.g., California condor, Kaibab squirrel)</span></li>
+        </ul>
+      </div>
+      <div class="task t2">
+        <div class="n">Task 2</div>
+        <h3>Ecosystem services mapping</h3>
+        <p>A grid or web: one specific GCNP example per category, with an arrow to a sustainability outcome.</p>
+        <div class="svc">
+          <span class="h">Service</span><span class="h">GCNP example</span><span></span><span class="h">Outcome / feedback</span>
+          <span class="type">Provisioning</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
+          <span class="type">Regulating</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
+          <span class="type">Supporting</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
+          <span class="type">Cultural</span><span class="box">Your unique example</span><span class="arr">→</span><span class="box">Sustainability outcome</span>
+        </div>
+        <p class="note">Format: <i>Provisioning: Freshwater springs → supports desert megafauna survival.</i> Past examples (springs and megafauna, soil stabilization and river siltation) don't count: find new ones.</p>
+      </div>
+      <div class="task t3">
+        <div class="n">Task 3</div>
+        <h3>Sustainability impact analysis</h3>
+        <p>One team paragraph, 4–6 sentences, written on the map:</p>
+        <ul>
+          <li><b>The challenge:</b> one major threat <span class="eg">(drought, invasive species, climate disruption)</span></li>
+          <li><b>The link:</b> the Task 2 service it harms most</li>
+          <li><b>The human factor:</b> how people drive it <span class="eg">(dam management, over-tourism)</span></li>
+          <li><b>The solution:</b> one viable strategy to reduce the impact</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Walk through the three sections left to right; they become three labeled areas on the team's mind map. Task 1: only nps.gov or usgs.gov count as sources. Task 2 is the heart of it: four service types, one Grand Canyon example each, and an arrow to a concrete outcome. The two past examples are shown so teams know not to reuse them. Task 3 ties it together: the threat must name one service from their own Task 2. Suggest teams split up Tasks 1 and 2 for the first 15 minutes, then write Task 3 together.</aside>
+</section>
+
+<!-- 3B. ASSIGNMENT PROMPT: REVIEW CHECKLIST -->
+<section class="slide">
+  <div class="rail"><b>2.4</b><span>Prompt · 2 of 2</span></div>
+  <div class="content" style="top:90px;bottom:90px">
+    <div class="k reveal">Assignment prompt · 2 of 2</div>
+    <h2 class="tight reveal d2">Review: <em>what to include</em></h2>
+    <div class="lists reveal d3" data-checklist>
+      <div>
+        <h3><small>Final deliverable</small>On your mind map</h3>
+        <button type="button" class="tick"><i></i><span><b>Three labeled sections:</b> biodiversity list, ecosystem services map, impact analysis.</span></button>
+        <button type="button" class="tick"><i></i><span><b>3+ plant communities and 3+ native animals</b>, taken only from nps.gov or usgs.gov.</span></button>
+        <button type="button" class="tick"><i></i><span><b>One GCNP example for each service type</b> (provisioning, regulating, supporting, cultural), each with an arrow to a sustainability outcome.</span></button>
+        <button type="button" class="tick"><i></i><span><b>New examples</b>, not the past ones (springs and megafauna, soil and siltation).</span></button>
+        <button type="button" class="tick"><i></i><span><b>A 4–6 sentence paragraph</b> naming the challenge, the service it harms, the human factor and a solution.</span></button>
+      </div>
+      <div>
+        <h3><small>Submission</small>When you hand it in</h3>
+        <button type="button" class="tick"><i></i><span><b>Export</b> the mind map as a PDF or a high-resolution image (.png or .jpeg).</span></button>
+        <button type="button" class="tick"><i></i><span><b>Full names</b> of every team member written on the graphic itself.</span></button>
+        <button type="button" class="tick"><i></i><span><b>Everyone submits.</b> It's a team effort, but each student uploads their own copy to Canvas to get credit.</span></button>
+        <p class="tick-count" data-tick-count>Tap each item as your team checks it.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Leave this slide up for the last five minutes as a checklist. Teams can tap each item as they confirm it (the ticks are not saved). The most common misses: no team names on the graphic, reusing the past examples, and only one team member submitting on Canvas.</aside>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm2-s4';
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+/* === COURSE DATA === module title and next class from course.json */
+loadSession(LECTURE).then(d => fill(document, { ...d, next: d.next && { ...d.next, due: '' } })).catch(() => {});
+
+/* === CHECKLIST === tap to tick; nothing is saved */
+$$('[data-checklist]').forEach(list => {
+  const ticks = $$('.tick', list);
+  const count = list.querySelector('[data-tick-count]');
+  ticks.forEach(t => t.addEventListener('click', () => {
+    t.classList.toggle('on');
+    const n = ticks.filter(x => x.classList.contains('on')).length;
+    count.textContent = n === ticks.length ? 'All 8 checked. Export it and submit your own copy.' : `${n} of ${ticks.length} checked`;
+  }));
+});
+</script>
+</body>
+</html>
