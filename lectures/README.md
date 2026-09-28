@@ -1,6 +1,6 @@
 # SOS110 lectures
 
-Each lecture is a folder with the student deck, `index.html` (arrow keys, space or swipe to move; `#4` in the URL jumps to slide 4).
+Each lecture is a folder with the student deck, `index.html` (arrow keys, space or swipe to move; `#3` in the URL jumps to slide 3).
 
 The instructor pages (attendance code, check-ins, poll and simulation results, speaker notes) live in the private repo `milanshrestha10/SOS110-admin`, hosted at https://sos110-ce7a1.web.app. They load `shared/` and `course/course.json` from this site, so changes here reach them too.
 
