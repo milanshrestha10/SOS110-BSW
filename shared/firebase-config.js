@@ -8,8 +8,14 @@
    below, and deploy firebase/firestore.rules with the same admin email.
    These values are safe to publish; the security rules protect the data.
    =========================================== */
-export const firebaseConfig = null;
-/* e.g. { apiKey: '...', authDomain: 'sos110.firebaseapp.com', projectId: 'sos110', appId: '...' } */
+export const firebaseConfig = {
+  apiKey: 'AIzaSyAtkC1Ttu2xgUzqdA2AFiQzTu-SO3PoS8o',
+  authDomain: 'sos110-ce7a1.firebaseapp.com',
+  projectId: 'sos110-ce7a1',
+  storageBucket: 'sos110-ce7a1.firebasestorage.app',
+  messagingSenderId: '430440408501',
+  appId: '1:430440408501:web:ee74e85788159571b825fc'
+};
 
 /* Accounts allowed to open admin pages and read class results. */
 export const adminEmails = ['mshrest1@asu.edu'];
