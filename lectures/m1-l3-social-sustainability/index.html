@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1 L3 Social sustainability · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+/* five glossary cards: three per row so they fit the stage */
+.vocab.five{grid-template-columns:repeat(3,1fr);gap:22px}
+.vocab.five .vcard{height:318px}
+.vocab.five .vcard .f,.vocab.five .vcard .b{padding:24px 28px}
+.vocab.five .vcard h4{font-size:34px;margin-bottom:10px}
+.vocab.five .vcard p{font-size:21px;line-height:1.38}
+.vocab.five .vcard .b p{font-size:20px}
+/* sorting game */
+.sort-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--paper-2);font-size:27px;line-height:1.3}
+.sort-row button{font:700 21px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:8px 18px;cursor:pointer}
+.sort-row button.on{background:var(--Blue);color:var(--paper)}
+.sort-row.good button.on{background:#2e7d5b;border-color:#2e7d5b}
+.sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
+/* externality flow diagram */
+.flow{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:0;margin:6px 0 34px}
+.flow .p{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:22px 28px;text-align:center;font:400 38px var(--display)}
+.flow .p small{display:block;font:400 22px var(--body);color:var(--mute);margin-top:4px}
+.flow .arrow{text-align:center;font:400 44px var(--display);color:var(--Blue)}
+.flow .third{grid-column:1/-1;margin-top:18px;background:var(--Blue);color:var(--paper);border-color:var(--Blue)}
+.flow .third small{color:rgba(246,242,233,.85)}
+/* commons: my gain vs shared cost */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
+.big-n{font:400 96px/1 var(--display);color:var(--Blue)}
+/* fishery simulation */
+.fish-sim{display:grid;grid-template-columns:600px 1fr;gap:54px;align-items:start}
+.toggle{display:flex;gap:16px;align-items:flex-start;font-size:25px;line-height:1.35;cursor:pointer;margin:4px 0 22px}
+.toggle input{width:30px;height:30px;flex:none;margin-top:3px;accent-color:var(--Blue)}
+.stock-chart{display:grid;grid-template-columns:repeat(20,1fr);gap:6px;align-items:end;height:300px;border-bottom:2px solid var(--mute);position:relative}
+.stock-chart i{display:block;background:var(--Blue);border-radius:4px 4px 0 0;transition:height .6s var(--ease)}
+.stock-chart i.low{background:#b3452c}
+.stock-chart .kline{position:absolute;left:0;right:0;border-top:2px dashed var(--Green)}
+.stock-chart .kline span{position:absolute;right:6px;top:4px;background:var(--card);padding:0 6px;font-size:18px;color:var(--mute)}
+.chart-x{display:flex;justify-content:space-between;font-size:18px;color:var(--mute);margin-top:6px}
+.fish-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.fish-stats div{background:var(--paper);border-radius:14px;padding:14px 18px}
+.fish-stats b{display:block;font:400 48px/1.1 var(--display);color:var(--ink)}
+.fish-stats span{font-size:20px;color:var(--mute)}
+.outcome{display:inline-block;padding:8px 22px;border-radius:999px;font:700 22px var(--body);color:#fff}
+/* cod data bars: one series, direct labels, values in text ink */
+.cod{display:grid;gap:18px}
+.cod-row{display:grid;grid-template-columns:300px 1fr;align-items:center;gap:20px;font-size:24px;line-height:1.25}
+.cod-track{position:relative;height:46px}
+.cod-bar{height:100%;min-width:4px;border-radius:0 4px 4px 0;background:var(--Sky);transition:width 1.1s var(--ease)}
+.cod-row.hi .cod-bar{background:var(--Blue)}
+.cod-row span.v{position:absolute;top:0;line-height:46px;padding-left:12px;font:700 22px/46px var(--body);color:var(--ink);white-space:nowrap}
+.reveal-a{margin:8px 0 14px;font-size:24px;color:var(--mute);min-height:34px}
+/* justice lenses */
+.lens b{display:block;font:400 34px var(--display);margin-bottom:6px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">M<em>01</em></div>
+  <div class="band-text reveal d2"><span data-fill="module-title">Sustainability for Our Planet</span><small>Lecture 3 · <span data-fill="date">Tue Sep 1</span><br><span data-fill="reading">S&amp;M Ch. 2</span></small></div>
+  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
+  <div class="title-k reveal">Lecture 3 · People, shared resources and fairness</div>
+  <h1 class="title-h reveal d2">Social <em>sustainability</em></h1>
+  <div class="title-terms reveal d3" data-fill="chips"></div>
+  <div class="goldline"></div>
+  <div class="title-who reveal d3">Dr. Milan Shrestha</div>
+  <div class="title-org reveal d4">School of Sustainability · Arizona State University</div>
+  <aside class="notes">Welcome to the third lecture of Module 1. Today is the "people" pillar of the triple bottom line. Remind students that the Introduce yourself video is due today. Thursday is the TA-led review on socio-ecological-technological systems (SETs), and today's ideas (externalities, commons, collective action) are the social links in those systems.</aside>
+</section>
+
+<!-- 2. LESSON PLAN -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Lesson plan</span></div>
+  <div class="content">
+    <div class="k reveal">Today's 75 minutes</div>
+    <h2 class="reveal d2">Lesson <em>plan</em></h2>
+    <table class="agenda reveal d3">
+      <tr><td>0–5</td><td>Check in and warm-up poll</td></tr>
+      <tr><td>5–12</td><td>Key vocabulary and the "people" pillar: trade-offs</td></tr>
+      <tr><td>12–24</td><td>Externalities and the positive or negative sorting game</td></tr>
+      <tr><td>24–42</td><td>Tragedy of the Commons and the fishery simulation</td></tr>
+      <tr><td>42–52</td><td>Real data: the collapse of Newfoundland's northern cod</td></tr>
+      <tr><td>52–58</td><td>Collective action: how communities protect a commons</td></tr>
+      <tr><td>58–68</td><td>Environmental justice discussion</td></tr>
+      <tr><td>68–75</td><td>Exit ticket, assignments, and Thursday's SETs review</td></tr>
+    </table>
+  </div>
+  <aside class="notes">The fishery simulation is the centrepiece: give it at least 12 minutes including the debrief. If time is short, shorten the cod data slide to one question and keep the environmental justice discussion.</aside>
+</section>
+
+<!-- 3. OBJECTIVES -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Objectives</span></div>
+  <div class="content">
+    <div class="k reveal">By the end of class you can</div>
+    <h2 class="reveal d2">Learning <em>objectives</em></h2>
+    <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:56px">
+      <ol class="num reveal d3" style="font-size:28px">
+        <li>Explain what social sustainability means and name a trade-off between goals.</li>
+        <li>Tell positive externalities apart from negative ones.</li>
+        <li>Explain the Tragedy of the Commons and why shared resources get overused.</li>
+        <li>Describe how collective action can protect a shared resource.</li>
+        <li>Use environmental justice to ask who carries the costs and who gets the benefits.</li>
+      </ol>
+      <div class="card blue reveal d4">
+        <span class="tag">Module 1 objectives</span>
+        <ul class="clean small" data-fill="objectives"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>1.3</b><span>Attendance</span></div>
+  <div class="content">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin" data-signin>
+        <input class="field" data-name placeholder="Your full name" autocomplete="name">
+        <button class="btn" type="button" data-signin-btn>Sign in</button>
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Warm-up poll</span></div>
+  <div class="content">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">A factory upstream pollutes a river that a town downstream drinks from. <em>Who should pay</em> for the cleanup?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>The factory that caused the pollution</button>
+      <button class="opt" type="button"><b>B</b>The town that uses the water</button>
+      <button class="opt" type="button"><b>C</b>All taxpayers, through the government</button>
+      <button class="opt" type="button"><b>D</b>Nobody: the river will clean itself over time</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">Show results from the admin page. Most students pick A, but in practice the costs often land on B or C. That gap between who causes a cost and who pays it is today's first term, the externality. Come back to this poll on the externality slide.</aside>
+</section>
+
+<!-- 6. VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Key vocabulary</span></div>
+  <div class="content">
+    <div class="k reveal">Glossary · Module 1 · tap a card for its example</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
+    <div class="vocab five reveal d3" data-fill="vocab"></div>
+  </div>
+  <aside class="notes">Five terms today. Each one gets its own activity: trade-off (next slide), externality (sorting game), Tragedy of the Commons (fishery simulation and cod data), collective action (community catch limit and the Ostrom slide), environmental justice (discussion). Flip one or two cards now and come back to the rest as they come up.</aside>
+</section>
+
+<!-- 7. PEOPLE PILLAR AND TRADE-OFFS -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>The people pillar</span></div>
+  <div class="content">
+    <div class="k reveal">Triple bottom line · people</div>
+    <h2 class="reveal d2">What makes a society <em>sustainable</em>?</h2>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="tag">Needs</span><h3>Basic needs met</h3><p>Clean water, food, shelter, health care and safe places to live and work.</p></div>
+      <div class="card green"><span class="tag">Fairness</span><h3>Equity</h3><p>Benefits and burdens are shared fairly, now and for future generations.</p></div>
+      <div class="card blue"><span class="tag">Voice</span><h3>A say in decisions</h3><p>People affected by a decision can take part in making it.</p></div>
+    </div>
+    <div class="card gold reveal d4" style="margin-top:32px;display:grid;grid-template-columns:300px 1fr;gap:30px;align-items:center">
+      <div><span class="tag">Trade-off</span><h3 style="margin:0">Goals can clash</h3></div>
+      <p style="font-size:28px">A new copper mine brings jobs and materials for solar panels, but it may use scarce water and damage land that a community values. Choosing one goal often means giving up part of another.</p>
+    </div>
+  </div>
+  <aside class="notes">Link back to Lecture 1 (triple bottom line). Ask: what does the mine example gain and give up on each pillar? Arizona connection: copper mining is a real, current debate here, so students may know local examples. Trade-offs are not failures; naming them clearly is the first step to a fair decision.</aside>
+</section>
+
+<!-- 8. EXTERNALITIES -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Externalities</span></div>
+  <div class="content">
+    <div class="k reveal">Costs and benefits that spill over</div>
+    <h2 class="reveal d2">Who is left out of the <em>deal</em>?</h2>
+    <div class="flow reveal d3">
+      <div class="p">Seller<small>a factory makes and sells a product</small></div>
+      <div class="arrow">⇄</div>
+      <div class="p">Buyer<small>pays the price for the product</small></div>
+      <div class="p third">Bystanders<small>neighbours breathe the smoke, but nobody pays them and nobody asked them</small></div>
+    </div>
+    <div class="grid g2 reveal d4">
+      <div class="card gold"><span class="tag">Negative externality</span><p>A cost pushed onto others. Example: runoff from farm fertilizer feeds algae blooms in a lake downstream.</p></div>
+      <div class="card green"><span class="tag">Positive externality</span><p>A benefit others get for free. Example: a neighbour's beehives pollinate your garden.</p></div>
+    </div>
+  </div>
+  <aside class="notes">Return to the warm-up poll: the town downstream is the bystander. When the polluter does not pay, the price of the product is "too low" because it hides a cost. Policy tools that make polluters pay (taxes, fines, permits) are ways of "internalising" the externality. Keep this short; the game on the next slide does the practice.</aside>
+</section>
+
+<!-- 9. SORTING GAME -->
+<section class="slide" id="sorter">
+  <div class="rail"><b>1.3</b><span>Sorting game</span></div>
+  <div class="content">
+    <div class="k reveal">Game · positive or negative?</div>
+    <h2 class="reveal d2" style="margin-bottom:20px">Sort the <em>externalities</em></h2>
+    <p class="small mute reveal d2" style="margin-bottom:12px"><b>Positive</b>: a free benefit to people outside the deal. <b>Negative</b>: an unpaid cost to people outside the deal.</p>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
+      <div class="sort-row" data-answer="n"><span>Smoke from a factory causes asthma in a nearby town</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="p"><span>A neighbour's beehives pollinate your garden</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="p"><span>Your roommate's flu shot lowers your chance of catching flu</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="n"><span>Truck traffic noise next to an elementary school</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="n"><span>Fertilizer runoff causes an algae bloom downstream</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="p"><span>A restored wetland upstream reduces flooding in towns below</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="p"><span>Street trees planted by one homeowner shade and cool the sidewalk</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+      <div class="sort-row" data-answer="n"><span>Carbon dioxide from burning gasoline warms the climate for everyone</span><button type="button" data-pick="p">Positive</button><button type="button" data-pick="n">Negative</button></div>
+    </div>
+    <div class="reveal d4" style="margin-top:24px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Give pairs 3 minutes. Debrief the carbon dioxide row: it is the biggest negative externality of all because the "bystanders" include people in other countries and future generations. The street tree row links to Phoenix heat: shade is a benefit that spills over to everyone walking by.</aside>
+</section>
+
+<!-- 10. TRAGEDY OF THE COMMONS -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>The commons</span></div>
+  <div class="content">
+    <div class="k reveal">Garrett Hardin, 1968</div>
+    <h2 class="reveal d2">The Tragedy of the <em>Commons</em></h2>
+    <p class="lead reveal d3">A commons is a resource that many people can use and no one person controls: a shared pasture, a fishery, groundwater, the air. Picture herders sharing one pasture. Should I add one more cow?</p>
+    <div class="split reveal d4">
+      <div class="card green"><span class="tag">My gain</span><div class="big-n">+1</div><p>I get the whole benefit of the extra cow: more milk, more money.</p></div>
+      <div class="card gold"><span class="tag">The cost of overgrazing</span><div class="big-n">÷ all</div><p>The damage to the grass is shared by every herder. My share of the cost is small.</p></div>
+    </div>
+    <p class="lead reveal d4" style="margin-top:28px">When everyone makes the same "smart" choice, the pasture is ruined for all.</p>
+  </div>
+  <aside class="notes">Hardin's 1968 essay in Science made the idea famous. Note that the tragedy also works like an externality: each herder pushes part of the cost of their cow onto the others. Ask for other commons students use: the Colorado River, campus Wi-Fi bandwidth, a shared kitchen fridge. Next slide: students play the fishery version.</aside>
+</section>
+
+<!-- 11. FISHERY SIMULATION -->
+<section class="slide" id="fishery-sim">
+  <div class="rail"><b>1.3</b><span>Simulation</span></div>
+  <div class="content">
+    <div class="k reveal">Simulation · 20 fishing seasons on a shared stock</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Can the fishery <em>last</em>?</h2>
+    <div class="fish-sim reveal d3">
+      <div>
+        <div class="slider"><label for="s-boats">Boats in the fleet <output data-out="boats"></output></label><input type="range" id="s-boats" min="0" max="30" value="20"></div>
+        <p class="small mute" style="margin:-14px 0 22px">Each boat tries to catch 10 tonnes per season.</p>
+        <label class="toggle"><input type="checkbox" id="s-limit"><span><b>Community catch limit</b>: the fleet agrees to land no more than <b>140 tonnes</b> in total each season.</span></label>
+        <p class="small mute">A teaching model: the fish regrow fastest when the stock is about half full, and cannot regrow once it is nearly gone.</p>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:18px"><button class="btn" type="button" id="sim-save" style="white-space:nowrap;flex:none">Submit my result</button><span class="status" id="sim-status" style="margin:0;font-size:22px;line-height:1.3"></span></div>
+      </div>
+      <div class="gauge" style="text-align:left">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><span class="u">Fish stock each season (tonnes)</span><span class="outcome" id="outcome">Healthy</span></div>
+        <div class="stock-chart" id="stock-chart"><div class="kline" style="bottom:100%"><span>Full stock, 1,000 t</span></div></div>
+        <div class="chart-x"><span>Season 1</span><span>Season 20</span></div>
+        <div class="fish-stats">
+          <div><b id="f-total">0</b><span>total catch (t)</span></div>
+          <div><b id="f-boat">0</b><span>catch per boat (t)</span></div>
+          <div><b id="f-final">0</b><span>fish left (t)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Round 1 (3 min): no catch limit. Ask pairs to find the number of boats that gives the biggest total catch over 20 seasons. Round 2 (3 min): turn on the community limit and try 20 or 30 boats again. Then submit. Debrief with the admin page: 15 boats (150 t a season) is the most the stock can supply forever. At 16 to 17 boats the 20-season total looks bigger, but the stock is shrinking and overfished; at 18 or more boats it collapses and the total catch falls. With the limit on, any fleet size keeps the stock healthy (2,800 t). Ask: why would one captain still want to add a boat? That is the tragedy. Point out the trade-off at 0 boats: a healthy stock, but no food or jobs. Model: logistic growth with r = 0.6 and a carrying capacity of 1,000 t, starting at 800 t; the largest catch it can sustain is 150 t per season.</aside>
+</section>
+
+<!-- 12. COD DATA -->
+<section class="slide" id="cod-data">
+  <div class="rail"><b>1.3</b><span>Data analysis</span></div>
+  <div class="content">
+    <div class="k reveal">Data · a real Tragedy of the Commons</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">The collapse of Newfoundland's <em>cod</em></h2>
+    <div class="grid" style="grid-template-columns:1fr 600px;gap:60px;align-items:start">
+      <div class="reveal d3">
+        <p class="small mute" style="margin-bottom:18px">Northern cod catch off Newfoundland, Canada (tonnes per year)</p>
+        <div class="cod" data-cod></div>
+        <p class="small mute" style="margin-top:22px">Approximate figures. In 1992 Canada closed the fishery, and more than 30,000 people lost fishing and fish-plant jobs.</p>
+      </div>
+      <div class="card blue reveal d4">
+        <span class="tag">Your turn</span>
+        <p><b>1.</b> Factory trawlers arrived in the 1950s and 60s. How many times bigger was the 1968 catch than the best years before them?</p>
+        <button class="btn ghost" type="button" data-cod-a="1" style="font-size:22px;padding:10px 22px;margin-top:10px">Show answer</button>
+        <p class="reveal-a" id="cod-a1"></p>
+        <p><b>2.</b> The 2024 catch limit is what share of the 1968 peak?</p>
+        <button class="btn ghost" type="button" data-cod-a="2" style="font-size:22px;padding:10px 22px;margin-top:10px">Show answer</button>
+        <p class="reveal-a" id="cod-a2"></p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Figures are rounded. Source: Fisheries and Oceans Canada (DFO) northern cod (NAFO Divisions 2J3KL) stock assessments, summarised in Hutchings and Myers (1994) and in the Wikipedia article "Collapse of the Atlantic northwest cod fishery". Catch peaked at about 810,000 t in 1968, roughly three times the best years before factory trawlers. The moratorium was announced on July 2, 1992. In June 2024 Canada ended the moratorium and set a commercial limit of 18,000 t. Answers: about 3 times; about 2%. Discussion: the cod were a commons shared by many fleets, including foreign ones before Canada's 200-mile limit in 1977. Who paid the cost? Mostly small coastal communities, which links to environmental justice.</aside>
+</section>
+
+<!-- 13. COLLECTIVE ACTION -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Collective action</span></div>
+  <div class="content">
+    <div class="k reveal">Is the tragedy unavoidable?</div>
+    <h2 class="reveal d2">Communities can protect a <em>commons</em></h2>
+    <p class="lead reveal d3">Elinor Ostrom studied fisheries, forests and water systems around the world that people had managed well for generations. In 2009 she became the first woman to win the Nobel Prize in economics.</p>
+    <div class="grid g2 reveal d4" style="margin-top:30px;gap:36px">
+      <div class="card green"><span class="tag">What successful groups do</span>
+        <ul class="clean" style="font-size:26px">
+          <li>Agree on who can use the resource</li>
+          <li>Let users help make the rules</li>
+          <li>Watch how much is taken</li>
+          <li>Apply fair, step-by-step penalties</li>
+        </ul>
+      </div>
+      <div class="card gold"><span class="tag">Examples</span>
+        <ul class="clean" style="font-size:26px">
+          <li>Farmers agreeing on groundwater pumping limits</li>
+          <li>Arizona's 1980 Groundwater Management Act</li>
+          <li>The 1987 Montreal Protocol on ozone</li>
+          <li>Your community catch limit in the simulation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Ostrom's work, especially "Governing the Commons" (1990), showed Hardin's tragedy is not inevitable. Her list has eight design principles; four are shown in plain words. Collective action can be local (a farmers' cooperative), state-level (Arizona's Groundwater Management Act created Active Management Areas such as Phoenix) or global (Montreal Protocol). Ask: which of the four features did the simulation's catch limit have, and which was missing? (It had a rule, but no monitoring or penalties.)</aside>
+</section>
+
+<!-- 14. ENVIRONMENTAL JUSTICE -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Environmental justice</span></div>
+  <div class="content">
+    <div class="k reveal">Discussion · think, pair, share</div>
+    <h2 class="reveal d2">Who carries the <em>burden</em>?</h2>
+    <p class="lead reveal d3">Scenario: the city needs a new waste transfer station. The cheapest land is next to a low-income neighbourhood that already has a freeway and two factories.</p>
+    <div class="grid g3 reveal d4" style="margin-top:30px">
+      <div class="card gold lens"><span class="tag">Burdens</span><b>Who pays the costs?</b><p>Who gets the truck traffic, smell and noise? Is it the same group every time?</p></div>
+      <div class="card green lens"><span class="tag">Benefits</span><b>Who gains?</b><p>Who gets lower trash fees and cleaner streets? Do they live near the station?</p></div>
+      <div class="card blue lens"><span class="tag">Voice</span><b>Who decides?</b><p>Were the neighbours asked? How could the city make the process fairer?</p></div>
+    </div>
+    <p class="small mute reveal d4" style="margin-top:26px">Background: in 1982, residents of Warren County, North Carolina, a mostly Black community, protested a toxic waste landfill. Their protest helped start the environmental justice movement.</p>
+  </div>
+  <aside class="notes">Think for 1 minute, pair for 3, share for 4. Push students to use the other terms: the station creates negative externalities; siting is a trade-off; neighbourhood groups organising is collective action. Background: the 1982 Warren County PCB landfill protests; the 1987 United Church of Christ report "Toxic Wastes and Race in the United States" documented the pattern nationally. Phoenix link: studies of the Valley find that lower-income neighbourhoods tend to have less tree shade and are hotter in summer.</aside>
+</section>
+
+<!-- 15. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Exit ticket</span></div>
+  <div class="content">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">Smoke from a power plant gives nearby residents asthma, and the plant pays them nothing. This is an example of…</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>A positive externality</button>
+      <button class="opt" type="button"><b>B</b>A negative externality</button>
+      <button class="opt" type="button"><b>C</b>Collective action</button>
+      <button class="opt" type="button"><b>D</b>A Tragedy of the Commons solved by the market</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Correct answer: B. If there is time, ask a follow-up: what makes this also an environmental justice question? (Who lives next to the plant, and did they have a say?)</aside>
+</section>
+
+<!-- 16. ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>1.3</b><span>Assignments</span></div>
+  <div class="content">
+    <div class="k reveal">Module 1 · what's due</div>
+    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module 1 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Before next class</span>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>Thursday is a TA-led review on socio-ecological-technological systems (SETs). Bring today's terms: they are the social links in a SETs diagram.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Remind students the Introduce yourself video was due today. Thursday's review is run by the TA and practises drawing SETs; the fishery (fish, fleet, boats and catch limits) is a good example to sketch.</aside>
+</section>
+
+<!-- 17. TAKEAWAYS -->
+<section class="slide">
+  <div class="band"></div>
+  <div class="band-num reveal">1<em>.3</em></div>
+  <div class="band-text reveal d2">Social sustainability<small>Questions? Office hours Tue 12:00–1:00 pm, WCPH 374E</small></div>
+  <div class="title-k reveal">Three things to remember</div>
+  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
+    <li>Externalities are costs or benefits that land on people outside a deal. Negative ones are often paid by those with the least power.</li>
+    <li>Shared resources get overused when each user gains alone but the damage is shared: the Tragedy of the Commons.</li>
+    <li>Collective action, like a fair catch limit, can protect a commons. Environmental justice asks who decides and who pays.</li>
+  </ol>
+  <div class="goldline" style="top:900px"></div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm1-s3';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+
+/* === COURSE DATA === glossary, objectives and assignments from course.json */
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
+  $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+});
+
+/* === LIVE === attendance, polls, simulation results */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+const nameBox = $('[data-signin]');
+function showUser() {
+  const u = live.user();
+  nameBox.style.display = u ? 'none' : '';
+  if (u) say($('#checkin-status'), `Signed in as ${u.name}.`);
+}
+if (live.mode === 'firebase') $('[data-name]').style.display = 'none';
+$('[data-signin-btn]').addEventListener('click', async () => {
+  try { await live.signIn($('[data-name]').value); showUser(); } catch (e) { say($('#checkin-status'), e.message, 'err'); }
+});
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  if (live.mode === 'firebase') { try { await live.signIn(); showUser(); return true; } catch { /* fall through */ } }
+  say(statusEl, 'Sign in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  if (!await ensureUser(st)) return;
+  try { await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per student, changeable */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SORTING GAME === positive or negative externality */
+$$('[data-sort] .sort-row').forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
+  $$('button', row).forEach(x => x.classList.toggle('on', x === b));
+  row.classList.remove('good', 'bad');
+})));
+$('[data-sort-check]').addEventListener('click', () => {
+  const rows = $$('[data-sort] .sort-row');
+  let right = 0;
+  rows.forEach(r => {
+    const on = $('button.on', r);
+    const ok = on && on.dataset.pick === r.dataset.answer;
+    r.classList.toggle('good', !!ok); r.classList.toggle('bad', !!on && !ok);
+    if (ok) right++;
+  });
+  $('[data-sort-score]').textContent = `${right} of ${rows.length} correct`;
+});
+
+/* === FISHERY SIMULATION === logistic regrowth, a teaching model not a stock assessment */
+const K = 1000, R = 0.6, START = 800, SEASONS = 20, PER_BOAT = 10, LIMIT = 140, COLLAPSE = 100;
+const boatsEl = $('#s-boats'), limitEl = $('#s-limit');
+const chart = $('#stock-chart');
+chart.insertAdjacentHTML('beforeend', Array.from({ length: SEASONS }, () => '<i style="height:0"></i>').join(''));
+const cols = $$('i', chart);
+function runFishery(boats, limit) {
+  let s = START, total = 0, collapsedAt = 0;
+  const stock = [];
+  for (let t = 1; t <= SEASONS; t++) {
+    const want = boats * PER_BOAT;
+    const c = Math.min(limit ? Math.min(want, LIMIT) : want, s);
+    s -= c; total += c;
+    s += R * s * (1 - s / K);
+    s = Math.max(0, Math.min(K, s));
+    if (!collapsedAt && s < COLLAPSE) collapsedAt = t;
+    stock.push(s);
+  }
+  const final = Math.round(stock[SEASONS - 1]);
+  const outcome = collapsedAt ? 'Collapsed' : final < 600 ? 'Overfished' : 'Healthy';
+  return { stock, total: Math.round(total), final, collapsedAt, outcome };
+}
+const TONE = { Healthy: '#2e7d5b', Overfished: '#b8860b', Collapsed: '#b3452c' };
+let result;
+function drawFishery() {
+  const boats = +boatsEl.value, limit = limitEl.checked;
+  $('[data-out="boats"]').textContent = `${boats} boats`;
+  result = runFishery(boats, limit);
+  result.stock.forEach((s, i) => { cols[i].style.height = `${s / K * 100}%`; cols[i].classList.toggle('low', s < COLLAPSE); cols[i].title = `Season ${i + 1}: ${Math.round(s)} t`; });
+  $('#f-total').textContent = result.total.toLocaleString();
+  $('#f-boat').textContent = boats ? Math.round(result.total / boats).toLocaleString() : '0';
+  $('#f-final').textContent = result.final.toLocaleString();
+  const o = $('#outcome');
+  o.textContent = result.collapsedAt ? `Collapsed in season ${result.collapsedAt}` : boats === 0 ? 'Healthy, but no catch' : result.outcome;
+  o.style.background = TONE[result.outcome];
+}
+boatsEl.addEventListener('input', drawFishery);
+limitEl.addEventListener('change', drawFishery);
+drawFishery();
+$('#sim-save').addEventListener('click', async () => {
+  const st = $('#sim-status');
+  if (!await ensureUser(st)) return;
+  const data = { boats: +boatsEl.value, limit: limitEl.checked, totalCatch: result.total, finalStock: result.final, collapsed: !!result.collapsedAt, collapseSeason: result.collapsedAt || null, outcome: result.outcome };
+  try { await live.saveSim('fishery', data); say(st, `Submitted: ${data.totalCatch.toLocaleString()} t caught, ${data.outcome.toLowerCase()}.`, 'ok'); } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === COD DATA === approximate figures, source in the speaker notes */
+const COD = [['Best years before factory trawlers', 270000, 'about 270,000'], ['1968 peak', 810000, 'about 810,000', true], ['1992 to 2024: moratorium', 0, 'no commercial fishing'], ['2024 catch limit', 18000, '18,000']];
+$('[data-cod]').innerHTML = COD.map(([n, v, lab, hi]) => `<div class="cod-row${hi ? ' hi' : ''}"><span>${n}</span><div class="cod-track" title="${n}: ${lab} t"><div class="cod-bar" style="width:0" data-w="${v / 810000 * 72}"></div><span class="v" style="left:${v / 810000 * 72}%">${lab}${v ? ' t' : ''}</span></div></div>`).join('');
+const growCod = () => $$('.cod-bar').forEach(b => { b.style.width = `${b.dataset.w}%`; });
+document.addEventListener('deck:slide', e => { if (e.detail.slide.id === 'cod-data') setTimeout(growCod, 300); });
+if (Deck.slides[Deck.index].id === 'cod-data') setTimeout(growCod, 300);
+const ANSWERS = { 1: 'About 3 times bigger (810,000 ÷ 270,000).', 2: 'About 2% (18,000 ÷ 810,000). The stock is still far below its old size.' };
+$$('[data-cod-a]').forEach(b => b.addEventListener('click', () => { $(`#cod-a${b.dataset.codA}`).textContent = ANSWERS[b.dataset.codA]; }));
+</script>
+</body>
+</html>
