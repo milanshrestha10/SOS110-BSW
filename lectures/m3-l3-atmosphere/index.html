@@ -109,9 +109,44 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 .save{display:flex;gap:14px;align-items:center;margin-top:12px;text-align:left}
 .save .btn{font-size:21px;padding:12px 22px}
 .save .status{font-size:19px;margin:0;min-height:0}
+/* icon badges: round colour badge holding a line icon from the sprite below */
+.ico{display:inline-grid;place-items:center;flex:none;width:64px;height:64px;border-radius:50%;background:var(--Blue);color:var(--paper)}
+.ico svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ico.sm{width:46px;height:46px}.ico.sm svg{width:25px;height:25px}
+.ico.lg{width:84px;height:84px}.ico.lg svg{width:44px;height:44px}
+.ico.sky{background:var(--Sky)}.ico.green{background:var(--Green)}.ico.gold{background:var(--golden);color:var(--ink)}
+.ico.mars{background:#c0674a}.ico.good{background:#2e7d5b}.ico.bad{background:#b3452c}
+.ih{display:flex;align-items:center;gap:18px}
+.card .ico{margin-bottom:16px}
+.k.ih{gap:14px}
+.vcard h4.ih{gap:14px}
+/* pictures from the instructor's slides; credits stay printed on the images */
+.fig{margin:0;border-radius:18px;overflow:hidden;background:#fff;border:2px solid var(--paper-2)}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{font-size:17px;line-height:1.3;color:var(--mute);background:var(--card);padding:8px 16px}
+/* acid rain impacts: compact cards beside the illustration */
+.imp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.imp .card{padding:18px 22px}.imp .card p{font-size:22px;line-height:1.35}
+/* cap-and-trade diagram */
+.ct text{font-family:var(--body);fill:var(--ink)}
+.ct .h{font:700 17px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-mars" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="8.5" cy="9" r="2"/><circle cx="15.5" cy="14.5" r="2.6"/><circle cx="9" cy="16" r="1"/><circle cx="16" cy="7.5" r="1"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2v6L4 18.5A2 2 0 0 0 5.8 21h12.4a2 2 0 0 0 1.8-2.5L15 8V2"/><path d="M8 2h8"/><path d="M6.5 15h11"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20 7 4"/></symbol>
+</svg>
 <div class="deck-viewport"><main class="deck-stage" id="deckStage">
 
 <!-- 1. TITLE -->
@@ -152,10 +187,10 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     <div class="k reveal">The big idea · why sustain Earth?</div>
     <h2 class="reveal d2" style="margin-bottom:26px">There is no other place <em>like Earth</em></h2>
     <div class="planets reveal d3">
-      <div class="pl earth"><h3>Earth</h3>
+      <div class="pl earth"><h3 class="ih"><span class="ico sky"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Earth</h3>
         <dl><dt>Air</dt><dd>21% oxygen; a thick blanket of air</dd><dt>Water</dt><dd>Liquid oceans, rivers and rain</dd><dt>Temperature</dt><dd>About 59 °F on average</dd><dt>Shield</dt><dd>Ozone layer and magnetic field block harmful radiation</dd></dl></div>
       <div class="vs">vs</div>
-      <div class="pl mars"><h3>Mars</h3>
+      <div class="pl mars"><h3 class="ih"><span class="ico mars"><svg aria-hidden="true"><use href="#i-mars"/></svg></span>Mars</h3>
         <dl><dt>Air</dt><dd>Less than 1% of Earth's pressure, about 95% CO₂</dd><dt>Water</dt><dd>Frozen in polar ice and underground</dd><dt>Temperature</dt><dd>About −80 °F on average</dd><dt>Shield</dt><dd>No ozone layer and no global magnetic field</dd></dl></div>
     </div>
     <p class="lead reveal d4" style="margin-top:30px">Some propose making Mars habitable. A NASA-funded study (2018) found Mars does not have enough carbon dioxide to warm it, even using all of it. Think how much energy that would take. <b>The better idea is to sustain the planet we have.</b></p>
@@ -171,9 +206,9 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     <h2 class="reveal d2" style="margin-bottom:18px">Today's big <em>ideas</em></h2>
     <p class="lead reveal d2" style="margin-bottom:30px">Sustainability connects to the atmosphere mostly through three key issues: 1) weather and climate, 2) air pollution and acid rain, and 3) the ozone layer.</p>
     <div class="grid g3 reveal d3">
-      <div class="card accent"><span class="tag">1 · Atmospheric processes</span><h3>Layers and composition</h3><p>Explain how the atmosphere's layers and gases support life, and name the human activities that alter them.</p></div>
-      <div class="card green"><span class="tag">2 · Ozone layer</span><h3>Depletion and solutions</h3><p>Explain what thins the ozone layer, what harm it causes, and how global cooperation and innovation repaired it.</p></div>
-      <div class="card gold"><span class="tag">3 · Acid rain</span><h3>Impacts and solutions</h3><p>Explain what causes acid rain, who and what it harms, and how policy has reduced it.</p></div>
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><br><span class="tag">1 · Atmospheric processes</span><h3>Layers and composition</h3><p>Explain how the atmosphere's layers and gases support life, and name the human activities that alter them.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><br><span class="tag">2 · Ozone layer</span><h3>Depletion and solutions</h3><p>Explain what thins the ozone layer, what harm it causes, and how global cooperation and innovation repaired it.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-rain"/></svg></span><br><span class="tag">3 · Acid rain</span><h3>Impacts and solutions</h3><p>Explain what causes acid rain, who and what it harms, and how policy has reduced it.</p></div>
     </div>
     <div class="take reveal d4"><b>Takeaway</b>Our socio-economic choices disrupt natural cycles and processes, so we are also responsible for the solutions.</div>
   </div>
@@ -225,7 +260,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <div class="rail"><b>10</b><span>Key vocabulary</span></div>
   <div class="content">
     <div class="k reveal">Glossary · Module 3 · tap a card for its example</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
+    <h2 class="reveal d2 ih" style="margin-bottom:26px"><span class="ico lg"><svg aria-hidden="true"><use href="#i-book"/></svg></span><span>Key <em>vocabulary</em></span></h2>
     <div class="vocab five reveal d3" data-fill="vocab"></div>
   </div>
   <aside class="notes">Four terms come from the Module 3 glossary. Urban heat island is added for today's Phoenix heat activity. Read each definition aloud and flip one card. Point out that ozone and acid rain are both secondary pollutants.</aside>
@@ -235,16 +270,13 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 1 · Processes</span></div>
   <div class="content">
-    <div class="k reveal">Big idea 1 · atmospheric processes</div>
-    <h2 class="reveal d2">A thin layer doing <em>big jobs</em></h2>
-    <div class="grid" style="grid-template-columns:760px 1fr;gap:70px;align-items:start">
-      <div class="layers reveal d3">
-        <div class="layer" style="height:96px;background:#dcecef"><b>Thermosphere</b><span>~85–600 km</span></div>
-        <div class="layer" style="height:96px;background:#bfdde4"><b>Mesosphere</b><span>~50–85 km</span></div>
-        <div class="layer" style="height:132px;background:#9ccfdb"><b>Stratosphere</b><span>~12–50 km · ozone layer</span></div>
-        <div class="layer" style="height:160px;background:var(--Sky);color:#fff"><b>Troposphere</b><span>0–~12 km · all our weather</span></div>
-      </div>
+    <div class="grid" style="grid-template-columns:520px 1fr;gap:80px;align-items:start">
+      <figure class="fig reveal d3" style="margin-top:-30px"><img src="img/atmosphere-layers.jpg" alt="The layers of the atmosphere above Earth: troposphere up to about 20 km, stratosphere to 50 km, mesosphere to 85 km, thermosphere to 690 km and exosphere beyond"></figure>
       <div class="reveal d4">
+        <div class="k ih"><span class="ico sky sm"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>Big idea 1 · atmospheric processes</div>
+        <h2 style="margin-bottom:26px">A thin layer doing <em>big jobs</em></h2>
+        <p class="small"><b>Troposphere:</b> all our weather · <b>Stratosphere:</b> the ozone layer · <b>Mesosphere:</b> meteors burn up · <b>Thermosphere:</b> auroras and satellites</p>
+        <div class="gold-rule"></div>
         <h3>Dry air by volume</h3>
         <p class="small">Nitrogen <b>78%</b> · Oxygen <b>21%</b> · Argon <b>0.9%</b> · Carbon dioxide <b>~0.04%</b></p>
         <div class="gold-rule"></div>
@@ -258,7 +290,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
       </div>
     </div>
   </div>
-  <aside class="notes">Layer heights vary with latitude and season, so they are rounded. Without greenhouse gases Earth's average would be about −18 °C (0 °F) instead of about 15 °C (59 °F). Link back to Module 3's life-support systems: air, water and land.</aside>
+  <aside class="notes">Layer heights vary with latitude and season, so they are rounded: the troposphere reaches about 17–20 km at the equator but only about 8 km at the poles. Without greenhouse gases Earth's average would be about −18 °C (0 °F) instead of about 15 °C (59 °F). Link back to Module 3's life-support systems: air, water and land.</aside>
 </section>
 
 <!-- 10. HOW HUMANS ALTER THE AIR -->
@@ -287,16 +319,21 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 1 · Weather</span></div>
   <div class="content">
+    <div class="grid" style="grid-template-columns:1fr 360px;gap:60px;align-items:start">
+    <div>
     <div class="k reveal">Same air, two time scales</div>
-    <h2 class="reveal d2">Weather is what you get. Climate is what you <em>expect</em>.</h2>
-    <div class="grid g3 reveal d3">
+    <h2 class="reveal d2" style="font-size:74px">Weather is what you get. Climate is what you <em>expect</em>.</h2>
+    <div class="grid g3 reveal d3" style="gap:22px">
       <div class="card accent"><span class="tag">Weather</span><h3>Hours to days</h3><p>Short-term changes in temperature, moisture and wind at one place.</p><p class="mute" style="margin-top:14px">"It's 115 °F in Tempe this afternoon."</p></div>
       <div class="card gold"><span class="tag">Climate</span><h3>30-year average</h3><p>The long-term average of weather conditions for a region.</p><p class="mute" style="margin-top:14px">"Phoenix Julys average highs above 100 °F."</p></div>
       <div class="card green"><span class="tag">Heat index</span><h3>What it feels like</h3><p>Combines air temperature and relative humidity in the shade into a "feels like" temperature.</p></div>
     </div>
-    <p class="lead reveal d4" style="margin-top:32px">Temperature varies across Earth's surface mostly because each latitude receives a different amount of solar radiation.</p>
+    <p class="lead reveal d4" style="margin-top:28px;font-size:30px">Temperature varies across Earth's surface mostly because each latitude receives a different amount of solar radiation.</p>
+    </div>
+    <figure class="fig reveal d3" style="border-radius:28px;margin-top:-40px"><img src="img/phoenix-forecast.jpg" alt="A phone weather app showing Phoenix at 107 degrees and sunny, with a 10-day forecast of highs from 99 to 110 degrees"></figure>
+    </div>
   </div>
-  <aside class="notes">Quick check: is one record-cold week proof that climate isn't warming? Give pairs 60 seconds. The heat index matters during Phoenix's humid monsoon, when 105 °F can feel much hotter.</aside>
+  <aside class="notes">The phone screenshot is weather: one place, the next ten days. Ask what a climate graph for Phoenix would show instead. Quick check: is one record-cold week proof that climate isn't warming? Give pairs 60 seconds. The heat index matters during Phoenix's humid monsoon, when 105 °F can feel much hotter.</aside>
 </section>
 
 <!-- 12. GOOD AND BAD OZONE -->
@@ -306,7 +343,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     <div class="k reveal">Structure and functions · the same molecule, O₃</div>
     <h2 class="reveal d2" style="margin-bottom:22px">Good ozone, <em>bad ozone</em></h2>
     <table class="otab reveal d3">
-      <tr><td></td><th class="good">Good ozone, up high</th><th class="bad">Bad ozone, near the ground</th></tr>
+      <tr><td></td><th class="good"><span class="ih"><span class="ico good"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Good ozone, up high</span></th><th class="bad"><span class="ih"><span class="ico bad"><svg aria-hidden="true"><use href="#i-car"/></svg></span>Bad ozone, near the ground</span></th></tr>
       <tr><td>Altitude</td><td>Stratosphere, about 10–30 miles up</td><td>Troposphere, the air we breathe</td></tr>
       <tr><td>Formation</td><td>Sunlight splits oxygen molecules (O₂) into atoms that join O₂ to make O₃</td><td>NOₓ + VOCs + sunlight and heat, on long, hot afternoons</td></tr>
       <tr><td>Effects</td><td>A protective shield that absorbs harmful UV for people, plants and crops</td><td>Harms lungs and breathing, worsens asthma, damages plants and ecosystems</td></tr>
@@ -315,6 +352,28 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     </table>
   </div>
   <aside class="notes">Answer the warm-up poll here: B, ground-level ozone. Phoenix's hot, sunny, still summer afternoons are ideal for ozone to form. Ground-level ozone is a secondary pollutant: nothing emits it directly. Source for the diagram in the original slides: NOAA Chemical Sciences Laboratory (csl.noaa.gov).</aside>
+</section>
+
+<!-- 12b. HOW BAD OZONE FORMS -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 1 · Ozone</span></div>
+  <div class="content">
+    <div class="grid" style="grid-template-columns:760px 1fr;gap:70px;align-items:start">
+      <figure class="fig reveal d3" style="margin-top:-30px"><img src="img/smog-formation.jpg" alt="Traffic on a smoggy freeway, labelled with the steps from nitrogen oxides and VOCs to ground-level ozone and PANs"></figure>
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico bad sm"><svg aria-hidden="true"><use href="#i-car"/></svg></span>Bad ozone · a secondary pollutant</div>
+        <h2 style="margin-bottom:26px">How smog <em>cooks</em> on a hot afternoon</h2>
+        <ol class="num" style="font-size:27px">
+          <li>Tailpipes and industry emit <b>NOₓ</b> and <b>VOCs</b>.</li>
+          <li>NOₓ turns into <b>NO₂</b>, the reddish-brown haze.</li>
+          <li><b>Sunlight</b> splits NO₂; the free oxygen joins O₂ to make <b>ozone</b>.</li>
+          <li>VOCs react too, forming more irritants (<b>PANs</b>).</li>
+        </ol>
+        <p class="small mute" style="margin-top:20px">Phoenix has all the ingredients: heavy traffic, strong sun, heat and still air.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Walk through the four numbered boxes in the picture. Nothing emits ozone directly, which is why it is a secondary pollutant; that sets up the sorting game on the next slide. Photo credit is printed on the image.</aside>
 </section>
 
 <!-- 13. SORTING GAME -->
@@ -344,9 +403,14 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <div class="rail"><b>10</b><span>Air quality</span></div>
   <div class="content">
     <div class="k reveal">Data · Maricopa County Air Quality Department</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">Air quality matters for <em>our health</em></h2>
-    <p class="lead reveal d3">Losing the good ozone and breathing the bad ozone both have severe health impacts. In Maricopa County, asthma shows who pays the price.</p>
-    <div class="stats reveal d3">
+    <div class="grid" style="grid-template-columns:1fr 520px;gap:50px;align-items:start">
+      <div>
+        <h2 class="reveal d2" style="margin-bottom:26px">Air quality matters for <em>our health</em></h2>
+        <p class="lead reveal d3">Losing the good ozone and breathing the bad ozone both have severe health impacts. In Maricopa County, asthma shows who pays the price.</p>
+      </div>
+      <figure class="fig reveal d3"><img src="img/ozone-hpa.jpg" alt="Maricopa County Air Quality Department graphic: Ozone High Pollution Advisory over a hazy view of the Valley"></figure>
+    </div>
+    <div class="stats reveal d3" style="margin-top:26px">
       <div><b>412,752</b><span>Maricopa residents have asthma</span></div>
       <div><b>83,547</b><span>of them are children</span></div>
       <div><b>25% → 40%</b><span>children are 25% of the population but 40% of asthma cases</span></div>
@@ -360,7 +424,7 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     </div>
     <p class="src reveal d4">Source: maricopa.gov/5914/Outreach, citing Arizona Department of Health Services asthma data.</p>
   </div>
-  <aside class="notes">Ask: who is most exposed to bad ozone? Children breathe more air for their size and play outdoors; outdoor workers and people with asthma are also at higher risk. Ozone is worst on hot afternoons, so timing matters.</aside>
+  <aside class="notes">The graphic is how the county announces a High Pollution Advisory; students can sign up for these alerts. Ask: who is most exposed to bad ozone? Children breathe more air for their size and play outdoors; outdoor workers and people with asthma are also at higher risk. Ozone is worst on hot afternoons, so timing matters.</aside>
 </section>
 
 <!-- 15. SUSTAINABILITY SOLUTIONS -->
@@ -428,25 +492,26 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
   <div class="content">
     <div class="k reveal">Phoenix · heat made by the city itself</div>
     <h2 class="reveal d2" style="margin-bottom:26px">The urban heat island <em>effect</em></h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+    <div class="grid" style="grid-template-columns:1fr 760px;gap:50px;align-items:start">
       <div class="reveal d3">
-        <ul class="clean">
+        <ul class="clean" style="font-size:26px">
           <li>Phoenix's temperature is <b>compounded by the heat island</b>.</li>
           <li>Concrete and asphalt <b>absorb and trap heat</b> all day and release it at night.</li>
           <li>High temperatures harm <b>human health</b> and can be deadly.</li>
           <li>Impacts are worse for <b>vulnerable and minority groups</b>: people outdoors, older adults, homes without working AC.</li>
         </ul>
       </div>
-      <div class="stats col reveal d4">
+      <figure class="fig reveal d3" style="margin-top:-20px"><img src="img/urban-heat-island.jpg" alt="Temperature curve across a landscape: low over rural land and parks, highest over the city centre"></figure>
+    </div>
+    <div class="stats reveal d4" style="margin-top:24px">
         <div><b>+9 °F</b><span>rise in Phoenix nighttime temperatures, 1948–2000, as the city grew</span></div>
         <div><b>602</b><span>heat deaths confirmed in Maricopa County in 2024 (645 in 2023)</span></div>
         <div><b>70%</b><span>of AC units in indoor heat deaths (2024) were not working</span></div>
         <div><b>10% → 25%</b><span>Phoenix tree canopy today and its 2030 goal</span></div>
-      </div>
     </div>
     <p class="src reveal d4">Sources: ASU and City of Phoenix urban forest study; Maricopa County 2024 heat deaths report.</p>
   </div>
-  <aside class="notes">The heat island is strongest at night: pavement and buildings release stored heat, so the city never cools down and bodies never recover. That is why overnight lows matter as much as daytime highs. The 2024 figure is the county's March 2025 count of 602 confirmed deaths. Among indoor deaths where an AC unit was present, 70% of the units were not working.</aside>
+  <aside class="notes">In the picture, follow the temperature line: it rises over pavement and buildings and dips over the park, which is why shade and green space are solutions. The heat island is strongest at night: pavement and buildings release stored heat, so the city never cools down and bodies never recover. That is why overnight lows matter as much as daytime highs. The 2024 figure is the county's March 2025 count of 602 confirmed deaths. Among indoor deaths where an AC unit was present, 70% of the units were not working.</aside>
 </section>
 
 <!-- 18. VIDEO -->
@@ -500,37 +565,66 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 2 · Ozone layer</span></div>
   <div class="content">
-    <div class="k reveal">Big idea 2 · adapted from Sherman &amp; Montgomery (2023)</div>
+    <div class="k reveal ih"><span class="ico green sm"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Big idea 2 · adapted from Sherman &amp; Montgomery (2023)</div>
     <h2 class="reveal d2" style="margin-bottom:22px">A cool invention that <em>thinned the shield</em></h2>
     <p class="lead reveal d3">Chlorofluorocarbons (CFCs) were cheap, safe to handle and didn't burn. We used them everywhere:</p>
-    <div class="grid g4 reveal d3" style="gap:22px;margin-top:26px">
-      <div class="card accent"><span class="tag">Cooling</span><p>Refrigeration and air conditioning</p></div>
-      <div class="card green"><span class="tag">Sprays</span><p>Propellants in medical and household aerosols</p></div>
-      <div class="card gold"><span class="tag">Foams</span><p>Blowing agents for foam packaging and insulation</p></div>
-      <div class="card blue"><span class="tag">Cleaning</span><p>Solvents and cleaning agents</p></div>
-    </div>
-    <div class="eq reveal d4" style="font-size:32px">
-      <div class="p">CFCs drift up<small>to the stratosphere</small></div>→
-      <div class="p">UV frees chlorine<small>one atom destroys many O₃</small></div>→
-      <div class="p o3">Thinner ozone layer<small>more UV-B reaches the ground</small></div>→
-      <div class="p">Skin cancer, cataracts<small>crop and ocean damage</small></div>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 820px;gap:50px;align-items:start;margin-top:26px">
+      <div>
+        <div class="grid g2" style="gap:18px">
+          <div class="card accent" style="padding:20px 24px"><span class="tag">Cooling</span><p style="font-size:23px">Refrigeration and air conditioning</p></div>
+          <div class="card green" style="padding:20px 24px"><span class="tag">Sprays</span><p style="font-size:23px">Propellants in medical and household aerosols</p></div>
+          <div class="card gold" style="padding:20px 24px"><span class="tag">Foams</span><p style="font-size:23px">Blowing agents for packaging and insulation</p></div>
+          <div class="card blue" style="padding:20px 24px"><span class="tag">Cleaning</span><p style="font-size:23px">Solvents and cleaning agents</p></div>
+        </div>
+        <div class="take" style="margin-top:22px;font-size:25px;padding:20px 28px"><b>The result</b>More UV-B reaches the ground: skin cancer, cataracts, crop and ocean damage.</div>
+      </div>
+      <figure class="fig reveal d4"><img src="img/cfc-ozone-process.jpg" alt="Diagram: CFCs rise to the ozone layer, UV rays break them down and free chlorine atoms that destroy ozone, so more harmful UV rays reach the ground"></figure>
     </div>
   </div>
-  <aside class="notes">The ozone layer absorbs nearly all UV-C and most UV-B. When it thins, more UV-B reaches the surface. Illustration in the original slides: theozonehole.com/cfc.htm. Ask: CFCs were a real invention that solved problems; why couldn't anyone see the harm at first? (Stable molecules, delayed effects, far away in the stratosphere.)</aside>
+  <aside class="notes">Walk through the three numbered steps in the diagram: CFCs rise, UV frees chlorine and one chlorine atom destroys many ozone molecules, then more harmful UV reaches the ground. The ozone layer absorbs nearly all UV-C and most UV-B. Illustration source in the original slides: theozonehole.com/cfc.htm. Ask: CFCs were a real invention that solved problems; why couldn't anyone see the harm at first? (Stable molecules, delayed effects, far away in the stratosphere.)</aside>
+</section>
+
+<!-- 20b. THE EVIDENCE -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 2 · Ozone layer</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico green sm"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Big idea 2 · the evidence</div>
+    <h2 class="reveal d2" style="margin-bottom:24px">Watching the shield <em>thin</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:600px 600px 1fr;gap:40px;align-items:start">
+      <figure class="fig"><img src="img/ozone-change.jpg" alt="Line chart of global total ozone change from the 1964 to 1980 average: near zero until about 1980, falling to about minus 5 percent in the early 1990s, then levelling off around minus 3 to minus 4 percent"></figure>
+      <figure class="fig"><img src="img/ozone-hole-maps.jpg" alt="Four satellite maps of ozone over Antarctica in 1979, 1987, 2006 and 2018, showing the ozone hole growing large after 1979"></figure>
+      <div class="small">
+        <p><b>Worldwide:</b> ozone fell about 5% below its 1964–1980 average by the early 1990s, then levelled off.</p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p><b>Over Antarctica:</b> a deep "hole" opens each southern spring. It appeared in the 1980s and has not yet closed.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Read the chart first: the drop starts around 1980, as CFC use peaked, and stops getting worse after the Montreal Protocol took effect. The maps show the Antarctic ozone hole each spring; blue and purple mean less ozone. Recovery is slow because CFCs last decades in the stratosphere. Credits are printed on the images (NASA Ozone Watch for the maps).</aside>
 </section>
 
 <!-- 21. MONTREAL PROTOCOL -->
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 2 · Solutions</span></div>
   <div class="content">
-    <div class="k reveal">Big idea 2 · finding sustainable solutions</div>
-    <h2 class="reveal d2" style="margin-bottom:24px">Fixing the <em>ozone layer</em></h2>
-    <div class="grid g3 reveal d3" style="gap:24px">
-      <div class="card accent"><span class="tag">Phase out</span><p>Stop producing CFCs and other ozone-destroying chemicals.</p></div>
-      <div class="card green"><span class="tag">Innovate</span><p>Alternative chemicals, backed by economic incentives.</p></div>
-      <div class="card gold"><span class="tag">Cooperate</span><p>Global agreement: signed in 1987, in force in 1989.</p></div>
+    <div class="k reveal ih"><span class="ico green sm"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Big idea 2 · finding sustainable solutions</div>
+    <div class="grid" style="grid-template-columns:1fr 720px;gap:50px;align-items:start">
+      <div>
+        <h2 class="reveal d2" style="margin-bottom:24px">Fixing the <em>ozone layer</em></h2>
+        <div class="grid reveal d3" style="gap:16px">
+          <div class="card accent" style="padding:18px 26px"><span class="tag">Phase out</span><p>Stop producing CFCs and other ozone-destroying chemicals.</p></div>
+          <div class="card green" style="padding:18px 26px"><span class="tag">Innovate</span><p>Alternative chemicals, backed by economic incentives.</p></div>
+          <div class="card gold" style="padding:18px 26px"><span class="tag">Cooperate</span><p>Global agreement: signed in 1987, in force in 1989.</p></div>
+        </div>
+      </div>
+      <div class="reveal d3" style="margin-top:30px">
+        <div class="video" data-youtube="MgUobxtdm4A" data-title="Fixing the ozone layer" style="width:720px">
+          <div class="ph"><b>Fixing the ozone layer</b><span>The video loads here when the page is online.</span></div>
+        </div>
+        <p class="small" style="margin-top:12px"><a href="https://www.youtube.com/watch?v=MgUobxtdm4A" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
+      </div>
     </div>
-    <div class="timeline reveal d4">
+    <div class="timeline reveal d4" style="margin-top:40px">
       <div><b>1974</b><p>Molina and Rowland warn that CFCs can destroy ozone</p></div>
       <div><b>1985</b><p>Scientists report the Antarctic ozone hole</p></div>
       <div><b>1987</b><p>Montreal Protocol agrees to phase out CFCs</p></div>
@@ -539,28 +633,26 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
       <div><b>~2066</b><p>Antarctic ozone projected back to 1980 levels</p></div>
     </div>
   </div>
-  <aside class="notes">Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? Few producers, substitutes were available, and the harm was visible. Kigali targets HFCs, the CFC replacements, because they are strong greenhouse gases.</aside>
+  <aside class="notes">Play the video (youtube.com/watch?v=MgUobxtdm4A) before walking through the timeline. Connect to Module 1: this is collective action on a global commons. Why did it work here when climate agreements have been harder? Few producers, substitutes were available, and the harm was visible. Kigali targets HFCs, the CFC replacements, because they are strong greenhouse gases.</aside>
 </section>
 
 <!-- 22. BIG IDEA 3: ACID RAIN -->
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 3 · Acid rain</span></div>
   <div class="content">
-    <div class="k reveal">Big idea 3 · a major issue of the 1970s and 1980s</div>
-    <h2 class="reveal d2" style="margin-bottom:10px">Acid rain: sources and <em>impacts</em></h2>
-    <div class="eq reveal d3" style="font-size:34px">
-      <div class="p">SO₂ + NOₓ<small>coal plants, vehicles</small></div>+
-      <div class="p">Water vapour<small>in clouds</small></div>→
-      <div class="p o3">H₂SO₄ + HNO₃<small>sulfuric and nitric acid</small></div>→
-      <div class="p">Rain below pH 5.6</div>
-    </div>
-    <div class="grid g3 reveal d4" style="gap:20px">
+    <div class="k reveal ih"><span class="ico gold sm"><svg aria-hidden="true"><use href="#i-rain"/></svg></span>Big idea 3 · a major issue of the 1970s and 1980s</div>
+    <h2 class="reveal d2" style="margin-bottom:12px">Acid rain: sources and <em>impacts</em></h2>
+    <p class="small reveal d2" style="margin-bottom:22px"><b>SO₂ + NOₓ</b> from coal plants and vehicles + <b>water vapour</b> in clouds → <b>sulfuric and nitric acid</b> (H₂SO₄, HNO₃) → rain below <b>pH 5.6</b></p>
+    <div class="grid" style="grid-template-columns:740px 1fr;gap:44px;align-items:start">
+    <figure class="fig reveal d3"><img src="img/acid-rain.jpg" alt="Illustration: power plants release sulfur dioxide and nitrogen oxides, wind carries them, they dissolve in rainwater and fall as acid rain that kills plants, pollutes rivers and erodes stonework"></figure>
+    <div class="imp reveal d4">
       <div class="card accent"><span class="tag">Monuments</span><p>Dissolves marble and limestone buildings and statues</p></div>
       <div class="card green"><span class="tag">Terrestrial ecosystems</span><p>Leaches soil nutrients and damages forests</p></div>
       <div class="card gold"><span class="tag">Public health</span><p>The same SO₂ and NOₓ irritate lungs</p></div>
       <div class="card blue"><span class="tag">Crops, soil and food</span><p>Acid soils lower crop yields</p></div>
       <div class="card gold"><span class="tag">Animal and meat industry</span><p>Poorer pasture and feed for livestock</p></div>
       <div class="card accent"><span class="tag">Fish and aquatic systems</span><p>Acid lakes lose fish and amphibians</p></div>
+    </div>
     </div>
   </div>
   <aside class="notes">SO₂ and NOₓ are the main precursors, which makes acid rain a secondary pollutant. It can fall hundreds of miles downwind of the power plants that caused it, so the people harmed are often not the people polluting. Impact categories follow Layzer (2016).</aside>
@@ -593,16 +685,43 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 <section class="slide">
   <div class="rail"><b>10</b><span>Big idea 3 · Solutions</span></div>
   <div class="content">
-    <div class="k reveal">Big idea 3 · reducing the threat of acid rain</div>
+    <div class="k reveal ih"><span class="ico gold sm"><svg aria-hidden="true"><use href="#i-rain"/></svg></span>Big idea 3 · reducing the threat of acid rain</div>
     <h2 class="reveal d2" style="margin-bottom:22px">Cap the pollution, <em>trade the permits</em></h2>
-    <p class="lead reveal d3">In 1990 the Clean Air Act Amendments created a <b>tradeable emission allowance</b> program. The plan aimed to cut SO₂ emissions by 10 million tons by 2000. By 2010, SO₂ emissions were well below the cap, about half of their earlier level.</p>
-    <div class="grid g2 reveal d3" style="gap:40px;margin-top:30px">
-      <div class="card green"><span class="tag">Strengths</span><ul class="clean small"><li>A voluntary market with incentives</li><li>Rewards innovation and cost-effective cuts</li><li>Moderate, predictable change for industry</li></ul></div>
-      <div class="card gold"><span class="tag">Weaknesses</span><ul class="clean small"><li>No change in pollution behaviour is required of any one plant</li><li>Leaves systemic problems in place</li><li>Pollution can stay concentrated near plants that buy permits</li></ul></div>
+    <p class="lead reveal d3" style="font-size:28px;max-width:none">In 1990 the Clean Air Act Amendments created a <b>tradeable emission allowance</b> program. The plan aimed to cut SO₂ emissions by 10 million tons by 2000. By 2010, SO₂ emissions were well below the cap, about half of their earlier level.</p>
+    <div class="grid reveal d3" style="grid-template-columns:760px 1fr;gap:44px;margin-top:22px;align-items:start">
+      <figure class="fig" style="background:var(--card);padding:10px 10px 4px">
+        <svg class="ct" viewBox="0 0 780 460" role="img" aria-label="Cap and trade: before the cap two plants each emit 6 tons, 12 in total. After a cap of 5 allowances each, Plant A cuts to 3 tons and sells its 2 spare allowances to Plant B, which emits 7. The total is 10 tons, at the cap.">
+          <text class="h" x="150" y="34" text-anchor="middle">Before the cap</text>
+          <text class="h" x="570" y="34" text-anchor="middle">After the cap</text>
+          <text x="390" y="62" text-anchor="middle" font-size="16" fill="var(--mute)" style="fill:var(--mute)">1 block = 1 ton of SO₂ (teaching numbers)</text>
+          <line x1="345" y1="80" x2="345" y2="440" stroke="var(--paper-2)" stroke-width="3"/>
+          <rect x="60" y="326" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="60" y="288" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="60" y="250" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="60" y="212" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="60" y="174" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="60" y="136" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="326" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="288" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="250" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="212" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="174" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="170" y="136" width="70" height="34" rx="6" fill="#a7b6ba"/><rect x="430" y="326" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="430" y="288" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="430" y="250" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="430" y="212" width="70" height="34" rx="6" fill="none" stroke="var(--Blue)" stroke-width="2.5" stroke-dasharray="6 5"/><rect x="430" y="174" width="70" height="34" rx="6" fill="none" stroke="var(--Blue)" stroke-width="2.5" stroke-dasharray="6 5"/><rect x="640" y="326" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="640" y="288" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="640" y="250" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="640" y="212" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="640" y="174" width="70" height="34" rx="6" fill="var(--Blue)"/><rect x="640" y="136" width="70" height="34" rx="6" fill="var(--golden)"/><rect x="640" y="98" width="70" height="34" rx="6" fill="var(--golden)"/>
+          <line x1="400" y1="170" x2="740" y2="170" stroke="#b3452c" stroke-width="3" stroke-dasharray="10 6"/>
+          <text x="400" y="160" font-size="17" font-weight="700" style="fill:#b3452c">Cap: 5 each</text>
+          <path d="M506 196 C 600 196, 596 118, 632 118" fill="none" stroke="var(--ink)" stroke-width="2.5" marker-end="url(#ct-arrow)"/>
+          <defs><marker id="ct-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="var(--ink)"/></marker></defs>
+          <text x="716" y="120" font-size="16" font-weight="700" style="fill:var(--mute)">bought</text>
+          <text x="570" y="236" text-anchor="middle" font-size="17" font-weight="700">sells 2 spare</text>
+          <text x="570" y="256" text-anchor="middle" font-size="17" font-weight="700">allowances</text>
+          <g font-size="20" font-weight="700" text-anchor="middle">
+            <text x="95" y="388">Plant A</text><text x="205" y="388">Plant B</text>
+            <text x="465" y="388">Plant A</text><text x="675" y="388">Plant B</text>
+          </g>
+          <g font-size="15" text-anchor="middle" style="fill:var(--mute)">
+            <text x="465" y="408" style="fill:var(--mute)">cheap to clean up</text><text x="675" y="408" style="fill:var(--mute)">costly to clean up</text>
+          </g>
+          <text x="150" y="446" text-anchor="middle" font-size="21">Total: <tspan font-weight="700">12 tons</tspan></text>
+          <text x="570" y="446" text-anchor="middle" font-size="21">Total: 3 + 7 = <tspan font-weight="700">10 tons</tspan>, at the cap</text>
+        </svg>
+      </figure>
+      <div class="grid" style="gap:18px">
+        <div class="card green" style="padding:18px 28px"><span class="tag">Strengths</span><ul class="clean small" style="margin:0"><li style="margin:6px 0">A voluntary market with incentives</li><li style="margin:6px 0">Rewards innovation and cost-effective cuts</li><li style="margin:6px 0">Moderate, predictable change for industry</li></ul></div>
+        <div class="card gold" style="padding:18px 28px"><span class="tag">Weaknesses</span><ul class="clean small" style="margin:0"><li style="margin:6px 0">No change in pollution behaviour is required of any one plant</li><li style="margin:6px 0">Leaves systemic problems in place</li><li style="margin:6px 0">Pollution can stay concentrated near plants that buy permits</li></ul></div>
+      </div>
     </div>
-    <p class="lead reveal d4" style="margin-top:26px"><b>Debate in pairs:</b> is it fair to let a company pay to keep polluting if the total goes down?</p>
+    <p class="lead reveal d4" style="margin-top:22px;font-size:30px"><b>Debate in pairs:</b> is it fair to let a company pay to keep polluting if the total goes down?</p>
   </div>
-  <aside class="notes">Plants got a fixed number of allowances; a plant that cut SO₂ cheaply could sell its spare allowances to one that couldn't. Link to the ozone game: a cap is a supply-side tool. The last weakness is an environmental justice question, which ties back to Module 1. Source for the policy history: Layzer (2016).</aside>
+  <aside class="notes">Walk through the diagram: the cap fixes the total, and trading decides who cuts. Plant A cleans up cheaply and sells its spare allowances; Plant B buys them instead of an expensive upgrade. Block counts are teaching numbers. Plants got a fixed number of allowances; a plant that cut SO₂ cheaply could sell its spare allowances to one that couldn't. Link to the ozone game: a cap is a supply-side tool. The last weakness is an environmental justice question, which ties back to Module 1. Source for the policy history: Layzer (2016).</aside>
 </section>
 
 <!-- 25. EXIT TICKET -->
@@ -672,14 +791,23 @@ function addExtraCard() {
   c.addEventListener('click', flip);
   c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
 }
-loadSession(LECTURE).then(d => { fill(document, d); addExtraCard(); }).catch(() => {
+/* an icon badge on the front of each vocabulary card */
+const VOCAB_ICONS = { 'primary pollutant': ['factory', ''], 'secondary pollutant': ['flask', 'sky'], 'ozone': ['shield', 'green'], 'acid rain': ['rain', 'gold'], 'urban heat island': ['thermo', 'bad'] };
+function addVocabIcons() {
+  $$('[data-fill="vocab"] .vcard .f h4').forEach(h => {
+    const [icon, tone] = VOCAB_ICONS[h.textContent.trim().toLowerCase()] || ['book', ''];
+    h.classList.add('ih');
+    h.insertAdjacentHTML('afterbegin', `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${icon}"/></svg></span>`);
+  });
+}
+loadSession(LECTURE).then(d => { fill(document, d); addExtraCard(); addVocabIcons(); }).catch(() => {
   $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
 });
 
 /* === VIDEO === embed the YouTube video named in data-youtube */
 $$('[data-youtube]').forEach(v => {
   const id = v.dataset.youtube;
-  if (id) v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}" title="Prof. Jennifer Vanos on extreme heat" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  if (id) v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}" title="${esc(v.dataset.title || 'Prof. Jennifer Vanos on extreme heat')}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 });
 
 /* === LIVE === attendance, polls, simulation results */
