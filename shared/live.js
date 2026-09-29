@@ -32,6 +32,17 @@ function saveProfile(name, email) {
 
 const FB = 'https://www.gstatic.com/firebasejs/10.12.2/';
 
+/* Turn Firebase errors into messages a student can act on, instead of raw codes. */
+function explain(e, denied) {
+  const code = e?.code || '';
+  if (['auth/admin-restricted-operation', 'auth/operation-not-allowed'].includes(code))
+    return new Error('Check-in is not switched on yet. Tell your instructor: Anonymous sign-in is off in Firebase.');
+  if (['auth/network-request-failed', 'unavailable'].includes(code))
+    return new Error('Could not reach the class server. Check your connection and try again.');
+  if (code === 'permission-denied') return new Error(denied);
+  return new Error(`${e?.message || 'Something went wrong.'}${code ? ` (${code})` : ''}`);
+}
+
 export async function connect(lectureId) {
   return firebaseConfig ? firebaseBackend(lectureId) : demoBackend(lectureId);
 }
@@ -116,7 +127,8 @@ async function firebaseBackend(lectureId) {
     isAdmin: () => !!me && adminEmails.includes(me.email),
     async signIn(name, email) {
       const p = saveProfile(name, email);
-      const u = a.currentUser || (await auth.signInAnonymously(a)).user;
+      let u = a.currentUser;
+      if (!u) { try { u = (await auth.signInAnonymously(a)).user; } catch (e) { throw explain(e); } }
       me = { uid: u.uid, ...p };
       return me;
     },
@@ -126,10 +138,18 @@ async function firebaseBackend(lectureId) {
       need();
       try {
         await fs.setDoc(fs.doc(col('attendance'), me.uid), { name: me.name, email: me.email, code: String(code).trim().toUpperCase(), at: fs.serverTimestamp() });
-      } catch { throw new Error('That code does not match the one on screen.'); }
+      } catch (e) { throw explain(e, 'That code does not match the one on screen. If it does, ask your instructor to press New code again.'); }
     },
-    async vote(poll, choice) { need(); await fs.setDoc(fs.doc(col('votes'), `${poll}__${me.uid}`), { poll, choice, uid: me.uid, at: fs.serverTimestamp() }); },
-    async saveSim(sim, data) { need(); await fs.setDoc(fs.doc(col('sims'), `${sim}__${me.uid}`), { sim, uid: me.uid, name: me.name, data, at: fs.serverTimestamp() }); },
+    async vote(poll, choice) {
+      need();
+      try { await fs.setDoc(fs.doc(col('votes'), `${poll}__${me.uid}`), { poll, choice, uid: me.uid, at: fs.serverTimestamp() }); }
+      catch (e) { throw explain(e, 'The class server did not accept this answer. Check in on the attendance slide, then try again.'); }
+    },
+    async saveSim(sim, data) {
+      need();
+      try { await fs.setDoc(fs.doc(col('sims'), `${sim}__${me.uid}`), { sim, uid: me.uid, name: me.name, data, at: fs.serverTimestamp() }); }
+      catch (e) { throw explain(e, 'The class server did not accept this result. Check in on the attendance slide, then try again.'); }
+    },
     /* admin */
     async setLecture(patch) {
       const { code, ...rest } = patch;
