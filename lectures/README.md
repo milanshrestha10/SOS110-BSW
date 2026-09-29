@@ -43,3 +43,12 @@ Deck rules, so every lecture works in any semester:
 - No lesson plan or agenda slide. Attendance comes right after the opening slides.
 - No calendar dates, weekdays, meeting times, rooms, office hours details, term names, TA or instructor names, school or university names.
 - The title slide keeps the small module badge (`M01`) and the module title in the sans-serif style from `deck.css`. Don't add a university line.
+
+Every new deck follows the enhanced style of Lecture 10 (`m3-l3-atmosphere`), which students liked:
+
+- **Icon badges** on section kickers, big-idea cards, the Key vocabulary heading and each vocab card. Copy the inline SVG sprite from Lecture 10 and add symbols as needed; the `.ico` badge styles are in `deck.css`.
+- **Real pictures** from the instructor's slides wherever the topic has one, in the lecture's `img/` folder, resized for the web, with credits kept. Use `.fig` for them.
+- **Drawn diagrams** (inline SVG) where no picture exists. Label made-up numbers as teaching numbers.
+- **Embedded video** when the instructor gives a link, with a link to open it on YouTube. Never leave a placeholder.
+- **Extra visual slides** that show a process or a trend (a formation diagram, a chart, a map), not only text and cards.
+- **Interactive pieces**: the warm-up and exit polls, flip cards and at least one game or simulation.
