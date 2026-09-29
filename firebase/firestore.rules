@@ -3,8 +3,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function verified() { return signedIn() && request.auth.token.email_verified == true; }
-    function isAdmin() { return verified() && request.auth.token.email in ['mshrest1@asu.edu']; }
+    // Anonymous (student) tokens carry no email claims, so read them with a default:
+    // a missing claim would otherwise make the whole rule fail.
+    function verified() { return signedIn() && request.auth.token.get('email_verified', false) == true; }
+    function isAdmin() { return verified() && request.auth.token.get('email', '') in ['mshrest1@asu.edu']; }
     // Students check in with a name and email over an anonymous sign-in (no account).
     function isStudent() { return signedIn() && !isAdmin(); }
     function owns(uid) { return signedIn() && request.auth.uid == uid; }
