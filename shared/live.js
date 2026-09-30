@@ -128,6 +128,9 @@ async function firebaseBackend(lectureId) {
     async signIn(name, email) {
       const p = saveProfile(name, email);
       let u = a.currentUser;
+      // A Google session left in this browser (e.g. the instructor testing a deck) is not a
+      // student: the rules refuse its check-in. Swap it for an anonymous student session.
+      if (u && !u.isAnonymous) { await auth.signOut(a); u = null; }
       if (!u) { try { u = (await auth.signInAnonymously(a)).user; } catch (e) { throw explain(e); } }
       me = { uid: u.uid, ...p };
       return me;
