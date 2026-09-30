@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 11 Geosphere, soil, and land use · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css">
+<style>
+/* === LECTURE-ONLY STYLES === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.fig.plain{border:0;background:transparent}
+.credit{font-size:16px;color:var(--mute);margin-top:6px}
+/* hero slides: the Phoenix photo fills the slide and fades in; a dark scrim on the left keeps the text readable */
+.hero{background:#0a2a35}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center 80%;opacity:0;transform:scale(1.08);transition:opacity 2.2s .3s ease,transform 10s .3s var(--ease)}
+.slide.visible .hero-img{opacity:1;transform:none}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,33,43,.96) 0%,rgba(7,33,43,.9) 38%,rgba(7,33,43,.55) 62%,rgba(7,33,43,.1) 85%),linear-gradient(0deg,rgba(7,33,43,.7) 0%,rgba(7,33,43,0) 30%)}
+.hero-text{position:absolute;left:140px;top:120px;width:1020px;color:var(--paper)}
+.hero-badge{display:flex;align-items:center;gap:22px}
+.hero-badge b{font:400 64px/1 var(--display);color:var(--paper);border:3px solid var(--golden);border-radius:14px;padding:10px 18px 12px}
+.hero-badge b em{color:var(--golden);font-style:normal}
+.hero-badge span{font:800 30px/1.15 var(--sans);letter-spacing:.01em;max-width:560px}
+.hero .title-k{position:static;color:var(--golden);margin-top:64px}
+.hero h1{font:400 118px/1.02 var(--display);letter-spacing:-.01em;margin:18px 0 26px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{color:var(--golden);font-style:normal}
+.hero-sub{font-size:30px;line-height:1.45;color:rgba(246,242,233,.9)}
+.hero .chip{background:rgba(246,242,233,.1);border-color:rgba(236,207,114,.8);color:var(--paper)}
+.hero .title-terms{position:static;margin-top:34px;width:auto}
+.hero .goldline{position:static;margin-top:44px;width:0}
+.slide.visible.hero .goldline{width:200px}
+.hero-cap{position:absolute;right:40px;bottom:30px;font-size:18px;color:rgba(246,242,233,.92);text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.hero .num li::before{background:var(--golden);color:var(--ink)}
+/* five vocabulary cards: three on top, two centred below */
+.vocab.five{grid-template-columns:repeat(6,1fr)}
+.vocab.five .vcard{grid-column:span 2;height:318px}
+.vocab.five .vcard:nth-child(4){grid-column:2/span 2}
+.vocab.five .vcard h4{font-size:34px}
+.vocab.five .vcard p{font-size:21px}
+.vocab.five .vcard .b p{font-size:19px}
+.take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+/* three key ways: round photos over cards */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.way{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:0 30px 26px;text-align:center;margin-top:110px}
+.way img{width:210px;height:210px;border-radius:50%;object-fit:cover;border:8px solid var(--paper);box-shadow:0 8px 24px rgba(10,42,53,.2);margin:-105px auto 10px;display:block}
+.way h3{margin-bottom:8px}
+.way p{font-size:23px;line-height:1.4;text-align:left}
+.way dl{display:grid;grid-template-columns:118px 1fr;gap:8px 14px;text-align:left;font-size:21px;line-height:1.35;margin-top:14px;border-top:1px solid var(--paper-2);padding-top:14px}
+.way dt{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:4px}
+/* review quiz */
+.quiz{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+.q{border-bottom:1px solid var(--paper-2);padding-bottom:14px}
+.q p{font-size:24px;line-height:1.35;margin-bottom:10px}
+.q p b{color:var(--Blue);margin-right:6px}
+.q .ch{display:flex;flex-wrap:wrap;gap:10px}
+.q button{font:400 20px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 18px;cursor:pointer}
+.q button:hover{border-color:var(--Sky)}
+.q button.on{border-color:var(--Blue);background:rgba(66,168,191,.16)}
+.q.done button.right{border-color:#2e7d5b;background:#2e7d5b;color:#fff}
+.q.done button.on.wrong{border-color:#b3452c;background:rgba(179,69,44,.12)}
+.q .why{display:none;font-size:18px;color:var(--mute);margin-top:8px}
+.q.done .why{display:block}
+/* timelapse exploration */
+.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.sector{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:22px 26px}
+.sector.en{border-top:8px solid var(--golden)}.sector.ec{border-top:8px solid var(--Green)}.sector.ur{border-top:8px solid var(--Blue)}
+.sector h3{font-size:36px;margin:6px 0 2px}
+.sector .tag{font:700 16px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.topic{display:block;width:100%;text-align:left;margin-top:14px;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--paper);border:2px solid var(--paper-2);border-radius:12px;padding:12px 16px;cursor:pointer;transition:border-color .2s,background .2s}
+.topic b{display:block;font:400 28px var(--display)}
+.topic small{display:block;font-size:18px;color:var(--mute);margin-top:2px}
+.topic:hover{border-color:var(--Sky)}
+.topic.on{border-color:var(--Blue);background:rgba(66,168,191,.16)}
+.go-tl{display:flex;gap:26px;align-items:center;margin-top:28px}
+.go-tl a.btn{text-decoration:none;display:inline-flex;gap:12px;align-items:center}
+.go-tl code{font:700 26px var(--body);color:var(--Blue)}
+.ans{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px}
+.ans label{display:block;font:700 21px/1.3 var(--body);margin-bottom:6px}
+.ans label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ans textarea,.ans input,.ans select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ans textarea{height:96px}
+.ans textarea:focus,.ans input:focus,.ans select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.yrs{display:flex;gap:12px;align-items:center;font-size:21px}
+.yrs select{width:150px}
+.picked-sector{display:inline-flex;gap:12px;align-items:center;font:700 20px var(--body);border-radius:999px;padding:6px 18px 6px 6px;background:var(--paper-2)}
+/* spheres table */
+.spheres{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.sph{border-radius:14px;padding:14px 18px;background:var(--card);border:2px solid var(--paper-2)}
+.sph h4{font:400 28px var(--display);margin-bottom:6px}
+.sph ul{list-style:none;font-size:19px;line-height:1.35}
+.sph li{margin:5px 0;padding-left:16px;position:relative}
+.sph li::before{content:'';position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--Green)}
+.sph.on{border:3px solid #b3452c;background:#fff8f2}
+/* plate boundary flip cards */
+.vocab.three{grid-template-columns:repeat(3,1fr)}
+.vocab.three .vcard{height:220px}
+.vocab.three .vcard h4{font-size:32px}
+.vocab.three .vcard p{font-size:21px}
+/* rock cycle stepper */
+.rc text{font-family:var(--body);fill:var(--ink)}
+.rc .node rect{fill:var(--card);stroke:var(--paper-2);stroke-width:3;transition:fill .3s,stroke .3s}
+.rc .node text{font:400 30px var(--display);text-anchor:middle}
+.rc .node.on rect{fill:var(--Blue);stroke:var(--Blue)}
+.rc .node.on text{fill:var(--paper)}
+.rc .arr path{fill:none;stroke:#cdbf9f;stroke-width:7;transition:stroke .3s}
+.rc .arr text{font:700 19px var(--body);fill:var(--mute);text-anchor:middle;transition:fill .3s}
+.rc .arr.on path{stroke:var(--golden)}
+.rc .arr.on text{fill:var(--ink)}
+.rc-cap{min-height:120px;font-size:27px;line-height:1.4}
+.rc-cap b{color:var(--Blue)}
+/* impervious surface slider */
+.water{display:grid;gap:14px;margin-top:10px}
+.wrow{display:grid;grid-template-columns:260px 1fr 70px;gap:16px;align-items:center;font-size:22px}
+.wrow i{height:30px;border-radius:0 6px 6px 0;background:var(--Sky);display:block;transition:width .3s var(--ease)}
+.wrow.run i{background:#b3452c}
+.wrow.et i{background:var(--Green)}
+.wrow.deep i{background:var(--Blue)}
+.wrow b{font:400 32px var(--display);text-align:right;font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px}
+.stats div{border-left:6px solid var(--golden);padding:4px 0 4px 20px}
+.stats b{display:block;font:400 46px/1.05 var(--display);color:var(--Blue)}
+.stats span{font-size:21px;line-height:1.35;color:var(--mute);display:block;margin-top:6px}
+.src{font-size:18px;color:var(--mute);margin-top:18px}
+/* keep the topsoil game */
+.game{display:grid;grid-template-columns:1fr 640px;gap:40px;align-items:start}
+.hand{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.act{display:grid;grid-template-columns:1fr auto;gap:2px 12px;text-align:left;font:400 20px/1.3 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;cursor:pointer;transition:border-color .2s,background .2s,opacity .2s}
+.act b{font-weight:700}
+.act small{grid-column:1;font-size:17px;color:var(--mute)}
+.act .c{grid-row:1/3;grid-column:2;align-self:center;font:700 16px var(--body);border-radius:999px;padding:4px 12px;background:var(--paper-2);white-space:nowrap}
+.act:hover{border-color:var(--Sky)}
+.act:focus-visible{outline:3px solid var(--Sky);outline-offset:2px}
+.act.on{border-color:var(--Blue);background:rgba(66,168,191,.14)}
+.act.on .c{background:var(--Blue);color:var(--paper)}
+.act.no{opacity:.42;cursor:not-allowed}
+.act.dud.on{border-color:#b3452c;background:rgba(179,69,44,.08)}
+.meter{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-top:14px;font-size:19px;color:var(--mute)}
+.meter i{height:12px;border-radius:6px;background:var(--paper-2);overflow:hidden}
+.meter em{display:block;height:100%;background:var(--golden);transition:width .3s var(--ease)}
+.meter b{color:var(--ink)}
+.game .gauge{padding:22px 26px}
+.game .gauge .v{font-size:110px;font-variant-numeric:tabular-nums}
+.game .gauge .cat{color:var(--ink)}
+.hill{width:100%;height:auto;margin-top:12px}
+.hill text{font:700 16px var(--body);fill:var(--ink)}
+.game .msg{text-align:left;margin-top:8px;font-size:21px;line-height:1.4;color:var(--mute);min-height:88px}
+.save{display:flex;gap:14px;align-items:center;margin-top:10px;text-align:left}
+.save .btn{font-size:21px;padding:12px 22px}
+.save .status{font-size:19px;margin:0;min-height:0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-pick" viewBox="0 0 24 24"><path d="M14.5 9.5 4 20"/><path d="M4 7c5-4 11-4 16 1"/><path d="M9.5 4.5c3 .5 7 2.5 10 6.5"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7z"/><path d="M12 22v-3"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" src="img/phoenix-edge.jpg" alt="Aerial view of new apartment buildings and homes under construction at the edge of open Sonoran Desert, with desert mountains behind">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 11 · S&amp;M Chapter 9</div>
+    <h1 class="reveal d2">Geosphere, soil, and <em>land use</em></h1>
+    <p class="hero-sub reveal d3">Where the city meets the desert: how the ground under our feet supports life, and how we change it.</p>
+    <div class="title-terms reveal d3" data-chips></div>
+    <div class="goldline"></div>
+  </div>
+  <p class="hero-cap reveal d4">New neighborhoods on the desert edge of the Valley</p>
+  <aside class="notes">Welcome to Lecture 11. Let the photo fade in before you speak: open desert at the top, brand-new neighborhoods at the bottom. Ask what the land was doing before the houses arrived (holding rain, growing plants, storing carbon) and what it does now. Reading: Sherman and Montgomery (2023), Chapter 9. The photo is from the instructor's original title slide; its original credit was not printed there.</aside>
+</section>
+
+<!-- 2. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Warm-up poll</span></div>
+  <div class="content">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:68px;max-width:1450px">Think about the land around where you grew up. What has changed <em>the most</em>?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>Desert or open land turned into new neighborhoods</button>
+      <button class="opt" type="button"><b>B</b>Farmland turned into shopping centers and suburbs</button>
+      <button class="opt" type="button"><b>C</b>More roads, parking lots and paved surfaces</button>
+      <button class="opt" type="button"><b>D</b>Not much has changed where I live</button>
+    </div>
+    <div class="signin reveal d4" data-poll-who hidden>
+      <input class="field" data-poll-name placeholder="Your full name" autocomplete="name" maxlength="120" style="width:330px;font-size:26px;padding:12px 18px">
+      <input class="field" data-poll-email type="email" placeholder="Email address" autocomplete="email" maxlength="120" style="width:360px;font-size:26px;padding:12px 18px">
+      <span class="small mute">Type these once to vote.</span>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">No right answer: this is to surface what students have seen. Most Phoenix-area students will pick A or C. Come back to their answers in the land use and urbanization section, where paving changes how water moves.</aside>
+</section>
+
+<!-- 3. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big ideas</span></div>
+  <div class="content">
+    <div class="k reveal">Learning objectives · by the end of class you can</div>
+    <h2 class="reveal d2" style="margin-bottom:18px">Today's big <em>ideas</em></h2>
+    <p class="lead reveal d2" style="margin-bottom:30px">Humans have pervasively altered Earth's surface in the last 250 years, but not all of it is bad: we have also developed many regenerative ways to protect soil.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span><br><span class="tag">1 · Geosphere processes</span><h3>How the ground works</h3><p>Explain how tectonic plates, the rock cycle, weathering and erosion build and reshape Earth's surface and soil.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><br><span class="tag">2 · Human impacts</span><h3>What we change</h3><p>Describe how soil loss, mining and land use change alter the structure and functions of ecosystems.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><br><span class="tag">3 · Regeneration</span><h3>How we repair it</h3><p>Evaluate practices that restore and regenerate soil and keep natural cycles going.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>The ground beneath us is a living, moving system. How we farm, mine and build decides whether it keeps supporting life.</div>
+  </div>
+  <aside class="notes">These three big ideas are today's learning objectives: Earth's natural systems (1), human-driven alterations (2) and conservation measures (3). Each section is marked on the side rail. Come back to the takeaway on the last slide.</aside>
+</section>
+
+<!-- 4. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>11</b><span>Attendance</span></div>
+  <div class="content">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes. Students who voted in the warm-up already have their name and email filled in.</aside>
+</section>
+
+<!-- 5. THREE KEY WAYS -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Human impacts</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Human impacts on Earth's surface · three main categories</div>
+    <h2 class="reveal d2" style="margin-bottom:0;font-size:62px">Three ways we change ecosystems' <em>structure and function</em></h2>
+    <div class="ways reveal d3">
+      <div class="way"><img src="img/soil-loss.jpg" alt="Cracked, dried-out bare soil"><h3>Soil loss</h3><p>Agriculture, monoculture in particular, strips and exhausts the soil surface.</p>
+        <dl><dt>Structure</dt><dd>Topsoil thins; fewer roots, fungi and soil animals</dd><dt>Function</dt><dd>Less water held, fewer nutrients cycled, lower yields</dd></dl></div>
+      <div class="way"><img src="img/mining.jpg" alt="Terraced open-pit mine in red rock"><h3>Mining</h3><p>Digging up metals and minerals exposes soil and contaminates the surface.</p>
+        <dl><dt>Structure</dt><dd>Landforms removed; habitat replaced by pits and waste rock</dd><dt>Function</dt><dd>Metals leach into water; the land stops growing plants</dd></dl></div>
+      <div class="way"><img src="img/urban.jpg" alt="A dense city street lined with buildings and cars"><h3>Land use and urbanization</h3><p>Converting land changes ecosystems and Earth's biogeochemical cycles.</p>
+        <dl><dt>Structure</dt><dd>Desert, forest or farmland becomes pavement and roofs</dd><dt>Function</dt><dd>Rain runs off instead of soaking in; cities store heat</dd></dl></div>
+    </div>
+  </div>
+  <aside class="notes">Structure is what an ecosystem is made of (soil layers, plants, animals, landforms). Function is what it does (holds and filters water, cycles nutrients, stores carbon, grows food). Each human impact changes both. Ask students to name a Phoenix example of each: farmland soil in the West Valley, copper mines in eastern Arizona, and new subdivisions on the desert edge.</aside>
+</section>
+
+<!-- 6. REVIEW QUIZ -->
+<section class="slide" id="quiz">
+  <div class="rail"><b>11</b><span>Review quiz</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Review quiz · Module 3 and today's three impacts</div>
+    <h2 class="reveal d2" style="margin-bottom:24px;font-size:70px">How much do you <em>remember</em>?</h2>
+    <div class="quiz reveal d3" data-quiz></div>
+    <div class="reveal d4" style="margin-top:20px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="quiz-check">Check my answers</button><span class="status" id="quiz-status" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Six quick questions: population (Lecture 8), water (Lecture 9), air (Lecture 10) and today's three impacts. Give two minutes, then have students check. Their scores go to the admin page, which shows the questions the class missed most. Revisit any question under 60% before the midterm.</aside>
+</section>
+
+<!-- 7. EXPLORATION: PICK A SECTOR -->
+<section class="slide" id="explore">
+  <div class="rail"><b>11</b><span>Exploration</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · Google Earth Timelapse, 1984 to 2022</div>
+    <h2 class="reveal d2" style="margin-bottom:18px;font-size:68px">Human impacts show up in <em>every</em> biome</h2>
+    <p class="small mute reveal d2" style="margin-bottom:18px">Pick one sector and one topic. The button opens Timelapse at that topic's place; search for your own place if you like.</p>
+    <div class="sectors reveal d3" data-sectors></div>
+    <div class="go-tl reveal d4">
+      <a class="btn" id="tl-open" href="https://earthengine.google.com/timelapse#v=44.99729,59.79043,5.508,latLng&amp;t=2.14&amp;ps=50&amp;bt=19840101&amp;et=20221231" target="_blank" rel="noopener">Open Timelapse <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-out"/></svg></a>
+      <code>earthengine.google.com/timelapse</code>
+      <span class="status" id="sector-status" style="margin:0"></span>
+    </div>
+  </div>
+  <aside class="notes">Timelapse stitches together satellite images from 1984 to 2022, so students can watch one place change year by year. It can't be embedded in the deck, so it opens in a new tab. Picking a topic points the Open Timelapse button at a preset view of that place, 1984 to 2022; before a pick it opens the Aral Sea, which shrank as its rivers were diverted to irrigate cotton. Students can also type any place into the search box. Pairs work well: one drives Timelapse, the other writes. Give about 10 minutes, then take answers on the next slide.</aside>
+</section>
+
+<!-- 8. EXPLORATION: ANSWER -->
+<section class="slide" id="explore-answers">
+  <div class="rail"><b>11</b><span>Exploration</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · what did you find?</div>
+    <h2 class="reveal d2" style="margin:10px 0 16px;font-size:58px">Read the land like a <em>geographer</em> <span class="picked-sector" id="picked" style="vertical-align:middle;margin-left:16px"></span></h2>
+    <div class="ans reveal d3">
+      <div>
+        <label for="tl-place"><i>1</i>Where is it? What type of biomes and ecosystems do they have there?</label>
+        <input id="tl-place" maxlength="120" placeholder="Place, country" style="margin-bottom:8px">
+        <textarea id="tl-biome" maxlength="500" placeholder="Biome and ecosystems (desert, tropical forest, grassland, tundra, river, wetland...)" style="height:70px"></textarea>
+      </div>
+      <div>
+        <label><i>2</i>What is the timeline captured in the timelapse?</label>
+        <div class="yrs">From <select id="tl-from" aria-label="Start year"></select> to <select id="tl-to" aria-label="End year"></select></div>
+        <textarea id="tl-when" maxlength="500" placeholder="When did the biggest change happen? Was it gradual or sudden?" style="height:70px;margin-top:8px"></textarea>
+      </div>
+      <div><label for="tl-changes"><i>3</i>What are some of the changes that you see?</label><textarea id="tl-changes" maxlength="500" placeholder="Describe what grows, shrinks, moves or changes color"></textarea></div>
+      <div><label for="tl-causes"><i>4</i>What do you think is causing those changes?</label><textarea id="tl-causes" maxlength="500" placeholder="People, nature, or both? Name the activity"></textarea></div>
+      <div style="grid-column:1/-1"><label for="tl-geo"><i>5</i>How are those changes connected with the geosphere or the lithosphere?</label><textarea id="tl-geo" maxlength="500" placeholder="Think about soil, rock, landforms, erosion and sediment" style="height:70px"></textarea></div>
+    </div>
+    <div class="save reveal d4" style="margin-top:12px"><button class="btn" type="button" id="tl-save">Submit my findings</button><span class="status" id="tl-status"></span></div>
+  </div>
+  <aside class="notes">Answers go to the admin page, grouped by sector, so you can call on one student per sector to share. Push on question 5: glaciers carve rock and drop sediment, mines remove the lithosphere itself, deforestation exposes soil to erosion, rivers move sediment, irrigation draws on groundwater stored in rock, and cities seal the soil under pavement.</aside>
+</section>
+
+<!-- 9. VOCABULARY -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Key vocabulary</span></div>
+  <div class="content">
+    <div class="k reveal">Glossary · tap a card for its example</div>
+    <h2 class="reveal d2 ih" style="margin-bottom:26px"><span class="ico lg"><svg aria-hidden="true"><use href="#i-book"/></svg></span><span>Key <em>vocabulary</em></span></h2>
+    <div class="vocab five reveal d3" data-vocab></div>
+  </div>
+  <aside class="notes">Four terms come from the course glossary (soil erosion, land use change, anthropogenic impact, conservation). Lithosphere is added because the whole lecture builds on it. Read each definition aloud and flip one card.</aside>
+</section>
+
+<!-- 10. EARTH'S LIFE-SUPPORT SYSTEMS -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Geosphere</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 1 · Earth's life-support systems</div>
+    <h2 class="reveal d2" style="margin:10px 0 16px;font-size:62px">Five spheres make our planet <em>habitable</em></h2>
+    <figure class="fig reveal d3" style="border-radius:14px"><img src="img/earth-systems.jpg" alt="Illustration of Earth's systems: clouds and the water cycle over the sea, industries, cities, agriculture and transportation on land, a volcano, glaciers, ecosystems and the carbon cycle"></figure>
+    <p class="credit reveal d3" style="text-align:right">Source: NASA SVS</p>
+    <div class="spheres reveal d4">
+      <div class="sph"><h4>Atmosphere</h4><ul><li>Oxygen for breathing</li><li>Shields us from harmful radiation</li><li>Regulates temperature</li></ul></div>
+      <div class="sph"><h4>Hydrosphere</h4><ul><li>A home for aquatic life</li><li>Moves moisture around the planet</li><li>Shapes climate and weather</li></ul></div>
+      <div class="sph"><h4>Cryosphere</h4><ul><li>Stores fresh water as ice</li><li>Feeds snow-fed rivers</li><li>Reflects sunlight, cools Earth</li></ul></div>
+      <div class="sph on"><h4>Lithosphere</h4><ul><li>A physical habitat for land life</li><li>Nutrients for plant growth</li><li>Regulates the carbon cycle through weathering</li></ul></div>
+      <div class="sph"><h4>Biosphere</h4><ul><li>Oxygen from photosynthesis</li><li>Cycles nutrients</li><li>Biodiversity builds resilience</li></ul></div>
+    </div>
+  </div>
+  <aside class="notes">We covered the atmosphere and hydrosphere in Lectures 9 and 10. Today is the lithosphere, outlined in red. Remind students the spheres overlap: soil is where rock, water, air and life meet. The illustration is from NASA's Scientific Visualization Studio, as credited in the original slides.</aside>
+</section>
+
+<!-- 11. THE GEOSPHERE -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Geosphere</span></div>
+  <div class="content">
+    <div class="grid" style="grid-template-columns:780px 1fr;gap:70px;align-items:start">
+      <figure class="fig reveal d3" style="margin-top:-40px"><img src="img/geosphere-layers.jpg" alt="Layers of the geosphere: solid crust, oceanic and continental; solid upper and lower mantle; liquid outer core; solid inner core, with temperatures and thicknesses"></figure>
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>Big idea 1 · how the geosphere works</div>
+        <h2 style="margin-bottom:22px;font-size:74px">The ground beneath <em>our feet</em></h2>
+        <p class="small">The <b>geosphere</b> is the solid Earth: crust, mantle and core. The <b>lithosphere</b> is its rigid outer shell (the crust plus the top of the mantle), broken into tectonic plates that ride on hotter, softer rock below.</p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <h3>It makes the planet habitable by</h3>
+        <ul class="clean small">
+          <li>Providing a <b>physical habitat</b> for land plants and animals</li>
+          <li>Supplying <b>essential nutrients</b> for plant growth</li>
+          <li>Regulating the <b>carbon cycle</b> through weathering and other geological processes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Walk down the diagram from the thin crust to the core. The crust is thinnest under the oceans and thickest under mountains. Weathering of rock slowly pulls carbon dioxide out of the air, which is one way the geosphere regulates climate over long time scales. The diagram credit (ScienceFacts.net) is printed on the image.</aside>
+</section>
+
+<!-- 12. SOIL -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Soil</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 1 · where rock meets life</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Soil is a <em>slow-made</em> resource</h2>
+    <div class="grid reveal d3" style="grid-template-columns:400px 400px 1fr;gap:44px;align-items:start">
+      <figure class="fig plain"><img src="img/soil-forms.jpg" alt="How soil forms: rain enters the ground, plant debris accumulates, worms churn, microbes and fungi metabolize, roots weather minerals, water carries ions and clay down"></figure>
+      <figure class="fig plain"><img src="img/soil-horizons.jpg" alt="Soil profile with horizons: topsoil, subsoil, weathered bedrock and solid bedrock"></figure>
+      <div>
+        <p class="small">Soil forms when <b>weathered rock</b> mixes with <b>organic matter</b>, water, air and living things.</p>
+        <ul class="clean small">
+          <li><b>Topsoil (A):</b> dark, rich in organic matter and life; where most roots grow</li>
+          <li><b>Subsoil (B):</b> collects clay and minerals washed down from above</li>
+          <li><b>Weathered bedrock (C):</b> broken rock slowly turning into soil</li>
+        </ul>
+        <div class="take" style="font-size:26px;margin-top:24px"><b>Why it matters</b>Topsoil takes centuries to build but can wash or blow away in a few storms.</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Both diagrams are adapted from Marshak (2019), as printed on the images. Topsoil formation rates vary widely with climate and parent rock; a common rule of thumb is hundreds of years for an inch of topsoil. This is why soil is treated as a non-renewable resource on human time scales, which sets up the soil loss section.</aside>
+</section>
+
+<!-- 13. TECTONIC PLATES AND LANDSCAPES -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Plates</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Big idea 1 · tectonic plates and landscapes</div>
+    <h2 class="reveal d2" style="margin:10px 0 18px;font-size:66px">Moving plates build <em>landscapes</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:640px 1fr;gap:40px;align-items:start">
+      <figure class="fig plain"><img src="img/plates-drift.jpg" alt="Three globes showing continents fitting together 300 million years ago and slowly drifting apart to the present"></figure>
+      <div>
+        <p class="small">Movement of <b>tectonic plates</b> in Earth's lithosphere produces earthquakes, volcanoes, mountains and lowlands.</p>
+        <p class="small" style="margin-top:12px"><b>Landscapes</b> are made of <b>landforms</b> (surface features like mesas, canyons and valleys) and <b>topography</b> (the shape of the land).</p>
+        <p class="small" style="margin-top:12px">Humans have been changing Earth's landscape to meet our needs, sometimes with <b>unexpected negative consequences</b>.</p>
+      </div>
+    </div>
+    <p class="small mute reveal d4" style="margin:14px 0 10px">Three kinds of plate boundary · tap a card to see the landforms it makes</p>
+    <div class="vocab three reveal d4" data-plates></div>
+  </div>
+  <aside class="notes">The continents once fit together as Pangaea and have drifted apart over about 300 million years. Plates move a few centimetres a year, about as fast as fingernails grow. Arizona's own landscape comes from these forces: the Basin and Range country around Phoenix formed as the crust stretched and broke into blocks. Diagram adapted from Marshak (2019).</aside>
+</section>
+
+<!-- 14. ROCK CYCLE -->
+<section class="slide" id="rock-cycle">
+  <div class="rail"><b>11</b><span>Big idea 1 · Rock cycle</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · energy flows, materials cycle</div>
+    <h2 class="reveal d2" style="margin-bottom:20px">The rock <em>cycle</em></h2>
+    <div class="grid" style="grid-template-columns:900px 1fr;gap:60px;align-items:start">
+      <svg class="rc reveal d3" viewBox="0 0 900 640" role="img" aria-label="Rock cycle diagram: magma cools into igneous rock; weathering and erosion make sediment; compaction makes sedimentary rock; heat and pressure make metamorphic rock; melting makes magma again">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="context-stroke"/></marker></defs>
+        <g class="arr" data-step="0"><path d="M450 540 C 250 540 150 460 150 300" marker-end="url(#ah)"/><text x="240" y="560">Cooling</text></g>
+        <g class="arr" data-step="1"><path d="M190 200 C 250 80 330 60 380 60" marker-end="url(#ah)"/><text x="210" y="100">Weathering and erosion</text></g>
+        <g class="arr" data-step="2"><path d="M530 60 C 620 60 700 110 720 190" marker-end="url(#ah)"/><text x="700" y="100">Compaction</text></g>
+        <g class="arr" data-step="3"><path d="M760 300 C 770 380 750 440 700 480" marker-end="url(#ah)"/><text x="830" y="400">Heat and</text><text x="830" y="424">pressure</text></g>
+        <g class="arr" data-step="4"><path d="M600 560 C 580 575 560 580 540 580" marker-end="url(#ah)"/><text x="600" y="620">Melting</text></g>
+        <g class="node" data-node="0"><rect x="370" y="530" width="170" height="80" rx="16"/><text x="455" y="582">Magma</text></g>
+        <g class="node" data-node="1"><rect x="60" y="210" width="200" height="80" rx="16"/><text x="160" y="262">Igneous</text></g>
+        <g class="node" data-node="2"><rect x="380" y="20" width="160" height="80" rx="16"/><text x="460" y="72">Sediment</text></g>
+        <g class="node" data-node="3"><rect x="630" y="200" width="240" height="80" rx="16"/><text x="750" y="252">Sedimentary</text></g>
+        <g class="node" data-node="4"><rect x="560" y="480" width="250" height="80" rx="16"/><text x="685" y="532">Metamorphic</text></g>
+      </svg>
+      <div class="reveal d4">
+        <p class="rc-cap" id="rc-cap"></p>
+        <div style="display:flex;gap:16px;margin-top:20px"><button class="btn ghost" type="button" id="rc-prev">Back</button><button class="btn" type="button" id="rc-next">Next step</button></div>
+        <div class="gold-rule"></div>
+        <p class="small">The rock cycle creates, breaks, moves and recycles rocks over time. It is how Earth <b>recycles and renews its surface</b>.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Step through the cycle with the buttons. The sun and Earth's internal heat supply the energy; the rock material itself is recycled, which is the rule from Module 2: energy flows, materials cycle. Local examples: the granite in Camelback Mountain and the sedimentary layers of the Grand Canyon. The cycle is not a fixed loop: any rock type can be weathered, melted or metamorphosed.</aside>
+</section>
+
+<!-- 15. WEATHERING AND EROSION -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Erosion</span></div>
+  <div class="content">
+    <div class="grid" style="grid-template-columns:720px 1fr;gap:60px;align-items:start">
+      <div class="reveal d3" style="margin-top:-30px">
+        <figure class="fig plain"><img src="img/weathering-erosion.jpg" alt="Block diagram: weathering breaks rock on a cliff, erosion carries coarse then fine particles downhill to the sea, and dissolved ions move in groundwater"></figure>
+        <figure class="fig" style="margin-top:16px"><img src="img/grand-canyon.jpg" alt="The Colorado River winding through the Grand Canyon"></figure>
+      </div>
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Big idea 1 · breaking down and moving</div>
+        <h2 style="margin-bottom:22px;font-size:74px">Weathering and <em>erosion</em></h2>
+        <ol class="num" style="font-size:26px">
+          <li>Once exposed at the surface, rocks are subject to <b>weathering</b>: physical and chemical processes that reduce rock to smaller particles and alter minerals.</li>
+          <li>Rocks break into <b>gravel, sand or silt</b>, depending on their original minerals.</li>
+          <li>Every day, <b>wind, water, ice and gravity</b> pick up and move these particles. That movement is <b>erosion</b>.</li>
+        </ol>
+        <div class="grid g2" style="gap:18px;margin-top:18px">
+          <div class="card accent" style="padding:18px 22px"><span class="tag">Physical weathering</span><p style="font-size:21px">Rock splits without changing: freeze and thaw, roots, desert heating and cooling.</p></div>
+          <div class="card gold" style="padding:18px 22px"><span class="tag">Chemical weathering</span><p style="font-size:21px">Minerals change: rainwater dissolves limestone, iron rusts red.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">The Grand Canyon is Arizona's textbook case: the Colorado River cut down through the rising Colorado Plateau and carried the sediment away. Remember the rule: energy flows, materials cycle. Weathered particles don't disappear; they become sediment and, eventually, new rock or new soil. Diagram adapted from Marshak (2019).</aside>
+</section>
+
+<!-- 16. PROCESSES THAT SHAPE LAND -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 1 · Rivers</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Big idea 1 · processes that shape land</div>
+    <h2 class="reveal d2" style="margin-bottom:24px;font-size:74px">Rivers move land from <em>mountains to the sea</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:760px 380px 1fr;gap:36px;align-items:start">
+      <figure class="fig plain"><img src="img/watershed.jpg" alt="Map of the Mississippi River watershed with photos of uplands, lowlands, agricultural land, a city, wilderness, floodplains and the delta"></figure>
+      <figure class="fig"><img src="img/river-delta.jpg" alt="A muddy river winding through a green floodplain forest"></figure>
+      <div>
+        <p class="small">A <b>watershed</b> collects rain and sends it, with its sediment, down one river system.</p>
+        <p class="small" style="margin-top:14px"><b>Human activity can affect sediment movement:</b></p>
+        <ul class="clean small" style="font-size:22px">
+          <li>Dams trap sediment in reservoirs</li>
+          <li>Levees keep floods, and new mud, off floodplains</li>
+          <li>Plowed fields and construction add sediment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">The Mississippi drains about 40% of the lower 48 states. Its delta is shrinking partly because dams and levees keep sediment from reaching it. Closer to home, Glen Canyon Dam traps most of the Colorado River's sediment in Lake Powell, so the river below runs clearer and beaches in the Grand Canyon erode. Photo credits are printed on the images.</aside>
+</section>
+
+<!-- 17. AGRICULTURE AND SOIL LOSS -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 2 · Soil loss</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span>Big idea 2 · human impacts on Earth's surface</div>
+    <h2 class="reveal d2" style="margin-bottom:20px;font-size:74px">Agriculture and <em>soil loss</em></h2>
+    <figure class="fig plain reveal d3"><img src="img/agriculture.jpg" alt="Three farm photos: a tractor tilling bare soil, a tractor spraying a crop, and irrigated rows of a single crop"></figure>
+    <div class="grid g3 reveal d4" style="gap:24px;margin-top:22px">
+      <div class="card accent" style="padding:20px 26px"><span class="tag">1 · Adapt or mitigate</span><p style="font-size:22px">Earth processes like plate tectonics and erosion are inevitable. <b>Humans can adapt to them or mitigate their impacts.</b></p></div>
+      <div class="card gold" style="padding:20px 26px"><span class="tag">2 · We can degrade land</span><p style="font-size:22px">Soil degradation and erosion can be a <b>side effect of farming</b>: bare, tilled fields; one crop year after year; overgrazing.</p></div>
+      <div class="card green" style="padding:20px 26px"><span class="tag">3 · We can restore it</span><p style="font-size:22px">Degraded landscapes can be <b>rehabilitated or restored</b> after human use.</p></div>
+    </div>
+  </div>
+  <aside class="notes">The Dust Bowl of the 1930s is the classic US case: plowing up the southern Great Plains grasslands, then drought, let the wind strip the topsoil. It led Congress to create the Soil Conservation Service in 1935 (now the Natural Resources Conservation Service). Monoculture drains the same nutrients every year and leaves soil bare between crops. Photo credits are printed on the images.</aside>
+</section>
+
+<!-- 18. MINING -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 2 · Mining</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-pick"/></svg></span>Big idea 2 · human impacts on Earth's surface</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Mining and <em>reclamation</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:420px 1fr;gap:60px;align-items:start">
+      <figure class="fig"><img src="img/mining.jpg" alt="Terraced open-pit mine in red rock with haul trucks" style="width:100%"></figure>
+      <div>
+        <p class="lead" style="font-size:30px">Mining is not considered sustainable, but <b>abandoned mine sites can be reclaimed</b> and rehabilitated to improve their ecological value.</p>
+        <div class="grid g3" style="gap:20px;margin-top:26px">
+          <div class="card green" style="padding:20px 24px"><span class="ico green sm"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><h3 style="font-size:30px">Import topsoil</h3><p style="font-size:21px">Rebuild a layer plants can root in.</p></div>
+          <div class="card accent" style="padding:20px 24px"><span class="ico sky sm"><svg aria-hidden="true"><use href="#i-tree"/></svg></span><h3 style="font-size:30px">Plant trees</h3><p style="font-size:21px">Roots hold the soil; shade and leaves rebuild it.</p></div>
+          <div class="card gold" style="padding:20px 24px"><span class="ico gold sm"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span><h3 style="font-size:30px">Careful grazing</h3><p style="font-size:21px">Sustainable livestock grazing keeps grass cover.</p></div>
+        </div>
+        <p class="small mute" style="margin-top:22px">Mines in Mongolia, the European Union and China have been successfully rehabilitated.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Arizona produces most of the copper mined in the United States, so this is a local issue: open pits, tailings piles and acid drainage that carries metals into streams. Reclamation cannot put the removed rock back, but it can stabilize slopes, cover tailings and restore plant cover. Ask: who should pay for reclamation, the company, the state, or buyers of copper?</aside>
+</section>
+
+<!-- 19. LAND USE CHANGE AND URBANIZATION -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 2 · Land use</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-city"/></svg></span>Big idea 2 · human impacts on Earth's surface</div>
+    <h2 class="reveal d2" style="margin:10px 0 20px;font-size:70px">Land use change and <em>urbanization</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:330px 660px 1fr;gap:24px;align-items:start">
+      <figure class="fig"><img style="height:350px;object-fit:cover" src="img/sprawl.jpg" alt="New subdivisions spreading into open desert"></figure>
+      <figure class="fig plain"><img style="height:350px;object-fit:contain" src="img/infiltration.jpg" alt="Diagram comparing a natural environment, where 40% of rain evaporates, 10% runs off and 50% soaks in, with an urban environment, where 30% evaporates, 55% runs off and 15% soaks in"></figure>
+      <div><figure class="fig"><img style="height:350px;object-fit:cover" src="img/flood.jpg" alt="Cars stranded in a flooded Phoenix freeway underpass after a storm"></figure><p class="credit">Photo: The Republic</p></div>
+    </div>
+    <ol class="num reveal d4" style="font-size:25px;margin-top:6px">
+      <li><b>Overland flow</b> happens in a rainstorm when soil is saturated, or when rain falls too fast for the soil to absorb it.</li>
+      <li>It also happens on paved surfaces that are <b>impervious</b>: water cannot pass through them, so it becomes <b>runoff</b>.</li>
+      <li>More pavement sends more storm water flowing as runoff, and less recharges the ground.</li>
+    </ol>
+  </div>
+  <aside class="notes">Come back to the warm-up poll: most of the changes students named add impervious surface. In Phoenix, monsoon storms dump a lot of rain in a short time onto roofs, roads and parking lots, which is why underpasses flood. The flood photo credit (The Republic) is from the original slides. The infiltration diagram follows the EPA's well-known comparison.</aside>
+</section>
+
+<!-- 20. PAVE THE WATERSHED -->
+<section class="slide" id="pave">
+  <div class="rail"><b>11</b><span>Big idea 2 · Runoff</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-rain"/></svg></span>Try it · where does the rain go?</div>
+    <h2 class="reveal d2" style="margin-bottom:22px;font-size:74px">Pave the <em>watershed</em></h2>
+    <div class="grid" style="grid-template-columns:1fr 520px;gap:60px;align-items:start">
+      <div class="reveal d3">
+        <div class="slider"><label for="imp">Land covered by roofs, roads and parking <output id="imp-out"></output></label><input type="range" id="imp" min="0" max="100" step="5" value="0"></div>
+        <div class="water" id="water"></div>
+        <p class="src">Shares follow the EPA's classic comparison of natural and urban land (FISRWG 1998), rounded; values in between are interpolated as teaching numbers.</p>
+      </div>
+      <div class="card blue reveal d4">
+        <span class="tag">What it means</span>
+        <p id="imp-msg" style="font-size:26px"></p>
+        <div class="gold-rule" style="margin:20px 0"></div>
+        <p style="font-size:22px"><b>Solutions:</b> permeable pavement, retention basins, green roofs and street trees let water soak back in.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Drag the slider slowly from a natural desert to a fully paved downtown. Runoff goes from about 10% to about 55%, and deep infiltration, which recharges groundwater, drops from about 25% to 5%. Phoenix's retention basins (the grassy dips in parks and parking lots) are a local solution. Numbers are rounded; they vary with soil, slope and storm size.</aside>
+</section>
+
+<!-- 21. RESTORATION AND REGENERATION -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 3 · Regeneration</span></div>
+  <div class="content">
+    <div class="grid" style="grid-template-columns:1fr 860px;gap:60px;align-items:start">
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 3 · repairing the ground</div>
+        <h2 style="margin-bottom:22px;font-size:74px">Restoration and <em>regeneration</em></h2>
+        <ul class="clean" style="font-size:25px">
+          <li>A <b>holistic view</b> of agriculture: ecological, social, hydrological, agronomic and economic</li>
+          <li>Let land <b>rest to rejuvenate</b>, as in rotational farming</li>
+          <li>Practice <b>what nature teaches us</b>: rely on renewable energy and organic matter</li>
+          <li><b>Integrative practices:</b> cover crops, no-till farming, windbreaks and terraces</li>
+        </ul>
+      </div>
+      <figure class="fig plain reveal d3" style="margin-top:-20px"><img src="img/regeneration.jpg" alt="Four practices: terracing on a steep slope, no-till fields with crop residue, windbreaks and hedgerows between fields, and cover crops"></figure>
+    </div>
+  </div>
+  <aside class="notes">Each pictured practice keeps the soil covered or slows water and wind: terraces slow water on slopes, no-till leaves last season's residue as a mulch, windbreaks cut wind speed, and cover crops keep roots in the ground between harvests. Photo credits are printed on the images. Next, students try these practices on a farm.</aside>
+</section>
+
+<!-- 22. GAME: KEEP THE TOPSOIL -->
+<section class="slide" id="soil-game">
+  <div class="rail"><b>11</b><span>Game</span></div>
+  <div class="content" style="top:90px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Game · a sloped farm field, 50 years ahead</div>
+    <h2 class="reveal d2" style="margin:10px 0 18px;font-size:66px">Keep the <em>topsoil</em></h2>
+    <div class="game reveal d3">
+      <div>
+        <p class="small mute" style="margin-bottom:12px">You manage the farm. You have <b>3 seasons of effort</b> to spend. Each card shows how much it takes.</p>
+        <div class="hand" id="soil-hand"></div>
+        <div class="meter"><span>Effort</span><i><em id="soil-bar"></em></i><b id="soil-left"></b></div>
+      </div>
+      <div class="gauge">
+        <div class="u">Soil lost each year</div>
+        <div class="v" id="soil-v">18</div>
+        <div class="u">tons per acre</div>
+        <div class="cat" id="soil-cat"></div>
+        <svg class="hill" viewBox="0 0 600 170" role="img" aria-label="A hillside field showing how much topsoil is left after 50 years"><g id="soil-hill"></g></svg>
+        <p class="msg" id="soil-msg"></p>
+        <div class="save"><button class="btn" type="button" id="soil-save">Submit my plan</button><span class="status" id="soil-status"></span></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">All numbers here are teaching numbers, rounded to show the idea, not measured data. The field starts losing 18 tons per acre a year under conventional tillage; the USDA's tolerable soil loss for deep soils is up to about 5 tons per acre a year, and new soil forms far more slowly than that. The trap card, plowing more often, is a common misconception: loose soil feels healthier but washes and blows away faster. Ask which two practices did the most work.</aside>
+</section>
+
+<!-- 23. WHAT'S DUE -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>What's due</span></div>
+  <div class="content">
+    <div class="k reveal">Before next class</div>
+    <h2 class="reveal d2">What's due and <em>next class</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card blue"><span class="tag">Module assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
+      <div class="card gold"><span class="tag">Next class</span>
+        <p><b>Next:</b> <span data-fill="next"></span></p>
+        <div class="gold-rule" style="margin:22px 0"></div>
+        <p>Read S&amp;M Chapter 9 and try Timelapse on a place you know.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Remind students which InQuizitive assignments are open. Next class moves from the ground to systems thinking: stocks and flows. Topsoil is a good example of a stock that drains faster than it refills.</aside>
+</section>
+
+<!-- 24. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Exit ticket</span></div>
+  <div class="content">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:72px">Which practice keeps soil covered <em>between harvests</em>?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="2">
+      <button class="opt" type="button"><b>A</b>Plowing the field more often</button>
+      <button class="opt" type="button"><b>B</b>Planting the same crop every year</button>
+      <button class="opt" type="button"><b>C</b>Planting cover crops</button>
+      <button class="opt" type="button"><b>D</b>Paving farm roads</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Correct answer: C. Cover crops are planted after the main harvest so roots hold the soil and leaves shield it from rain and wind. A is the trap from the game: more plowing leaves soil loose and bare. B is monoculture.</aside>
+</section>
+
+<!-- 25. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" src="img/phoenix-edge.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1080px">
+    <div class="hero-badge reveal"><b>L<em>11</em></b><span>Geosphere, soil, and land use</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="reveal d2" style="font:400 54px/1.18 var(--display);margin:18px 0 34px">The ground is a living, moving system. How we farm, mine and build decides whether it keeps <em style="color:var(--golden);font-style:normal">supporting life</em>.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Plates, the rock cycle, weathering and erosion build and renew Earth's surface and soil.</li>
+      <li>Soil loss, mining and urbanization change both the structure and the functions of ecosystems.</li>
+      <li>Regenerative practices keep soil covered, rested and alive, so it can recover.</li>
+    </ol>
+    <p class="hero-sub reveal d4" style="margin-top:28px;font-size:24px">Questions? Ask in class or come to office hours.</p>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm4-s1';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* === FLIP CARDS === used by the vocabulary and plate boundary slides */
+const flipCard = ({ term, definition, example, significance }, icon = '') => `
+  <div class="vcard" tabindex="0" role="button" aria-label="${esc(term)}: show example">
+    <div class="in">
+      <div class="f"><h4${icon ? ' class="ih"' : ''}>${icon}${esc(term)}</h4><p>${esc(definition)}</p><span class="hint">Tap for example</span></div>
+      <div class="b"><h4>Example</h4><p>${esc(example)}</p>${significance ? `<p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(significance)}</p>` : ''}</div>
+    </div>
+  </div>`;
+function wireFlips(root) {
+  $$('.vcard', root).forEach(c => {
+    const flip = () => c.classList.toggle('flip');
+    c.addEventListener('click', flip);
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
+  });
+}
+
+/* === COURSE DATA === the session (m4-s1) supplies the module, assignments and next class.
+   Today's vocabulary comes from the Module 3 glossary (soil and land terms), plus
+   Lithosphere, which is not in the glossary. */
+const TERMS = ['Soil Erosion', 'Land Use Change', 'Anthropogenic Impact', 'Conservation'];
+const EXTRA_TERM = {
+  term: 'Lithosphere',
+  definition: "Earth's rigid outer shell, made of the crust and the uppermost mantle, broken into moving tectonic plates.",
+  example: 'The North American Plate carries all of Arizona, from the Grand Canyon to the Phoenix valley floor.',
+  significance: 'Its rock and soil give land life a place to live and supply nutrients for plants.',
+};
+const VOCAB_ICONS = { 'soil erosion': ['waves', 'gold'], 'land use change': ['city', ''], 'anthropogenic impact': ['factory', 'bad'], 'conservation': ['shield', 'green'], 'lithosphere': ['mountain', 'sky'] };
+const icon = t => { const [i, tone] = VOCAB_ICONS[t.toLowerCase()] || ['book', '']; return `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`; };
+function showTerms(course) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  const terms = [...TERMS.map(t => gloss.find(g => g.term === t)).filter(Boolean), EXTRA_TERM];
+  $('[data-vocab]').innerHTML = terms.map(t => flipCard(t, icon(t.term))).join('');
+  wireFlips($('[data-vocab]'));
+  $('[data-chips]').innerHTML = terms.map(t => `<span class="chip">${esc(t.term)}</span>`).join(' ');
+}
+loadSession(LECTURE).then(d => { fill(document, d); showTerms(d.course); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === PLATE BOUNDARIES === */
+const PLATES = [
+  { term: 'Divergent', definition: 'Plates pull apart and magma rises to fill the gap.', example: 'Mid-ocean ridges and rift valleys, like the Mid-Atlantic Ridge and the East African Rift.' },
+  { term: 'Convergent', definition: 'Plates push together; one may sink beneath the other.', example: 'Mountain ranges and volcanoes, like the Himalayas and the Andes.' },
+  { term: 'Transform', definition: 'Plates slide past each other sideways.', example: "Fault lines and earthquakes, like California's San Andreas Fault." },
+];
+$('[data-plates]').innerHTML = PLATES.map(p => flipCard(p)).join('');
+wireFlips($('[data-plates]'));
+
+/* === ROCK CYCLE === step through the arrows */
+const RC = [
+  ['Magma', 'Cooling', '<b>Magma cools</b> and hardens into <b>igneous rock</b>, like granite or basalt.'],
+  ['Igneous', 'Weathering and erosion', 'At the surface, <b>weathering and erosion</b> break rock into sediment: gravel, sand and silt.'],
+  ['Sediment', 'Compaction', 'Layers of sediment are buried, <b>compacted and cemented</b> into <b>sedimentary rock</b>, like sandstone.'],
+  ['Sedimentary', 'Heat and pressure', 'Deep underground, <b>heat and pressure</b> change rock into <b>metamorphic rock</b>, like marble or schist.'],
+  ['Metamorphic', 'Melting', 'Even deeper, rock <b>melts</b> back into magma, and the cycle starts again.'],
+];
+let rcStep = 0;
+function drawRc() {
+  $$('#rock-cycle .node').forEach(n => n.classList.toggle('on', +n.dataset.node === rcStep));
+  $$('#rock-cycle .arr').forEach(a => a.classList.toggle('on', +a.dataset.step === rcStep));
+  $('#rc-cap').innerHTML = `<span class="small mute">Step ${rcStep + 1} of ${RC.length}</span><br>${RC[rcStep][2]}`;
+}
+$('#rc-next').addEventListener('click', () => { rcStep = (rcStep + 1) % RC.length; drawRc(); });
+$('#rc-prev').addEventListener('click', () => { rcStep = (rcStep + RC.length - 1) % RC.length; drawRc(); });
+drawRc();
+
+/* === PAVE THE WATERSHED === EPA stages (FISRWG 1998): natural cover, 10-20%, 35-50% and
+   75-100% impervious. Values between stages are interpolated. */
+const STAGES = [[0, 40, 10, 25, 25], [15, 38, 20, 21, 21], [42, 35, 30, 20, 15], [88, 30, 55, 10, 5], [100, 30, 55, 10, 5]];
+const FLOWS = [['et', 'Evaporation and plants'], ['run', 'Runoff'], ['sh', 'Shallow infiltration'], ['deep', 'Deep infiltration']];
+function drawWater() {
+  const x = +$('#imp').value;
+  $('#imp-out').textContent = `${x}%`;
+  const i = Math.max(0, STAGES.findIndex(s => s[0] >= x) - 1);
+  const [a, b] = [STAGES[i], STAGES[i + 1]];
+  const f = (x - a[0]) / (b[0] - a[0]);
+  const v = [1, 2, 3, 4].map(k => a[k] + (b[k] - a[k]) * f);
+  const tot = v.reduce((s, n) => s + n, 0);
+  const pct = v.map(n => Math.round(n / tot * 100));
+  $('#water').innerHTML = FLOWS.map(([c, t], k) => `<div class="wrow ${c}"><span>${t}</span><div><i style="width:${pct[k] / 60 * 100}%"></i></div><b>${pct[k]}%</b></div>`).join('');
+  $('#imp-msg').textContent = x < 10 ? 'Open desert or grassland: most rain soaks in or returns to the air. Only a small share runs off.'
+    : x < 40 ? 'A suburb: runoff has doubled. Storm drains start to carry water that used to soak in.'
+    : x < 75 ? 'A busy city: nearly a third of the rain runs off, and less water refills the ground.'
+    : 'A paved downtown: more than half of the rain rushes off roofs and roads. Underpasses flood in monsoon storms.';
+}
+$('#imp').addEventListener('input', drawWater);
+drawWater();
+
+/* === LIVE === attendance, polls, quiz and games */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+  $('[data-poll-who]').hidden = !!u;
+}
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per student, changeable. The warm-up comes before the attendance
+   slide, so students who have not checked in yet type their name and email beside it. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!live.user() && id === 'warmup') {
+      $('[data-poll-who]').hidden = false;
+      try { await live.signIn($('[data-poll-name]').value, $('[data-poll-email]').value); showUser(); }
+      catch (e) { say(st, e.message, 'err'); return; }
+    }
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === REVIEW QUIZ === */
+const QUIZ = [
+  ['In the demographic transition model, which falls first as a country develops?', ['Birth rate', 'Death rate', 'Population size'], 1, 'Death rates fall first, with better food, water and medicine; birth rates fall later.'],
+  ['Fertilizer runoff feeds algae blooms that use up a lake\'s oxygen. This is:', ['Eutrophication', 'Acid rain', 'Salinization'], 0, 'Extra nutrients (eutrophication) cause blooms, then oxygen-starved dead zones.'],
+  ['A watershed is…', ['A layer of water underground', 'A dam\'s reservoir', 'Land that drains to one river or lake'], 2, 'All rain and snowmelt in a watershed drains to one outlet.'],
+  ['Ground-level ozone is a ___ pollutant.', ['Secondary', 'Primary', 'Harmless'], 0, 'It forms in the air from NOx and VOCs in sunlight.'],
+  ['Acid rain mostly comes from…', ['CO₂ and methane', 'CFCs', 'SO₂ and NOx'], 2, 'Sulfur dioxide and nitrogen oxides from burning fuel form acids in clouds.'],
+  ['Which is NOT one of today\'s three human impacts on Earth\'s surface?', ['Soil loss', 'Volcanic eruptions', 'Land use change'], 1, 'Volcanoes are natural. Soil loss, mining and land use change are human.'],
+];
+const quizPick = QUIZ.map(() => null);
+$('[data-quiz]').innerHTML = QUIZ.map(([q, ch], i) => `<div class="q" data-q="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${ch.map((c, j) => `<button type="button" data-c="${j}">${esc(c)}</button>`).join('')}</div><div class="why">${esc(QUIZ[i][3])}</div></div>`).join('');
+$$('[data-q]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || q.classList.contains('done')) return;
+  quizPick[q.dataset.q] = +b.dataset.c;
+  $$('button', q).forEach(x => x.classList.toggle('on', x === b));
+}));
+$('#quiz-check').addEventListener('click', async () => {
+  const st = $('#quiz-status');
+  if (quizPick.includes(null)) { say(st, `Answer all ${QUIZ.length} questions first.`, 'err'); return; }
+  let score = 0;
+  $$('[data-q]').forEach(q => {
+    const i = +q.dataset.q, right = QUIZ[i][2];
+    q.classList.add('done');
+    $$('button', q).forEach(b => { b.classList.toggle('right', +b.dataset.c === right); b.classList.toggle('wrong', +b.dataset.c !== right); });
+    if (quizPick[i] === right) score++;
+  });
+  say(st, `${score} of ${QUIZ.length} correct.`, score >= 4 ? 'ok' : '');
+  if (!live.user()) { st.textContent += ' Check in to have your score counted.'; return; }
+  try { await live.saveSim('review-quiz', { score, answers: quizPick }); st.textContent += ' Score submitted.'; }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === TIMELAPSE EXPLORATION === pick a sector and topic, then answer five questions */
+/* Preset Timelapse views: latitude, longitude and zoom, over the full 1984-2022 record.
+   The Aral Sea view is the instructor's starting link. */
+const TL = (lat, lng, z) => `https://earthengine.google.com/timelapse#v=${lat},${lng},${z},latLng&t=2.14&ps=50&bt=19840101&et=20221231`;
+const SECTORS = [
+  { id: 'energy', name: 'Energy', cls: 'en', icon: 'bolt', tone: 'gold', topics: [['mining', 'Mining', 'Alberta oil sands, Canada', TL(57.02, -111.55, 9.5)], ['glaciers', 'Glaciers', 'Columbia Glacier, Alaska', TL(61.13, -147.08, 10)]] },
+  { id: 'ecology', name: 'Ecology', cls: 'ec', icon: 'tree', tone: 'green', topics: [['deforestation', 'Deforestation', 'Rondônia, Brazil', TL(-10.0, -63.0, 7.5)], ['rivers', 'River systems', 'Ucayali River, Peru', TL(-8.4, -74.55, 10)]] },
+  { id: 'urban', name: 'Urbanization and economy', cls: 'ur', icon: 'city', tone: '', topics: [['agriculture', 'Agriculture', 'Aral Sea, Kazakhstan and Uzbekistan', TL(44.99729, 59.79043, 5.508)], ['urbanization', 'Urbanization', 'Phoenix metro, Arizona', TL(33.45, -111.95, 9.5)]] },
+];
+let choice = null;
+$('[data-sectors]').innerHTML = SECTORS.map(s => `<div class="sector ${s.cls}"><span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span><span class="tag" style="margin-left:10px">Sector</span><h3>${esc(s.name)}</h3>${s.topics.map(([id, n, tip]) => `<button type="button" class="topic" data-sector="${s.id}" data-topic="${id}"><b>${esc(n)}</b><small>Starts at: ${esc(tip)}</small></button>`).join('')}</div>`).join('');
+function showChoice() {
+  $$('.topic').forEach(b => b.classList.toggle('on', !!choice && b.dataset.topic === choice.topic));
+  if (!choice) { $('#picked').innerHTML = '<span style="padding-left:12px">Pick a sector on the last slide</span>'; return; }
+  const s = SECTORS.find(x => x.id === choice.sector), t = s.topics.find(x => x[0] === choice.topic);
+  $('#picked').innerHTML = `<span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span>${esc(s.name)} · ${esc(t[1])}`;
+  $('#tl-open').href = t[3];
+  say($('#sector-status'), `You picked ${s.name}: ${t[1]}. The button opens ${t[2]}.`, 'ok');
+}
+$('[data-sectors]').addEventListener('click', e => {
+  const b = e.target.closest('.topic'); if (!b) return;
+  choice = { sector: b.dataset.sector, topic: b.dataset.topic };
+  showChoice();
+});
+showChoice();
+const years = Array.from({ length: 2022 - 1984 + 1 }, (_, i) => 1984 + i);
+$('#tl-from').innerHTML = years.map(y => `<option>${y}</option>`).join('');
+$('#tl-to').innerHTML = years.map(y => `<option>${y}</option>`).join('');
+$('#tl-to').value = 2022;
+$('#tl-save').addEventListener('click', async () => {
+  const st = $('#tl-status');
+  if (!choice) { say(st, 'Pick a sector and topic on the previous slide first.', 'err'); return; }
+  const val = id => $(id).value.trim().slice(0, 500);
+  const data = { ...choice, place: val('#tl-place').slice(0, 120), biome: val('#tl-biome'), from: +$('#tl-from').value, to: +$('#tl-to').value, when: val('#tl-when'), changes: val('#tl-changes'), causes: val('#tl-causes'), geo: val('#tl-geo') };
+  if (!data.place || !data.changes || !data.causes || !data.geo) { say(st, 'Fill in the place and questions 3 to 5 first.', 'err'); return; }
+  if (data.from >= data.to) { say(st, 'The start year must come before the end year.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('timelapse-explorer', data); say(st, 'Submitted. Be ready to share one change you saw.', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === KEEP THE TOPSOIL === a teaching model, not measured data. A sloped, tilled field
+   loses 18 t/acre/yr. Each practice multiplies the loss; 3 seasons of effort to spend.
+   Tolerable loss is 5 t/acre/yr; 8 inches of topsoil is about 1,200 t/acre. */
+const BASE = 18, TOLERABLE = 5, TOPSOIL = 1200, EFFORT = 3;
+const PRACTICES = [
+  { id: 'notill', name: 'Switch to no-till', note: 'Leave last season\'s residue as mulch', cost: 1, x: .35 },
+  { id: 'cover', name: 'Plant cover crops', note: 'Roots in the ground all year', cost: 1, x: .5 },
+  { id: 'terrace', name: 'Build terraces and contour rows', note: 'Slow water running downhill', cost: 2, x: .45 },
+  { id: 'wind', name: 'Plant a windbreak', note: 'Trees cut wind across the field', cost: 1, x: .85 },
+  { id: 'rotate', name: 'Rotate crops and rest a field', note: 'Different roots, more organic matter', cost: 1, x: .75 },
+  { id: 'plow', name: 'Plow more often to loosen soil', note: 'Fluffy soil looks healthier', cost: 1, x: 1.5, dud: 'Trap! Loose, bare soil washes and blows away faster. Tillage breaks up the clumps that hold soil together.' },
+];
+const picked = new Set();
+const effort = () => [...picked].reduce((s, id) => s + PRACTICES.find(p => p.id === id).cost, 0);
+$('#soil-hand').innerHTML = PRACTICES.map(p => `<button type="button" class="act${p.dud ? ' dud' : ''}" data-id="${p.id}" aria-pressed="false"><b>${esc(p.name)}</b><span class="c">${p.cost} season${p.cost > 1 ? 's' : ''}</span><small>${esc(p.note)}</small></button>`).join('');
+$('#soil-hand').addEventListener('click', e => {
+  const b = e.target.closest('.act'); if (!b) return;
+  const p = PRACTICES.find(x => x.id === b.dataset.id);
+  if (picked.has(p.id)) picked.delete(p.id); else if (effort() + p.cost <= EFFORT) picked.add(p.id);
+  drawSoil();
+});
+let soilNow = null;
+function drawSoil() {
+  const used = effort();
+  $$('#soil-hand .act').forEach(b => {
+    const p = PRACTICES.find(x => x.id === b.dataset.id), on = picked.has(p.id);
+    b.classList.toggle('on', on); b.setAttribute('aria-pressed', on);
+    b.classList.toggle('no', !on && used + p.cost > EFFORT);
+  });
+  $('#soil-bar').style.width = `${used / EFFORT * 100}%`;
+  $('#soil-left').textContent = `${EFFORT - used} left`;
+  const chosen = PRACTICES.filter(p => picked.has(p.id));
+  const loss = +(chosen.reduce((l, p) => l * p.x, BASE)).toFixed(1);
+  const left = Math.max(0, 1 - loss * 50 / TOPSOIL);
+  soilNow = { practices: chosen.map(p => p.id), loss, sustainable: loss <= TOLERABLE, topsoilLeft: Math.round(left * 100) };
+  $('#soil-v').textContent = loss;
+  const cat = $('#soil-cat');
+  const [label, col] = loss <= 2 ? ['Regenerating', '#8cc68c'] : loss <= TOLERABLE ? ['Within tolerable loss', '#eccf72'] : ['Losing topsoil fast', '#d9604c'];
+  cat.textContent = label; cat.style.background = col;
+  /* hillside: brown topsoil band thins as 50 years of loss add up */
+  const top = 18 + 50 * left;
+  $('#soil-hill').innerHTML = `<path d="M0 60 L600 150 L600 170 L0 170Z" fill="#b99a74"/><path d="M0 ${60 - top} L600 ${150 - top} L600 150 L0 60Z" fill="#5b3a22"/><path d="M0 ${60 - top} L600 ${150 - top}" stroke="#75a29f" stroke-width="6"/><text x="10" y="164" style="fill:#fff">Subsoil</text><text x="250" y="164" style="fill:#fff">Topsoil left after 50 years: ${soilNow.topsoilLeft}%</text>`;
+  const dud = chosen.find(p => p.dud);
+  $('#soil-msg').textContent = dud ? dud.dud
+    : !chosen.length ? 'The field is plowed bare every year. Spend your effort on practices that protect the soil.'
+    : loss <= TOLERABLE ? `Loss is down to ${loss} t per acre a year, under the ${TOLERABLE}-ton tolerable limit. Which card did the most?`
+    : `Still ${loss} t per acre a year, above the ${TOLERABLE}-ton limit. Try combining practices that cover soil and slow water.`;
+}
+drawSoil();
+$('#soil-save').addEventListener('click', async () => {
+  const st = $('#soil-status');
+  if (!soilNow.practices.length) { say(st, 'Pick at least one practice first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('keep-the-topsoil', soilNow); say(st, `Submitted: ${soilNow.loss} t per acre a year.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
