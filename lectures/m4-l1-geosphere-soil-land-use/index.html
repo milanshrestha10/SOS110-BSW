@@ -202,14 +202,9 @@
       <button class="opt" type="button"><b>C</b>More roads, parking lots and paved surfaces</button>
       <button class="opt" type="button"><b>D</b>Not much has changed where I live</button>
     </div>
-    <div class="signin reveal d4" data-poll-who hidden>
-      <input class="field" data-poll-name placeholder="Your full name" autocomplete="name" maxlength="120" style="width:330px;font-size:26px;padding:12px 18px">
-      <input class="field" data-poll-email type="email" placeholder="Email address" autocomplete="email" maxlength="120" style="width:360px;font-size:26px;padding:12px 18px">
-      <span class="small mute">Type these once to vote.</span>
-    </div>
     <div class="status" data-poll-status="warmup"></div>
   </div>
-  <aside class="notes">No right answer: this is to surface what students have seen. Most Phoenix-area students will pick A or C. Come back to their answers in the land use and urbanization section, where paving changes how water moves.</aside>
+  <aside class="notes">No right answer and no sign-in: answers are anonymous. This is to surface what students have seen. Most Phoenix-area students will pick A or C. Come back to their answers in the land use and urbanization section, where paving changes how water moves.</aside>
 </section>
 
 <!-- 3. BIG IDEAS -->
@@ -249,7 +244,7 @@
       <p class="small mute" data-mode-note></p>
     </div>
   </div>
-  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes. Students who voted in the warm-up already have their name and email filled in.</aside>
+  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes. The warm-up poll is anonymous, so this is the first place students type their name and email.</aside>
 </section>
 
 <!-- 5. THREE KEY WAYS -->
@@ -790,7 +785,6 @@ if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers s
 function showUser() {
   const u = live.user();
   if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
-  $('[data-poll-who]').hidden = !!u;
 }
 showUser();
 
@@ -802,6 +796,7 @@ async function ensureUser(statusEl) {
 
 $('#checkin').addEventListener('click', async () => {
   const st = $('#checkin-status');
+  say(st, 'Checking in…');
   try {
     await live.signIn($('[data-name]').value, $('[data-email]').value);
     await live.checkIn($('#code').value);
@@ -810,19 +805,15 @@ $('#checkin').addEventListener('click', async () => {
   } catch (e) { say(st, e.message, 'err'); }
 });
 
-/* Polls: one answer per student, changeable. The warm-up comes before the attendance
-   slide, so students who have not checked in yet type their name and email beside it. */
+/* Polls: one answer per browser, changeable. Polls need no check-in, so the warm-up works
+   before the attendance slide; the other polls still ask students to check in first. */
 $$('[data-poll]').forEach(poll => {
   const id = poll.dataset.poll;
   const st = $(`[data-poll-status="${id}"]`);
   $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
-    if (!live.user() && id === 'warmup') {
-      $('[data-poll-who]').hidden = false;
-      try { await live.signIn($('[data-poll-name]').value, $('[data-poll-email]').value); showUser(); }
-      catch (e) { say(st, e.message, 'err'); return; }
-    }
-    if (!await ensureUser(st)) return;
+    if (id !== 'warmup' && !await ensureUser(st)) return;
     $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
     try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
     catch (e) { say(st, e.message, 'err'); }
   }));
