@@ -270,15 +270,15 @@
   <div class="content">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · Google Earth Timelapse, 1984 to 2022</div>
     <h2 class="reveal d2" style="margin-bottom:18px;font-size:68px">Human impacts show up in <em>every</em> biome</h2>
-    <p class="small mute reveal d2" style="margin-bottom:18px">Pick one sector and one topic. Each topic suggests a place to start; you can choose your own.</p>
+    <p class="small mute reveal d2" style="margin-bottom:18px">Pick one sector and one topic. The button opens Timelapse at that topic's place; search for your own place if you like.</p>
     <div class="sectors reveal d3" data-sectors></div>
     <div class="go-tl reveal d4">
-      <a class="btn" href="https://earthengine.google.com/timelapse/" target="_blank" rel="noopener">Open Timelapse <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-out"/></svg></a>
+      <a class="btn" id="tl-open" href="https://earthengine.google.com/timelapse#v=44.99729,59.79043,5.508,latLng&amp;t=2.14&amp;ps=50&amp;bt=19840101&amp;et=20221231" target="_blank" rel="noopener">Open Timelapse <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-out"/></svg></a>
       <code>earthengine.google.com/timelapse</code>
       <span class="status" id="sector-status" style="margin:0"></span>
     </div>
   </div>
-  <aside class="notes">Timelapse stitches together satellite images from 1984 to 2022, so students can watch one place change year by year. It can't be embedded in the deck, so it opens in a new tab. Students type a place name in the search box. Suggested places are well-known examples; students can pick any place that fits their topic. Pairs work well: one drives Timelapse, the other writes. Give about 10 minutes, then take answers on the next slide.</aside>
+  <aside class="notes">Timelapse stitches together satellite images from 1984 to 2022, so students can watch one place change year by year. It can't be embedded in the deck, so it opens in a new tab. Picking a topic points the Open Timelapse button at a preset view of that place, 1984 to 2022; before a pick it opens the Aral Sea, which shrank as its rivers were diverted to irrigate cotton. Students can also type any place into the search box. Pairs work well: one drives Timelapse, the other writes. Give about 10 minutes, then take answers on the next slide.</aside>
 </section>
 
 <!-- 8. EXPLORATION: ANSWER -->
@@ -846,19 +846,23 @@ $('#quiz-check').addEventListener('click', async () => {
 });
 
 /* === TIMELAPSE EXPLORATION === pick a sector and topic, then answer five questions */
+/* Preset Timelapse views: latitude, longitude and zoom, over the full 1984-2022 record.
+   The Aral Sea view is the instructor's starting link. */
+const TL = (lat, lng, z) => `https://earthengine.google.com/timelapse#v=${lat},${lng},${z},latLng&t=2.14&ps=50&bt=19840101&et=20221231`;
 const SECTORS = [
-  { id: 'energy', name: 'Energy', cls: 'en', icon: 'bolt', tone: 'gold', topics: [['mining', 'Mining', 'Try: Alberta oil sands, Canada, or Morenci copper mine, Arizona'], ['glaciers', 'Glaciers', 'Try: Columbia Glacier, Alaska']] },
-  { id: 'ecology', name: 'Ecology', cls: 'ec', icon: 'tree', tone: 'green', topics: [['deforestation', 'Deforestation', 'Try: Rondônia, Brazil'], ['rivers', 'River systems', 'Try: Ucayali River, Peru']] },
-  { id: 'urban', name: 'Urbanization and economy', cls: 'ur', icon: 'city', tone: '', topics: [['agriculture', 'Agriculture', 'Try: Wadi As-Sirhan, Saudi Arabia, or Buckeye, Arizona'], ['urbanization', 'Urbanization', 'Try: Las Vegas, Nevada, or Queen Creek, Arizona']] },
+  { id: 'energy', name: 'Energy', cls: 'en', icon: 'bolt', tone: 'gold', topics: [['mining', 'Mining', 'Alberta oil sands, Canada', TL(57.02, -111.55, 9.5)], ['glaciers', 'Glaciers', 'Columbia Glacier, Alaska', TL(61.13, -147.08, 10)]] },
+  { id: 'ecology', name: 'Ecology', cls: 'ec', icon: 'tree', tone: 'green', topics: [['deforestation', 'Deforestation', 'Rondônia, Brazil', TL(-10.0, -63.0, 7.5)], ['rivers', 'River systems', 'Ucayali River, Peru', TL(-8.4, -74.55, 10)]] },
+  { id: 'urban', name: 'Urbanization and economy', cls: 'ur', icon: 'city', tone: '', topics: [['agriculture', 'Agriculture', 'Aral Sea, Kazakhstan and Uzbekistan', TL(44.99729, 59.79043, 5.508)], ['urbanization', 'Urbanization', 'Phoenix metro, Arizona', TL(33.45, -111.95, 9.5)]] },
 ];
 let choice = null;
-$('[data-sectors]').innerHTML = SECTORS.map(s => `<div class="sector ${s.cls}"><span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span><span class="tag" style="margin-left:10px">Sector</span><h3>${esc(s.name)}</h3>${s.topics.map(([id, n, tip]) => `<button type="button" class="topic" data-sector="${s.id}" data-topic="${id}"><b>${esc(n)}</b><small>${esc(tip)}</small></button>`).join('')}</div>`).join('');
+$('[data-sectors]').innerHTML = SECTORS.map(s => `<div class="sector ${s.cls}"><span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span><span class="tag" style="margin-left:10px">Sector</span><h3>${esc(s.name)}</h3>${s.topics.map(([id, n, tip]) => `<button type="button" class="topic" data-sector="${s.id}" data-topic="${id}"><b>${esc(n)}</b><small>Starts at: ${esc(tip)}</small></button>`).join('')}</div>`).join('');
 function showChoice() {
   $$('.topic').forEach(b => b.classList.toggle('on', !!choice && b.dataset.topic === choice.topic));
   if (!choice) { $('#picked').innerHTML = '<span style="padding-left:12px">Pick a sector on the last slide</span>'; return; }
   const s = SECTORS.find(x => x.id === choice.sector), t = s.topics.find(x => x[0] === choice.topic);
   $('#picked').innerHTML = `<span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span>${esc(s.name)} · ${esc(t[1])}`;
-  say($('#sector-status'), `You picked ${s.name}: ${t[1]}.`, 'ok');
+  $('#tl-open').href = t[3];
+  say($('#sector-status'), `You picked ${s.name}: ${t[1]}. The button opens ${t[2]}.`, 'ok');
 }
 $('[data-sectors]').addEventListener('click', e => {
   const b = e.target.closest('.topic'); if (!b) return;
