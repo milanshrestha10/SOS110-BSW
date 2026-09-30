@@ -83,8 +83,11 @@ function demoBackend(lectureId) {
       update(d => { (d.attendance ||= {})[me.uid] = { name: me.name, email: me.email, at: Date.now() }; });
     },
     async vote(poll, choice) {
-      if (!me) throw new Error('Check in on the attendance slide first.');
-      update(d => { (d.votes ||= {})[`${poll}__${me.uid}`] = { poll, choice, uid: me.uid, at: Date.now() }; });
+      /* polls need no check-in: an anonymous browser id is enough */
+      let uid = me?.uid;
+      if (!uid) { try { uid = localStorage.getItem('sos110-demo-voter'); } catch { /* ignore */ } }
+      if (!uid) { uid = crypto.randomUUID(); try { localStorage.setItem('sos110-demo-voter', uid); } catch { /* ignore */ } }
+      update(d => { (d.votes ||= {})[`${poll}__${uid}`] = { poll, choice, uid, at: Date.now() }; });
     },
     async saveSim(sim, data) {
       if (!me) throw new Error('Check in on the attendance slide first.');
@@ -119,6 +122,14 @@ async function firebaseBackend(lectureId) {
   let me = toUser(a.currentUser);
   await new Promise(r => { const off = auth.onAuthStateChanged(a, u => { me = toUser(u); off(); r(); }); });
   const need = () => { if (!me) throw new Error('Check in on the attendance slide first.'); };
+  /* The session a poll answer is written under: the current anonymous student session, or a
+     new one. Polls don't need a check-in, so no name or email is required. */
+  async function studentSession() {
+    let u = a.currentUser;
+    if (u && !u.isAnonymous) { await auth.signOut(a); u = null; me = null; }
+    if (!u) { try { u = (await auth.signInAnonymously(a)).user; } catch (e) { throw explain(e); } }
+    return u;
+  }
   const list = (name, cb) => fs.onSnapshot(col(name), s => cb(s.docs.map(d => ({ id: d.id, ...d.data() }))), () => cb([]));
 
   return {
@@ -128,6 +139,9 @@ async function firebaseBackend(lectureId) {
     async signIn(name, email) {
       const p = saveProfile(name, email);
       let u = a.currentUser;
+      // A Google session left in this browser (e.g. the instructor testing a deck) is not a
+      // student: the rules refuse its check-in. Swap it for an anonymous student session.
+      if (u && !u.isAnonymous) { await auth.signOut(a); u = null; }
       if (!u) { try { u = (await auth.signInAnonymously(a)).user; } catch (e) { throw explain(e); } }
       me = { uid: u.uid, ...p };
       return me;
@@ -141,9 +155,10 @@ async function firebaseBackend(lectureId) {
       } catch (e) { throw explain(e, 'That code does not match the one on screen. If it does, ask your instructor to press New code again.'); }
     },
     async vote(poll, choice) {
-      need();
-      try { await fs.setDoc(fs.doc(col('votes'), `${poll}__${me.uid}`), { poll, choice, uid: me.uid, at: fs.serverTimestamp() }); }
-      catch (e) { throw explain(e, 'The class server did not accept this answer. Check in on the attendance slide, then try again.'); }
+      /* polls need no check-in: any anonymous student session can answer */
+      const u = await studentSession();
+      try { await fs.setDoc(fs.doc(col('votes'), `${poll}__${u.uid}`), { poll, choice, uid: u.uid, at: fs.serverTimestamp() }); }
+      catch (e) { throw explain(e, 'The class server did not accept this answer. Try again.'); }
     },
     async saveSim(sim, data) {
       need();
