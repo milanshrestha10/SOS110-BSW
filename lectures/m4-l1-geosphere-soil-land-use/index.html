@@ -12,11 +12,26 @@
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 .fig.plain{border:0;background:transparent}
 .credit{font-size:16px;color:var(--mute);margin-top:6px}
-/* title photo: the desert edge fades in, then the new neighborhoods come into focus */
-.title-photo{position:absolute;left:740px;top:600px;width:1100px;height:380px;border-radius:18px;overflow:hidden;background:#d9c7a3}
-.title-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;opacity:0;transform:scale(1.1);transition:opacity 2.4s .5s ease,transform 9s .5s var(--ease)}
-.slide.visible .title-photo img{opacity:1;transform:none}
-.title-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 18px;font-size:18px;color:#fff;background:linear-gradient(transparent,rgba(10,42,53,.8))}
+/* hero slides: the Phoenix photo fills the slide and fades in; a dark scrim on the left keeps the text readable */
+.hero{background:#0a2a35}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center 80%;opacity:0;transform:scale(1.08);transition:opacity 2.2s .3s ease,transform 10s .3s var(--ease)}
+.slide.visible .hero-img{opacity:1;transform:none}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,33,43,.96) 0%,rgba(7,33,43,.9) 38%,rgba(7,33,43,.55) 62%,rgba(7,33,43,.1) 85%),linear-gradient(0deg,rgba(7,33,43,.7) 0%,rgba(7,33,43,0) 30%)}
+.hero-text{position:absolute;left:140px;top:120px;width:1020px;color:var(--paper)}
+.hero-badge{display:flex;align-items:center;gap:22px}
+.hero-badge b{font:400 64px/1 var(--display);color:var(--paper);border:3px solid var(--golden);border-radius:14px;padding:10px 18px 12px}
+.hero-badge b em{color:var(--golden);font-style:normal}
+.hero-badge span{font:800 30px/1.15 var(--sans);letter-spacing:.01em;max-width:560px}
+.hero .title-k{position:static;color:var(--golden);margin-top:64px}
+.hero h1{font:400 118px/1.02 var(--display);letter-spacing:-.01em;margin:18px 0 26px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{color:var(--golden);font-style:normal}
+.hero-sub{font-size:30px;line-height:1.45;color:rgba(246,242,233,.9)}
+.hero .chip{background:rgba(246,242,233,.1);border-color:rgba(236,207,114,.8);color:var(--paper)}
+.hero .title-terms{position:static;margin-top:34px;width:auto}
+.hero .goldline{position:static;margin-top:44px;width:0}
+.slide.visible.hero .goldline{width:200px}
+.hero-cap{position:absolute;right:40px;bottom:30px;font-size:18px;color:rgba(246,242,233,.92);text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.hero .num li::before{background:var(--golden);color:var(--ink)}
 /* five vocabulary cards: three on top, two centred below */
 .vocab.five{grid-template-columns:repeat(6,1fr)}
 .vocab.five .vcard{grid-column:span 2;height:318px}
@@ -160,15 +175,18 @@
 <div class="deck-viewport"><main class="deck-stage" id="deckStage">
 
 <!-- 1. TITLE -->
-<section class="slide">
-  <div class="band"></div>
-  <div class="band-num reveal">M<em>04</em></div>
-  <div class="band-text reveal d2"><span data-fill="module-title">Systems Dynamics in Sustainability</span><small>Lecture 11<br>Sherman &amp; Montgomery (2023), Ch. 9</small></div>
-  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
-  <div class="title-k reveal">Lecture 11 · S&amp;M Chapter 9</div>
-  <h1 class="title-h reveal d2" style="font-size:96px">Geosphere, soil, and <em>land use</em></h1>
-  <div class="title-terms reveal d3" style="top:490px" data-chips></div>
-  <figure class="title-photo"><img src="img/phoenix-edge.jpg" alt="Aerial view of new apartment buildings and homes under construction at the edge of open Sonoran Desert, with desert mountains behind"><figcaption>Where the city meets the desert: new neighborhoods on the edge of the Valley</figcaption></figure>
+<section class="slide hero">
+  <img class="hero-img" src="img/phoenix-edge.jpg" alt="Aerial view of new apartment buildings and homes under construction at the edge of open Sonoran Desert, with desert mountains behind">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 11 · S&amp;M Chapter 9</div>
+    <h1 class="reveal d2">Geosphere, soil, and <em>land use</em></h1>
+    <p class="hero-sub reveal d3">Where the city meets the desert: how the ground under our feet supports life, and how we change it.</p>
+    <div class="title-terms reveal d3" data-chips></div>
+    <div class="goldline"></div>
+  </div>
+  <p class="hero-cap reveal d4">New neighborhoods on the desert edge of the Valley</p>
   <aside class="notes">Welcome to Lecture 11. Let the photo fade in before you speak: open desert at the top, brand-new neighborhoods at the bottom. Ask what the land was doing before the houses arrived (holding rain, growing plants, storing carbon) and what it does now. Reading: Sherman and Montgomery (2023), Chapter 9. The photo is from the instructor's original title slide; its original credit was not printed there.</aside>
 </section>
 
@@ -529,9 +547,9 @@
     <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-city"/></svg></span>Big idea 2 · human impacts on Earth's surface</div>
     <h2 class="reveal d2" style="margin:10px 0 20px;font-size:70px">Land use change and <em>urbanization</em></h2>
     <div class="grid reveal d3" style="grid-template-columns:330px 660px 1fr;gap:24px;align-items:start">
-      <figure class="fig"><img src="img/sprawl.jpg" alt="New subdivisions spreading into open desert"></figure>
-      <figure class="fig plain"><img src="img/infiltration.jpg" alt="Diagram comparing a natural environment, where 40% of rain evaporates, 10% runs off and 50% soaks in, with an urban environment, where 30% evaporates, 55% runs off and 15% soaks in"></figure>
-      <div><figure class="fig"><img src="img/flood.jpg" alt="Cars stranded in a flooded Phoenix freeway underpass after a storm"></figure><p class="credit">Photo: The Republic</p></div>
+      <figure class="fig"><img style="height:350px;object-fit:cover" src="img/sprawl.jpg" alt="New subdivisions spreading into open desert"></figure>
+      <figure class="fig plain"><img style="height:350px;object-fit:contain" src="img/infiltration.jpg" alt="Diagram comparing a natural environment, where 40% of rain evaporates, 10% runs off and 50% soaks in, with an urban environment, where 30% evaporates, 55% runs off and 15% soaks in"></figure>
+      <div><figure class="fig"><img style="height:350px;object-fit:cover" src="img/flood.jpg" alt="Cars stranded in a flooded Phoenix freeway underpass after a storm"></figure><p class="credit">Photo: The Republic</p></div>
     </div>
     <ol class="num reveal d4" style="font-size:25px;margin-top:6px">
       <li><b>Overland flow</b> happens in a rainstorm when soil is saturated, or when rain falls too fast for the soil to absorb it.</li>
@@ -648,18 +666,20 @@
 </section>
 
 <!-- 25. TAKEAWAY -->
-<section class="slide">
-  <div class="band"></div>
-  <div class="band-num reveal">L<em>11</em></div>
-  <div class="band-text reveal d2">Geosphere, soil, and land use<small>Questions? Ask in class or come to office hours.</small></div>
-  <div class="title-k reveal">The takeaway</div>
-  <p class="reveal d2" style="position:absolute;left:740px;top:260px;width:1060px;font:400 50px/1.2 var(--display)">The ground is a living, moving system. How we farm, mine and build decides whether it keeps <em style="color:var(--Sky);font-style:normal">supporting life</em>.</p>
-  <ol class="num reveal d3" style="position:absolute;left:740px;top:540px;width:1060px;font-size:28px">
-    <li>Plates, the rock cycle, weathering and erosion build and renew Earth's surface and soil.</li>
-    <li>Soil loss, mining and urbanization change both the structure and the functions of ecosystems.</li>
-    <li>Regenerative practices keep soil covered, rested and alive, so it can recover.</li>
-  </ol>
-  <div class="goldline" style="top:950px"></div>
+<section class="slide hero">
+  <img class="hero-img" src="img/phoenix-edge.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1080px">
+    <div class="hero-badge reveal"><b>L<em>11</em></b><span>Geosphere, soil, and land use</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="reveal d2" style="font:400 54px/1.18 var(--display);margin:18px 0 34px">The ground is a living, moving system. How we farm, mine and build decides whether it keeps <em style="color:var(--golden);font-style:normal">supporting life</em>.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Plates, the rock cycle, weathering and erosion build and renew Earth's surface and soil.</li>
+      <li>Soil loss, mining and urbanization change both the structure and the functions of ecosystems.</li>
+      <li>Regenerative practices keep soil covered, rested and alive, so it can recover.</li>
+    </ol>
+    <p class="hero-sub reveal d4" style="margin-top:28px;font-size:24px">Questions? Ask in class or come to office hours.</p>
+  </div>
 </section>
 
 </main></div>
