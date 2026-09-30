@@ -109,6 +109,17 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
 .save{display:flex;gap:14px;align-items:center;margin-top:12px;text-align:left}
 .save .btn{font-size:21px;padding:12px 22px}
 .save .status{font-size:19px;margin:0;min-height:0}
+/* where pollution comes from: 100% stacked bars, one row per pollutant */
+.src-bars{display:grid;gap:12px}
+.sb-row{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:18px}
+.sb-row>b{font:400 32px var(--display);color:var(--ink)}
+.sb-bar{display:flex;height:58px;border-radius:10px;overflow:hidden;background:var(--paper-2)}
+.sb-bar i{display:flex;align-items:center;justify-content:center;font:700 20px var(--body);font-style:normal;color:#fff;font-variant-numeric:tabular-nums;border-right:2px solid var(--paper)}
+.sb-bar i:last-child{border-right:0}
+.sb-t{background:#b3452c}.sb-e{background:var(--golden);color:var(--ink)!important}.sb-i{background:var(--Blue)}.sb-m{background:var(--Green)}
+.sb-key{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0 0 18px 138px;font-size:21px}
+.sb-key span{display:inline-flex;align-items:center;gap:10px}
+.sb-key span::before{content:'';width:20px;height:20px;border-radius:5px;background:var(--c)}
 /* acid rain impacts: compact cards beside the illustration */
 .imp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .imp .card{padding:18px 22px}.imp .card p{font-size:22px;line-height:1.35}
@@ -301,6 +312,36 @@ select.field{width:auto;font-size:28px;padding:10px 16px}
     </div>
   </div>
   <aside class="notes">The chain uses the triple bottom line from Module 1 plus ethics. Each human-induced factor maps to a later section: fossil fuels and vehicles to ozone and acid rain, CFCs to the ozone layer, land change to the urban heat island.</aside>
+</section>
+
+<!-- 10b. WHERE POLLUTION COMES FROM -->
+<section class="slide">
+  <div class="rail"><b>10</b><span>Big idea 1 · Pollutants</span></div>
+  <div class="content">
+    <div class="k reveal ih"><span class="ico sky sm"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 1 · the human factor</div>
+    <h2 class="reveal d2" style="margin-bottom:26px">Where does pollution <em>come from</em>?</h2>
+    <div class="grid" style="grid-template-columns:500px 1fr;gap:60px;align-items:start">
+      <div class="reveal d3">
+        <div class="card blue" style="padding:22px 28px"><span class="tag">What is air pollution?</span><p style="font-size:24px">Adding materials to the atmosphere that harm the health of people or other living things.</p></div>
+        <div class="card gold" style="padding:22px 28px;margin-top:18px"><span class="tag">Matter is conserved</span><p style="font-size:24px">When we burn wood or fuel, the matter doesn't disappear. It changes form and stays in the air as emissions.</p></div>
+        <div class="card green" style="padding:22px 28px;margin-top:18px"><span class="tag">Two kinds</span><p style="font-size:24px"><b>Primary:</b> harmful as emitted. <b>Secondary:</b> formed by reactions in the air.</p></div>
+      </div>
+      <div class="reveal d4" role="img" aria-label="Where U.S. air pollution comes from, share of emissions by source. CO₂: transportation 34.7%, energy 58.3%, industry 6.8%, fires, dust and agriculture 0.2%; NOₓ: transportation 45.6%, energy 28.7%, industry 15.3%, fires, dust and agriculture 10.4%; CO: transportation 53.9%, energy 8.7%, industry 6.4%, fires, dust and agriculture 31.0%; SO₂: transportation 2.0%, energy 59.5%, industry 29.6%, fires, dust and agriculture 8.9%; VOCs: transportation 14.9%, energy 5.6%, industry 51.7%, fires, dust and agriculture 27.8%; PM₂.₅: transportation 3.5%, energy 15.6%, industry 11.2%, fires, dust and agriculture 69.7%.">
+        <p class="small" style="margin:0 0 12px 138px"><b>Where U.S. air pollution comes from</b> · share of emissions</p>
+        <div class="sb-key" aria-hidden="true"><span style="--c:#b3452c">Transportation</span><span style="--c:var(--golden)">Burning fuel for energy</span><span style="--c:var(--Blue)">Industry and other processes</span><span style="--c:var(--Green)">Fires, dust and agriculture</span></div>
+        <div class="src-bars" aria-hidden="true">
+        <div class="sb-row"><b>CO₂</b><div class="sb-bar"><i class="sb-t" style="width:34.7%" title="Transportation: 34.7%">35%</i><i class="sb-e" style="width:58.3%" title="Burning fuel for energy: 58.3%">58%</i><i class="sb-i" style="width:6.8%" title="Industry and other processes: 6.8%"></i><i class="sb-m" style="width:0.2%" title="Fires, dust and agriculture: 0.2%"></i></div></div>
+        <div class="sb-row"><b>NOₓ</b><div class="sb-bar"><i class="sb-t" style="width:45.6%" title="Transportation: 45.6%">46%</i><i class="sb-e" style="width:28.7%" title="Burning fuel for energy: 28.7%">29%</i><i class="sb-i" style="width:15.3%" title="Industry and other processes: 15.3%">15%</i><i class="sb-m" style="width:10.4%" title="Fires, dust and agriculture: 10.4%">10%</i></div></div>
+        <div class="sb-row"><b>CO</b><div class="sb-bar"><i class="sb-t" style="width:53.9%" title="Transportation: 53.9%">54%</i><i class="sb-e" style="width:8.7%" title="Burning fuel for energy: 8.7%">9%</i><i class="sb-i" style="width:6.4%" title="Industry and other processes: 6.4%"></i><i class="sb-m" style="width:31.0%" title="Fires, dust and agriculture: 31.0%">31%</i></div></div>
+        <div class="sb-row"><b>SO₂</b><div class="sb-bar"><i class="sb-t" style="width:2.0%" title="Transportation: 2.0%"></i><i class="sb-e" style="width:59.5%" title="Burning fuel for energy: 59.5%">60%</i><i class="sb-i" style="width:29.6%" title="Industry and other processes: 29.6%">30%</i><i class="sb-m" style="width:8.9%" title="Fires, dust and agriculture: 8.9%">9%</i></div></div>
+        <div class="sb-row"><b>VOCs</b><div class="sb-bar"><i class="sb-t" style="width:14.9%" title="Transportation: 14.9%">15%</i><i class="sb-e" style="width:5.6%" title="Burning fuel for energy: 5.6%"></i><i class="sb-i" style="width:51.7%" title="Industry and other processes: 51.7%">52%</i><i class="sb-m" style="width:27.8%" title="Fires, dust and agriculture: 27.8%">28%</i></div></div>
+        <div class="sb-row"><b>PM₂.₅</b><div class="sb-bar"><i class="sb-t" style="width:3.5%" title="Transportation: 3.5%"></i><i class="sb-e" style="width:15.6%" title="Burning fuel for energy: 15.6%">16%</i><i class="sb-i" style="width:11.2%" title="Industry and other processes: 11.2%">11%</i><i class="sb-m" style="width:69.7%" title="Fires, dust and agriculture: 69.7%">70%</i></div></div>
+        </div>
+        <p class="src" style="margin-left:138px">Data: U.S. EPA, Air Pollutant Emissions Trends Data (national totals, natural emissions from plants excluded); CO₂ from EPA's greenhouse gas inventory, 2022.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Adapted from the Chapter 8 slides (section 8.4). Ask students to find the biggest bar in each row. Transportation leads for CO and NOₓ, the smog and ozone ingredients; burning fuel for energy, mostly power plants, leads for CO₂ and SO₂, the acid rain ingredient; industry, including oil and gas and solvents, leads for VOCs; fires, dust and farming lead for fine particles. Totals, for reference: CO₂ 5,053 million metric tons (2022); the others in thousand tons: CO 48,309, VOCs 13,410, NOₓ 7,902, PM₂.₅ 4,801, SO₂ 1,642. From Chapter 3: matter is conserved, so burned fuel becomes emissions. Unlabelled slivers are under 8%.</aside>
 </section>
 
 <!-- 11. WEATHER VS CLIMATE -->
