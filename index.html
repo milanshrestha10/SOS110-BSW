@@ -66,6 +66,12 @@ h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
 .btn.quiet { background:transparent; color:var(--Blue); border:2px solid var(--Blue); padding:8px 18px; font-size:15px; margin:0; }
 .msg { min-height:1.5em; margin-top:14px; font-size:15px; }
 .msg.err { color:#a3361f; }
+.gate hr { border:0; border-top:1px solid var(--paper-2); margin:28px 0 20px; }
+.code-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+.code-row input { font:700 18px var(--body); letter-spacing:.12em; text-transform:uppercase; padding:10px 16px; border:2px solid var(--paper-2); border-radius:999px; background:#fff; color:var(--ink); width:220px; }
+.code-row input:focus { outline:none; border-color:var(--Sky); }
+.code-row .btn { margin-top:0; }
+.sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 .who { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font-size:15px; color:var(--mute); margin-bottom:8px; }
 
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
@@ -86,8 +92,16 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 <main class="wrap">
   <!-- Shown to everyone until the instructor signs in. Students open lectures from the link shared in class. -->
   <section class="gate" id="gate">
-    <h2>Instructor sign-in</h2>
-    <p>The lecture list is for the instructor. Students: open today's lecture from the link shared in class.</p>
+    <h2>Students</h2>
+    <p>Enter the course access code from your instructor.</p>
+    <form class="code-row" id="code-form">
+      <label class="sr" for="access">Access code</label>
+      <input id="access" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" placeholder="Access code">
+      <button class="btn" type="submit">Open lectures</button>
+    </form>
+    <div class="msg" id="code-msg" role="status"></div>
+    <hr>
+    <h2>Instructor</h2>
     <button class="btn" id="signin" type="button" disabled>Sign in with Google</button>
     <div class="msg" id="msg" role="status">Loading…</div>
   </section>
@@ -132,17 +146,37 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 <script type="module">
 /* === INSTRUCTOR GATE === Google sign-in with the admin account from shared/firebase-config.js */
 import { firebaseConfig, adminEmails } from './shared/firebase-config.js';
+import { accessCodeHash } from './shared/access.js';
 const $ = s => document.querySelector(s);
 const btn = $('#signin'), msg = $('#msg');
 const say = (t, err) => { msg.textContent = t; msg.className = 'msg' + (err ? ' err' : ''); };
 
-function showList(email) {
+function showList(who) {
   const list = $('#list');
   if (!list.dataset.filled) { list.append($('#lectures').content.cloneNode(true)); list.dataset.filled = '1'; }
-  $('#who').textContent = email ? `Signed in as ${email}` : 'Demo mode: no Firebase config, so the list is open.';
-  $('#signout').hidden = !email;
+  $('#who').textContent = who;
   $('#gate').hidden = true; list.hidden = false;
 }
+
+/* === STUDENT ACCESS CODE === checked against the hash in shared/access.js, remembered in this browser */
+const UNLOCK = 'sos110-home-access';
+const hash = async t => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, '0')).join('');
+const unlocked = () => { try { return localStorage.getItem(UNLOCK) === accessCodeHash; } catch { return false; } };
+let signOut = null;
+const showStudent = () => { showList('Student access'); $('#signout').textContent = 'Lock'; };
+$('#code-form').onsubmit = async e => {
+  e.preventDefault();
+  const m = $('#code-msg');
+  const h = await hash('sos110:' + $('#access').value.trim().toUpperCase());
+  if (h !== accessCodeHash) { m.textContent = 'That code is not right. Check with your instructor.'; m.className = 'msg err'; return; }
+  try { localStorage.setItem(UNLOCK, h); } catch { /* storage blocked: unlocked for this visit */ }
+  m.textContent = ''; showStudent();
+};
+$('#signout').onclick = () => {
+  try { localStorage.removeItem(UNLOCK); } catch { /* ignore */ }
+  if (signOut && $('#signout').textContent === 'Sign out') return signOut();
+  $('#list').hidden = true; $('#gate').hidden = false;
+};
 function showGate(text, err) { $('#list').hidden = true; $('#gate').hidden = false; btn.disabled = false; say(text || '', err); }
 
 const tips = {
@@ -154,7 +188,8 @@ const tips = {
 };
 const explain = e => `${tips[e?.code] || e?.message || 'Sign-in failed.'}${e?.code ? ` (${e.code})` : ''}`;
 
-if (!firebaseConfig) showList('');
+if (firebaseConfig && unlocked()) showStudent(); // no need to wait for Firebase
+if (!firebaseConfig) showList('Demo mode: no Firebase config, so the list is open.');
 else {
   try {
     const FB = 'https://www.gstatic.com/firebasejs/10.12.2/';
@@ -162,7 +197,8 @@ else {
     const a = auth.getAuth(initializeApp(firebaseConfig));
     const isAdmin = u => !!u && !u.isAnonymous && adminEmails.includes(u.email);
     const check = u => {
-      if (isAdmin(u)) showList(u.email);
+      if (isAdmin(u)) { showList(`Signed in as ${u.email}`); $('#signout').textContent = 'Sign out'; }
+      else if (unlocked()) { showStudent(); btn.disabled = false; say(''); }
       else if (u && !u.isAnonymous) showGate(`${u.email} is not the instructor account. Sign in with ${adminEmails[0]}.`, true);
       else showGate('');
     };
@@ -180,8 +216,8 @@ else {
         showGate(explain(e), true);
       }
     };
-    $('#signout').onclick = () => auth.signOut(a);
-  } catch (e) { showGate(`Sign-in could not load: ${e.message}`, true); btn.disabled = true; }
+    signOut = () => auth.signOut(a);
+  } catch (e) { if (!unlocked()) showGate(`Sign-in could not load: ${e.message}`, true); btn.disabled = true; }
 }
 </script>
 
