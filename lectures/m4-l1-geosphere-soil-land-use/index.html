@@ -778,20 +778,20 @@ function wireFlips(root) {
    definitions; the rest are written for this lecture. [term, icon, tone, definition, example] */
 const KEY_TERMS = [
   ['Lithosphere', 'mountain', 'sky', "Earth's rigid outer shell: the crust and the top of the mantle, broken into plates.", 'The North American Plate carries all of Arizona.'],
-  ['Regeneration', 'sprout', 'green', 'Restoring land or soil so it can heal and support life again.', 'Cover crops and no-till farming rebuild healthy soil.'],
   ['Landform', 'mountain', 'green', 'A natural shape of the land surface, like a mountain, mesa, canyon or plain.', 'Camelback Mountain and the Grand Canyon are landforms.'],
-  ['Topsoil', 'sprout', 'green', 'The dark top layer of soil, rich in organic matter, where most roots grow.', 'A few inches of topsoil can take centuries to form.'],
   ['Soil Horizon', 'layers', 'gold', 'One layer in a soil profile, such as topsoil (A), subsoil (B) and weathered rock (C).', 'Dig a deep hole and you see bands of different colors.'],
+  ['Topsoil', 'sprout', 'green', 'The dark top layer of soil, rich in organic matter, where most roots grow.', 'A few inches of topsoil can take centuries to form.'],
   ['Watershed', 'waves', 'sky', null, null],
   ['Floodplain', 'waves', '', 'The flat land beside a river that floods when the river overflows.', 'Farms along the Mississippi grow on rich floodplain soil.'],
   ['Eutrophication', 'rain', 'bad', null, null],
-  ['Weathering', 'cycle', '', 'The breaking down of rock into smaller pieces by water, ice, heat, plants or chemicals.', 'Desert heat and cold crack boulders over time.'],
   ['Tectonic Plate', 'earth', '', 'A huge slab of the lithosphere that slowly moves, a few centimeters a year.', 'The Pacific Plate slides past the North American Plate in California.'],
   ['Fault', 'alert', 'bad', 'A crack in the crust where blocks of rock move past each other.', "California's San Andreas Fault, where many earthquakes start."],
+  ['Weathering', 'cycle', '', 'The breaking down of rock into smaller pieces by water, ice, heat, plants or chemicals.', 'Desert heat and cold crack boulders over time.'],
+  ['Mineral', 'pick', 'gold', 'A natural solid with a set chemical makeup, like quartz or copper ore.', 'Copper mined in Arizona comes from minerals in the rock.'],
   ['Impervious', 'city', '', 'Describes a surface water cannot soak through, like roads, roofs and parking lots.', 'Rain runs off a parking lot instead of soaking in.'],
   ['Infiltration', 'rain', 'sky', 'Water soaking down into the soil from the surface.', 'Rain soaking into a desert wash after a storm.'],
-  ['Mineral', 'pick', 'gold', 'A natural solid with a set chemical makeup, like quartz or copper ore.', 'Copper mined in Arizona comes from minerals in the rock.'],
   ['Tillage', 'wheat', 'gold', 'Turning over and breaking up soil with a plow or other tool to prepare it for planting.', 'A tractor plowing a bare field before seeding.'],
+  ['Regeneration', 'sprout', 'green', 'Restoring land or soil so it can heal and support life again.', 'Cover crops and no-till farming rebuild healthy soil.'],
 ];
 function showTerms({ course }) {
   const gloss = course.glossary.flatMap(g => g.terms);
