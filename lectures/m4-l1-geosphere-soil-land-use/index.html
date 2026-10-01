@@ -35,9 +35,6 @@
 .vocab.four .vcard h4{font-size:36px}
 .vocab.four .vcard p{font-size:27px;line-height:1.45}
 .vocab.four .vcard .b p{font-size:21px}
-.more-terms{margin-top:60px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
-.more-terms b{font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding-top:9px;white-space:nowrap}
-.more-terms .chip{font-size:19px;padding:6px 14px;margin:0 4px 10px 0}
 /* module at a glance */
 .glance{flex:1;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
 .glance .card{padding:34px 40px}
@@ -78,6 +75,14 @@
 .mq .reveal-card.open .ans-text{display:block}
 .mq .reveal-card.open .think{display:none}
 .mq .think{font-size:22px;color:var(--mute)}
+/* fifteen key terms: five across, three rows */
+.vocab.fifteen{flex:1;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:18px}
+.vocab.fifteen .vcard{height:auto}
+.vocab.fifteen .vcard .f,.vocab.fifteen .vcard .b{padding:16px 20px}
+.vocab.fifteen .vcard h4{font-size:26px;margin-bottom:8px}
+.vocab.fifteen .vcard h4 .ico{width:34px;height:34px}
+.vocab.fifteen .vcard p{font-size:19.5px;line-height:1.35}
+.vocab.fifteen .vcard .hint{display:none}
 /* review quiz */
 .quiz{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
 .q{border-bottom:1px solid var(--paper-2);padding-bottom:14px}
@@ -218,7 +223,6 @@
     <div class="title-k reveal d2">Lecture 11 · S&amp;M Chapter 9</div>
     <h1 class="reveal d2">Geosphere, soil, and <em>land use</em></h1>
     <p class="hero-sub reveal d3">How the ground under our feet supports life, and how we change it.</p>
-    <div class="title-terms reveal d3" data-chips></div>
     <div class="goldline"></div>
   </div>
   <p class="hero-cap reveal d4">New neighborhoods on the desert edge of the Valley</p>
@@ -229,12 +233,11 @@
 <section class="slide">
   <div class="rail"><b>11</b><span>Key terms</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Module <span data-fill="module-num">4</span> glossary · tap a card for its example</div>
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
     <h2 class="reveal d2">Key <em>terms</em> for today</h2>
-    <div class="vocab four reveal d3" data-vocab></div>
-    <div class="more-terms reveal d4"><b>Also in Module 4</b><div data-more-terms></div></div>
+    <div class="vocab fifteen reveal d3" data-vocab></div>
   </div>
-  <aside class="notes">Lecture 11 opens Module 4, Systems Dynamics in Sustainability. Open System, Closed System and Threshold are this lecture's glossary terms; Lithosphere is added because the whole lecture builds on it. Connect them to today: Earth is a closed system for matter, so soil and rock are recycled, not replaced; a watershed is an open system; and erosion can pass a threshold where a field loses its topsoil quickly. The chips list the other Module 4 glossary terms students will meet in the rest of the module.</aside>
+  <aside class="notes">Fifteen terms students will meet today, in the order listed. Watershed and Eutrophication use the course glossary definitions; the other thirteen are written for this lecture. Read three or four aloud now and point back to this slide when a term comes up later.</aside>
 </section>
 
 <!-- 3. MODULE 4 AT A GLANCE -->
@@ -771,22 +774,34 @@ function wireFlips(root) {
 
 /* === COURSE DATA === the session (m4-s1) supplies the module, objectives, assignments and
    this lecture's Module 4 glossary terms. Lithosphere is added; it is not in the glossary. */
-const EXTRA_TERM = {
-  term: 'Lithosphere',
-  definition: "Earth's rigid outer shell, made of the crust and the uppermost mantle, broken into moving tectonic plates.",
-  example: 'The North American Plate carries all of Arizona, from the Grand Canyon to the Phoenix valley floor.',
-  significance: 'Its rock and soil give land life a place to live and supply nutrients for plants.',
-};
-const VOCAB_ICONS = { 'open system': ['cycle', ''], 'closed system': ['earth', 'green'], 'threshold': ['alert', 'bad'], 'lithosphere': ['mountain', 'sky'] };
-const icon = t => { const [i, tone] = VOCAB_ICONS[t.toLowerCase()] || ['book', '']; return `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`; };
-function showTerms({ course, session, terms }) {
-  const today = [...terms.filter(Boolean), EXTRA_TERM];
-  $('[data-vocab]').innerHTML = today.map(t => flipCard(t, icon(t.term))).join('');
+/* Today's key terms. Terms in the course glossary use its
+   definitions; the rest are written for this lecture. [term, icon, tone, definition, example] */
+const KEY_TERMS = [
+  ['Lithosphere', 'mountain', 'sky', "Earth's rigid outer shell: the crust and the top of the mantle, broken into plates.", 'The North American Plate carries all of Arizona.'],
+  ['Regeneration', 'sprout', 'green', 'Restoring land or soil so it can heal and support life again.', 'Cover crops and no-till farming rebuild healthy soil.'],
+  ['Landform', 'mountain', 'green', 'A natural shape of the land surface, like a mountain, mesa, canyon or plain.', 'Camelback Mountain and the Grand Canyon are landforms.'],
+  ['Topsoil', 'sprout', 'green', 'The dark top layer of soil, rich in organic matter, where most roots grow.', 'A few inches of topsoil can take centuries to form.'],
+  ['Soil Horizon', 'layers', 'gold', 'One layer in a soil profile, such as topsoil (A), subsoil (B) and weathered rock (C).', 'Dig a deep hole and you see bands of different colors.'],
+  ['Watershed', 'waves', 'sky', null, null],
+  ['Floodplain', 'waves', '', 'The flat land beside a river that floods when the river overflows.', 'Farms along the Mississippi grow on rich floodplain soil.'],
+  ['Eutrophication', 'rain', 'bad', null, null],
+  ['Weathering', 'cycle', '', 'The breaking down of rock into smaller pieces by water, ice, heat, plants or chemicals.', 'Desert heat and cold crack boulders over time.'],
+  ['Tectonic Plate', 'earth', '', 'A huge slab of the lithosphere that slowly moves, a few centimeters a year.', 'The Pacific Plate slides past the North American Plate in California.'],
+  ['Fault', 'alert', 'bad', 'A crack in the crust where blocks of rock move past each other.', "California's San Andreas Fault, where many earthquakes start."],
+  ['Impervious', 'city', '', 'Describes a surface water cannot soak through, like roads, roofs and parking lots.', 'Rain runs off a parking lot instead of soaking in.'],
+  ['Infiltration', 'rain', 'sky', 'Water soaking down into the soil from the surface.', 'Rain soaking into a desert wash after a storm.'],
+  ['Mineral', 'pick', 'gold', 'A natural solid with a set chemical makeup, like quartz or copper ore.', 'Copper mined in Arizona comes from minerals in the rock.'],
+  ['Tillage', 'wheat', 'gold', 'Turning over and breaking up soil with a plow or other tool to prepare it for planting.', 'A tractor plowing a bare field before seeding.'],
+];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  const cards = KEY_TERMS.map(([term, i, tone, definition, example]) => {
+    const g = gloss.find(x => x.term === term);
+    const t = definition ? { term, definition, example } : { term, definition: g.definition, example: g.example };
+    return flipCard(t, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`);
+  });
+  $('[data-vocab]').innerHTML = cards.join('');
   wireFlips($('[data-vocab]'));
-  $('[data-chips]').innerHTML = today.map(t => `<span class="chip">${esc(t.term)}</span>`).join(' ');
-  const gloss = course.glossary.find(g => g.module === session.module.glossary_module);
-  const shown = new Set(today.map(t => t.term));
-  $('[data-more-terms]').innerHTML = gloss.terms.filter(t => !shown.has(t.term)).map(t => `<span class="chip" title="${esc(t.definition)}">${esc(t.term)}</span>`).join(' ');
 }
 loadSession(LECTURE).then(d => { fill(document, d); showTerms(d); }).catch(() => {
   $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
