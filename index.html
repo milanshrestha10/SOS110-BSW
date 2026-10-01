@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOS110 Building a Sustainable World</title>
+<meta name="robots" content="noindex">
 <meta name="description" content="Lecture pages for SOS110, Building a Sustainable World.">
 
 <!-- === FONTS === Course Brand (sample 16): DM Serif Display headings, PT Serif body -->
@@ -55,6 +56,24 @@ h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
 .card h3 { font:400 23px/1.2 var(--display); margin:8px 0; }
 .card .go { display:inline-block; margin-top:8px; font-weight:700; color:var(--Blue); }
 
+/* === INSTRUCTOR GATE === the lecture list shows only after the admin signs in */
+.gate { max-width:560px; margin:24px auto 0; text-align:center; background:var(--card); border:2px solid var(--paper-2); border-top:8px solid var(--golden); border-radius:16px; padding:32px 24px; }
+.gate h2 { margin-top:0; }
+.gate p { color:var(--mute); }
+.btn { font:700 17px var(--body); background:var(--Blue); color:var(--paper); border:0; border-radius:999px; padding:12px 26px; cursor:pointer; margin-top:16px; }
+.btn:hover, .btn:focus-visible { background:var(--deep); }
+.btn[disabled] { opacity:.6; cursor:wait; }
+.btn.quiet { background:transparent; color:var(--Blue); border:2px solid var(--Blue); padding:8px 18px; font-size:15px; margin:0; }
+.msg { min-height:1.5em; margin-top:14px; font-size:15px; }
+.msg.err { color:#a3361f; }
+.gate hr { border:0; border-top:1px solid var(--paper-2); margin:28px 0 20px; }
+.code-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+.code-row input { font:700 18px var(--body); letter-spacing:.12em; text-transform:uppercase; padding:10px 16px; border:2px solid var(--paper-2); border-radius:999px; background:#fff; color:var(--ink); width:220px; }
+.code-row input:focus { outline:none; border-color:var(--Sky); }
+.code-row .btn { margin-top:0; }
+.sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+.who { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font-size:15px; color:var(--mute); margin-bottom:8px; }
+
 footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
 
 </style>
@@ -71,6 +90,30 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 </header>
 
 <main class="wrap">
+  <!-- Shown to everyone until the instructor signs in. Students open lectures from the link shared in class. -->
+  <section class="gate" id="gate">
+    <h2>Students</h2>
+    <p>Enter the course access code from your instructor.</p>
+    <form class="code-row" id="code-form">
+      <label class="sr" for="access">Access code</label>
+      <input id="access" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" placeholder="Access code">
+      <button class="btn" type="submit">Open lectures</button>
+    </form>
+    <div class="msg" id="code-msg" role="status"></div>
+    <hr>
+    <h2>Instructor</h2>
+    <button class="btn" id="signin" type="button" disabled>Sign in with Google</button>
+    <div class="msg" id="msg" role="status">Loading…</div>
+  </section>
+
+  <div id="list" hidden>
+    <div class="who"><span id="who"></span><button class="btn quiet" id="signout" type="button">Sign out</button></div>
+  </div>
+
+  <!-- === LECTURE LIST === add a card here when a new lecture folder is published.
+       It is only put on the page after the admin signs in. GitHub Pages is public, so
+       this hides the list; it does not make the files secret. -->
+  <template id="lectures">
   <section class="module">
     <h2><span>Module 1</span>Sustainability for Our Planet</h2>
     <div class="grid">
@@ -99,11 +142,90 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
       <a class="card" href="lectures/m4-l1-geosphere-soil-land-use/"><div class="meta">Lecture 11 · M4 L1</div><h3>Geosphere, soil, and land use</h3><span class="go">Open lecture →</span></a>
     </div>
   </section>
+  </template>
 </main>
 
 <footer>
   <div class="wrap">Use arrow keys, space or swipe to move through a lecture. On the attendance slide, enter your name, email and the code shown in class.</div>
 </footer>
+
+<script type="module">
+/* === INSTRUCTOR GATE === Google sign-in with the admin account from shared/firebase-config.js */
+import { firebaseConfig, adminEmails } from './shared/firebase-config.js';
+import { accessCodeHash } from './shared/access.js';
+const $ = s => document.querySelector(s);
+const btn = $('#signin'), msg = $('#msg');
+const say = (t, err) => { msg.textContent = t; msg.className = 'msg' + (err ? ' err' : ''); };
+
+function showList(who) {
+  const list = $('#list');
+  if (!list.dataset.filled) { list.append($('#lectures').content.cloneNode(true)); list.dataset.filled = '1'; }
+  $('#who').textContent = who;
+  $('#gate').hidden = true; list.hidden = false;
+}
+
+/* === STUDENT ACCESS CODE === checked against the hash in shared/access.js, remembered in this browser */
+const UNLOCK = 'sos110-home-access';
+const hash = async t => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, '0')).join('');
+const unlocked = () => { try { return localStorage.getItem(UNLOCK) === accessCodeHash; } catch { return false; } };
+let signOut = null;
+const showStudent = () => { showList('Student access'); $('#signout').textContent = 'Lock'; };
+$('#code-form').onsubmit = async e => {
+  e.preventDefault();
+  const m = $('#code-msg');
+  const h = await hash('sos110:' + $('#access').value.trim().toUpperCase());
+  if (h !== accessCodeHash) { m.textContent = 'That code is not right. Check with your instructor.'; m.className = 'msg err'; return; }
+  try { localStorage.setItem(UNLOCK, h); } catch { /* storage blocked: unlocked for this visit */ }
+  m.textContent = ''; showStudent();
+};
+$('#signout').onclick = () => {
+  try { localStorage.removeItem(UNLOCK); } catch { /* ignore */ }
+  if (signOut && $('#signout').textContent === 'Sign out') return signOut();
+  $('#list').hidden = true; $('#gate').hidden = false;
+};
+function showGate(text, err) { $('#list').hidden = true; $('#gate').hidden = false; btn.disabled = false; say(text || '', err); }
+
+const tips = {
+  'auth/unauthorized-domain': `${location.hostname} is not an authorized domain. Add it in Firebase console > Authentication > Settings > Authorized domains.`,
+  'auth/operation-not-allowed': 'Google sign-in is turned off. Enable it in Firebase console > Authentication > Sign-in method.',
+  'auth/popup-closed-by-user': 'The sign-in window was closed before finishing. Try again.',
+  'auth/cancelled-popup-request': 'Another sign-in window was already open. Try again.',
+  'auth/network-request-failed': 'Could not reach Google. Check the connection and try again.',
+};
+const explain = e => `${tips[e?.code] || e?.message || 'Sign-in failed.'}${e?.code ? ` (${e.code})` : ''}`;
+
+if (firebaseConfig && unlocked()) showStudent(); // no need to wait for Firebase
+if (!firebaseConfig) showList('Demo mode: no Firebase config, so the list is open.');
+else {
+  try {
+    const FB = 'https://www.gstatic.com/firebasejs/10.12.2/';
+    const [{ initializeApp }, auth] = await Promise.all([import(FB + 'firebase-app.js'), import(FB + 'firebase-auth.js')]);
+    const a = auth.getAuth(initializeApp(firebaseConfig));
+    const isAdmin = u => !!u && !u.isAnonymous && adminEmails.includes(u.email);
+    const check = u => {
+      if (isAdmin(u)) { showList(`Signed in as ${u.email}`); $('#signout').textContent = 'Sign out'; }
+      else if (unlocked()) { showStudent(); btn.disabled = false; say(''); }
+      else if (u && !u.isAnonymous) showGate(`${u.email} is not the instructor account. Sign in with ${adminEmails[0]}.`, true);
+      else showGate('');
+    };
+    let redirectError = null;
+    try { await auth.getRedirectResult(a); } catch (e) { redirectError = e; }
+    auth.onAuthStateChanged(a, u => { check(u); if (redirectError) { say(explain(redirectError), true); redirectError = null; } });
+    btn.onclick = async () => {
+      const p = new auth.GoogleAuthProvider();
+      p.setCustomParameters({ prompt: 'select_account' });
+      btn.disabled = true; say('Opening Google sign-in…');
+      try { await auth.signInWithPopup(a, p); }
+      catch (e) {
+        // Pop-up blocked: fall back to a full-page redirect.
+        if (['auth/popup-blocked', 'auth/operation-not-supported-in-this-environment'].includes(e.code)) return auth.signInWithRedirect(a, p);
+        showGate(explain(e), true);
+      }
+    };
+    signOut = () => auth.signOut(a);
+  } catch (e) { if (!unlocked()) showGate(`Sign-in could not load: ${e.message}`, true); btn.disabled = true; }
+}
+</script>
 
 
 </body>
