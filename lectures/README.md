@@ -52,6 +52,8 @@ Every new deck uses the design of Lecture 11 (`m4-l1-geosphere-soil-land-use`), 
 - **First lecture of a module**: open with the key terms (this lecture's glossary terms as flip cards, the rest of the module's terms as chips) and a module slide with at most four learning objectives drawn from the module objectives and what's due in the module. No next-class slide.
 - **Use the whole stage**: give the heading clear space and let the body reach the bottom margin with `.content.fill`; sit shorter slides in the middle with `.content.center`. No big empty band at the bottom.
 - **Animated pictures**: add `anim-pics` to `<main class="deck-stage">` so photos drift in from a slow zoom and diagrams wipe in. It is off for reduced motion and print.
+- **Clear space under every heading**: add `roomy` to `<main class="deck-stage">` so each heading keeps a 48px gap above the text and pictures, and don't override it with inline margins.
+- **Exercises written for first-year students**: short, plain questions with one ask each, numbered, plus a one-line instruction that says what to do first. Give a quick definition in the question or its hint the first time a term like biome or geosphere appears.
 - **Quick questions** after a big idea: a short, unrecorded check with answers that reveal on tap.
 
 It keeps everything from the enhanced style of Lecture 10 (`m3-l3-atmosphere`):
