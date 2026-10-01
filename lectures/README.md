@@ -46,7 +46,7 @@ Deck rules, so every lecture works in any semester:
 
 Every new deck uses the design of Lecture 11 (`m4-l1-geosphere-soil-land-use`), which the instructor chose as the standard:
 
-- **Hero title and end slides**: a full-bleed photo for the topic fades in behind a light scrim (near-white on the left behind dark text, clearing to the right so the photo shows), with a short italic tagline under the title. Use the `.hero` classes in `deck.css`; the end slide is the takeaway on the same photo.
+- **Hero title and end slides**: a full-bleed photo for the topic fades in behind a light scrim (near-white on the left behind dark text, clearing to the right so the photo shows), with a one-line subtitle under the title. Use the `.hero` classes in `deck.css`; the end slide is the takeaway on the same photo.
 - **First lecture of a module**: open with the key terms (this lecture's glossary terms as flip cards, the rest of the module's terms as chips) and a module slide with at most four learning objectives drawn from the module objectives and what's due in the module. No next-class slide.
 - **Use the whole stage**: give the heading clear space and let the body reach the bottom margin with `.content.fill`; sit shorter slides in the middle with `.content.center`. No big empty band at the bottom.
 - **Animated pictures**: add `anim-pics` to `<main class="deck-stage">` so photos drift in from a slow zoom and diagrams wipe in. It is off for reduced motion and print.
