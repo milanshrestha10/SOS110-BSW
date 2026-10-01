@@ -44,7 +44,15 @@ Deck rules, so every lecture works in any semester:
 - No calendar dates, weekdays, meeting times, rooms, office hours details, term names, TA or instructor names, school or university names.
 - The title slide keeps the small module badge (`M01`) and the module title in the sans-serif style from `deck.css`. Don't add a university line.
 
-Every new deck follows the enhanced style of Lecture 10 (`m3-l3-atmosphere`), which students liked:
+Every new deck uses the design of Lecture 11 (`m4-l1-geosphere-soil-land-use`), which the instructor chose as the standard:
+
+- **Hero title and end slides**: a full-bleed photo for the topic fades in behind a light scrim (near-white on the left behind dark text, clearing to the right so the photo shows), with a one-line subtitle under the title. Use the `.hero` classes in `deck.css`; the end slide is the takeaway on the same photo.
+- **First lecture of a module**: open with the key terms (this lecture's glossary terms as flip cards, the rest of the module's terms as chips) and a module slide with at most four learning objectives drawn from the module objectives and what's due in the module. No next-class slide.
+- **Use the whole stage**: give the heading clear space and let the body reach the bottom margin with `.content.fill`; sit shorter slides in the middle with `.content.center`. No big empty band at the bottom.
+- **Animated pictures**: add `anim-pics` to `<main class="deck-stage">` so photos drift in from a slow zoom and diagrams wipe in. It is off for reduced motion and print.
+- **Quick questions** after a big idea: a short, unrecorded check with answers that reveal on tap.
+
+It keeps everything from the enhanced style of Lecture 10 (`m3-l3-atmosphere`):
 
 - **Icon badges** on section kickers, big-idea cards, the Key vocabulary heading and each vocab card. Copy the inline SVG sprite from Lecture 10 and add symbols as needed; the `.ico` badge styles are in `deck.css`.
 - **Real pictures** from the instructor's slides wherever the topic has one, in the lecture's `img/` folder, resized for the web, with credits kept. Use `.fig` for them.

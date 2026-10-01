@@ -12,26 +12,6 @@
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 .fig.plain{border:0;background:transparent}
 .credit{font-size:16px;color:var(--mute);margin-top:6px}
-/* hero slides: the Phoenix photo fills the slide and fades in; a dark scrim on the left keeps the text readable */
-.hero{background:#0a2a35}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center 80%;opacity:0;transform:scale(1.08);transition:opacity 2.2s .3s ease,transform 10s .3s var(--ease)}
-.slide.visible .hero-img{opacity:1;transform:none}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,33,43,.96) 0%,rgba(7,33,43,.9) 38%,rgba(7,33,43,.55) 62%,rgba(7,33,43,.1) 85%),linear-gradient(0deg,rgba(7,33,43,.7) 0%,rgba(7,33,43,0) 30%)}
-.hero-text{position:absolute;left:140px;top:120px;width:1020px;color:var(--paper)}
-.hero-badge{display:flex;align-items:center;gap:22px}
-.hero-badge b{font:400 64px/1 var(--display);color:var(--paper);border:3px solid var(--golden);border-radius:14px;padding:10px 18px 12px}
-.hero-badge b em{color:var(--golden);font-style:normal}
-.hero-badge span{font:800 30px/1.15 var(--sans);letter-spacing:.01em;max-width:560px}
-.hero .title-k{position:static;color:var(--golden);margin-top:64px}
-.hero h1{font:400 118px/1.02 var(--display);letter-spacing:-.01em;margin:18px 0 26px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
-.hero h1 em{color:var(--golden);font-style:normal}
-.hero-sub{font-size:30px;line-height:1.45;color:rgba(246,242,233,.9)}
-.hero .chip{background:rgba(246,242,233,.1);border-color:rgba(236,207,114,.8);color:var(--paper)}
-.hero .title-terms{position:static;margin-top:34px;width:auto}
-.hero .goldline{position:static;margin-top:44px;width:0}
-.slide.visible.hero .goldline{width:200px}
-.hero-cap{position:absolute;right:40px;bottom:30px;font-size:18px;color:rgba(246,242,233,.92);text-shadow:0 1px 6px rgba(0,0,0,.7)}
-.hero .num li::before{background:var(--golden);color:var(--ink)}
 /* five vocabulary cards: three on top, two centred below */
 .vocab.five{grid-template-columns:repeat(6,1fr)}
 .vocab.five .vcard{grid-column:span 2;height:318px}
@@ -49,12 +29,6 @@
 .way p{font-size:23px;line-height:1.4;text-align:left}
 .way dl{display:grid;grid-template-columns:118px 1fr;gap:8px 14px;text-align:left;font-size:21px;line-height:1.35;margin-top:14px;border-top:1px solid var(--paper-2);padding-top:14px}
 .way dt{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:4px}
-/* slides that fill the stage: the heading keeps clear space above the body, and the body
-   grows down to the bottom margin instead of leaving an empty band */
-.content.fill{display:flex;flex-direction:column}
-.content.fill > h2{margin-bottom:44px}
-/* slides with less content sit in the middle of the stage, with even space above and below */
-.content.center{display:flex;flex-direction:column;justify-content:center}
 /* key terms: four flip cards, then the rest of the module's glossary */
 .vocab.four{grid-template-columns:repeat(4,1fr);gap:28px}
 .vocab.four .vcard{height:440px}
@@ -86,23 +60,24 @@
 .sec-img{margin:0 -26px 16px;height:150px;overflow:hidden}
 .sec-img img{width:100%;height:100%;object-fit:cover;display:block}
 .fill .topic{flex:1;display:flex;flex-direction:column;justify-content:center;padding:14px 20px}
-/* pictures animate as their slide opens: photos drift in from a slow zoom, diagrams wipe in
-   from the left, and the round photos pop in one after another */
-.slide .fig:not(.plain) img,.slide .sec-img img{transform:scale(1.14);transition:transform 9s var(--ease)}
-.slide.visible .fig:not(.plain) img,.slide.visible .sec-img img{transform:none}
-.slide .fig.plain img{clip-path:inset(0 100% 0 0);transition:clip-path 1.4s .35s var(--ease)}
-.slide.visible .fig.plain img{clip-path:inset(0 0 0 0)}
+/* round photos pop in one after another; sector photos drift like the other photos */
+.anim-pics .sec-img img{transform:scale(1.14);transition:transform 9s var(--ease)}
+.anim-pics .slide.visible .sec-img img{transform:none}
 .way img{opacity:0;transform:scale(.6) rotate(-10deg);transition:opacity .7s,transform 1s cubic-bezier(.2,1.4,.4,1)}
 .slide.visible .way img{opacity:1;transform:none}
 .slide.visible .way:nth-child(1) img{transition-delay:.35s}
 .slide.visible .way:nth-child(2) img{transition-delay:.55s}
 .slide.visible .way:nth-child(3) img{transition-delay:.75s}
-@media (prefers-reduced-motion: reduce){
-  .slide .fig img,.slide .sec-img img,.way img{transform:none!important;clip-path:none!important;opacity:1!important}
-}
-@media print{
-  .slide .fig img,.slide .sec-img img,.way img,.hero-img{transform:none!important;clip-path:none!important;opacity:1!important}
-}
+@media (prefers-reduced-motion: reduce){.sec-img img,.way img{transform:none!important;opacity:1!important}}
+@media print{.sec-img img,.way img{transform:none!important;opacity:1!important}}
+/* Mississippi quick question */
+.mq{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.mq .reveal-card{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:24px 30px}
+.mq .reveal-card h3{font-size:36px;margin-bottom:10px}
+.mq .reveal-card .ans-text{display:none;font-size:24px;line-height:1.45}
+.mq .reveal-card.open .ans-text{display:block}
+.mq .reveal-card.open .think{display:none}
+.mq .think{font-size:22px;color:var(--mute)}
 /* review quiz */
 .quiz{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
 .q{border-bottom:1px solid var(--paper-2);padding-bottom:14px}
@@ -227,7 +202,7 @@
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
   <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
 </svg>
-<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+<div class="deck-viewport"><main class="deck-stage anim-pics" id="deckStage">
 
 <!-- 1. TITLE -->
 <section class="slide hero">
@@ -237,7 +212,7 @@
     <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
     <div class="title-k reveal d2">Lecture 11 · S&amp;M Chapter 9</div>
     <h1 class="reveal d2">Geosphere, soil, and <em>land use</em></h1>
-    <p class="hero-sub reveal d3">Where the city meets the desert: how the ground under our feet supports life, and how we change it.</p>
+    <p class="hero-sub reveal d3">How the ground under our feet supports life, and how we change it.</p>
     <div class="title-terms reveal d3" data-chips></div>
     <div class="goldline"></div>
   </div>
@@ -579,7 +554,26 @@
   <aside class="notes">The Mississippi drains about 40% of the lower 48 states. Its delta is shrinking partly because dams and levees keep sediment from reaching it. Closer to home, Glen Canyon Dam traps most of the Colorado River's sediment in Lake Powell, so the river below runs clearer and beaches in the Grand Canyon erode. Photo credits are printed on the images.</aside>
 </section>
 
-<!-- 18. AGRICULTURE AND SOIL LOSS -->
+<!-- 18. QUICK QUESTION: THE MISSISSIPPI -->
+<section class="slide" id="mississippi">
+  <div class="rail"><b>11</b><span>Big idea 1 · Quick question</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Quick question · the Mississippi River</div>
+    <h2 class="reveal d2">Where does the Mississippi <em>begin and end</em>?</h2>
+    <div class="quiz mq reveal d3" data-mq></div>
+    <div class="mq reveal d4" style="margin-top:30px">
+      <div class="reveal-card" data-def><h3>What is a <em style="color:var(--Sky);font-style:normal">watershed</em>?</h3>
+        <p class="think">Think, tell a neighbor, then tap to check.</p>
+        <p class="ans-text">All the land that drains its rain and snowmelt into one river, lake or sea. The Mississippi's watershed reaches from the Rockies to the Appalachians and covers about 40% of the lower 48 states.</p></div>
+      <div class="reveal-card" data-def><h3>What is a <em style="color:var(--Sky);font-style:normal">delta</em>?</h3>
+        <p class="think">Think, tell a neighbor, then tap to check.</p>
+        <p class="ans-text">The landform a river builds where it slows down at its mouth and drops its sediment, splitting into many channels. The Mississippi's bird's-foot delta in Louisiana is built from mud carried all the way from that watershed.</p></div>
+    </div>
+  </div>
+  <aside class="notes">A quick check after the rivers slide, not recorded. The Mississippi starts as a small stream flowing out of Lake Itasca in northern Minnesota and ends about 2,300 miles later in the Gulf of Mexico below New Orleans. Ask for the two definitions out loud before tapping the cards. Link back: dams and levees keep sediment from reaching the delta, so the delta is shrinking.</aside>
+</section>
+
+<!-- 19. AGRICULTURE AND SOIL LOSS -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Soil loss</span></div>
   <div class="content">
@@ -595,7 +589,7 @@
   <aside class="notes">The Dust Bowl of the 1930s is the classic US case: plowing up the southern Great Plains grasslands, then drought, let the wind strip the topsoil. It led Congress to create the Soil Conservation Service in 1935 (now the Natural Resources Conservation Service). Monoculture drains the same nutrients every year and leaves soil bare between crops. Photo credits are printed on the images.</aside>
 </section>
 
-<!-- 19. MINING -->
+<!-- 20. MINING -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Mining</span></div>
   <div class="content center">
@@ -617,7 +611,7 @@
   <aside class="notes">Arizona produces most of the copper mined in the United States, so this is a local issue: open pits, tailings piles and acid drainage that carries metals into streams. Reclamation cannot put the removed rock back, but it can stabilize slopes, cover tailings and restore plant cover. Ask: who should pay for reclamation, the company, the state, or buyers of copper?</aside>
 </section>
 
-<!-- 20. LAND USE CHANGE AND URBANIZATION -->
+<!-- 21. LAND USE CHANGE AND URBANIZATION -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Land use</span></div>
   <div class="content center" style="top:90px">
@@ -637,7 +631,7 @@
   <aside class="notes">Come back to the warm-up poll: most of the changes students named add impervious surface. In Phoenix, monsoon storms dump a lot of rain in a short time onto roofs, roads and parking lots, which is why underpasses flood. The flood photo credit (The Republic) is from the original slides. The infiltration diagram follows the EPA's well-known comparison.</aside>
 </section>
 
-<!-- 21. PAVE THE WATERSHED -->
+<!-- 22. PAVE THE WATERSHED -->
 <section class="slide" id="pave">
   <div class="rail"><b>11</b><span>Big idea 2 · Runoff</span></div>
   <div class="content center">
@@ -660,7 +654,7 @@
   <aside class="notes">Drag the slider slowly from a natural desert to a fully paved downtown. Runoff goes from about 10% to about 55%, and deep infiltration, which recharges groundwater, drops from about 25% to 5%. Phoenix's retention basins (the grassy dips in parks and parking lots) are a local solution. Numbers are rounded; they vary with soil, slope and storm size.</aside>
 </section>
 
-<!-- 22. RESTORATION AND REGENERATION -->
+<!-- 23. RESTORATION AND REGENERATION -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 3 · Regeneration</span></div>
   <div class="content center">
@@ -681,7 +675,7 @@
   <aside class="notes">Each pictured practice keeps the soil covered or slows water and wind: terraces slow water on slopes, no-till leaves last season's residue as a mulch, windbreaks cut wind speed, and cover crops keep roots in the ground between harvests. Photo credits are printed on the images. Next, students try these practices on a farm.</aside>
 </section>
 
-<!-- 23. GAME: KEEP THE TOPSOIL -->
+<!-- 24. GAME: KEEP THE TOPSOIL -->
 <section class="slide" id="soil-game">
   <div class="rail"><b>11</b><span>Game</span></div>
   <div class="content center" style="top:90px">
@@ -707,7 +701,7 @@
   <aside class="notes">All numbers here are teaching numbers, rounded to show the idea, not measured data. The field starts losing 18 tons per acre a year under conventional tillage; the USDA's tolerable soil loss for deep soils is up to about 5 tons per acre a year, and new soil forms far more slowly than that. The trap card, plowing more often, is a common misconception: loose soil feels healthier but washes and blows away faster. Ask which two practices did the most work.</aside>
 </section>
 
-<!-- 24. EXIT TICKET -->
+<!-- 25. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -724,14 +718,14 @@
   <aside class="notes">Correct answer: C. Cover crops are planted after the main harvest so roots hold the soil and leaves shield it from rain and wind. A is the trap from the game: more plowing leaves soil loose and bare. B is monoculture.</aside>
 </section>
 
-<!-- 25. TAKEAWAY -->
+<!-- 26. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" src="img/phoenix-edge.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim"></div>
   <div class="hero-text" style="width:1080px">
     <div class="hero-badge reveal"><b>L<em>11</em></b><span>Geosphere, soil, and land use</span></div>
     <div class="title-k reveal d2">The takeaway</div>
-    <p class="reveal d2" style="font:400 54px/1.18 var(--display);margin:18px 0 34px">The ground is a living, moving system. How we farm, mine and build decides whether it keeps <em style="color:var(--golden);font-style:normal">supporting life</em>.</p>
+    <p class="hero-lead reveal d2">The ground is a living, moving system. How we farm, mine and build decides whether it keeps <em>supporting life</em>.</p>
     <ol class="num reveal d3" style="font-size:28px">
       <li>Plates, the rock cycle, weathering and erosion build and renew Earth's surface and soil.</li>
       <li>Soil loss, mining and urbanization change both the structure and the functions of ecosystems.</li>
@@ -841,6 +835,20 @@ function drawWater() {
 }
 $('#imp').addEventListener('input', drawWater);
 drawWater();
+
+/* === QUICK QUESTION: THE MISSISSIPPI === checked in the browser only, not recorded */
+const MQ = [
+  ['Where does it begin?', ['Lake Itasca, Minnesota', 'The Rocky Mountains, Colorado', 'Lake Michigan'], 0, 'A small stream flows out of Lake Itasca in northern Minnesota.'],
+  ['Where does it end?', ['The Atlantic Ocean', 'The Gulf of Mexico, Louisiana', 'The Pacific Ocean'], 1, 'About 2,300 miles later, below New Orleans, through its delta.'],
+];
+$('[data-mq]').innerHTML = MQ.map(([q, opts, , why], i) => `<div class="q" data-mqi="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${opts.map((o, k) => `<button type="button" data-k="${k}">${esc(o)}</button>`).join('')}</div><p class="why">${esc(why)}</p></div>`).join('');
+$$('[data-mqi]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const right = MQ[+q.dataset.mqi][2];
+  $$('button', q).forEach(x => { x.classList.toggle('on', x === b); x.classList.toggle('right', +x.dataset.k === right); x.classList.toggle('wrong', x === b && +x.dataset.k !== right); });
+  q.classList.add('done');
+}));
+$$('[data-def]').forEach(c => { c.style.cursor = 'pointer'; c.tabIndex = 0; const t = () => c.classList.toggle('open'); c.addEventListener('click', t); c.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); });
 
 /* === LIVE === attendance, polls, quiz and games */
 const live = await connect(LECTURE);
