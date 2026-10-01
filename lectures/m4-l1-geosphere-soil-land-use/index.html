@@ -326,7 +326,19 @@
   <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes. The warm-up poll is anonymous, so this is the first place students type their name and email.</aside>
 </section>
 
-<!-- 7. THREE KEY WAYS -->
+<!-- 7. REVIEW QUIZ -->
+<section class="slide" id="quiz">
+  <div class="rail"><b>11</b><span>Review quiz</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Review quiz · Module 3 and a first look at today</div>
+    <h2 class="reveal d2" style="font-size:72px">How much do you <em>remember</em>?</h2>
+    <div class="quiz reveal d3" data-quiz></div>
+    <div class="reveal d4" style="margin-top:30px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="quiz-check">Check my answers</button><span class="status" id="quiz-status" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Six quick questions: population (Lecture 8), water (Lecture 9), air (Lecture 10), and a first look at today's topic. It comes right after check-in so students start with a quick win. Give two minutes, then have students check. Their scores go to the admin page, which shows the questions the class missed most. Revisit any question under 60%.</aside>
+</section>
+
+<!-- 8. THREE KEY WAYS -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Human impacts</span></div>
   <div class="content fill">
@@ -342,18 +354,6 @@
     </div>
   </div>
   <aside class="notes">Structure is what an ecosystem is made of (soil layers, plants, animals, landforms). Function is what it does (holds and filters water, cycles nutrients, stores carbon, grows food). Each human impact changes both. Ask students to name a Phoenix example of each: farmland soil in the West Valley, copper mines in eastern Arizona, and new subdivisions on the desert edge.</aside>
-</section>
-
-<!-- 8. REVIEW QUIZ -->
-<section class="slide" id="quiz">
-  <div class="rail"><b>11</b><span>Review quiz</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Review quiz · Module 3 and today's three impacts</div>
-    <h2 class="reveal d2" style="font-size:72px">How much do you <em>remember</em>?</h2>
-    <div class="quiz reveal d3" data-quiz></div>
-    <div class="reveal d4" style="margin-top:30px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="quiz-check">Check my answers</button><span class="status" id="quiz-status" style="margin:0"></span></div>
-  </div>
-  <aside class="notes">Six quick questions: population (Lecture 8), water (Lecture 9), air (Lecture 10) and today's three impacts. Give two minutes, then have students check. Their scores go to the admin page, which shows the questions the class missed most. Revisit any question under 60%.</aside>
 </section>
 
 <!-- 9. EXPLORATION: PICK A SECTOR -->
@@ -926,7 +926,7 @@ const QUIZ = [
   ['A watershed is…', ['A layer of water underground', 'A dam\'s reservoir', 'Land that drains to one river or lake'], 2, 'All rain and snowmelt in a watershed drains to one outlet.'],
   ['Ground-level ozone is a ___ pollutant.', ['Secondary', 'Primary', 'Harmless'], 0, 'It forms in the air from NOx and VOCs in sunlight.'],
   ['Acid rain mostly comes from…', ['CO₂ and methane', 'CFCs', 'SO₂ and NOx'], 2, 'Sulfur dioxide and nitrogen oxides from burning fuel form acids in clouds.'],
-  ['Which is NOT one of today\'s three human impacts on Earth\'s surface?', ['Soil loss', 'Volcanic eruptions', 'Land use change'], 1, 'Volcanoes are natural. Soil loss, mining and land use change are human.'],
+  ['Which of these changes to Earth\'s surface is NOT caused by people?', ['Soil loss', 'Volcanic eruptions', 'Land use change'], 1, 'Volcanoes are natural. Soil loss and land use change come from farming, mining and building, which are today\'s topics.'],
 ];
 const quizPick = QUIZ.map(() => null);
 $('[data-quiz]').innerHTML = QUIZ.map(([q, ch], i) => `<div class="q" data-q="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${ch.map((c, j) => `<button type="button" data-c="${j}">${esc(c)}</button>`).join('')}</div><div class="why">${esc(QUIZ[i][3])}</div></div>`).join('');
