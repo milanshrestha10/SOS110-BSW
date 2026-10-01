@@ -352,3 +352,7 @@ aside.notes{display:none}
 @media print{
   .anim-pics .fig img,.hero-img{transform:none!important;clip-path:none!important;opacity:1!important}
 }
+
+/* ROOMY HEADINGS (opt in with <main class="deck-stage roomy">): every slide heading keeps a
+   clear gap above the text, cards and pictures below it. */
+.roomy .slide h2{margin-bottom:48px}
