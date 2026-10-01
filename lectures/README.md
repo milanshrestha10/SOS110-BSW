@@ -38,6 +38,8 @@ Students check in by typing their name, email and the code on screen; no account
 
 Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives and assignments fill in on their own. Then add the matching admin page in the private repo.
 
+When you change `shared/deck.css` or `shared/deck.js`, bump the `?v=` date on their links in every lecture, so browsers load the new file instead of a cached copy.
+
 Deck rules, so every lecture works in any semester:
 
 - No lesson plan or agenda slide. Attendance comes right after the opening slides.
