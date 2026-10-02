@@ -3,13 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M1 L1 The Triple Bottom Line of Sustainability · SOS110</title>
+<title>Lecture 1 Sustainability and sustainable development · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-01b">
 <style>
 /* === LECTURE-ONLY STYLES === */
-/* pillar colours: People = golden, Planet = Green, Prosperity = Blue */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.fig.plain{border:0;background:transparent}
+.fig.plain img{display:block;width:100%;height:auto}
+.credit{font-size:16px;color:var(--mute);margin-top:6px}
+.take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+/* key terms: ten flip cards, five across */
+.vocab.ten{flex:1;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:22px}
+.vocab.ten .vcard{height:auto}
+.vocab.ten .vcard .f,.vocab.ten .vcard .b{padding:20px 24px}
+.vocab.ten .vcard h4{font-size:30px;margin-bottom:10px}
+.vocab.ten .vcard h4 .ico{width:38px;height:38px}
+.vocab.ten .vcard p{font-size:22px;line-height:1.38}
+.vocab.ten .vcard .b p{font-size:20px}
+/* module at a glance */
+.glance{flex:1;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.glance .card{padding:34px 40px}
+.glance .num{font-size:31px;line-height:1.4;margin-top:16px}
+.glance .num li{margin:26px 0}
+.glance ul.clean{font-size:31px;line-height:1.35;margin-top:16px}
+.glance ul.clean li{margin:22px 0}
+/* review quiz and quick questions */
+.quiz{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+.q{border-bottom:1px solid var(--paper-2);padding-bottom:14px}
+.q p{font-size:24px;line-height:1.35;margin-bottom:10px}
+.q p b{color:var(--Blue);margin-right:6px}
+.q .ch{display:flex;flex-wrap:wrap;gap:10px}
+.q button{font:400 20px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 18px;cursor:pointer}
+.q button:hover{border-color:var(--Sky)}
+.q button.on{border-color:var(--Blue);background:rgba(66,168,191,.16)}
+.q.done button.right{border-color:#2e7d5b;background:#2e7d5b;color:#fff}
+.q.done button.on.wrong{border-color:#b3452c;background:rgba(179,69,44,.12)}
+.q .why{display:none;font-size:18px;color:var(--mute);margin-top:8px}
+.q.done .why{display:block}
+.fill .quiz{flex:1;grid-auto-rows:1fr;gap:0 48px}
+.fill .q{display:flex;flex-direction:column;justify-content:center;padding:8px 0 18px}
+.fill .q p{font-size:27px;margin-bottom:14px}
+.fill .q button{font-size:23px;padding:9px 22px}
+.mq{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.mq .q p{font-size:30px}
+.mq .q button{font-size:24px;padding:10px 24px}
+.mq .q .why{font-size:22px}
+/* four skills strip */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+.skills div{border-left:6px solid var(--golden);padding:6px 0 6px 18px;font:700 20px var(--body);letter-spacing:.12em;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+.stats div{border-left:6px solid var(--golden);padding:4px 0 4px 20px}
+.stats b{display:block;font:400 54px/1.05 var(--display);color:var(--Blue)}
+.stats span{font-size:22px;line-height:1.35;color:var(--mute);display:block;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.chips span{font-size:24px;background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:8px 20px}
+/* Brundtland quote */
+.quote{font:400 54px/1.25 var(--display);max-width:1500px;border-left:10px solid var(--golden);padding-left:40px;margin:0 0 18px}
+.quote-src{font-size:24px;color:var(--mute);padding-left:50px;margin-bottom:44px}
+/* three pillars, Earth, Economy, Equity */
+.pill3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pill3 .card{padding:22px 28px}
+.pill3 .card p{font-size:24px}
+/* sorting games */
 .sort-row{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--paper-2);font-size:27px;line-height:1.3}
 .sort-row.two{grid-template-columns:1fr auto auto}
 .sort-row button{font:700 21px var(--body);border:2px solid var(--Blue);background:transparent;color:var(--Blue);border-radius:999px;padding:7px 18px;cursor:pointer}
@@ -18,20 +76,19 @@
 .sort-row.bad button.on{background:#b3452c;border-color:#b3452c}
 .sort-row .why{grid-column:1/-1;font-size:21px;color:var(--mute);display:none}
 .show-why .sort-row .why{display:block}
-.quote{font:400 50px/1.25 var(--display);max-width:1450px;border-left:10px solid var(--golden);padding-left:40px;margin:10px 0 18px}
-.quote-src{font-size:24px;color:var(--mute);padding-left:50px;margin-bottom:44px}
-/* Venn diagram of the three pillars */
-.venn{position:relative;width:660px;height:600px}
-.venn .c{position:absolute;width:380px;height:380px;border-radius:50%;mix-blend-mode:multiply;display:flex;justify-content:center;font:400 38px var(--display);color:var(--ink)}
-.venn .people{left:140px;top:0;background:rgba(236,207,114,.75);align-items:flex-start;padding-top:70px}
-.venn .planet{left:0;top:220px;background:rgba(117,162,159,.7);align-items:flex-end;padding-bottom:80px;justify-content:flex-start;padding-left:60px}
-.venn .prosperity{left:280px;top:220px;background:rgba(66,168,191,.6);align-items:flex-end;padding-bottom:80px;justify-content:flex-end;padding-right:70px}
-.venn .mid{position:absolute;left:330px;top:340px;transform:translate(-50%,-50%);font:700 22px var(--body);background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:6px 16px;white-space:nowrap}
-.venn .pair{position:absolute;font:700 18px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
-.pillars{display:grid;gap:22px}
-.pillars .card{padding:22px 30px}
-.pillars .card p{font-size:24px}
-.card.people{border-top:8px solid var(--golden)}
+.fill .sorter{flex:1;grid-auto-rows:1fr}
+.fill .sorter .sort-row{font-size:30px}
+/* think-pair-share */
+.steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 28px}
+.ans{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px}
+.ans label{display:block;font:700 21px/1.3 var(--body);margin-bottom:6px}
+.ans label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ans textarea,.ans input,.ans select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ans textarea:focus,.ans input:focus,.ans select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.ans.six{flex:1;grid-template-rows:repeat(3,1fr);gap:24px 44px}
+.ans.six label{font-size:25px;margin-bottom:10px}
+.ans.six textarea{height:calc(100% - 46px);min-height:90px;font-size:22px}
+.ans.six select{font-size:22px}
 /* town budget simulation */
 .budget{display:flex;justify-content:space-between;align-items:center;font-size:26px;padding:12px 20px;border-radius:12px;background:var(--card);border:2px solid var(--paper-2);margin-bottom:6px}
 .budget b{font:400 34px var(--display)}
@@ -43,7 +100,8 @@
 .pbar.weak span{color:#b3452c;font-weight:700}
 /* SDG tiles */
 .sdgs{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.sdg{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 16px;min-height:118px;font-size:21px;line-height:1.25;transition:background .5s,color .5s,border-color .5s}
+.fill .sdgs{flex:1;grid-auto-rows:1fr}
+.sdg{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 16px;font-size:21px;line-height:1.25;transition:background .5s,color .5s,border-color .5s}
 .sdg b{display:block;font:400 34px/1 var(--display);color:var(--Blue);margin-bottom:4px;transition:color .5s}
 .sdg.legend{background:transparent;border:0;font-size:19px;color:var(--mute);display:flex;flex-direction:column;gap:6px;justify-content:center}
 .sdg.legend i{display:inline-block;width:18px;height:18px;border-radius:4px;vertical-align:-2px;margin-right:8px}
@@ -54,55 +112,130 @@
 .cake .sdg.eco b,.cake .sdg.part b,.cake .sdg.bio b,.cake .sdg.soc b{color:inherit}
 .sdg.legend{visibility:hidden}
 .cake .sdg.legend{visibility:visible}
-/* population bars: one series, direct labels, values in text ink */
-.pop{display:grid;gap:10px}
-.pop-row{display:grid;grid-template-columns:170px 1fr;align-items:center;gap:18px;font:400 30px var(--display)}
-.pop-track{position:relative;height:40px}
-.pop-bar{height:100%;border-radius:0 4px 4px 0;background:var(--Sky);transition:width 1s var(--ease)}
-.pop-row.proj .pop-bar{background:repeating-linear-gradient(135deg,var(--Blue) 0 12px,var(--deep) 12px 24px)}
-.pop-row.guess .pop-bar{background:var(--golden)}
-.pop-row span.v{position:absolute;top:0;line-height:40px;padding-left:12px;font:700 22px var(--body);color:var(--ink);white-space:nowrap}
-.pop-axis{display:grid;grid-template-columns:170px 1fr;gap:18px;font-size:18px;color:var(--mute)}
-.pop-axis div{display:flex;justify-content:space-between;border-top:1px solid var(--paper-2);padding-top:6px}
-.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.career{display:grid;gap:22px}
+.career div{display:grid;grid-template-columns:72px 200px 1fr;gap:18px;align-items:center;font-size:25px;line-height:1.35}
+.career h3{margin:0;font-size:36px}
 </style>
 </head>
 <body>
-<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-pick" viewBox="0 0 24 24"><path d="M14.5 9.5 4 20"/><path d="M4 7c5-4 11-4 16 1"/><path d="M9.5 4.5c3 .5 7 2.5 10 6.5"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7z"/><path d="M12 22v-3"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 3.54 7 6-.94 2.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
 
 <!-- 1. TITLE -->
-<section class="slide">
-  <div class="band"></div>
-  <div class="band-num reveal">M<em>01</em></div>
-  <div class="band-text reveal d2"><span data-fill="module-title">Sustainability for Our Planet</span><small>Lecture 1<br><span data-fill="reading">What is the Triple Bottom Line? What's Systems Thinking?</span></small></div>
-  <div class="swatches reveal d3"><i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i></div>
-  <div class="title-k reveal">Lecture 1 · People, planet, prosperity</div>
-  <h1 class="title-h reveal d2" style="font-size:96px">The <em>triple bottom line</em> of sustainability</h1>
-  <div class="title-terms reveal d3" data-fill="chips"></div>
-  <div class="goldline"></div>
-  <aside class="notes">Welcome to Module 1, the first content lecture. Today sets up the language for the whole course: sustainability, the triple bottom line, the SDGs and wicked problems. Groups are formed at the end of class (group division is due today), so keep the last few minutes free.</aside>
-</section>
-
-<!-- 2. OBJECTIVES -->
-<section class="slide">
-  <div class="rail"><b>1.1</b><span>Objectives</span></div>
-  <div class="content">
-    <div class="k reveal">By the end of class you can</div>
-    <h2 class="reveal d2">Learning <em>objectives</em></h2>
-    <ol class="num reveal d3" style="font-size:36px;max-width:1450px">
-        <li>Define sustainability and describe what the 17 Sustainable Development Goals are.</li>
-        <li>Name the three pillars of the triple bottom line and sort actions into them.</li>
-        <li>Explain why a good decision balances all three pillars.</li>
-        <li>Use systems thinking to tell a wicked problem apart from a tame one.</li>
-      </ol>
+<section class="slide hero">
+  <img class="hero-img" src="img/hero-tree.jpg" alt="A single tree on open ground, ringed by icons for energy, housing, recycling, plants, water and wind">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>01</em></b><span data-fill="module-title">Sustainability for Our Planet</span></div>
+    <div class="title-k reveal d2">Lecture 1 · Introduction to sustainability concepts</div>
+    <h1 class="reveal d2">Sustainability and <em>sustainable development</em></h1>
+    <p class="hero-sub reveal d3">What sustainability means, why it matters for every career, and how we weigh Earth, economy and equity together.</p>
+    <div class="goldline"></div>
   </div>
-  <aside class="notes">Today covers the first module objective (triple bottom line) and previews systems thinking through wicked problems. Externalities and ethics come later in the module.</aside>
+  <aside class="notes">Welcome to the first content lecture. Let the photo fade in: one tree surrounded by the things we need from the planet (energy, homes, water, recycling). Today sets up the language for the whole course: sustainability, the three pillars, the SDGs and wicked problems. The picture is from the instructor's original title slide; no credit was printed there.</aside>
 </section>
 
-<!-- 3. ATTENDANCE -->
+<!-- 2. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab ten reveal d3" data-vocab></div>
+  </div>
+  <aside class="notes">Ten terms from the recap slide of the original lecture. The first four (Sustainability, Triple Bottom Line, SDGs, Wicked Problems) use the course glossary definitions; the other six are written for this lecture. Read three or four aloud now and point back here when a term comes up.</aside>
+</section>
+
+<!-- 3. MODULE 1 AT A GLANCE -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Module 1</span></div>
+  <div class="content fill">
+    <div class="k reveal">Module <span data-fill="module-num">1</span> · <span data-fill="module-title">Sustainability for Our Planet</span></div>
+    <h2 class="reveal d2">Where this module is <em>going</em></h2>
+    <div class="glance">
+      <div class="card accent reveal d3"><span class="tag">Learning objectives · by the end of Module 1 you can</span>
+        <ol class="num">
+          <li>Explain sustainability and the triple bottom line: Earth, economy and equity.</li>
+          <li>Use systems thinking to see how people, nature and technology connect.</li>
+          <li>Describe how externalities and social and economic forces shape the environment.</li>
+          <li>Compare ethical views on why nature matters.</li>
+        </ol>
+      </div>
+      <div class="card gold reveal d4"><span class="tag">What's due in this module</span>
+        <ul class="clean" data-fill="assessments"><li>InQuizitive 1 and 2</li><li>Review Exercise practice: learn to draw SETs</li><li>Video introduction</li></ul>
+        <div class="gold-rule" style="margin:26px 0 20px"></div>
+        <p style="font-size:28px"><b>Reading for today:</b> <span data-fill="reading">What is the Triple Bottom Line? What's Systems Thinking?</span></p>
+        <p class="small mute" style="margin-top:16px">Due dates and submission links are on the course site.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">The four objectives come from the Module 1 objectives (triple bottom line, systems thinking, externalities and socio-economic forces, environmental ethics). Today covers objective 1 and previews objective 2 through wicked problems. Group division happens today: keep a few minutes at the end.</aside>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:68px;max-width:1450px">When you hear the word <em>sustainability</em>, what comes to mind first?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>Protecting nature: recycling, forests, clean air</button>
+      <button class="opt" type="button"><b>B</b>Taking care of people: health, fairness, communities</button>
+      <button class="opt" type="button"><b>C</b>A strong economy: jobs, saving money, lasting businesses</button>
+      <button class="opt" type="button"><b>D</b>All three at once</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+  <aside class="notes">Anonymous, no check-in needed. Show results from the admin page. Most first-year classes lean toward A. Use that to set up the lecture: sustainability is more than environmental science. A, B and C are the three pillars (Earth, equity, economy), and D is where we want to end up.</aside>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · the three threads of today's lecture</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <p class="lead reveal d2" style="margin-bottom:30px">Sustainability is complex, but essential to our lives. Our own health and well-being are deeply connected to the health of the planet.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span><br><span class="tag">1 · Why it matters</span><h3>Every field needs it</h3><p>See how sustainability shows up in jobs, technology and everyday choices.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><br><span class="tag">2 · Three pillars</span><h3>Earth, economy, equity</h3><p>Define sustainability and weigh the trade-offs between the three pillars.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-earth"/></svg></span><br><span class="tag">3 · Shared goals</span><h3>Wicked problems and the SDGs</h3><p>Explain why sustainability problems are wicked, and how the 17 goals guide action.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Sustainability is an interconnected system: a healthy environment, a resilient economy and social equity, now and for future generations.</div>
+  </div>
+  <aside class="notes">These three ideas are the threads of today's lecture. Each section is marked on the side rail. Come back to the takeaway on the last slide.</aside>
+</section>
+
+<!-- 6. ATTENDANCE -->
 <section class="slide" id="attendance">
-  <div class="rail"><b>1.1</b><span>Attendance</span></div>
-  <div class="content">
+  <div class="rail"><b>1</b><span>Attendance</span></div>
+  <div class="content center">
     <div class="k reveal">Check in</div>
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
     <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
@@ -119,172 +252,119 @@
       <p class="small mute" data-mode-note></p>
     </div>
   </div>
-  <aside class="notes">Generate the code on the admin page and put it on screen. Students type their name, email and the code.</aside>
+  <aside class="notes">Generate the code on the admin page and put it on the projector. Leave this slide up for about three minutes. The warm-up poll is anonymous, so this is the first place students type their name and email.</aside>
 </section>
 
-<!-- 4. WARM-UP POLL -->
-<section class="slide">
-  <div class="rail"><b>1.1</b><span>Warm-up poll</span></div>
-  <div class="content">
-    <div class="k reveal">Warm-up · no wrong answers</div>
-    <h2 class="reveal d2" style="font-size:66px;max-width:1450px">When you hear the word <em>sustainability</em>, what comes to mind first?</h2>
-    <div class="poll reveal d3" data-poll="warmup">
-      <button class="opt" type="button"><b>A</b>Protecting nature: recycling, forests, clean air</button>
-      <button class="opt" type="button"><b>B</b>Taking care of people: health, fairness, communities</button>
-      <button class="opt" type="button"><b>C</b>A strong economy: jobs, saving money, lasting businesses</button>
-      <button class="opt" type="button"><b>D</b>All three at once</button>
-    </div>
-    <div class="status" data-poll-status="warmup"></div>
+<!-- 7. REVIEW QUIZ -->
+<section class="slide" id="quiz">
+  <div class="rail"><b>1</b><span>Review quiz</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Quick quiz · a first look at today's ideas</div>
+    <h2 class="reveal d2" style="font-size:72px">What do you <em>already know</em>?</h2>
+    <div class="quiz reveal d3" data-quiz></div>
+    <div class="reveal d4" style="margin-top:30px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="quiz-check">Check my answers</button><span class="status" id="quiz-status" style="margin:0"></span></div>
   </div>
-  <aside class="notes">Show results from the admin page. Most first-year classes lean toward A. Use that to set up the lecture: sustainability is not only about nature. Options A, B and C are the three pillars of the triple bottom line, and D is where we want to end up.</aside>
+  <aside class="notes">This is the first lecture, so there is nothing to review yet: these six questions preview today. Good guesses are fine. Give two minutes, then have students check. Scores go to the admin page, which shows the questions the class missed most; come back to those during the lecture.</aside>
 </section>
 
-<!-- 5. VOCABULARY -->
+<!-- 8. WHY STUDY SUSTAINABILITY -->
 <section class="slide">
-  <div class="rail"><b>1.1</b><span>Key vocabulary</span></div>
-  <div class="content">
-    <div class="k reveal">Glossary · Module 1 · tap a card for its example</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">Key <em>vocabulary</em></h2>
-    <div class="vocab reveal d3" data-fill="vocab"></div>
-  </div>
-  <aside class="notes">These four terms are the backbone of today. Each activity uses one of them: the sorting game and simulation (Triple Bottom Line), the SDG tiles (SDGs), and the wicked-or-tame game (Wicked Problems). Flip one or two cards to show the examples.</aside>
-</section>
-
-<!-- 6. SUSTAINABILITY -->
-<section class="slide">
-  <div class="rail"><b>1.1</b><span>Sustainability</span></div>
-  <div class="content">
-    <div class="k reveal">Term 1 · Sustainability</div>
-    <h2 class="reveal d2">What does <em>sustainable</em> mean?</h2>
-    <p class="quote reveal d3">“Development that meets the needs of the present without compromising the ability of future generations to meet their own needs.”</p>
-    <p class="quote-src reveal d3">Our Common Future (the Brundtland Report), United Nations, 1987</p>
-    <div class="grid g3 reveal d4">
-      <div class="card accent"><span class="tag">Today</span><p>People alive now need food, water, energy, homes and jobs.</p></div>
-      <div class="card green"><span class="tag">Limits</span><p>Nature can only give so much. Use resources no faster than they recover.</p></div>
-      <div class="card gold"><span class="tag">Tomorrow</span><p>Leave future generations the same chance to meet their needs.</p></div>
-    </div>
-  </div>
-  <aside class="notes">This is the most quoted definition of sustainable development, from the UN World Commission on Environment and Development (chaired by Gro Harlem Brundtland), 1987. Link to the glossary example: harvesting timber no faster than the forest regrows. Ask: what is one thing you use every day that might not be available to your grandchildren?</aside>
-</section>
-
-<!-- 7. TRIPLE BOTTOM LINE -->
-<section class="slide">
-  <div class="rail"><b>1.1</b><span>Triple bottom line</span></div>
-  <div class="content">
-    <div class="k reveal">Term 2 · Triple Bottom Line (TBL)</div>
-    <h2 class="reveal d2">Three ways to <em>measure success</em></h2>
-    <div class="grid" style="grid-template-columns:660px 1fr;gap:70px;align-items:start">
-      <div class="venn reveal d3" aria-label="Venn diagram: People, Planet and Prosperity overlap in the middle, labelled Sustainable">
-        <div class="c people">People</div>
-        <div class="c planet">Planet</div>
-        <div class="c prosperity">Prosperity</div>
-        <span class="pair" style="left:120px;top:250px">Bearable</span>
-        <span class="pair" style="left:440px;top:250px">Equitable</span>
-        <span class="pair" style="left:295px;top:520px">Viable</span>
-        <div class="mid">Sustainable</div>
+  <div class="rail"><b>1</b><span>Big idea 1 · Why it matters</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:1fr 820px;gap:70px;align-items:center">
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-bulb"/></svg></span>Big idea 1 · why study sustainability?</div>
+        <h2 style="font-size:70px">Where does your <em>data</em> go?</h2>
+        <p style="font-size:29px;line-height:1.45">Every time we stream a video, store photos in the cloud or use AI, the data lives in a <b>data center</b>.</p>
+        <p style="font-size:29px;line-height:1.45;margin-top:18px">Its <b>supply chain</b> needs raw materials, electricity, water for cooling and buildings. A <b>linear economy</b> takes, makes, uses and throws away. A <b>circular economy</b> collects and recycles.</p>
+        <div class="skills"><div>Systems thinking</div><div>Problem solving</div><div>Interdisciplinarity</div><div>Future readiness</div></div>
       </div>
-      <div class="pillars reveal d4">
-        <div class="card people"><span class="tag">People · equity</span><p>Are workers and neighbours healthy, safe and treated fairly?</p></div>
-        <div class="card green"><span class="tag">Planet · environment</span><p>Does it protect air, water, land and wildlife, and cut waste?</p></div>
-        <div class="card blue"><span class="tag">Prosperity · economy</span><p>Can it pay its way, create jobs and last over time?</p></div>
-        <p class="small mute">A normal "bottom line" counts only money. The triple bottom line counts all three.</p>
+      <figure class="fig plain reveal d3"><img src="img/circular-economy.jpg" alt="Diagram: a linear economy runs take, make, use, dispose; a circular economy loops from use back through collect and recycle, leaving only residual waste"></figure>
+    </div>
+  </div>
+  <aside class="notes">Ask: what did you stream or upload today? Then ask where that video physically lives. Data centers use large amounts of electricity and water for cooling, and their servers need mined metals. Studying sustainability builds four skills students will use in any career: systems thinking, problem solving, interdisciplinarity and future readiness. The diagram is from the original slides.</aside>
+</section>
+
+<!-- 9. GREEN JOBS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 1 · Green jobs</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>Big idea 1 · careers</div>
+    <h2 class="reveal d2">Green jobs are in <em>demand</em></h2>
+    <figure class="fig plain reveal d3"><img src="img/green-jobs.jpg" alt="World map of renewable energy jobs in thousands: China 7,388, European Union 1,812, Brazil 1,567, United States 1,056, India 1,019, with a legend of renewable energy types"></figure>
+    <p class="credit reveal d3" style="text-align:right">Source: IRENA (International Renewable Energy Agency)</p>
+    <div class="stats reveal d4">
+      <div><b>16.2 million</b><span>renewable energy jobs worldwide in 2023</span></div>
+      <div><b>7.4 million</b><span>of them in China, the largest share</span></div>
+      <div><b>About 1 million</b><span>in the United States</span></div>
+    </div>
+  </div>
+  <aside class="notes">Numbers are from the IRENA map in the original slides (Renewable Energy and Jobs, Annual Review 2024): 16.2 million jobs in 2023, in thousands: China 7,388, EU 1,812, Brazil 1,567, United States 1,056, India 1,019. Solar photovoltaic is the largest employer. Ask: which of these jobs could you see yourself in?</aside>
+</section>
+
+<!-- 10. EVERY FIELD -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 1 · Every field</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:640px 1fr;gap:80px;align-items:center">
+      <figure class="fig plain reveal d3"><img src="img/disciplines.jpg" alt="Wheel around Earth with five fields: social sciences, engineering, arts and humanities, business and finance, basic and applied sciences"></figure>
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 1 · every major has a part</div>
+        <h2 style="font-size:70px">Sustainability needs <em>every field</em></h2>
+        <p style="font-size:28px;line-height:1.45">Sciences, engineering, business, social sciences, and the arts and humanities all work on today's challenges:</p>
+        <div class="chips"><span>Microplastic filters</span><span>Energy systems</span><span>Food security</span><span>Global supply chains</span><span>AI and data centers</span><span>Infrastructure</span><span>Urbanization</span><span>Climate and disaster risks</span></div>
+        <div class="take" style="font-size:26px"><b>Ask yourself</b>Which of these challenges connects to your major?</div>
       </div>
     </div>
   </div>
-  <aside class="notes">John Elkington coined "triple bottom line" in 1994. "Bottom line" is the last line of a company's accounts: profit or loss. The overlap labels (bearable, equitable, viable) are a common way to draw the idea: an action that only helps two pillars is not yet sustainable. Glossary example: packaging that cuts plastic, fair wages, and still a profit.</aside>
+  <aside class="notes">Have two or three students say their major and name one challenge from the list it connects to. Engineers build filters and grids, business majors manage supply chains, social scientists study who is affected, artists and writers tell the story. The wheel is from the original slides.</aside>
 </section>
 
-<!-- 8. SORTING GAME -->
-<section class="slide" id="sorter">
-  <div class="rail"><b>1.1</b><span>Sorting game</span></div>
-  <div class="content">
-    <div class="k reveal">Game · which pillar does it help most?</div>
-    <h2 class="reveal d2" style="margin-bottom:20px">Sort into <em>People, Planet, Prosperity</em></h2>
-    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
-      <div class="sort-row" data-answer="pe"><span>Paying workers a living wage</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pl"><span>Restoring a wetland along a river</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pr"><span>A local bakery growing its sales by 20%</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pe"><span>Opening a free health clinic</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pl"><span>Cutting plastic packaging waste</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pr"><span>Lowering a factory's operating costs</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pe"><span>Adding wheelchair ramps to a library</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-      <div class="sort-row" data-answer="pl"><span>Planting native plants for bees</span><button type="button" data-pick="pe">People</button><button type="button" data-pick="pl">Planet</button><button type="button" data-pick="pr">Prosperity</button></div>
-    </div>
-    <div class="reveal d4" style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
-  </div>
-  <aside class="notes">Give 2 minutes, then check. The follow-up is the real lesson: which items help more than one pillar? The wetland also filters water for people; lower factory costs could come from saving energy (planet); a living wage also keeps staff and saves hiring costs (prosperity). Real decisions rarely sit in one box.</aside>
-</section>
-
-<!-- 9. SIMULATION -->
-<section class="slide" id="town-sim">
-  <div class="rail"><b>1.1</b><span>Simulation</span></div>
-  <div class="content">
-    <div class="k reveal">Simulation · Town budget</div>
-    <h2 class="reveal d2" style="margin-bottom:26px">Spend <em>$10 million</em> on a desert town</h2>
-    <div class="sim reveal d3">
-      <div>
-        <div class="slider"><label for="s-solar">Solar panels on city buildings <output data-out="solar"></output></label><input type="range" id="s-solar" min="0" max="5" step="0.5" value="2.5"></div>
-        <div class="slider"><label for="s-cool">Shade trees and cooling centers <output data-out="cool"></output></label><input type="range" id="s-cool" min="0" max="5" step="0.5" value="2.5"></div>
-        <div class="slider"><label for="s-bus">More frequent bus service <output data-out="bus"></output></label><input type="range" id="s-bus" min="0" max="5" step="0.5" value="2.5"></div>
-        <div class="slider"><label for="s-tax">Tax refund to residents and shops <output data-out="tax"></output></label><input type="range" id="s-tax" min="0" max="5" step="0.5" value="2.5"></div>
-        <div class="budget" id="budget"><span>Budget used</span><b id="spent">$10.0M of $10M</b></div>
-        <div style="display:flex;gap:18px;align-items:center;margin-top:18px"><button class="btn" type="button" id="sim-save">Submit my plan</button><span class="status" id="sim-status" style="margin:0"></span></div>
+<!-- 11. CARING FOR THE EARTH -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 1 · Healthy Earth</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:1fr 760px;gap:80px;align-items:center">
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 1 · caring for the Earth</div>
+        <h2 style="font-size:78px">Healthy planet, <em>healthy people</em></h2>
+        <p style="font-size:32px;line-height:1.45">Human well-being is closely tied to healthy ecosystems. We depend on four things the planet gives us:</p>
+        <ul class="clean" style="font-size:30px">
+          <li><b>Clean air</b> to breathe</li>
+          <li><b>Clean water</b> to drink and grow food</li>
+          <li>A <b>healthy biosphere</b>: plants, animals and soil</li>
+          <li><b>Stable geology</b>: solid ground to live and build on</li>
+        </ul>
       </div>
-      <div class="gauge">
-        <div class="u">Balance score</div>
-        <div class="v" id="bal">0</div>
-        <div class="u">out of 100 · set by your weakest pillar</div>
-        <div id="pillars"></div>
-        <p class="small mute" style="margin-top:16px;text-align:left">A teaching model, not real data.</p>
-      </div>
+      <figure class="fig plain reveal d3"><img src="img/caring-earth.jpg" alt="Earth ringed by four segments: clean air, healthy biosphere, stable geology, clean water"></figure>
     </div>
   </div>
-  <aside class="notes">Pairs build a plan for a Phoenix-area town, then submit it. The balance score is the lowest of the three pillar scores, so pouring all the money into one favourite program always scores badly. Each program has diminishing returns, so spreading money helps. The starting split ($2.5M each) scores 78; the best possible is 79 (for example $3M solar, $2M cooling, $2.5M bus, $2.5M refund), so a perfect score is impossible: that is the trade-off. Debrief with the admin page: which pillar was weakest most often? Would a real town weigh the pillars equally? Who decides?</aside>
+  <aside class="notes">Ask: which of the four would Phoenix feel first in a heat wave or a drought? (Clean water and clean air.) The globe graphic is from the original slides.</aside>
 </section>
 
-<!-- 10. SDGs -->
-<section class="slide" id="sdg">
-  <div class="rail"><b>1.1</b><span>The SDGs</span></div>
-  <div class="content">
-    <div class="k reveal">Term 3 · Sustainable Development Goals</div>
-    <h2 class="reveal d2" style="margin-bottom:14px">17 goals, one <em>shared roadmap</em></h2>
-    <p class="small reveal d2" style="margin-bottom:22px">Adopted by all 193 UN member states in 2015, with targets for 2030. With a neighbour: which goals are mainly about <b>Planet</b>, <b>People</b> or <b>Prosperity</b>?</p>
-    <div class="sdgs reveal d3" id="sdg-grid"></div>
-    <div class="reveal d4" style="margin-top:22px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="cake-btn">Show one way to group them</button><span class="small mute" id="cake-note"></span></div>
-  </div>
-  <aside class="notes">The UN adopted the 2030 Agenda and its 17 SDGs in September 2015. The grouping revealed by the button is the "SDG wedding cake" from the Stockholm Resilience Centre (Rockström and Sukhdev, 2016): the biosphere goals (6, 13, 14, 15) are the base, society sits on top of them, the economy on top of society, and Goal 17 (partnerships) ties them together. Point out that this matches People, Planet, Prosperity, but with the planet as the foundation. Glossary example: a city upgrading its water system supports Goal 6.</aside>
-</section>
-
-<!-- 11. DATA ANALYSIS -->
-<section class="slide" id="pop-data">
-  <div class="rail"><b>1.1</b><span>Data analysis</span></div>
-  <div class="content">
-    <div class="k reveal">Data · meeting the needs of more people</div>
-    <h2 class="reveal d2" style="margin-bottom:24px">How fast has the world <em>grown</em>?</h2>
-    <div class="grid" style="grid-template-columns:1fr 560px;gap:60px;align-items:start">
+<!-- 12. SUSTAINABILITY CHALLENGES -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 3 · Wicked problems</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · sustainability challenges</div>
+    <h2 class="reveal d2">Sustainability challenges are <em>wicked problems</em></h2>
+    <div class="grid" style="grid-template-columns:560px 1fr;gap:70px;align-items:center">
       <div class="reveal d3">
-        <div class="pop" data-pop></div>
-        <div class="pop-axis"><span></span><div><span>0</span><span>5</span><span>10</span><span>15 billion</span></div></div>
-        <p class="small mute" style="margin-top:12px">World population, approximate, in billions. Striped bar is a projection.</p>
+        <div class="card gold"><span class="tag">Wicked problem</span><p style="font-size:28px;line-height:1.45">A complicated issue with no clear solution, where attempts to fix it often create new <b>trade-offs</b> or unexpected challenges.</p></div>
+        <p style="font-size:26px;line-height:1.45;margin-top:26px">Biodiversity loss, resource overuse, invasive species, climate change and broken nutrient cycles all connect. Each one is also a chance for new <b>solutions</b>.</p>
       </div>
-      <div class="card blue reveal d4">
-        <span class="tag">Your turn</span>
-        <p>Predict the world population in <b>2050</b>.</p>
-        <div class="slider" style="margin:18px 0 10px"><label for="guess">My guess <output id="guess-out"></output></label><input type="range" id="guess" min="8" max="12" step="0.1" value="11"></div>
-        <button class="btn" type="button" id="pop-reveal">Reveal the projection</button>
-        <p id="pop-out" style="font:400 32px/1.3 var(--display);margin-top:20px"></p>
-      </div>
+      <figure class="fig plain reveal d4"><img src="img/challenges.jpg" alt="Half wheel around Earth: biogeochemical cycles, biodiversity loss, resource overexploitation, invasive species, climate change, with opportunities and solutions"></figure>
     </div>
   </div>
-  <aside class="notes">Source: United Nations, World Population Prospects (UN DESA). Milestones: about 2.5 billion in 1950, 3 billion in 1960, 4 billion in 1974, 5 billion in 1987, 6 billion in 1999, 7 billion in 2011 and 8 billion in November 2022. The 2024 revision projects about 9.7 billion in 2050, peaking around 10.3 billion in the mid-2080s. Ask: how many years did it take to add each billion? (About 14, 13, 12, 12, 11.) The world passed 5 billion the same year the Brundtland Report came out. What does "meeting the needs of the present" mean when the present keeps getting bigger? Which pillar feels this most?</aside>
+  <aside class="notes">The term comes from Horst Rittel and Melvin Webber (1973). Point to how the challenges touch each other: climate change drives biodiversity loss, which weakens nutrient cycles. Then frame the right side of the graphic: every challenge is also an opportunity. The graphic is from the original slides.</aside>
 </section>
 
-<!-- 12. WICKED OR TAME -->
+<!-- 13. WICKED OR TAME -->
 <section class="slide" id="wicked">
-  <div class="rail"><b>1.1</b><span>Wicked problems</span></div>
-  <div class="content">
-    <div class="k reveal">Term 4 · Wicked Problems · discuss in pairs</div>
-    <h2 class="reveal d2" style="margin-bottom:24px">Wicked problem or <em>tame</em> problem?</h2>
+  <div class="rail"><b>1</b><span>Big idea 3 · Wicked problems</span></div>
+  <div class="content center">
+    <div class="k reveal">Game · discuss in pairs</div>
+    <h2 class="reveal d2">Wicked problem or <em>tame</em> problem?</h2>
     <div class="grid" style="grid-template-columns:560px 1fr;gap:60px;align-items:start">
       <div class="card gold reveal d3">
         <span class="tag">Signs of a wicked problem</span>
@@ -308,13 +388,233 @@
       </div>
     </div>
   </div>
-  <aside class="notes">The term comes from Horst Rittel and Melvin Webber (1973), who studied planning problems. After checking, invite disagreement: could a bus schedule become wicked if the route cuts through a neighbourhood that does not want it? That is the point: most sustainability problems are wicked, so the triple bottom line helps us weigh them, but it does not "solve" them. Preview: systems thinking (next readings) is a tool for wicked problems.</aside>
+  <aside class="notes">After checking, invite disagreement: could a bus schedule become wicked if the route cuts through a neighborhood that does not want it? Most sustainability problems are wicked, so the triple bottom line helps us weigh them, but it does not "solve" them. Systems thinking (next readings) is a tool for wicked problems.</aside>
 </section>
 
-<!-- 13. EXIT TICKET -->
+<!-- 14. MORE THAN ENVIRONMENTAL SCIENCE -->
 <section class="slide">
-  <div class="rail"><b>1.1</b><span>Exit ticket</span></div>
-  <div class="content">
+  <div class="rail"><b>1</b><span>Big idea 2 · Sustainability</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 2 · what sustainability is</div>
+    <h2 class="reveal d2">Sustainability is more than <em>environmental science</em></h2>
+    <figure class="fig plain reveal d3"><img src="img/more-than-env.jpg" alt="Four linked arcs with icons: environmentalism, science and research, governance, business"></figure>
+    <div class="take reveal d4" style="text-align:center;font-size:34px"><b>Sustainability is</b>Future-oriented action, informed by strategic thinking and equity.</div>
+  </div>
+  <aside class="notes">Walk the four arcs: environmentalism (caring for nature), science and research (measuring the problem), governance (rules and policy), business (how we make and sell things). Sustainability brings them together and adds two things: it looks to the future and it asks who wins and who loses (equity). The graphic is from the original slides.</aside>
+</section>
+
+<!-- 15. BRUNDTLAND DEFINITION -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 2 · Sustainability</span></div>
+  <div class="content center">
+    <div class="k reveal">Key term · Sustainability</div>
+    <h2 class="reveal d2">What does <em>sustainable</em> mean?</h2>
+    <p class="quote reveal d3">“Meeting the needs of the present without compromising the ability of future generations to meet their own needs.”</p>
+    <p class="quote-src reveal d3">The UN “Brundtland Report”, <i>Our Common Future</i> (1987)</p>
+    <div class="grid g3 reveal d4">
+      <div class="card accent"><span class="tag">Today</span><p>People alive now need food, water, energy, homes and jobs.</p></div>
+      <div class="card green"><span class="tag">Limits</span><p>Nature can only give so much. Use resources no faster than they recover.</p></div>
+      <div class="card gold"><span class="tag">Tomorrow</span><p>Leave future generations the same chance to meet their needs.</p></div>
+    </div>
+  </div>
+  <aside class="notes">The most quoted definition of sustainable development, from the UN World Commission on Environment and Development, 1987. Ask: what is one thing you use every day that might not be there for your grandchildren?</aside>
+</section>
+
+<!-- 16. QUICK QUESTION -->
+<section class="slide" id="quick">
+  <div class="rail"><b>1</b><span>Quick question</span></div>
+  <div class="content center">
+    <div class="k reveal">Quick question · tap an answer, nothing is recorded</div>
+    <h2 class="reveal d2">Does it meet the <em>definition</em>?</h2>
+    <div class="mq reveal d3" data-mq></div>
+  </div>
+  <aside class="notes">Two quick checks on the Brundtland definition. Answers show on tap and are not recorded. If students split on the first one, ask what happens to the next generation's water.</aside>
+</section>
+
+<!-- 17. THREE PILLARS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 2 · Three pillars</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · three pillars</div>
+    <h2 class="reveal d2">Three pillars of <em>sustainability</em></h2>
+    <p class="lead reveal d2" style="font-style:italic;margin-bottom:28px">“Sustainability is improving human well-being and ensuring social equity for present and future generations while safeguarding the planet's life-supporting ecosystems.” <span class="small mute" style="font-style:normal">Christopher Boone</span></p>
+    <div class="grid" style="grid-template-columns:860px 1fr;gap:50px;align-items:center">
+      <figure class="fig reveal d3"><img src="img/pillars.jpg" alt="A roof held up by three pillars labelled Earth, Economy and Equity, over a view of Earth"></figure>
+      <div class="pill3 reveal d4" style="grid-template-columns:1fr">
+        <div class="card green"><span class="tag">Earth · Planet</span><p>Protect the air, water, land and living things we depend on.</p></div>
+        <div class="card blue"><span class="tag">Economy · Prosperity</span><p>Create jobs and well-being that can last.</p></div>
+        <div class="card gold"><span class="tag">Equity · People</span><p>Treat people fairly, now and in the future.</p></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Ask: what happens to the roof if one pillar is weaker than the others? That is the point of the pillars: all three hold up sustainability together. The quote and picture are from the original slides.</aside>
+</section>
+
+<!-- 18. TRIPLE BOTTOM LINE -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 2 · Triple bottom line</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:780px 1fr;gap:70px;align-items:center">
+      <figure class="fig plain reveal d3"><img src="img/tbl-venn.jpg" alt="Venn diagram: Economy (prosperity), Earth (planet) and Equity (people) overlap. Economy and Earth overlap as viable, Economy and Equity as equitable, Earth and Equity as bearable, and all three as sustainable"></figure>
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Key term · Triple Bottom Line (TBL)</div>
+        <h2 style="font-size:70px">The triple <em>bottom line</em></h2>
+        <p style="font-size:28px;line-height:1.45">A normal "bottom line" counts only money. The triple bottom line counts <b>Earth, economy and equity</b> together.</p>
+        <ul class="clean" style="font-size:27px">
+          <li><b>Viable:</b> good for Earth and the economy</li>
+          <li><b>Equitable:</b> good for the economy and people</li>
+          <li><b>Bearable:</b> good for Earth and people</li>
+          <li><b>Sustainable:</b> all three at once</li>
+        </ul>
+        <div class="take" style="font-size:26px"><b>Trade-offs</b>The benefits and costs of choosing one course of action over another.</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">John Elkington coined "triple bottom line" in 1994. "Bottom line" is the last line of a company's accounts: profit or loss. An action that only helps two pillars is not yet sustainable. Glossary example: packaging that cuts plastic, fair wages, and still a profit. The diagram is from the original slides.</aside>
+</section>
+
+<!-- 19. NON-WESTERN VIEWS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 2 · Other views</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:1fr 760px;gap:80px;align-items:center">
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-fish"/></svg></span>Big idea 2 · non-Western views</div>
+        <h2 style="font-size:72px">A <em>more-than-human</em> world</h2>
+        <p style="font-size:29px;line-height:1.45">Many non-Western and Indigenous views see people as one part of a larger living world. Sustainability means <b>co-existence</b>, <b>well-being</b> and <b>regeneration</b>, not only balancing three pillars.</p>
+        <ul class="clean" style="font-size:27px">
+          <li><b>Co-existence:</b> people and other living things share the land and water</li>
+          <li><b>Stability and way of life:</b> a healthy river keeps a culture going</li>
+          <li><b>Regeneration:</b> take care so nature can renew itself</li>
+        </ul>
+      </div>
+      <figure class="fig plain reveal d3"><img src="img/non-western.jpg" alt="A salmon over a river shape, labelled co-existence, stability, way of life and regeneration"></figure>
+    </div>
+  </div>
+  <aside class="notes">The salmon is a common example: for many Pacific Northwest tribes, salmon are relatives, food and culture at once, so a healthy salmon run is not just an economic or environmental measure. Module 7 returns to Indigenous sustainability. The graphic is from the original slides.</aside>
+</section>
+
+<!-- 20. SORTING GAME -->
+<section class="slide" id="sorter">
+  <div class="rail"><b>1</b><span>Sorting game</span></div>
+  <div class="content fill">
+    <div class="k reveal">Game · which pillar does it help most?</div>
+    <h2 class="reveal d2">Sort into <em>Earth, Economy, Equity</em></h2>
+    <div class="grid reveal d3 sorter" style="grid-template-columns:1fr 1fr;gap:0 60px" data-sort>
+      <div class="sort-row" data-answer="eq"><span>Paying workers a living wage</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="ea"><span>Restoring a wetland along a river</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="ec"><span>A local bakery growing its sales by 20%</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="eq"><span>Opening a free health clinic</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="ea"><span>Cutting plastic packaging waste</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="ec"><span>Lowering a factory's operating costs</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="eq"><span>Adding wheelchair ramps to a library</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+      <div class="sort-row" data-answer="ea"><span>Planting native plants for bees</span><button type="button" data-pick="ea">Earth</button><button type="button" data-pick="ec">Economy</button><button type="button" data-pick="eq">Equity</button></div>
+    </div>
+    <div class="reveal d4" style="margin-top:26px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" data-sort-check>Check my answers</button><span class="status" data-sort-score style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Give two minutes, then check. The follow-up is the real lesson: which items help more than one pillar? The wetland also filters water for people; lower factory costs could come from saving energy (Earth); a living wage also keeps staff and saves hiring costs (economy). Real decisions rarely sit in one box.</aside>
+</section>
+
+<!-- 21. THINK-PAIR-SHARE -->
+<section class="slide" id="tps">
+  <div class="rail"><b>1</b><span>Think-pair-share</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>Think-pair-share · groups of 2 or 3</div>
+    <h2 class="reveal d2" style="font-size:66px">Apply the three pillars to <em>one issue</em></h2>
+    <p class="steps reveal d2"><b>Think</b> on your own (questions 1 to 4), <b>pair</b> up to answer 5, then <b>share</b> question 6 and submit.</p>
+    <div class="ans six reveal d3">
+      <div><label for="t-issue"><i>1</i>Pick one issue.</label>
+        <select id="t-issue"><option value="">Choose an issue…</option><option>Energy use</option><option>Fast fashion</option><option>Plastics</option><option>Urbanization</option><option>Water scarcity</option><option>Heat stress</option><option>Deforestation</option></select></div>
+      <div><label for="t-ea"><i>2</i>How does it affect Earth (the planet)?</label><textarea id="t-ea" maxlength="400"></textarea></div>
+      <div><label for="t-ec"><i>3</i>How does it affect the economy (money and jobs)?</label><textarea id="t-ec" maxlength="400"></textarea></div>
+      <div><label for="t-eq"><i>4</i>How does it affect equity (people and fairness)?</label><textarea id="t-eq" maxlength="400"></textarea></div>
+      <div><label for="t-neg"><i>5</i>With your partner: which pillar gets the least attention?</label>
+        <select id="t-neg"><option value="">Choose a pillar…</option><option>Earth</option><option>Economy</option><option>Equity</option></select></div>
+      <div><label for="t-trade"><i>6</i>Name one trade-off between two pillars.</label><textarea id="t-trade" maxlength="400"></textarea></div>
+    </div>
+    <div class="reveal d4" style="margin-top:24px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="tps-save">Submit my answers</button><span class="status" id="tps-status" style="margin:0"></span></div>
+  </div>
+  <aside class="notes">Five minutes to think, three to pair, then call on two or three groups to share their trade-off. Answers go to the admin page. Fast fashion is a good example to model: cheap clothes (economy) but textile waste and water use (Earth) and low wages for garment workers (equity).</aside>
+</section>
+
+<!-- 22. SIMULATION -->
+<section class="slide" id="town-sim">
+  <div class="rail"><b>1</b><span>Simulation</span></div>
+  <div class="content fill">
+    <div class="k reveal">Simulation · town budget</div>
+    <h2 class="reveal d2">Spend <em>$10 million</em> on a desert town</h2>
+    <div class="sim reveal d3">
+      <div>
+        <div class="slider"><label for="s-solar">Solar panels on city buildings <output data-out="solar"></output></label><input type="range" id="s-solar" min="0" max="5" step="0.5" value="2.5"></div>
+        <div class="slider"><label for="s-cool">Shade trees and cooling centers <output data-out="cool"></output></label><input type="range" id="s-cool" min="0" max="5" step="0.5" value="2.5"></div>
+        <div class="slider"><label for="s-bus">More frequent bus service <output data-out="bus"></output></label><input type="range" id="s-bus" min="0" max="5" step="0.5" value="2.5"></div>
+        <div class="slider"><label for="s-tax">Tax refund to residents and shops <output data-out="tax"></output></label><input type="range" id="s-tax" min="0" max="5" step="0.5" value="2.5"></div>
+        <div class="budget" id="budget"><span>Budget used</span><b id="spent">$10.0M of $10M</b></div>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:18px"><button class="btn" type="button" id="sim-save">Submit my plan</button><span class="status" id="sim-status" style="margin:0"></span></div>
+      </div>
+      <div class="gauge">
+        <div class="u">Balance score</div>
+        <div class="v" id="bal">0</div>
+        <div class="u">out of 100 · set by your weakest pillar</div>
+        <div id="pillars"></div>
+        <p class="small mute" style="margin-top:16px;text-align:left">A teaching model, not real data.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Pairs build a plan for a Phoenix-area town, then submit it. The balance score is the lowest of the three pillar scores, so pouring all the money into one program always scores badly. Each program has diminishing returns, so spreading money helps. The starting split ($2.5M each) scores 78; the best possible is 79, so a perfect score is impossible: that is the trade-off. Debrief with the admin page: which pillar was weakest most often?</aside>
+</section>
+
+<!-- 23. SDGs -->
+<section class="slide" id="sdg">
+  <div class="rail"><b>1</b><span>Big idea 3 · The SDGs</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Key term · Sustainable Development Goals</div>
+    <h2 class="reveal d2">17 goals, one <em>shared roadmap</em></h2>
+    <p class="small reveal d2" style="margin:-20px 0 22px">Adopted by all 193 UN member states in 2015, with targets for 2030. With a neighbor: which goals are mainly about <b>Earth</b>, <b>equity</b> or the <b>economy</b>?</p>
+    <div class="sdgs reveal d3" id="sdg-grid"></div>
+    <div class="reveal d4" style="margin-top:22px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="cake-btn">Show one way to group them</button><span class="small mute" id="cake-note"></span></div>
+  </div>
+  <aside class="notes">The UN adopted the 2030 Agenda and its 17 SDGs in September 2015. The grouping on the button is the "SDG wedding cake" from the Stockholm Resilience Centre: the biosphere goals (6, 13, 14, 15) are the base, society sits on top, the economy on top of society, and Goal 17 (partnerships) ties them together. It matches Earth, equity and economy, with the planet as the foundation.</aside>
+</section>
+
+<!-- 24. SDGs AND YOUR CAREER -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Big idea 3 · The SDGs</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>Big idea 3 · the SDGs at work</div>
+    <h2 class="reveal d2">The SDGs matter in <em>your career</em></h2>
+    <div class="grid" style="grid-template-columns:720px 1fr;gap:70px;align-items:center">
+      <figure class="fig plain reveal d3"><img src="img/sdgs.jpg" alt="The 17 United Nations Sustainable Development Goals as colored tiles, from 1 No poverty to 17 Partnerships for the goals"></figure>
+      <div class="career reveal d4">
+        <div><span class="ico green lg"><svg aria-hidden="true"><use href="#i-earth"/></svg></span><h3>Earth</h3><span>Life-supporting systems, ecosystem services, the built environment, health</span></div>
+        <div><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span><h3>Economy</h3><span>Prosperity, quality of life, well-being, energy and food security</span></div>
+        <div><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><h3>Equity</h3><span>Equality and equity, justice, peace, collaboration, partnership</span></div>
+        <div class="take" style="font-size:25px;display:block"><b>Remember</b>There are 17 goals. Know the key ones: no poverty, quality education, climate action, life below water and life on land.</div>
+      </div>
+    </div>
+    <p class="credit reveal d4">SDG icons: United Nations</p>
+  </div>
+  <aside class="notes">Employers and governments report on the SDGs, so students will meet them in many jobs. Ask: which goal is closest to your major? The SDG graphic is the official UN image from the original slides.</aside>
+</section>
+
+<!-- 25. THINK ABOUT IT -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Think about it</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bulb"/></svg></span>Think about it · after class</div>
+    <h2 class="reveal d2">Two questions to <em>keep thinking</em> about</h2>
+    <ol class="num reveal d3" style="font-size:36px;max-width:1500px">
+      <li>Pick a topic you care about (plastic pollution, fast fashion, water scarcity, heat stress or deforestation). How do Earth, economy and equity each apply to it?</li>
+      <li>Which of the 17 SDGs are about environmental health? How do scientists measure progress on them?</li>
+    </ol>
+  </div>
+  <aside class="notes">These are the "consider these" questions from the original recap slide, written for first-year students. Students can bring their answer to question 1 to their group's first meeting.</aside>
+</section>
+
+<!-- 26. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Exit ticket</span></div>
+  <div class="content center">
     <div class="k reveal">Exit ticket · counts for participation</div>
     <h2 class="reveal d2" style="font-size:64px;max-width:1500px">A company cuts its plastic waste, pays fair wages, and still makes a profit. Which idea does this show <em>best</em>?</h2>
     <div class="poll reveal d3" data-poll="exit" data-correct="1">
@@ -325,41 +625,24 @@
     </div>
     <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
   </div>
-  <aside class="notes">Correct answer: B. The company succeeds on Planet (less plastic), People (fair wages) and Prosperity (still profitable). This is the glossary example for the Triple Bottom Line.</aside>
+  <aside class="notes">Correct answer: B. The company succeeds on Earth (less plastic), equity (fair wages) and the economy (still profitable). This is the glossary example for the Triple Bottom Line.</aside>
 </section>
 
-<!-- 14. ASSIGNMENTS -->
-<section class="slide">
-  <div class="rail"><b>1.1</b><span>Assignments</span></div>
-  <div class="content">
-    <div class="k reveal">Module 1 · what's due</div>
-    <h2 class="reveal d2">Assignments and <em>next class</em></h2>
-    <div class="grid g2 reveal d3" style="gap:40px">
-      <div class="card blue"><span class="tag">Module 1 assessments</span><ul class="clean" data-fill="assessments" style="font-size:27px"></ul></div>
-      <div class="card gold"><span class="tag">Today and next class</span>
-        <p><b>Today:</b> group division. Find your group before you leave.</p>
-        <div class="gold-rule" style="margin:22px 0"></div>
-        <p><b>Next:</b> <span data-fill="next"></span></p>
-        <div class="gold-rule" style="margin:22px 0"></div>
-        <p>Review the four glossary terms from today and finish the reading on systems thinking.</p>
-      </div>
-    </div>
+<!-- 27. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" src="img/hero-tree.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1080px">
+    <div class="hero-badge reveal"><b>L<em>1</em></b><span>Sustainability and sustainable development</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="hero-lead reveal d2">Sustainability is complex, but essential: our health is tied to the <em>health of the planet</em>.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Sustainability means meeting today's needs without taking away future generations' ability to meet theirs.</li>
+      <li>It balances Earth, economy and equity, and every choice has trade-offs.</li>
+      <li>Most sustainability challenges are wicked problems; the 17 SDGs give the world a shared roadmap.</li>
+    </ol>
+    <p class="hero-sub reveal d4" style="margin-top:28px;font-size:24px">Questions? Ask in class or come to office hours.</p>
   </div>
-  <aside class="notes">Run group division now. Remind students that the video introduction is part of the Module 1 assessments.</aside>
-</section>
-
-<!-- 15. TAKEAWAYS -->
-<section class="slide">
-  <div class="band"></div>
-  <div class="band-num reveal">1<em>.1</em></div>
-  <div class="band-text reveal d2">The triple bottom line of sustainability<small>Questions? Ask in class or come to office hours.</small></div>
-  <div class="title-k reveal">Three things to remember</div>
-  <ol class="num reveal d2" style="position:absolute;left:740px;top:270px;width:1060px;font-size:34px">
-    <li>Sustainability means meeting today's needs without taking away the ability of future generations to meet theirs.</li>
-    <li>The triple bottom line judges success by People, Planet and Prosperity together, not by money alone.</li>
-    <li>The 17 SDGs give the world a shared roadmap, but most sustainability challenges are wicked problems with no single right answer.</li>
-  </ol>
-  <div class="goldline" style="top:900px"></div>
 </section>
 
 </main></div>
@@ -373,14 +656,55 @@ const LECTURE = 'm1-s1';
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-/* === COURSE DATA === glossary, objectives and assignments from course.json */
-loadSession(LECTURE).then(d => fill(document, d)).catch(() => {
-  $$('[data-fill="vocab"]').forEach(el => { el.innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>'; });
+/* === FLIP CARDS === */
+const flipCard = ({ term, definition, example }, icon = '') => `
+  <div class="vcard" tabindex="0" role="button" aria-label="${esc(term)}: show example">
+    <div class="in">
+      <div class="f"><h4${icon ? ' class="ih"' : ''}>${icon}${esc(term)}</h4><p>${esc(definition)}</p><span class="hint">Tap for example</span></div>
+      <div class="b"><h4>Example</h4><p>${esc(example)}</p></div>
+    </div>
+  </div>`;
+function wireFlips(root) {
+  $$('.vcard', root).forEach(c => {
+    const flip = () => c.classList.toggle('flip');
+    c.addEventListener('click', flip);
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
+  });
+}
+
+/* === COURSE DATA === Today's key terms: the recap slide's key concepts plus the session's
+   glossary terms. Glossary terms (null here) use the course glossary definitions.
+   [term, icon, tone, definition, example] */
+const KEY_TERMS = [
+  ['Sustainability', 'sprout', 'green', null, null],
+  ['Triple Bottom Line (TBL)', 'scale', 'gold', null, null],
+  ['Sustainable Development Goals (SDGs)', 'earth', 'sky', null, null],
+  ['Wicked Problems', 'alert', 'bad', null, null],
+  ['Complexity', 'cycle', '', 'Many parts that affect each other, so a change in one place can cause surprises somewhere else.', 'A drought raises food prices, which hits low-income families hardest.'],
+  ['Strategic Thinking', 'bulb', 'gold', 'Planning for the long term: setting goals, looking ahead and choosing actions that last.', 'A city plants shade trees now for hotter summers in 20 years.'],
+  ['Equity', 'scale', 'sky', 'Fairness: making sure the benefits and burdens of a choice are shared fairly among people.', 'Placing cooling centers in neighborhoods with the fewest trees.'],
+  ['Co-existence', 'fish', 'green', 'People and other living things sharing land and water so that both can thrive.', 'Leaving a river healthy enough for both salmon and fishing towns.'],
+  ['Regeneration', 'cycle', 'green', 'Restoring land, water or communities so they can renew themselves.', 'Replanting native grasses so a damaged field rebuilds its soil.'],
+  ['Non-Western Views', 'users', '', 'Ways of knowing, often Indigenous, that see people as part of nature, not separate from it.', 'Treating a river or a salmon run as a relative to care for.'],
+];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  const cards = KEY_TERMS.map(([term, i, tone, definition, example]) => {
+    const g = gloss.find(x => x.term === term);
+    const name = term === 'Sustainable Development Goals (SDGs)' ? 'The SDGs' : term.replace(/ \(.*\)$/, '');
+    const t = definition ? { term, definition, example } : { term: name, definition: g.definition, example: g.example };
+    return flipCard(t, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`);
+  });
+  $('[data-vocab]').innerHTML = cards.join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill(document, d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
 });
 
-/* === SORTING GAMES === each [data-sort] pairs with the check button on its slide.
-   Set up before connecting so the games work even if the live back end is slow. */
+/* === SORTING GAMES === each [data-sort] pairs with the check button on its slide */
 $$('[data-sort]').forEach(group => {
   const slide = group.closest('.slide');
   $$('.sort-row', group).forEach(row => $$('button', row).forEach(b => b.addEventListener('click', () => {
@@ -401,28 +725,41 @@ $$('[data-sort]').forEach(group => {
   });
 });
 
+/* === QUICK QUESTION === checked in the browser only, not recorded */
+const MQ = [
+  ['A town pumps groundwater faster than rain can refill it. Is that sustainable?', ['Yes, people need water now', 'No, the next generation will have less', 'Only if the water is clean'], 1, 'It meets today\'s needs but takes away from future generations, so it fails the definition.'],
+  ['A forest company cuts trees only as fast as the forest regrows. Is that sustainable?', ['Yes', 'No', 'Only if no one buys the wood'], 0, 'Using a resource no faster than it recovers leaves the same forest for the future.'],
+];
+$('[data-mq]').innerHTML = MQ.map(([q, opts, , why], i) => `<div class="q" data-mqi="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${opts.map((o, k) => `<button type="button" data-k="${k}">${esc(o)}</button>`).join('')}</div><p class="why">${esc(why)}</p></div>`).join('');
+$$('[data-mqi]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const right = MQ[+q.dataset.mqi][2];
+  $$('button', q).forEach(x => { x.classList.toggle('on', x === b); x.classList.toggle('right', +x.dataset.k === right); x.classList.toggle('wrong', x === b && +x.dataset.k !== right); });
+  q.classList.add('done');
+}));
+
 /* === SDG TILES === grouping from the Stockholm Resilience Centre "wedding cake" */
 const SDG = ['No poverty', 'Zero hunger', 'Good health and well-being', 'Quality education', 'Gender equality', 'Clean water and sanitation', 'Affordable and clean energy', 'Decent work and economic growth', 'Industry, innovation and infrastructure', 'Reduced inequalities', 'Sustainable cities and communities', 'Responsible consumption and production', 'Climate action', 'Life below water', 'Life on land', 'Peace, justice and strong institutions', 'Partnerships for the goals'];
 const CAKE = { bio: [6, 13, 14, 15], eco: [8, 9, 10, 12], part: [17] };
 const group = n => Object.keys(CAKE).find(k => CAKE[k].includes(n)) || 'soc';
 $('#sdg-grid').innerHTML = SDG.map((t, i) => `<div class="sdg ${group(i + 1)}"><b>${i + 1}</b>${t}</div>`).join('')
-  + '<div class="sdg legend"><span><i style="background:var(--Green)"></i>Planet (biosphere)</span><span><i style="background:var(--golden)"></i>People (society)</span><span><i style="background:var(--Blue)"></i>Prosperity (economy)</span><span><i style="background:var(--deep)"></i>Ties them together</span></div>';
+  + '<div class="sdg legend"><span><i style="background:var(--Green)"></i>Earth (biosphere)</span><span><i style="background:var(--golden)"></i>Equity (society)</span><span><i style="background:var(--Blue)"></i>Economy</span><span><i style="background:var(--deep)"></i>Ties them together</span></div>';
 $('#cake-btn').addEventListener('click', () => {
   const on = $('#sdg-grid').classList.toggle('cake');
   $('#cake-btn').textContent = on ? 'Hide the grouping' : 'Show one way to group them';
-  $('#cake-note').textContent = on ? 'The "SDG wedding cake": planet at the base, then people, then the economy.' : '';
+  $('#cake-note').textContent = on ? 'The "SDG wedding cake": Earth at the base, then society, then the economy.' : '';
 });
 
 /* === TOWN BUDGET SIMULATION === a simple teaching model, not real data.
    Each program adds to the three pillars with diminishing returns (square root);
-   the balance score is the weakest pillar. */
+   the balance score is the weakest pillar. Saved keys stay people/planet/profit for the admin page. */
 const PROGRAMS = {
   solar: { el: $('#s-solar'), w: [0.15, 0.55, 0.30] },
   cool: { el: $('#s-cool'), w: [0.50, 0.25, 0.10] },
   bus: { el: $('#s-bus'), w: [0.35, 0.30, 0.20] },
   tax: { el: $('#s-tax'), w: [0.15, 0.00, 0.50] },
 };
-const PILLARS = [['People', 'var(--golden)'], ['Planet', 'var(--Green)'], ['Prosperity', 'var(--Blue)']];
+const PILLARS = [['Equity', 'var(--golden)'], ['Earth', 'var(--Green)'], ['Economy', 'var(--Blue)']];
 $('#pillars').innerHTML = PILLARS.map(([n]) => `<div class="pbar" data-p="${n}"><span>${n}</span><div class="t"><i></i></div><b>0</b></div>`).join('');
 function model() {
   const spend = Object.fromEntries(Object.entries(PROGRAMS).map(([k, p]) => [k, +p.el.value]));
@@ -447,27 +784,23 @@ function drawSim() {
 Object.values(PROGRAMS).forEach(p => p.el.addEventListener('input', drawSim));
 drawSim();
 
-/* === POPULATION DATA === UN World Population Prospects, approximate, billions */
-const POP = [[1950, 2.5], [1960, 3], [1974, 4], [1987, 5], [1999, 6], [2011, 7], [2022, 8]];
-const PROJ = 9.7;
-const row = (label, v, cls, text) => `<div class="pop-row ${cls}"><span>${label}</span><div class="pop-track" title="${label}: ${text}"><div class="pop-bar" style="width:${v / 15 * 100}%"></div><span class="v" style="left:${v / 15 * 100}%">${text}</span></div></div>`;
-function drawPop(revealed) {
-  const g = +$('#guess').value;
-  $('[data-pop]').innerHTML = POP.map(([y, v]) => row(y, v, '', `${v} billion`)).join('')
-    + row('2050 (you)', g, 'guess', `${g.toFixed(1)} billion`)
-    + (revealed ? row('2050 (UN)', PROJ, 'proj', `about ${PROJ} billion`) : '');
-}
-$('#guess').addEventListener('input', () => { $('#guess-out').textContent = `${(+$('#guess').value).toFixed(1)} billion`; drawPop(!!$('#pop-data').dataset.revealed); });
-$('#pop-reveal').addEventListener('click', () => {
-  $('#pop-data').dataset.revealed = '1';
-  const g = +$('#guess').value, d = g - PROJ;
-  $('#pop-out').textContent = Math.abs(d) < 0.3 ? 'Very close! The UN projects about 9.7 billion.' : `The UN projects about 9.7 billion, so your guess was ${Math.abs(d).toFixed(1)} billion too ${d > 0 ? 'high' : 'low'}.`;
-  drawPop(true);
-});
-$('#guess-out').textContent = '11.0 billion';
-drawPop(false);
-
-/* === LIVE === attendance, polls, simulation results */
+/* === REVIEW QUIZ === a first look at today's ideas */
+const QUIZ = [
+  ['Sustainable development meets today\'s needs without…', ['Using any natural resources', 'Hurting future generations\' ability to meet theirs', 'Slowing the economy'], 1, 'This is the 1987 Brundtland Report definition.'],
+  ['How many UN Sustainable Development Goals are there?', ['8', '17', '25'], 1, 'There are 17 goals, adopted in 2015 for 2030.'],
+  ['The triple bottom line measures success by…', ['Profit only', 'Earth, economy and equity', 'Jobs, taxes and trade'], 1, 'It counts the planet and people, not only money.'],
+  ['A problem with no clear solution, where every fix creates new trade-offs, is…', ['A tame problem', 'A wicked problem', 'A math problem'], 1, 'Climate change and water sharing are wicked problems.'],
+  ['Which of these is a green job?', ['Solar panel installer', 'Coal miner', 'Oil rig driller'], 0, 'Solar is the largest renewable energy employer in the world.'],
+  ['Data centers for streaming and AI need…', ['Nothing physical', 'Electricity and water for cooling', 'Only sunlight'], 1, 'The cloud runs on real buildings, power and water.'],
+];
+const quizPick = QUIZ.map(() => null);
+$('[data-quiz]').innerHTML = QUIZ.map(([q, ch], i) => `<div class="q" data-q="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${ch.map((c, j) => `<button type="button" data-c="${j}">${esc(c)}</button>`).join('')}</div><div class="why">${esc(QUIZ[i][3])}</div></div>`).join('');
+$$('[data-q]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || q.classList.contains('done')) return;
+  quizPick[q.dataset.q] = +b.dataset.c;
+  $$('button', q).forEach(x => x.classList.toggle('on', x === b));
+}));
+/* === LIVE === attendance, polls, quiz, think-pair-share and simulation */
 const live = await connect(LECTURE);
 const note = $('[data-mode-note]');
 if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
@@ -485,20 +818,23 @@ async function ensureUser(statusEl) {
 
 $('#checkin').addEventListener('click', async () => {
   const st = $('#checkin-status');
+  say(st, 'Checking in…');
   try {
     await live.signIn($('[data-name]').value, $('[data-email]').value);
     await live.checkIn($('#code').value);
     say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
   } catch (e) { say(st, e.message, 'err'); }
 });
 
-/* Polls: one answer per student, changeable */
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in. */
 $$('[data-poll]').forEach(poll => {
   const id = poll.dataset.poll;
   const st = $(`[data-poll-status="${id}"]`);
   $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
-    if (!await ensureUser(st)) return;
+    if (id !== 'warmup' && !await ensureUser(st)) return;
     $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
     try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
     catch (e) { say(st, e.message, 'err'); }
   }));
@@ -508,6 +844,32 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
   const right = Number(poll.dataset.correct);
   $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
 }));
+
+$('#quiz-check').addEventListener('click', async () => {
+  const st = $('#quiz-status');
+  if (quizPick.includes(null)) { say(st, `Answer all ${QUIZ.length} questions first.`, 'err'); return; }
+  let score = 0;
+  $$('[data-q]').forEach(q => {
+    const i = +q.dataset.q, right = QUIZ[i][2];
+    q.classList.add('done');
+    $$('button', q).forEach(b => { b.classList.toggle('right', +b.dataset.c === right); b.classList.toggle('wrong', +b.dataset.c !== right); });
+    if (quizPick[i] === right) score++;
+  });
+  say(st, `${score} of ${QUIZ.length} correct.`, score >= 4 ? 'ok' : '');
+  if (!live.user()) { st.textContent += ' Check in to have your score counted.'; return; }
+  try { await live.saveSim('review-quiz', { score, answers: quizPick }); st.textContent += ' Score submitted.'; }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === THINK-PAIR-SHARE === */
+$('#tps-save').addEventListener('click', async () => {
+  const st = $('#tps-status');
+  const v = id => $(id).value.trim();
+  const data = { issue: v('#t-issue'), earth: v('#t-ea'), economy: v('#t-ec'), equity: v('#t-eq'), neglected: v('#t-neg'), tradeoff: v('#t-trade') };
+  if (!data.issue || !data.tradeoff) { say(st, 'Pick an issue and name a trade-off first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('think-pair-share', data); say(st, 'Submitted. Thanks!', 'ok'); } catch (e) { say(st, e.message, 'err'); }
+});
 
 /* Simulation submit */
 $('#sim-save').addEventListener('click', async () => {
