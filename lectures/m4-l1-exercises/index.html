@@ -183,6 +183,49 @@
 .save{display:flex;gap:14px;align-items:center;margin-top:10px;text-align:left}
 .save .btn{font-size:21px;padding:12px 22px}
 .save .status{font-size:19px;margin:0;min-height:0}
+.cld{width:100%;height:auto;display:block;overflow:visible}
+.cld .node rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
+.cld .node.hum rect{stroke:#b3452c}
+.cld .node.act rect{stroke:var(--Green);stroke-width:4}
+.cld .node text{font:700 23px var(--body);fill:var(--ink);text-anchor:middle}
+.cld .lk path{fill:none;stroke:#5d7780;stroke-width:4}
+.cld .sg circle{stroke:var(--paper);stroke-width:3}
+.cld .sg text{font:700 26px var(--body);fill:#fff;text-anchor:middle}
+.cld .sg.p circle{fill:var(--Blue)}.cld .sg.n circle{fill:#b3452c}
+.cld .sg.q circle{fill:var(--golden)}.cld .sg.q text{fill:var(--ink)}
+.cld .loop circle{fill:none;stroke-width:4}
+.cld .loop text{font:400 40px var(--display);text-anchor:middle}
+.cld .loop.R circle{stroke:#b3452c}.cld .loop.R text{fill:#b3452c}
+.cld .loop.B circle{stroke:var(--Green)}.cld .loop.B text{fill:#2e7d5b}
+.cld .loop .spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cld .s{transition:opacity .6s var(--ease)}
+.cld .s.off{opacity:0}
+.cld .lk path.draw{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1s var(--ease)}
+.cld .s.off path.draw{stroke-dashoffset:1}
+.cld .sg.pick{cursor:pointer}
+.cld .sg.pick:hover circle{stroke:var(--Sky)}
+.cld .sg.right circle{stroke:#2e7d5b;stroke-width:6}.cld .sg.wrong circle{stroke:#b3452c;stroke-width:6}
+.seq .s{opacity:0}
+.slide.visible .seq .s{animation:lkin .9s var(--ease) forwards;animation-delay:calc(var(--i) * .55s + .5s)}
+@keyframes lkin{to{opacity:1}}
+.cld-cap{min-height:118px;font-size:27px;line-height:1.4}
+.cld-cap b{color:var(--Blue)}
+.signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
+.signs span{display:inline-flex;align-items:center;gap:8px}
+.signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
+#cld-ex-svg .node text{font-size:26px}
+/* exercise answers */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 22px/1.3 var(--body);margin-bottom:6px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ex textarea,.ex select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:96px}
+.ex textarea:focus,.ex select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 24px}
+.go-row select{font:400 20px var(--body);padding:10px 12px;border:2px solid var(--paper-2);border-radius:10px;background:var(--card);color:var(--ink)}
+.go-row .status{margin:0;font-size:20px}
 </style>
 </head>
 <body>
@@ -224,7 +267,7 @@
 
 <!-- EXERCISE. WARM-UP POLL -->
 <section class="slide">
-  <div class="rail"><b>11</b><span>Exercise 1 of 7 · Warm-up poll</span></div>
+  <div class="rail"><b>11</b><span>Exercise 1 of 8 · Warm-up poll</span></div>
   <div class="content center">
     <div class="k reveal">Warm-up · no wrong answers</div>
     <h2 class="reveal d2" style="font-size:68px;max-width:1450px">Think about the land around where you grew up. What has changed <em>the most</em>?</h2>
@@ -240,7 +283,7 @@
 
 <!-- EXERCISE. CHECK IN -->
 <section class="slide" id="attendance">
-  <div class="rail"><b>11</b><span>Exercise 2 of 7 · Check in</span></div>
+  <div class="rail"><b>11</b><span>Exercise 2 of 8 · Check in</span></div>
   <div class="content center">
     <div class="k reveal">Check in</div>
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
@@ -262,7 +305,7 @@
 
 <!-- EXERCISE. TIMELAPSE · PICK -->
 <section class="slide" id="explore">
-  <div class="rail"><b>11</b><span>Exercise 3 of 7 · Timelapse · pick</span></div>
+  <div class="rail"><b>11</b><span>Exercise 3 of 8 · Timelapse · pick</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · Google Earth Timelapse, 1984 to 2022</div>
     <h2 class="reveal d2" style="font-size:70px">Human impacts show up in <em>every</em> biome</h2>
@@ -278,7 +321,7 @@
 
 <!-- EXERCISE. TIMELAPSE · ANSWER -->
 <section class="slide" id="explore-answers">
-  <div class="rail"><b>11</b><span>Exercise 4 of 7 · Timelapse · answer</span></div>
+  <div class="rail"><b>11</b><span>Exercise 4 of 8 · Timelapse · answer</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · what did you find?</div>
     <h2 class="reveal d2" style="font-size:64px">Read the land like a <em>geographer</em> <span class="picked-sector" id="picked" style="vertical-align:middle;margin-left:16px"></span></h2>
@@ -301,9 +344,30 @@
   </div>
 </section>
 
+<!-- EXERCISE. CLASS EXERCISE: EUTROPHICATION IN THE GULF -->
+<section class="slide" id="cld-ex">
+  <div class="rail"><b>11</b><span>Exercise 5 of 8 · Causal loop</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:56px;margin-bottom:16px">Eutrophication in the <em>Gulf of America</em> (previously the Gulf of Mexico)</h2>
+    <p class="steps reveal d2"><b>Complete the causal loop diagram.</b> Tap each yellow ? to choose + or −, then answer the two questions and submit.</p>
+    <div class="reveal d3">
+      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
+      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
+        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
+          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
+        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
+          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
+        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
+        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EXERCISE. RUNOFF -->
 <section class="slide" id="pave">
-  <div class="rail"><b>11</b><span>Exercise 5 of 7 · Runoff</span></div>
+  <div class="rail"><b>11</b><span>Exercise 6 of 8 · Runoff</span></div>
   <div class="content center">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-rain"/></svg></span>Try it · where does the rain go?</div>
     <h2 class="reveal d2" style="font-size:74px">Pave the <em>watershed</em></h2>
@@ -325,7 +389,7 @@
 
 <!-- EXERCISE. GAME -->
 <section class="slide" id="soil-game">
-  <div class="rail"><b>11</b><span>Exercise 6 of 7 · Game</span></div>
+  <div class="rail"><b>11</b><span>Exercise 7 of 8 · Game</span></div>
   <div class="content center" style="top:90px">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Game · a sloped farm field, 50 years ahead</div>
     <h2 class="reveal d2" style="font-size:66px">Keep the <em>topsoil</em></h2>
@@ -350,7 +414,7 @@
 
 <!-- EXERCISE. EXIT TICKET -->
 <section class="slide">
-  <div class="rail"><b>11</b><span>Exercise 7 of 7 · Exit ticket</span></div>
+  <div class="rail"><b>11</b><span>Exercise 8 of 8 · Exit ticket</span></div>
   <div class="content center">
     <div class="k reveal">Exit ticket · counts for participation</div>
     <h2 class="reveal d2" style="font-size:72px">Which practice keeps soil covered <em>between harvests</em>?</h2>
@@ -401,6 +465,71 @@ function drawWater() {
 }
 $('#imp').addEventListener('input', drawWater);
 drawWater();
+
+/* === CAUSAL LOOP DIAGRAMS === nodes [id, label (| breaks lines), x, y, width, class];
+   links [from, to, sign, bend, step]; loops [letter, x, y, step]. Curves are quadratic,
+   bent to one side by `bend` px, and clipped to the edges of the boxes. */
+function cld(svg, { nodes, links, loops = [] }, opts = {}) {
+  const N = Object.fromEntries(nodes.map(([id, label, x, y, w = 250, cls = '']) => [id, { id, label, x, y, w, h: label.includes('|') ? 86 : 60, cls }]));
+  const edge = (n, px, py) => {
+    const dx = px - n.x, dy = py - n.y;
+    const t = Math.min((n.w / 2 + 10) / Math.abs(dx || 1e-6), (n.h / 2 + 10) / Math.abs(dy || 1e-6));
+    return [n.x + dx * t, n.y + dy * t];
+  };
+  const id = svg.id;
+  let out = `<defs><marker id="${id}-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d7780"/></marker></defs>`;
+  links.forEach(([a, b, sign, bend = 40, step = 0], i) => {
+    const A = N[a], B = N[b];
+    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2, len = Math.hypot(B.x - A.x, B.y - A.y);
+    const cx = mx - (B.y - A.y) / len * bend, cy = my + (B.x - A.x) / len * bend;
+    const [x0, y0] = edge(A, cx, cy), [x2, y2] = edge(B, cx, cy);
+    const q = t => [(1 - t) ** 2 * x0 + 2 * (1 - t) * t * cx + t * t * x2, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cy + t * t * y2];
+    const [sx, sy] = q(.72);
+    const shown = sign === '?' ? '?' : sign === '+' ? '+' : '−';
+    const cls = sign === '?' ? 'q pick' : sign === '+' ? 'p' : 'n';
+    out += `<g class="s lk" data-step="${step}" style="--i:${opts.seq ? i : 0}"><path class="draw" pathLength="1" d="M${x0.toFixed(1)} ${y0.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" marker-end="url(#${id}-ah)"/>`
+      + `<g class="sg ${cls}" data-link="${i}"><circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="22"/><text x="${sx.toFixed(1)}" y="${(sy + 9).toFixed(1)}">${shown}</text></g></g>`;
+  });
+  nodes.forEach(([nid]) => {
+    const n = N[nid], lines = n.label.split('|');
+    const step = Math.min(...links.filter(l => l[0] === nid || l[1] === nid).map(l => l[4] || 0), 99);
+    out += `<g class="s node ${n.cls}" data-step="${step === 99 ? 0 : step}" style="--i:0"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="16"/>`
+      + lines.map((l, k) => `<text x="${n.x}" y="${n.y + 8 + (k - (lines.length - 1) / 2) * 28}">${esc(l)}</text>`).join('') + '</g>';
+  });
+  loops.forEach(([L, x, y, step = 0, label = '']) => {
+    out += `<g class="s loop ${L}" data-step="${step}" style="--i:${opts.seq ? links.length : 0}"><g class="spin"><circle cx="${x}" cy="${y}" r="34" stroke-dasharray="170 44"/></g><text x="${x}" y="${y + 14}">${L}</text>${label ? `<text x="${x}" y="${y + 66}" style="font:700 18px var(--body);fill:var(--mute)">${esc(label)}</text>` : ''}</g>`;
+  });
+  svg.innerHTML = out;
+}
+/* === CLASS EXERCISE: pick the sign of each link === */
+const EX = {
+  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
+    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
+  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
+};
+const EX_KEY = ['+', '+', '+', '−', '+', '−'];
+const exSvg = $('#cld-ex-svg');
+cld(exSvg, EX);
+const exPick = EX.links.map(() => '?');
+const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
+exSvg.addEventListener('click', e => {
+  const g = e.target.closest('.sg.pick'); if (!g) return;
+  const i = +g.dataset.link;
+  exPick[i] = SIGN_NEXT[exPick[i]];
+  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
+  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
+  $('text', g).textContent = exPick[i];
+});
+function checkSigns() {
+  let n = 0;
+  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
+  return n;
+}
+$('#ex-check').addEventListener('click', () => {
+  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
+  const n = checkSigns();
+  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
+});
 
 /* === LIVE === attendance, polls, quiz and games */
 const live = await connect(LECTURE);
@@ -554,6 +683,17 @@ $('#soil-save').addEventListener('click', async () => {
   if (!soilNow.practices.length) { say(st, 'Pick at least one practice first.', 'err'); return; }
   if (!await ensureUser(st)) return;
   try { await live.saveSim('keep-the-topsoil', soilNow); say(st, `Submitted: ${soilNow.loss} t per acre a year.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+/* === SAVE: CAUSAL LOOP EXERCISE === */
+$('#ex-save').addEventListener('click', async () => {
+  const st = $('#ex-status');
+  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
+  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
+  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const right = checkSigns();
+  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>
