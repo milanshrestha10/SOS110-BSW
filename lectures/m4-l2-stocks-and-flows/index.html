@@ -442,7 +442,70 @@
   </div>
 </section>
 
-<!-- 9. FEEDBACK LOOPS -->
+<!-- 9. GAME: THE TUB -->
+<section class="slide" id="tub">
+  <div class="rail"><b>12</b><span>Game</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Game · keep the tub in the green band for 20 seconds</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:26px">The <em>tub</em> game</h2>
+    <div class="tubgame reveal d3">
+      <div>
+        <svg class="tub" viewBox="0 0 760 600" role="img" aria-label="A bathtub with a faucet and a drain; the water level shows the stock">
+          <defs>
+            <clipPath id="tubclip"><path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z"/></clipPath>
+            <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4d4"/><stop offset="1" stop-color="#3b97ae"/></linearGradient>
+          </defs>
+          <rect x="80" y="30" width="250" height="34" rx="12" fill="#9aa8ad"/>
+          <rect x="296" y="52" width="34" height="64" rx="8" fill="#9aa8ad"/>
+          <rect x="150" y="12" width="60" height="22" rx="6" fill="#6f7f85"/>
+          <text x="90" y="100">Inflow</text>
+          <rect id="stream" x="306" y="116" width="14" height="330" fill="#7cc4d4" opacity=".9"/>
+          <g clip-path="url(#tubclip)">
+            <rect x="110" y="0" width="540" height="480" fill="#f4f8f8"/>
+            <rect x="110" y="200" width="540" height="87" fill="#75a29f" opacity=".22"/>
+            <rect id="water" x="110" y="460" width="540" height="20" fill="url(#wg)"/>
+          </g>
+          <path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z" fill="none" stroke="#c7d3d6" stroke-width="10"/>
+          <path d="M100 150 H660" stroke="#b3452c" stroke-width="4" stroke-dasharray="10 8"/>
+          <text x="560" y="140" style="fill:#b3452c">Overflow</text>
+          <line x1="650" y1="200" x2="700" y2="200" stroke="#75a29f" stroke-width="3"/><line x1="650" y1="287" x2="700" y2="287" stroke="#75a29f" stroke-width="3"/>
+          <text x="666" y="250" style="fill:#2e7d5b">Goal</text>
+          <rect x="360" y="470" width="40" height="40" fill="#9aa8ad"/>
+          <rect id="drip" x="372" y="510" width="16" height="70" fill="#7cc4d4"/>
+          <text x="420" y="560">Outflow</text>
+          <text id="stock-l" x="380" y="440" text-anchor="middle" style="fill:#0a4f68;font-size:26px">Stock</text>
+        </svg>
+      </div>
+      <div class="tubside">
+        <div class="modes" id="modes">
+          <button type="button" data-mode="plain" class="on"><b>Plain tub</b>You set both flows</button>
+          <button type="button" data-mode="reinforcing"><b>Reinforcing</b>The fuller it gets, the more pours in</button>
+          <button type="button" data-mode="balancing"><b>Balancing</b>A float valve slows the faucet as it fills</button>
+        </div>
+        <div class="ctl"><span>Faucet<small>inflow setting</small></span><button type="button" data-ctl="in" data-d="-1" aria-label="Less inflow">−</button><b id="in-v">5</b><button type="button" data-ctl="in" data-d="1" aria-label="More inflow">+</button></div>
+        <div class="ctl"><span>Drain<small>outflow setting</small></span><button type="button" data-ctl="out" data-d="-1" aria-label="Less outflow">−</button><b id="out-v">3</b><button type="button" data-ctl="out" data-d="1" aria-label="More outflow">+</button></div>
+        <div class="readout">
+          <div><b id="r-in">5.0</b><span>Inflow now (L/min)</span></div>
+          <div><b id="r-out">3.0</b><span>Outflow now (L/min)</span></div>
+          <div><b id="r-s">20</b><span>Stock (liters)</span></div>
+          <div><b id="r-t">0</b><span>Seconds in band</span></div>
+        </div>
+        <svg class="chart" id="chart" viewBox="0 0 640 210" role="img" aria-label="Line chart of the stock over the last 60 seconds"></svg>
+        <p class="tubmsg" id="tub-msg">Press Start. Use the faucet and drain to get the water into the green band, then keep it there.</p>
+        <div class="go-row">
+          <button class="btn" type="button" id="tub-go">Start</button>
+          <button class="btn ghost" type="button" id="tub-reset">Reset</button>
+          <label class="small" for="tub-easy" style="font-size:19px">Easiest to keep steady?</label>
+          <select id="tub-easy"><option value="">Pick one</option><option value="plain">Plain</option><option value="reinforcing">Reinforcing</option><option value="balancing">Balancing</option></select>
+          <button class="btn" type="button" id="tub-save">Submit</button>
+          <span class="status" id="tub-status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FEEDBACK LOOPS -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 1 · Feedback</span></div>
   <div class="content fill">
@@ -464,7 +527,7 @@
   </div>
 </section>
 
-<!-- 10. TWO DIAGRAMS, ONE SYSTEM -->
+<!-- 11. TWO DIAGRAMS, ONE SYSTEM -->
 <section class="slide" id="build">
   <div class="rail"><b>12</b><span>Big idea 1 · Diagrams</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -536,7 +599,7 @@
   </div>
 </section>
 
-<!-- 11. WHERE SYSTEMS CHANGE -->
+<!-- 12. WHERE SYSTEMS CHANGE -->
 <section class="slide chg-slide">
   <div class="rail"><b>12</b><span>Big idea 1 · Change points</span></div>
   <div class="content center">
@@ -586,69 +649,6 @@
       </div>
     </div>
     <div class="take reveal d4" style="margin-top:30px;font-size:27px"><b>Why it matters</b>A reinforcing loop can push a system past a threshold, like nutrient runoff tipping coastal water into a dead zone. A leverage point is where a small action can steer it back.</div>
-  </div>
-</section>
-
-<!-- 12. GAME: THE TUB -->
-<section class="slide" id="tub">
-  <div class="rail"><b>12</b><span>Game</span></div>
-  <div class="content" style="top:80px;bottom:60px">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Game · keep the tub in the green band for 20 seconds</div>
-    <h2 class="reveal d2" style="font-size:62px;margin-bottom:26px">The <em>tub</em> game</h2>
-    <div class="tubgame reveal d3">
-      <div>
-        <svg class="tub" viewBox="0 0 760 600" role="img" aria-label="A bathtub with a faucet and a drain; the water level shows the stock">
-          <defs>
-            <clipPath id="tubclip"><path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z"/></clipPath>
-            <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4d4"/><stop offset="1" stop-color="#3b97ae"/></linearGradient>
-          </defs>
-          <rect x="80" y="30" width="250" height="34" rx="12" fill="#9aa8ad"/>
-          <rect x="296" y="52" width="34" height="64" rx="8" fill="#9aa8ad"/>
-          <rect x="150" y="12" width="60" height="22" rx="6" fill="#6f7f85"/>
-          <text x="90" y="100">Inflow</text>
-          <rect id="stream" x="306" y="116" width="14" height="330" fill="#7cc4d4" opacity=".9"/>
-          <g clip-path="url(#tubclip)">
-            <rect x="110" y="0" width="540" height="480" fill="#f4f8f8"/>
-            <rect x="110" y="200" width="540" height="87" fill="#75a29f" opacity=".22"/>
-            <rect id="water" x="110" y="460" width="540" height="20" fill="url(#wg)"/>
-          </g>
-          <path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z" fill="none" stroke="#c7d3d6" stroke-width="10"/>
-          <path d="M100 150 H660" stroke="#b3452c" stroke-width="4" stroke-dasharray="10 8"/>
-          <text x="560" y="140" style="fill:#b3452c">Overflow</text>
-          <line x1="650" y1="200" x2="700" y2="200" stroke="#75a29f" stroke-width="3"/><line x1="650" y1="287" x2="700" y2="287" stroke="#75a29f" stroke-width="3"/>
-          <text x="666" y="250" style="fill:#2e7d5b">Goal</text>
-          <rect x="360" y="470" width="40" height="40" fill="#9aa8ad"/>
-          <rect id="drip" x="372" y="510" width="16" height="70" fill="#7cc4d4"/>
-          <text x="420" y="560">Outflow</text>
-          <text id="stock-l" x="380" y="440" text-anchor="middle" style="fill:#0a4f68;font-size:26px">Stock</text>
-        </svg>
-      </div>
-      <div class="tubside">
-        <div class="modes" id="modes">
-          <button type="button" data-mode="plain" class="on"><b>Plain tub</b>You set both flows</button>
-          <button type="button" data-mode="reinforcing"><b>Reinforcing</b>The fuller it gets, the more pours in</button>
-          <button type="button" data-mode="balancing"><b>Balancing</b>A float valve slows the faucet as it fills</button>
-        </div>
-        <div class="ctl"><span>Faucet<small>inflow setting</small></span><button type="button" data-ctl="in" data-d="-1" aria-label="Less inflow">−</button><b id="in-v">5</b><button type="button" data-ctl="in" data-d="1" aria-label="More inflow">+</button></div>
-        <div class="ctl"><span>Drain<small>outflow setting</small></span><button type="button" data-ctl="out" data-d="-1" aria-label="Less outflow">−</button><b id="out-v">3</b><button type="button" data-ctl="out" data-d="1" aria-label="More outflow">+</button></div>
-        <div class="readout">
-          <div><b id="r-in">5.0</b><span>Inflow now (L/min)</span></div>
-          <div><b id="r-out">3.0</b><span>Outflow now (L/min)</span></div>
-          <div><b id="r-s">20</b><span>Stock (liters)</span></div>
-          <div><b id="r-t">0</b><span>Seconds in band</span></div>
-        </div>
-        <svg class="chart" id="chart" viewBox="0 0 640 210" role="img" aria-label="Line chart of the stock over the last 60 seconds"></svg>
-        <p class="tubmsg" id="tub-msg">Press Start. Use the faucet and drain to get the water into the green band, then keep it there.</p>
-        <div class="go-row">
-          <button class="btn" type="button" id="tub-go">Start</button>
-          <button class="btn ghost" type="button" id="tub-reset">Reset</button>
-          <label class="small" for="tub-easy" style="font-size:19px">Easiest to keep steady?</label>
-          <select id="tub-easy"><option value="">Pick one</option><option value="plain">Plain</option><option value="reinforcing">Reinforcing</option><option value="balancing">Balancing</option></select>
-          <button class="btn" type="button" id="tub-save">Submit</button>
-          <span class="status" id="tub-status"></span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
