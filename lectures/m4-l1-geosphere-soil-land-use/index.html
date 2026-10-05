@@ -208,6 +208,18 @@
 .cld .sg.pick{cursor:pointer}
 .cld .sg.pick:hover circle{stroke:var(--Sky)}
 .cld .sg.right circle{stroke:#2e7d5b;stroke-width:6}.cld .sg.wrong circle{stroke:#b3452c;stroke-width:6}
+#cld-ex-svg .node text{font-size:26px}
+/* exercise answers */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 22px/1.3 var(--body);margin-bottom:6px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ex textarea,.ex select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:96px}
+.ex textarea:focus,.ex select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 24px}
+.go-row select{font:400 20px var(--body);padding:10px 12px;border:2px solid var(--paper-2);border-radius:10px;background:var(--card);color:var(--ink)}
+.go-row .status{margin:0;font-size:20px}
 .cld-cap{min-height:118px;font-size:27px;line-height:1.4}
 .cld-cap b{color:var(--Blue)}
 .signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
@@ -652,19 +664,22 @@
   </div>
 </section>
 
-<!-- 21. SYSTEM DYNAMICS DIAGRAM -->
-<section class="slide" id="gulf">
-  <div class="rail"><b>11</b><span>Big idea 2 · Causal loops</span></div>
+<!-- 21. CLASS EXERCISE: EUTROPHICATION IN THE GULF -->
+<section class="slide" id="cld-ex">
+  <div class="rail"><b>11</b><span>Big idea 2 · Class exercise</span></div>
   <div class="content" style="top:80px;bottom:60px">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 2 · a system dynamics diagram of the dead zone</div>
-    <h2 class="reveal d2" style="font-size:62px;margin-bottom:20px">How runoff builds a <em>dead zone</em></h2>
-    <div class="grid reveal d3" style="grid-template-columns:1180px 1fr;gap:36px;align-items:start">
-      <svg class="cld" id="cld-gulf" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of nutrient runoff and the Gulf dead zone, built step by step"></svg>
-      <div>
-        <p class="cld-cap" id="gulf-cap"></p>
-        <div style="display:flex;gap:14px;margin-top:18px;flex-wrap:wrap"><button class="btn ghost" type="button" id="gulf-prev">Back</button><button class="btn" type="button" id="gulf-next">Next step</button><button class="btn ghost" type="button" id="gulf-all">Show all</button></div>
-        <div class="gold-rule" style="margin:24px 0"></div>
-        <div class="signs" style="display:grid;gap:10px"><span><i style="background:var(--Blue)">+</i>Same direction</span><span><i style="background:#b3452c">−</i>Opposite direction</span><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing loop</span></div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:56px;margin-bottom:16px">Eutrophication in the <em>Gulf of America</em> (previously the Gulf of Mexico)</h2>
+    <p class="steps reveal d2"><b>Complete the causal loop diagram.</b> Tap each yellow ? to choose + or −, then answer the two questions and submit.</p>
+    <div class="reveal d3">
+      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
+      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
+        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
+          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
+        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
+          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
+        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
+        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
       </div>
     </div>
   </div>
@@ -976,44 +991,36 @@ function cld(svg, { nodes, links, loops = [] }, opts = {}) {
   });
   svg.innerHTML = out;
 }
-/* === GULF DEAD ZONE: step-by-step build === */
-const GULF = {
-  nodes: [
-    ['fert', 'Fertilizer use|on farms', 400, 250, 250, 'hum'], ['crop', 'Crop growth', 140, 470, 210], ['profit', 'Farm income', 140, 80, 210],
-    ['urban', 'Urban runoff|(lawns, pets, sewage)', 400, 700, 300, 'hum'], ['nut', 'Nutrients in|the river', 720, 470, 230],
-    ['algae', 'Algae growth', 860, 140, 220], ['decomp', 'Decomposition|of dead algae', 1200, 140, 250], ['oxy', 'Oxygen in|Gulf water', 1360, 400, 220],
-    ['dz', 'Dead zone size', 1110, 640, 230], ['fish', 'Fish and shrimp', 1370, 740, 240], ['act', 'Action: buffers,|wetlands, rules', 770, 730, 260, 'act'],
-  ],
-  links: [
-    ['fert', 'nut', '+', 30, 0], ['urban', 'nut', '+', -30, 1], ['nut', 'algae', '+', 30, 2], ['algae', 'decomp', '+', 30, 3], ['decomp', 'oxy', '−', 40, 4],
-    ['oxy', 'dz', '−', 40, 5], ['dz', 'fish', '−', 20, 6], ['fert', 'crop', '+', 40, 7], ['crop', 'profit', '+', 60, 7], ['profit', 'fert', '+', 40, 7],
-    ['dz', 'act', '+', 30, 8], ['act', 'nut', '−', 30, 8],
-  ],
-  loops: [['R', 215, 290, 7], ['B', 960, 520, 8]],
+/* === CLASS EXERCISE: pick the sign of each link === */
+const EX = {
+  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
+    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
+  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
 };
-const GULF_CAP = [
-  'Farms spread <b>fertilizer</b>. More fertilizer means <b>more nutrients</b> wash into the Mississippi: a <b>+</b> link.',
-  'Cities add more: lawn fertilizer, pet waste and treated sewage. More <b>urban runoff</b>, more nutrients.',
-  'In the Gulf, more nutrients feed <b>more algae</b>.',
-  'More algae means more dead algae for bacteria to <b>decompose</b>.',
-  'Decomposers breathe oxygen. More decomposition means <b>less oxygen</b>: a <b>−</b> link.',
-  'Less oxygen means a <b>bigger dead zone</b>. Another <b>−</b> link: they move in opposite directions.',
-  'A bigger dead zone means <b>fewer fish and shrimp</b>, and lost fishing jobs.',
-  'Why keep fertilizing? Fertilizer grows crops, crops earn income, and income buys more fertilizer: a <b>reinforcing loop (R)</b>.',
-  'A bigger dead zone can push people to <b>act</b>: buffers, wetlands and rules that cut runoff. With three − links (odd), this is a <b>balancing loop (B)</b>.',
-];
-const gulfSvg = $('#cld-gulf');
-cld(gulfSvg, GULF);
-let gulfStep = 0;
-function drawGulf(all = false) {
-  $$('.s', gulfSvg).forEach(g => g.classList.toggle('off', !all && +g.dataset.step > gulfStep));
-  $('#gulf-cap').innerHTML = all ? 'The whole system: one <b>reinforcing</b> loop keeps fertilizer use growing, and one <b>balancing</b> loop is how people can push back. Where would a small change have a big effect?'
-    : `<span class="small mute">Step ${gulfStep + 1} of ${GULF_CAP.length}</span><br>${GULF_CAP[gulfStep]}`;
+const EX_KEY = ['+', '+', '+', '−', '+', '−'];
+const exSvg = $('#cld-ex-svg');
+cld(exSvg, EX);
+const exPick = EX.links.map(() => '?');
+const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
+exSvg.addEventListener('click', e => {
+  const g = e.target.closest('.sg.pick'); if (!g) return;
+  const i = +g.dataset.link;
+  exPick[i] = SIGN_NEXT[exPick[i]];
+  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
+  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
+  $('text', g).textContent = exPick[i];
+});
+function checkSigns() {
+  let n = 0;
+  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
+  return n;
 }
-$('#gulf-next').addEventListener('click', () => { gulfStep = Math.min(GULF_CAP.length - 1, gulfStep + 1); drawGulf(); });
-$('#gulf-prev').addEventListener('click', () => { gulfStep = Math.max(0, gulfStep - 1); drawGulf(); });
-$('#gulf-all').addEventListener('click', () => { gulfStep = GULF_CAP.length - 1; drawGulf(true); });
-drawGulf();
+$('#ex-check').addEventListener('click', () => {
+  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
+  const n = checkSigns();
+  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
+});
+
 
 /* === LIVE === attendance, polls, quiz and games */
 const live = await connect(LECTURE);
@@ -1199,6 +1206,17 @@ $('#soil-save').addEventListener('click', async () => {
   if (!soilNow.practices.length) { say(st, 'Pick at least one practice first.', 'err'); return; }
   if (!await ensureUser(st)) return;
   try { await live.saveSim('keep-the-topsoil', soilNow); say(st, `Submitted: ${soilNow.loss} t per acre a year.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+/* === SAVE: CAUSAL LOOP EXERCISE === */
+$('#ex-save').addEventListener('click', async () => {
+  const st = $('#ex-status');
+  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
+  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
+  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const right = checkSigns();
+  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>

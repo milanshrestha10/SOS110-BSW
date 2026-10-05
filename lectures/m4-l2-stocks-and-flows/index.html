@@ -97,6 +97,13 @@
 @keyframes lkin{to{opacity:1}}
 .cld-cap{min-height:118px;font-size:27px;line-height:1.4}
 .cld-cap b{color:var(--Blue)}
+.dz-side .cld-cap{min-height:150px;font-size:25px;margin:0}
+.dz-pick{display:flex;gap:12px;margin-top:14px}
+.dz-pick .btn{flex:1;font-size:22px;padding:12px 14px}
+.dz-pick .btn.on{background:var(--Blue);color:var(--paper)}
+.dz-pick .btn:disabled{opacity:.4}.dz-pick .btn.on:disabled{opacity:1}
+.dz-side .status{display:block;font-size:20px;margin:8px 0 10px;min-height:30px}
+.dz-side .go-row .btn{font-size:20px;padding:10px 18px}
 .signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
 .signs span{display:inline-flex;align-items:center;gap:8px}
 .signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
@@ -629,22 +636,23 @@
   </div>
 </section>
 
-<!-- 12. CLASS EXERCISE: EUTROPHICATION IN THE GULF -->
-<section class="slide" id="cld-ex">
+<!-- 12. CLASS EXERCISE: HOW RUNOFF BUILDS A DEAD ZONE -->
+<section class="slide" id="dz-ex">
   <div class="rail"><b>12</b><span>Class exercise</span></div>
   <div class="content" style="top:80px;bottom:60px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
-    <h2 class="reveal d2" style="font-size:56px;margin-bottom:16px">Eutrophication in the <em>Gulf of America</em> (previously the Gulf of Mexico)</h2>
-    <p class="steps reveal d2"><b>Complete the causal loop diagram.</b> Tap each yellow ? to choose + or −, then answer the two questions and submit.</p>
-    <div class="reveal d3">
-      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
-      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
-        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
-          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
-        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
-          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
-        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
-        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Class exercise · the Gulf of America (previously the Gulf of Mexico)</div>
+    <h2 class="reveal d2" style="font-size:60px;margin-bottom:12px">How runoff builds a <em>dead zone</em></h2>
+    <p class="steps reveal d2"><b>Build the causal loop diagram with a neighbor.</b> For each new link, choose + or −. For each loop, choose R or B. Then tap Next step.</p>
+    <div class="grid reveal d3" style="grid-template-columns:1120px 1fr;gap:36px;align-items:start">
+      <svg class="cld" id="cld-dz" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of nutrient runoff and the Gulf dead zone, built one link at a time as students choose each sign"></svg>
+      <div class="dz-side">
+        <p class="cld-cap" id="dz-cap"></p>
+        <div class="dz-pick"><button class="btn ghost" type="button" id="dz-a"></button><button class="btn ghost" type="button" id="dz-b"></button></div>
+        <span class="status" id="dz-msg"></span>
+        <div class="go-row"><button class="btn ghost" type="button" id="dz-prev">Back</button><button class="btn" type="button" id="dz-next">Next step</button><button class="btn ghost" type="button" id="dz-all">Show all</button></div>
+        <div class="ex" style="margin-top:22px"><div><label for="dz-change"><i>?</i>Pick one link you would change to shrink the dead zone. How?</label>
+          <textarea id="dz-change" maxlength="400" placeholder="Example: fertilizer use to nutrients, by…"></textarea></div></div>
+        <div class="go-row" style="margin-top:12px"><button class="btn" type="button" id="dz-save">Submit</button><span class="status" id="dz-status"></span></div>
       </div>
     </div>
   </div>
@@ -1071,35 +1079,75 @@ $('#ssd-all').addEventListener('click', () => ssdGo(SSD_CAP.length - 1));
 $('#ssd').addEventListener('click', () => ssdGo(ssdStep + 1));
 drawSsd();
 
-/* === CLASS EXERCISE: pick the sign of each link === */
-const EX = {
-  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
-    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
-  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
+/* === CLASS EXERCISE: build the Gulf dead zone, one link at a time === students pick the
+   sign of each new link (or R/B for each loop) before it is shown; answers save as dead-zone-cld. */
+const GULF = {
+  nodes: [
+    ['fert', 'Fertilizer use|on farms', 400, 250, 250, 'hum'], ['crop', 'Crop growth', 140, 470, 210], ['profit', 'Farm income', 140, 80, 210],
+    ['urban', 'Urban runoff|(lawns, pets, sewage)', 400, 700, 300, 'hum'], ['nut', 'Nutrients in|the river', 720, 470, 230],
+    ['algae', 'Algae growth', 860, 140, 220], ['decomp', 'Decomposition|of dead algae', 1200, 140, 250], ['oxy', 'Oxygen in|Gulf water', 1360, 400, 220],
+    ['dz', 'Dead zone size', 1110, 640, 230], ['fish', 'Fish and shrimp', 1370, 740, 240], ['act', 'Action: buffers,|wetlands, rules', 770, 730, 260, 'act'],
+  ],
+  links: [
+    ['fert', 'nut', '+', 30, 0], ['urban', 'nut', '+', -30, 1], ['nut', 'algae', '+', 30, 2], ['algae', 'decomp', '+', 30, 3], ['decomp', 'oxy', '−', 40, 4],
+    ['oxy', 'dz', '−', 40, 5], ['dz', 'fish', '−', 20, 6], ['fert', 'crop', '+', 40, 7], ['crop', 'profit', '+', 60, 7], ['profit', 'fert', '+', 40, 7],
+    ['dz', 'act', '+', 30, 8], ['act', 'nut', '−', 30, 8],
+  ],
+  loops: [['R', 215, 290, 7], ['B', 960, 520, 8]],
 };
-const EX_KEY = ['+', '+', '+', '−', '+', '−'];
-const exSvg = $('#cld-ex-svg');
-cld(exSvg, EX);
-const exPick = EX.links.map(() => '?');
-const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
-exSvg.addEventListener('click', e => {
-  const g = e.target.closest('.sg.pick'); if (!g) return;
-  const i = +g.dataset.link;
-  exPick[i] = SIGN_NEXT[exPick[i]];
-  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
-  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
-  $('text', g).textContent = exPick[i];
-});
-function checkSigns() {
-  let n = 0;
-  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
-  return n;
+// per step: what students choose and the right answer; key matches GULF links and loops
+const DZ_ASK = [
+  ['sign', '+', 'Farms spread fertilizer. More <b>fertilizer use</b> means ___ <b>nutrients in the river</b>. Is this link + or −?'],
+  ['sign', '+', 'Cities add lawn fertilizer, pet waste and sewage. More <b>urban runoff</b> means ___ nutrients. + or −?'],
+  ['sign', '+', 'In the Gulf, more <b>nutrients</b> mean ___ <b>algae growth</b>. + or −?'],
+  ['sign', '+', 'More <b>algae</b> means ___ dead algae for bacteria to <b>decompose</b>. + or −?'],
+  ['sign', '−', 'Decomposers breathe oxygen. More <b>decomposition</b> means ___ <b>oxygen</b> in the water. + or −?'],
+  ['sign', '−', 'When <b>oxygen</b> in the water goes down, what happens to the <b>dead zone</b>? Is this link + or −?'],
+  ['sign', '−', 'A bigger <b>dead zone</b> means ___ <b>fish and shrimp</b>. + or −?'],
+  ['loop', 'R', 'Fertilizer grows crops, crops earn income, and income buys more fertilizer. All three links are +. Is this loop reinforcing (R) or balancing (B)?'],
+  ['loop', 'B', 'A bigger dead zone pushes people to <b>act</b> (+), and action cuts nutrients (−). Count the − links around this loop. R or B?'],
+];
+const DZ_CAP = [
+  'More fertilizer means <b>more nutrients</b> wash into the Mississippi: a <b>+</b> link.',
+  'More <b>urban runoff</b>, more nutrients: another <b>+</b> link.',
+  'More nutrients feed <b>more algae</b>: <b>+</b>.',
+  'More algae means more dead algae to <b>decompose</b>: <b>+</b>.',
+  'More decomposition means <b>less oxygen</b>: a <b>−</b> link, because they move in opposite directions.',
+  'Less oxygen means a <b>bigger dead zone</b>: <b>−</b>, opposite directions again.',
+  'A bigger dead zone means <b>fewer fish and shrimp</b>, and lost fishing jobs: <b>−</b>.',
+  'Fertilizer, crops, income, more fertilizer: every link is +, so it is a <b>reinforcing loop (R)</b>. It keeps fertilizer use growing.',
+  'This loop has three − links, an odd number, so it is a <b>balancing loop (B)</b>. It is how people can push back.',
+];
+const dzSvg = $('#cld-dz');
+cld(dzSvg, GULF);
+$$('.sg', dzSvg).forEach(g => { g.dataset.sign = $('text', g).textContent; g.classList.remove('pick'); });
+$$('.loop', dzSvg).forEach(g => { g.dataset.letter = $(':scope > text', g).textContent; });
+const dzAns = DZ_ASK.map(() => '');
+let dzStep = 0, dzAll = false;
+const dzRight = () => dzAns.filter((a, i) => a === DZ_ASK[i][1]).length;
+function drawDz() {
+  const [kind, key, ask] = DZ_ASK[dzStep], picked = dzAns[dzStep];
+  $$('.s', dzSvg).forEach(g => g.classList.toggle('off', !dzAll && +g.dataset.step > dzStep));
+  $$('.lk', dzSvg).forEach(g => {
+    const sg = $('.sg', g), hide = !dzAll && kind === 'sign' && +g.dataset.step === dzStep && !picked;
+    sg.classList.toggle('q', hide); $('text', sg).textContent = hide ? '?' : sg.dataset.sign;
+  });
+  $$('.loop', dzSvg).forEach(g => { const hide = !dzAll && +g.dataset.step === dzStep && !picked; $(':scope > text', g).textContent = hide ? '?' : g.dataset.letter; });
+  const opts = kind === 'sign' ? [['+', '+ Same direction'], ['−', '− Opposite']] : [['R', 'R · Reinforcing'], ['B', 'B · Balancing']];
+  [$('#dz-a'), $('#dz-b')].forEach((b, i) => { b.dataset.v = opts[i][0]; b.textContent = opts[i][1]; b.classList.toggle('on', picked === opts[i][0]); b.disabled = !!picked || dzAll; });
+  $('#dz-cap').innerHTML = dzAll ? 'The whole system: one <b>reinforcing</b> loop keeps fertilizer use growing, and one <b>balancing</b> loop is how people can push back. Where would a small change have a big effect?'
+    : `<span class="small mute">Step ${dzStep + 1} of ${DZ_ASK.length}</span><br>${picked ? DZ_CAP[dzStep] : ask}`;
+  if (dzAll) say($('#dz-msg'), `You got ${dzRight()} of ${DZ_ASK.length} right.`);
+  else if (!picked) say($('#dz-msg'), 'Choose an answer to see this step.');
+  else say($('#dz-msg'), picked === key ? 'Right.' : `Not quite: the answer is ${key}.`, picked === key ? 'ok' : 'err');
+  $('#dz-prev').disabled = dzStep === 0 && !dzAll;
+  $('#dz-next').disabled = dzAll || !picked;
 }
-$('#ex-check').addEventListener('click', () => {
-  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
-  const n = checkSigns();
-  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
-});
+[$('#dz-a'), $('#dz-b')].forEach(b => b.addEventListener('click', () => { if (!dzAns[dzStep]) { dzAns[dzStep] = b.dataset.v; drawDz(); } }));
+$('#dz-next').addEventListener('click', () => { if (dzStep === DZ_ASK.length - 1) dzAll = true; else dzStep++; drawDz(); });
+$('#dz-prev').addEventListener('click', () => { if (dzAll) dzAll = false; else dzStep = Math.max(0, dzStep - 1); drawDz(); });
+$('#dz-all').addEventListener('click', () => { dzStep = DZ_ASK.length - 1; dzAll = true; drawDz(); });
+drawDz();
 
 /* === ANIMATED ELEMENT CYCLES === nodes [id, label, sublabel, x, y]; flows [from, to, label, human, bend] */
 const CYCLES = {
@@ -1324,15 +1372,15 @@ $('#tub-save').addEventListener('click', async () => {
   catch (e) { say(st, e.message, 'err'); }
 });
 
-/* === SAVE: CAUSAL LOOP EXERCISE === */
-$('#ex-save').addEventListener('click', async () => {
-  const st = $('#ex-status');
-  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
-  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
-  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+/* === SAVE: DEAD ZONE CAUSAL LOOP EXERCISE === */
+$('#dz-save').addEventListener('click', async () => {
+  const st = $('#dz-status');
+  if (dzAns.includes('')) { say(st, 'Answer every step first.', 'err'); return; }
+  const change = $('#dz-change').value.trim().slice(0, 400);
+  if (!change) { say(st, 'Answer the question first.', 'err'); return; }
   if (!await ensureUser(st)) return;
-  const right = checkSigns();
-  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
+  const right = dzRight();
+  try { await live.saveSim('dead-zone-cld', { picks: dzAns.join(''), right, change }); say(st, `Submitted: ${right} of ${DZ_ASK.length} right.`, 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>
