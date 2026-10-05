@@ -51,8 +51,9 @@ Deck rules, so every lecture works in any semester:
 Every new deck uses the design of Lecture 11 (`m4-l1-geosphere-soil-land-use`), which the instructor chose as the standard:
 
 - **Hero title and end slides**: a full-bleed photo for the topic fades in behind a light scrim (near-white on the left behind dark text, clearing to the right so the photo shows), with a one-line subtitle under the title. Use the `.hero` classes in `deck.css`; the end slide is the takeaway on the same photo.
-- **Slide order at the start**: title, key terms and module slide (first lecture of a module only), warm-up poll, big ideas, attendance check-in, then the review quiz right after check-in, then the lecture content.
-- **First lecture of a module**: open with the key terms on their own slide (the terms the instructor lists for that lecture, as flip cards, never on the title slide) and a module slide with at most four learning objectives drawn from the module objectives and what's due in the module. No next-class slide.
+- **Slide order at the start**: title, then the module slide (module overview and what's due) and key terms, in that order (first lecture of a module only), warm-up poll, big ideas, attendance check-in, then the review quiz right after check-in, then the lecture content.
+- **First lecture of a module**: open with the module slide (at most four learning objectives drawn from the module objectives, and what's due in the module), then the key terms on their own slide (the terms the instructor lists for that lecture, as flip cards, never on the title slide). No next-class slide.
+- **Highlighted heading words** (`<em>` in titles and headings) use the gold accent `#C4851C` (`--accent` in `deck.css`), not sky blue.
 - **Use the whole stage**: give the heading clear space and let the body reach the bottom margin with `.content.fill`; sit shorter slides in the middle with `.content.center`. No big empty band at the bottom.
 - **Animated pictures**: add `anim-pics` to `<main class="deck-stage">` so photos drift in from a slow zoom and diagrams wipe in. It is off for reduced motion and print.
 - **Clear space under every heading**: add `roomy` to `<main class="deck-stage">` so each heading keeps a 48px gap above the text and pictures, and don't override it with inline margins.
