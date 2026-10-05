@@ -101,18 +101,66 @@
 .signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
 .signs span{display:inline-flex;align-items:center;gap:8px}
 .signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
-/* two ways to draw a system */
-.two{display:flex;flex-direction:column;padding:24px 30px}
-.two .use{font-size:25px;margin:2px 0 6px}
-.sfd{width:100%;height:auto;display:block}
-.sfd text{text-anchor:middle;font-family:var(--body)}
-.sfd .fl{font:700 21px var(--body);fill:var(--ink)}
-.sfd .sm{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
-.sfd .st{font:400 32px var(--display);fill:#fff}
-.sfd .st2{font:700 16px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:rgba(255,255,255,.85)}
-.defs{display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:21px;line-height:1.35;margin-top:auto;border-top:1px solid var(--paper-2);padding-top:12px}
-.defs dt{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:4px}
-#cld-two .node text{font-size:22px}
+/* two diagrams, one system: click to build */
+.ssd{width:100%;height:auto;display:block;cursor:pointer}
+.ssd text{text-anchor:middle;font-family:var(--body)}
+.ssd .ph{font:700 22px var(--body);letter-spacing:.16em;text-transform:uppercase;fill:var(--Blue)}
+.ssd .ps{font:italic 24px var(--body);fill:var(--mute)}
+.ssd .sl{font:700 22px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--ink)}
+.ssd .fl{font:700 26px var(--body);fill:var(--ink)}
+.ssd .nl{font:700 24px var(--body);fill:var(--ink)}
+.ssd .ml{font:700 19px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--deep)}
+.ssd .bl{font:400 40px var(--display)}
+.ssd .sg{font:700 40px var(--body)}.ssd .sg.p{fill:var(--Blue)}.ssd .sg.n{fill:#b3452c}
+.ssd .lk{fill:none;stroke-width:5}.ssd .lk.r{stroke:#b3452c}.ssd .lk.b{stroke:#2e7d5b}
+.ssd .fluid{fill:none;stroke-width:8;stroke-linecap:round}
+.ssd .fluid.in{stroke:#2e7d5b}.ssd .fluid.out{stroke:#c76f1e}
+.ssd .b,.ssd-cards .b{transition:opacity .4s var(--ease)}
+.ssd .b.off,.ssd-cards .b.off{opacity:0}
+.ssd .draw{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset .9s var(--ease)}
+.ssd .b.off .draw{stroke-dashoffset:1}
+.ssd .b:not(.off) .fluid{stroke-dasharray:.02 .06;animation:ssdflow 1.2s linear infinite;transition:none}
+@keyframes ssdflow{to{stroke-dashoffset:-.08}}
+.ssd .pop{transform-box:fill-box;transform-origin:center;transition:transform .6s cubic-bezier(.2,1.35,.3,1)}
+.ssd .b.off .pop{transform:scale(.3)}
+.ssd .water{transform-box:fill-box;transform-origin:bottom;transition:transform 1.3s var(--ease) .25s}
+.ssd .b.off .water{transform:scaleY(0)}
+.ssd .badge{transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.2,1.5,.3,1) .2s}
+.ssd .b.off .badge{transform:scale(0) rotate(-140deg)}
+.ssd-cards{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:6px}
+.ssd-half{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sc{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--Sky);border-radius:14px;padding:12px 18px;font-size:21px;line-height:1.38}
+.sc b{display:block;font:700 16px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--Blue);margin-bottom:3px}
+.sc.wide{grid-column:1 / -1}
+.sc.flow{border-left-color:#2e7d5b}.sc.flow b{color:#2e7d5b}
+.sc.note{border-left-color:var(--golden);background:#fdf6df}.sc.note b{color:#8a6a14}
+.sc.r{border-left-color:#b3452c}.sc.r b{color:#b3452c}
+.sc.bal{border-left-color:var(--Green)}.sc.bal b{color:#2e7d5b}
+.ssd-foot{display:flex;gap:14px;align-items:center;margin-top:16px}
+.ssd-cap{flex:1;font-size:24px;line-height:1.35;color:var(--ink)}
+.ssd-cap b{color:var(--Blue)}
+.chg{width:100%;height:auto;display:block;margin:6px 0 8px}
+.chg .lb{font:700 17px var(--body);letter-spacing:.12em;text-anchor:middle;fill:var(--mute)}
+.chg .wt{font:700 22px var(--body);letter-spacing:.1em;text-anchor:middle;fill:#fff}
+.two{display:flex;flex-direction:column;padding:24px 28px}
+.two .def{font-size:24px;line-height:1.42}
+.chg-slide .cap{font:700 19px var(--body);letter-spacing:.14em;text-transform:uppercase;margin:4px 0 10px}
+.chg-slide .chg{margin:6px 0 4px}
+.chg .fog{animation:fog 9s ease-in-out infinite alternate}
+@keyframes fog{from{transform:translateX(-30px)}to{transform:translateX(30px)}}
+.chg .qm{font:400 54px var(--display);fill:#b88a14;text-anchor:middle;animation:qm 2.4s ease-in-out infinite}
+@keyframes qm{0%,100%{opacity:.25}50%{opacity:1}}
+.slide.visible .chg .ball.wob{animation:wob 4s ease-in-out infinite}
+@keyframes wob{0%,100%{offset-distance:0%}50%{offset-distance:38%}}
+.chg .ball{offset-path:path('M180 238 C 250 238, 300 160, 330 108 C 355 70, 405 70, 430 108 C 470 170, 520 238, 585 238');offset-distance:0%}
+.slide.visible .chg .ball{animation:ball 7s ease-in-out infinite}
+@keyframes ball{0%,10%{offset-distance:0%}35%{offset-distance:46%}42%{offset-distance:50%}60%,90%{offset-distance:100%}100%{offset-distance:100%}}
+.chg .lever{transform-box:view-box;transform-origin:290px 224px;transform:rotate(-12deg)}
+.slide.visible .chg .lever{animation:lever 5s ease-in-out infinite}
+@keyframes lever{0%,20%{transform:rotate(-12deg)}50%,80%{transform:rotate(12deg)}100%{transform:rotate(-12deg)}}
+.slide.visible .chg .push{animation:push 5s ease-in-out infinite}
+@keyframes push{0%,20%{opacity:1;transform:none}50%,80%{opacity:0;transform:translateY(40px)}100%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.chg .ball,.chg .lever,.chg .push,.chg .fog,.chg .qm,.ssd .fluid{animation:none!important}}
 /* tub game */
 .tubgame{display:grid;grid-template-columns:760px 1fr;gap:44px;align-items:start}
 .tubgame svg.tub{width:100%;height:auto;display:block}
@@ -238,16 +286,16 @@
 
 <!-- 1. TITLE -->
 <section class="slide hero">
-  <img class="hero-img" src="img/biosphere2-hero.jpg" alt="Biosphere 2: glass pyramids, domes and white buildings of a sealed research station in the Arizona desert, with mountains behind">
+  <img class="hero-img" src="img/globe-hero.jpg" alt="A glowing golden globe wrapped in a web of connected points and lines, over a dark city">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
     <div class="title-k reveal d2">Lecture 12 · S&amp;M Chapter 10</div>
     <h1 class="reveal d2">Stocks and flows in <em>Earth's systems</em></h1>
-    <p class="hero-sub reveal d3">How stocks fill and drain, and how feedback loops speed change up or slow it down.</p>
+    <p class="hero-sub reveal d3" style="max-width:820px">How stocks fill and drain, and how feedback loops speed change up or slow it down.</p>
     <div class="goldline"></div>
   </div>
-  <p class="hero-cap reveal d4">Biosphere 2, a sealed living laboratory near Tucson · Photo: ClassicStock/Alamy</p>
+  <p class="hero-cap reveal d4">Earth as one connected system</p>
 </section>
 
 <!-- 2. KEY TERMS -->
@@ -416,55 +464,132 @@
   </div>
 </section>
 
-<!-- 10. TWO WAYS TO DRAW A SYSTEM -->
-<section class="slide">
+<!-- 10. TWO DIAGRAMS, ONE SYSTEM -->
+<section class="slide" id="build">
   <div class="rail"><b>12</b><span>Big idea 1 · Diagrams</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 1 · mapping a system's structure</div>
-    <h2 class="reveal d2" style="font-size:70px">Two ways to <em>draw</em> a system</h2>
-    <div class="grid g2 reveal d3" style="gap:40px;flex:1">
-      <div class="card accent two">
-        <span class="tag">1 · Stock-and-flow diagram</span>
-        <p class="use">Use it to see <b>how a system changes over time</b>.</p>
-        <svg class="sfd" viewBox="0 0 760 330" role="img" aria-label="Stock-and-flow diagrams: rivers and rain flow into a lake, and evaporation and an outlet river flow out; deposits flow into a bank account and withdrawals flow out">
-          <defs><marker id="sf-a" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#42a8bf"/></marker></defs>
-          <g>
-            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
-            <path class="flowdash" d="M130 85 H270" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
-            <path d="M195 62 l10 23 -10 23 M215 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
-            <text x="200" y="135" class="fl">Rivers + rain</text><text x="200" y="158" class="sm">inflow</text>
-            <rect x="285" y="40" width="190" height="90" rx="12" fill="#0d7397"/>
-            <text x="380" y="82" class="st">Lake</text><text x="380" y="112" class="st2">stock</text>
-            <path class="flowdash" d="M490 85 H630" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
-            <path d="M555 62 l10 23 -10 23 M575 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
-            <text x="560" y="135" class="fl">Evaporation +</text><text x="560" y="158" class="fl">outlet river</text><text x="560" y="181" class="sm">outflow</text>
-            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
-          </g>
-          <g transform="translate(0 190)">
-            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
-            <path class="flowdash" d="M130 85 H270" stroke="#75a29f" stroke-width="12" fill="none"/>
-            <text x="200" y="128" class="fl">Deposits</text>
-            <rect x="285" y="45" width="190" height="80" rx="12" fill="#75a29f"/>
-            <text x="380" y="80" class="st">Bank</text><text x="380" y="108" class="st2">account</text>
-            <path class="flowdash" d="M490 85 H630" stroke="#75a29f" stroke-width="12" fill="none"/>
-            <text x="560" y="128" class="fl">Withdrawals</text>
-            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
-          </g>
-        </svg>
-        <dl class="defs"><dt>Stock</dt><dd>What builds up or drains: water in the lake, money in the account.</dd><dt>Flow</dt><dd>The rate that moves into or out of the stock.</dd></dl>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 1 · how can we show how a system works?</div>
+    <h2 class="reveal d2" style="font-size:66px;margin-bottom:10px">Two diagrams, <em>one system</em></h2>
+    <svg class="ssd reveal d3" id="ssd" viewBox="0 0 1760 500" role="img" aria-label="Building a stock-and-flow diagram and a causal loop diagram of a population, step by step">
+      <defs>
+        <linearGradient id="ssd-w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4d4"/><stop offset="1" stop-color="#3b97ae"/></linearGradient>
+        <marker id="ssd-r" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#b3452c"/></marker>
+        <marker id="ssd-b" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#2e7d5b"/></marker>
+        <clipPath id="ssd-tank"><rect x="344" y="164" width="192" height="142" rx="12"/></clipPath>
+      </defs>
+      <line x1="880" y1="20" x2="880" y2="490" stroke="#c7d3d6" stroke-width="3" stroke-dasharray="4 12"/>
+      <text class="ph" x="440" y="34">Stock-and-flow diagram</text><text class="ps" x="440" y="68">shows how much changes over time</text>
+      <text class="ph" x="1320" y="34">Causal loop diagram</text><text class="ps" x="1320" y="68">shows why it changes</text>
+      <!-- 1 the stock -->
+      <g class="b" data-b="1"><rect class="pop" x="340" y="160" width="200" height="150" rx="14" fill="#fffdf8" stroke="#0d7397" stroke-width="5"/>
+        <text class="pop sl" x="440" y="350">Population</text></g>
+      <!-- 2 the inflow, and the stock fills -->
+      <g class="b" data-b="2">
+        <g clip-path="url(#ssd-tank)"><g class="water"><rect x="344" y="226" width="192" height="80" fill="url(#ssd-w)"/><path d="M344 228 q48 -8 96 0 q48 8 96 0" fill="none" stroke="#d6f1f7" stroke-width="3"/></g></g>
+        <path class="pop" d="M108 245 q0 -24 24 -24 q8 -20 32 -13 q20 -9 30 11 q22 2 18 26 z" fill="#e3ebed" stroke="#9aa8ad" stroke-width="2"/>
+        <path d="M210 235 H335" stroke="#75a29f" stroke-width="16" stroke-linecap="round" opacity=".3"/>
+        <path class="fluid in draw" pathLength="1" d="M210 235 H335"/>
+        <path class="pop" d="M262 222 L282 248 L282 222 L262 248 Z" fill="#fffdf8" stroke="#0a4f68" stroke-width="3"/>
+        <text class="pop fl" x="272" y="200">Births</text></g>
+      <!-- 3 the outflow -->
+      <g class="b" data-b="3">
+        <path d="M545 235 H670" stroke="#d98a3a" stroke-width="16" stroke-linecap="round" opacity=".3"/>
+        <path class="fluid out draw" pathLength="1" d="M545 235 H670"/>
+        <path class="pop" d="M598 222 L618 248 L618 222 L598 248 Z" fill="#fffdf8" stroke="#0a4f68" stroke-width="3"/>
+        <text class="pop fl" x="608" y="200">Deaths</text>
+        <path class="pop" d="M668 245 q0 -24 24 -24 q8 -20 32 -13 q20 -9 30 11 q22 2 18 26 z" fill="#e3ebed" stroke="#9aa8ad" stroke-width="2"/></g>
+      <!-- 4 the population node -->
+      <g class="b" data-b="4"><g class="pop"><circle cx="1060" cy="270" r="68" fill="#fffdf8" stroke="#0d7397" stroke-width="5"/><text class="nl" x="1060" y="278">Population</text></g></g>
+      <!-- 5 reinforcing loop -->
+      <g class="b" data-b="5">
+        <g class="pop"><circle cx="1460" cy="157" r="56" fill="#fffdf8" stroke="#b3452c" stroke-width="5"/><text class="nl" x="1460" y="165">Births</text></g>
+        <path class="lk r draw" pathLength="1" d="M1126 252 Q1237 115 1398 162" marker-end="url(#ssd-r)"/>
+        <path class="lk r draw" pathLength="1" d="M1416 195 Q1280 328 1126 300" marker-end="url(#ssd-r)"/>
+        <text class="sg p pop" x="1352" y="138">+</text><text class="sg p pop" x="1168" y="330">+</text>
+        <g class="badge"><circle cx="1266" cy="226" r="32" fill="rgba(179,69,44,.12)" stroke="#b3452c" stroke-width="4"/><text class="bl" x="1266" y="240" fill="#b3452c">R</text></g></g>
+      <!-- 6 balancing loop -->
+      <g class="b" data-b="6">
+        <g class="pop"><circle cx="1460" cy="400" r="56" fill="#fffdf8" stroke="#2e7d5b" stroke-width="5"/><text class="nl" x="1460" y="408">Deaths</text></g>
+        <path class="lk b draw" pathLength="1" d="M1128 284 Q1300 300 1404 382" marker-end="url(#ssd-b)"/>
+        <path class="lk b draw" pathLength="1" d="M1408 428 Q1230 470 1098 330" marker-end="url(#ssd-b)"/>
+        <text class="sg p pop" x="1330" y="322">+</text><text class="sg n pop" x="1140" y="404">−</text>
+        <g class="badge"><circle cx="1262" cy="368" r="32" fill="rgba(117,162,159,.16)" stroke="#2e7d5b" stroke-width="4"/><text class="bl" x="1262" y="382" fill="#2e7d5b">B</text></g></g>
+      <!-- 7 one system -->
+      <g class="b" data-b="7"><g class="pop"><circle cx="880" cy="270" r="62" fill="#eccf72" stroke="#fffdf8" stroke-width="6"/><text class="ml" x="880" y="264">One</text><text class="ml" x="880" y="290">system</text></g></g>
+    </svg>
+    <div class="ssd-cards reveal d3">
+      <div class="ssd-half">
+        <div class="sc stock b" data-b="1"><b>Stock</b>What <strong>accumulates</strong> over time. Here, the number of people alive.</div>
+        <div class="sc flow b" data-b="2"><b>Flow · inflow</b>The <strong>movement in</strong>. Births add to the stock, like water from a faucet.</div>
+        <div class="sc note wide b" data-b="3"><b>The key idea</b>A stock changes <strong>only when inflow ≠ outflow</strong>. More births than deaths, and the population grows.</div>
       </div>
-      <div class="card gold two">
-        <span class="tag">2 · Causal loop diagram</span>
-        <p class="use">Use it to show <b>cause and effect</b> in a system.</p>
-        <svg class="cld" id="cld-two" viewBox="0 0 760 360" role="img" aria-label="Causal loop diagrams: warming melts ice, melting ice lets more sunlight be absorbed, which adds warming, a reinforcing loop; a warmer room turns heater output down, and heater output warms the room, a balancing loop"></svg>
-        <div class="signs" style="margin-top:8px"><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing (positive) loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing (negative) loop</span></div>
+      <div class="ssd-half">
+        <div class="sc cl wide b" data-b="4"><b>Causal loop</b>Maps <strong>cause → effect</strong>. A <strong>+</strong> means both move the same way; a <strong>−</strong> means opposite ways.</div>
+        <div class="sc r b" data-b="5"><b>R · Reinforcing</b>More people → more births → more people. It <strong>amplifies</strong> change (runaway growth).</div>
+        <div class="sc bal b" data-b="6"><b>B · Balancing</b>More people → more deaths → fewer people. It <strong>restores</strong> balance (stabilizes).</div>
       </div>
     </div>
-    <div class="take reveal d4" style="margin-top:26px;font-size:26px"><b>System structure mapping</b>Both diagrams identify the interactions among the parts of a system. Today you will use both.</div>
+    <div class="ssd-foot">
+      <p class="ssd-cap" id="ssd-cap"></p>
+      <button class="btn ghost" type="button" id="ssd-prev">Back</button><button class="btn" type="button" id="ssd-next">Next step</button><button class="btn ghost" type="button" id="ssd-all">Show all</button>
+    </div>
   </div>
 </section>
 
-<!-- 11. GAME: THE TUB -->
+<!-- 11. WHERE SYSTEMS CHANGE -->
+<section class="slide chg-slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Change points</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 1 · what happens when a system changes</div>
+    <h2 class="reveal d2" style="font-size:64px">Thresholds, <em>tipping points</em> and <em>leverage points</em></h2>
+    <div class="grid g3 reveal d3" style="gap:32px">
+      <div class="card accent two">
+        <span class="tag">Threshold</span>
+        <svg class="chg" viewBox="0 0 760 330" role="img" aria-label="A ball resting in one valley is pushed to the edge, crosses the threshold and rolls into a new valley">
+          <path d="M20 150 C 120 300, 250 300, 330 130 C 360 70, 400 70, 430 130 C 510 300, 640 300, 740 150 L740 330 L20 330 Z" fill="#e8f3f2"/>
+          <path d="M20 150 C 120 300, 250 300, 330 130 C 360 70, 400 70, 430 130 C 510 300, 640 300, 740 150" fill="none" stroke="#75a29f" stroke-width="6"/>
+          <line x1="380" y1="48" x2="380" y2="320" stroke="#b3452c" stroke-width="3" stroke-dasharray="10 8"/>
+          <text x="380" y="34" class="lb" style="fill:#b3452c">THE EDGE</text>
+          <text x="180" y="314" class="lb">THIS STATE</text><text x="585" y="314" class="lb">NEW STATE</text>
+          <circle class="ball" r="26" fill="#0d7397"/>
+        </svg>
+        <p class="cap" style="color:#0d7397">The system shifts</p>
+        <p class="def">A <b>threshold</b> is a point at which a system <b>shifts significantly</b>. Past it, the system settles into a new state.</p>
+      </div>
+      <div class="card gold two">
+        <span class="tag">Tipping point</span>
+        <svg class="chg" viewBox="0 0 760 330" role="img" aria-label="The same ridge hidden in fog: nobody can see exactly where the edge is">
+          <path d="M20 150 C 120 300, 250 300, 330 130 C 360 70, 400 70, 430 130 C 510 300, 640 300, 740 150 L740 330 L20 330 Z" fill="#e8f3f2"/>
+          <path d="M20 150 C 120 300, 250 300, 330 130 C 360 70, 400 70, 430 130 C 510 300, 640 300, 740 150" fill="none" stroke="#75a29f" stroke-width="6"/>
+          <circle class="ball wob" r="26" fill="#0d7397"/>
+          <g class="fog"><ellipse cx="380" cy="120" rx="200" ry="92" fill="#f4f2ee" opacity=".93"/><ellipse cx="300" cy="150" rx="110" ry="50" fill="#f4f2ee" opacity=".8"/><ellipse cx="470" cy="140" rx="120" ry="54" fill="#f4f2ee" opacity=".8"/></g>
+          <text class="qm" x="300" y="120">?</text><text class="qm" x="380" y="88" style="animation-delay:.6s">?</text><text class="qm" x="460" y="124" style="animation-delay:1.2s">?</text>
+          <text x="180" y="314" class="lb">THIS STATE</text><text x="585" y="314" class="lb">NEW STATE</text>
+        </svg>
+        <p class="cap" style="color:#b88a14">Hard to predict</p>
+        <p class="def"><b>Tipping points</b> are difficult to predict: complex interactions make the exact threshold <b>uncertain</b>.</p>
+      </div>
+      <div class="card green two">
+        <span class="tag">Leverage point</span>
+        <svg class="chg" viewBox="0 0 760 330" role="img" aria-label="A lever: a small push on the long end lifts a large weight on the short end">
+          <polygon points="250,300 290,230 330,300" fill="#0a4f68"/>
+          <g class="lever">
+            <rect x="80" y="216" width="620" height="16" rx="8" fill="#eccf72"/>
+            <rect x="95" y="120" width="130" height="96" rx="10" fill="#b3452c"/><text x="160" y="178" class="wt">LARGE</text>
+            <circle cx="660" cy="196" r="20" fill="#0d7397"/><text x="610" y="160" class="lb">SMALL</text>
+          </g>
+          <path class="push" d="M660 60 V130" stroke="#0d7397" stroke-width="6" marker-end="url(#chg-a)"/>
+          <defs><marker id="chg-a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0d7397"/></marker></defs>
+        </svg>
+        <p class="cap" style="color:#2e7d5b">Small change, big effect</p>
+        <p class="def">A <b>leverage point</b> is a place in a system where a <b>small change</b> can produce <b>large effects</b>, like national energy-efficiency standards.</p>
+      </div>
+    </div>
+    <div class="take reveal d4" style="margin-top:30px;font-size:27px"><b>Why it matters</b>A reinforcing loop can push a system past a threshold, like nutrient runoff tipping coastal water into a dead zone. A leverage point is where a small action can steer it back.</div>
+  </div>
+</section>
+
+<!-- 12. GAME: THE TUB -->
 <section class="slide" id="tub">
   <div class="rail"><b>12</b><span>Game</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -527,7 +652,7 @@
   </div>
 </section>
 
-<!-- 12. QUICK QUESTION -->
+<!-- 13. QUICK QUESTION -->
 <section class="slide" id="qq">
   <div class="rail"><b>12</b><span>Big idea 1 · Quick question</span></div>
   <div class="content fill">
@@ -545,7 +670,7 @@
   </div>
 </section>
 
-<!-- 13. EARTH'S NATURAL CYCLES -->
+<!-- 14. EARTH'S NATURAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -599,7 +724,7 @@
   </div>
 </section>
 
-<!-- 14. BIOGEOCHEMICAL CYCLES -->
+<!-- 15. BIOGEOCHEMICAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content center">
@@ -623,7 +748,7 @@
   </div>
 </section>
 
-<!-- 15. OXYGEN CYCLE -->
+<!-- 16. OXYGEN CYCLE -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Oxygen</span></div>
   <div class="content fill">
@@ -644,7 +769,7 @@
   </div>
 </section>
 
-<!-- 16. BIOSPHERE 2 -->
+<!-- 17. BIOSPHERE 2 -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Biosphere 2</span></div>
   <div class="content fill">
@@ -671,7 +796,7 @@
   </div>
 </section>
 
-<!-- 17. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
+<!-- 18. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
 <section class="slide" id="cycles">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -690,7 +815,7 @@
   </div>
 </section>
 
-<!-- 18. HUMAN-INDUCED CHANGES -->
+<!-- 19. HUMAN-INDUCED CHANGES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Human impacts</span></div>
   <div class="content center">
@@ -717,7 +842,7 @@
   </div>
 </section>
 
-<!-- 19. EUTROPHICATION -->
+<!-- 20. EUTROPHICATION -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Eutrophication</span></div>
   <div class="content fill">
@@ -741,7 +866,7 @@
   </div>
 </section>
 
-<!-- 20. THE GULF DEAD ZONE -->
+<!-- 21. THE GULF DEAD ZONE -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Dead zone</span></div>
   <div class="content fill">
@@ -765,7 +890,7 @@
   </div>
 </section>
 
-<!-- 21. SYSTEM DYNAMICS DIAGRAM -->
+<!-- 22. SYSTEM DYNAMICS DIAGRAM -->
 <section class="slide" id="gulf">
   <div class="rail"><b>12</b><span>Big idea 3 · Causal loops</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -783,7 +908,7 @@
   </div>
 </section>
 
-<!-- 22. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
+<!-- 23. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
 <section class="slide" id="cld-ex">
   <div class="rail"><b>12</b><span>Class exercise</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -804,7 +929,7 @@
   </div>
 </section>
 
-<!-- 23. TRES RIOS -->
+<!-- 24. TRES RIOS -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Tres Rios</span></div>
   <div class="content center">
@@ -820,7 +945,7 @@
   </div>
 </section>
 
-<!-- 24. VIDEO -->
+<!-- 25. VIDEO -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Video</span></div>
   <div class="content center">
@@ -843,7 +968,7 @@
   </div>
 </section>
 
-<!-- 25. WHAT CAN WE DO? -->
+<!-- 26. WHAT CAN WE DO? -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Solutions</span></div>
   <div class="content fill">
@@ -863,7 +988,7 @@
   </div>
 </section>
 
-<!-- 26. EXIT TICKET -->
+<!-- 27. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -879,9 +1004,9 @@
   </div>
 </section>
 
-<!-- 27. TAKEAWAY -->
+<!-- 28. TAKEAWAY -->
 <section class="slide hero">
-  <img class="hero-img" src="img/biosphere2-hero.jpg" alt="" aria-hidden="true">
+  <img class="hero-img" src="img/globe-hero.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim"></div>
   <div class="hero-text" style="width:1080px">
     <div class="hero-badge reveal"><b>L<em>12</em></b><span>Stocks and flows in Earth's systems</span></div>
@@ -1011,12 +1136,30 @@ cld($('#cld-b'), {
   loops: [['B', 380, 235]],
 }, { seq: true });
 
-cld($('#cld-two'), {
-  nodes: [['warm', 'Warming', 230, 45, 180], ['melt', 'Melting ice', 380, 280, 180], ['sun', 'Sunlight|absorbed', 95, 280, 170],
-    ['room', 'Room|temperature', 620, 60, 190], ['heat', 'Heater output', 620, 290, 190]],
-  links: [['warm', 'melt', '+', -40], ['melt', 'sun', '+', -40], ['sun', 'warm', '+', -40], ['room', 'heat', '−', -110], ['heat', 'room', '+', -110]],
-  loops: [['R', 235, 195], ['B', 620, 175]],
-}, { seq: true });
+/* === TWO DIAGRAMS, ONE SYSTEM: click to build === */
+const SSD_CAP = [
+  'Click <b>Next step</b> (or the diagram) to build both diagrams for one system: a population.',
+  'The <b>stock</b>: what accumulates. Here, the number of people alive.',
+  'The <b>inflow</b>: births fill the stock, like water from a faucet.',
+  'The <b>outflow</b>: deaths drain it. The stock grows only when births are greater than deaths.',
+  'Now the same system as a <b>causal loop diagram</b>. Start with the population.',
+  'More people, more births, more people: a <b>reinforcing (R)</b> loop.',
+  'More people, more deaths, fewer people: a <b>balancing (B)</b> loop.',
+  'Same system, two lenses: stock-and-flow shows <b>how much</b> changes; causal loops show <b>why</b>.',
+];
+let ssdStep = 0;
+function drawSsd() {
+  $$('#build [data-b]').forEach(g => g.classList.toggle('off', +g.dataset.b > ssdStep));
+  $('#ssd-cap').innerHTML = SSD_CAP[ssdStep];
+  $('#ssd-next').disabled = ssdStep === SSD_CAP.length - 1;
+  $('#ssd-prev').disabled = ssdStep === 0;
+}
+const ssdGo = n => { ssdStep = Math.max(0, Math.min(SSD_CAP.length - 1, n)); drawSsd(); };
+$('#ssd-next').addEventListener('click', () => ssdGo(ssdStep + 1));
+$('#ssd-prev').addEventListener('click', () => ssdGo(ssdStep - 1));
+$('#ssd-all').addEventListener('click', () => ssdGo(SSD_CAP.length - 1));
+$('#ssd').addEventListener('click', () => ssdGo(ssdStep + 1));
+drawSsd();
 
 /* === GULF DEAD ZONE: step-by-step build === */
 const GULF = {
