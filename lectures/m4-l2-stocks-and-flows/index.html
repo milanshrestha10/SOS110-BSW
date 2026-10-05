@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 12 Stocks and flows in Earth's systems · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05">
+<style>
+/* === LECTURE-ONLY STYLES === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.fig.plain{border:0;background:transparent}
+.credit{font-size:16px;color:var(--mute);margin-top:6px}
+.take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+/* key terms: four flip cards, each holding a pair of terms */
+.vocab.four{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:28px 36px}
+.vocab.four .vcard{height:auto}
+.vocab.four .vcard .f,.vocab.four .vcard .b{padding:28px 38px}
+.vocab.four .vcard h4{font-size:38px;margin-bottom:10px}
+.vocab.four .vcard p{font-size:22px;line-height:1.38}
+.vocab.four .vcard p + p{margin-top:8px}
+/* review quiz */
+.quiz{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+.q{border-bottom:1px solid var(--paper-2);padding-bottom:14px}
+.q p{font-size:24px;line-height:1.35;margin-bottom:10px}
+.q p b{color:var(--Blue);margin-right:6px}
+.q .ch{display:flex;flex-wrap:wrap;gap:10px}
+.q button{font:400 20px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 18px;cursor:pointer}
+.q button:hover{border-color:var(--Sky)}
+.q button.on{border-color:var(--Blue);background:rgba(66,168,191,.16)}
+.q.done button.right{border-color:#2e7d5b;background:#2e7d5b;color:#fff}
+.q.done button.on.wrong{border-color:#b3452c;background:rgba(179,69,44,.12)}
+.q .why{display:none;font-size:18px;color:var(--mute);margin-top:8px}
+.q.done .why{display:block}
+.fill .quiz{flex:1;grid-auto-rows:1fr;gap:0 48px}
+.fill .q{display:flex;flex-direction:column;justify-content:center;padding:8px 0 18px}
+.fill .q p{font-size:27px;margin-bottom:14px}
+.fill .q button{font-size:23px;padding:9px 22px}
+/* quick question: tap-to-reveal cards */
+.mq{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.mq .reveal-card{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:24px 30px}
+.mq .reveal-card h3{font-size:34px;margin-bottom:10px}
+.mq .reveal-card .ans-text{display:none;font-size:24px;line-height:1.45}
+.mq .reveal-card.open .ans-text{display:block}
+.mq .reveal-card.open .think{display:none}
+.mq .think{font-size:22px;color:var(--mute)}
+/* open and closed systems */
+.sys svg{width:100%;height:auto;display:block}
+.sys text{font-family:var(--body);fill:var(--ink)}
+.sys .lbl{font:400 36px var(--display)}
+.sys .sm{font:700 19px var(--body);letter-spacing:.1em;text-transform:uppercase;fill:var(--mute)}
+.sys .note{font-size:22px;fill:var(--mute)}
+.sys-cap{font-size:24px;line-height:1.4;margin-top:10px}
+.legend{display:flex;gap:30px;font-size:22px;color:var(--mute);margin-top:12px;flex-wrap:wrap}
+.legend i{display:inline-block;width:20px;height:20px;border-radius:50%;margin-right:8px;vertical-align:-2px}
+/* three tubs: rising, steady, falling */
+.tubs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:18px}
+.mini{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:16px 20px 18px;text-align:center}
+.mini svg{width:100%;height:auto;display:block}
+.mini h4{font:400 30px var(--display);margin:6px 0 2px}
+.mini p{font-size:20px;line-height:1.35;color:var(--mute)}
+.mini .w{animation:none}
+.slide.visible .mini .w.up{animation:up 6s ease-in-out infinite}
+.slide.visible .mini .w.down{animation:down 6s ease-in-out infinite}
+@keyframes up{0%{transform:translateY(70px)}80%,100%{transform:translateY(0)}}
+@keyframes down{0%{transform:translateY(0)}80%,100%{transform:translateY(70px)}}
+.flowdash{stroke-dasharray:10 12;animation:dash .8s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+/* causal loop diagrams */
+.cld{width:100%;height:auto;display:block;overflow:visible}
+.cld .node rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
+.cld .node.hum rect{stroke:#b3452c}
+.cld .node.act rect{stroke:var(--Green);stroke-width:4}
+.cld .node text{font:700 23px var(--body);fill:var(--ink);text-anchor:middle}
+#cld-ex-svg .node text{font-size:26px}
+.cld .lk path{fill:none;stroke:#5d7780;stroke-width:4}
+.cld .sg circle{stroke:var(--paper);stroke-width:3}
+.cld .sg text{font:700 26px var(--body);fill:#fff;text-anchor:middle}
+.cld .sg.p circle{fill:var(--Blue)}.cld .sg.n circle{fill:#b3452c}
+.cld .sg.q circle{fill:var(--golden)}.cld .sg.q text{fill:var(--ink)}
+.cld .loop circle{fill:none;stroke-width:4}
+.cld .loop text{font:400 40px var(--display);text-anchor:middle}
+.cld .loop.R circle{stroke:#b3452c}.cld .loop.R text{fill:#b3452c}
+.cld .loop.B circle{stroke:var(--Green)}.cld .loop.B text{fill:#2e7d5b}
+.cld .loop .spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cld .s{transition:opacity .6s var(--ease)}
+.cld .s.off{opacity:0}
+.cld .lk path.draw{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1s var(--ease)}
+.cld .s.off path.draw{stroke-dashoffset:1}
+.cld .sg.pick{cursor:pointer}
+.cld .sg.pick:hover circle{stroke:var(--Sky)}
+.cld .sg.right circle{stroke:#2e7d5b;stroke-width:6}.cld .sg.wrong circle{stroke:#b3452c;stroke-width:6}
+.seq .s{opacity:0}
+.slide.visible .seq .s{animation:lkin .9s var(--ease) forwards;animation-delay:calc(var(--i) * .55s + .5s)}
+@keyframes lkin{to{opacity:1}}
+.cld-cap{min-height:118px;font-size:27px;line-height:1.4}
+.cld-cap b{color:var(--Blue)}
+.signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
+.signs span{display:inline-flex;align-items:center;gap:8px}
+.signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
+/* two ways to draw a system */
+.two{display:flex;flex-direction:column;padding:24px 30px}
+.two .use{font-size:25px;margin:2px 0 6px}
+.sfd{width:100%;height:auto;display:block}
+.sfd text{text-anchor:middle;font-family:var(--body)}
+.sfd .fl{font:700 21px var(--body);fill:var(--ink)}
+.sfd .sm{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
+.sfd .st{font:400 32px var(--display);fill:#fff}
+.sfd .st2{font:700 16px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:rgba(255,255,255,.85)}
+.defs{display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:21px;line-height:1.35;margin-top:auto;border-top:1px solid var(--paper-2);padding-top:12px}
+.defs dt{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:4px}
+#cld-two .node text{font-size:22px}
+/* tub game */
+.tubgame{display:grid;grid-template-columns:760px 1fr;gap:44px;align-items:start}
+.tubgame svg.tub{width:100%;height:auto;display:block}
+.tub text{font:700 20px var(--body);fill:var(--mute)}
+.tubside{display:grid;gap:16px}
+.ctl{display:grid;grid-template-columns:200px 64px 1fr 64px;gap:12px;align-items:center;font-size:23px}
+.ctl b{font:400 34px var(--display);text-align:center;color:var(--Blue)}
+.ctl small{display:block;font-size:17px;color:var(--mute)}
+.ctl button{font:700 32px/1 var(--body);height:58px;border-radius:12px;border:2px solid var(--Blue);background:var(--card);color:var(--Blue);cursor:pointer}
+.ctl button:hover{background:rgba(66,168,191,.14)}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.modes button{font:400 19px/1.25 var(--body);text-align:left;border:2px solid var(--paper-2);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 14px;cursor:pointer}
+.modes button b{display:block;font:400 25px var(--display)}
+.modes button.on{border-color:var(--Blue);background:rgba(66,168,191,.16)}
+.readout{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.readout div{border-left:6px solid var(--golden);padding:2px 0 2px 14px}
+.readout b{display:block;font:400 38px/1.05 var(--display);color:var(--Blue);font-variant-numeric:tabular-nums}
+.readout span{font-size:17px;color:var(--mute)}
+.chart{width:100%;height:auto;background:var(--card);border:2px solid var(--paper-2);border-radius:14px}
+.chart text{font:400 15px var(--body);fill:var(--mute)}
+.tubmsg{font-size:22px;line-height:1.4;min-height:62px}
+.tubmsg.win{color:#2e7d5b}.tubmsg.lose{color:#b3452c}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 24px}
+.go-row select{font:400 20px var(--body);padding:10px 12px;border:2px solid var(--paper-2);border-radius:10px;background:var(--card);color:var(--ink)}
+.go-row .status{margin:0;font-size:20px}
+/* natural cycles */
+.nat{display:grid;grid-template-columns:400px 1fr 400px;gap:24px;align-items:center}
+.nat svg{width:100%;height:auto;display:block}
+.nat svg text{font-family:var(--body);fill:var(--ink)}
+.nat .side .card{padding:20px 24px;margin:14px 0}
+.nat .side h3{font-size:32px;margin-bottom:6px}
+.nat .side p{font-size:21px;line-height:1.4}
+.nat .side .k{font-size:17px}
+.ring{stroke-dasharray:26 14;animation:dash2 3s linear infinite}
+@keyframes dash2{to{stroke-dashoffset:-40}}
+.heat{animation:rise 2.4s ease-in-out infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}30%{opacity:1}100%{transform:translate(26px,-60px);opacity:0}}
+.ray{animation:ray 2s ease-in infinite}
+@keyframes ray{0%{opacity:0;transform:translate(-20px,-20px)}40%{opacity:1}100%{opacity:0;transform:translate(16px,16px)}}
+/* biosphere 2 oxygen gauge */
+.o2{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;font-size:22px}
+.o2 .bar{height:34px;border-radius:8px;background:var(--paper-2);overflow:hidden}
+.o2 .bar i{display:block;height:100%;width:100%;background:var(--Sky);border-radius:0 8px 8px 0;transition:width 4s 1s var(--ease)}
+.slide.visible .o2 .bar i{width:69.4%}
+.o2 b{font:400 34px var(--display);color:var(--Blue);min-width:110px;text-align:right}
+/* animated element cycles */
+.tabs{display:flex;gap:12px;margin-bottom:12px}
+.tabs button{font:400 28px var(--display);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 26px;cursor:pointer}
+.tabs button.on{background:var(--Blue);border-color:var(--Blue);color:var(--paper)}
+.cyc{width:100%;height:auto;display:block}
+.cyc .nd rect{fill:var(--card);stroke:var(--paper-2);stroke-width:3}
+.cyc .nd text{font:400 27px var(--display);fill:var(--ink);text-anchor:middle}
+.cyc .nd .sub{font:400 17px var(--body);fill:var(--mute)}
+.cyc .fl path{fill:none;stroke:#9fbfc6;stroke-width:5}
+.cyc .fl.h path{stroke:#e2a191;stroke-dasharray:12 8}
+.cyc .fl circle{fill:var(--Blue)}
+.cyc .fl.h circle{fill:#b3452c}
+.cyc .fl text{font:700 20px var(--body);fill:var(--mute);text-anchor:middle;paint-order:stroke;stroke:var(--paper);stroke-width:6px}
+.cyc .fl.h text{fill:#b3452c}
+.cyc-note{font-size:23px;line-height:1.42;min-height:100px}
+/* eutrophication steps */
+.esteps{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:22px}
+.estep{position:relative;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:14px 16px;font-size:20px;line-height:1.3}
+.estep i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--paper-2);font:400 22px var(--display);font-style:normal;margin-bottom:8px}
+.slide.visible .estep{animation:lit 12s infinite}
+.slide.visible .estep i{animation:liti 12s infinite}
+.estep:nth-child(2),.estep:nth-child(2) i{animation-delay:2s!important}
+.estep:nth-child(3),.estep:nth-child(3) i{animation-delay:4s!important}
+.estep:nth-child(4),.estep:nth-child(4) i{animation-delay:6s!important}
+.estep:nth-child(5),.estep:nth-child(5) i{animation-delay:8s!important}
+.estep:nth-child(6),.estep:nth-child(6) i{animation-delay:10s!important}
+@keyframes lit{0%,17%{border-color:var(--Blue);background:rgba(66,168,191,.16)}20%,100%{border-color:var(--paper-2);background:var(--card)}}
+@keyframes liti{0%,17%{background:var(--Blue);color:var(--paper)}20%,100%{background:var(--paper-2);color:var(--ink)}}
+/* exercise answers */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 22px/1.3 var(--body);margin-bottom:6px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ex textarea,.ex select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:96px}
+.ex textarea:focus,.ex select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.steps{font-size:25px;line-height:1.4;color:var(--ink);margin:0 0 18px}
+/* video */
+.video.vimeo{width:1060px}
+.watch{font-size:24px}
+.watch ol.num li{padding-left:64px;margin:16px 0}
+.watch ol.num li::before{width:44px;height:44px;font-size:24px;line-height:44px}
+/* what can we do: solution flip cards */
+.vocab.sol{flex:1;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:20px}
+.vocab.sol .vcard{height:auto;min-height:250px}
+.vocab.sol .vcard h4{font-size:29px;margin-bottom:8px}
+.vocab.sol .vcard p{font-size:21px;line-height:1.38}
+.vocab.sol .vcard .f,.vocab.sol .vcard .b{padding:20px 24px}
+.vocab.sol .vcard.city .f{border-left-color:var(--golden)}
+@media (prefers-reduced-motion: reduce){
+  .seq .s{opacity:1!important;animation:none!important}
+  .mini .w,.flowdash,.ring,.heat,.ray,.estep,.estep i,.cld .loop .spin{animation:none!important}
+  .o2 .bar i{transition:none}
+}
+@media print{.seq .s{opacity:1!important;animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></symbol>
+  <symbol id="i-dome" viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M4 20a8 8 0 0 1 16 0"/><path d="M12 12v8"/><path d="M8 13.2V20"/><path d="M16 13.2V20"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" src="img/biosphere2-hero.jpg" alt="Biosphere 2: glass pyramids, domes and white buildings of a sealed research station in the Arizona desert, with mountains behind">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 12 · S&amp;M Chapter 10</div>
+    <h1 class="reveal d2">Stocks and flows in <em>Earth's systems</em></h1>
+    <p class="hero-sub reveal d3">How stocks fill and drain, and how feedback loops speed change up or slow it down.</p>
+    <div class="goldline"></div>
+  </div>
+  <p class="hero-cap reveal d4">Biosphere 2, a sealed living laboratory near Tucson · Photo: ClassicStock/Alamy</p>
+</section>
+
+<!-- 2. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 3. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · no wrong answers</div>
+    <h2 class="reveal d2" style="font-size:68px;max-width:1450px">Which of Earth's cycles do you think people have changed <em>the most</em>?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>The water cycle</button>
+      <button class="opt" type="button"><b>B</b>The carbon cycle</button>
+      <button class="opt" type="button"><b>C</b>The nitrogen cycle</button>
+      <button class="opt" type="button"><b>D</b>The phosphorus cycle</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 4. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · the three threads of today's lecture</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <p class="lead reveal d2" style="margin-bottom:30px">Human activities have disrupted Earth's natural cycles, through emissions to the air and changes to land and water. Systems thinking shows us how, and where to act.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><br><span class="tag">1 · Stocks, flows and feedback</span><h3>How systems change</h3><p>Explain how inflows and outflows fill or drain a stock, and how feedback loops speed change up or slow it down.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><br><span class="tag">2 · Earth's cycles</span><h3>How matter moves</h3><p>Trace how oxygen, carbon, nitrogen and phosphorus cycle between living things, air, water and rock.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><br><span class="tag">3 · Human impacts</span><h3>How we tip the balance</h3><p>Use a causal loop diagram to explain how nutrient runoff makes a dead zone, and what we can do about it.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Earth keeps the same matter. When we speed up one flow, like fertilizer into rivers, a stock somewhere else fills up.</div>
+  </div>
+</section>
+
+<!-- 5. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>12</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. REVIEW QUIZ -->
+<section class="slide" id="quiz">
+  <div class="rail"><b>12</b><span>Review quiz</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Review quiz · last lecture and a first look at today</div>
+    <h2 class="reveal d2" style="font-size:72px">How much do you <em>remember</em>?</h2>
+    <div class="quiz reveal d3" data-quiz></div>
+    <div class="reveal d4" style="margin-top:30px;display:flex;gap:20px;align-items:center"><button class="btn" type="button" id="quiz-check">Check my answers</button><span class="status" id="quiz-status" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 7. OPEN AND CLOSED SYSTEMS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Systems</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 1 · how do systems work?</div>
+    <h2 class="reveal d2" style="font-size:70px">Systems can be <em>open</em> or <em>closed</em></h2>
+    <p class="steps reveal d2">A <b>system</b> is a set of parts that work together to produce something no single part could do alone. What crosses its boundary decides whether it is open or closed.</p>
+    <div class="grid g2 sys reveal d3" style="gap:40px">
+      <div>
+        <svg viewBox="0 0 760 400" role="img" aria-label="Open system: energy and matter both flow in from the left and out to the right, across the boundary of a river ecosystem">
+          <rect x="190" y="70" width="380" height="270" rx="30" fill="#e8f3f2" stroke="#75a29f" stroke-width="5" stroke-dasharray="16 10"/>
+          <text class="sm" x="380" y="110" text-anchor="middle">Boundary</text>
+          <text class="lbl" x="380" y="215" text-anchor="middle">A river</text>
+          <text class="note" x="380" y="250" text-anchor="middle">ecosystem</text>
+          <g stroke="#eccf72" stroke-width="9" stroke-linecap="round"><path class="flowdash" d="M20 150 H175"/><path class="flowdash" d="M585 150 H740"/></g>
+          <text class="note" x="30" y="128">Sunlight in</text><text class="note" x="600" y="128">Heat out</text>
+          <path d="M20 270 H740" stroke="#bcd9df" stroke-width="3"/>
+          <g fill="#0d7397">
+            <circle r="11"><animateMotion dur="5s" repeatCount="indefinite" path="M20 270 H740"/></circle>
+            <circle r="11"><animateMotion dur="5s" begin="-1.25s" repeatCount="indefinite" path="M20 270 H740"/></circle>
+            <circle r="11"><animateMotion dur="5s" begin="-2.5s" repeatCount="indefinite" path="M20 270 H740"/></circle>
+            <circle r="11"><animateMotion dur="5s" begin="-3.75s" repeatCount="indefinite" path="M20 270 H740"/></circle>
+          </g>
+          <text class="note" x="30" y="310">Rain, leaves in</text><text class="note" x="580" y="310">Water, silt out</text>
+          <text class="lbl" x="380" y="390" text-anchor="middle" style="fill:#0d7397">Open system</text>
+        </svg>
+        <p class="sys-cap"><b>Energy and matter</b> both cross the boundary. Most real ecosystems are open.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 760 400" role="img" aria-label="Closed system: sunlight comes in and heat goes out, but matter circles inside the boundary of planet Earth and never leaves">
+          <circle cx="380" cy="205" r="150" fill="#e8f3f2" stroke="#75a29f" stroke-width="5" stroke-dasharray="16 10"/>
+          <text class="lbl" x="380" y="200" text-anchor="middle">Planet Earth</text>
+          <text class="note" x="380" y="236" text-anchor="middle">same atoms, reused</text>
+          <g stroke="#eccf72" stroke-width="9" stroke-linecap="round"><path class="flowdash" d="M40 90 L225 160"/><path class="flowdash" d="M535 160 L720 90"/></g>
+          <text class="note" x="30" y="70">Sunlight in</text><text class="note" x="630" y="70">Heat out</text>
+          <path id="orbit" d="M380 95 a110 110 0 1 1 -0.1 0" fill="none" stroke="#bcd9df" stroke-width="3"/>
+          <g fill="#0d7397">
+            <circle r="11"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#orbit"/></animateMotion></circle>
+            <circle r="11"><animateMotion dur="6s" begin="-1.5s" repeatCount="indefinite"><mpath href="#orbit"/></animateMotion></circle>
+            <circle r="11"><animateMotion dur="6s" begin="-3s" repeatCount="indefinite"><mpath href="#orbit"/></animateMotion></circle>
+            <circle r="11"><animateMotion dur="6s" begin="-4.5s" repeatCount="indefinite"><mpath href="#orbit"/></animateMotion></circle>
+          </g>
+          <text class="lbl" x="380" y="390" text-anchor="middle" style="fill:#0d7397">Closed system</text>
+        </svg>
+        <p class="sys-cap"><b>Only energy</b> crosses the boundary. Earth is open for energy but <b>closed for matter</b>: nothing disappears.</p>
+      </div>
+    </div>
+    <div class="legend reveal d4"><span><i style="background:#eccf72"></i>Energy</span><span><i style="background:#0d7397"></i>Matter</span><span><i style="border:3px dashed #75a29f;border-radius:6px"></i>System boundary</span></div>
+  </div>
+</section>
+
+<!-- 8. STOCKS AND FLOWS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Stocks</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Big idea 1 · the bathtub model</div>
+    <h2 class="reveal d2" style="font-size:70px">A stock changes only through its <em>flows</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:420px 1fr;gap:44px;align-items:center">
+      <figure class="fig plain"><img src="img/tub.jpg" alt="A bathtub: water flows in from the faucet (inflow), is held in the tub (stock) and leaves through the drain (outflow)"></figure>
+      <div>
+        <p style="font-size:27px;line-height:1.45">A <b>stock</b> is an amount we can observe and measure over time, like the water in a tub. <b>Flows</b> are the rates that fill it (inflows) or drain it (outflows).</p>
+        <figure class="fig plain" style="margin-top:18px"><img src="img/stock-flow.jpg" alt="Stock and flow diagram: a cloud, an inflow valve, a box labeled Water in tub, an outflow valve, and a cloud"></figure>
+        <p class="credit">Figures: Sherman &amp; Montgomery (2023), Fig. 10.4. The clouds mean "outside the system."</p>
+      </div>
+    </div>
+    <div class="tubs reveal d4" data-tubs></div>
+  </div>
+</section>
+
+<!-- 9. FEEDBACK LOOPS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Feedback</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 1 · feedback loops</div>
+    <h2 class="reveal d2" style="font-size:70px">Feedback loops <em>amplify</em> or <em>dampen</em> change</h2>
+    <div class="grid g2 reveal d3" style="gap:50px;flex:1">
+      <div>
+        <h3 style="color:#b3452c">Positive feedback · reinforcing</h3>
+        <p class="small">A change causes <b>more of the same change</b>. It speeds up and pushes the system away from balance.</p>
+        <svg class="cld seq" id="cld-r" viewBox="0 0 760 470" role="img" aria-label="Reinforcing loop: warmer temperature melts Arctic ice, which exposes dark ocean, which absorbs more heat, which warms temperature further"></svg>
+      </div>
+      <div>
+        <h3 style="color:#2e7d5b">Negative feedback · balancing</h3>
+        <p class="small">A change triggers a response that <b>pulls the system back</b> toward balance. It dampens change.</p>
+        <svg class="cld seq" id="cld-b" viewBox="0 0 760 470" role="img" aria-label="Balancing loop: more elk feed more wolves; more wolves mean fewer elk"></svg>
+      </div>
+    </div>
+    <div class="signs reveal d4"><span><i style="background:var(--Blue)">+</i>Same direction: more leads to more, less to less</span><span><i style="background:#b3452c">−</i>Opposite direction: more leads to less</span><span>Count the − links: an <b>even</b> number makes a reinforcing loop, an <b>odd</b> number a balancing loop.</span></div>
+  </div>
+</section>
+
+<!-- 10. TWO WAYS TO DRAW A SYSTEM -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Diagrams</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 1 · mapping a system's structure</div>
+    <h2 class="reveal d2" style="font-size:70px">Two ways to <em>draw</em> a system</h2>
+    <div class="grid g2 reveal d3" style="gap:40px;flex:1">
+      <div class="card accent two">
+        <span class="tag">1 · Stock-and-flow diagram</span>
+        <p class="use">Use it to see <b>how a system changes over time</b>.</p>
+        <svg class="sfd" viewBox="0 0 760 330" role="img" aria-label="Stock-and-flow diagrams: rivers and rain flow into a lake, and evaporation and an outlet river flow out; deposits flow into a bank account and withdrawals flow out">
+          <defs><marker id="sf-a" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#42a8bf"/></marker></defs>
+          <g>
+            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+            <path class="flowdash" d="M130 85 H270" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
+            <path d="M195 62 l10 23 -10 23 M215 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
+            <text x="200" y="135" class="fl">Rivers + rain</text><text x="200" y="158" class="sm">inflow</text>
+            <rect x="285" y="40" width="190" height="90" rx="12" fill="#0d7397"/>
+            <text x="380" y="82" class="st">Lake</text><text x="380" y="112" class="st2">stock</text>
+            <path class="flowdash" d="M490 85 H630" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
+            <path d="M555 62 l10 23 -10 23 M575 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
+            <text x="560" y="135" class="fl">Evaporation +</text><text x="560" y="158" class="fl">outlet river</text><text x="560" y="181" class="sm">outflow</text>
+            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+          </g>
+          <g transform="translate(0 190)">
+            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+            <path class="flowdash" d="M130 85 H270" stroke="#75a29f" stroke-width="12" fill="none"/>
+            <text x="200" y="128" class="fl">Deposits</text>
+            <rect x="285" y="45" width="190" height="80" rx="12" fill="#75a29f"/>
+            <text x="380" y="80" class="st">Bank</text><text x="380" y="108" class="st2">account</text>
+            <path class="flowdash" d="M490 85 H630" stroke="#75a29f" stroke-width="12" fill="none"/>
+            <text x="560" y="128" class="fl">Withdrawals</text>
+            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+          </g>
+        </svg>
+        <dl class="defs"><dt>Stock</dt><dd>What builds up or drains: water in the lake, money in the account.</dd><dt>Flow</dt><dd>The rate that moves into or out of the stock.</dd></dl>
+      </div>
+      <div class="card gold two">
+        <span class="tag">2 · Causal loop diagram</span>
+        <p class="use">Use it to show <b>cause and effect</b> in a system.</p>
+        <svg class="cld" id="cld-two" viewBox="0 0 760 360" role="img" aria-label="Causal loop diagrams: warming melts ice, melting ice lets more sunlight be absorbed, which adds warming, a reinforcing loop; a warmer room turns heater output down, and heater output warms the room, a balancing loop"></svg>
+        <div class="signs" style="margin-top:8px"><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing (positive) loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing (negative) loop</span></div>
+      </div>
+    </div>
+    <div class="take reveal d4" style="margin-top:26px;font-size:26px"><b>System structure mapping</b>Both diagrams identify the interactions among the parts of a system. Today you will use both.</div>
+  </div>
+</section>
+
+<!-- 11. GAME: THE TUB -->
+<section class="slide" id="tub">
+  <div class="rail"><b>12</b><span>Game</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Game · keep the tub in the green band for 20 seconds</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:26px">The <em>tub</em> game</h2>
+    <div class="tubgame reveal d3">
+      <div>
+        <svg class="tub" viewBox="0 0 760 600" role="img" aria-label="A bathtub with a faucet and a drain; the water level shows the stock">
+          <defs>
+            <clipPath id="tubclip"><path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z"/></clipPath>
+            <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4d4"/><stop offset="1" stop-color="#3b97ae"/></linearGradient>
+          </defs>
+          <rect x="80" y="30" width="250" height="34" rx="12" fill="#9aa8ad"/>
+          <rect x="296" y="52" width="34" height="64" rx="8" fill="#9aa8ad"/>
+          <rect x="150" y="12" width="60" height="22" rx="6" fill="#6f7f85"/>
+          <text x="90" y="100">Inflow</text>
+          <rect id="stream" x="306" y="116" width="14" height="330" fill="#7cc4d4" opacity=".9"/>
+          <g clip-path="url(#tubclip)">
+            <rect x="110" y="0" width="540" height="480" fill="#f4f8f8"/>
+            <rect x="110" y="200" width="540" height="87" fill="#75a29f" opacity=".22"/>
+            <rect id="water" x="110" y="460" width="540" height="20" fill="url(#wg)"/>
+          </g>
+          <path d="M120 150 H640 V420 Q640 470 590 470 H170 Q120 470 120 420 Z" fill="none" stroke="#c7d3d6" stroke-width="10"/>
+          <path d="M100 150 H660" stroke="#b3452c" stroke-width="4" stroke-dasharray="10 8"/>
+          <text x="560" y="140" style="fill:#b3452c">Overflow</text>
+          <line x1="650" y1="200" x2="700" y2="200" stroke="#75a29f" stroke-width="3"/><line x1="650" y1="287" x2="700" y2="287" stroke="#75a29f" stroke-width="3"/>
+          <text x="666" y="250" style="fill:#2e7d5b">Goal</text>
+          <rect x="360" y="470" width="40" height="40" fill="#9aa8ad"/>
+          <rect id="drip" x="372" y="510" width="16" height="70" fill="#7cc4d4"/>
+          <text x="420" y="560">Outflow</text>
+          <text id="stock-l" x="380" y="440" text-anchor="middle" style="fill:#0a4f68;font-size:26px">Stock</text>
+        </svg>
+      </div>
+      <div class="tubside">
+        <div class="modes" id="modes">
+          <button type="button" data-mode="plain" class="on"><b>Plain tub</b>You set both flows</button>
+          <button type="button" data-mode="reinforcing"><b>Reinforcing</b>The fuller it gets, the more pours in</button>
+          <button type="button" data-mode="balancing"><b>Balancing</b>A float valve slows the faucet as it fills</button>
+        </div>
+        <div class="ctl"><span>Faucet<small>inflow setting</small></span><button type="button" data-ctl="in" data-d="-1" aria-label="Less inflow">−</button><b id="in-v">5</b><button type="button" data-ctl="in" data-d="1" aria-label="More inflow">+</button></div>
+        <div class="ctl"><span>Drain<small>outflow setting</small></span><button type="button" data-ctl="out" data-d="-1" aria-label="Less outflow">−</button><b id="out-v">3</b><button type="button" data-ctl="out" data-d="1" aria-label="More outflow">+</button></div>
+        <div class="readout">
+          <div><b id="r-in">5.0</b><span>Inflow now (L/min)</span></div>
+          <div><b id="r-out">3.0</b><span>Outflow now (L/min)</span></div>
+          <div><b id="r-s">20</b><span>Stock (liters)</span></div>
+          <div><b id="r-t">0</b><span>Seconds in band</span></div>
+        </div>
+        <svg class="chart" id="chart" viewBox="0 0 640 210" role="img" aria-label="Line chart of the stock over the last 60 seconds"></svg>
+        <p class="tubmsg" id="tub-msg">Press Start. Use the faucet and drain to get the water into the green band, then keep it there.</p>
+        <div class="go-row">
+          <button class="btn" type="button" id="tub-go">Start</button>
+          <button class="btn ghost" type="button" id="tub-reset">Reset</button>
+          <label class="small" for="tub-easy" style="font-size:19px">Easiest to keep steady?</label>
+          <select id="tub-easy"><option value="">Pick one</option><option value="plain">Plain</option><option value="reinforcing">Reinforcing</option><option value="balancing">Balancing</option></select>
+          <button class="btn" type="button" id="tub-save">Submit</button>
+          <span class="status" id="tub-status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. QUICK QUESTION -->
+<section class="slide" id="qq">
+  <div class="rail"><b>12</b><span>Big idea 1 · Quick question</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Quick question · stocks and loops in everyday life</div>
+    <h2 class="reveal d2">Spot the <em>stock</em> and the <em>loop</em></h2>
+    <div class="quiz mq reveal d3" data-mq></div>
+    <div class="mq reveal d4" style="margin-top:30px">
+      <div class="reveal-card" data-def><h3>Your phone battery is a stock. What are its <em style="color:var(--Sky);font-style:normal">flows</em>?</h3>
+        <p class="think">Think, tell a neighbor, then tap to check.</p>
+        <p class="ans-text">Inflow: charging. Outflow: the screen and apps using power. The charge rises only while charging is faster than use.</p></div>
+      <div class="reveal-card" data-def><h3>Savings that earn interest: <em style="color:var(--Sky);font-style:normal">reinforcing or balancing</em>?</h3>
+        <p class="think">Think, tell a neighbor, then tap to check.</p>
+        <p class="ans-text">Reinforcing. More money earns more interest, which adds more money. Growth speeds up over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. EARTH'S NATURAL CYCLES -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · natural cycles for water, oxygen, nitrogen, carbon and phosphorus</div>
+    <h2 class="reveal d2" style="font-size:66px;margin-bottom:20px">Energy <em>flows</em> through, matter <em>cycles</em> around</h2>
+    <div class="nat" style="flex:1">
+      <div class="side reveal d3">
+        <div class="k" style="color:#b88a14">Earth is an open system for energy</div>
+        <div class="card gold"><h3>Photosynthesis</h3><p>The engine for life. Plants capture sunlight and clean the air of CO₂.</p></div>
+        <div class="card blue"><h3>Slow geological cycles</h3><p>Volcanic eruptions and weathering release elements from rock.</p></div>
+      </div>
+      <svg class="reveal d3" viewBox="0 0 900 740" role="img" aria-label="Earth's natural cycles: sunlight comes in and heat leaves; matter cycles from the atmosphere to living things to the geosphere and back">
+        <defs>
+          <radialGradient id="globe" cx=".38" cy=".35" r=".7"><stop offset="0" stop-color="#9fd3df"/><stop offset=".6" stop-color="#42a8bf"/><stop offset="1" stop-color="#0d7397"/></radialGradient>
+          <marker id="ra" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#75a29f"/></marker>
+          <marker id="rr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#b3452c"/></marker>
+        </defs>
+        <circle cx="450" cy="380" r="240" fill="none" stroke="#75a29f" stroke-width="18" class="ring" opacity=".9"/>
+        <path id="ringpath" d="M450 140 a240 240 0 1 1 -0.1 0" fill="none"/>
+        <g fill="#0d7397">
+          <circle r="12"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#ringpath"/></animateMotion></circle>
+          <circle r="12"><animateMotion dur="9s" begin="-2.25s" repeatCount="indefinite"><mpath href="#ringpath"/></animateMotion></circle>
+          <circle r="12"><animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite"><mpath href="#ringpath"/></animateMotion></circle>
+          <circle r="12"><animateMotion dur="9s" begin="-6.75s" repeatCount="indefinite"><mpath href="#ringpath"/></animateMotion></circle>
+        </g>
+        <circle cx="450" cy="380" r="130" fill="url(#globe)"/>
+        <path d="M385 330 q30 -30 60 -10 t40 30 q-10 30 -45 25 t-55 -45z M470 400 q30 -10 50 10 t-10 40 q-30 10 -45 -15z" fill="#75a29f" opacity=".9"/>
+        <text x="450" y="300" text-anchor="middle" style="font:700 22px var(--body);fill:#fff">The biosphere</text>
+        <rect x="350" y="112" width="200" height="52" rx="26" fill="#fffdf8" stroke="#ece5d6" stroke-width="2"/><text x="450" y="147" text-anchor="middle" style="font:400 30px var(--display)">Atmosphere</text>
+        <rect x="350" y="596" width="200" height="52" rx="26" fill="#fffdf8" stroke="#ece5d6" stroke-width="2"/><text x="450" y="631" text-anchor="middle" style="font:400 30px var(--display)">Geosphere</text>
+        <rect x="112" y="354" width="200" height="52" rx="26" fill="#fffdf8" stroke="#ece5d6" stroke-width="2"/><text x="212" y="389" text-anchor="middle" style="font:400 30px var(--display)">Plants</text>
+        <rect x="588" y="354" width="200" height="52" rx="26" fill="#fffdf8" stroke="#ece5d6" stroke-width="2"/><text x="688" y="389" text-anchor="middle" style="font:400 30px var(--display)">Animals</text>
+        <path d="M250 680 Q450 760 650 680" fill="none" stroke="#b3452c" stroke-width="7" marker-end="url(#rr)" marker-start="url(#rr)"/>
+        <text x="450" y="712" text-anchor="middle" style="font:700 19px var(--body);fill:#b3452c">slow geological cycles</text>
+        <circle cx="110" cy="110" r="58" fill="#eccf72"/><circle cx="110" cy="110" r="42" fill="#f5dc8a"/>
+        <g stroke="#e0b52e" stroke-width="7" stroke-linecap="round">
+          <path class="ray" d="M180 160 l50 50"/><path class="ray" d="M150 190 l50 50" style="animation-delay:.6s"/><path class="ray" d="M200 130 l50 50" style="animation-delay:1.2s"/>
+        </g>
+        <text x="40" y="40" style="font:700 19px var(--body);fill:#b88a14">SUNLIGHT IN</text>
+        <g stroke="#b3452c" stroke-width="5" fill="none" stroke-linecap="round">
+          <path class="heat" d="M690 150 q10 -12 0 -24 t0 -24 t0 -24"/><path class="heat" d="M720 160 q10 -12 0 -24 t0 -24 t0 -24" style="animation-delay:.8s"/><path class="heat" d="M750 170 q10 -12 0 -24 t0 -24 t0 -24" style="animation-delay:1.6s"/>
+        </g>
+        <text x="700" y="40" style="font:700 19px var(--body);fill:#b3452c">HEAT OUT</text>
+      </svg>
+      <div class="side reveal d4">
+        <div class="k">Earth is a closed system for matter</div>
+        <div class="card green"><h3>Nothing disappears</h3><p>The same atoms cycle through air, water, rock and living things.</p></div>
+        <div class="card accent"><h3>Ecosystem energetics</h3><p>Energy moves up food webs and energy pyramids, with feedback loops along the way.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. BIOGEOCHEMICAL CYCLES -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
+  <div class="content center">
+    <div class="grid" style="grid-template-columns:1fr 900px;gap:60px;align-items:center">
+      <div class="reveal d2">
+        <div class="k ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · how life-support systems stay in balance</div>
+        <h2 style="font-size:74px">Biogeochemical <em>cycles</em></h2>
+        <p style="font-size:27px;line-height:1.45">A <b>biogeochemical cycle</b> is the complete path of one element through Earth's systems.</p>
+        <ul class="clean" style="font-size:26px">
+          <li><b>Bio:</b> where the element is inside living things (the biosphere)</li>
+          <li><b>Geo:</b> where it is in non-living parts of Earth: air, water and rock</li>
+          <li>Matter <b>stays in each stock</b> for very different lengths of time, from days in the air to millions of years in rock</li>
+        </ul>
+        <div class="take" style="font-size:25px;margin-top:22px"><b>Read the figure</b>Boxes are stocks. Arrows are flows. Which stock is the biggest?</div>
+      </div>
+      <div class="reveal d3">
+        <figure class="fig plain"><img src="img/carbon-cycle.jpg" alt="Carbon cycle as stocks and flows: carbon in the atmosphere (800), terrestrial biomass (550), soil carbon (2,300), surface ocean (1,000), deep ocean (37,000) and fossil fuels (10,000), linked by photosynthesis, respiration, gas exchange, combustion and sequestration flows"></figure>
+        <p class="credit">Sherman &amp; Montgomery (2023), Fig. 10.23. Stocks and flows in billions of metric tons of carbon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. OXYGEN CYCLE -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 2 · Oxygen</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 2 · stocks and flows of O₂ and CO₂</div>
+    <h2 class="reveal d2" style="font-size:74px">The oxygen <em>cycle</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:840px 1fr;gap:48px;align-items:start">
+      <figure class="fig plain"><img src="img/oxygen-cycle.jpg" alt="Oxygen cycle: photosynthesizing plants and phytoplankton take in CO2 and release O2; respiring plants and animals take in O2 and release CO2; most oxygen is stored in rocks and in calcium carbonate shells"></figure>
+      <div>
+        <figure class="fig plain"><img src="img/o2-co2-stocks.jpg" alt="Two stocks, O2 and CO2: plants and photosynthesizers move carbon dioxide into the oxygen stock; plants, animals and soil microbes move oxygen back to the carbon dioxide stock"></figure>
+        <ol class="num" style="font-size:24px;margin-top:14px">
+          <li><b>In:</b> O₂ enters the air through <b>photosynthesis</b>.</li>
+          <li><b>Out:</b> carbon returns to the air as CO₂ through <b>respiration</b> and <b>burning</b>.</li>
+          <li>Matter cycles between the lithosphere, biosphere, hydrosphere and atmosphere.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="credit reveal d4">Sherman &amp; Montgomery (2023), Figs. 10.11 and 10.5.</p>
+  </div>
+</section>
+
+<!-- 16. BIOSPHERE 2 -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 2 · Biosphere 2</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-dome"/></svg></span>Big idea 2 · an experiment in the Arizona desert</div>
+    <h2 class="reveal d2" style="font-size:70px">Biosphere 2: a sealed world <em>ran short of oxygen</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:560px 520px 1fr;gap:34px;align-items:start">
+      <div>
+        <figure class="fig"><img src="img/biosphere2.jpg" alt="Biosphere 2 glass buildings in the desert"></figure>
+        <figure class="fig plain" style="margin-top:14px"><img src="img/biosphere2-biomes.jpg" alt="Cutaway of Biosphere 2: rain forest, savanna, desert, marsh, ocean, thorn scrub, intensive agriculture, human habitat and the south lung"></figure>
+      </div>
+      <figure class="fig plain"><img src="img/biosphere2-o2.jpg" alt="Biosphere 2 oxygen budget: reduced sunlight lowers photosynthesis inflow to the O2 stock; animals and soil microbes take O2 out; CO2 flows into calcium carbonate in the concrete structure"></figure>
+      <div>
+        <p style="font-size:24px;line-height:1.45">In <b>1991</b>, eight people sealed themselves inside for two years with a rain forest, ocean, desert and farm.</p>
+        <ol class="num" style="font-size:22px">
+          <li>Rich soil fed microbes that <b>breathed out CO₂</b> and used up O₂.</li>
+          <li>Glass cut the sunlight, so plants made <b>less O₂</b>.</li>
+          <li>The concrete walls <b>soaked up CO₂</b>, locking the oxygen away.</li>
+        </ol>
+        <div class="o2" style="margin-top:14px"><span>O₂ in the air</span><div class="bar"><i></i></div><b>14.5%</b></div>
+        <p class="small mute" style="font-size:18px;margin-top:6px">Fell from 20.9% to about 14.5% by 1993, when oxygen had to be pumped in.</p>
+      </div>
+    </div>
+    <p class="credit reveal d4">Photo: ClassicStock/Alamy. Diagrams: Sherman &amp; Montgomery (2023), Figs. 10.1 and 10.6.</p>
+  </div>
+</section>
+
+<!-- 17. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
+<section class="slide" id="cycles">
+  <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · tap a cycle and watch the matter move</div>
+    <h2 class="reveal d2" style="font-size:66px;margin-bottom:24px">Nitrogen, phosphorus and <em>carbon</em> cycles</h2>
+    <div class="tabs reveal d2" id="cyc-tabs"></div>
+    <div class="grid reveal d3" style="grid-template-columns:960px 1fr;gap:40px;align-items:start;flex:1">
+      <svg class="cyc" id="cyc" viewBox="0 0 980 600" role="img" aria-label="Animated cycle diagram"></svg>
+      <div>
+        <figure class="fig plain"><img id="cyc-img" src="img/nitrogen-cycle.jpg" alt=""></figure>
+        <p class="credit" id="cyc-credit"></p>
+        <p class="cyc-note" id="cyc-note" style="margin-top:12px"></p>
+        <div class="legend"><span><i style="background:var(--Blue)"></i>Natural flow</span><span><i style="background:#b3452c"></i>Flow people added or sped up</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. HUMAN-INDUCED CHANGES -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 2 · Human impacts</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 2 · human-induced changes to natural cycles</div>
+    <h2 class="reveal d2" style="font-size:74px">Too much of a <em>good thing</em></h2>
+    <div class="grid g2 reveal d3" style="gap:40px">
+      <div class="card gold"><span class="tag">Humans and the phosphorus cycle</span>
+        <ul class="clean" style="font-size:25px">
+          <li>We <b>mine phosphate rock</b> (apatite) for fertilizer, detergents and steel.</li>
+          <li>The phosphorus washing into the oceans each year has <b>tripled</b>.</li>
+          <li>In large doses it changes lakes, rivers and seas through <b>eutrophication</b>.</li>
+        </ul>
+      </div>
+      <div class="card accent"><span class="tag">Humans and the nitrogen cycle</span>
+        <ul class="clean" style="font-size:25px">
+          <li>Plants need nitrogen to grow. <b>Legumes</b> like beans fix their own from the air.</li>
+          <li>Farms add huge amounts of <b>synthetic nitrogen fertilizer</b>.</li>
+          <li>Crops take up only about <b>half</b>. The rest is lost to water and air.</li>
+          <li>Nitrate is a leading <b>drinking water</b> contaminant.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="take reveal d4"><b>Systems view</b>Fertilizer speeds up the inflow to soil faster than crops can use it. The extra flows on, into rivers, groundwater and the sea.</div>
+  </div>
+</section>
+
+<!-- 19. EUTROPHICATION -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 3 · Eutrophication</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Big idea 3 · the eutrophication conundrum</div>
+    <h2 class="reveal d2" style="font-size:72px">Eutrophication: when nutrients <em>suffocate</em> water</h2>
+    <div class="grid reveal d3" style="grid-template-columns:420px 1fr;gap:34px;align-items:start">
+      <figure class="fig"><img style="max-height:480px;object-fit:cover" src="img/algae-bloom.jpg" alt="A pond covered in bright green algae under trees"></figure>
+      <div>
+        <p style="font-size:26px;line-height:1.45"><b>Eutrophication</b> is when too many nutrients in a lake, river or sea cause a fast <b>growth, death and decay of algae</b>. Decay uses up the oxygen that fish and other animals need.</p>
+        <figure class="fig plain" style="margin-top:14px"><img style="max-height:360px;width:auto;max-width:100%" src="img/eutrophication.jpg" alt="Eutrophication diagram: nitrogen and phosphorus increase phytoplankton, causing an algae bloom; sediments block sunlight from sea grass; algae die and decay; food, habitat and oxygen production are lost"></figure>
+      </div>
+    </div>
+    <div class="esteps reveal d4">
+      <div class="estep"><i>1</i>Fertilizer and sewage wash into water</div>
+      <div class="estep"><i>2</i>Algae grow fast: a <b>bloom</b></div>
+      <div class="estep"><i>3</i>Algae die and sink</div>
+      <div class="estep"><i>4</i>Bacteria decompose them and <b>use up oxygen</b></div>
+      <div class="estep"><i>5</i>Fish and shrimp leave or die</div>
+      <div class="estep"><i>6</i>A <b>dead zone</b> forms</div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. THE GULF DEAD ZONE -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 3 · Dead zone</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-fish"/></svg></span>Big idea 3 · the Gulf of America (formerly the Gulf of Mexico)</div>
+    <h2 class="reveal d2" style="font-size:70px">A dead zone appears <em>every summer</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:560px 1fr 500px;gap:34px;align-items:start">
+      <figure class="fig plain"><img src="img/gulf-dead-zone.jpg" alt="Map of the Louisiana and Texas coast showing a long band of low bottom oxygen (under 2 mg/L) west of the Mississippi River mouth"></figure>
+      <div>
+        <ol class="num" style="font-size:24px;margin-top:0">
+          <li>The Mississippi drains <b>about 40%</b> of the lower 48 states, including the Corn Belt.</li>
+          <li>Each spring, it carries <b>fertilizer runoff</b> from farms and runoff from cities into the Gulf.</li>
+          <li>By summer, bottom water off Louisiana drops below <b>2 mg/L of oxygen</b>: too little for fish and shrimp.</li>
+        </ol>
+        <p class="credit">Map: N. Rabalais, LSU/LUMCON/NOAA, in Sherman &amp; Montgomery (2023), Fig. 10.17.</p>
+      </div>
+      <div>
+        <figure class="fig plain"><img src="img/iceberg.jpg" alt="The iceberg model: events (a dead zone formed), patterns (it forms every spring when fertilizer runoff washes in), underlying structures (farmers apply synthetic nitrogen fertilizer each spring), mental models (rapid crop growth is valued more than natural systems)"></figure>
+        <p class="credit">The iceberg model, Fig. 10.24. The textbook uses the Gulf's former name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. SYSTEM DYNAMICS DIAGRAM -->
+<section class="slide" id="gulf">
+  <div class="rail"><b>12</b><span>Big idea 3 · Causal loops</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 3 · a system dynamics diagram of the dead zone</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:20px">How runoff builds a <em>dead zone</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1180px 1fr;gap:36px;align-items:start">
+      <svg class="cld" id="cld-gulf" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of nutrient runoff and the Gulf dead zone, built step by step"></svg>
+      <div>
+        <p class="cld-cap" id="gulf-cap"></p>
+        <div style="display:flex;gap:14px;margin-top:18px;flex-wrap:wrap"><button class="btn ghost" type="button" id="gulf-prev">Back</button><button class="btn" type="button" id="gulf-next">Next step</button><button class="btn ghost" type="button" id="gulf-all">Show all</button></div>
+        <div class="gold-rule" style="margin:24px 0"></div>
+        <div class="signs" style="display:grid;gap:10px"><span><i style="background:var(--Blue)">+</i>Same direction</span><span><i style="background:#b3452c">−</i>Opposite direction</span><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing loop</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
+<section class="slide" id="cld-ex">
+  <div class="rail"><b>12</b><span>Class exercise</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:16px">Complete the <em>causal loop diagram</em></h2>
+    <p class="steps reveal d2"><b>First, tap each yellow ? to choose + or −.</b> Then answer the two questions and submit.</p>
+    <div class="reveal d3">
+      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
+      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
+        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
+          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
+        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
+          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
+        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
+        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23. TRES RIOS -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 3 · Tres Rios</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Big idea 3 · learning from nature in Phoenix</div>
+    <h2 class="reveal d2" style="font-size:72px">Tres Rios: a wetland that <em>cleans water</em></h2>
+    <div class="grid g2 reveal d3" style="gap:36px">
+      <div><figure class="fig"><img src="img/tres-rios.jpg" alt="Aerial view of the Tres Rios constructed wetland: ponds and islands of marsh plants beside farmland"></figure>
+        <p class="sys-cap"><b>The Tres Rios constructed treatment wetland.</b> Marsh plants and microbes take up nitrogen and phosphorus left in treated wastewater.</p></div>
+      <div><figure class="fig"><img src="img/treatment-plant.jpg" alt="Round concrete clarifier tanks at a wastewater treatment plant"></figure>
+        <p class="sys-cap"><b>A conventional treatment plant.</b> Sophisticated, expensive and energy-intensive tanks and pumps do the same job.</p></div>
+    </div>
+    <p class="small reveal d4" style="margin-top:20px">Tres Rios means "three rivers": the Salt, Gila and Agua Fria meet near the wetland, in the southwest Valley.</p>
+  </div>
+</section>
+
+<!-- 24. VIDEO -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Video</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-play"/></svg></span>Video · Tres Rios Wetland (5 min)</div>
+    <h2 class="reveal d2" style="font-size:68px;margin-bottom:30px">Watch: stocks and flows in a <em>Phoenix wetland</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1060px 1fr;gap:44px;align-items:start">
+      <div>
+        <div class="video vimeo"><iframe src="https://player.vimeo.com/video/147837180?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0" title="Tres Rios Wetland" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="credit">A short film by Suzanne Jumper, Yeowon Kim and Johnathan Rugg. <a href="https://vimeo.com/147837180" target="_blank" rel="noopener">Open on Vimeo</a></p>
+      </div>
+      <div class="watch">
+        <h3>As you watch</h3>
+        <ol class="num">
+          <li>Where does the water flowing into Tres Rios come from?</li>
+          <li>What do the wetland plants take out of the water?</li>
+          <li>Name one benefit besides cleaner water.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25. WHAT CAN WE DO? -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 3 · Solutions</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 3 · learn from nature, use regenerative practices</div>
+    <h2 class="reveal d2" style="font-size:70px">What can we do to reduce <em>nutrient runoff</em>?</h2>
+    <div class="grid reveal d3" style="grid-template-columns:560px 1fr;gap:40px;align-items:start;flex:1">
+      <div>
+        <figure class="fig"><img src="img/no-till-buffers.jpg" alt="Two farm photos: no-till farming, with crop residue left on the soil, and a strip of grass and trees along a stream between fields"></figure>
+        <p class="credit">No-till farming and vegetation buffers. Photos: Lynn Betts, USDA NRCS.</p>
+        <div class="take" style="font-size:25px;margin-top:22px"><b>Leverage point</b>Each action cuts a link before nutrients reach the river. A small change early in the chain has a big effect downstream.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;height:100%">
+        <p class="small mute" style="margin-bottom:14px">Tap a card to see which link in the dead zone diagram it cuts.</p>
+        <div class="vocab sol" data-sol></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 26. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:70px">Which action best stops fertilizer from reaching the <em>river</em>?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Plowing the field more often</button>
+      <button class="opt" type="button"><b>B</b>Keeping a strip of plants between fields and the stream</button>
+      <button class="opt" type="button"><b>C</b>Spreading fertilizer right before a big storm</button>
+      <button class="opt" type="button"><b>D</b>Draining nearby wetlands to farm them</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 27. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" src="img/biosphere2-hero.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1080px">
+    <div class="hero-badge reveal"><b>L<em>12</em></b><span>Stocks and flows in Earth's systems</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="hero-lead reveal d2">Earth keeps its matter. When we speed up one flow, a stock somewhere else <em>fills up</em>.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>A stock rises or falls only when its inflows and outflows differ.</li>
+      <li>Reinforcing loops speed change up; balancing loops pull it back.</li>
+      <li>Cutting nutrient runoff, on farms and in cities, shrinks the dead zone.</li>
+    </ol>
+    <p class="hero-sub reveal d4" style="margin-top:28px;font-size:24px">Questions? Ask in class or come to office hours.</p>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+
+const LECTURE = 'm4-s2';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.className = `status ${kind}`; } };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* === FLIP CARDS === */
+const flipCard = ({ term, definition, example, significance }, icon = '', cls = '') => `
+  <div class="vcard${cls ? ' ' + cls : ''}" tabindex="0" role="button" aria-label="${esc(term)}: show example">
+    <div class="in">
+      <div class="f"><h4${icon ? ' class="ih"' : ''}>${icon}${esc(term)}</h4>${definition}<span class="hint">Tap for example</span></div>
+      <div class="b"><h4>Example</h4><p>${esc(example)}</p>${significance ? `<p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(significance)}</p>` : ''}</div>
+    </div>
+  </div>`;
+function wireFlips(root) {
+  $$('.vcard', root).forEach(c => {
+    const flip = () => c.classList.toggle('flip');
+    c.addEventListener('click', flip);
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
+  });
+}
+
+/* === KEY TERMS === four cards, each pairing two Module 4 glossary terms. Definitions come
+   from the course glossary (course.json); the paired examples are written for this lecture. */
+const KEY_TERMS = [
+  ['Stock and flow', 'drop', 'sky', ['Stock', 'Flow'], 'Water in a reservoir like Lake Pleasant is a stock. River and canal water flowing in, and evaporation and water released flowing out, are its flows.'],
+  ['Open and closed system', 'earth', 'green', ['Open System', 'Closed System'], 'A river is open: water, leaves and sunlight come and go. Earth is closed for matter: sunlight comes in and heat leaves, but the atoms stay.'],
+  ['Positive and negative feedback loops', 'loop', 'gold', ['Positive Feedback Loop', 'Negative Feedback Loop'], 'Positive: melting ice exposes dark water that absorbs more heat, so more ice melts. Negative: you sweat when you get hot, and that cools you down.'],
+  ['Causal loop diagram', 'cycle', '', ['Causal Loop Diagram (CLD)'], 'Arrows linking traffic, air pollution, health costs and transit funding, each marked + or −.'],
+];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  const def = name => (gloss.find(x => x.term === name) || {}).definition || '';
+  const short = name => name.replace(' Loop', '').replace(' (CLD)', '');
+  const cards = KEY_TERMS.map(([term, i, tone, names, example]) => {
+    const body = names.length > 1
+      ? names.map(n => `<p><b>${esc(short(n))}:</b> ${esc(def(n))}</p>`).join('')
+      : `<p>${esc(def(names[0]))}</p>`;
+    return flipCard({ term, definition: body, example }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`);
+  });
+  $('[data-vocab]').innerHTML = cards.join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill(document, d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === THREE TUBS === inflow wider than outflow, equal, narrower */
+const TUBS = [
+  ['up', 14, 5, 'Inflow > outflow', 'The stock rises.'],
+  ['', 9, 9, 'Inflow = outflow', 'The stock holds steady: a dynamic equilibrium.'],
+  ['down', 5, 14, 'Inflow < outflow', 'The stock falls.'],
+];
+$('[data-tubs]').innerHTML = TUBS.map(([dir, a, b, h, p]) => `<div class="mini">
+  <svg viewBox="0 0 300 170" aria-hidden="true">
+    <defs><clipPath id="mc-${dir || 'eq'}"><rect x="60" y="30" width="180" height="110" rx="14"/></clipPath></defs>
+    <path class="flowdash" d="M20 12 H95 V60" fill="none" stroke="#42a8bf" stroke-width="${a}"/>
+    <g clip-path="url(#mc-${dir || 'eq'})"><rect x="60" y="30" width="180" height="110" fill="#f4f8f8"/><rect class="w ${dir}" x="60" y="${dir ? 60 : 75}" width="180" height="${dir ? 120 : 110}" fill="#7cc4d4"/></g>
+    <rect x="60" y="30" width="180" height="110" rx="14" fill="none" stroke="#c7d3d6" stroke-width="6"/>
+    <path class="flowdash" d="M150 140 V160 H285" fill="none" stroke="#42a8bf" stroke-width="${b}"/>
+  </svg><h4>${h}</h4><p>${p}</p></div>`).join('');
+
+/* === CAUSAL LOOP DIAGRAMS === nodes [id, label (| breaks lines), x, y, width, class];
+   links [from, to, sign, bend, step]; loops [letter, x, y, step]. Curves are quadratic,
+   bent to one side by `bend` px, and clipped to the edges of the boxes. */
+function cld(svg, { nodes, links, loops = [] }, opts = {}) {
+  const N = Object.fromEntries(nodes.map(([id, label, x, y, w = 250, cls = '']) => [id, { id, label, x, y, w, h: label.includes('|') ? 86 : 60, cls }]));
+  const edge = (n, px, py) => {
+    const dx = px - n.x, dy = py - n.y;
+    const t = Math.min((n.w / 2 + 10) / Math.abs(dx || 1e-6), (n.h / 2 + 10) / Math.abs(dy || 1e-6));
+    return [n.x + dx * t, n.y + dy * t];
+  };
+  const id = svg.id;
+  let out = `<defs><marker id="${id}-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d7780"/></marker></defs>`;
+  links.forEach(([a, b, sign, bend = 40, step = 0], i) => {
+    const A = N[a], B = N[b];
+    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2, len = Math.hypot(B.x - A.x, B.y - A.y);
+    const cx = mx - (B.y - A.y) / len * bend, cy = my + (B.x - A.x) / len * bend;
+    const [x0, y0] = edge(A, cx, cy), [x2, y2] = edge(B, cx, cy);
+    const q = t => [(1 - t) ** 2 * x0 + 2 * (1 - t) * t * cx + t * t * x2, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cy + t * t * y2];
+    const [sx, sy] = q(.72);
+    const shown = sign === '?' ? '?' : sign === '+' ? '+' : '−';
+    const cls = sign === '?' ? 'q pick' : sign === '+' ? 'p' : 'n';
+    out += `<g class="s lk" data-step="${step}" style="--i:${opts.seq ? i : 0}"><path class="draw" pathLength="1" d="M${x0.toFixed(1)} ${y0.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" marker-end="url(#${id}-ah)"/>`
+      + `<g class="sg ${cls}" data-link="${i}"><circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="22"/><text x="${sx.toFixed(1)}" y="${(sy + 9).toFixed(1)}">${shown}</text></g></g>`;
+  });
+  nodes.forEach(([nid]) => {
+    const n = N[nid], lines = n.label.split('|');
+    const step = Math.min(...links.filter(l => l[0] === nid || l[1] === nid).map(l => l[4] || 0), 99);
+    out += `<g class="s node ${n.cls}" data-step="${step === 99 ? 0 : step}" style="--i:0"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="16"/>`
+      + lines.map((l, k) => `<text x="${n.x}" y="${n.y + 8 + (k - (lines.length - 1) / 2) * 28}">${esc(l)}</text>`).join('') + '</g>';
+  });
+  loops.forEach(([L, x, y, step = 0, label = '']) => {
+    out += `<g class="s loop ${L}" data-step="${step}" style="--i:${opts.seq ? links.length : 0}"><g class="spin"><circle cx="${x}" cy="${y}" r="34" stroke-dasharray="170 44"/></g><text x="${x}" y="${y + 14}">${L}</text>${label ? `<text x="${x}" y="${y + 66}" style="font:700 18px var(--body);fill:var(--mute)">${esc(label)}</text>` : ''}</g>`;
+  });
+  svg.innerHTML = out;
+}
+cld($('#cld-r'), {
+  nodes: [['temp', 'Temperature', 380, 70, 230], ['ice', 'Arctic ice', 640, 235, 200], ['dark', 'Dark ocean|exposed', 380, 400, 220], ['heat', 'Heat absorbed', 125, 235, 220]],
+  links: [['temp', 'ice', '−', -50], ['ice', 'dark', '−', -50], ['dark', 'heat', '+', -50], ['heat', 'temp', '+', -50]],
+  loops: [['R', 380, 225]],
+}, { seq: true });
+cld($('#cld-b'), {
+  nodes: [['elk', 'Elk population', 160, 235, 240], ['wolf', 'Wolf population', 600, 235, 240]],
+  links: [['elk', 'wolf', '+', -150], ['wolf', 'elk', '−', -150]],
+  loops: [['B', 380, 235]],
+}, { seq: true });
+
+cld($('#cld-two'), {
+  nodes: [['warm', 'Warming', 230, 45, 180], ['melt', 'Melting ice', 380, 280, 180], ['sun', 'Sunlight|absorbed', 95, 280, 170],
+    ['room', 'Room|temperature', 620, 60, 190], ['heat', 'Heater output', 620, 290, 190]],
+  links: [['warm', 'melt', '+', -40], ['melt', 'sun', '+', -40], ['sun', 'warm', '+', -40], ['room', 'heat', '−', -110], ['heat', 'room', '+', -110]],
+  loops: [['R', 235, 195], ['B', 620, 175]],
+}, { seq: true });
+
+/* === GULF DEAD ZONE: step-by-step build === */
+const GULF = {
+  nodes: [
+    ['fert', 'Fertilizer use|on farms', 400, 250, 250, 'hum'], ['crop', 'Crop growth', 140, 470, 210], ['profit', 'Farm income', 140, 80, 210],
+    ['urban', 'Urban runoff|(lawns, pets, sewage)', 400, 700, 300, 'hum'], ['nut', 'Nutrients in|the river', 720, 470, 230],
+    ['algae', 'Algae growth', 860, 140, 220], ['decomp', 'Decomposition|of dead algae', 1200, 140, 250], ['oxy', 'Oxygen in|Gulf water', 1360, 400, 220],
+    ['dz', 'Dead zone size', 1110, 640, 230], ['fish', 'Fish and shrimp', 1370, 740, 240], ['act', 'Action: buffers,|wetlands, rules', 770, 730, 260, 'act'],
+  ],
+  links: [
+    ['fert', 'nut', '+', 30, 0], ['urban', 'nut', '+', -30, 1], ['nut', 'algae', '+', 30, 2], ['algae', 'decomp', '+', 30, 3], ['decomp', 'oxy', '−', 40, 4],
+    ['oxy', 'dz', '−', 40, 5], ['dz', 'fish', '−', 20, 6], ['fert', 'crop', '+', 40, 7], ['crop', 'profit', '+', 60, 7], ['profit', 'fert', '+', 40, 7],
+    ['dz', 'act', '+', 30, 8], ['act', 'nut', '−', 30, 8],
+  ],
+  loops: [['R', 215, 290, 7], ['B', 960, 520, 8]],
+};
+const GULF_CAP = [
+  'Farms spread <b>fertilizer</b>. More fertilizer means <b>more nutrients</b> wash into the Mississippi: a <b>+</b> link.',
+  'Cities add more: lawn fertilizer, pet waste and treated sewage. More <b>urban runoff</b>, more nutrients.',
+  'In the Gulf, more nutrients feed <b>more algae</b>.',
+  'More algae means more dead algae for bacteria to <b>decompose</b>.',
+  'Decomposers breathe oxygen. More decomposition means <b>less oxygen</b>: a <b>−</b> link.',
+  'Less oxygen means a <b>bigger dead zone</b>. Another <b>−</b> link: they move in opposite directions.',
+  'A bigger dead zone means <b>fewer fish and shrimp</b>, and lost fishing jobs.',
+  'Why keep fertilizing? Fertilizer grows crops, crops earn income, and income buys more fertilizer: a <b>reinforcing loop (R)</b>.',
+  'A bigger dead zone can push people to <b>act</b>: buffers, wetlands and rules that cut runoff. With three − links (odd), this is a <b>balancing loop (B)</b>.',
+];
+const gulfSvg = $('#cld-gulf');
+cld(gulfSvg, GULF);
+let gulfStep = 0;
+function drawGulf(all = false) {
+  $$('.s', gulfSvg).forEach(g => g.classList.toggle('off', !all && +g.dataset.step > gulfStep));
+  $('#gulf-cap').innerHTML = all ? 'The whole system: one <b>reinforcing</b> loop keeps fertilizer use growing, and one <b>balancing</b> loop is how people can push back. Where would a small change have a big effect?'
+    : `<span class="small mute">Step ${gulfStep + 1} of ${GULF_CAP.length}</span><br>${GULF_CAP[gulfStep]}`;
+}
+$('#gulf-next').addEventListener('click', () => { gulfStep = Math.min(GULF_CAP.length - 1, gulfStep + 1); drawGulf(); });
+$('#gulf-prev').addEventListener('click', () => { gulfStep = Math.max(0, gulfStep - 1); drawGulf(); });
+$('#gulf-all').addEventListener('click', () => { gulfStep = GULF_CAP.length - 1; drawGulf(true); });
+drawGulf();
+
+/* === CLASS EXERCISE: pick the sign of each link === */
+const EX = {
+  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
+    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
+  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
+};
+const EX_KEY = ['+', '+', '+', '−', '+', '−'];
+const exSvg = $('#cld-ex-svg');
+cld(exSvg, EX);
+const exPick = EX.links.map(() => '?');
+const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
+exSvg.addEventListener('click', e => {
+  const g = e.target.closest('.sg.pick'); if (!g) return;
+  const i = +g.dataset.link;
+  exPick[i] = SIGN_NEXT[exPick[i]];
+  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
+  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
+  $('text', g).textContent = exPick[i];
+});
+function checkSigns() {
+  let n = 0;
+  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
+  return n;
+}
+$('#ex-check').addEventListener('click', () => {
+  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
+  const n = checkSigns();
+  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
+});
+
+/* === ANIMATED ELEMENT CYCLES === nodes [id, label, sublabel, x, y]; flows [from, to, label, human, bend] */
+const CYCLES = {
+  nitrogen: {
+    name: 'Nitrogen', img: 'nitrogen-cycle.jpg', fig: '10.15', alt: 'Textbook nitrogen cycle: lightning and nitrogen-fixing bacteria, decomposition, ammonification, nitrification, fertilizer factories, runoff to water, and denitrifying bacteria returning N2 gas to the air',
+    note: 'Air is 78% nitrogen gas, but most living things cannot use it. Bacteria and lightning <b>fix</b> it into forms plants can take up. Factories now fix about as much as nature does on land, and the extra runs off.',
+    nodes: [['air', 'Atmosphere', 'N₂ gas', 490, 70], ['life', 'Plants and animals', 'proteins, DNA', 140, 290], ['soil', 'Soil', 'ammonium, nitrate', 400, 530], ['water', 'Rivers and ocean', 'dissolved nitrate', 820, 530], ['fact', 'Fertilizer factory', 'human-made', 840, 290]],
+    flows: [['air', 'soil', 'fixation by bacteria, lightning', 0, -150], ['soil', 'life', 'uptake by roots', 0, -60], ['life', 'soil', 'decomposition', 0, -60], ['soil', 'air', 'denitrification', 0, -110], ['air', 'fact', 'fixed in factories', 1, 40], ['fact', 'soil', 'fertilizer', 1, -40], ['soil', 'water', 'runoff, leaching', 1, 0]],
+  },
+  phosphorus: {
+    name: 'Phosphorus', img: 'phosphorus-cycle.jpg', fig: '10.13', alt: 'Textbook phosphorus cycle: weathering releases phosphate from rock, plants take it up, animals eat plants, decomposers return it to soil, phosphate is mined for fertilizer, runoff carries it to water, and it is buried in sediment',
+    note: 'Phosphorus has <b>no gas</b>, so it never passes through the air. It moves slowly from rock to soil to water and back to rock over millions of years. Mining has sped up the rock-to-water flow.',
+    nodes: [['rock', 'Rocks', 'phosphate minerals', 840, 290], ['soil', 'Soil', 'phosphate ions', 400, 530], ['life', 'Plants and animals', 'bones, DNA, ATP', 140, 290], ['water', 'Rivers and ocean', 'dissolved phosphate', 820, 530], ['mine', 'Mines and fertilizer', 'human-made', 490, 70]],
+    flows: [['rock', 'soil', 'weathering (slow)', 0, 50], ['soil', 'life', 'uptake by roots', 0, -60], ['life', 'soil', 'decomposition', 0, -60], ['water', 'rock', 'sediment buried (slow)', 0, -60], ['rock', 'mine', 'mining', 1, 40], ['mine', 'soil', 'fertilizer', 1, 40], ['soil', 'water', 'runoff, erosion', 1, 0]],
+  },
+  carbon: {
+    name: 'Carbon', img: 'carbon-cycle.jpg', fig: '10.23', alt: 'Textbook carbon cycle as stocks and flows, in billions of metric tons of carbon',
+    note: 'Plants pull CO₂ out of the air; living things and decomposers put it back. The ocean trades CO₂ with the air. Burning <b>fossil fuels</b> opens a fast new flow from a stock that took millions of years to build.',
+    nodes: [['air', 'Atmosphere', 'CO₂', 490, 70], ['life', 'Plants and animals', 'biomass', 140, 290], ['soil', 'Soil', 'dead organic matter', 400, 530], ['water', 'Ocean', 'dissolved CO₂, shells', 820, 530], ['fossil', 'Fossil fuels', 'coal, oil, gas', 840, 290]],
+    flows: [['air', 'life', 'photosynthesis', 0, -50], ['life', 'air', 'respiration', 0, -50], ['life', 'soil', 'death, waste', 0, -40], ['soil', 'air', 'decomposition', 0, -40], ['air', 'water', 'gas exchange', 0, 70], ['water', 'air', '', 0, 10], ['fossil', 'air', 'burning', 1, 40]],
+  },
+};
+function drawCycle(key) {
+  const C = CYCLES[key];
+  const N = Object.fromEntries(C.nodes.map(([id, l, s, x, y]) => [id, { l, s, x, y }]));
+  const W = 250, H = 92;
+  const edge = (n, px, py) => { const dx = px - n.x, dy = py - n.y; const t = Math.min((W / 2 + 8) / Math.abs(dx || 1e-6), (H / 2 + 8) / Math.abs(dy || 1e-6)); return [n.x + dx * t, n.y + dy * t]; };
+  let out = '<defs><marker id="cyc-a" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7aa3ad"/></marker><marker id="cyc-h" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#d07a66"/></marker></defs>';
+  C.flows.forEach(([a, b, label, human, bend]) => {
+    const A = N[a], B = N[b];
+    const len = Math.hypot(B.x - A.x, B.y - A.y);
+    const cx = (A.x + B.x) / 2 - (B.y - A.y) / len * bend, cy = (A.y + B.y) / 2 + (B.x - A.x) / len * bend;
+    const [x0, y0] = edge(A, cx, cy), [x2, y2] = edge(B, cx, cy);
+    const d = `M${x0.toFixed(1)} ${y0.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+    const lx = .25 * x0 + .5 * cx + .25 * x2, ly = .25 * y0 + .5 * cy + .25 * y2;
+    const dur = human ? 2.2 : 3.4;
+    out += `<g class="fl${human ? ' h' : ''}"><path d="${d}" marker-end="url(#cyc-${human ? 'h' : 'a'})"/>`
+      + [0, 1, 2].map(k => `<circle r="8"><animateMotion dur="${dur}s" begin="${(-k * dur / 3).toFixed(2)}s" repeatCount="indefinite" path="${d}"/></circle>`).join('')
+      + (label ? `<text x="${lx.toFixed(1)}" y="${(ly + 6).toFixed(1)}">${esc(label)}</text>` : '') + '</g>';
+  });
+  C.nodes.forEach(([, l, s, x, y]) => {
+    out += `<g class="nd"><rect x="${x - W / 2}" y="${y - H / 2}" width="${W}" height="${H}" rx="18"/><text x="${x}" y="${y - 2}">${esc(l)}</text><text class="sub" x="${x}" y="${y + 26}">${esc(s)}</text></g>`;
+  });
+  $('#cyc').innerHTML = out;
+  $('#cyc').setAttribute('aria-label', `Animated ${C.name.toLowerCase()} cycle: stocks as boxes, flows as moving dots`);
+  $('#cyc-img').src = `img/${C.img}`; $('#cyc-img').alt = C.alt;
+  $('#cyc-credit').textContent = `Sherman & Montgomery (2023), Fig. ${C.fig}.`;
+  $('#cyc-note').innerHTML = C.note;
+  $$('#cyc-tabs button').forEach(b => b.classList.toggle('on', b.dataset.c === key));
+}
+$('#cyc-tabs').innerHTML = Object.entries(CYCLES).map(([k, c]) => `<button type="button" data-c="${k}">${c.name}</button>`).join('');
+$('#cyc-tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) drawCycle(b.dataset.c); });
+drawCycle('nitrogen');
+
+/* === WHAT CAN WE DO === each solution flips to the link it cuts */
+const SOL = [
+  ['Fertilize at the right time', 'wheat', 'gold', 'Apply fertilizer only when crops can absorb it, not before heavy rain.', 'Cuts: Fertilizer use → Nutrients in the river. Less is left on the field to wash away.'],
+  ['Till less', 'sprout', 'green', 'No-till keeps crop residue on the soil, so less soil and fertilizer run off.', 'Cuts: Fertilizer use → Nutrients in the river. Covered soil holds nutrients in place.'],
+  ['Keep vegetated buffers', 'sprout', 'green', 'Strips of grass and trees between crops and streams soak up runoff.', 'Cuts: Nutrients → river. Roots take up nitrogen and phosphorus before they reach water.'],
+  ['Grow legumes', 'wheat', 'gold', 'Beans, peas and clover fix their own nitrogen from the air.', 'Cuts: Fertilizer use. Less synthetic nitrogen is needed at all.'],
+  ['Build treatment wetlands', 'waves', 'sky', 'Like Tres Rios, marsh plants clean treated wastewater.', 'Cuts: Urban runoff → Nutrients. The wetland is a stock that soaks up the nutrient flow.'],
+  ['Fertilize lawns less', 'city', '', 'In the city: skip fertilizer before monsoon storms, use desert plants, pick up pet waste.', 'Cuts: Urban runoff → Nutrients. Storm drains carry what is on the street straight to rivers.'],
+];
+$('[data-sol]').innerHTML = SOL.map(([t, i, tone, d, ex], k) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`, k === 5 ? 'city' : '')).join('');
+$$('[data-sol] .b h4').forEach(h => { h.textContent = 'In the diagram'; });
+$$('[data-sol] .hint').forEach(h => { h.textContent = 'Tap to see the link it cuts'; });
+wireFlips($('[data-sol]'));
+
+/* === QUICK QUESTION === checked in the browser only, not recorded */
+const MQ = [
+  ['Inflow equals outflow. The stock…', ['Rises', 'Stays the same', 'Falls'], 1, 'Equal flows keep the stock steady, even while water keeps moving through.'],
+  ['A thermostat turns the heat off when the room is warm. That is a…', ['Reinforcing loop', 'Balancing loop'], 1, 'It pulls the temperature back toward the setting: a balancing (negative) loop.'],
+];
+$('[data-mq]').innerHTML = MQ.map(([q, opts, , why], i) => `<div class="q" data-mqi="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${opts.map((o, k) => `<button type="button" data-k="${k}">${esc(o)}</button>`).join('')}</div><p class="why">${esc(why)}</p></div>`).join('');
+$$('[data-mqi]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const right = MQ[+q.dataset.mqi][2];
+  $$('button', q).forEach(x => { x.classList.toggle('on', x === b); x.classList.toggle('right', +x.dataset.k === right); x.classList.toggle('wrong', x === b && +x.dataset.k !== right); });
+  q.classList.add('done');
+}));
+$$('[data-def]').forEach(c => { c.style.cursor = 'pointer'; c.tabIndex = 0; const t = () => c.classList.toggle('open'); c.addEventListener('click', t); c.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); });
+
+/* === THE TUB GAME === a teaching model, not measured data. Flows are in liters per minute
+   and one real second is one minute. The tub holds 100 L; the goal band is 40 to 70 L.
+   Reinforcing: inflow grows with the stock (x(1 + S/40)). Balancing: a float valve cuts
+   inflow as the tub fills (x(1 - S/80)). */
+const CAP = 100, LO = 40, HI = 70, WIN = 20;
+const MODES = {
+  plain: { name: 'Plain tub', f: (i) => i },
+  reinforcing: { name: 'Reinforcing', f: (i, s) => i * (1 + s / 40) },
+  balancing: { name: 'Balancing', f: (i, s) => i * Math.max(0, 1 - s / 80) },
+};
+const tub = { mode: 'plain', inSet: 5, outSet: 3, s: 20, run: false, band: 0, t: 0, hist: [], last: 0, done: false };
+const best = { plain: null, reinforcing: null, balancing: null };
+const yOf = s => 460 - s / CAP * 290;
+function flows() {
+  const inNow = MODES[tub.mode].f(tub.inSet, tub.s);
+  const outNow = tub.s > 0 ? tub.outSet : Math.min(tub.outSet, inNow);
+  return [inNow, outNow];
+}
+function drawTub() {
+  const [i, o] = flows();
+  $('#water').setAttribute('y', yOf(tub.s).toFixed(1)); $('#water').setAttribute('height', (480 - yOf(tub.s)).toFixed(1));
+  $('#stream').setAttribute('width', Math.min(30, i * 2.2).toFixed(1)); $('#stream').setAttribute('x', (313 - Math.min(30, i * 2.2) / 2).toFixed(1));
+  $('#stream').setAttribute('height', Math.max(0, yOf(tub.s) - 116).toFixed(1));
+  $('#drip').setAttribute('width', Math.min(30, o * 2.2).toFixed(1)); $('#drip').setAttribute('x', (380 - Math.min(30, o * 2.2) / 2).toFixed(1));
+  $('#stock-l').setAttribute('y', Math.min(445, yOf(tub.s) + 34).toFixed(1));
+  $('#in-v').textContent = tub.inSet; $('#out-v').textContent = tub.outSet;
+  $('#r-in').textContent = i.toFixed(1); $('#r-out').textContent = o.toFixed(1);
+  $('#r-s').textContent = Math.round(tub.s); $('#r-t').textContent = Math.floor(tub.band);
+  /* chart: last 60 s of the stock, with the goal band */
+  const pts = tub.hist.map(([t, s]) => `${(40 + (t - Math.max(0, tub.t - 60)) / 60 * 590).toFixed(1)},${(195 - s / CAP * 180).toFixed(1)}`).join(' ');
+  $('#chart').innerHTML = `<rect x="40" y="${195 - HI / CAP * 180}" width="590" height="${(HI - LO) / CAP * 180}" fill="#75a29f" opacity=".2"/>`
+    + `<line x1="40" y1="15" x2="630" y2="15" stroke="#b3452c" stroke-dasharray="6 6"/><line x1="40" y1="195" x2="630" y2="195" stroke="#c7d3d6"/>`
+    + `<text x="4" y="20">100</text><text x="14" y="199">0</text><text x="560" y="208">last 60 s</text><text x="46" y="32">Stock (L)</text>`
+    + `<polyline points="${pts}" fill="none" stroke="#0d7397" stroke-width="4" stroke-linejoin="round"/>`;
+}
+function msg(text, kind = '') { const m = $('#tub-msg'); m.textContent = text; m.className = `tubmsg ${kind}`; }
+function tick(now) {
+  if (!tub.run) return;
+  const dt = Math.min(.1, (now - (tub.last || now)) / 1000); tub.last = now;
+  const [i, o] = flows();
+  tub.s = Math.max(0, tub.s + (i - o) * dt);
+  tub.t += dt;
+  if (tub.s >= LO && tub.s <= HI) tub.band += dt; else tub.band = 0;
+  const b = best[tub.mode];
+  best[tub.mode] = { secs: Math.max(b ? b.secs : 0, Math.floor(tub.band)), overflow: !!(b && b.overflow) };
+  tub.hist.push([tub.t, tub.s]); tub.hist = tub.hist.filter(([t]) => t >= tub.t - 60);
+  if (tub.s >= CAP) {
+    tub.s = CAP; tub.run = false; best[tub.mode].overflow = true; $('#tub-go').textContent = 'Start';
+    msg(tub.mode === 'reinforcing' ? 'Overflow! In a reinforcing loop, the fuller the tub got, the faster it filled. Small changes ran away from you.' : 'Overflow! The inflow beat the outflow for too long. Reset and try again.', 'lose');
+  } else if (tub.band >= WIN && !tub.done) {
+    tub.done = true; msg(`You held it in the band for ${WIN} seconds in ${MODES[tub.mode].name} mode. Try another mode.`, 'win');
+  } else if (!tub.done) {
+    msg(i > o + .05 ? 'Inflow is bigger than outflow, so the stock is rising.' : o > i + .05 ? 'Outflow is bigger than inflow, so the stock is falling.' : 'Inflow equals outflow, so the stock holds steady.');
+  }
+  drawTub();
+  if (tub.run) requestAnimationFrame(tick);
+}
+function resetTub() {
+  Object.assign(tub, { inSet: 5, outSet: 3, s: 20, run: false, band: 0, t: 0, hist: [], last: 0, done: false });
+  $('#tub-go').textContent = 'Start';
+  msg(tub.mode === 'plain' ? 'Press Start. Use the faucet and drain to get the water into the green band, then keep it there.'
+    : tub.mode === 'reinforcing' ? 'Reinforcing mode: the fuller the tub, the more pours in. Can you still hold it in the band?'
+    : 'Balancing mode: a float valve slows the faucet as the tub fills. Watch what happens on its own.');
+  drawTub();
+}
+$('#tub-go').addEventListener('click', () => {
+  if (tub.s >= CAP) resetTub();
+  tub.run = !tub.run; tub.last = 0;
+  $('#tub-go').textContent = tub.run ? 'Pause' : 'Start';
+  if (tub.run) requestAnimationFrame(tick);
+});
+$('#tub-reset').addEventListener('click', resetTub);
+$$('[data-ctl]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.ctl === 'in' ? 'inSet' : 'outSet';
+  tub[k] = Math.max(0, Math.min(10, tub[k] + +b.dataset.d));
+  drawTub();
+}));
+$('#modes').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  tub.mode = b.dataset.mode;
+  $$('#modes button').forEach(x => x.classList.toggle('on', x === b));
+  resetTub();
+});
+resetTub();
+
+/* === LIVE === attendance, polls, quiz and activities */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (id !== 'warmup' && !await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === REVIEW QUIZ === */
+const QUIZ = [
+  ['Topsoil, dark and full of roots, is which soil horizon?', ['A horizon', 'B horizon', 'C horizon'], 0, 'Topsoil is the A horizon; subsoil is B and weathered bedrock is C.'],
+  ['The San Andreas Fault is which kind of plate boundary?', ['Divergent', 'Convergent', 'Transform'], 2, 'At a transform boundary, plates slide past each other sideways.'],
+  ['Paving over land makes more rain…', ['Soak into the ground', 'Run off the surface', 'Turn into groundwater'], 1, 'Roofs and roads are impervious, so water runs off instead of soaking in.'],
+  ['Erosion is…', ['Rock breaking apart in place', 'Wind, water, ice or gravity moving particles', 'Rock melting into magma'], 1, 'Weathering breaks rock down; erosion moves the pieces.'],
+  ['Which practice keeps soil covered between harvests?', ['Cover crops', 'Plowing more often', 'Planting one crop every year'], 0, 'Cover crops keep roots and leaves protecting the soil all year.'],
+  ['First look: more water flows into a tub than drains out. The water level…', ['Rises', 'Falls', 'Stays the same'], 0, 'When inflow beats outflow, the stock rises. That is today\'s first idea.'],
+];
+const quizPick = QUIZ.map(() => null);
+$('[data-quiz]').innerHTML = QUIZ.map(([q, ch], i) => `<div class="q" data-q="${i}"><p><b>${i + 1}</b>${esc(q)}</p><div class="ch">${ch.map((c, j) => `<button type="button" data-c="${j}">${esc(c)}</button>`).join('')}</div><div class="why">${esc(QUIZ[i][3])}</div></div>`).join('');
+$$('[data-q]').forEach(q => q.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || q.classList.contains('done')) return;
+  quizPick[q.dataset.q] = +b.dataset.c;
+  $$('button', q).forEach(x => x.classList.toggle('on', x === b));
+}));
+$('#quiz-check').addEventListener('click', async () => {
+  const st = $('#quiz-status');
+  if (quizPick.includes(null)) { say(st, `Answer all ${QUIZ.length} questions first.`, 'err'); return; }
+  let score = 0;
+  $$('[data-q]').forEach(q => {
+    const i = +q.dataset.q, right = QUIZ[i][2];
+    q.classList.add('done');
+    $$('button', q).forEach(b => { b.classList.toggle('right', +b.dataset.c === right); b.classList.toggle('wrong', +b.dataset.c !== right); });
+    if (quizPick[i] === right) score++;
+  });
+  say(st, `${score} of ${QUIZ.length} correct.`, score >= 4 ? 'ok' : '');
+  if (!live.user()) { st.textContent += ' Check in to have your score counted.'; return; }
+  try { await live.saveSim('review-quiz', { score, answers: quizPick }); st.textContent += ' Score submitted.'; }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: TUB GAME === best seconds in the band for each mode */
+$('#tub-save').addEventListener('click', async () => {
+  const st = $('#tub-status');
+  if (!Object.values(best).some(Boolean)) { say(st, 'Play at least one mode first.', 'err'); return; }
+  if (!$('#tub-easy').value) { say(st, 'Pick the mode that was easiest to keep steady.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const data = { easiest: $('#tub-easy').value };
+  for (const k of Object.keys(MODES)) data[k] = best[k] ? { secs: Math.min(best[k].secs, 999), won: best[k].secs >= WIN, overflow: best[k].overflow } : null;
+  try { await live.saveSim('tub-game', data); say(st, 'Submitted.', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: CAUSAL LOOP EXERCISE === */
+$('#ex-save').addEventListener('click', async () => {
+  const st = $('#ex-status');
+  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
+  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
+  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const right = checkSigns();
+  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>

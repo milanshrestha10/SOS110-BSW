@@ -24,7 +24,7 @@ One row per class session in `course/course.json`. Use it to track which of the 
 | M3 | m3-s3 | Atmosphere, weather, and climate | `m3-l3-atmosphere` | `Lecture09_AtmosphereWeatherAndPollution.md` | Older design |
 | M3 | m3-s4 | Review · Conservation of life-supporting systems | | | Not built |
 | M4 | m4-s1 | Geosphere, soil, and land use | `m4-l1-geosphere-soil-land-use` | | Current design |
-| M4 | m4-s2 | Stocks-and-flows (systems dynamics) | | | Not built |
+| M4 | m4-s2 | Lecture 12 · Stocks-and-flows (systems dynamics) | `m4-l2-stocks-and-flows` | `Lecture10_SystemsCyclesAndHumanImpacts.pdf` | **Converted** |
 | M4 | m4-s3 | Carbon cycle and climate change | | | Not built |
 | M5 | m5-s1 | Sustainable food systems | | | Not built |
 | M5 | m5-s2 | The FEWs nexus and energy systems | | | Not built |
