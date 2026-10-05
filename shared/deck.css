@@ -288,7 +288,8 @@ input[type=range]{width:100%;height:14px;accent-color:var(--Blue)}
 body.deck-idle .deck-side button,body.deck-idle .deck-controls{opacity:0;pointer-events:none}
 @media (hover:none){body.deck-idle .deck-side button:not(:disabled),body.deck-idle .deck-controls{opacity:.72;pointer-events:auto}.deck-side button{width:52px;height:88px;margin-top:-44px}}
 @media print{.deck-side,.deck-progress{display:none!important}}
-aside.notes{display:none}
+/* Slide previews inside the instructor's presenter view: no buttons or progress bar */
+body.deck-embed .deck-side,body.deck-embed .deck-controls,body.deck-embed .deck-progress{display:none!important}
 /* Icon badges: a round colour badge holding a line icon from the deck's inline SVG sprite (see Lecture 10) */
 .ico{display:inline-grid;place-items:center;flex:none;width:64px;height:64px;border-radius:50%;background:var(--Blue);color:var(--paper)}
 .ico svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
