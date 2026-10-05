@@ -3,11 +3,17 @@
    Side and bottom buttons, arrow keys / Space / PageUp-Down / Home / End,
    swipe on touch;
    the #n hash remembers the slide. Fires "deck:slide" on document.
+   The instructor's presenter view (on the admin site) can follow and steer the
+   deck through postMessage; ?embed hides the buttons for its slide previews.
    =========================================== */
 (function () {
   const stage = document.getElementById('deckStage');
   const slides = Array.from(stage.querySelectorAll('.slide'));
   let current = 0;
+  /* Only the admin site may steer the deck. The deck sends it nothing but slide numbers. */
+  const PRESENTER = ['https://sos110-ce7a1.web.app', 'https://sos110-ce7a1.firebaseapp.com', 'http://localhost:5000'];
+  const embed = new URLSearchParams(location.search).has('embed');
+  if (embed) document.body.classList.add('deck-embed');
 
   /* === SCALE === the whole stage scales uniformly to fit the window */
   function scale() {
@@ -53,7 +59,19 @@
     [side, ctl].forEach(el => { el.querySelector('[data-go="-1"]').disabled = i === 0; el.querySelector('[data-go="1"]').disabled = i === slides.length - 1; });
     if (location.hash !== `#${i + 1}`) history.replaceState(null, '', `#${i + 1}`);
     document.dispatchEvent(new CustomEvent('deck:slide', { detail: { index: i, slide: s } }));
+    tell();
   }
+
+  /* === PRESENTER LINK === an audience window opened by the presenter view reports its slide */
+  function tell() {
+    if (embed || !window.opener) return;
+    PRESENTER.forEach(o => { try { window.opener.postMessage({ sos110: 'slide', index: current, count: slides.length }, o); } catch (e) { /* opener gone */ } });
+  }
+  addEventListener('message', e => {
+    if (!PRESENTER.includes(e.origin) || !e.data || e.data.sos110 !== 'go') return;
+    const i = Number(e.data.index);
+    if (Number.isInteger(i) && i !== current) go(i); else if (e.data.hello) tell();
+  });
 
   /* === KEYBOARD === ignored while typing or using a slider */
   addEventListener('keydown', e => {

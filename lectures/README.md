@@ -38,6 +38,8 @@ Students check in by typing their name, email and the code on screen; no account
 
 Copy a lecture folder, change `LECTURE` to the session id from `course.json` (for example `m4-s2`), and rewrite the slides. Glossary cards, objectives and assignments fill in on their own. Then add the matching admin page in the private repo.
 
+**Speaker notes never go in this repo.** Everything here is public, including the page source, so a hidden note is still readable by students. Write notes in the private repo's `public/notes/<lecture folder>.json`; the instructor presents with them in its presenter view, which steers this deck in a separate projector window.
+
 When you change `shared/deck.css` or `shared/deck.js`, bump the `?v=` date on their links in every lecture, so browsers load the new file instead of a cached copy.
 
 Deck rules, so every lecture works in any semester:
@@ -55,6 +57,7 @@ Every new deck uses the design of Lecture 11 (`m4-l1-geosphere-soil-land-use`), 
 - **Animated pictures**: add `anim-pics` to `<main class="deck-stage">` so photos drift in from a slow zoom and diagrams wipe in. It is off for reduced motion and print.
 - **Clear space under every heading**: add `roomy` to `<main class="deck-stage">` so each heading keeps a 48px gap above the text and pictures, and don't override it with inline margins.
 - **Exercises written for first-year students**: short, plain questions with one ask each, numbered, plus a one-line instruction that says what to do first. Give a quick definition in the question or its hint the first time a term like biome or geosphere appears.
+- **Speaker notes stay private**: never add an `<aside class="notes">` or any note text to a student deck (the page source is public). Put notes in the private repo's `public/notes/<lecture folder>.json` and present from its presenter view.
 - **Quick questions** after a big idea: a short, unrecorded check with answers that reveal on tap.
 
 It keeps everything from the enhanced style of Lecture 10 (`m3-l3-atmosphere`):
