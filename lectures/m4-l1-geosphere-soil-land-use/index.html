@@ -183,6 +183,62 @@
 .save{display:flex;gap:14px;align-items:center;margin-top:10px;text-align:left}
 .save .btn{font-size:21px;padding:12px 22px}
 .save .status{font-size:19px;margin:0;min-height:0}
+/* eutrophication and the Gulf dead zone (moved from Lecture 12) */
+/* causal loop diagrams */
+.cld{width:100%;height:auto;display:block;overflow:visible}
+.cld .node rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
+.cld .node.hum rect{stroke:#b3452c}
+.cld .node.act rect{stroke:var(--Green);stroke-width:4}
+.cld .node text{font:700 23px var(--body);fill:var(--ink);text-anchor:middle}
+.cld .lk path{fill:none;stroke:#5d7780;stroke-width:4}
+.cld .sg circle{stroke:var(--paper);stroke-width:3}
+.cld .sg text{font:700 26px var(--body);fill:#fff;text-anchor:middle}
+.cld .sg.p circle{fill:var(--Blue)}.cld .sg.n circle{fill:#b3452c}
+.cld .sg.q circle{fill:var(--golden)}.cld .sg.q text{fill:var(--ink)}
+.cld .loop circle{fill:none;stroke-width:4}
+.cld .loop text{font:400 40px var(--display);text-anchor:middle}
+.cld .loop.R circle{stroke:#b3452c}.cld .loop.R text{fill:#b3452c}
+.cld .loop.B circle{stroke:var(--Green)}.cld .loop.B text{fill:#2e7d5b}
+.cld .loop .spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cld .s{transition:opacity .6s var(--ease)}
+.cld .s.off{opacity:0}
+.cld .lk path.draw{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1s var(--ease)}
+.cld .s.off path.draw{stroke-dashoffset:1}
+.cld .sg.pick{cursor:pointer}
+.cld .sg.pick:hover circle{stroke:var(--Sky)}
+.cld .sg.right circle{stroke:#2e7d5b;stroke-width:6}.cld .sg.wrong circle{stroke:#b3452c;stroke-width:6}
+.cld-cap{min-height:118px;font-size:27px;line-height:1.4}
+.cld-cap b{color:var(--Blue)}
+.signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
+.signs span{display:inline-flex;align-items:center;gap:8px}
+.signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
+#cld-ex-svg .node text{font-size:26px}
+/* eutrophication steps */
+.esteps{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:22px}
+.estep{position:relative;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:14px 16px;font-size:20px;line-height:1.3}
+.estep i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--paper-2);font:400 22px var(--display);font-style:normal;margin-bottom:8px}
+.slide.visible .estep{animation:lit 12s infinite}
+.slide.visible .estep i{animation:liti 12s infinite}
+.estep:nth-child(2),.estep:nth-child(2) i{animation-delay:2s!important}
+.estep:nth-child(3),.estep:nth-child(3) i{animation-delay:4s!important}
+.estep:nth-child(4),.estep:nth-child(4) i{animation-delay:6s!important}
+.estep:nth-child(5),.estep:nth-child(5) i{animation-delay:8s!important}
+.estep:nth-child(6),.estep:nth-child(6) i{animation-delay:10s!important}
+@keyframes lit{0%,17%{border-color:var(--Blue);background:rgba(66,168,191,.16)}20%,100%{border-color:var(--paper-2);background:var(--card)}}
+@keyframes liti{0%,17%{background:var(--Blue);color:var(--paper)}20%,100%{background:var(--paper-2);color:var(--ink)}}
+/* exercise answers */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 22px/1.3 var(--body);margin-bottom:6px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ex textarea,.ex select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:96px}
+.ex textarea:focus,.ex select:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 24px}
+.go-row select{font:400 20px var(--body);padding:10px 12px;border:2px solid var(--paper-2);border-radius:10px;background:var(--card);color:var(--ink)}
+.go-row .status{margin:0;font-size:20px}
+@media (prefers-reduced-motion: reduce){.estep,.estep i,.cld .loop .spin{animation:none!important}}
 </style>
 </head>
 <body>
@@ -206,6 +262,8 @@
   <symbol id="i-rain" viewBox="0 0 24 24"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
   <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/></symbol>
 </svg>
 <div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
 
@@ -283,7 +341,7 @@
     <p class="lead reveal d2" style="margin-bottom:30px">Humans have pervasively altered Earth's surface in the last 250 years, but not all of it is bad: we have also developed many regenerative ways to protect soil.</p>
     <div class="grid g3 reveal d3">
       <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span><br><span class="tag">1 · Geosphere processes</span><h3>How the ground works</h3><p>Explain how tectonic plates, the rock cycle, weathering and erosion build and reshape Earth's surface and soil.</p></div>
-      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><br><span class="tag">2 · Human impacts</span><h3>What we change</h3><p>Describe how soil loss, mining and land use change alter the structure and functions of ecosystems.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><br><span class="tag">2 · Human impacts</span><h3>What we change</h3><p>Describe how soil loss, nutrient runoff, mining and land use change alter the structure and functions of ecosystems.</p></div>
       <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><br><span class="tag">3 · Regeneration</span><h3>How we repair it</h3><p>Evaluate practices that restore and regenerate soil and keep natural cycles going.</p></div>
     </div>
     <div class="take reveal d4"><b>Takeaway</b>The ground beneath us is a living, moving system. How we farm, mine and build decides whether it keeps supporting life.</div>
@@ -558,7 +616,94 @@
   </div>
 </section>
 
-<!-- 19. AGRICULTURE AND SOIL LOSS -->
+<!-- 19. EUTROPHICATION -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 2 · Eutrophication</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Big idea 2 · the eutrophication conundrum</div>
+    <h2 class="reveal d2" style="font-size:72px">Eutrophication: when nutrients <em>suffocate</em> water</h2>
+    <div class="grid reveal d3" style="grid-template-columns:420px 1fr;gap:34px;align-items:start">
+      <figure class="fig"><img style="max-height:480px;object-fit:cover" src="img/algae-bloom.jpg" alt="A pond covered in bright green algae under trees"></figure>
+      <div>
+        <p style="font-size:26px;line-height:1.45"><b>Eutrophication</b> is when too many nutrients in a lake, river or sea cause a fast <b>growth, death and decay of algae</b>. Decay uses up the oxygen that fish and other animals need.</p>
+        <figure class="fig plain" style="margin-top:14px"><img style="max-height:360px;width:auto;max-width:100%" src="img/eutrophication.jpg" alt="Eutrophication diagram: nitrogen and phosphorus increase phytoplankton, causing an algae bloom; sediments block sunlight from sea grass; algae die and decay; food, habitat and oxygen production are lost"></figure>
+      </div>
+    </div>
+    <div class="esteps reveal d4">
+      <div class="estep"><i>1</i>Fertilizer and sewage wash into water</div>
+      <div class="estep"><i>2</i>Algae grow fast: a <b>bloom</b></div>
+      <div class="estep"><i>3</i>Algae die and sink</div>
+      <div class="estep"><i>4</i>Bacteria decompose them and <b>use up oxygen</b></div>
+      <div class="estep"><i>5</i>Fish and shrimp leave or die</div>
+      <div class="estep"><i>6</i>A <b>dead zone</b> forms</div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. THE GULF DEAD ZONE -->
+<section class="slide">
+  <div class="rail"><b>11</b><span>Big idea 2 · Dead zone</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-fish"/></svg></span>Big idea 2 · the Gulf of America (formerly the Gulf of Mexico)</div>
+    <h2 class="reveal d2" style="font-size:70px">A dead zone appears <em>every summer</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:560px 1fr 500px;gap:34px;align-items:start">
+      <figure class="fig plain"><img src="img/gulf-dead-zone.jpg" alt="Map of the Louisiana and Texas coast showing a long band of low bottom oxygen (under 2 mg/L) west of the Mississippi River mouth"></figure>
+      <div>
+        <ol class="num" style="font-size:24px;margin-top:0">
+          <li>The Mississippi drains <b>about 40%</b> of the lower 48 states, including the Corn Belt.</li>
+          <li>Each spring, it carries <b>fertilizer runoff</b> from farms and runoff from cities into the Gulf.</li>
+          <li>By summer, bottom water off Louisiana drops below <b>2 mg/L of oxygen</b>: too little for fish and shrimp.</li>
+        </ol>
+        <p class="credit">Map: N. Rabalais, LSU/LUMCON/NOAA, in Sherman &amp; Montgomery (2023), Fig. 10.17.</p>
+      </div>
+      <div>
+        <figure class="fig plain"><img src="img/iceberg.jpg" alt="The iceberg model: events (a dead zone formed), patterns (it forms every spring when fertilizer runoff washes in), underlying structures (farmers apply synthetic nitrogen fertilizer each spring), mental models (rapid crop growth is valued more than natural systems)"></figure>
+        <p class="credit">The iceberg model, Fig. 10.24. The textbook uses the Gulf's former name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. SYSTEM DYNAMICS DIAGRAM -->
+<section class="slide" id="gulf">
+  <div class="rail"><b>11</b><span>Big idea 2 · Causal loops</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 2 · a system dynamics diagram of the dead zone</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:20px">How runoff builds a <em>dead zone</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1180px 1fr;gap:36px;align-items:start">
+      <svg class="cld" id="cld-gulf" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of nutrient runoff and the Gulf dead zone, built step by step"></svg>
+      <div>
+        <p class="cld-cap" id="gulf-cap"></p>
+        <div style="display:flex;gap:14px;margin-top:18px;flex-wrap:wrap"><button class="btn ghost" type="button" id="gulf-prev">Back</button><button class="btn" type="button" id="gulf-next">Next step</button><button class="btn ghost" type="button" id="gulf-all">Show all</button></div>
+        <div class="gold-rule" style="margin:24px 0"></div>
+        <div class="signs" style="display:grid;gap:10px"><span><i style="background:var(--Blue)">+</i>Same direction</span><span><i style="background:#b3452c">−</i>Opposite direction</span><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing loop</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
+<section class="slide" id="cld-ex">
+  <div class="rail"><b>11</b><span>Class exercise</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:16px">Complete the <em>causal loop diagram</em></h2>
+    <p class="steps reveal d2" style="margin-bottom:18px;font-size:25px"><b>First, tap each yellow ? to choose + or −.</b> Then answer the two questions and submit.</p>
+    <div class="reveal d3">
+      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
+      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
+        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
+          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
+        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
+          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
+        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
+        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23. AGRICULTURE AND SOIL LOSS -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Soil loss</span></div>
   <div class="content">
@@ -573,7 +718,7 @@
   </div>
 </section>
 
-<!-- 20. MINING -->
+<!-- 24. MINING -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Mining</span></div>
   <div class="content center">
@@ -594,7 +739,7 @@
   </div>
 </section>
 
-<!-- 21. LAND USE CHANGE AND URBANIZATION -->
+<!-- 25. LAND USE CHANGE AND URBANIZATION -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 2 · Land use</span></div>
   <div class="content center" style="top:90px">
@@ -613,7 +758,7 @@
   </div>
 </section>
 
-<!-- 22. PAVE THE WATERSHED -->
+<!-- 26. PAVE THE WATERSHED -->
 <section class="slide" id="pave">
   <div class="rail"><b>11</b><span>Big idea 2 · Runoff</span></div>
   <div class="content center">
@@ -635,7 +780,7 @@
   </div>
 </section>
 
-<!-- 23. RESTORATION AND REGENERATION -->
+<!-- 27. RESTORATION AND REGENERATION -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Big idea 3 · Regeneration</span></div>
   <div class="content center">
@@ -655,7 +800,7 @@
   </div>
 </section>
 
-<!-- 24. GAME: KEEP THE TOPSOIL -->
+<!-- 28. GAME: KEEP THE TOPSOIL -->
 <section class="slide" id="soil-game">
   <div class="rail"><b>11</b><span>Game</span></div>
   <div class="content center" style="top:90px">
@@ -680,7 +825,7 @@
   </div>
 </section>
 
-<!-- 25. EXIT TICKET -->
+<!-- 29. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>11</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -696,7 +841,7 @@
   </div>
 </section>
 
-<!-- 26. TAKEAWAY -->
+<!-- 30. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" src="img/phoenix-edge.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -828,6 +973,110 @@ $$('[data-mqi]').forEach(q => q.addEventListener('click', e => {
   q.classList.add('done');
 }));
 $$('[data-def]').forEach(c => { c.style.cursor = 'pointer'; c.tabIndex = 0; const t = () => c.classList.toggle('open'); c.addEventListener('click', t); c.addEventListener('keydown', e => { if (e.key === 'Enter') t(); }); });
+
+/* === CAUSAL LOOP DIAGRAMS === nodes [id, label (| breaks lines), x, y, width, class];
+   links [from, to, sign, bend, step]; loops [letter, x, y, step]. Curves are quadratic,
+   bent to one side by `bend` px, and clipped to the edges of the boxes. */
+function cld(svg, { nodes, links, loops = [] }, opts = {}) {
+  const N = Object.fromEntries(nodes.map(([id, label, x, y, w = 250, cls = '']) => [id, { id, label, x, y, w, h: label.includes('|') ? 86 : 60, cls }]));
+  const edge = (n, px, py) => {
+    const dx = px - n.x, dy = py - n.y;
+    const t = Math.min((n.w / 2 + 10) / Math.abs(dx || 1e-6), (n.h / 2 + 10) / Math.abs(dy || 1e-6));
+    return [n.x + dx * t, n.y + dy * t];
+  };
+  const id = svg.id;
+  let out = `<defs><marker id="${id}-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d7780"/></marker></defs>`;
+  links.forEach(([a, b, sign, bend = 40, step = 0], i) => {
+    const A = N[a], B = N[b];
+    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2, len = Math.hypot(B.x - A.x, B.y - A.y);
+    const cx = mx - (B.y - A.y) / len * bend, cy = my + (B.x - A.x) / len * bend;
+    const [x0, y0] = edge(A, cx, cy), [x2, y2] = edge(B, cx, cy);
+    const q = t => [(1 - t) ** 2 * x0 + 2 * (1 - t) * t * cx + t * t * x2, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cy + t * t * y2];
+    const [sx, sy] = q(.72);
+    const shown = sign === '?' ? '?' : sign === '+' ? '+' : '−';
+    const cls = sign === '?' ? 'q pick' : sign === '+' ? 'p' : 'n';
+    out += `<g class="s lk" data-step="${step}" style="--i:${opts.seq ? i : 0}"><path class="draw" pathLength="1" d="M${x0.toFixed(1)} ${y0.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" marker-end="url(#${id}-ah)"/>`
+      + `<g class="sg ${cls}" data-link="${i}"><circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="22"/><text x="${sx.toFixed(1)}" y="${(sy + 9).toFixed(1)}">${shown}</text></g></g>`;
+  });
+  nodes.forEach(([nid]) => {
+    const n = N[nid], lines = n.label.split('|');
+    const step = Math.min(...links.filter(l => l[0] === nid || l[1] === nid).map(l => l[4] || 0), 99);
+    out += `<g class="s node ${n.cls}" data-step="${step === 99 ? 0 : step}" style="--i:0"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="16"/>`
+      + lines.map((l, k) => `<text x="${n.x}" y="${n.y + 8 + (k - (lines.length - 1) / 2) * 28}">${esc(l)}</text>`).join('') + '</g>';
+  });
+  loops.forEach(([L, x, y, step = 0, label = '']) => {
+    out += `<g class="s loop ${L}" data-step="${step}" style="--i:${opts.seq ? links.length : 0}"><g class="spin"><circle cx="${x}" cy="${y}" r="34" stroke-dasharray="170 44"/></g><text x="${x}" y="${y + 14}">${L}</text>${label ? `<text x="${x}" y="${y + 66}" style="font:700 18px var(--body);fill:var(--mute)">${esc(label)}</text>` : ''}</g>`;
+  });
+  svg.innerHTML = out;
+}
+/* === GULF DEAD ZONE: step-by-step build === */
+const GULF = {
+  nodes: [
+    ['fert', 'Fertilizer use|on farms', 400, 250, 250, 'hum'], ['crop', 'Crop growth', 140, 470, 210], ['profit', 'Farm income', 140, 80, 210],
+    ['urban', 'Urban runoff|(lawns, pets, sewage)', 400, 700, 300, 'hum'], ['nut', 'Nutrients in|the river', 720, 470, 230],
+    ['algae', 'Algae growth', 860, 140, 220], ['decomp', 'Decomposition|of dead algae', 1200, 140, 250], ['oxy', 'Oxygen in|Gulf water', 1360, 400, 220],
+    ['dz', 'Dead zone size', 1110, 640, 230], ['fish', 'Fish and shrimp', 1370, 740, 240], ['act', 'Action: buffers,|wetlands, rules', 770, 730, 260, 'act'],
+  ],
+  links: [
+    ['fert', 'nut', '+', 30, 0], ['urban', 'nut', '+', -30, 1], ['nut', 'algae', '+', 30, 2], ['algae', 'decomp', '+', 30, 3], ['decomp', 'oxy', '−', 40, 4],
+    ['oxy', 'dz', '−', 40, 5], ['dz', 'fish', '−', 20, 6], ['fert', 'crop', '+', 40, 7], ['crop', 'profit', '+', 60, 7], ['profit', 'fert', '+', 40, 7],
+    ['dz', 'act', '+', 30, 8], ['act', 'nut', '−', 30, 8],
+  ],
+  loops: [['R', 215, 290, 7], ['B', 960, 520, 8]],
+};
+const GULF_CAP = [
+  'Farms spread <b>fertilizer</b>. More fertilizer means <b>more nutrients</b> wash into the Mississippi: a <b>+</b> link.',
+  'Cities add more: lawn fertilizer, pet waste and treated sewage. More <b>urban runoff</b>, more nutrients.',
+  'In the Gulf, more nutrients feed <b>more algae</b>.',
+  'More algae means more dead algae for bacteria to <b>decompose</b>.',
+  'Decomposers breathe oxygen. More decomposition means <b>less oxygen</b>: a <b>−</b> link.',
+  'Less oxygen means a <b>bigger dead zone</b>. Another <b>−</b> link: they move in opposite directions.',
+  'A bigger dead zone means <b>fewer fish and shrimp</b>, and lost fishing jobs.',
+  'Why keep fertilizing? Fertilizer grows crops, crops earn income, and income buys more fertilizer: a <b>reinforcing loop (R)</b>.',
+  'A bigger dead zone can push people to <b>act</b>: buffers, wetlands and rules that cut runoff. With three − links (odd), this is a <b>balancing loop (B)</b>.',
+];
+const gulfSvg = $('#cld-gulf');
+cld(gulfSvg, GULF);
+let gulfStep = 0;
+function drawGulf(all = false) {
+  $$('.s', gulfSvg).forEach(g => g.classList.toggle('off', !all && +g.dataset.step > gulfStep));
+  $('#gulf-cap').innerHTML = all ? 'The whole system: one <b>reinforcing</b> loop keeps fertilizer use growing, and one <b>balancing</b> loop is how people can push back. Where would a small change have a big effect?'
+    : `<span class="small mute">Step ${gulfStep + 1} of ${GULF_CAP.length}</span><br>${GULF_CAP[gulfStep]}`;
+}
+$('#gulf-next').addEventListener('click', () => { gulfStep = Math.min(GULF_CAP.length - 1, gulfStep + 1); drawGulf(); });
+$('#gulf-prev').addEventListener('click', () => { gulfStep = Math.max(0, gulfStep - 1); drawGulf(); });
+$('#gulf-all').addEventListener('click', () => { gulfStep = GULF_CAP.length - 1; drawGulf(true); });
+drawGulf();
+
+/* === CLASS EXERCISE: pick the sign of each link === */
+const EX = {
+  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
+    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
+  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
+};
+const EX_KEY = ['+', '+', '+', '−', '+', '−'];
+const exSvg = $('#cld-ex-svg');
+cld(exSvg, EX);
+const exPick = EX.links.map(() => '?');
+const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
+exSvg.addEventListener('click', e => {
+  const g = e.target.closest('.sg.pick'); if (!g) return;
+  const i = +g.dataset.link;
+  exPick[i] = SIGN_NEXT[exPick[i]];
+  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
+  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
+  $('text', g).textContent = exPick[i];
+});
+function checkSigns() {
+  let n = 0;
+  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
+  return n;
+}
+$('#ex-check').addEventListener('click', () => {
+  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
+  const n = checkSigns();
+  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
+});
 
 /* === LIVE === attendance, polls, quiz and games */
 const live = await connect(LECTURE);
@@ -1013,6 +1262,18 @@ $('#soil-save').addEventListener('click', async () => {
   if (!soilNow.practices.length) { say(st, 'Pick at least one practice first.', 'err'); return; }
   if (!await ensureUser(st)) return;
   try { await live.saveSim('keep-the-topsoil', soilNow); say(st, `Submitted: ${soilNow.loss} t per acre a year.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: CAUSAL LOOP EXERCISE === */
+$('#ex-save').addEventListener('click', async () => {
+  const st = $('#ex-status');
+  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
+  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
+  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const right = checkSigns();
+  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>
