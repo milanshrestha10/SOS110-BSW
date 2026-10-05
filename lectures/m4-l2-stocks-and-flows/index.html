@@ -101,6 +101,18 @@
 .signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
 .signs span{display:inline-flex;align-items:center;gap:8px}
 .signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
+/* two ways to draw a system */
+.two{display:flex;flex-direction:column;padding:24px 30px}
+.two .use{font-size:25px;margin:2px 0 6px}
+.sfd{width:100%;height:auto;display:block}
+.sfd text{text-anchor:middle;font-family:var(--body)}
+.sfd .fl{font:700 21px var(--body);fill:var(--ink)}
+.sfd .sm{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
+.sfd .st{font:400 32px var(--display);fill:#fff}
+.sfd .st2{font:700 16px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:rgba(255,255,255,.85)}
+.defs{display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:21px;line-height:1.35;margin-top:auto;border-top:1px solid var(--paper-2);padding-top:12px}
+.defs dt{font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:4px}
+#cld-two .node text{font-size:22px}
 /* tub game */
 .tubgame{display:grid;grid-template-columns:760px 1fr;gap:44px;align-items:start}
 .tubgame svg.tub{width:100%;height:auto;display:block}
@@ -404,7 +416,55 @@
   </div>
 </section>
 
-<!-- 10. GAME: THE TUB -->
+<!-- 10. TWO WAYS TO DRAW A SYSTEM -->
+<section class="slide">
+  <div class="rail"><b>12</b><span>Big idea 1 · Diagrams</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 1 · mapping a system's structure</div>
+    <h2 class="reveal d2" style="font-size:70px">Two ways to <em>draw</em> a system</h2>
+    <div class="grid g2 reveal d3" style="gap:40px;flex:1">
+      <div class="card accent two">
+        <span class="tag">1 · Stock-and-flow diagram</span>
+        <p class="use">Use it to see <b>how a system changes over time</b>.</p>
+        <svg class="sfd" viewBox="0 0 760 330" role="img" aria-label="Stock-and-flow diagrams: rivers and rain flow into a lake, and evaporation and an outlet river flow out; deposits flow into a bank account and withdrawals flow out">
+          <defs><marker id="sf-a" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#42a8bf"/></marker></defs>
+          <g>
+            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+            <path class="flowdash" d="M130 85 H270" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
+            <path d="M195 62 l10 23 -10 23 M215 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
+            <text x="200" y="135" class="fl">Rivers + rain</text><text x="200" y="158" class="sm">inflow</text>
+            <rect x="285" y="40" width="190" height="90" rx="12" fill="#0d7397"/>
+            <text x="380" y="82" class="st">Lake</text><text x="380" y="112" class="st2">stock</text>
+            <path class="flowdash" d="M490 85 H630" stroke="#42a8bf" stroke-width="12" fill="none" marker-end="url(#sf-a)"/>
+            <path d="M555 62 l10 23 -10 23 M575 62 l-10 23 10 23" stroke="#0a4f68" stroke-width="5" fill="none"/>
+            <text x="560" y="135" class="fl">Evaporation +</text><text x="560" y="158" class="fl">outlet river</text><text x="560" y="181" class="sm">outflow</text>
+            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+          </g>
+          <g transform="translate(0 190)">
+            <path d="M20 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+            <path class="flowdash" d="M130 85 H270" stroke="#75a29f" stroke-width="12" fill="none"/>
+            <text x="200" y="128" class="fl">Deposits</text>
+            <rect x="285" y="45" width="190" height="80" rx="12" fill="#75a29f"/>
+            <text x="380" y="80" class="st">Bank</text><text x="380" y="108" class="st2">account</text>
+            <path class="flowdash" d="M490 85 H630" stroke="#75a29f" stroke-width="12" fill="none"/>
+            <text x="560" y="128" class="fl">Withdrawals</text>
+            <path d="M640 95 q0 -26 26 -26 q8 -22 34 -14 q22 -10 32 12 q24 2 20 28 z" fill="#e3ebed"/>
+          </g>
+        </svg>
+        <dl class="defs"><dt>Stock</dt><dd>What builds up or drains: water in the lake, money in the account.</dd><dt>Flow</dt><dd>The rate that moves into or out of the stock.</dd></dl>
+      </div>
+      <div class="card gold two">
+        <span class="tag">2 · Causal loop diagram</span>
+        <p class="use">Use it to show <b>cause and effect</b> in a system.</p>
+        <svg class="cld" id="cld-two" viewBox="0 0 760 360" role="img" aria-label="Causal loop diagrams: warming melts ice, melting ice lets more sunlight be absorbed, which adds warming, a reinforcing loop; a warmer room turns heater output down, and heater output warms the room, a balancing loop"></svg>
+        <div class="signs" style="margin-top:8px"><span><i style="background:#b3452c;font-family:var(--display)">R</i>Reinforcing (positive) loop</span><span><i style="background:var(--Green);font-family:var(--display)">B</i>Balancing (negative) loop</span></div>
+      </div>
+    </div>
+    <div class="take reveal d4" style="margin-top:26px;font-size:26px"><b>System structure mapping</b>Both diagrams identify the interactions among the parts of a system. Today you will use both.</div>
+  </div>
+</section>
+
+<!-- 11. GAME: THE TUB -->
 <section class="slide" id="tub">
   <div class="rail"><b>12</b><span>Game</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -467,7 +527,7 @@
   </div>
 </section>
 
-<!-- 11. QUICK QUESTION -->
+<!-- 12. QUICK QUESTION -->
 <section class="slide" id="qq">
   <div class="rail"><b>12</b><span>Big idea 1 · Quick question</span></div>
   <div class="content fill">
@@ -485,7 +545,7 @@
   </div>
 </section>
 
-<!-- 12. EARTH'S NATURAL CYCLES -->
+<!-- 13. EARTH'S NATURAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -539,7 +599,7 @@
   </div>
 </section>
 
-<!-- 13. BIOGEOCHEMICAL CYCLES -->
+<!-- 14. BIOGEOCHEMICAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content center">
@@ -563,7 +623,7 @@
   </div>
 </section>
 
-<!-- 14. OXYGEN CYCLE -->
+<!-- 15. OXYGEN CYCLE -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Oxygen</span></div>
   <div class="content fill">
@@ -584,7 +644,7 @@
   </div>
 </section>
 
-<!-- 15. BIOSPHERE 2 -->
+<!-- 16. BIOSPHERE 2 -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Biosphere 2</span></div>
   <div class="content fill">
@@ -611,7 +671,7 @@
   </div>
 </section>
 
-<!-- 16. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
+<!-- 17. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
 <section class="slide" id="cycles">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -630,7 +690,7 @@
   </div>
 </section>
 
-<!-- 17. HUMAN-INDUCED CHANGES -->
+<!-- 18. HUMAN-INDUCED CHANGES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Human impacts</span></div>
   <div class="content center">
@@ -657,7 +717,7 @@
   </div>
 </section>
 
-<!-- 18. EUTROPHICATION -->
+<!-- 19. EUTROPHICATION -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Eutrophication</span></div>
   <div class="content fill">
@@ -681,7 +741,7 @@
   </div>
 </section>
 
-<!-- 19. THE GULF DEAD ZONE -->
+<!-- 20. THE GULF DEAD ZONE -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Dead zone</span></div>
   <div class="content fill">
@@ -705,7 +765,7 @@
   </div>
 </section>
 
-<!-- 20. SYSTEM DYNAMICS DIAGRAM -->
+<!-- 21. SYSTEM DYNAMICS DIAGRAM -->
 <section class="slide" id="gulf">
   <div class="rail"><b>12</b><span>Big idea 3 · Causal loops</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -723,7 +783,7 @@
   </div>
 </section>
 
-<!-- 21. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
+<!-- 22. CLASS EXERCISE: COMPLETE THE DIAGRAM -->
 <section class="slide" id="cld-ex">
   <div class="rail"><b>12</b><span>Class exercise</span></div>
   <div class="content" style="top:80px;bottom:60px">
@@ -744,7 +804,7 @@
   </div>
 </section>
 
-<!-- 22. TRES RIOS -->
+<!-- 23. TRES RIOS -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Tres Rios</span></div>
   <div class="content center">
@@ -760,7 +820,7 @@
   </div>
 </section>
 
-<!-- 23. VIDEO -->
+<!-- 24. VIDEO -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Video</span></div>
   <div class="content center">
@@ -783,7 +843,7 @@
   </div>
 </section>
 
-<!-- 24. WHAT CAN WE DO? -->
+<!-- 25. WHAT CAN WE DO? -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Solutions</span></div>
   <div class="content fill">
@@ -803,7 +863,7 @@
   </div>
 </section>
 
-<!-- 25. EXIT TICKET -->
+<!-- 26. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -819,7 +879,7 @@
   </div>
 </section>
 
-<!-- 26. TAKEAWAY -->
+<!-- 27. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" src="img/biosphere2-hero.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -949,6 +1009,13 @@ cld($('#cld-b'), {
   nodes: [['elk', 'Elk population', 160, 235, 240], ['wolf', 'Wolf population', 600, 235, 240]],
   links: [['elk', 'wolf', '+', -150], ['wolf', 'elk', '−', -150]],
   loops: [['B', 380, 235]],
+}, { seq: true });
+
+cld($('#cld-two'), {
+  nodes: [['warm', 'Warming', 230, 45, 180], ['melt', 'Melting ice', 380, 280, 180], ['sun', 'Sunlight|absorbed', 95, 280, 170],
+    ['room', 'Room|temperature', 620, 60, 190], ['heat', 'Heater output', 620, 290, 190]],
+  links: [['warm', 'melt', '+', -40], ['melt', 'sun', '+', -40], ['sun', 'warm', '+', -40], ['room', 'heat', '−', -110], ['heat', 'room', '+', -110]],
+  loops: [['R', 235, 195], ['B', 620, 175]],
 }, { seq: true });
 
 /* === GULF DEAD ZONE: step-by-step build === */
