@@ -100,6 +100,14 @@
 .signs{display:flex;gap:26px;font-size:21px;color:var(--mute);flex-wrap:wrap}
 .signs span{display:inline-flex;align-items:center;gap:8px}
 .signs i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:700 20px var(--body);font-style:normal}
+#cld-ex-svg .node text{font-size:26px}
+/* exercise answers */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 22px/1.3 var(--body);margin-bottom:6px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.ex textarea,.ex select{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:96px}
+.ex textarea:focus,.ex select:focus{outline:3px solid var(--Sky);outline-offset:1px}
 /* two diagrams, one system: click to build */
 .ssd{width:100%;height:auto;display:block;cursor:pointer}
 .ssd text{text-anchor:middle;font-family:var(--body)}
@@ -577,7 +585,28 @@
   </div>
 </section>
 
-<!-- 12. WHERE SYSTEMS CHANGE -->
+<!-- 12. CLASS EXERCISE: EUTROPHICATION IN THE GULF -->
+<section class="slide" id="cld-ex">
+  <div class="rail"><b>12</b><span>Class exercise</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:56px;margin-bottom:16px">Eutrophication in the <em>Gulf of America</em> (previously the Gulf of Mexico)</h2>
+    <p class="steps reveal d2"><b>Complete the causal loop diagram.</b> Tap each yellow ? to choose + or −, then answer the two questions and submit.</p>
+    <div class="reveal d3">
+      <svg class="cld" id="cld-ex-svg" viewBox="0 30 1410 400" role="img" aria-label="Causal loop diagram with six links whose signs students choose"></svg>
+      <div class="ex" style="grid-template-columns:420px 1fr 330px;gap:30px;align-items:end;margin-top:14px">
+        <div><label for="ex-loop"><i>1</i>More fertilizer means ___ fish and shrimp.</label>
+          <select id="ex-loop"><option value="">Pick one</option><option value="more">More</option><option value="fewer">Fewer</option><option value="same">About the same</option></select></div>
+        <div><label for="ex-cut"><i>2</i>Where would you cut this chain? Name one link and one action.</label>
+          <textarea id="ex-cut" maxlength="400" placeholder="Example: between fertilizer use and runoff, by…"></textarea></div>
+        <div><div class="go-row"><button class="btn ghost" type="button" id="ex-check">Check my signs</button><button class="btn" type="button" id="ex-save">Submit</button></div>
+        <span class="status" id="ex-status" style="margin:6px 0 0;display:block;font-size:19px"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. WHERE SYSTEMS CHANGE -->
 <section class="slide chg-slide">
   <div class="rail"><b>12</b><span>Big idea 1 · Change points</span></div>
   <div class="content center">
@@ -630,7 +659,7 @@
   </div>
 </section>
 
-<!-- 13. QUICK QUESTION -->
+<!-- 14. QUICK QUESTION -->
 <section class="slide" id="qq">
   <div class="rail"><b>12</b><span>Big idea 1 · Quick question</span></div>
   <div class="content fill">
@@ -648,7 +677,7 @@
   </div>
 </section>
 
-<!-- 14. EARTH'S NATURAL CYCLES -->
+<!-- 15. EARTH'S NATURAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -702,7 +731,7 @@
   </div>
 </section>
 
-<!-- 15. BIOGEOCHEMICAL CYCLES -->
+<!-- 16. BIOGEOCHEMICAL CYCLES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content center">
@@ -726,7 +755,7 @@
   </div>
 </section>
 
-<!-- 16. OXYGEN CYCLE -->
+<!-- 17. OXYGEN CYCLE -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Oxygen</span></div>
   <div class="content fill">
@@ -747,7 +776,7 @@
   </div>
 </section>
 
-<!-- 17. BIOSPHERE 2 -->
+<!-- 18. BIOSPHERE 2 -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Biosphere 2</span></div>
   <div class="content fill">
@@ -774,7 +803,7 @@
   </div>
 </section>
 
-<!-- 18. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
+<!-- 19. NITROGEN, PHOSPHORUS AND CARBON CYCLES -->
 <section class="slide" id="cycles">
   <div class="rail"><b>12</b><span>Big idea 2 · Cycles</span></div>
   <div class="content fill">
@@ -793,7 +822,7 @@
   </div>
 </section>
 
-<!-- 19. HUMAN-INDUCED CHANGES -->
+<!-- 20. HUMAN-INDUCED CHANGES -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 2 · Human impacts</span></div>
   <div class="content center">
@@ -820,7 +849,7 @@
   </div>
 </section>
 
-<!-- 20. TRES RIOS -->
+<!-- 21. TRES RIOS -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Tres Rios</span></div>
   <div class="content center">
@@ -836,7 +865,7 @@
   </div>
 </section>
 
-<!-- 21. VIDEO -->
+<!-- 22. VIDEO -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Video</span></div>
   <div class="content center">
@@ -859,7 +888,7 @@
   </div>
 </section>
 
-<!-- 22. WHAT CAN WE DO? -->
+<!-- 23. WHAT CAN WE DO? -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Big idea 3 · Solutions</span></div>
   <div class="content fill">
@@ -879,7 +908,7 @@
   </div>
 </section>
 
-<!-- 23. EXIT TICKET -->
+<!-- 24. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>12</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -895,7 +924,7 @@
   </div>
 </section>
 
-<!-- 24. TAKEAWAY -->
+<!-- 25. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" src="img/globe-hero.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -1051,6 +1080,36 @@ $('#ssd-prev').addEventListener('click', () => ssdGo(ssdStep - 1));
 $('#ssd-all').addEventListener('click', () => ssdGo(SSD_CAP.length - 1));
 $('#ssd').addEventListener('click', () => ssdGo(ssdStep + 1));
 drawSsd();
+
+/* === CLASS EXERCISE: pick the sign of each link === */
+const EX = {
+  nodes: [['fert', 'Fertilizer use', 150, 80, 250, 'hum'], ['nut', 'Nutrient runoff', 520, 80, 250], ['algae', 'Algae growth', 890, 80, 250],
+    ['decomp', 'Decomposition', 1260, 80, 250], ['oxy', 'Oxygen in water', 1260, 370, 250], ['fish', 'Fish and shrimp', 890, 370, 250], ['wet', 'Wetlands and|buffer strips', 520, 370, 260, 'act']],
+  links: [['fert', 'nut', '?', 0], ['nut', 'algae', '?', 0], ['algae', 'decomp', '?', 0], ['decomp', 'oxy', '?', 0], ['oxy', 'fish', '?', 0], ['wet', 'nut', '?', 0]],
+};
+const EX_KEY = ['+', '+', '+', '−', '+', '−'];
+const exSvg = $('#cld-ex-svg');
+cld(exSvg, EX);
+const exPick = EX.links.map(() => '?');
+const SIGN_NEXT = { '?': '+', '+': '−', '−': '+' };
+exSvg.addEventListener('click', e => {
+  const g = e.target.closest('.sg.pick'); if (!g) return;
+  const i = +g.dataset.link;
+  exPick[i] = SIGN_NEXT[exPick[i]];
+  g.classList.remove('right', 'wrong', 'q', 'p', 'n');
+  g.classList.add(exPick[i] === '+' ? 'p' : 'n');
+  $('text', g).textContent = exPick[i];
+});
+function checkSigns() {
+  let n = 0;
+  $$('.sg.pick', exSvg).forEach(g => { const i = +g.dataset.link, ok = exPick[i] === EX_KEY[i]; if (ok) n++; g.classList.toggle('right', ok); g.classList.toggle('wrong', !ok); });
+  return n;
+}
+$('#ex-check').addEventListener('click', () => {
+  if (exPick.includes('?')) { say($('#ex-status'), 'Choose + or − for every link first.', 'err'); return; }
+  const n = checkSigns();
+  say($('#ex-status'), n === EX_KEY.length ? 'All six signs are right.' : `${n} of ${EX_KEY.length} right. Red rings need another look: does more of the first mean more or less of the second?`, n === EX_KEY.length ? 'ok' : '');
+});
 
 /* === ANIMATED ELEMENT CYCLES === nodes [id, label, sublabel, x, y]; flows [from, to, label, human, bend] */
 const CYCLES = {
@@ -1307,6 +1366,17 @@ $('#tub-save').addEventListener('click', async () => {
   catch (e) { say(st, e.message, 'err'); }
 });
 
+/* === SAVE: CAUSAL LOOP EXERCISE === */
+$('#ex-save').addEventListener('click', async () => {
+  const st = $('#ex-status');
+  if (exPick.includes('?')) { say(st, 'Choose + or − for every link first.', 'err'); return; }
+  const fish = $('#ex-loop').value, cut = $('#ex-cut').value.trim().slice(0, 400);
+  if (!fish || !cut) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const right = checkSigns();
+  try { await live.saveSim('gulf-cld', { signs: exPick.join(''), right, fish, cut }); say(st, `Submitted: ${right} of ${EX_KEY.length} signs right. Be ready to share where you would cut the chain.`, 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
 </script>
 </body>
 </html>
