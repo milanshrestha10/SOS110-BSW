@@ -137,9 +137,14 @@
 .imp-list li::before{width:44px;height:44px;font-size:24px;line-height:44px;background:#b3452c}
 .vocab.strat{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:18px 22px}
 .vocab.strat .vcard{height:auto;min-height:150px}
-.vocab.strat .vcard .f,.vocab.strat .vcard .b{padding:18px 24px}
-.vocab.strat .vcard h4{font-size:32px;margin-bottom:6px}
+.vocab.strat .vcard .f,.vocab.strat .vcard .b{padding:14px 24px}
+.vocab.strat .vcard h4{font-size:30px;margin-bottom:4px}
 .vocab.strat .vcard p{font-size:21px}
+.vocab.strat .vcard p.eg{margin:6px 0 4px;font-size:19px;line-height:1.35;opacity:.85}
+.vocab.strat .vcard p.eg span{font-weight:700}
+.vocab.strat .vcard .hint{margin-top:auto}
+.vocab.strat .vcard .b h4{font-size:26px}
+.vocab.strat .vcard .b p{font-size:23px}
 
 /* causal loop diagram */
 .cld{width:100%;height:auto;display:block;overflow:visible}

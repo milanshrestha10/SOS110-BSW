@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
-<link rel="stylesheet" href="../m4-l3-carbon-cycle-climate/lecture.css?v=2026-10-06">
+<link rel="stylesheet" href="../m4-l3-carbon-cycle-climate/lecture.css?v=2026-10-06b">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -108,7 +108,7 @@
         <div><label for="bq-change"><i>3</i>Move the slider from 1 ft to 6 ft. What changes do you see?</label><textarea id="bq-change" maxlength="400"></textarea></div>
         <div class="bq-row">
           <div><label for="bq-first"><i>4</i>At what level does water first reach a road or building?</label><select id="bq-first"><option value="">Pick one</option><option>1 ft</option><option>2 ft</option><option>3 ft</option><option>4 ft</option><option>5 ft</option><option>6 ft</option><option value="none">Not even at 6 ft</option></select></div>
-          <div><label for="bq-strategy"><i>5</i>With a partner: which strategy fits this beach best?</label><select id="bq-strategy"><option value="">Pick one</option><option value="avoid">Avoid</option><option value="accommodate">Accommodate</option><option value="protect">Protect</option><option value="retreat">Retreat</option></select></div>
+          <div><label for="bq-strategy"><i>5</i>With a partner: which strategy fits this beach best?</label><select id="bq-strategy"><option value="">Pick one</option><option value="avoid">Avoid</option><option value="protect">Protect</option><option value="accommodate">Accommodate</option><option value="retreat">Retreat</option></select></div>
         </div>
         <div><label for="bq-why"><i>6</i>Why did you two pick that strategy?</label><textarea id="bq-why" maxlength="400" style="height:72px"></textarea></div>
         <div class="go-row"><button class="btn" type="button" id="bq-save">Submit</button><span class="status" id="bq-status"></span></div>
@@ -215,24 +215,24 @@
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
-import { flipCard, wireFlips, carbonTub, beachForm, esc, $, $$, say } from '../m4-l3-carbon-cycle-climate/lecture.js?v=2026-10-06';
+import { flipCard, wireFlips, carbonTub, beachForm, esc, $, $$, say } from '../m4-l3-carbon-cycle-climate/lecture.js?v=2026-10-06b';
 
 const LECTURE = 'm4-s3';
 
 /* === COURSE DATA === fills the module title on the title slide */
-loadSession(LECTURE).then(d => fill(document, d)).catch(() => {});
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
 
 /* === CARBON BATHTUB GAME === */
 const ctub = carbonTub();
 
 /* === ADAPTATION STRATEGIES === */
 const STRATS = [
-  ['Avoid', 'alert', 'gold', 'Restrict building in at-risk areas.', 'A county stops new homes from being built in the flood zone behind the beach.'],
-  ['Accommodate', 'city', 'sky', 'Upgrade existing property so it can handle water.', 'Raising houses on stilts, or moving electrical systems up to the second floor.'],
-  ['Protect', 'shield', 'green', 'Improve flood defenses.', 'Sea walls, levees, or restoring dunes and marshes that soak up storm surge.'],
-  ['Retreat', 'out', '', 'Prepare for planned relocation.', 'A town buys out homes that flood again and again and turns the land into a park.'],
+  ['Avoid', 'alert', 'gold', 'Restrict building in at-risk areas.', 'A county stops new homes from being built in the flood zone behind the beach.', 'Maui County, Hawai‘i, makes new buildings stand back from the shoreline, farther where the beach is eroding faster.'],
+  ['Protect', 'shield', 'green', 'Improve flood defenses.', 'Sea walls, levees, or restoring dunes and marshes that soak up storm surge.', 'After Hurricane Katrina, New Orleans rebuilt its levees, floodwalls and giant gates to hold back storm surge.'],
+  ['Accommodate', 'city', 'sky', 'Upgrade existing property so it can handle water.', 'Raising houses on stilts, or moving electrical systems up to the second floor.', 'After Hurricane Sandy, thousands of homes on the New Jersey shore were lifted onto tall pilings so floodwater flows underneath.'],
+  ['Retreat', 'out', '', 'Prepare for planned relocation.', 'A town buys out homes that flood again and again and turns the land into a park.', 'Isle de Jean Charles, Louisiana, lost most of its land to the sea, so residents moved to a new community built inland.'],
 ];
-$('[data-strat]').innerHTML = STRATS.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
+$('[data-strat]').innerHTML = STRATS.map(([t, i, tone, d, ex, place]) => flipCard({ term: t, definition: `<p>${esc(d)}</p><p class="eg"><span>Example:</span> ${esc(ex)}</p>`, example: place, back: `${t}: a real place`, hint: 'Tap for a real place' }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
 wireFlips($('[data-strat]'));
 
 /* === BEACH EXERCISE === */
