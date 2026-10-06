@@ -116,6 +116,26 @@
 .ans.six label{font-size:25px;margin-bottom:10px}
 .ans.six textarea{height:calc(100% - 46px);min-height:90px;font-size:22px}
 .ans.six input{font-size:22px}
+/* slide 9: 1984 / 2022 comparison slider beside the six questions */
+.tl-cols{flex:1;display:grid;grid-template-columns:820px 1fr;gap:44px;min-height:0}
+.tl-cols .ans.six{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:repeat(3,minmax(0,1fr));gap:18px 28px}
+.tl-cols .ans.six>div{display:flex;flex-direction:column;min-height:0}
+.tl-cols .ans.six textarea{flex:1;height:auto;min-height:0}
+.tl-cols .ans.six label{font-size:21px;margin-bottom:8px}
+.tl-cols .ans.six textarea{font-size:20px}
+.tl-left{display:flex;flex-direction:column}
+.cmp{position:relative;width:820px;height:461px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(10,42,53,.22);background:var(--ink)}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmp-before{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp-line{position:absolute;z-index:2;top:0;bottom:0;left:var(--x);width:4px;margin-left:-2px;background:var(--paper);pointer-events:none}
+.cmp-line b{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--paper);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.cmp-line b::before,.cmp-line b::after{content:'';position:absolute;top:50%;margin-top:-9px;border:9px solid transparent}
+.cmp-line b::before{left:6px;border-right-color:var(--Blue)}.cmp-line b::after{right:6px;border-left-color:var(--Blue)}
+.cmp-yr{position:absolute;z-index:2;top:16px;font:700 24px var(--body);letter-spacing:.08em;color:var(--paper);background:rgba(10,42,53,.72);border-radius:999px;padding:4px 16px;pointer-events:none}
+.cmp-yr.l{left:16px}.cmp-yr.r{right:16px}
+.cmp .cmp-range{position:absolute;z-index:3;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.cmp:focus-within{outline:4px solid var(--Sky);outline-offset:3px}
+.cmp-cap{font-size:20px;line-height:1.4;color:var(--mute);margin-top:12px}
 .yrs{display:flex;gap:12px;align-items:center;font-size:21px}
 .yrs select{width:150px}
 .picked-sector{display:inline-flex;gap:12px;align-items:center;font:700 20px var(--body);border-radius:999px;padding:6px 18px 6px 6px;background:var(--paper-2)}
@@ -409,7 +429,19 @@
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Exploration · what did you find?</div>
     <h2 class="reveal d2" style="font-size:64px">Read the land like a <em>geographer</em> <span class="picked-sector" id="picked" style="vertical-align:middle;margin-left:16px"></span></h2>
-    <p class="steps reveal d2">Play your timelapse from the first year to the last. Then answer each question in one or two sentences.</p>
+    <p class="steps reveal d2">Drag the slider to compare 1984 and 2022, or play your timelapse. Then answer each question in one or two sentences.</p>
+    <div class="tl-cols">
+    <div class="tl-left reveal d3">
+      <div class="cmp" id="tl-cmp" style="--x:50%">
+        <img class="cmp-after" id="cmp-after" src="img/tl/agriculture-2022.jpg" alt="">
+        <img class="cmp-before" id="cmp-before" src="img/tl/agriculture-1984.jpg" alt="">
+        <span class="cmp-yr l">1984</span><span class="cmp-yr r">2022</span>
+        <span class="cmp-line" aria-hidden="true"><b></b></span>
+        <input type="range" class="cmp-range" id="cmp-range" min="0" max="100" value="50" aria-label="Slide to compare 1984 and 2022">
+      </div>
+      <p class="cmp-cap" id="cmp-cap"></p>
+      <div class="save" style="margin-top:18px"><button class="btn" type="button" id="tl-save">Submit my answers</button><span class="status" id="tl-status"></span></div>
+    </div>
     <div class="ans six reveal d3">
       <div><label for="tl-place"><i>1</i>Where is it?</label>
         <input id="tl-place" maxlength="120" placeholder="Name the place and the country"></div>
@@ -424,7 +456,7 @@
       <div><label for="tl-geo"><i>6</i>How do the changes affect the land itself?</label>
         <textarea id="tl-geo" maxlength="500" placeholder="Think about the geosphere: rock, soil, landforms, erosion and sediment."></textarea></div>
     </div>
-    <div class="save reveal d4" style="margin-top:22px"><button class="btn" type="button" id="tl-save">Submit my answers</button><span class="status" id="tl-status"></span></div>
+    </div>
   </div>
 </section>
 
@@ -1069,7 +1101,20 @@ const SECTORS = [
 let choice = null;
 $('[data-sectors]').innerHTML = SECTORS.map(s => `<div class="sector ${s.cls}"><div class="sec-img"><img src="img/${s.img[0]}" alt="${esc(s.img[1])}"></div><div><span class="ico sm ${s.tone}"><svg aria-hidden="true"><use href="#i-${s.icon}"/></svg></span><span class="tag" style="margin-left:10px">Sector</span></div><h3>${esc(s.name)}</h3>${s.topics.map(([id, n, tip]) => `<button type="button" class="topic" data-sector="${s.id}" data-topic="${id}"><b>${esc(n)}</b><small>Starts at: ${esc(tip)}</small></button>`).join('')}</div>`).join('');
 const pickText = () => $('#tl-pick').value.trim();
+/* 1984 and 2022 frames for each preset topic, from Google Earth Timelapse */
+const CMP_PLACE = { mining: 'Fort McMurray oil sands, Alberta, Canada', glaciers: 'Columbia Glacier, Alaska', deforestation: 'Rondônia, Brazil', rivers: 'Ucayali River at Pucallpa, Peru', agriculture: 'Aral Sea, Kazakhstan and Uzbekistan', urbanization: 'Phoenix metro, Arizona' };
+function showCompare() {
+  const topic = choice && CMP_PLACE[choice.topic] ? choice.topic : 'agriculture';
+  $('#cmp-before').src = `img/tl/${topic}-1984.jpg`;
+  $('#cmp-after').src = `img/tl/${topic}-2022.jpg`;
+  $('#cmp-before').alt = `${CMP_PLACE[topic]} in 1984`;
+  $('#cmp-after').alt = `${CMP_PLACE[topic]} in 2022`;
+  const lead = choice && CMP_PLACE[choice.topic] ? '' : (pickText() ? 'Your place has no preset view, so this shows the Aral Sea as an example. Use Timelapse to compare your own place. ' : 'Example: pick a topic on the last slide to see your site here. ');
+  $('#cmp-cap').textContent = `${lead}${CMP_PLACE[topic]}. Left: 1984. Right: 2022. Images: Google Earth Timelapse, Landsat and Copernicus.`;
+}
+$('#cmp-range').addEventListener('input', e => $('#tl-cmp').style.setProperty('--x', `${e.target.value}%`));
 function showChoice() {
+  showCompare();
   $$('.topic').forEach(b => b.classList.toggle('on', !!choice && b.dataset.topic === choice.topic));
   const typed = pickText();
   if (!typed) { $('#picked').innerHTML = '<span style="padding-left:12px">Type your sector and topic on the last slide</span>'; $('#sector-status').textContent = ''; return; }
