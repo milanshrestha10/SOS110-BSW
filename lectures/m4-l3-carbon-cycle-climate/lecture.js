@@ -5,11 +5,11 @@ export const say = (el, msg, kind = '') => { if (el) { el.textContent = msg; el.
 export const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 /* === FLIP CARDS === */
-export const flipCard = ({ term, definition, example, significance }, icon = '', cls = '') => `
+export const flipCard = ({ term, definition, example, significance, back = 'Example', hint = 'Tap for example' }, icon = '', cls = '') => `
   <div class="vcard${cls ? ' ' + cls : ''}" tabindex="0" role="button" aria-label="${esc(term)}: show example">
     <div class="in">
-      <div class="f"><h4${icon ? ' class="ih"' : ''}>${icon}${esc(term)}</h4>${definition}<span class="hint">Tap for example</span></div>
-      <div class="b"><h4>Example</h4><p>${esc(example)}</p>${significance ? `<p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(significance)}</p>` : ''}</div>
+      <div class="f"><h4${icon ? ' class="ih"' : ''}>${icon}${esc(term)}</h4>${definition}<span class="hint">${esc(hint)}</span></div>
+      <div class="b"><h4>${esc(back)}</h4><p>${esc(example)}</p>${significance ? `<p style="margin-top:14px;opacity:.85"><b>Why it matters:</b> ${esc(significance)}</p>` : ''}</div>
     </div>
   </div>`;
 export function wireFlips(root) {
@@ -121,7 +121,7 @@ export function carbonTub() {
     const pts = runPath(pick), t0 = performance.now(), dur = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 5000;
     msg('Watch the readout: CO₂ rises whenever emitted is bigger than absorbed.');
     const step = now => {
-      const n = Math.min(pts.length, 1 + Math.floor((now - t0) / dur * pts.length));
+      const n = Math.max(1, Math.min(pts.length, 1 + Math.floor((now - t0) / dur * pts.length)));
       show(pts[n - 1]); chart(pts.slice(0, n));
       if (n < pts.length) anim = requestAnimationFrame(step); else done(pts);
     };
