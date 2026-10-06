@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 13 · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../m4-l3-carbon-cycle-climate/lecture.css?v=2026-10-06">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-therm" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" src="../m4-l3-carbon-cycle-climate/img/drought-hero.jpg" alt="Dry, cracked ground stretching to the horizon under dark storm clouds">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 13 · Carbon cycle and global climate change</div>
+    <h1 class="reveal d2">Class <em>Exercise 13</em></h1>
+    <p class="hero-sub reveal d3">Keep this page open. We will come back to it for each activity.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- EXERCISE. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Exercise 1 of 7 · Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess</div>
+    <h2 class="reveal d2" style="font-size:68px;max-width:1450px">About how much has global sea level <em>risen</em> since 1900?</h2>
+    <div class="poll reveal d3" data-poll="slr-warmup" data-correct="1">
+      <button class="opt" type="button"><b>A</b>About 1 inch</button>
+      <button class="opt" type="button"><b>B</b>About 8 inches</button>
+      <button class="opt" type="button"><b>C</b>About 3 feet</button>
+      <button class="opt" type="button"><b>D</b>About 10 feet</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="slr-warmup">Show answer</button><span class="status" data-poll-status="slr-warmup" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- EXERCISE. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>13</b><span>Exercise 2 of 7 · Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE. WHAT IS HAPPENING TO OUR BEACHES? -->
+<section class="slide" id="beach">
+  <div class="rail"><b>13</b><span>Exercise 3 of 7 · Beaches</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-umbrella"/></svg></span>Class exercise · NOAA Sea Level Rise Viewer</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:24px">What is happening to <em>our beaches</em>?</h2>
+    <div class="beach reveal d3">
+      <div class="beach-tool">
+        <a class="slr-card" href="https://coast.noaa.gov/slr/" target="_blank" rel="noopener">
+          <img src="../m4-l3-carbon-cycle-climate/img/slr-viewer.jpg" alt="Start screen of the NOAA Sea Level Rise Viewer">
+          <span class="slr-go"><svg aria-hidden="true"><use href="#i-out"/></svg>Open the Sea Level Rise Viewer</span>
+        </a>
+        <div class="slr-qr"><img src="../m4-l3-carbon-cycle-climate/img/noaa-slr-qr.svg" alt="QR code for coast.noaa.gov/slr"><p><b>coast.noaa.gov/slr</b>Scan to open it on your phone.</p></div>
+        <ol class="howto">
+          <li>Search for your <b>favorite beach</b> in the US.</li>
+          <li>Find the water level slider (feet above high tide).</li>
+          <li>Move it from <b>1 ft</b> to <b>6 ft</b>, one step at a time.</li>
+        </ol>
+      </div>
+      <div class="ex beach-q" data-beach-form>
+        <div><label for="bq-beach"><i>1</i>Which beach did you pick? Add the state.</label><input class="bq-in" id="bq-beach" maxlength="80" placeholder="Example: Venice Beach, California"></div>
+        <div><label for="bq-colors"><i>2</i>Before you move the slider: what do you notice? What might the light blue and light green colors show?</label><textarea id="bq-colors" maxlength="400"></textarea></div>
+        <div><label for="bq-change"><i>3</i>Move the slider from 1 ft to 6 ft. What changes do you see?</label><textarea id="bq-change" maxlength="400"></textarea></div>
+        <div class="bq-row">
+          <div><label for="bq-first"><i>4</i>At what level does water first reach a road or building?</label><select id="bq-first"><option value="">Pick one</option><option>1 ft</option><option>2 ft</option><option>3 ft</option><option>4 ft</option><option>5 ft</option><option>6 ft</option><option value="none">Not even at 6 ft</option></select></div>
+          <div><label for="bq-strategy"><i>5</i>With a partner: which strategy fits this beach best?</label><select id="bq-strategy"><option value="">Pick one</option><option value="avoid">Avoid</option><option value="accommodate">Accommodate</option><option value="protect">Protect</option><option value="retreat">Retreat</option></select></div>
+        </div>
+        <div><label for="bq-why"><i>6</i>Why did you two pick that strategy?</label><textarea id="bq-why" maxlength="400" style="height:72px"></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="bq-save">Submit</button><span class="status" id="bq-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE. ADAPTATION STRATEGIES -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Exercise 4 of 7 · Adaptation</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Big idea 3 · sea level rise on the coast</div>
+    <h2 class="reveal d2" style="font-size:66px">Coastal impacts and <em>adaptation strategies</em></h2>
+    <div class="adapt-def reveal d2"><img src="../m4-l3-carbon-cycle-climate/img/beach.jpg" alt="" aria-hidden="true"><p><span><b>Adaptation</b> means adjusting ecological, social or economic systems in response to actual or expected climate change and its effects.</span></p></div>
+    <div class="grid reveal d3" style="grid-template-columns:560px 1fr;gap:44px;flex:1">
+      <div>
+        <h3 style="color:#b3452c">Impacts</h3>
+        <ol class="num imp-list">
+          <li>Some low-lying islands <b>disappear</b>.</li>
+          <li>Coastal land <b>floods</b> and goes under water.</li>
+          <li>More <b>erosion</b> and loss of coastal habitat.</li>
+          <li><b>Salt water</b> seeps into rivers and groundwater.</li>
+        </ol>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <h3 style="color:#2e7d5b">Adaptation strategies · tap a card</h3>
+        <div class="vocab strat" data-strat></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE. REVIEW QUESTION: SEA LEVEL -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Exercise 5 of 7 · Review question</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · check your understanding</div>
+    <h2 class="reveal d2" style="font-size:64px;max-width:1500px">What is a <em>main reason</em> sea levels are rising as the climate changes?</h2>
+    <div class="poll reveal d3" data-poll="rq-sea" data-correct="1">
+      <button class="opt" type="button"><b>A</b>More rain is falling over the oceans</button>
+      <button class="opt" type="button"><b>B</b>Seawater expands as it warms, and ice on land melts</button>
+      <button class="opt" type="button"><b>C</b>More volcanoes are erupting on the ocean floor</button>
+      <button class="opt" type="button"><b>D</b>Stronger ocean currents push more water onto shore</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq-sea">Show answer</button><span class="status" data-poll-status="rq-sea" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- EXERCISE. GAME: THE CARBON BATHTUB -->
+<section class="slide" id="ctub">
+  <div class="rail"><b>13</b><span>Exercise 6 of 7 · Game</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Game · the atmosphere is a stock: what makes CO₂ go down?</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:26px">The <em>carbon bathtub</em></h2>
+    <div class="ctub reveal d3">
+      <div class="ctub-left">
+        <div class="ex">
+          <div><label for="ct-predict"><i>1</i>Predict first: if the world keeps emitting the same amount every year, what happens to CO₂ in the air?</label>
+            <select id="ct-predict"><option value="">Pick one</option><option value="rise">It keeps rising</option><option value="steady">It stays the same</option><option value="fall">It goes down</option></select></div>
+        </div>
+        <p class="ct-h"><i>2</i>Pick an emissions path, then press Run.</p>
+        <div class="paths" id="ct-paths"></div>
+        <div class="readout ct-read">
+          <div><b id="ct-year">2025</b><span>Year</span></div>
+          <div><b id="ct-e">11.0</b><span>Emitted (billion t C/yr)</span></div>
+          <div><b id="ct-s">6.2</b><span>Absorbed by ocean and land</span></div>
+          <div><b id="ct-c">422</b><span>CO₂ in the air (ppm)</span></div>
+        </div>
+        <p class="tubmsg" id="ct-msg">Inflow: emissions. Outflow: what the ocean and land absorb. CO₂ falls only when the outflow is bigger.</p>
+        <div class="go-row">
+          <button class="btn" type="button" id="ct-run">Run</button>
+          <button class="btn" type="button" id="ct-save">Submit</button>
+          <span class="status" id="ct-status"></span>
+        </div>
+      </div>
+      <div>
+        <svg class="chart ct-chart" id="ct-chart" viewBox="0 0 900 560" role="img" aria-label="Line chart of CO2 in the air from 2025 to 2100 for each emissions path you run, with bars for yearly emissions"></svg>
+        <p class="credit">A teaching model, not a forecast. Each year the ocean and land take up part of the extra CO₂, and they take up less as they fill. Starting values are rounded from the Global Carbon Budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Exercise 7 of 7 · Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:70px">Which of these is a <em>mitigation</em> action?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Building a sea wall along the beach</button>
+      <button class="opt" type="button"><b>B</b>Switching a city's power from coal to solar</button>
+      <button class="opt" type="button"><b>C</b>Moving homes away from the coast</button>
+      <button class="opt" type="button"><b>D</b>Raising houses on stilts above flood level</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, carbonTub, beachForm, esc, $, $$, say } from '../m4-l3-carbon-cycle-climate/lecture.js?v=2026-10-06';
+
+const LECTURE = 'm4-s3';
+
+/* === COURSE DATA === fills the module title on the title slide */
+loadSession(LECTURE).then(d => fill(document, d)).catch(() => {});
+
+/* === CARBON BATHTUB GAME === */
+const ctub = carbonTub();
+
+/* === ADAPTATION STRATEGIES === */
+const STRATS = [
+  ['Avoid', 'alert', 'gold', 'Restrict building in at-risk areas.', 'A county stops new homes from being built in the flood zone behind the beach.'],
+  ['Accommodate', 'city', 'sky', 'Upgrade existing property so it can handle water.', 'Raising houses on stilts, or moving electrical systems up to the second floor.'],
+  ['Protect', 'shield', 'green', 'Improve flood defenses.', 'Sea walls, levees, or restoring dunes and marshes that soak up storm surge.'],
+  ['Retreat', 'out', '', 'Prepare for planned relocation.', 'A town buys out homes that flood again and again and turns the land into a park.'],
+];
+$('[data-strat]').innerHTML = STRATS.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
+wireFlips($('[data-strat]'));
+
+/* === BEACH EXERCISE === */
+const beach = beachForm();
+
+/* === LIVE === attendance, polls and activities */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in.
+   Saves under m4-s3, the same lecture as the deck, so results show on its instructor page. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!id.endsWith('warmup') && !await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: CARBON BATHTUB === the prediction and the CO2 level in 2100 for each path tried */
+$('#ct-save').addEventListener('click', async () => {
+  const st = $('#ct-status');
+  const data = ctub.result();
+  if (!data.predict) { say(st, 'Make your prediction in step 1 first.', 'err'); return; }
+  if (!Object.keys(data.runs).length) { say(st, 'Run at least one path first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('carbon-tub', data); say(st, 'Submitted.', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: BEACH EXERCISE === */
+$('#bq-save').addEventListener('click', async () => {
+  const st = $('#bq-status');
+  const { data, missing } = beach.read();
+  if (missing) { say(st, `Answer question ${missing} first.`, 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('beach-slr', data); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>

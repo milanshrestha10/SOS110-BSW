@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 13 Carbon cycle and global climate change · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="lecture.css?v=2026-10-06">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-therm" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" src="img/drought-hero.jpg" alt="Dry, cracked ground stretching to the horizon under dark storm clouds">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 13 · S&amp;M Chapter 11</div>
+    <h1 class="reveal d2">Carbon cycle and <em>global climate change</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">How carbon moves through Earth's systems, how we know people are warming the planet, and how we can respond.</p>
+    <div class="goldline"></div>
+  </div>
+  <p class="hero-cap reveal d4">A drying landscape under a stormy sky</p>
+</section>
+
+<!-- 2. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · how the carbon cycle, climate change and people are linked</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><br><span class="tag">1 · Carbon cycle</span><h3>Where carbon goes</h3><p>What the carbon cycle is, how human actions disrupt it, and where the extra carbon comes from.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-search"/></svg></span><br><span class="tag">2 · Climate science</span><h3>How we know</h3><p>How scientists know that today's climate change is caused by human activities, not natural sources.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-waves"/></svg></span><br><span class="tag">3 · Impacts and responses</span><h3>What changes, what we do</h3><p>The main impacts on ecosystems and people, and the adaptation and mitigation steps we can take.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>The science of climate change is certain and solid. The uncertainty lies in how society will respond, and in the feedback loops of the Earth system.</div>
+  </div>
+</section>
+
+<!-- 3. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:72px;max-width:1450px">Where is <em>most</em> of Earth's carbon stored?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>In the air, as carbon dioxide</button>
+      <button class="opt" type="button"><b>B</b>In plants, animals and soil</button>
+      <button class="opt" type="button"><b>C</b>In the ocean</button>
+      <button class="opt" type="button"><b>D</b>In rocks and sediments</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 4. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 5. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>13</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CARBON IN THE EARTH SYSTEM -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 1 · Carbon cycle</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · carbon circulates through burning and storage</div>
+    <h2 class="reveal d2" style="font-size:70px">Carbon and CO₂ in the <em>Earth system</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1080px 1fr;gap:40px;align-items:start">
+      <div>
+        <figure class="fig plain"><img src="img/carbon-cycle-glance.jpg" alt="The carbon cycle at a glance: carbon stored in the atmosphere (871), surface water (900), intermediate and deep water (37,100), marine organisms (3), dissolved organic carbon (700), ocean floor sediment (1,750), soils and organic matter (1,700), terrestrial vegetation (450), coal (3,000), oil and gas (3,000), gas hydrates (500 to 2,500) and marine sediments and sedimentary rocks (66,000,000 to 100,000,000), in billions of metric tons. Arrows show fossil fuel emissions, fires, soil and volcanic emissions, plant growth and decay, land use change and ocean exchange, colored by speed."></figure>
+        <p class="credit">The carbon cycle at a glance. Numbers are billions of metric tons of carbon. Adapted from IPCC (2022), in Sherman &amp; Montgomery (2023), Ch. 11.</p>
+      </div>
+      <ol class="num c-points">
+        <li>Carbon has always been part of the Earth system, and of humanity: it is in our food, our DNA, the air and our fuels.</li>
+        <li>Carbon moves naturally between the <b>ocean</b>, the <b>atmosphere</b> and the <b>biosphere</b>.</li>
+        <li>More than <b>99%</b> is locked in solid and liquid form, in rocks, sediments and the deep ocean.</li>
+        <li>Burning fossil fuels adds CO₂ to the air <b>faster</b> than nature can store it away again.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHERE IS THE CARBON? -->
+<section class="slide" id="stocks">
+  <div class="rail"><b>13</b><span>Big idea 1 · Carbon stocks</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 1 · checking the warm-up poll</div>
+    <h2 class="reveal d2" style="font-size:70px">Where is the <em>carbon</em>?</h2>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 440px;gap:48px;flex:1">
+      <div class="stockbars" id="stockbars"></div>
+      <div class="stock-side">
+        <p class="steps">Each bar is a carbon <b>stock</b> from the figure, in billions of tons. Every step to the right is <b>10 times</b> bigger (K = thousand, M = million).</p>
+        <div class="card gold" style="padding:22px 28px"><span class="tag">Warm-up answer: D</span><p style="font-size:23px">Rocks and sediments hold about <b>100,000 times</b> more carbon than the air. They give it up only over millions of years.</p></div>
+        <div class="card accent" style="padding:22px 28px;margin-top:18px"><span class="tag">The human shortcut</span><p style="font-size:23px">Coal, oil and gas took millions of years to form. We are moving that carbon into the air in a few hundred years.</p></div>
+        <div class="legend"><span><i style="background:#c76f1e"></i>Fossil fuels</span><span><i style="background:var(--Sky)"></i>Ocean</span><span><i style="background:var(--Green)"></i>Land</span><span><i style="background:#8a7b6a"></i>Rock</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. GAME: THE CARBON BATHTUB -->
+<section class="slide" id="ctub">
+  <div class="rail"><b>13</b><span>Game</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Game · the atmosphere is a stock: what makes CO₂ go down?</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:26px">The <em>carbon bathtub</em></h2>
+    <div class="ctub reveal d3">
+      <div class="ctub-left">
+        <div class="ex">
+          <div><label for="ct-predict"><i>1</i>Predict first: if the world keeps emitting the same amount every year, what happens to CO₂ in the air?</label>
+            <select id="ct-predict"><option value="">Pick one</option><option value="rise">It keeps rising</option><option value="steady">It stays the same</option><option value="fall">It goes down</option></select></div>
+        </div>
+        <p class="ct-h"><i>2</i>Pick an emissions path, then press Run.</p>
+        <div class="paths" id="ct-paths"></div>
+        <div class="readout ct-read">
+          <div><b id="ct-year">2025</b><span>Year</span></div>
+          <div><b id="ct-e">11.0</b><span>Emitted (billion t C/yr)</span></div>
+          <div><b id="ct-s">6.2</b><span>Absorbed by ocean and land</span></div>
+          <div><b id="ct-c">422</b><span>CO₂ in the air (ppm)</span></div>
+        </div>
+        <p class="tubmsg" id="ct-msg">Inflow: emissions. Outflow: what the ocean and land absorb. CO₂ falls only when the outflow is bigger.</p>
+        <div class="go-row">
+          <button class="btn" type="button" id="ct-run">Run</button>
+          <button class="btn" type="button" id="ct-save">Submit</button>
+          <span class="status" id="ct-status"></span>
+        </div>
+      </div>
+      <div>
+        <svg class="chart ct-chart" id="ct-chart" viewBox="0 0 900 560" role="img" aria-label="Line chart of CO2 in the air from 2025 to 2100 for each emissions path you run, with bars for yearly emissions"></svg>
+        <p class="credit">A teaching model, not a forecast. Each year the ocean and land take up part of the extra CO₂, and they take up less as they fill. Starting values are rounded from the Global Carbon Budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. THE CO2 CURVE -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 1 · CO₂ record</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-therm"/></svg></span>Big idea 1 · measured in the air since 1958</div>
+    <h2 class="reveal d2" style="font-size:70px">CO₂ in the air keeps <em>climbing</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:900px 1fr;gap:50px;align-items:start">
+      <div>
+        <figure class="fig plain"><img src="img/co2-curve.jpg" alt="Carbon dioxide abundance in parts per million from 1958 to 2022: a sawtooth line rising from about 315 ppm to about 420 ppm, with a smooth orange trend line through it"></figure>
+        <p class="credit">Adapted from NOAA (2022), in Sherman &amp; Montgomery (2023), Ch. 11.</p>
+      </div>
+      <div>
+        <div class="bigstat"><b data-count="315">315</b><span>ppm in 1958</span></div>
+        <div class="bigstat"><b data-count="420">420</b><span>ppm by 2022</span></div>
+        <p style="font-size:25px;line-height:1.45;margin:14px 0 22px">The orange line is the yearly average. It rises faster each decade, because emissions keep growing.</p>
+        <div class="mq one"><div class="reveal-card" data-def><h3>Why does the blue line <em style="color:var(--accent);font-style:normal">zigzag</em> every year?</h3>
+          <p class="think">Think, tell a neighbor, then tap to check.</p>
+          <p class="ans-text">Plants. Most land is in the Northern Hemisphere. Its forests pull CO₂ out of the air as they grow in summer, and release it as leaves decay in winter.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CLIMATE HAS CHANGED BEFORE -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 2 · Natural change</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 2 · Earth's climate has changed before</div>
+    <h2 class="reveal d2" style="font-size:70px">Natural causes can <em>change the climate</em> too</h2>
+    <div class="grid reveal d3" style="grid-template-columns:820px 1fr;gap:48px;align-items:start">
+      <div>
+        <figure class="fig"><img src="img/asteroid-impact.jpg" alt="Illustration of a large asteroid striking Earth near the Yucatán Peninsula in Mexico, seen from space"></figure>
+        <p class="credit">An asteroid hits the Yucatán Peninsula about 66 million years ago. Illustration: Science Photo Library/Alamy Stock Photo.</p>
+      </div>
+      <div class="nat-list">
+        <div class="card gold"><h3>Asteroid impacts</h3><p>Dust and gases from the Chicxulub impact blocked sunlight and changed the climate. Most species, including the large dinosaurs, died out.</p></div>
+        <div class="card blue"><h3>Volcanoes</h3><p>Large eruptions put out ash that cools Earth for a few years, and CO₂ over very long times.</p></div>
+        <div class="card green"><h3>The sun and Earth's orbit</h3><p>Slow changes in Earth's orbit brought the ice ages and the warm periods between them.</p></div>
+      </div>
+    </div>
+    <div class="take reveal d4" style="margin-top:22px;font-size:27px"><b>So how do we know?</b>These causes act over years or over many thousands of years. Today's warming is fast, and the evidence points to us.</div>
+  </div>
+</section>
+
+<!-- 11. READING EARTH'S PAST -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 2 · Evidence</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 2 · nature keeps a record of past climate</div>
+    <h2 class="reveal d2" style="font-size:70px">Reading Earth's <em>climate history</em></h2>
+    <figure class="fig plain reveal d3"><img src="img/climate-proxies.jpg" alt="Three records of past climate: (a) a cross-section of a tree trunk showing growth rings, (b) layered lake sediments called varves, (c) a scientist in a parka holding a long ice core in Antarctica"></figure>
+    <p class="credit reveal d3">(a) NOAA. (b) Courtesy of the U.S. Geological Survey. (c) Robert Mulvaney/British Antarctic Survey. In Sherman &amp; Montgomery (2023), Ch. 11.</p>
+    <div class="vocab three reveal d4" data-proxy></div>
+  </div>
+</section>
+
+<!-- 12. NATURAL OR HUMAN? -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 2 · Climate science</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 2 · natural causes or human causes?</div>
+    <h2 class="reveal d2" style="font-size:70px">Climate change <em>science</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:440px 1fr;gap:50px;align-items:start">
+      <div>
+        <figure class="fig plain"><img src="img/temp-co2-1000yr.jpg" alt="Chart from the year 1000 to 2000: global average surface temperature (red) and carbon dioxide concentration (blue) stay fairly flat through the Little Ice Age, then both shoot up after 1900"></figure>
+        <p class="credit">Image courtesy of the Koshland Science Museum, National Academy of Sciences.</p>
+      </div>
+      <div>
+        <div class="grid g2" style="gap:26px">
+          <div class="card blue" style="padding:24px 30px"><span class="tag">Natural causes</span><ul class="clean" style="font-size:24px"><li>The sun's energy</li><li>Volcanic eruptions</li><li>Slow changes in Earth's orbit</li></ul><p class="small mute" style="font-size:20px">None of these explain the fast warming since 1900.</p></div>
+          <div class="card gold" style="padding:24px 30px"><span class="tag">Human causes</span><ul class="clean" style="font-size:24px"><li><b>Industrial metabolism:</b> burning coal, oil and gas for energy and goods</li><li><b>Land change:</b> clearing forests and farming</li></ul></div>
+        </div>
+        <blockquote class="quote">"Most of the recent warming can be attributed to fossil fuel burning and other human activities that release carbon dioxide and other heat-trapping greenhouse gases into the atmosphere."<cite>The scientific consensus · <i>America's Climate Choices: Advancing the Science of Climate Change</i>, National Research Council (2010)</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. IMPACTS AND RISKS -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Impacts</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · tap a card to see an example</div>
+    <h2 class="reveal d2" style="font-size:70px">Climate change <em>impacts and risks</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:600px 1fr;gap:44px;flex:1">
+      <svg class="spi" viewBox="0 0 600 560" role="img" aria-label="Changes in the state of the climate, such as temperature and precipitation, act through air, water and land, and lead to impacts">
+        <defs><radialGradient id="spi-g" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#d7eef3"/><stop offset="1" stop-color="#7cc4d4"/></radialGradient></defs>
+        <circle class="spi-r r3" cx="250" cy="260" r="240" fill="#e8f3f2"/>
+        <circle class="spi-r r2" cx="210" cy="260" r="190" fill="#cfe7ea"/>
+        <circle class="spi-r r1" cx="170" cy="260" r="140" fill="url(#spi-g)"/>
+        <g transform="translate(110 200)"><circle cx="60" cy="60" r="62" fill="#fff"/><circle cx="60" cy="60" r="48" fill="#0d7397"/><path d="M38 44q14-14 30-4t16 18q-6 14-22 10t-24-24z M66 78q12-4 18 6t-6 14q-12 2-14-10z" fill="#75a29f"/></g>
+        <text x="272" y="268" class="spi-l">Air</text><text x="356" y="268" class="spi-l">Water</text><text x="446" y="268" class="spi-l">Land</text>
+        <text x="20" y="545" class="spi-s">State</text><text x="190" y="545" class="spi-s">Processes</text><text x="470" y="545" class="spi-s">Impacts</text>
+        <path d="M105 538 H175 M355 538 H455" stroke="#9aa8ad" stroke-width="5" marker-end="url(#spi-a)"/>
+        <defs><marker id="spi-a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#9aa8ad"/></marker></defs>
+        <text x="20" y="60" class="spi-s" style="font-size:18px">Temperature · precipitation</text>
+      </svg>
+      <div class="vocab imp" data-impacts></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. CLASS EXERCISE: WHAT IS HAPPENING TO OUR BEACHES? -->
+<section class="slide" id="beach">
+  <div class="rail"><b>13</b><span>Class exercise</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-umbrella"/></svg></span>Class exercise · NOAA Sea Level Rise Viewer</div>
+    <h2 class="reveal d2" style="font-size:62px;margin-bottom:24px">What is happening to <em>our beaches</em>?</h2>
+    <div class="beach reveal d3">
+      <div class="beach-tool">
+        <a class="slr-card" href="https://coast.noaa.gov/slr/" target="_blank" rel="noopener">
+          <img src="img/slr-viewer.jpg" alt="Start screen of the NOAA Sea Level Rise Viewer">
+          <span class="slr-go"><svg aria-hidden="true"><use href="#i-out"/></svg>Open the Sea Level Rise Viewer</span>
+        </a>
+        <div class="slr-qr"><img src="img/noaa-slr-qr.svg" alt="QR code for coast.noaa.gov/slr"><p><b>coast.noaa.gov/slr</b>Scan to open it on your phone.</p></div>
+        <ol class="howto">
+          <li>Search for your <b>favorite beach</b> in the US.</li>
+          <li>Find the water level slider (feet above high tide).</li>
+          <li>Move it from <b>1 ft</b> to <b>6 ft</b>, one step at a time.</li>
+        </ol>
+      </div>
+      <div class="ex beach-q" data-beach-form>
+        <div><label for="bq-beach"><i>1</i>Which beach did you pick? Add the state.</label><input class="bq-in" id="bq-beach" maxlength="80" placeholder="Example: Venice Beach, California"></div>
+        <div><label for="bq-colors"><i>2</i>Before you move the slider: what do you notice? What might the light blue and light green colors show?</label><textarea id="bq-colors" maxlength="400"></textarea></div>
+        <div><label for="bq-change"><i>3</i>Move the slider from 1 ft to 6 ft. What changes do you see?</label><textarea id="bq-change" maxlength="400"></textarea></div>
+        <div class="bq-row">
+          <div><label for="bq-first"><i>4</i>At what level does water first reach a road or building?</label><select id="bq-first"><option value="">Pick one</option><option>1 ft</option><option>2 ft</option><option>3 ft</option><option>4 ft</option><option>5 ft</option><option>6 ft</option><option value="none">Not even at 6 ft</option></select></div>
+          <div><label for="bq-strategy"><i>5</i>With a partner: which strategy fits this beach best?</label><select id="bq-strategy"><option value="">Pick one</option><option value="avoid">Avoid</option><option value="accommodate">Accommodate</option><option value="protect">Protect</option><option value="retreat">Retreat</option></select></div>
+        </div>
+        <div><label for="bq-why"><i>6</i>Why did you two pick that strategy?</label><textarea id="bq-why" maxlength="400" style="height:72px"></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="bq-save">Submit</button><span class="status" id="bq-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. IMPACTS AND ADAPTATION -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Adaptation</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Big idea 3 · sea level rise on the coast</div>
+    <h2 class="reveal d2" style="font-size:66px">Coastal impacts and <em>adaptation strategies</em></h2>
+    <div class="adapt-def reveal d2"><img src="img/beach.jpg" alt="" aria-hidden="true"><p><span><b>Adaptation</b> means adjusting ecological, social or economic systems in response to actual or expected climate change and its effects.</span></p></div>
+    <div class="grid reveal d3" style="grid-template-columns:560px 1fr;gap:44px;flex:1">
+      <div>
+        <h3 style="color:#b3452c">Impacts</h3>
+        <ol class="num imp-list">
+          <li>Some low-lying islands <b>disappear</b>.</li>
+          <li>Coastal land <b>floods</b> and goes under water.</li>
+          <li>More <b>erosion</b> and loss of coastal habitat.</li>
+          <li><b>Salt water</b> seeps into rivers and groundwater.</li>
+        </ol>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <h3 style="color:#2e7d5b">Adaptation strategies · tap a card</h3>
+        <div class="vocab strat" data-strat></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. REVIEW QUESTION: SEA LEVEL -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Review question</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · check your understanding</div>
+    <h2 class="reveal d2" style="font-size:64px;max-width:1500px">What is a <em>main reason</em> sea levels are rising as the climate changes?</h2>
+    <div class="poll reveal d3" data-poll="rq-sea" data-correct="1">
+      <button class="opt" type="button"><b>A</b>More rain is falling over the oceans</button>
+      <button class="opt" type="button"><b>B</b>Seawater expands as it warms, and ice on land melts</button>
+      <button class="opt" type="button"><b>C</b>More volcanoes are erupting on the ocean floor</button>
+      <button class="opt" type="button"><b>D</b>Stronger ocean currents push more water onto shore</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq-sea">Show answer</button><span class="status" data-poll-status="rq-sea" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 17. GLACIERS -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Glaciers</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-snow"/></svg></span>Big idea 3 · the same view, 81 years apart</div>
+    <h2 class="reveal d2" style="font-size:70px">Glaciers and <em>climate change</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:960px 1fr;gap:44px;align-items:start">
+      <div>
+        <figure class="fig"><img src="img/glacier-1938-2019.jpg" alt="Grinnell and Salamander glaciers in Glacier National Park: a 1938 black and white photo full of ice, and a 2019 color photo of the same view with a small glacier and a lake"></figure>
+        <p class="credit">Grinnell and Salamander glaciers, Glacier National Park, Montana: 1938 (T.J. Hileman, GNP Archives) and 2019 (L. McKeon, USGS). <a href="https://www.usgs.gov/centers/norock/science/status-glaciers-glacier-national-park" target="_blank" rel="noopener">USGS repeat photography</a></p>
+      </div>
+      <div>
+        <figure class="fig plain"><img src="img/ice-albedo.jpg" alt="Ice-albedo diagram: sunlight hitting dark ground and water is absorbed as heat, while sunlight hitting snow and ice is reflected back to space"></figure>
+        <p class="credit">Ice-albedo feedback. Diagram: the-m-factory.com.</p>
+        <p style="font-size:24px;line-height:1.45;margin-top:14px"><b>Albedo</b> is how much sunlight a surface reflects. Snow and ice reflect most of it. Dark rock and water <b>absorb</b> it as heat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. ICE-ALBEDO FEEDBACK -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Feedback</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Big idea 3 · how is this related to us?</div>
+    <h2 class="reveal d2" style="font-size:70px">Ice-albedo feedback: a <em>reinforcing</em> loop</h2>
+    <div class="grid reveal d3" style="grid-template-columns:900px 1fr;gap:50px;align-items:center;flex:1">
+      <svg class="cld seq" id="cld-ice" viewBox="0 0 760 470" role="img" aria-label="Reinforcing loop: a higher temperature melts Arctic sea ice, less ice exposes dark ocean, dark ocean absorbs more heat, and more heat raises the temperature"></svg>
+      <div>
+        <p style="font-size:27px;line-height:1.45">As reflective ice disappears, darker ocean water <b>absorbs more heat</b>, which melts more ice. Count the − links: two, an even number, so the loop is <b>reinforcing</b>.</p>
+        <div class="ice-loss">
+          <img src="img/greenland.jpg" alt="Aerial view of melting Greenland ice with meltwater channels">
+          <div>
+            <span class="tag">Greenland ice loss · billion metric tons per year</span>
+            <div class="loss-bars">
+              <div><span>1901–1990</span><i style="--w:36%"></i><b>120</b></div>
+              <div><span>2006–2018</span><i style="--w:100%"></i><b>330</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. GLACIAL LAKES -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Glacial lakes</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Big idea 3 · melting glaciers fill mountain lakes</div>
+    <h2 class="reveal d2" style="font-size:70px">Glacial lakes are <em>growing</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1100px 1fr;gap:44px;align-items:start">
+      <div>
+        <figure class="fig plain"><img src="img/glacial-lakes.jpg" alt="World map of glacial lakes colored by area, clustered in Alaska, the Andes, Greenland, Scandinavia, the Alps and High Mountain Asia, with a side chart of lake area by latitude"></figure>
+        <p class="credit">Glacial lakes around the world. Source: Shugar et al. (2020), <i>Nature Climate Change</i>.</p>
+      </div>
+      <div>
+        <p style="font-size:26px;line-height:1.45">As glaciers melt, meltwater collects behind loose walls of rock and ice called <b>moraines</b>.</p>
+        <div class="card gold" style="padding:22px 28px;margin-top:20px"><span class="tag">GLOF</span><p style="font-size:24px">A <b>glacial lake outburst flood</b> happens when that wall gives way and the lake empties all at once, sending water, mud and boulders down the valley.</p></div>
+        <p style="font-size:24px;line-height:1.45;margin-top:20px">Next: two cases from the Everest region of Nepal, where a science-driven, community-based project is working to reduce GLOF risks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. IMJA LAKE -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Imja Lake</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Big idea 3 · a lake that did not exist 70 years ago</div>
+    <h2 class="reveal d2" style="font-size:70px">Imja Lake <em>expansion</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 520px;gap:44px;align-items:start">
+      <div>
+        <figure class="fig imja-then"><img src="img/imja-1956.jpg" alt="Black and white panorama of the Imja glacier valley in 1956, covered in ice and rock debris with only small ponds"></figure>
+        <p class="credit"><b>1956.</b> Photo: E. Schneider.</p>
+        <figure class="fig imja-now" style="margin-top:14px"><img src="img/imja-2015.jpg" alt="Imja Lake in 2015: a large pale blue-gray lake filling the valley below snowy peaks"></figure>
+        <p class="credit"><b>2015.</b> Photo: Alton Byers.</p>
+      </div>
+      <div>
+        <p class="tag" style="font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)">Water held in the lake (million m³)</p>
+        <div class="vol-bars" id="imja-bars"></div>
+        <table class="imja"><thead><tr><th>Year</th><th>Max depth (m)</th><th>Volume (million m³)</th></tr></thead>
+          <tbody><tr><td>1992</td><td>98</td><td>28</td></tr><tr><td>2002</td><td>90</td><td>36</td></tr><tr><td>2012</td><td>116</td><td>62</td></tr><tr><td>2014</td><td>150</td><td>75</td></tr></tbody></table>
+        <p class="credit">Sources: Somos-Valenzuela et al. (2014); Kargel et al. (2015); Rounce et al. (2017).</p>
+        <p style="font-size:23px;line-height:1.4;margin-top:12px">The volume grew about <b>2.7 times</b> in 22 years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. THAME FLOOD -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Thame flood</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · a GLOF in the Everest region, August 2024</div>
+    <h2 class="reveal d2" style="font-size:70px">The Thame <em>flood</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:560px 400px 1fr;gap:34px;align-items:start">
+      <div><figure class="fig"><img src="img/thame.jpg" alt="Thame village before the flood: stone houses and walled fields in a valley below snowy peaks"></figure><p class="credit"><b>Before.</b> Photo: G. S. Shrestha.</p></div>
+      <div><figure class="fig"><img src="img/thame-flood.jpg" alt="After the flood: a wide river of gray mud and boulders runs through the valley past damaged buildings"></figure><p class="credit"><b>After.</b> Photo: Thamichhowa Youth Group.</p></div>
+      <ol class="num thame-list">
+        <li>Two of the Thyanbo glacial lakes burst. The flood came in the afternoon, during the trekking <b>off-season</b>.</li>
+        <li><b>135 residents</b> lost their homes, and roads, bridges and buildings were damaged.</li>
+        <li>About <b>40 years</b> earlier, another GLOF devastated the same valley.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 22. HIGHER FREQUENCY -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Frequency</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · mountain floods in Nepal and India</div>
+    <h2 class="reveal d2" style="font-size:70px">Disasters are coming <em>more often</em></h2>
+    <div class="grid reveal d3" style="grid-template-columns:1000px 1fr;gap:44px;align-items:start">
+      <div>
+        <figure class="fig plain"><img src="img/nepal-events.jpg" alt="Map of Nepal and nearby India marking recent floods possibly triggered by melting permafrost: Chamoli 2021, Seti 2012, Birendra Tal 2023, Melamchi 2021, Thame 2024, Barun 2017 and Sikkim 2023"></figure>
+        <p class="credit">Recent events possibly triggered by melting permafrost. Source: Nepal Times (2024).</p>
+      </div>
+      <div>
+        <p style="font-size:26px;line-height:1.45">Seven damaging floods in about 12 years. <b>Permafrost</b> is ground that stays frozen all year. As it thaws, slopes and moraine walls weaken.</p>
+        <div class="mq one" style="margin-top:22px"><div class="reveal-card" data-def><h3>Who is <em style="color:var(--accent);font-style:normal">most at risk</em> in these valleys?</h3>
+          <p class="think">Think, tell a neighbor, then tap to check.</p>
+          <p class="ans-text">Mountain communities who did little to cause climate change: farmers, herders and families who depend on trekking. Their adaptive capacity depends on early warning, safe land and support to rebuild.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23. REVIEW QUESTION: DISASTERS -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Review question</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · check your understanding</div>
+    <h2 class="reveal d2" style="font-size:64px;max-width:1500px">Which statement best describes how climate change and <em>natural disasters</em> are linked?</h2>
+    <div class="poll reveal d3" data-poll="rq-disaster" data-correct="2">
+      <button class="opt" type="button"><b>A</b>Climate change directly causes all natural disasters</button>
+      <button class="opt" type="button"><b>B</b>Climate change has no effect on natural disasters</button>
+      <button class="opt" type="button"><b>C</b>It makes some disasters, like heat waves, floods and hurricanes, stronger and more frequent</button>
+      <button class="opt" type="button"><b>D</b>Natural disasters are happening less often despite climate change</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq-disaster">Show answer</button><span class="status" data-poll-status="rq-disaster" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 24. WHAT CAN WE ALL DO? -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Big idea 3 · Solutions</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 3 · mitigation, adaptation and climate justice</div>
+    <h2 class="reveal d2" style="font-size:70px">What can we <em>all</em> do?</h2>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 640px;gap:50px;align-items:start">
+      <ol class="num do-list">
+        <li>Our consumption and economy depend heavily on <b>carbon-based energy</b>. That decides how much CO₂ we put into the air and how much we disrupt its natural cycle.</li>
+        <li>Consider changes in our own decisions about <b>housing, mobility and consumption</b>, and choose efficient, sustainable options.</li>
+        <li>Be mindful of <b>climate justice</b>: the people and countries that contributed least to greenhouse gas emissions bear the heaviest impacts.</li>
+      </ol>
+      <div>
+        <figure class="fig plain"><img src="img/stabilization-triangle.jpg" alt="Chart of billions of tons of carbon emitted per year from 1950 to 2100: historical emissions rise to about 8; a current path keeps rising to 16 by 2060, while a flat path holds at 8; the gap between them is the stabilization triangle"></figure>
+        <p class="credit">The stabilization triangle: the cuts needed to hold emissions flat instead of letting them keep growing. After Pacala and Socolow (2004).</p>
+        <div class="grid g2" style="gap:18px;margin-top:14px">
+          <div class="sc flow"><b>Mitigation</b>Cut the cause: clean energy, efficient homes, transit.</div>
+          <div class="sc"><b>Adaptation</b>Live with the change: shade, cooling centers, flood plans.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 25. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>13</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:70px">Which of these is a <em>mitigation</em> action?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Building a sea wall along the beach</button>
+      <button class="opt" type="button"><b>B</b>Switching a city's power from coal to solar</button>
+      <button class="opt" type="button"><b>C</b>Moving homes away from the coast</button>
+      <button class="opt" type="button"><b>D</b>Raising houses on stilts above flood level</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 26. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" src="img/drought-hero.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1080px">
+    <div class="hero-badge reveal"><b>L<em>13</em></b><span>Carbon cycle and global climate change</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="hero-lead reveal d2">We are moving carbon from rock to air <em>faster</em> than nature can put it back.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>CO₂ in the air rises as long as emissions are bigger than what ocean and land absorb.</li>
+      <li>Tree rings, ice cores and the CO₂ record show the recent warming comes from people.</li>
+      <li>Mitigation cuts the cause; adaptation helps people live with the change.</li>
+    </ol>
+    <p class="hero-sub reveal d4" style="margin-top:28px;font-size:24px">Questions? Ask in class or come to office hours.</p>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, cld, carbonTub, beachForm, esc, $, $$, say } from './lecture.js?v=2026-10-06';
+
+const LECTURE = 'm4-s3';
+
+/* === KEY TERMS === the four Module 4 glossary terms listed for this session. Definitions and
+   examples come from the course glossary (course.json). */
+const KEY_TERMS = [['Mitigation', 'factory', 'green'], ['Adaptation', 'shield', 'gold'], ['Adaptive Capacity', 'cycle', 'sky'], ['Precautionary Principle', 'alert', '']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => {
+    const t = gloss.find(x => x.term === name) || { term: name, definition: '', example: '' };
+    return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`);
+  }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill(document, d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === CARBON STOCKS === billions of metric tons of carbon, from the carbon cycle figure (IPCC 2022).
+   Ranges use their middle value for the bar and show the range in the label. */
+const STOCKS = [
+  ['Rocks and marine sediments', 83000000, '66–100 million', 'rock'],
+  ['Deep ocean water', 37100, '37,100', 'sea'],
+  ['Coal, oil and gas', 6000, '6,000', 'fos'],
+  ['Ocean floor sediment', 1750, '1,750', 'sea'],
+  ['Soils', 1700, '1,700', 'land'],
+  ['Gas hydrates', 1500, '500–2,500', 'fos'],
+  ['Surface ocean', 900, '900', 'sea'],
+  ['Atmosphere', 871, '871', 'air'],
+  ['Land plants', 450, '450', 'land'],
+  ['Marine life', 3, '3', 'sea'],
+];
+const lg = v => Math.log10(v);
+$('#stockbars').innerHTML = `<div class="sb-axis">${[1, 10, 100, '1K', '10K', '100K', '1M', '10M', '100M'].map(t => `<span>${t}</span>`).join('')}</div>`
+  + STOCKS.map(([n, v, l, k], i) => `<div class="sb ${k}" style="--w:${(lg(v) / 8 * 100).toFixed(1)}%;--i:${i}"><span>${esc(n)}</span><div class="t"><i></i><b>${esc(l)}</b></div></div>`).join('');
+
+/* === CARBON BATHTUB GAME === */
+const ctub = carbonTub();
+
+/* === PROXY CARDS === */
+const PROXIES = [
+  ['(a) Tree rings', 'sprout', 'green', 'Each ring is one year of growth. Wide rings mean good years, narrow rings mean dry or cold years.', 'Old trees and preserved wood give yearly climate records going back thousands of years.'],
+  ['(b) Varves', 'waves', 'sky', 'Layers of mud that settle in a lake, one light and one dark layer each year.', 'Pollen and grains in each layer show what the climate and plants were like that year.'],
+  ['(c) Ice cores', 'snow', '', 'Long tubes of ice drilled from ice sheets. Tiny air bubbles trapped in the ice are samples of old air.', 'Ice cores show CO₂ and temperature rising and falling together for 800,000 years, and CO₂ today is higher than at any point in that record.'],
+];
+$('[data-proxy]').innerHTML = PROXIES.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
+$$('[data-proxy] .b h4').forEach(h => { h.textContent = 'What it tells us'; });
+$$('[data-proxy] .hint').forEach(h => { h.textContent = 'Tap to see what it tells us'; });
+wireFlips($('[data-proxy]'));
+
+/* === IMPACT CARDS === */
+const IMPACTS = [
+  ['Physical properties and events', 'therm', 'sky', 'Heat waves, droughts, heavier storms, wildfires and rising seas.', 'Phoenix now has many more days above 110°F than it did a few decades ago.'],
+  ['Ecological services', 'sprout', 'green', 'Changes to the benefits nature gives us: water, pollination, healthy soils, fish.', 'Warmer oceans bleach coral reefs, which shelter fish and protect coasts from waves.'],
+  ['Socio-economic and cultural', 'city', 'gold', 'Effects on health, homes, jobs, food prices, and traditions tied to place.', 'Extreme heat raises energy bills and puts outdoor workers and older adults at risk.'],
+  ['Abrupt and large-scale changes', 'alert', '', 'Big shifts that are hard to reverse, like losing ice sheets or thawing permafrost.', 'Melting Greenland and Antarctic ice could raise sea levels by meters over the coming centuries.'],
+];
+$('[data-impacts]').innerHTML = IMPACTS.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
+wireFlips($('[data-impacts]'));
+
+/* === ADAPTATION STRATEGIES === */
+const STRATS = [
+  ['Avoid', 'alert', 'gold', 'Restrict building in at-risk areas.', 'A county stops new homes from being built in the flood zone behind the beach.'],
+  ['Accommodate', 'city', 'sky', 'Upgrade existing property so it can handle water.', 'Raising houses on stilts, or moving electrical systems up to the second floor.'],
+  ['Protect', 'shield', 'green', 'Improve flood defenses.', 'Sea walls, levees, or restoring dunes and marshes that soak up storm surge.'],
+  ['Retreat', 'out', '', 'Prepare for planned relocation.', 'A town buys out homes that flood again and again and turns the land into a park.'],
+];
+$('[data-strat]').innerHTML = STRATS.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
+wireFlips($('[data-strat]'));
+
+/* === ICE-ALBEDO LOOP === */
+cld($('#cld-ice'), {
+  nodes: [['temp', 'Temperature', 380, 70, 230], ['ice', 'Arctic sea ice', 640, 235, 230], ['dark', 'Dark ocean|exposed', 380, 400, 220], ['heat', 'Heat absorbed', 125, 235, 220]],
+  links: [['temp', 'ice', '−', -50], ['ice', 'dark', '−', -50], ['dark', 'heat', '+', -50], ['heat', 'temp', '+', -50]],
+  loops: [['R', 380, 225]],
+}, { seq: true });
+
+/* === IMJA LAKE VOLUME BARS === */
+$('#imja-bars').innerHTML = [[1992, 28], [2002, 36], [2012, 62], [2014, 75]].map(([y, v], i) => `<div style="--w:${v / 75 * 100}%;--i:${i}"><span>${y}</span><i></i><b>${v}</b></div>`).join('');
+
+/* === QUICK QUESTIONS === tap to reveal, not recorded */
+wireReveals();
+
+/* === BEACH EXERCISE === */
+const beach = beachForm();
+
+/* === LIVE === attendance, polls and activities */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (id !== 'warmup' && !await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: CARBON BATHTUB === the prediction and the CO2 level in 2100 for each path tried */
+$('#ct-save').addEventListener('click', async () => {
+  const st = $('#ct-status');
+  const data = ctub.result();
+  if (!data.predict) { say(st, 'Make your prediction in step 1 first.', 'err'); return; }
+  if (!Object.keys(data.runs).length) { say(st, 'Run at least one path first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('carbon-tub', data); say(st, 'Submitted.', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: BEACH EXERCISE === */
+$('#bq-save').addEventListener('click', async () => {
+  const st = $('#bq-status');
+  const { data, missing } = beach.read();
+  if (missing) { say(st, `Answer question ${missing} first.`, 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('beach-slr', data); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>

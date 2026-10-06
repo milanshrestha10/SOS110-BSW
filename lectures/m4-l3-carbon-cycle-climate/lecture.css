@@ -1,0 +1,192 @@
+/* === LECTURE 13 STYLES === shared by the lecture deck and Class Exercise 13 */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.fig.plain{border:0;background:transparent}
+.credit{font-size:16px;color:var(--mute);margin-top:6px}
+.credit a{color:var(--Blue)}
+.take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+.steps{font-size:25px;line-height:1.4;color:var(--ink);margin:0 0 18px}
+.legend{display:flex;gap:26px;font-size:20px;color:var(--mute);margin-top:16px;flex-wrap:wrap}
+.legend i{display:inline-block;width:18px;height:18px;border-radius:50%;margin-right:8px;vertical-align:-2px}
+.tag{display:inline-block;font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+
+/* key terms: four flip cards */
+.vocab.four{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:28px 36px}
+.vocab.four .vcard{height:auto}
+.vocab.four .vcard .f,.vocab.four .vcard .b{padding:28px 38px}
+.vocab.four .vcard h4{font-size:40px;margin-bottom:12px}
+.vocab.four .vcard p{font-size:25px;line-height:1.4}
+
+/* numbered points beside a figure */
+.c-points{font-size:25px;line-height:1.4}
+.c-points li{margin:0 0 26px;padding-left:68px}
+.c-points li::before{width:46px;height:46px;font-size:26px;line-height:46px}
+
+/* where is the carbon: log-scale bars */
+.stockbars{display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;position:relative}
+.sb-axis{position:absolute;left:300px;right:0;top:0;display:flex;justify-content:space-between;font:700 15px var(--body);color:var(--mute)}
+.sb-axis span{width:0;white-space:nowrap;display:flex;justify-content:center}
+.sb{display:grid;grid-template-columns:290px 1fr;gap:10px;align-items:center;font-size:22px}
+.sb span{text-align:right}
+.sb .t{position:relative;height:40px;background:repeating-linear-gradient(90deg,var(--paper-2) 0 1px,transparent 1px 12.5%)}
+.sb .t i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:0 8px 8px 0;transition:width 1.4s var(--ease);transition-delay:calc(var(--i) * .12s + .5s)}
+.slide.visible .sb .t i{width:var(--w)}
+.sb .t b{position:absolute;left:calc(var(--w) + 12px);top:7px;font:700 20px var(--body);white-space:nowrap}
+.sb.rock .t b{left:auto;right:14px;color:#fff}
+.sb.rock i{background:#8a7b6a}.sb.sea i{background:var(--Sky)}.sb.land i{background:var(--Green)}.sb.fos i{background:#c76f1e}.sb.air i{background:var(--golden)}
+.sb.air span{font-weight:700}
+.stock-side .card .tag{margin-bottom:4px}
+
+/* carbon bathtub game */
+.ctub{display:grid;grid-template-columns:720px 1fr;gap:48px;align-items:start}
+.ctub-left{display:grid;gap:16px}
+.ct-h{font:700 22px/1.3 var(--body);margin:0}
+.ct-h i,.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.paths button{font:400 19px/1.25 var(--body);text-align:left;border:2px solid var(--paper-2);border-left:10px solid var(--c);border-radius:12px;background:var(--card);color:var(--ink);padding:10px 14px;cursor:pointer}
+.paths button b{display:block;font:400 25px var(--display)}
+.paths button.on{border-color:var(--c);background:rgba(66,168,191,.10)}
+.readout{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.readout div{border-left:6px solid var(--golden);padding:2px 0 2px 14px}
+.readout b{display:block;font:400 38px/1.05 var(--display);color:var(--Blue);font-variant-numeric:tabular-nums}
+.readout span{font-size:17px;color:var(--mute)}
+.chart{width:100%;height:auto;background:var(--card);border:2px solid var(--paper-2);border-radius:14px}
+.chart text{font:400 18px var(--body);fill:var(--mute)}
+.tubmsg{font-size:22px;line-height:1.4;min-height:62px;margin:0}
+.tubmsg.win{color:#2e7d5b}.tubmsg.lose{color:#b3452c}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 26px}
+.go-row .status{margin:0;font-size:20px}
+
+/* answer forms */
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 21px/1.3 var(--body);margin-bottom:6px}
+.ex textarea,.ex select,.ex input{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;resize:none}
+.ex textarea{height:88px}
+.ex textarea:focus,.ex select:focus,.ex input:focus{outline:3px solid var(--Sky);outline-offset:1px}
+
+/* CO2 curve */
+.bigstat{display:flex;align-items:baseline;gap:16px;border-left:8px solid var(--golden);padding:4px 0 4px 20px;margin-bottom:14px}
+.bigstat b{font:400 84px/1 var(--display);color:var(--Blue)}
+.bigstat span{font-size:26px;color:var(--mute)}
+.mq{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.mq.one{grid-template-columns:1fr}
+.mq .reveal-card{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:18px;padding:22px 28px}
+.mq .reveal-card h3{font-size:34px;margin-bottom:10px}
+.mq .reveal-card .ans-text{display:none;font-size:23px;line-height:1.45}
+.mq .reveal-card.open .ans-text{display:block}
+.mq .reveal-card.open .think{display:none}
+.mq .think{font-size:21px;color:var(--mute)}
+
+/* natural causes */
+.nat-list{display:grid;gap:18px}
+.nat-list .card{padding:20px 28px}
+.nat-list h3{font-size:34px;margin-bottom:4px}
+.nat-list p{font-size:23px;line-height:1.4}
+
+/* proxies */
+.vocab.three{grid-template-columns:repeat(3,1fr);gap:26px;margin-top:22px;flex:1;grid-auto-rows:1fr}
+.vocab.three .vcard{height:auto;min-height:230px}
+.vocab.three .vcard h4{font-size:32px}
+.vocab.three .vcard p{font-size:22px}
+
+/* consensus quote */
+.quote{margin-top:30px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:28px 36px;font:400 italic 30px/1.4 var(--display)}
+.quote cite{display:block;margin-top:14px;font:700 17px/1.4 var(--body);font-style:normal;letter-spacing:.06em;color:var(--golden)}
+.quote cite i{font-style:italic;letter-spacing:0;font-weight:400}
+
+/* impacts and risks */
+.spi{width:100%;height:auto;display:block}
+.spi .spi-l{font:700 22px var(--body);fill:var(--deep);text-anchor:middle}
+.spi .spi-s{font:700 20px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
+.spi-r{transform-box:fill-box;transform-origin:center;animation:pulse 5s ease-in-out infinite}
+.spi-r.r2{animation-delay:.6s}.spi-r.r3{animation-delay:1.2s}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.vocab.imp{grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:22px 28px}
+.vocab.imp .vcard{height:auto}
+.vocab.imp .vcard h4{font-size:31px}
+.vocab.imp .vcard p{font-size:22px}
+
+/* beach exercise */
+.beach{display:grid;grid-template-columns:600px 1fr;gap:44px;align-items:start}
+.beach-tool{display:grid;gap:16px}
+.slr-card{position:relative;display:block;border-radius:18px;overflow:hidden;border:2px solid var(--paper-2);text-decoration:none}
+.slr-card img{display:block;width:100%}
+.slr-go{position:absolute;left:18px;right:18px;bottom:16px;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--accent);color:#fff;font:700 24px var(--body);border-radius:12px;padding:14px}
+.slr-go svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.slr-card:hover .slr-go{background:#a96f12}
+.slr-qr{display:flex;gap:18px;align-items:center}
+.slr-qr img{width:120px;height:120px;background:#fff;border-radius:10px;padding:4px}
+.slr-qr p{font-size:20px;color:var(--mute)}
+.slr-qr p b{display:block;font:400 30px var(--display);color:var(--ink)}
+.howto{list-style:none;counter-reset:h;font-size:21px;line-height:1.35}
+.howto li{counter-increment:h;position:relative;padding-left:44px;margin:8px 0}
+.howto li::before{content:counter(h);position:absolute;left:0;top:-1px;width:30px;height:30px;border-radius:50%;background:var(--golden);font:400 19px/30px var(--display);text-align:center}
+.beach-q{gap:12px}
+.beach-q textarea{height:74px}
+.bq-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* impacts and adaptation */
+.adapt-def{position:relative;border-radius:18px;overflow:hidden;height:120px;margin:-18px 0 24px}
+.adapt-def img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.adapt-def p{position:absolute;inset:0;display:flex;align-items:center;padding:0 40px;font-size:26px;line-height:1.35;background:linear-gradient(90deg,rgba(250,247,240,.97) 0%,rgba(250,247,240,.93) 68%,rgba(250,247,240,.15) 92%)}
+.adapt-def p span{max-width:1080px}
+.adapt-def p b{color:var(--Blue);margin-right:8px}
+.imp-list{font-size:25px;line-height:1.35}
+.imp-list li{padding-left:64px;margin:0 0 24px}
+.imp-list li::before{width:44px;height:44px;font-size:24px;line-height:44px;background:#b3452c}
+.vocab.strat{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:18px 22px}
+.vocab.strat .vcard{height:auto;min-height:150px}
+.vocab.strat .vcard .f,.vocab.strat .vcard .b{padding:18px 24px}
+.vocab.strat .vcard h4{font-size:32px;margin-bottom:6px}
+.vocab.strat .vcard p{font-size:21px}
+
+/* causal loop diagram */
+.cld{width:100%;height:auto;display:block;overflow:visible}
+.cld .node rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
+.cld .node text{font:700 23px var(--body);fill:var(--ink);text-anchor:middle}
+.cld .lk path{fill:none;stroke:#5d7780;stroke-width:4}
+.cld .sg circle{stroke:var(--paper);stroke-width:3}
+.cld .sg text{font:700 26px var(--body);fill:#fff;text-anchor:middle}
+.cld .sg.p circle{fill:var(--Blue)}.cld .sg.n circle{fill:#b3452c}
+.cld .loop circle{fill:none;stroke-width:4}
+.cld .loop text{font:400 40px var(--display);text-anchor:middle}
+.cld .loop.R circle{stroke:#b3452c}.cld .loop.R text{fill:#b3452c}
+.cld .loop .spin{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seq .s{opacity:0}
+.slide.visible .seq .s{animation:lkin .9s var(--ease) forwards;animation-delay:calc(var(--i) * .55s + .5s)}
+@keyframes lkin{to{opacity:1}}
+.ice-loss{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;margin-top:26px;background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:18px}
+.ice-loss img{width:100%;border-radius:12px;display:block}
+.loss-bars{display:grid;gap:14px;margin-top:4px}
+.loss-bars div{display:grid;grid-template-columns:120px 1fr 70px;gap:12px;align-items:center;font-size:20px}
+.loss-bars i{display:block;height:30px;width:0;background:var(--Sky);border-radius:0 6px 6px 0;transition:width 1.6s 1s var(--ease)}
+.slide.visible .loss-bars i{width:var(--w)}
+.loss-bars div + div i{background:#b3452c}
+.loss-bars b{font:400 36px var(--display);color:var(--Blue)}
+
+/* Imja Lake */
+.imja-then img,.imja-now img{height:285px;object-fit:cover}
+.vol-bars{display:grid;gap:12px;margin:6px 0 18px}
+.vol-bars div{display:grid;grid-template-columns:70px 1fr 50px;gap:12px;align-items:center;font-size:21px}
+.vol-bars i{display:block;height:34px;width:0;background:linear-gradient(90deg,#9fd3df,var(--Sky));border-radius:0 8px 8px 0;transition:width 1.2s var(--ease);transition-delay:calc(var(--i) * .3s + .6s)}
+.slide.visible .vol-bars i{width:var(--w)}
+.vol-bars b{font:400 30px var(--display);color:var(--Blue)}
+table.imja{width:100%;border-collapse:collapse;font-size:20px}
+table.imja th{background:var(--ink);color:var(--golden);font:700 16px var(--body);padding:8px 10px;text-align:center}
+table.imja td{padding:7px 10px;text-align:center;border-bottom:1px solid var(--paper-2)}
+table.imja tr:nth-child(odd) td{background:#fdf6df}
+.thame-list,.do-list{font-size:25px;line-height:1.4}
+.thame-list li,.do-list li{margin:0 0 26px}
+.do-list li{margin-bottom:34px}
+.sc{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:14px;padding:12px 18px;font-size:21px;line-height:1.38}
+.sc b{display:block;font:700 16px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#8a6a14;margin-bottom:3px}
+.sc.flow{border-left-color:#2e7d5b}.sc.flow b{color:#2e7d5b}
+
+@media (prefers-reduced-motion: reduce){
+  .seq .s{opacity:1!important;animation:none!important}
+  .cld .loop .spin,.spi-r{animation:none!important}
+  .sb .t i,.loss-bars i,.vol-bars i{transition:none}
+}
+@media print{.seq .s{opacity:1!important;animation:none!important}}
