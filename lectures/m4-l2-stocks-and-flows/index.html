@@ -972,9 +972,9 @@ function wireFlips(root) {
    from the course glossary (course.json); the paired examples are written for this lecture. */
 const KEY_TERMS = [
   ['Stock and flow', 'drop', 'sky', ['Stock', 'Flow'], 'Water in a reservoir like Lake Pleasant is a stock. River and canal water flowing in, and evaporation and water released flowing out, are its flows.'],
-  ['Open and closed system', 'earth', 'green', ['Open System', 'Closed System'], 'A river is open: water, leaves and sunlight come and go. Earth is closed for matter: sunlight comes in and heat leaves, but the atoms stay.'],
   ['Positive and negative feedback loops', 'loop', 'gold', ['Positive Feedback Loop', 'Negative Feedback Loop'], 'Positive: melting ice exposes dark water that absorbs more heat, so more ice melts. Negative: you sweat when you get hot, and that cools you down.'],
   ['Causal loop diagram', 'cycle', '', ['Causal Loop Diagram (CLD)'], 'Arrows linking traffic, air pollution, health costs and transit funding, each marked + or −.'],
+  ['Leverage point', 'alert', 'green', ['Leverage Point'], 'National energy-efficiency standards: one rule changes millions of appliances and cars at once, so a small change has a large effect.'],
 ];
 function showTerms({ course }) {
   const gloss = course.glossary.flatMap(g => g.terms);
