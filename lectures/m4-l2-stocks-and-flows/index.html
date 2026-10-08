@@ -46,6 +46,30 @@
 .mq .reveal-card.open .ans-text{display:block}
 .mq .reveal-card.open .think{display:none}
 .mq .think{font-size:22px;color:var(--mute)}
+/* Las Vegas and Lake Mead: 1984 vs 2022 slider and leverage point questions */
+.cmp{position:relative;width:820px;height:461px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(10,42,53,.22);background:var(--ink)}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmp-before{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp-line{position:absolute;z-index:2;top:0;bottom:0;left:var(--x);width:4px;margin-left:-2px;background:var(--paper);pointer-events:none}
+.cmp-line b{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--paper);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.cmp-line b::before,.cmp-line b::after{content:'';position:absolute;top:50%;margin-top:-9px;border:9px solid transparent}
+.cmp-line b::before{left:6px;border-right-color:var(--Blue)}.cmp-line b::after{right:6px;border-left-color:var(--Blue)}
+.cmp-yr{position:absolute;z-index:2;top:16px;font:700 24px var(--body);letter-spacing:.08em;color:var(--paper);background:rgba(10,42,53,.72);border-radius:999px;padding:4px 16px;pointer-events:none}
+.cmp-yr.l{left:16px}.cmp-yr.r{right:16px}
+.cmp .cmp-range{position:absolute;z-index:3;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.cmp:focus-within{outline:4px solid var(--Sky);outline-offset:3px}
+.cmp-cap{font-size:20px;line-height:1.4;color:var(--mute);margin-top:12px}
+.lv-cols{display:grid;grid-template-columns:1100px 1fr;gap:44px;align-items:start}
+.lv .cmp{width:1100px;height:619px}
+.lv .cmp-pin{position:absolute;z-index:2;transform:translateX(-50%);font:700 22px var(--body);color:var(--ink);background:rgba(244,242,238,.9);border-radius:999px;padding:3px 14px;pointer-events:none;white-space:nowrap}
+.lv-defs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.lv-defs div{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 18px;font-size:22px;line-height:1.3}
+.lv-defs b{display:block;font:400 26px var(--display);color:var(--Blue);margin-bottom:2px}
+.lv .ex textarea{height:116px}
+.lv-side .go-row{margin-top:14px}
+.lv .take{display:none;margin:0 0 18px;font-size:22px;padding:16px 24px}
+.lv.done .take{display:block}
+.lv.done .lv-defs{display:none}
 /* open and closed systems */
 .sys svg{width:100%;height:auto;display:block}
 .sys text{font-family:var(--body);fill:var(--ink)}
@@ -711,6 +735,40 @@
   </div>
 </section>
 
+<!-- LEVERAGE POINTS: LAS VEGAS AND LAKE MEAD -->
+<section class="slide lv" id="lv-ex">
+  <div class="rail"><b>12</b><span>Big idea 1 · Leverage points</span></div>
+  <div class="content" style="top:80px;bottom:60px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Quick exercise · Las Vegas and Lake Mead, 1984 to 2022</div>
+    <h2 class="reveal d2" style="font-size:60px;margin-bottom:10px">Water stress in Las Vegas: <em>shallow</em> and <em>deep</em> leverage points</h2>
+    <p class="steps reveal d2"><b>Drag the slider to compare 1984 and 2022.</b> Las Vegas gets most of its water from Lake Mead. Then answer both questions.</p>
+    <div class="lv-cols reveal d3">
+      <div>
+        <div class="cmp" id="lv-cmp" style="--x:50%">
+          <img class="cmp-after" src="img/vegas-mead-2022.jpg" alt="Satellite view of Las Vegas and Lake Mead in June 2022: the city has spread across the valley and the lake is lower, with pale rock exposed around its shore">
+          <img class="cmp-before" src="img/vegas-mead-1984.jpg" alt="Satellite view of Las Vegas and Lake Mead in May 1984: a small city and a fuller lake">
+          <span class="cmp-yr l">1984</span><span class="cmp-yr r">2022</span>
+          <span class="cmp-pin" style="left:21%;top:80%">Las Vegas</span><span class="cmp-pin" style="left:68%;top:80%">Lake Mead</span>
+          <span class="cmp-line" aria-hidden="true"><b></b></span>
+          <input type="range" class="cmp-range" id="lv-range" min="0" max="100" value="50" aria-label="Slide to compare 1984 and 2022">
+        </div>
+        <p class="cmp-cap">Left: May 1984. Right: June 2022. Las Vegas is at left, Lake Mead at right. Images: Landsat 5 (USGS) and Sentinel-2 (Copernicus, ESA).</p>
+      </div>
+      <div class="lv-side">
+        <div class="take" id="lv-take"><b>Examples to compare with yours</b>Shallow: change a number, like a lawn-removal rebate or fewer watering days. Deep: change the rules or goals, like no new grass, reusing nearly all indoor water, or letting the water supply set how fast the city grows.</div>
+        <div class="lv-defs"><div><b>Shallow</b>A small tweak to a number, like a price or a schedule.</div><div><b>Deep</b>A change to the rules, the goals or the way people think.</div></div>
+        <div class="ex">
+          <div><label for="lv-shallow"><i>1</i>What is one shallow leverage point for reducing water stress in Las Vegas?</label>
+            <textarea id="lv-shallow" maxlength="300" placeholder="Write one or two sentences."></textarea></div>
+          <div><label for="lv-deep"><i>2</i>What is one deep leverage point?</label>
+            <textarea id="lv-deep" maxlength="300" placeholder="Write one or two sentences."></textarea></div>
+        </div>
+        <div class="go-row"><button class="btn" type="button" id="lv-save">Submit</button><span class="status" id="lv-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 14. QUICK QUESTION -->
 <section class="slide" id="qq">
   <div class="rail"><b>12</b><span>Big idea 1 · Quick question</span></div>
@@ -1369,6 +1427,17 @@ $('#tub-save').addEventListener('click', async () => {
   const data = { easiest: $('#tub-easy').value };
   for (const k of Object.keys(MODES)) data[k] = best[k] ? { secs: Math.min(best[k].secs, 999), won: best[k].secs >= WIN, overflow: best[k].overflow } : null;
   try { await live.saveSim('tub-game', data); say(st, 'Submitted.', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === LAS VEGAS AND LAKE MEAD === 1984 vs 2022 slider, then two written answers */
+$('#lv-range').addEventListener('input', e => $('#lv-cmp').style.setProperty('--x', `${e.target.value}%`));
+$('#lv-save').addEventListener('click', async () => {
+  const st = $('#lv-status');
+  const shallow = $('#lv-shallow').value.trim().slice(0, 300), deep = $('#lv-deep').value.trim().slice(0, 300);
+  if (!shallow || !deep) { say(st, 'Answer both questions first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('vegas-leverage', { shallow, deep }); say(st, 'Submitted.', 'ok'); $('#lv-ex').classList.add('done'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 
