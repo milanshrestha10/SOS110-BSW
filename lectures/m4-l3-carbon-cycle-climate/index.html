@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
-<link rel="stylesheet" href="lecture.css?v=2026-10-06b">
+<link rel="stylesheet" href="lecture.css?v=2026-10-08">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -205,24 +205,26 @@
   </div>
 </section>
 
-<!-- 10. CLIMATE HAS CHANGED BEFORE -->
+<!-- 10. VIDEO: HUMANS AND THE CARBON CYCLE -->
 <section class="slide">
-  <div class="rail"><b>13</b><span>Big idea 2 · Natural change</span></div>
+  <div class="rail"><b>13</b><span>Big idea 1 · Video</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 2 · Earth's climate has changed before</div>
-    <h2 class="reveal d2" style="font-size:70px">Natural causes can <em>change the climate</em> too</h2>
-    <div class="grid reveal d3" style="grid-template-columns:820px 1fr;gap:48px;align-items:start">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Watch · The carbon cycle out of balance</div>
+    <h2 class="reveal d2" style="font-size:58px">How humans have disrupted a cycle essential for <em>healthy life‑supporting systems</em></h2>
+    <div class="vid-grid reveal d3">
       <div>
-        <figure class="fig"><img src="img/asteroid-impact.jpg" alt="Illustration of a large asteroid striking Earth near the Yucatán Peninsula in Mexico, seen from space"></figure>
-        <p class="credit">An asteroid hits the Yucatán Peninsula about 66 million years ago. Illustration: Science Photo Library/Alamy Stock Photo.</p>
+        <div class="video" data-youtube="jOht6qmuG-k" data-start="97" data-title="How humans have disrupted the carbon cycle">
+          <div class="ph"><b>The carbon cycle video</b><span>The video loads here when the page is online.</span></div>
+        </div>
+        <p class="small" style="margin-top:10px"><a href="https://www.youtube.com/watch?v=jOht6qmuG-k&amp;t=97s" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
       </div>
-      <div class="nat-list">
-        <div class="card gold"><h3>Asteroid impacts</h3><p>Dust and gases from the Chicxulub impact blocked sunlight and changed the climate. Most species, including the large dinosaurs, died out.</p></div>
-        <div class="card blue"><h3>Volcanoes</h3><p>Large eruptions put out ash that cools Earth for a few years, and CO₂ over very long times.</p></div>
-        <div class="card green"><h3>The sun and Earth's orbit</h3><p>Slow changes in Earth's orbit brought the ice ages and the warm periods between them.</p></div>
-      </div>
+      <ol class="vid-hl">
+        <li><b>A balanced cycle</b>Carbon moves between air, ocean, land and living things. For thousands of years what went in roughly matched what came out.</li>
+        <li><b>Fossil fuels</b>Burning coal, oil and gas releases in decades carbon that was locked underground for millions of years.</li>
+        <li><b>Fewer forests</b>Cutting and burning forests releases their carbon and leaves fewer plants to take CO₂ back out of the air.</li>
+        <li><b>Warmer, more acidic</b>Extra CO₂ traps heat and warms the planet. The ocean soaks up part of it and becomes more acidic.</li>
+      </ol>
     </div>
-    <div class="take reveal d4" style="margin-top:22px;font-size:27px"><b>So how do we know?</b>These causes act over years or over many thousands of years. Today's warming is fast, and the evidence points to us.</div>
   </div>
 </section>
 
@@ -567,7 +569,7 @@
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
-import { flipCard, wireFlips, wireReveals, cld, carbonTub, beachForm, esc, $, $$, say } from './lecture.js?v=2026-10-06b';
+import { flipCard, wireFlips, wireReveals, cld, carbonTub, beachForm, esc, $, $$, say } from './lecture.js?v=2026-10-08';
 
 const LECTURE = 'm4-s3';
 
@@ -627,6 +629,12 @@ const IMPACTS = [
 ];
 $('[data-impacts]').innerHTML = IMPACTS.map(([t, i, tone, d, ex]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex }, `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`)).join('');
 wireFlips($('[data-impacts]'));
+
+/* === VIDEO === embed the YouTube video named in data-youtube, starting at data-start seconds */
+$$('[data-youtube]').forEach(v => {
+  const start = v.dataset.start ? `?start=${encodeURIComponent(v.dataset.start)}` : '';
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}${start}" title="${esc(v.dataset.title || 'Video')}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+});
 
 /* === ADAPTATION STRATEGIES === */
 const STRATS = [
