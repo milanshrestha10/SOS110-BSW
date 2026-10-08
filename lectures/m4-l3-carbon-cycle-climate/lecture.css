@@ -195,3 +195,11 @@ table.imja tr:nth-child(odd) td{background:#fdf6df}
   .sb .t i,.loss-bars i,.vol-bars i{transition:none}
 }
 @media print{.seq .s{opacity:1!important;animation:none!important}}
+
+/* Slide 10 video with four highlights */
+.vid-grid{display:grid;grid-template-columns:900px 1fr;gap:40px;align-items:start;margin-top:8px}
+.vid-grid .video{width:900px}
+.vid-hl{list-style:none;counter-reset:hl;display:flex;flex-direction:column;gap:16px;margin:0;padding:0}
+.vid-hl li{counter-increment:hl;position:relative;padding:14px 18px 14px 70px;background:var(--card);border:2px solid var(--paper-2);border-radius:16px;font-size:21px;line-height:1.38}
+.vid-hl li::before{content:counter(hl);position:absolute;left:16px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--Blue);color:var(--paper);font:700 22px/40px var(--body);text-align:center}
+.vid-hl li b{display:block;font:400 27px var(--display);color:var(--ink);margin-bottom:2px}
