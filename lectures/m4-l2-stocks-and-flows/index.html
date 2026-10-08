@@ -46,6 +46,17 @@
 .mq .reveal-card.open .ans-text{display:block}
 .mq .reveal-card.open .think{display:none}
 .mq .think{font-size:22px;color:var(--mute)}
+/* why care: stat slide with a picture collage */
+.why-grid{display:grid;grid-template-columns:760px 1fr;gap:56px;align-items:center;flex:1;min-height:0}
+.why-collage{margin:0;background:#fff;border-radius:22px;border:2px solid var(--paper-2);box-shadow:0 10px 30px rgba(10,42,53,.14);padding:14px}
+.why-collage img{display:block;width:100%;height:auto}
+.why-tag{font:italic 400 32px/1.3 var(--body);color:var(--mute);margin:0 0 22px}
+.why-stats{list-style:none;margin:0;padding:0}
+.why-stats li{display:grid;grid-template-columns:96px 1fr;gap:6px 20px;align-items:center;padding:14px 0;border-top:2px solid var(--paper-2)}
+.why-stats li:first-child{border-top:0}
+.why-stats .n{grid-row:span 2;font:400 84px/1 var(--display);color:var(--golden)}
+.why-stats b{font:700 31px/1.2 var(--body);color:var(--Blue)}
+.why-stats span{font-size:25px;line-height:1.3}
 /* Las Vegas and Lake Mead: 1984 vs 2022 slider and leverage point questions */
 .cmp{position:relative;width:820px;height:461px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(10,42,53,.22);background:var(--ink)}
 .cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -812,6 +823,26 @@
         <figure class="fig plain"><img src="img/carbon-cycle.jpg" alt="Carbon cycle as stocks and flows: carbon in the atmosphere (800), terrestrial biomass (550), soil carbon (2,300), surface ocean (1,000), deep ocean (37,000) and fossil fuels (10,000), linked by photosynthesis, respiration, gas exchange, combustion and sequestration flows"></figure>
         <p class="credit">Sherman &amp; Montgomery (2023), Fig. 10.23. Stocks and flows in billions of metric tons of carbon.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CARE ABOUT BIOGEOCHEMICAL CYCLES -->
+<section class="slide" id="why-care">
+  <div class="rail"><b>12</b><span>Big idea 2 · Why it matters</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 2 · five life-support jobs</div>
+    <h2 class="reveal d2" style="font-size:66px;margin-bottom:6px">Why care about the Earth's <em>biogeochemical cycles</em>?</h2>
+    <p class="why-tag reveal d2">these regulate the life-supporting systems on which our life depends</p>
+    <div class="why-grid reveal d3">
+      <figure class="why-collage"><img src="img/biogeochem-collage.jpg" alt="A stacked collage of photos: a hurricane seen from space, a waterfall in a green forest, a large blue ocean wave, and a weather forecast screen showing Phoenix days at 110 degrees or hotter"></figure>
+      <ol class="why-stats">
+        <li><i class="n">1</i><b>Atmospheric regulation</b><span>Maintaining proper oxygen levels, removing carbon dioxide, and controlling air pressure.</span></li>
+        <li><i class="n">2</i><b>Water recycling</b><span>Reusing and purifying water.</span></li>
+        <li><i class="n">3</i><b>Temperature control</b><span>Regulating the internal temperature to a habitat to maintain a suitable range for life.</span></li>
+        <li><i class="n">4</i><b>Waste management</b><span>Removing and processing bodily waste to keep the system healthy.</span></li>
+        <li><i class="n">5</i><b>Food production</b><span>Growing food using energy, water, and nutrients from the soil.</span></li>
+      </ol>
     </div>
   </div>
 </section>
