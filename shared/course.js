@@ -39,6 +39,8 @@ export function fill(root, { session: s, next, terms }) {
       </div>
     </div>`).join(''));
   root.querySelectorAll('.vcard').forEach(c => {
+    if (c._wired) return;
+    c._wired = true;
     const flip = () => c.classList.toggle('flip');
     c.addEventListener('click', flip);
     c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
