@@ -610,6 +610,8 @@ const flipCard = ({ term, definition, example, significance }, icon = '', cls = 
   </div>`;
 function wireFlips(root) {
   $$('.vcard', root).forEach(c => {
+    if (c._wired) return;
+    c._wired = true;
     const flip = () => c.classList.toggle('flip');
     c.addEventListener('click', flip);
     c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); flip(); } });
