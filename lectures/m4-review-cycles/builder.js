@@ -5,7 +5,6 @@
    title, a synthesis statement and their team.
    - Drafts autosave to this browser (localStorage) every 2 minutes and when
      the page is closed. Nothing is uploaded; students submit on Canvas.
-   - Save file / Open file move a draft between computers (.cycle.json).
    - Print / Save as PDF prints one landscape page: Title, Diagram, Summary.
    =========================================== */
 export const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -349,6 +348,7 @@ export function initBuilder(root, { onChange } = {}) {
     human: 'Click the canvas to add a human touchpoint (a city, farm, factory or car).',
     cloud: 'Click the canvas to add a cloud: where matter enters or leaves your system.',
     flow: 'Click the piece the element flows FROM, then the piece it flows TO.',
+    erase: 'Click any stock, cloud, human impact or arrow to erase it. Undo brings it back.',
   };
   function setMode(m) {
     mode = m; pending = null; preset = null;
@@ -391,6 +391,7 @@ export function initBuilder(root, { onChange } = {}) {
       setTimeout(() => ui('pname').focus(), 0);
       return;
     }
+    if (mode === 'erase') { if (id) remove(id); return; }
     if (mode === 'flow') {
       if (!id || !g.classList.contains('cy-node')) return;
       if (!pending) { pending = id; ui('tip').textContent = 'Now click the piece it flows TO.'; draw(); return; }
@@ -438,7 +439,7 @@ export function initBuilder(root, { onChange } = {}) {
       ui('saved').textContent = `${why === 'auto' ? 'Autosaved' : 'Draft saved'} at ${stamp(new Date())}. It stays in this browser only.`;
       ui('saved').className = 'cy-saved ok';
     } catch (err) {
-      ui('saved').textContent = 'This browser blocked saving. Use Save file to keep a copy.';
+      ui('saved').textContent = 'This browser blocked saving. Use Print / Save as PDF to keep a copy.';
       ui('saved').className = 'cy-saved err';
     }
   }
@@ -446,24 +447,6 @@ export function initBuilder(root, { onChange } = {}) {
   addEventListener('pagehide', () => { if (dirty) saveDraft('auto'); });
   document.addEventListener('visibilitychange', () => { if (document.hidden && dirty) saveDraft('auto'); });
   ui('save-now').addEventListener('click', () => saveDraft('now'));
-
-  /* --- save / open a file --- */
-  ui('save-file').addEventListener('click', () => {
-    const name = (st.title || 'my-cycle').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'my-cycle';
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([JSON.stringify({ ...st, saved: Date.now() }, null, 1)], { type: 'application/json' }));
-    a.download = `${name}.cycle.json`;
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
-  });
-  ui('open-file').addEventListener('click', () => ui('file').click());
-  ui('file').addEventListener('change', async () => {
-    const f = ui('file').files[0];
-    ui('file').value = '';
-    if (!f) return;
-    try { load(clean(JSON.parse(await f.text())), true); ui('saved').textContent = `Opened ${f.name}.`; ui('saved').className = 'cy-saved ok'; }
-    catch (err) { ui('saved').textContent = 'That file is not a saved cycle.'; ui('saved').className = 'cy-saved err'; }
-  });
 
   /* only keep known fields from a file or draft; ids are letters, digits and dashes only */
   const safeId = v => String(v ?? '').replace(/[^\w-]/g, '').slice(0, 20) || 'x';

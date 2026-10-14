@@ -150,6 +150,9 @@
 .cy button.t{font:700 18px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:10px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .cy button.t.on{background:var(--Blue);color:var(--paper)}
 .cy button.t.sm{font-size:16px;padding:6px 12px}
+.cy button.t.clear{margin-left:auto;border-color:#b3452c;color:#b3452c;background:#fdf1ee}
+.cy button.t.clear:hover{background:#b3452c;color:#fff}
+.cy button.t[data-tool="erase"].on{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t.armed{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t .sw{width:22px;height:16px;border-radius:4px;border:2.5px solid currentColor}
 .cy button.t .sw.h{border-radius:6px;background:#fbefc9;border-color:var(--accent)}
@@ -181,6 +184,8 @@
 #cy-svg[data-mode="stock"],#cy-svg[data-mode="human"],#cy-svg[data-mode="cloud"]{cursor:copy}
 #cy-svg[data-mode="flow"] .cy-node{cursor:crosshair}
 #cy-svg[data-mode="move"] .cy-node{cursor:grab}
+#cy-svg[data-mode="erase"] [data-id]{cursor:not-allowed}
+#cy-svg[data-mode="erase"] [data-id]:hover{opacity:.45}
 .cy-empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--mute);font-size:24px;pointer-events:none;padding:40px}
 .cy-empty b{display:block;font:400 36px var(--display);color:var(--ink);margin-bottom:6px}
 .cy-side{display:flex;flex-direction:column;gap:12px;min-height:0}
@@ -370,7 +375,7 @@
     </div>
     <div class="ap-sub reveal d4">
       <div class="ap-lbl">Then</div>
-      <p>Every student uploads <b>their own copy</b> on Canvas: a high-resolution screenshot or a PDF. In the builder, <b>Print / Save as PDF</b> makes that file, and <b>Save file</b> keeps a copy you can open again later. Your draft also saves in your browser every 2 minutes.</p>
+      <p>Every student uploads <b>their own copy</b> on Canvas: a high-resolution screenshot or a PDF. In the builder, <b>Print / Save as PDF</b> makes that file. Your draft also saves in your browser every 2 minutes.</p>
     </div>
   </div>
 </section>
@@ -396,10 +401,11 @@
         <button class="t" type="button" data-tool="flow">⇒ Flow</button>
         <button class="t" type="button" data-tool="human"><span class="sw h"></span>Human impact</button>
         <button class="t" type="button" data-tool="cloud"><span class="sw c"></span>Cloud</button>
+        <button class="t" type="button" data-tool="erase">⌫ Erase</button>
         <span class="sep"></span>
         <button class="t" type="button" data-cy="undo">↶ Undo</button>
         <button class="t sm" type="button" data-cy="example">Load worked example</button>
-        <button class="t sm" type="button" data-cy="clear">Clear</button>
+        <button class="t sm clear" type="button" data-cy="clear">🗑 Clear all</button>
       </div>
       <div class="cy-tip" data-cy="tip"></div>
       <div class="cy-work">
@@ -432,10 +438,7 @@
       </div>
       <div class="cy-foot">
         <button class="btn" type="button" data-cy="print">Print / Save as PDF</button>
-        <button class="t" type="button" data-cy="save-now">💾 Save draft now</button>
-        <button class="t" type="button" data-cy="save-file">⤓ Save file</button>
-        <button class="t" type="button" data-cy="open-file" style="grid-column:1/-1">📂 Open a saved file</button>
-        <input type="file" accept=".json,application/json" data-cy="file" hidden>
+        <button class="t" type="button" data-cy="save-now" style="grid-column:1/-1">💾 Save draft now</button>
         <div class="cy-saved" data-cy="saved" aria-live="polite">Autosaves every 2 minutes.</div>
       </div>
     </div>
@@ -450,7 +453,7 @@
 <script src="../../shared/deck.js?v=2026-10-05"></script>
 <script type="module">
 import { loadSession, fill } from '../../shared/course.js';
-import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14';
+import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14b';
 
 /* Review Exercise 2 is the fourth Module 4 session (M4 L4). */
 const SESSION = 'm4-s4';
