@@ -14,28 +14,49 @@ const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
 const KEY = 'sos110-m4-review2-draft';
 const AUTOSAVE_MS = 2 * 60 * 1000;
-const W = 1160, H = 660;          // canvas size in SVG units
+const W = 1160, H = 880;          // canvas size in SVG units
 
 export const TEAMS = [
   ['1', 'Nitrogen'], ['2', 'Phosphorus'], ['3', 'Carbon'], ['4', 'Water'], ['5', 'Oxygen'], ['6', 'Sulfur'],
 ];
 export const ECOSYSTEMS = ['Sonoran Desert (Phoenix area)', 'Tropical forest', 'Temperate forest', 'Savanna', 'Temperate grassland', 'Coastal wetland'];
 
-/* Name suggestions while typing: common stocks and processes for each cycle */
-const SUGGEST = {
-  Nitrogen: ['Atmosphere (N₂ gas)', 'Soil organic matter', 'Soil ammonium (NH₄⁺)', 'Soil nitrate (NO₃⁻)', 'Plants', 'Animals', 'Soil microbes', 'Biological soil crust', 'Groundwater', 'Canals and streams',
-    'Nitrogen fixation', 'Lightning fixation', 'Nitrification', 'Denitrification', 'Ammonification (decomposition)', 'Plant uptake', 'Leaching', 'Atmospheric deposition', 'Fertilizer runoff', 'Fossil fuel combustion (NOx)'],
-  Phosphorus: ['Rocks and minerals (apatite)', 'Soil phosphate', 'Plants', 'Animals', 'Soil organic matter', 'Sediments', 'Lakes and reservoirs', 'Ocean',
-    'Weathering', 'Plant uptake', 'Decomposition', 'Erosion', 'Runoff', 'Sedimentation', 'Geologic uplift', 'Dust deposition', 'Phosphate mining', 'Fertilizer application', 'Wastewater discharge'],
-  Carbon: ['Atmosphere (CO₂)', 'Plants (biomass)', 'Soil organic carbon', 'Animals', 'Ocean', 'Fossil fuels', 'Caliche and limestone', 'Urban concrete and asphalt',
-    'Photosynthesis', 'Respiration', 'Decomposition', 'Fossil fuel combustion', 'Vehicle emissions', 'Wildfire', 'Land clearing', 'Ocean absorption', 'Burial'],
-  Water: ['Atmosphere (water vapor)', 'Clouds', 'Snowpack', 'Rivers and canals', 'Lakes and reservoirs', 'Groundwater (aquifer)', 'Soil moisture', 'Plants', 'Ocean',
-    'Evaporation', 'Transpiration', 'Condensation', 'Precipitation', 'Infiltration', 'Runoff', 'Groundwater recharge', 'Groundwater pumping', 'Canal diversion', 'Irrigation', 'Urban runoff from pavement'],
-  Oxygen: ['Atmosphere (O₂)', 'Ozone layer (O₃)', 'Plants', 'Animals', 'Soil', 'Ocean (dissolved O₂)', 'Rocks (oxides)',
-    'Photosynthesis', 'Respiration', 'Decomposition', 'Combustion', 'Weathering (oxidation)', 'Ozone formation', 'Deforestation', 'Algal bloom dead zones'],
-  Sulfur: ['Atmosphere (SO₂, sulfate)', 'Vegetation', 'Soil organic matter', 'Soil sulfate (SO₄²⁻)', 'Rocks and minerals (gypsum, pyrite)', 'Streams and lakes', 'Ocean',
-    'Volcanic emissions', 'Acid rain (deposition)', 'Root uptake', 'Litter fall', 'Decomposition', 'Weathering', 'Leaching', 'Coal burning (SO₂)', 'Mining and smelting', 'Acid mine drainage', 'DMS release from ocean'],
+/* The pick list on the left of the canvas, and name suggestions while typing:
+   common stocks, processes (flows) and human impacts for each cycle.
+   A human impact is [the touchpoint card, the human-caused flow it adds]. */
+const PALETTE = {
+  Nitrogen: {
+    stocks: ['Atmosphere (N₂ gas)', 'Biological soil crust', 'Soil microbes', 'Soil organic matter', 'Soil ammonium (NH₄⁺)', 'Soil nitrate (NO₃⁻)', 'Plants', 'Animals', 'Groundwater', 'Canals and streams'],
+    flows: ['Nitrogen fixation', 'Lightning fixation', 'Ammonification (decomposition)', 'Nitrification', 'Denitrification', 'Plant uptake', 'Eating (consumption)', 'Leaching', 'Atmospheric deposition'],
+    human: [['Fertilized lawns and farms', 'Fertilizer runoff'], ['Cars and power plants', 'NOx emissions'], ['Off-road vehicles', 'Soil crust damage']],
+  },
+  Phosphorus: {
+    stocks: ['Rocks and minerals (apatite)', 'Soil phosphate', 'Plants', 'Animals', 'Soil organic matter', 'Lakes and reservoirs', 'Sediments', 'Ocean'],
+    flows: ['Weathering', 'Plant uptake', 'Eating (consumption)', 'Decomposition', 'Erosion', 'Runoff', 'Dust deposition', 'Sedimentation', 'Geologic uplift'],
+    human: [['Phosphate mines', 'Mined phosphate rock'], ['Farms and lawns', 'Fertilizer runoff'], ['Wastewater treatment plants', 'Wastewater discharge'], ['Construction sites', 'Soil erosion']],
+  },
+  Carbon: {
+    stocks: ['Atmosphere (CO₂)', 'Plants (biomass)', 'Animals', 'Soil organic carbon', 'Caliche and limestone', 'Fossil fuels', 'Ocean', 'Urban concrete and asphalt'],
+    flows: ['Photosynthesis', 'Respiration', 'Eating (consumption)', 'Decomposition', 'Wildfire', 'Ocean absorption', 'Burial'],
+    human: [['Cars and trucks', 'Vehicle emissions'], ['Power plants', 'Fossil fuel combustion'], ['New neighborhoods', 'Land clearing'], ['Cement plants', 'Cement production CO₂']],
+  },
+  Water: {
+    stocks: ['Atmosphere (water vapor)', 'Clouds', 'Snowpack', 'Rivers and canals', 'Lakes and reservoirs', 'Soil moisture', 'Groundwater (aquifer)', 'Plants', 'Ocean'],
+    flows: ['Evaporation', 'Transpiration', 'Condensation', 'Precipitation', 'Snowmelt', 'Infiltration', 'Runoff', 'Groundwater recharge'],
+    human: [['Wells', 'Groundwater pumping'], ['Canals', 'Canal diversion'], ['Farms', 'Irrigation'], ['Pavement and roofs', 'Urban runoff']],
+  },
+  Oxygen: {
+    stocks: ['Atmosphere (O₂)', 'Ozone layer (O₃)', 'Plants', 'Animals', 'Soil', 'Ocean (dissolved O₂)', 'Lakes and canals', 'Rocks (oxides)'],
+    flows: ['Photosynthesis', 'Respiration', 'Decomposition', 'Weathering (oxidation)', 'Ozone formation', 'Dissolving into water'],
+    human: [['Cars and power plants', 'Combustion uses O₂'], ['Traffic on hot days', 'Ground-level ozone smog'], ['Land clearing', 'Deforestation'], ['Fertilizer runoff', 'Algal bloom dead zones']],
+  },
+  Sulfur: {
+    stocks: ['Atmosphere (SO₂, sulfate)', 'Vegetation', 'Soil organic matter', 'Soil sulfate (SO₄²⁻)', 'Rocks and minerals (gypsum, pyrite)', 'Streams and lakes', 'Ocean'],
+    flows: ['Volcanic emissions', 'Acid rain (deposition)', 'Root uptake', 'Litter fall', 'Decomposition', 'Weathering', 'Leaching', 'DMS release from ocean'],
+    human: [['Coal power plants', 'SO₂ emissions'], ['Mining and smelting', 'Acid mine drainage'], ['Logging', 'Timber harvest']],
+  },
 };
+const SUGGEST = Object.fromEntries(Object.entries(PALETTE).map(([k, p]) => [k, [...p.stocks, ...p.flows, ...p.human.flat()]]));
 
 /* === WORKED EXAMPLE === Team 6, the sulfur cycle in a temperate forest */
 export const EXAMPLE = {
@@ -199,7 +220,7 @@ export function printSheet(sheet, st) {
 export function initBuilder(root, { onChange } = {}) {
   const svg = $('#cy-svg', root);
   const ui = id => $(`[data-cy="${id}"]`, root);
-  let st = blank(), sel = null, mode = 'move', pending = null, drag = null, dirty = false, seq = 1;
+  let st = blank(), sel = null, mode = 'move', pending = null, preset = null, drag = null, dirty = false, seq = 1;
   const undo = [];
 
   const snap = () => { undo.push(JSON.stringify(st)); if (undo.length > 60) undo.shift(); };
@@ -211,6 +232,7 @@ export function initBuilder(root, { onChange } = {}) {
     render(svg, st, { sel, pending });
     ui('empty').hidden = st.nodes.length > 0;
     drawPanel();
+    drawPalette();
     drawChecks();
     onChange?.(st);
   }
@@ -241,9 +263,53 @@ export function initBuilder(root, { onChange } = {}) {
     if (f === 'team' && st.team) { st.cycle = TEAMS.find(t => t[0] === st.team)[1]; ui('cycle').value = st.cycle; }
     if (f === 'ecosystem') ui('ecoOther').hidden = st.ecosystem !== 'other';
     suggest();
+    if (f === 'team' || f === 'cycle') drawPalette();
     dirty = true; drawChecks(); onChange?.(st);
   }));
   ui('use-title').addEventListener('click', () => { st.title = ui('use-title').dataset.title; ui('title').value = st.title; suggest(); changed(); });
+
+  /* --- pick list: stocks, processes and human impacts for the chosen cycle --- */
+  function drawPalette() {
+    const p = PALETTE[st.cycle];
+    if (!p) { ui('palette').innerHTML = '<p class="cy-pal-empty">Pick your team or cycle above to see its stocks, processes and human impacts.</p>'; return; }
+    const used = new Set(st.nodes.map(n => n.label));
+    const usedF = new Set(st.flows.map(f => f.label));
+    ui('palette').innerHTML = `
+      <h5><span class="sw"></span>Stocks <small>click to add</small></h5>
+      <div class="cy-pal-list">${p.stocks.map(x => `<button type="button" class="pi stock${used.has(x) ? ' used' : ''}" data-add="stock" data-v="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+      <h5><span class="sw f"></span>Processes / flows <small>click, then FROM → TO</small></h5>
+      <div class="cy-pal-list">${p.flows.map(x => `<button type="button" class="pi flow${usedF.has(x) ? ' used' : ''}" data-add="flow" data-v="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+      <h5><span class="sw h"></span>Human impacts <small>click, then the stock it changes</small></h5>
+      <div class="cy-pal-list">${p.human.map(([c, f]) => `<button type="button" class="pi human${used.has(c) ? ' used' : ''}" data-add="human" data-v="${esc(c)}" data-f="${esc(f)}"><b>${esc(c)}</b><span>${esc(f)}</span></button>`).join('')}</div>`;
+  }
+  /* an open spot on the canvas for a new piece */
+  function freeSpot() {
+    for (let y = 90; y <= H - 80; y += 165) for (let x = 140; x <= W - 140; x += 293) {
+      const sx = x + (((y - 90) / 165) % 2 ? 146 : 0);
+      if (sx > W - 120) continue;
+      if (st.nodes.every(n => Math.abs(n.x - sx) > 250 || Math.abs(n.y - y) > 130)) return { x: sx, y };
+    }
+    return { x: W / 2 + (Math.random() - .5) * 200, y: H / 2 + (Math.random() - .5) * 200 };
+  }
+  ui('palette').addEventListener('click', e => {
+    const b = e.target.closest('[data-add]');
+    if (!b) return;
+    const v = b.dataset.v;
+    if (b.dataset.add === 'flow') {
+      setMode('flow'); preset = { label: v, human: false };
+      ui('tip').textContent = `"${v}": click the piece it flows FROM, then the piece it flows TO.`;
+      return;
+    }
+    snap();
+    const kind = b.dataset.add, at = freeSpot();
+    const n = { id: nid('n'), kind, x: Math.round(at.x), y: Math.round(at.y), label: v };
+    st.nodes.push(n);
+    if (kind === 'human') {
+      setMode('flow'); pending = n.id; preset = { label: b.dataset.f, human: true };
+      ui('tip').textContent = `"${b.dataset.f}": now click the stock this human impact changes.`;
+      changed();
+    } else { sel = n.id; setMode('move'); changed(); }
+  });
 
   /* --- selected piece --- */
   function drawPanel() {
@@ -285,7 +351,7 @@ export function initBuilder(root, { onChange } = {}) {
     flow: 'Click the piece the element flows FROM, then the piece it flows TO.',
   };
   function setMode(m) {
-    mode = m; pending = null;
+    mode = m; pending = null; preset = null;
     $$('[data-tool]', root).forEach(b => b.classList.toggle('on', b.dataset.tool === m));
     ui('tip').textContent = TIPS[m];
     svg.dataset.mode = m;
@@ -331,9 +397,9 @@ export function initBuilder(root, { onChange } = {}) {
       if (pending === id) { pending = null; draw(); return; }
       snap();
       const from = st.nodes.find(n => n.id === pending), to = st.nodes.find(n => n.id === id);
-      const f = { id: nid('f'), from: pending, to: id, label: '', human: from.kind === 'human' || to.kind === 'human', note: '' };
-      st.flows.push(f); pending = null; sel = f.id; setMode('move'); changed();
-      setTimeout(() => ui('pname').focus(), 0);
+      const f = { id: nid('f'), from: pending, to: id, label: preset?.label || '', human: !!preset?.human || from.kind === 'human' || to.kind === 'human', note: '' };
+      st.flows.push(f); sel = f.id; setMode('move'); changed();
+      setTimeout(() => ui(f.human && f.label ? 'pnote' : 'pname').focus(), 0);
       return;
     }
     /* move mode */

@@ -103,6 +103,22 @@
 .ap-sub{display:grid;grid-template-columns:130px 1fr;gap:20px;border-top:3px solid var(--ink);padding-top:10px;margin-top:12px;font-size:18px;line-height:1.4}
 .ap-sub b{color:var(--deep)}
 
+/* before you upload: checklist rows and the drawing conventions */
+.ckb{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;flex:1;min-height:0;margin-top:8px}
+.ck{display:grid;grid-template-columns:34px 1fr;gap:16px;width:100%;text-align:left;background:none;border:0;border-top:2px solid var(--paper-2);padding:11px 0;cursor:pointer;font:inherit;color:var(--ink)}
+.ck:last-child{border-bottom:2px solid var(--paper-2)}
+.ck i{width:30px;height:30px;border-radius:6px;border:3px solid var(--Blue);margin-top:3px;font:700 19px/24px var(--body);text-align:center;color:#fff;font-style:normal}
+.ck.on i{background:#2e7d5b;border-color:#2e7d5b}
+.ck.on i::after{content:'✓'}
+.ck b{display:block;font:400 25px/1.25 var(--display)}
+.ck small{display:block;font-size:18px;line-height:1.35;color:var(--mute);margin-top:3px}
+.ck-conv{border-left:2px solid var(--paper-2);padding-left:34px}
+.ck-conv dl>div{display:grid;grid-template-columns:140px 1fr;gap:0 18px;align-items:center;margin-bottom:12px}
+.ck-conv svg{width:130px;height:46px;grid-row:span 2}
+.ck-conv dt{font:800 18px var(--sans);color:var(--ink)}
+.ck-conv dd{font-size:18px;line-height:1.3;color:var(--mute)}
+.ck-note{font-size:17px;font-style:italic;color:var(--mute)}
+
 /* worked example */
 .wx{display:grid;grid-template-columns:1fr 560px;gap:34px;flex:1;min-height:0}
 .wx-fig{background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:8px;min-height:0;display:flex}
@@ -154,6 +170,26 @@
 .cy button.t .sw.c{border-radius:9px;border-style:dashed}
 .cy .sep{width:2px;height:30px;background:var(--paper-2);margin:0 4px}
 .cy-tip{font-size:18px;color:var(--mute);min-height:24px}
+.cy-work{flex:1;min-height:0;display:grid;grid-template-columns:270px 1fr;gap:12px}
+.cy-pal{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:10px 12px;overflow:auto;min-height:0}
+.cy-pal h5{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:800 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--Blue);margin:8px 0 4px}
+.cy-pal h5:first-child{margin-top:0}
+.cy-pal h5 small{flex-basis:100%;font:italic 400 13px var(--body);letter-spacing:0;text-transform:none;color:var(--mute)}
+.cy-pal h5 .sw{width:18px;height:12px;border:2.5px solid var(--Blue);border-radius:3px;background:#fff}
+.cy-pal h5 .sw.f{height:0;border-width:2.5px 0 0;border-radius:0}
+.cy-pal h5 .sw.h{border-color:var(--accent);background:#fbefc9}
+.cy-pal-list{display:flex;flex-wrap:wrap;gap:4px}
+.cy-pal .pi{font:400 14px/1.2 var(--body);text-align:left;color:var(--ink);background:#fff;border:1.5px solid #bcd9e0;border-radius:7px;padding:4px 7px;cursor:pointer}
+.cy-pal .pi:hover{border-color:var(--Blue);background:rgba(66,168,191,.08)}
+.cy-pal .pi.stock{border-left:5px solid var(--Blue)}
+.cy-pal .pi.flow{border-radius:999px}
+.cy-pal .pi.human{width:100%;background:#fdf6e3;border-color:#e6c98a;border-left:5px solid var(--accent)}
+.cy-pal .pi.human b{display:block;font-weight:700}
+.cy-pal .pi.human{padding:3px 8px}
+.cy-pal .pi.human span{font-size:13px;color:#b3452c}
+.cy-pal .pi.used{opacity:.55}
+.cy-pal .pi.used::after{content:' ✓';color:#2e7d5b;font-weight:700}
+.cy-pal-empty{font-size:17px;color:var(--mute);padding:6px 2px}
 .cy-canvas{position:relative;flex:1;min-height:0;background:#fff;border:2px solid var(--paper-2);border-radius:16px;background-image:radial-gradient(circle,#e4ddcc 1.4px,transparent 1.5px);background-size:28px 28px}
 #cy-svg{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none}
 #cy-svg[data-mode="stock"],#cy-svg[data-mode="human"],#cy-svg[data-mode="cloud"]{cursor:copy}
@@ -336,35 +372,30 @@
   </div>
 </section>
 
-<!-- 5. BEFORE YOU UPLOAD -->
+<!-- 5. BEFORE YOU UPLOAD (self-check and drawing conventions, laid out like the reference review assignment) -->
 <section class="slide">
   <div class="rail"><b>4.4</b><span>Before you upload</span></div>
-  <div class="content fill" style="top:70px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm good"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Self-check · answer yes to each one</div>
-    <h2 class="reveal d2" style="font-size:64px">Before you <em>upload</em></h2>
-    <div class="upl reveal d3">
-      <div>
-        <button class="tick" type="button"><i></i><span>The title names our <b>cycle</b> and our <b>ecosystem</b>.</span></button>
-        <button class="tick" type="button"><i></i><span>We mapped and named <b>at least 3 stocks</b> (pools).</span></button>
-        <button class="tick" type="button"><i></i><span>Every <b>flow</b> is an arrow with a name, pointing the right way.</span></button>
-        <button class="tick" type="button"><i></i><span>We showed and explained <b>2–3 human impacts</b>.</span></button>
-        <button class="tick" type="button"><i></i><span>Our <b>synthesis statement</b> is in our own words.</span></button>
-        <button class="tick" type="button"><i></i><span>The <b>full names</b> of everyone who took part are listed.</span></button>
+  <div class="content ap" style="top:44px;bottom:70px">
+    <div class="k reveal ih"><span class="ico sm good"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Module 4 · Review Exercise 2</div>
+    <h2 class="reveal d2">Before You <em>Upload</em></h2>
+    <p class="ap-obj reveal d2"><b>Student self-assessment checklist.</b> Before uploading your file, check that you can answer <b>Yes</b> to all of the following. Tap each one as you check it.</p>
+    <div class="ckb reveal d3">
+      <div class="ck-list"><button class="ck" type="button"><i></i><span><b>Did you map and clearly label all major stocks, pools, or reservoirs?</b><small>The builder ticks this at three or more stocks, every one named.</small></span></button><button class="ck" type="button"><i></i><span><b>Did you explicitly show the directional processes and flows using clear arrows?</b><small>Every flow runs from one piece to another and is named after its process.</small></span></button><button class="ck" type="button"><i></i><span><b>Did you illustrate and explain at least two concrete human impacts or disruptions?</b><small>Two or three human-caused flows, each with a sentence on how it disrupts the cycle.</small></span></button><button class="ck" type="button"><i></i><span><b>Is your diagram grounded in an appropriate, clearly identified ecosystem context?</b><small>Your title names the cycle and the ecosystem.</small></span></button><button class="ck" type="button"><i></i><span><b>Did you write a synthesis statement in your own words?</b><small>Two to four sentences on how the cycle works in your ecosystem and how people change it.</small></span></button><button class="ck" type="button"><i></i><span><b>Did you list the full names of everyone who took part?</b><small>Only teammates who actively took part.</small></span></button></div>
+      <div class="ck-conv">
+        <div class="ap-rule" style="margin-top:0"><span>Drawing conventions</span></div>
+        <dl>
+          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="65" y="28" text-anchor="middle" font-size="15" font-family="PT Serif" fill="#10313d">Soil N</text></svg><dt>Stock</dt><dd>a box for each pool or reservoir</dd></div>
+          <div><svg viewBox="0 0 130 46"><defs><marker id="cv-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker></defs><path d="M10,23 Q65,8 120,23" fill="none" stroke="#0d7397" stroke-width="3" marker-end="url(#cv-ah)"/></svg><dt>Flow</dt><dd>a labeled arrow named after its process; the head shows direction</dd></div>
+          <div><svg viewBox="0 0 130 46"><defs><marker id="cv-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M10,23 Q65,8 120,23" fill="none" stroke="#b3452c" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#cv-ahh)"/></svg><dt>Human-caused flow</dt><dd>a dashed red arrow, explained in a sentence</dd></div>
+          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="17" fill="#f4f8f7" stroke="#75a29f" stroke-width="3" stroke-dasharray="8 6"/></svg><dt>Cloud</dt><dd>where matter enters from, or leaves to, outside your system</dd></div>
+          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="10" fill="#fbefc9" stroke="#C4851C" stroke-width="3"/><text x="65" y="28" text-anchor="middle" font-size="15" font-family="PT Serif" fill="#10313d">Traffic</text></svg><dt>Human touchpoint</dt><dd>an icon card, wired to the process it changes</dd></div>
+        </dl>
+        <p class="ck-note">The same marks work in InsightMaker, Miro, Canva or on paper.</p>
       </div>
-      <div>
-        <div class="conv">
-          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/></svg><span><b>Stock</b>: a pool where the element is stored.</span>
-          <svg viewBox="0 0 150 46"><defs><marker id="cv-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker><marker id="cv-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M14,23 H134" stroke="#0d7397" stroke-width="3" marker-end="url(#cv-ah)"/></svg><span><b>Flow</b>: a labeled arrow for a process.</span>
-          <svg viewBox="0 0 150 46"><path d="M14,23 H134" stroke="#b3452c" stroke-width="3" stroke-dasharray="10 6" marker-end="url(#cv-ahh)"/></svg><span><b>Human-caused flow</b>: dashed red arrow.</span>
-          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="10" fill="#fbefc9" stroke="#C4851C" stroke-width="3"/></svg><span><b>Human touchpoint</b>: an icon card (a farm, city, car or factory).</span>
-          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="17" fill="#f4f8f7" stroke="#75a29f" stroke-width="3" stroke-dasharray="8 6"/></svg><span><b>Cloud</b>: where matter enters or leaves your system.</span>
-        </div>
-        <div class="rules">
-          <div><b>Present.</b> Be ready to show your team's visual to the class.</div>
-          <div><b>Submit your own copy.</b> Export a high-resolution image or PDF. Every student uploads it to Review Exercise 2 on Canvas to get credit.</div>
-          <div class="warn"><b>Academic integrity.</b> Contribution must be equal. If a teammate does not take part, leave their name off the graphic and tell your professor; they will not get credit.</div>
-        </div>
-      </div>
+    </div>
+    <div class="ap-sub reveal d4">
+      <div class="ap-lbl">Then</div>
+      <p>Every student uploads <b>their own copy</b> on Canvas: a high-resolution screenshot or a PDF. In the builder, <b>Print / Save as PDF</b> makes that file, and <b>Save file</b> keeps a copy you can open again later. Your draft also saves in your browser every 2 minutes.</p>
     </div>
   </div>
 </section>
@@ -396,9 +427,12 @@
         <button class="t sm" type="button" data-cy="clear">Clear</button>
       </div>
       <div class="cy-tip" data-cy="tip"></div>
+      <div class="cy-work">
+      <aside class="cy-pal" data-cy="palette" aria-label="Stocks, processes and human impacts to add"></aside>
       <div class="cy-canvas">
         <svg id="cy-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="2 · Diagram canvas"></svg>
-        <div class="cy-empty" data-cy="empty"><div><b>2 · Diagram</b>Pick your team above, then choose <b>Stock</b> and click here to add your first pool.</div></div>
+        <div class="cy-empty" data-cy="empty"><div><b>2 · Diagram</b>Pick your team above, then click a stock in the list on the left, or choose <b>Stock</b> and click here.</div></div>
+      </div>
       </div>
     </div>
     <div class="cy-side">
@@ -474,7 +508,7 @@ $('#wx-summary').textContent = EXAMPLE.summary;
 $('#wx-impacts').innerHTML = EXAMPLE.flows.filter(f => f.human).map(f => `<li><b>${esc(f.label)}:</b> ${esc(f.note)}</li>`).join('');
 
 /* === SELF-CHECK === tap to tick; not saved */
-document.querySelectorAll('.tick').forEach(t => t.addEventListener('click', () => t.classList.toggle('on')));
+document.querySelectorAll('.ck').forEach(t => t.addEventListener('click', () => t.classList.toggle('on')));
 
 /* === BUILDER === */
 const builder = initBuilder($('#cy'));
