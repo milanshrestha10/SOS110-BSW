@@ -12,20 +12,6 @@
 .lead2{font-size:28px;line-height:1.42;max-width:1560px}
 .lead2 b{color:var(--Blue)}
 
-/* key terms: all 15 Module 4 terms as small flip cards */
-.terms{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:16px;flex:1;min-height:0}
-.tcard{position:relative;perspective:1600px;cursor:pointer;min-height:0}
-.tcard .in{position:absolute;inset:0;transition:transform .7s var(--ease);transform-style:preserve-3d}
-.tcard.flip .in{transform:rotateY(180deg)}
-.tcard .f,.tcard .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;overflow:hidden}
-.tcard .f{background:var(--card);border:2px solid var(--paper-2);border-top:8px solid var(--c,var(--Sky))}
-.tcard .b{background:var(--Blue);color:var(--paper);transform:rotateY(180deg)}
-.tcard h4{font:400 27px/1.08 var(--display);margin-bottom:6px}
-.tcard p{font-size:17.5px;line-height:1.36}
-.tcard .b p+p{margin-top:8px;opacity:.88}
-.tcard .tag{margin-top:auto;padding-top:6px;font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.tcard .b .tag{color:var(--golden)}
-.tcard.l1{--c:var(--Green)}.tcard.l2{--c:var(--Sky)}.tcard.l3{--c:var(--golden)}
 .tkey{display:flex;gap:26px;font-size:20px;color:var(--mute);margin:-26px 0 18px}
 .tkey i{display:inline-block;width:26px;height:8px;border-radius:4px;margin-right:8px;vertical-align:middle}
 
@@ -281,7 +267,7 @@
 
 <!-- 1. TITLE -->
 <section class="slide hero">
-  <img class="hero-img" src="../m4-l1-geosphere-soil-land-use/img/phoenix-edge.jpg" alt="Aerial view of new homes under construction at the edge of open Sonoran Desert, with desert mountains behind">
+  <img class="hero-img" src="img/cover.jpg" alt="Green mountain valley with low clouds and the sun breaking through, a road winding along the valley floor">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
@@ -292,18 +278,7 @@
   </div>
 </section>
 
-<!-- 2. KEY TERMS: ALL MODULE 4 GLOSSARY TERMS -->
-<section class="slide">
-  <div class="rail"><b>4.4</b><span>Key terms</span></div>
-  <div class="content fill" style="top:70px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Module 4 glossary · tap a card for an example</div>
-    <h2 class="reveal d2" style="font-size:66px">All the <em>key terms</em> for Module 4</h2>
-    <div class="tkey reveal d2"><span><i style="background:var(--Green)"></i>Lecture 11</span><span><i style="background:var(--Sky)"></i>Lecture 12</span><span><i style="background:var(--golden)"></i>Lecture 13</span><span>Use these words on your diagram.</span></div>
-    <div class="terms reveal d3" id="terms"></div>
-  </div>
-</section>
-
-<!-- 3. THE ASSIGNMENT (one prompt page, laid out like the reference review assignment) -->
+<!-- 2. THE ASSIGNMENT (one prompt page, laid out like the reference review assignment) -->
 <section class="slide">
   <div class="rail"><b>4.4</b><span>The assignment</span></div>
   <div class="content ap" style="top:40px;bottom:34px">
@@ -351,7 +326,7 @@
   </div>
 </section>
 
-<!-- 4. WORKED EXAMPLE: TEAM 6 SULFUR -->
+<!-- 3. WORKED EXAMPLE: TEAM 6 SULFUR -->
 <section class="slide" id="example">
   <div class="rail"><b>4.4</b><span>Worked example</span></div>
   <div class="content fill" style="top:60px;bottom:50px">
@@ -372,7 +347,7 @@
   </div>
 </section>
 
-<!-- 5. BEFORE YOU UPLOAD (self-check and drawing conventions, laid out like the reference review assignment) -->
+<!-- 4. BEFORE YOU UPLOAD (self-check and drawing conventions, laid out like the reference review assignment) -->
 <section class="slide">
   <div class="rail"><b>4.4</b><span>Before you upload</span></div>
   <div class="content ap" style="top:44px;bottom:70px">
@@ -400,7 +375,7 @@
   </div>
 </section>
 
-<!-- 6. CYCLE SYSTEMS BUILDER -->
+<!-- 5. CYCLE SYSTEMS BUILDER -->
 <section class="slide" id="builder">
   <div class="rail"><b>4.4</b><span>Cycle builder</span></div>
   <div class="cy" id="cy">
@@ -481,26 +456,8 @@ import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14';
 const SESSION = 'm4-s4';
 const $ = s => document.querySelector(s);
 
-/* === KEY TERMS === every Module 4 glossary term, tagged by the lecture that teaches it */
-loadSession(SESSION).then(d => {
-  fill($('.slide.hero'), d);
-  const mod = d.session.module;
-  const gloss = d.course.glossary.find(g => g.module === mod.glossary_module).terms;
-  const lect = {};
-  mod.sessions.forEach((s, i) => s.terms.forEach(t => { lect[t] = i; }));
-  const order = [...gloss].sort((a, b) => (lect[a.term] ?? 9) - (lect[b.term] ?? 9));
-  $('#terms').innerHTML = order.map(t => {
-    const i = lect[t.term];
-    const tag = i === undefined ? 'Module 4' : `Lecture ${11 + i}`;
-    return `<div class="tcard${i === undefined ? '' : ` l${i + 1}`}" tabindex="0" role="button" aria-label="${esc(t.term)}: show example">
-      <div class="in"><div class="f"><h4>${esc(t.term)}</h4><p>${esc(t.definition)}</p><span class="tag">${tag}</span></div>
-      <div class="b"><h4>${esc(t.term)}</h4><p>${esc(t.example)}</p><p>${esc(t.significance)}</p></div></div></div>`;
-  }).join('');
-  document.querySelectorAll('.tcard').forEach(c => {
-    c.addEventListener('click', () => c.classList.toggle('flip'));
-    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); c.classList.toggle('flip'); } });
-  });
-}).catch(() => { $('#terms').innerHTML = '<p class="mute">The key terms could not load. Refresh the page.</p>'; });
+/* === TITLE === module name and session label from course.json */
+loadSession(SESSION).then(d => fill($('.slide.hero'), d)).catch(() => {});
 
 /* === WORKED EXAMPLE === the Team 6 sulfur cycle, drawn by the same code as the builder */
 render($('#wx-svg'), EXAMPLE, { viewBox: 'fit' });
