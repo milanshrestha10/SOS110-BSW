@@ -129,8 +129,8 @@ export function render(svg, st, { sel = null, pending = null, viewBox = null } =
     const lab = f.label || 'Name this flow';
     const lw = lab.length * 8.2 + 22 + (f.human ? 20 : 0);
     const cls = `cy-flow${f.human ? ' human' : ''}${sel === f.id ? ' sel' : ''}`;
-    out += `<g class="${cls}" data-id="${f.id}"><path class="hit" d="${p.d}"/><path class="line" d="${p.d}" marker-end="url(#${svg.id}-${f.human ? 'ahh' : 'ah'})"/></g>`;
-    labels += `<g class="${cls}" data-id="${f.id}">
+    out += `<g class="${cls}" data-id="${esc(f.id)}"><path class="hit" d="${p.d}"/><path class="line" d="${p.d}" marker-end="url(#${svg.id}-${f.human ? 'ahh' : 'ah'})"/></g>`;
+    labels += `<g class="${cls}" data-id="${esc(f.id)}">
       <rect class="lab-bg" x="${(p.lx - lw / 2).toFixed(1)}" y="${(p.ly - 15).toFixed(1)}" width="${lw.toFixed(1)}" height="30" rx="15"/>
       <text class="lab${f.label ? '' : ' empty'}" x="${(p.lx + (f.human ? 10 : 0)).toFixed(1)}" y="${(p.ly + 5.5).toFixed(1)}">${esc(lab)}</text>
       ${f.human ? `<text class="lab-ico" x="${(p.lx - lw / 2 + 15).toFixed(1)}" y="${(p.ly + 6).toFixed(1)}">!</text>` : ''}
@@ -145,7 +145,7 @@ export function render(svg, st, { sel = null, pending = null, viewBox = null } =
     else shape = `<rect class="shape" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="${n.kind === 'human' ? 14 : 8}"/>`;
     const ico = n.kind === 'human' ? `<g class="fic" transform="translate(${b.x + 12},${n.y - 14}) scale(1.15)">${FACTORY}</g>` : '';
     const tag = n.kind === 'cloud' ? `<text class="tag" x="${n.x}" y="${b.y + b.h - 9}">outside the system</text>` : '';
-    out += `<g class="cy-node ${n.kind}${sel === n.id ? ' sel' : ''}${pending === n.id ? ' pending' : ''}" data-id="${n.id}">${shape}${ico}
+    out += `<g class="cy-node ${n.kind}${sel === n.id ? ' sel' : ''}${pending === n.id ? ' pending' : ''}" data-id="${esc(n.id)}">${shape}${ico}
       <text class="nm" x="${tx}" y="${n.kind === 'cloud' ? ty - 8 : ty}">${b.lines.map((l, i) => `<tspan x="${tx}" dy="${i ? 24 : 0}">${esc(l)}</tspan>`).join('')}</text>${tag}</g>`;
   }
   out += labels;
@@ -399,13 +399,14 @@ export function initBuilder(root, { onChange } = {}) {
     catch (err) { ui('saved').textContent = 'That file is not a saved cycle.'; ui('saved').className = 'cy-saved err'; }
   });
 
-  /* only keep known fields from a file or draft */
+  /* only keep known fields from a file or draft; ids are letters, digits and dashes only */
+  const safeId = v => String(v ?? '').replace(/[^\w-]/g, '').slice(0, 20) || 'x';
   function clean(d) {
     if (!d || !Array.isArray(d.nodes) || !Array.isArray(d.flows)) throw new Error('bad file');
     const s = blank();
     fields.forEach(f => { s[f] = String(d[f] ?? '').slice(0, 2000); });
-    s.nodes = d.nodes.slice(0, 80).map(n => ({ id: String(n.id), kind: ['stock', 'human', 'cloud'].includes(n.kind) ? n.kind : 'stock', x: Math.max(60, Math.min(W - 60, Number(n.x) || 100)), y: Math.max(36, Math.min(H - 36, Number(n.y) || 100)), label: String(n.label ?? '').slice(0, 60) }));
-    s.flows = d.flows.slice(0, 120).map(f => ({ id: String(f.id), from: String(f.from), to: String(f.to), label: String(f.label ?? '').slice(0, 60), human: !!f.human, note: String(f.note ?? '').slice(0, 300) }));
+    s.nodes = d.nodes.slice(0, 80).map(n => ({ id: safeId(n.id), kind: ['stock', 'human', 'cloud'].includes(n.kind) ? n.kind : 'stock', x: Math.max(60, Math.min(W - 60, Number(n.x) || 100)), y: Math.max(36, Math.min(H - 36, Number(n.y) || 100)), label: String(n.label ?? '').slice(0, 60) }));
+    s.flows = d.flows.slice(0, 120).map(f => ({ id: safeId(f.id), from: safeId(f.from), to: safeId(f.to), label: String(f.label ?? '').slice(0, 60), human: !!f.human, note: String(f.note ?? '').slice(0, 300) }));
     return s;
   }
 
