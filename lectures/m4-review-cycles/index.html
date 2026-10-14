@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M4 Review Exercise 2 · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<style>
+/* === REVIEW EXERCISE 2 STYLES === */
+.lead2{font-size:28px;line-height:1.42;max-width:1560px}
+.lead2 b{color:var(--Blue)}
+
+/* key terms: all 15 Module 4 terms as small flip cards */
+.terms{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:16px;flex:1;min-height:0}
+.tcard{position:relative;perspective:1600px;cursor:pointer;min-height:0}
+.tcard .in{position:absolute;inset:0;transition:transform .7s var(--ease);transform-style:preserve-3d}
+.tcard.flip .in{transform:rotateY(180deg)}
+.tcard .f,.tcard .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;overflow:hidden}
+.tcard .f{background:var(--card);border:2px solid var(--paper-2);border-top:8px solid var(--c,var(--Sky))}
+.tcard .b{background:var(--Blue);color:var(--paper);transform:rotateY(180deg)}
+.tcard h4{font:400 27px/1.08 var(--display);margin-bottom:6px}
+.tcard p{font-size:17.5px;line-height:1.36}
+.tcard .b p+p{margin-top:8px;opacity:.88}
+.tcard .tag{margin-top:auto;padding-top:6px;font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.tcard .b .tag{color:var(--golden)}
+.tcard.l1{--c:var(--Green)}.tcard.l2{--c:var(--Sky)}.tcard.l3{--c:var(--golden)}
+.tkey{display:flex;gap:26px;font-size:20px;color:var(--mute);margin:-26px 0 18px}
+.tkey i{display:inline-block;width:26px;height:8px;border-radius:4px;margin-right:8px;vertical-align:middle}
+
+/* assignment facts */
+.facts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.fact{font:700 22px var(--body);border-radius:999px;padding:9px 22px;background:rgba(66,168,191,.14);color:var(--deep)}
+.fact i{font-style:normal;font-weight:400;color:var(--mute);margin-right:8px}
+.assign{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start}
+.assign .blk{margin-bottom:26px}
+.assign .blk h3{font:400 38px/1.1 var(--display);color:var(--Blue);margin-bottom:8px}
+.assign .blk p{font-size:26px;line-height:1.45}
+.mini{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:22px;display:grid;grid-template-rows:auto 1fr auto;gap:12px;height:560px}
+.mini>div{border-radius:12px;padding:16px 22px;font-size:22px;line-height:1.35}
+.mini b{display:block;font:800 18px var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.mini .m1{background:var(--Blue);color:var(--paper)}
+.mini .m1 b{color:var(--golden)}
+.mini .m2{border:3px dashed var(--Sky);background:#fff;display:flex;flex-direction:column;justify-content:center}
+.mini .m2 svg{width:100%;height:220px;margin-top:8px}
+.mini .m3{background:rgba(117,162,159,.18)}
+
+/* teams */
+.teams{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.team{background:var(--card);border:2px solid var(--paper-2);border-left:12px solid var(--c);border-radius:18px;padding:22px 26px;display:flex;gap:22px;align-items:center}
+.team .ico{background:var(--c)}
+.team small{display:block;font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.team b{display:block;font:400 42px/1.1 var(--display)}
+.team span.we{display:inline-block;margin-top:6px;font:700 16px var(--body);letter-spacing:.1em;text-transform:uppercase;background:var(--golden);color:var(--ink);border-radius:999px;padding:3px 12px}
+.ctx{margin-top:34px;display:flex;gap:26px;align-items:center;background:var(--Blue);color:var(--paper);border-radius:18px;padding:22px 32px}
+.ctx p{font-size:25px;line-height:1.42}
+.ctx b{color:var(--golden)}
+
+/* three-section layout */
+.bands{display:grid;grid-template-rows:auto 1fr auto;gap:16px;flex:1;min-height:0}
+.bandrow{display:grid;grid-template-columns:250px 1fr;gap:30px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:18px 26px}
+.bandrow .lbl{font:800 19px/1.25 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--Blue)}
+.bandrow .lbl big{display:block;font:400 40px/1 var(--display);letter-spacing:0;text-transform:none;color:var(--ink);margin-top:4px}
+.bandrow p{font-size:26px;line-height:1.42}
+.bandrow .eg{color:var(--mute);font-style:italic}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+.three>div{border-radius:14px;padding:20px 24px;font-size:23px;line-height:1.42;background:#fff;border:2px solid var(--paper-2)}
+.three h4{font:400 32px/1.1 var(--display);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.three .sw{width:34px;height:24px;flex:none;border-radius:5px;border:3px solid var(--Blue);background:#fff}
+.three .sw.fl{border:0;height:4px;background:var(--Blue);border-radius:2px;position:relative}
+.three .sw.hu{border-color:var(--accent);background:#fbefc9;border-radius:8px}
+
+/* worked example */
+.wx{display:grid;grid-template-columns:1fr 560px;gap:34px;flex:1;min-height:0}
+.wx-fig{background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:8px;min-height:0;display:flex}
+.wx-fig svg{width:100%;height:100%}
+.wx-side h3{font:400 38px/1.1 var(--display);margin-bottom:6px}
+.wx-side .meta{font:700 17px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.wx-side p{font-size:20px;line-height:1.42}
+.wx-side h4{font:800 16px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--Blue);margin:18px 0 6px}
+.wx-side ol{padding-left:24px;font-size:19px;line-height:1.38}
+.wx-side ol li{margin:4px 0}
+.wx-side .btn{margin-top:22px;font-size:22px;padding:13px 26px}
+
+/* before you upload */
+.upl{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;flex:1;min-height:0}
+.tick{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;width:100%;text-align:left;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;margin-bottom:16px;padding:18px 22px;font:400 25px/1.36 var(--body);color:var(--ink);cursor:pointer}
+.tick i{width:32px;height:32px;border-radius:8px;border:3px solid var(--Green);font:700 20px/26px var(--body);text-align:center;color:#fff;font-style:normal}
+.tick.on i{background:#2e7d5b;border-color:#2e7d5b}
+.tick.on i::after{content:'✓'}
+.conv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;align-items:center;font-size:21px;line-height:1.35;background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:18px 22px}
+.conv svg{width:150px;height:46px}
+.rules{display:grid;gap:12px;margin-top:18px}
+.rules div{border-radius:14px;padding:12px 20px;font-size:20px;line-height:1.38;background:rgba(66,168,191,.12)}
+.rules div.warn{background:rgba(179,69,44,.1);border-left:8px solid #b3452c}
+.rules b{color:var(--deep)}
+
+/* === CYCLE SYSTEMS BUILDER === */
+.cy [hidden]{display:none!important}
+.cy{position:absolute;left:150px;right:34px;top:26px;bottom:22px;display:grid;grid-template-columns:1fr 470px;gap:22px;font-size:20px;line-height:1.35}
+.cy-main{display:flex;flex-direction:column;gap:10px;min-height:0}
+.cy-head{display:flex;align-items:baseline;gap:18px}
+.cy-head b{font:400 40px/1 var(--display)}
+.cy-head b em{color:var(--accent);font-style:normal}
+.cy-head span{color:var(--mute);font-size:19px}
+.cy-fields{display:grid;grid-template-columns:150px 250px 1fr;gap:10px 12px}
+.cy-fields.r2{grid-template-columns:1.25fr 1fr}
+.cy label{display:block;font:700 14px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:3px}
+.cy input,.cy select,.cy textarea{width:100%;font:400 20px var(--body);color:var(--ink);background:#fff;border:2px solid var(--paper-2);border-radius:10px;padding:8px 12px}
+.cy input:focus,.cy select:focus,.cy textarea:focus{outline:none;border-color:var(--Sky)}
+.cy .ttl{display:flex;gap:8px}
+.cy .ttl button{flex:none}
+.cy-eco{display:flex;gap:8px}
+.cy-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cy button.t{font:700 18px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:10px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.cy button.t.on{background:var(--Blue);color:var(--paper)}
+.cy button.t.sm{font-size:16px;padding:6px 12px}
+.cy button.t.armed{background:#b3452c;border-color:#b3452c;color:#fff}
+.cy button.t .sw{width:22px;height:16px;border-radius:4px;border:2.5px solid currentColor}
+.cy button.t .sw.h{border-radius:6px;background:#fbefc9;border-color:var(--accent)}
+.cy button.t .sw.c{border-radius:9px;border-style:dashed}
+.cy .sep{width:2px;height:30px;background:var(--paper-2);margin:0 4px}
+.cy-tip{font-size:18px;color:var(--mute);min-height:24px}
+.cy-canvas{position:relative;flex:1;min-height:0;background:#fff;border:2px solid var(--paper-2);border-radius:16px;background-image:radial-gradient(circle,#e4ddcc 1.4px,transparent 1.5px);background-size:28px 28px}
+#cy-svg{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none}
+#cy-svg[data-mode="stock"],#cy-svg[data-mode="human"],#cy-svg[data-mode="cloud"]{cursor:copy}
+#cy-svg[data-mode="flow"] .cy-node{cursor:crosshair}
+#cy-svg[data-mode="move"] .cy-node{cursor:grab}
+.cy-empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--mute);font-size:24px;pointer-events:none;padding:40px}
+.cy-empty b{display:block;font:400 36px var(--display);color:var(--ink);margin-bottom:6px}
+.cy-side{display:flex;flex-direction:column;gap:12px;min-height:0}
+.cy-box{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 16px}
+.cy-box h4{font:800 15px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--Blue);margin-bottom:8px;display:flex;justify-content:space-between}
+.cy-box h4 span{color:var(--mute);letter-spacing:.04em}
+.cy-hint{font-size:18px;color:var(--mute)}
+.cy .row{display:flex;gap:8px;margin-top:8px;align-items:center}
+.cy .chk{display:flex;gap:10px;align-items:center;font-size:18px;margin-top:8px;cursor:pointer}
+.cy .chk input{width:22px;height:22px}
+.cy textarea{resize:none}
+.cy-checks{list-style:none;font-size:17px;line-height:1.3}
+.cy-checks li{display:flex;gap:10px;align-items:flex-start;margin:5px 0;color:var(--mute)}
+.cy-checks li i{flex:none;width:20px;height:20px;border-radius:50%;border:2.5px solid var(--paper-2);margin-top:1px}
+.cy-checks li.ok{color:var(--ink)}
+.cy-checks li.ok i{background:#2e7d5b;border-color:#2e7d5b;position:relative}
+.cy-checks li.ok i::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.cy-foot{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cy-foot .btn{font-size:21px;padding:12px 16px;grid-column:1/-1}
+.cy-saved{font-size:16px;color:var(--mute);grid-column:1/-1;min-height:22px}
+.cy-saved.ok{color:#2e7d5b}.cy-saved.err{color:#b3452c}
+
+/* diagram pieces (builder, worked example and the printed page) */
+.cy-node .shape{fill:#fffdf8;stroke:#0d7397;stroke-width:3}
+.cy-node.human .shape{fill:#fbefc9;stroke:#C4851C}
+.cy-node.cloud .shape{fill:#f4f8f7;stroke:#75a29f;stroke-dasharray:8 6}
+.cy-node.sel .shape{stroke:#C4851C;stroke-width:5}
+.cy-node.pending .shape{stroke:#2e7d5b;stroke-width:6}
+.cy-node .nm{font:400 20px 'PT Serif',Georgia,serif;fill:#10313d;text-anchor:middle}
+.cy-node.stock .nm{font-weight:700}
+.cy-node .tag{font:700 11px 'PT Serif',Georgia,serif;letter-spacing:.12em;text-transform:uppercase;fill:#4c6670;text-anchor:middle}
+.cy-node .fic{fill:none;stroke:#8a5a10;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.cy-flow .line{fill:none;stroke:#0d7397;stroke-width:3}
+.cy-flow.human .line{stroke:#b3452c;stroke-dasharray:10 6}
+.cy-flow .hit{fill:none;stroke:transparent;stroke-width:22;cursor:pointer}
+.cy-flow .lab-bg{fill:#fff;stroke:#bcd9e0;stroke-width:1.5}
+.cy-flow.human .lab-bg{stroke:#e2b2a4}
+.cy-flow.sel .lab-bg{stroke:#C4851C;stroke-width:3}
+.cy-flow.sel .line{stroke-width:5}
+.cy-flow .lab{font:400 16px 'PT Serif',Georgia,serif;fill:#10313d;text-anchor:middle;pointer-events:none}
+.cy-flow .lab.empty{fill:#4c6670;font-style:italic}
+.cy-flow .lab-ico{font:700 17px 'PT Serif',Georgia,serif;fill:#b3452c;text-anchor:middle}
+
+/* === PRINT === the builder prints one landscape page; any other slide prints the deck */
+#print-sheet{display:none}
+@media print{
+  @page{size:letter landscape;margin:.35in}
+  html:has(body.print-cycle),body.print-cycle{width:auto!important;height:auto!important;background:#fff!important}
+  body.print-cycle .deck-viewport,body.print-cycle .deck-controls,body.print-cycle .deck-side,body.print-cycle .deck-progress{display:none!important}
+  body.print-cycle #print-sheet{display:flex;flex-direction:column;gap:.12in;height:7.75in;color:#10313d;font-family:'PT Serif',Georgia,serif}
+  .ps-title{border-top:.12in solid #0d7397;border-bottom:2px solid #eccf72;padding:.08in 0 .06in}
+  .ps-title h1{font:400 26pt/1.1 'DM Serif Display',Georgia,serif}
+  .ps-title p{font-size:11pt;color:#4c6670;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+  .ps-diagram{flex:1;min-height:0;display:flex;flex-direction:column}
+  .ps-diagram svg{flex:1;min-height:0;width:100%}
+  .ps-legend{font-size:9pt;color:#4c6670;display:flex;gap:.2in;justify-content:center}
+  .ps-legend .lg::before{content:'';display:inline-block;width:.28in;height:.14in;margin-right:5px;vertical-align:middle;border:2px solid #0d7397;border-radius:3px;background:#fffdf8}
+  .ps-legend .flow::before{height:0;border-width:2px 0 0;border-radius:0}
+  .ps-legend .hflow::before{height:0;border-width:2px 0 0;border-style:dashed;border-color:#b3452c;border-radius:0}
+  .ps-legend .human::before{background:#fbefc9;border-color:#C4851C}
+  .ps-legend .cloud::before{border-style:dashed;border-color:#75a29f;border-radius:8px}
+  .ps-summary{display:grid;grid-template-columns:1.2fr 1fr;gap:.25in;border-top:2px solid #eccf72;padding-top:.08in;font-size:10pt;line-height:1.38}
+  .ps-summary h2{font:700 9pt 'PT Serif',Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#0d7397;margin:.02in 0 .03in}
+  .ps-summary ol{padding-left:.2in}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-volcano" viewBox="0 0 24 24"><path d="M2 21h20l-6-11h-8z"/><path d="M8 10l2-2h4l2 2"/><path d="M12 6V2M8 4l1.5 1.5M16 4l-1.5 1.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9.9 2.9a2 2 0 0 0-1.6 0L3.6 4.8A1 1 0 0 0 3 5.7v14.8a1 1 0 0 0 1.4.9l4-1.9a2 2 0 0 1 1.6 0l4.2 1.7a2 2 0 0 0 1.6 0l4.6-1.9a1 1 0 0 0 .6-.9V3.5a1 1 0 0 0-1.4-.9l-4 1.9a2 2 0 0 1-1.6 0z"/><path d="M15 5v16M9 3v16"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" src="../m4-l1-geosphere-soil-land-use/img/phoenix-edge.jpg" alt="Aerial view of new homes under construction at the edge of open Sonoran Desert, with desert mountains behind">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>04</em></b><span data-fill="module-title">Systems Dynamics in Sustainability</span></div>
+    <div class="title-k reveal d2">Module 4 · Review Exercise 2</div>
+    <h1 class="reveal d2">Mapping a <em>biogeochemical cycle</em></h1>
+    <p class="hero-sub reveal d3">Describe one cycle, map how it moves through an ecosystem, and show where people change it.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- 2. KEY TERMS: ALL MODULE 4 GLOSSARY TERMS -->
+<section class="slide">
+  <div class="rail"><b>R2</b><span>Key terms</span></div>
+  <div class="content fill" style="top:70px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Module 4 glossary · tap a card for an example</div>
+    <h2 class="reveal d2" style="font-size:66px">All the <em>key terms</em> for Module 4</h2>
+    <div class="tkey reveal d2"><span><i style="background:var(--Green)"></i>Lecture 11</span><span><i style="background:var(--Sky)"></i>Lecture 12</span><span><i style="background:var(--golden)"></i>Lecture 13</span><span>Use these words on your diagram.</span></div>
+    <div class="terms reveal d3" id="terms"></div>
+  </div>
+</section>
+
+<!-- 3. THE ASSIGNMENT -->
+<section class="slide">
+  <div class="rail"><b>R2</b><span>The assignment</span></div>
+  <div class="content fill" style="top:80px;bottom:70px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Review Exercise 2 · Biogeochemical cycles and human impacts</div>
+    <h2 class="reveal d2" style="font-size:70px">One cycle, <em>one picture</em></h2>
+    <div class="facts reveal d2">
+      <span class="fact"><i>Duration</i>30–45 minutes</span>
+      <span class="fact"><i>Group size</i>Up to 5 students</span>
+      <span class="fact"><i>Present</i>Share your visual with the class</span>
+      <span class="fact"><i>Submit</i>Every student uploads a copy on Canvas</span>
+    </div>
+    <div class="assign reveal d3">
+      <div>
+        <div class="blk"><h3>Objective</h3><p>Describe a major biogeochemical cycle and analyze its interactions with human activities to evaluate its role in supporting Earth's life-supporting systems.</p></div>
+        <div class="blk"><h3>Final deliverable</h3><p>A single, cohesive visual illustration divided into three clear sections: <b>Title</b>, <b>Diagram</b>, and <b>Summary</b>.</p></div>
+        <div class="blk"><h3>Context</h3><p>Ground your diagram in a specific place: the local <b>Sonoran Desert (Phoenix area)</b>, or a comparable ecosystem (tropical forest, temperate forest, savanna) if it makes a more compelling case for your cycle.</p></div>
+      </div>
+      <div class="mini" aria-label="Sketch of the three sections of the final visual">
+        <div class="m1"><b>1 · Title</b>The Nitrogen Cycle in the Sonoran Desert</div>
+        <div class="m2"><b style="color:var(--Blue)">2 · Diagram</b>Stocks, flows and human touchpoints
+          <svg viewBox="0 0 400 200" aria-hidden="true">
+            <defs><marker id="mini-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker><marker id="mini-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs>
+            <rect x="20" y="20" width="110" height="46" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="75" y="49" font-size="16" text-anchor="middle" font-family="PT Serif">Air</text>
+            <rect x="270" y="20" width="110" height="46" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="325" y="49" font-size="16" text-anchor="middle" font-family="PT Serif">Plants</text>
+            <rect x="145" y="134" width="110" height="46" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="200" y="163" font-size="16" text-anchor="middle" font-family="PT Serif">Soil</text>
+            <path d="M134,40 Q200,20 266,40" fill="none" stroke="#0d7397" stroke-width="3" marker-end="url(#mini-ah)"/>
+            <path d="M320,70 Q300,130 260,150" fill="none" stroke="#0d7397" stroke-width="3" marker-end="url(#mini-ah)"/>
+            <path d="M140,150 Q90,120 80,70" fill="none" stroke="#0d7397" stroke-width="3" marker-end="url(#mini-ah)"/>
+            <rect x="10" y="134" width="90" height="46" rx="10" fill="#fbefc9" stroke="#C4851C" stroke-width="3"/><text x="55" y="163" font-size="15" text-anchor="middle" font-family="PT Serif">Farm</text>
+            <path d="M102,157 L140,157" fill="none" stroke="#b3452c" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#mini-ahh)"/>
+          </svg>
+        </div>
+        <div class="m3"><b style="color:var(--deep)">3 · Summary</b>Synthesis statement and the full names of your team</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TEAM ASSIGNMENTS -->
+<section class="slide">
+  <div class="rail"><b>R2</b><span>Your team's cycle</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Group assignments and ecosystem context</div>
+    <h2 class="reveal d2" style="font-size:70px">Find your team's <em>cycle</em></h2>
+    <div class="teams reveal d3">
+      <div class="team" style="--c:var(--Green)"><span class="ico"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><div><small>Team 1</small><b>The Nitrogen Cycle</b></div></div>
+      <div class="team" style="--c:var(--Sky)"><span class="ico"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span><div><small>Team 2</small><b>The Phosphorus Cycle</b></div></div>
+      <div class="team" style="--c:var(--deep)"><span class="ico"><svg aria-hidden="true"><use href="#i-flame"/></svg></span><div><small>Team 3</small><b>The Carbon Cycle</b></div></div>
+      <div class="team" style="--c:var(--Blue)"><span class="ico"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><div><small>Team 4</small><b>The Water Cycle</b></div></div>
+      <div class="team" style="--c:#5f8f8b"><span class="ico"><svg aria-hidden="true"><use href="#i-wind"/></svg></span><div><small>Team 5</small><b>The Oxygen Cycle</b></div></div>
+      <div class="team" style="--c:var(--accent)"><span class="ico"><svg aria-hidden="true"><use href="#i-volcano"/></svg></span><div><small>Team 6</small><b>The Sulfur Cycle</b><span class="we">Worked example</span></div></div>
+    </div>
+    <div class="ctx reveal d4"><span class="ico gold"><svg aria-hidden="true"><use href="#i-map"/></svg></span><p><b>Pick a place.</b> Base your diagram on the Sonoran Desert around Phoenix, or choose a comparable ecosystem (tropical forest, temperate forest, savanna) if it tells a better story for your cycle. An <b>ecosystem</b> is the living things in a place plus the air, water and soil around them.</p></div>
+  </div>
+</section>
+
+<!-- 5. LAYOUT AND DIAGRAM REQUIREMENTS -->
+<section class="slide">
+  <div class="rail"><b>R2</b><span>Layout</span></div>
+  <div class="content fill" style="top:70px;bottom:50px">
+    <div class="k reveal">Layout and diagram requirements</div>
+    <h2 class="reveal d2" style="font-size:64px">Three sections, <em>top to bottom</em></h2>
+    <div class="bands reveal d3">
+      <div class="bandrow"><div class="lbl">Top<big>Title</big></div><div><p>A clear, descriptive title that names your cycle and your ecosystem.</p><p class="eg">Example: "The Nitrogen Cycle in the Sonoran Desert"</p></div></div>
+      <div class="bandrow"><div class="lbl">Middle<big>Main illustration</big></div><div>
+        <p>Map the complete cycle. Use <b>boxes or circles for stocks</b>, <b>labeled arrows for flows</b>, and <b>icons or clipart for human touchpoints</b>.</p>
+        <div class="three">
+          <div><h4><span class="sw"></span>Stocks (pools)</h4>The main places the element is stored: the atmosphere, soil organic matter, vegetation, microbes, water bodies.</div>
+          <div><h4><span class="sw fl"></span>Flows (processes)</h4>The biological, chemical or physical processes that move it between pools: photosynthesis, nitrogen fixation, nitrification, decomposition, erosion, evaporation.</div>
+          <div><h4><span class="sw hu"></span>Human impacts</h4>Show 2–3 human-caused disruptions. Nitrogen: fertilizer runoff, fossil fuel combustion, soil crust damage. Carbon: vehicle emissions, deforestation, concrete replacing plants.</div>
+        </div></div></div>
+      <div class="bandrow"><div class="lbl">Bottom<big>Summary and team</big></div><div><p><b>Synthesis statement:</b> a short, original summary of how your cycle works in your ecosystem. <b>Team names:</b> the full names of everyone who took part.</p><p class="eg">"In the arid Phoenix desert, natural nitrogen cycling is highly limited by moisture, making biological soil crusts crucial for nitrogen fixation; however, urban fossil fuel combustion heavily artificially amplifies local deposition…"</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WORKED EXAMPLE: TEAM 6 SULFUR -->
+<section class="slide" id="example">
+  <div class="rail"><b>R2</b><span>Worked example</span></div>
+  <div class="content fill" style="top:60px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-volcano"/></svg></span>Worked example · Team 6</div>
+    <h2 class="reveal d2" style="font-size:60px">What a finished diagram <em>looks like</em></h2>
+    <div class="wx reveal d3">
+      <div class="wx-fig"><svg id="wx-svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Worked example diagram of the sulfur cycle in a temperate forest"></svg></div>
+      <div class="wx-side">
+        <div class="meta">Title</div>
+        <h3>The Sulfur Cycle in a Temperate Forest</h3>
+        <h4>Synthesis statement</h4>
+        <p id="wx-summary"></p>
+        <h4>Human impacts (red dashed arrows)</h4>
+        <ol id="wx-impacts"></ol>
+        <button class="btn" type="button" id="wx-open">Open it in the builder</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BEFORE YOU UPLOAD -->
+<section class="slide">
+  <div class="rail"><b>R2</b><span>Before you upload</span></div>
+  <div class="content fill" style="top:70px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm good"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Self-check · answer yes to each one</div>
+    <h2 class="reveal d2" style="font-size:64px">Before you <em>upload</em></h2>
+    <div class="upl reveal d3">
+      <div>
+        <button class="tick" type="button"><i></i><span>The title names our <b>cycle</b> and our <b>ecosystem</b>.</span></button>
+        <button class="tick" type="button"><i></i><span>We mapped and named <b>at least 3 stocks</b> (pools).</span></button>
+        <button class="tick" type="button"><i></i><span>Every <b>flow</b> is an arrow with a name, pointing the right way.</span></button>
+        <button class="tick" type="button"><i></i><span>We showed and explained <b>2–3 human impacts</b>.</span></button>
+        <button class="tick" type="button"><i></i><span>Our <b>synthesis statement</b> is in our own words.</span></button>
+        <button class="tick" type="button"><i></i><span>The <b>full names</b> of everyone who took part are listed.</span></button>
+      </div>
+      <div>
+        <div class="conv">
+          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/></svg><span><b>Stock</b>: a pool where the element is stored.</span>
+          <svg viewBox="0 0 150 46"><defs><marker id="cv-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker><marker id="cv-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M14,23 H134" stroke="#0d7397" stroke-width="3" marker-end="url(#cv-ah)"/></svg><span><b>Flow</b>: a labeled arrow for a process.</span>
+          <svg viewBox="0 0 150 46"><path d="M14,23 H134" stroke="#b3452c" stroke-width="3" stroke-dasharray="10 6" marker-end="url(#cv-ahh)"/></svg><span><b>Human-caused flow</b>: dashed red arrow.</span>
+          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="10" fill="#fbefc9" stroke="#C4851C" stroke-width="3"/></svg><span><b>Human touchpoint</b>: an icon card (a farm, city, car or factory).</span>
+          <svg viewBox="0 0 150 46"><rect x="20" y="6" width="110" height="34" rx="17" fill="#f4f8f7" stroke="#75a29f" stroke-width="3" stroke-dasharray="8 6"/></svg><span><b>Cloud</b>: where matter enters or leaves your system.</span>
+        </div>
+        <div class="rules">
+          <div><b>Present.</b> Be ready to show your team's visual to the class.</div>
+          <div><b>Submit your own copy.</b> Export a high-resolution image or PDF. Every student uploads it to Review Exercise 2 on Canvas to get credit.</div>
+          <div class="warn"><b>Academic integrity.</b> Contribution must be equal. If a teammate does not take part, leave their name off the graphic and tell your professor; they will not get credit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CYCLE SYSTEMS BUILDER -->
+<section class="slide" id="builder">
+  <div class="rail"><b>R2</b><span>Cycle builder</span></div>
+  <div class="cy" id="cy">
+    <div class="cy-main">
+      <div class="cy-head"><b>Cycle <em>Systems Builder</em></b><span>Your draft saves in this browser every 2 minutes. Nothing is uploaded.</span></div>
+      <div class="cy-fields">
+        <div><label for="cy-team">Team</label><select id="cy-team" data-cy="team"><option value="">Pick one</option><option value="1">Team 1</option><option value="2">Team 2</option><option value="3">Team 3</option><option value="4">Team 4</option><option value="5">Team 5</option><option value="6">Team 6</option></select></div>
+        <div><label for="cy-cycle">Cycle</label><select id="cy-cycle" data-cy="cycle"><option value="">Pick one</option><option>Nitrogen</option><option>Phosphorus</option><option>Carbon</option><option>Water</option><option>Oxygen</option><option value="Sulfur">Sulfur (worked example)</option></select></div>
+        <div><label for="cy-eco">Ecosystem</label><div class="cy-eco"><select id="cy-eco" data-cy="ecosystem"><option value="">Pick one</option><option>Sonoran Desert (Phoenix area)</option><option>Tropical forest</option><option>Temperate forest</option><option>Savanna</option><option>Temperate grassland</option><option>Coastal wetland</option><option value="other">Another ecosystem…</option></select><input data-cy="ecoOther" maxlength="60" placeholder="Name it" hidden aria-label="Name your ecosystem"></div></div>
+      </div>
+      <div class="cy-fields r2">
+        <div><label for="cy-title">1 · Title</label><div class="ttl"><input id="cy-title" data-cy="title" maxlength="100"><button class="t sm" type="button" data-cy="use-title" hidden>Use this</button></div></div>
+        <div><label for="cy-members">Team members (full names)</label><input id="cy-members" data-cy="members" maxlength="300" placeholder="Separate names with commas"></div>
+      </div>
+      <div class="cy-tools" role="toolbar" aria-label="Drawing tools">
+        <button class="t on" type="button" data-tool="move">✋ Move</button>
+        <button class="t" type="button" data-tool="stock"><span class="sw"></span>Stock</button>
+        <button class="t" type="button" data-tool="flow">⇒ Flow</button>
+        <button class="t" type="button" data-tool="human"><span class="sw h"></span>Human impact</button>
+        <button class="t" type="button" data-tool="cloud"><span class="sw c"></span>Cloud</button>
+        <span class="sep"></span>
+        <button class="t" type="button" data-cy="undo">↶ Undo</button>
+        <button class="t sm" type="button" data-cy="example">Load worked example</button>
+        <button class="t sm" type="button" data-cy="clear">Clear</button>
+      </div>
+      <div class="cy-tip" data-cy="tip"></div>
+      <div class="cy-canvas">
+        <svg id="cy-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="2 · Diagram canvas"></svg>
+        <div class="cy-empty" data-cy="empty"><div><b>2 · Diagram</b>Pick your team above, then choose <b>Stock</b> and click here to add your first pool.</div></div>
+      </div>
+    </div>
+    <div class="cy-side">
+      <div class="cy-box">
+        <h4>Selected piece <span data-cy="ptype"></span></h4>
+        <p class="cy-hint" data-cy="hint">Click a stock or an arrow to name it. Press Delete to remove it.</p>
+        <div data-cy="panel" hidden>
+          <input data-cy="pname" list="cy-names" maxlength="60" aria-label="Name">
+          <datalist id="cy-names" data-cy="names"></datalist>
+          <label class="chk" data-cy="phuman-row"><input type="checkbox" data-cy="phuman">A human-caused flow</label>
+          <div data-cy="pnote-row" style="margin-top:8px"><textarea data-cy="pnote" rows="2" maxlength="300" placeholder="How does it disrupt the cycle?" aria-label="How does it disrupt the cycle?"></textarea></div>
+          <div class="row"><button class="t sm" type="button" data-cy="pdone">Done</button><button class="t sm" type="button" data-cy="pdelete">Delete</button></div>
+        </div>
+      </div>
+      <div class="cy-box">
+        <h4><label for="cy-sum" style="all:unset">3 · Synthesis statement</label></h4>
+        <textarea id="cy-sum" data-cy="summary" rows="5" maxlength="900" placeholder="In 2–4 sentences: how does this cycle work in your ecosystem, and how do people change it?"></textarea>
+      </div>
+      <div class="cy-box">
+        <h4>Before you upload <span data-cy="score"></span></h4>
+        <ul class="cy-checks" data-cy="checks"></ul>
+      </div>
+      <div class="cy-foot">
+        <button class="btn" type="button" data-cy="print">Print / Save as PDF</button>
+        <button class="t" type="button" data-cy="save-now">💾 Save draft now</button>
+        <button class="t" type="button" data-cy="save-file">⤓ Save file</button>
+        <button class="t" type="button" data-cy="open-file" style="grid-column:1/-1">📂 Open a saved file</button>
+        <input type="file" accept=".json,application/json" data-cy="file" hidden>
+        <div class="cy-saved" data-cy="saved" aria-live="polite">Autosaves every 2 minutes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main></div>
+
+<!-- the printed page: filled by builder.js just before printing -->
+<div id="print-sheet"></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { loadSession, fill } from '../../shared/course.js';
+import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14';
+
+/* Review Exercise 2 is due in the last Module 4 session (m4-s3). */
+const SESSION = 'm4-s3';
+const $ = s => document.querySelector(s);
+
+/* === KEY TERMS === every Module 4 glossary term, tagged by the lecture that teaches it */
+loadSession(SESSION).then(d => {
+  fill($('.slide.hero'), d);
+  const mod = d.session.module;
+  const gloss = d.course.glossary.find(g => g.module === mod.glossary_module).terms;
+  const lect = {};
+  mod.sessions.forEach((s, i) => s.terms.forEach(t => { lect[t] = i; }));
+  const order = [...gloss].sort((a, b) => (lect[a.term] ?? 9) - (lect[b.term] ?? 9));
+  $('#terms').innerHTML = order.map(t => {
+    const i = lect[t.term];
+    const tag = i === undefined ? 'Module 4' : `Lecture ${11 + i}`;
+    return `<div class="tcard${i === undefined ? '' : ` l${i + 1}`}" tabindex="0" role="button" aria-label="${esc(t.term)}: show example">
+      <div class="in"><div class="f"><h4>${esc(t.term)}</h4><p>${esc(t.definition)}</p><span class="tag">${tag}</span></div>
+      <div class="b"><h4>${esc(t.term)}</h4><p>${esc(t.example)}</p><p>${esc(t.significance)}</p></div></div></div>`;
+  }).join('');
+  document.querySelectorAll('.tcard').forEach(c => {
+    c.addEventListener('click', () => c.classList.toggle('flip'));
+    c.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); c.classList.toggle('flip'); } });
+  });
+}).catch(() => { $('#terms').innerHTML = '<p class="mute">The key terms could not load. Refresh the page.</p>'; });
+
+/* === WORKED EXAMPLE === the Team 6 sulfur cycle, drawn by the same code as the builder */
+render($('#wx-svg'), EXAMPLE, { viewBox: 'fit' });
+$('#wx-summary').textContent = EXAMPLE.summary;
+$('#wx-impacts').innerHTML = EXAMPLE.flows.filter(f => f.human).map(f => `<li><b>${esc(f.label)}:</b> ${esc(f.note)}</li>`).join('');
+
+/* === SELF-CHECK === tap to tick; not saved */
+document.querySelectorAll('.tick').forEach(t => t.addEventListener('click', () => t.classList.toggle('on')));
+
+/* === BUILDER === */
+const builder = initBuilder($('#cy'));
+const BUILDER = [...document.querySelectorAll('.slide')].indexOf($('#builder'));
+$('#wx-open').addEventListener('click', () => {
+  if (!builder.state.nodes.length) builder.load(EXAMPLE);
+  window.Deck.go(BUILDER);
+});
+</script>
+</body>
+</html>
