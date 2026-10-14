@@ -287,7 +287,7 @@
     {
      "topic": "Carbon cycle and climate change",
      "readings": "S&M Ch. 11",
-     "due": "Review Exercise 2: Biogeochemical Cycles and Human Impacts",
+     "due": "",
      "kind": "lecture",
      "terms": [
       "Mitigation",
@@ -296,6 +296,14 @@
       "Precautionary Principle"
      ],
      "id": "m4-s3"
+    },
+    {
+     "topic": "Review Exercise 2: Mapping a biogeochemical cycle",
+     "readings": "",
+     "due": "Review Exercise 2: Biogeochemical Cycles and Human Impacts",
+     "kind": "review",
+     "terms": [],
+     "id": "m4-s4"
     }
    ]
   },
