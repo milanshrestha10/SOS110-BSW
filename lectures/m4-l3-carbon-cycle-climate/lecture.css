@@ -97,8 +97,8 @@
 
 /* impacts and risks */
 .spi{width:100%;height:auto;display:block}
-.spi .spi-l{font:700 22px var(--body);fill:var(--deep);text-anchor:middle}
-.spi .spi-s{font:700 20px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
+.spi .spi-l{font:700 26px var(--body);fill:var(--deep);text-anchor:middle}
+.spi .spi-s{font:700 21px var(--body);letter-spacing:.12em;text-transform:uppercase;fill:var(--mute)}
 .spi-r{transform-box:fill-box;transform-origin:center;animation:pulse 5s ease-in-out infinite}
 .spi-r.r2{animation-delay:.6s}.spi-r.r3{animation-delay:1.2s}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
