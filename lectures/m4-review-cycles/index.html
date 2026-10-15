@@ -59,39 +59,39 @@
 
 /* assignment prompt page: meta strip, objective, "First" row, three section columns, submission band */
 .ap{display:flex;flex-direction:column}
-.ap h2{font-size:56px;margin:6px 0 16px}
+.ap h2{font-size:56px;margin:6px 0 22px}
 .roomy .slide .ap h2{margin-bottom:16px}
-.ap-meta{display:grid;grid-template-columns:auto auto 1fr 1.3fr;border-top:2px solid var(--paper-2);border-bottom:2px solid var(--paper-2);padding:10px 0;margin-bottom:12px}
+.ap-meta{display:grid;grid-template-columns:auto auto 1fr 1.3fr;border-top:2px solid var(--paper-2);border-bottom:2px solid var(--paper-2);padding:12px 0;margin-bottom:24px}
 .ap-meta>div{padding:0 28px;border-left:2px solid var(--paper-2)}
 .ap-meta>div:first-child{padding-left:0;border-left:0}
 .ap-meta dt{font:800 15px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--Blue)}
 .ap-meta dd{font-size:19.5px;line-height:1.35}
-.ap-obj{font-size:21px;line-height:1.42;max-width:1640px;margin-bottom:10px}
+.ap-obj{font-size:21px;line-height:1.42;max-width:1640px;margin-bottom:24px}
 .ap-obj b{color:var(--deep)}
 .ap-lbl{font:800 16px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--Blue);padding-top:5px}
-.ap-first{display:grid;grid-template-columns:130px 1fr;gap:20px;border-top:2px solid var(--paper-2);padding-top:10px;font-size:19px;line-height:1.4}
-.ap-first p+p{margin-top:6px}
+.ap-first{display:grid;grid-template-columns:130px 1fr;gap:20px;border-top:2px solid var(--paper-2);padding-top:18px;font-size:19px;line-height:1.4}
+.ap-first p+p{margin-top:10px}
 .ap-first .cyc{font-weight:700;color:var(--Blue)}
 .ap-first .cyc.we{color:var(--accent)}
 .ap-first i{font-style:normal;color:var(--mute);margin:0 10px}
-.ap-rule{display:flex;align-items:center;gap:18px;margin:12px 0 10px;font:800 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.ap-rule{display:flex;align-items:center;gap:18px;margin:28px 0 20px;font:800 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .ap-rule::after{content:'';flex:1;height:2px;background:var(--paper-2)}
 .ap-cols{display:grid;grid-template-columns:.7fr 2fr 1.15fr;flex:1;min-height:0}
 .ap-cols>div{padding:0 30px;border-left:2px solid var(--paper-2);font-size:19.5px;line-height:1.42}
 .ap-cols>div:first-child{padding-left:0;border-left:0}
 .ap-cols>div:last-child{padding-right:0}
-.ap-cols h3{font:400 28px/1.15 var(--display);margin-bottom:8px}
+.ap-cols h3{font:400 28px/1.15 var(--display);margin-bottom:14px}
 .ap-cols h3 span{color:var(--accent);margin-right:10px}
-.ap-cols p+p{margin-top:6px}
+.ap-cols p+p{margin-top:12px}
 .ap-cols .intro{font-style:italic;color:var(--mute)}
 .ap-cols b{color:var(--deep)}
 .ap-cols .quote{font-style:italic;color:var(--mute);border-left:3px solid var(--golden);padding-left:14px}
-.ap-sub{display:grid;grid-template-columns:130px 1fr;gap:20px;border-top:3px solid var(--ink);padding-top:10px;margin-top:12px;font-size:18px;line-height:1.4}
+.ap-sub{display:grid;grid-template-columns:130px 1fr;gap:20px;border-top:3px solid var(--ink);padding-top:16px;margin-top:24px;font-size:18px;line-height:1.4}
 .ap-sub b{color:var(--deep)}
 
 /* before you upload: checklist rows and the drawing conventions */
-.ckb{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;flex:1;min-height:0;margin-top:8px}
-.ck{display:grid;grid-template-columns:34px 1fr;gap:16px;width:100%;text-align:left;background:none;border:0;border-top:2px solid var(--paper-2);padding:11px 0;cursor:pointer;font:inherit;color:var(--ink)}
+.ckb{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;flex:1;min-height:0;margin-top:4px}
+.ck{display:grid;grid-template-columns:34px 1fr;gap:16px;width:100%;text-align:left;background:none;border:0;border-top:2px solid var(--paper-2);padding:18px 0;cursor:pointer;font:inherit;color:var(--ink)}
 .ck:last-child{border-bottom:2px solid var(--paper-2)}
 .ck i{width:30px;height:30px;border-radius:6px;border:3px solid var(--Blue);margin-top:3px;font:700 19px/24px var(--body);text-align:center;color:#fff;font-style:normal}
 .ck.on i{background:#2e7d5b;border-color:#2e7d5b}
@@ -99,7 +99,7 @@
 .ck b{display:block;font:400 25px/1.25 var(--display)}
 .ck small{display:block;font-size:18px;line-height:1.35;color:var(--mute);margin-top:3px}
 .ck-conv{border-left:2px solid var(--paper-2);padding-left:34px}
-.ck-conv dl>div{display:grid;grid-template-columns:140px 1fr;gap:0 18px;align-items:center;margin-bottom:12px}
+.ck-conv dl>div{display:grid;grid-template-columns:140px 1fr;gap:2px 18px;align-items:center;margin-bottom:22px}
 .ck-conv svg{width:130px;height:46px;grid-row:span 2}
 .ck-conv dt{font:800 18px var(--sans);color:var(--ink)}
 .ck-conv dd{font-size:18px;line-height:1.3;color:var(--mute)}
@@ -150,6 +150,9 @@
 .cy button.t{font:700 18px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:10px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .cy button.t.on{background:var(--Blue);color:var(--paper)}
 .cy button.t.sm{font-size:16px;padding:6px 12px}
+.cy button.t.clear{margin-left:auto;border-color:#b3452c;color:#b3452c;background:#fdf1ee}
+.cy button.t.clear:hover{background:#b3452c;color:#fff}
+.cy button.t[data-tool="erase"].on{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t.armed{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t .sw{width:22px;height:16px;border-radius:4px;border:2.5px solid currentColor}
 .cy button.t .sw.h{border-radius:6px;background:#fbefc9;border-color:var(--accent)}
@@ -176,11 +179,18 @@
 .cy-pal .pi.used{opacity:.55}
 .cy-pal .pi.used::after{content:' ✓';color:#2e7d5b;font-weight:700}
 .cy-pal-empty{font-size:17px;color:var(--mute);padding:6px 2px}
+.cy-board{display:flex;flex-direction:column;gap:8px;min-height:0}
+.cy-key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;font:700 15px var(--sans);color:var(--mute);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:6px 14px}
+.cy-key b{font:800 13px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--Blue)}
+.cy-key span{display:inline-flex;align-items:center;gap:8px}
+.cy-key svg{width:54px;height:22px;flex:none}
 .cy-canvas{position:relative;flex:1;min-height:0;background:#fff;border:2px solid var(--paper-2);border-radius:16px;background-image:radial-gradient(circle,#e4ddcc 1.4px,transparent 1.5px);background-size:28px 28px}
 #cy-svg{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none}
 #cy-svg[data-mode="stock"],#cy-svg[data-mode="human"],#cy-svg[data-mode="cloud"]{cursor:copy}
 #cy-svg[data-mode="flow"] .cy-node{cursor:crosshair}
 #cy-svg[data-mode="move"] .cy-node{cursor:grab}
+#cy-svg[data-mode="erase"] [data-id]{cursor:not-allowed}
+#cy-svg[data-mode="erase"] [data-id]:hover{opacity:.45}
 .cy-empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--mute);font-size:24px;pointer-events:none;padding:40px}
 .cy-empty b{display:block;font:400 36px var(--display);color:var(--ink);margin-bottom:6px}
 .cy-side{display:flex;flex-direction:column;gap:12px;min-height:0}
@@ -370,7 +380,7 @@
     </div>
     <div class="ap-sub reveal d4">
       <div class="ap-lbl">Then</div>
-      <p>Every student uploads <b>their own copy</b> on Canvas: a high-resolution screenshot or a PDF. In the builder, <b>Print / Save as PDF</b> makes that file, and <b>Save file</b> keeps a copy you can open again later. Your draft also saves in your browser every 2 minutes.</p>
+      <p>Every student uploads <b>their own copy</b> on Canvas: a high-resolution screenshot or a PDF. In the builder, <b>Print / Save as PDF</b> makes that file. Your draft also saves in your browser every 2 minutes.</p>
     </div>
   </div>
 </section>
@@ -396,17 +406,28 @@
         <button class="t" type="button" data-tool="flow">⇒ Flow</button>
         <button class="t" type="button" data-tool="human"><span class="sw h"></span>Human impact</button>
         <button class="t" type="button" data-tool="cloud"><span class="sw c"></span>Cloud</button>
+        <button class="t" type="button" data-tool="erase">⌫ Erase</button>
         <span class="sep"></span>
         <button class="t" type="button" data-cy="undo">↶ Undo</button>
         <button class="t sm" type="button" data-cy="example">Load worked example</button>
-        <button class="t sm" type="button" data-cy="clear">Clear</button>
+        <button class="t sm clear" type="button" data-cy="clear">🗑 Clear all</button>
       </div>
       <div class="cy-tip" data-cy="tip"></div>
       <div class="cy-work">
       <aside class="cy-pal" data-cy="palette" aria-label="Stocks, processes and human impacts to add"></aside>
+      <div class="cy-board">
+      <div class="cy-key" aria-label="Drawing conventions">
+        <b>Key</b>
+        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="3" fill="#fffdf8" stroke="#0d7397" stroke-width="2.5"/></svg>Stock</span>
+        <span><svg viewBox="0 0 54 22"><defs><marker id="ky-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker></defs><path d="M4,11 H48" stroke="#0d7397" stroke-width="2.5" marker-end="url(#ky-ah)"/></svg>Flow</span>
+        <span><svg viewBox="0 0 54 22"><defs><marker id="ky-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M4,11 H48" stroke="#b3452c" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ky-ahh)"/></svg>Human-caused flow</span>
+        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="8" fill="#f4f8f7" stroke="#75a29f" stroke-width="2.5" stroke-dasharray="5 4"/></svg>Cloud (outside)</span>
+        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="5" fill="#fbefc9" stroke="#C4851C" stroke-width="2.5"/></svg>Human impact</span>
+      </div>
       <div class="cy-canvas">
         <svg id="cy-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="2 · Diagram canvas"></svg>
         <div class="cy-empty" data-cy="empty"><div><b>2 · Diagram</b>Pick your team above, then click a stock in the list on the left, or choose <b>Stock</b> and click here.</div></div>
+      </div>
       </div>
       </div>
     </div>
@@ -432,10 +453,7 @@
       </div>
       <div class="cy-foot">
         <button class="btn" type="button" data-cy="print">Print / Save as PDF</button>
-        <button class="t" type="button" data-cy="save-now">💾 Save draft now</button>
-        <button class="t" type="button" data-cy="save-file">⤓ Save file</button>
-        <button class="t" type="button" data-cy="open-file" style="grid-column:1/-1">📂 Open a saved file</button>
-        <input type="file" accept=".json,application/json" data-cy="file" hidden>
+        <button class="t" type="button" data-cy="save-now" style="grid-column:1/-1">💾 Save draft now</button>
         <div class="cy-saved" data-cy="saved" aria-live="polite">Autosaves every 2 minutes.</div>
       </div>
     </div>
@@ -450,7 +468,7 @@
 <script src="../../shared/deck.js?v=2026-10-05"></script>
 <script type="module">
 import { loadSession, fill } from '../../shared/course.js';
-import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14';
+import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14c';
 
 /* Review Exercise 2 is the fourth Module 4 session (M4 L4). */
 const SESSION = 'm4-s4';
