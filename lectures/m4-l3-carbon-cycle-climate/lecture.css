@@ -203,3 +203,16 @@ table.imja tr:nth-child(odd) td{background:#fdf6df}
 .vid-hl li{counter-increment:hl;position:relative;padding:14px 18px 14px 70px;background:var(--card);border:2px solid var(--paper-2);border-radius:16px;font-size:21px;line-height:1.38}
 .vid-hl li::before{content:counter(hl);position:absolute;left:16px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--Blue);color:var(--paper);font:700 22px/40px var(--body);text-align:center}
 .vid-hl li b{display:block;font:400 27px var(--display);color:var(--ink);margin-bottom:2px}
+
+/* Slide 21 Thame before and after compare window (same as Lecture 11) */
+.cmp{position:relative;width:800px;height:650px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(10,42,53,.22);background:var(--ink)}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmp-before{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp-line{position:absolute;z-index:2;top:0;bottom:0;left:var(--x);width:4px;margin-left:-2px;background:var(--paper);pointer-events:none}
+.cmp-line b{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--paper);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.cmp-line b::before,.cmp-line b::after{content:'';position:absolute;top:50%;margin-top:-9px;border:9px solid transparent}
+.cmp-line b::before{left:6px;border-right-color:var(--Blue)}.cmp-line b::after{right:6px;border-left-color:var(--Blue)}
+.cmp-yr{position:absolute;z-index:2;top:16px;font:700 24px var(--body);letter-spacing:.08em;color:var(--paper);background:rgba(10,42,53,.72);border-radius:999px;padding:4px 16px;pointer-events:none}
+.cmp-yr.l{left:16px}.cmp-yr.r{right:16px}
+.cmp .cmp-range{position:absolute;z-index:3;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.cmp:focus-within{outline:4px solid var(--Sky);outline-offset:3px}
