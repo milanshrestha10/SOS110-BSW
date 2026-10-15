@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
-<link rel="stylesheet" href="lecture.css?v=2026-10-15">
+<link rel="stylesheet" href="lecture.css?v=2026-10-15b">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -463,9 +463,17 @@
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · a GLOF in the Everest region, August 2024</div>
     <h2 class="reveal d2" style="font-size:70px">The Thame <em>flood</em></h2>
-    <div class="grid reveal d3" style="grid-template-columns:560px 400px 1fr;gap:34px;align-items:start">
-      <div><figure class="fig"><img src="img/thame.jpg" alt="Thame village before the flood: stone houses and walled fields in a valley below snowy peaks"></figure><p class="credit"><b>Before.</b> Photo: G. S. Shrestha.</p></div>
-      <div><figure class="fig"><img src="img/thame-flood.jpg" alt="After the flood: a wide river of gray mud and boulders runs through the valley past damaged buildings"></figure><p class="credit"><b>After.</b> Photo: Thamichhowa Youth Group.</p></div>
+    <div class="grid reveal d3" style="grid-template-columns:800px 1fr;gap:44px;align-items:start">
+      <div>
+        <div class="cmp" id="thame-cmp" style="--x:50%">
+          <img class="cmp-after" src="img/thame-after.jpg" alt="After the flood: gray mud and debris cover Thame's fields, and water surrounds damaged green-roofed buildings">
+          <img class="cmp-before" src="img/thame-before.jpg" alt="Thame before the flood: stone houses and walled fields in a valley below snowy peaks">
+          <span class="cmp-yr l">Before</span><span class="cmp-yr r">After · Aug 2024</span>
+          <span class="cmp-line" aria-hidden="true"><b></b></span>
+          <input type="range" class="cmp-range" id="thame-range" min="0" max="100" value="50" aria-label="Slide to compare Thame before and after the flood">
+        </div>
+        <p class="credit">Drag the slider to compare. <b>Before:</b> photo by G. S. Shrestha. <b>After:</b> the flood in Thame, August 2024.</p>
+      </div>
       <ol class="num thame-list">
         <li>Two of the Thyanbo glacial lakes burst. The flood came in the afternoon, during the trekking <b>off-season</b>.</li>
         <li><b>135 residents</b> lost their homes, and roads, bridges and buildings were damaged.</li>
@@ -641,6 +649,9 @@ $$('[data-youtube]').forEach(v => {
   const start = v.dataset.start ? `?start=${encodeURIComponent(v.dataset.start)}` : '';
   v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}${start}" title="${esc(v.dataset.title || 'Video')}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 });
+
+/* === THAME BEFORE AND AFTER === drag to compare */
+$('#thame-range').addEventListener('input', e => $('#thame-cmp').style.setProperty('--x', `${e.target.value}%`));
 
 /* === ADAPTATION STRATEGIES === */
 const STRATS = [
