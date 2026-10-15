@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
 <style>
 /* === REVIEW EXERCISE 2 STYLES === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 .lead2{font-size:28px;line-height:1.42;max-width:1560px}
 .lead2 b{color:var(--Blue)}
 
@@ -99,8 +100,8 @@
 .ck b{display:block;font:400 25px/1.25 var(--display)}
 .ck small{display:block;font-size:18px;line-height:1.35;color:var(--mute);margin-top:3px}
 .ck-conv{border-left:2px solid var(--paper-2);padding-left:34px}
-.ck-conv dl>div{display:grid;grid-template-columns:140px 1fr;gap:2px 18px;align-items:center;margin-bottom:22px}
-.ck-conv svg{width:130px;height:46px;grid-row:span 2}
+.ck-conv dl>div{display:grid;grid-template-columns:150px 1fr;gap:0 20px;align-items:center;margin-bottom:14px}
+.ck-conv svg{width:150px;height:55px;grid-row:span 2}
 .ck-conv dt{font:800 18px var(--sans);color:var(--ink)}
 .ck-conv dd{font-size:18px;line-height:1.3;color:var(--mute)}
 .ck-note{font-size:17px;font-style:italic;color:var(--mute)}
@@ -146,48 +147,57 @@
 .cy .ttl{display:flex;gap:8px}
 .cy .ttl button{flex:none}
 .cy-eco{display:flex;gap:8px}
-.cy-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.cy button.t{font:700 18px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:10px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.cy-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.cy button.t{font:700 17px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:10px;padding:6px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .cy button.t.on{background:var(--Blue);color:var(--paper)}
 .cy button.t.sm{font-size:16px;padding:6px 12px}
-.cy button.t.clear{margin-left:auto;border-color:#b3452c;color:#b3452c;background:#fdf1ee}
+.cy button.t.clear{border-color:#b3452c;color:#b3452c;background:#fdf1ee}
 .cy button.t.clear:hover{background:#b3452c;color:#fff}
+.cy button.t.pos{color:#2f6b3f;border-color:#2f6b3f}.cy button.t.pos.on{background:#2f6b3f;color:#fff}
+.cy button.t.neg{color:#A4373A;border-color:#A4373A}.cy button.t.neg.on{background:#A4373A;color:#fff}
 .cy button.t[data-tool="erase"].on{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t.armed{background:#b3452c;border-color:#b3452c;color:#fff}
 .cy button.t .sw{width:22px;height:16px;border-radius:4px;border:2.5px solid currentColor}
-.cy button.t .sw.h{border-radius:6px;background:#fbefc9;border-color:var(--accent)}
+.cy button.t .sw.h{border-radius:6px;background:#fbeeec;border-color:#A4373A}
 .cy button.t .sw.c{border-radius:9px;border-style:dashed}
 .cy .sep{width:2px;height:30px;background:var(--paper-2);margin:0 4px}
-.cy-tip{font-size:18px;color:var(--mute);min-height:24px}
+.cy-tipbar{display:flex;align-items:center;gap:8px}
+.cy-tip{flex:1;font-size:18px;line-height:1.25;color:var(--mute);min-height:24px}
+.cy-tipbar button{flex:none}
 .cy-work{flex:1;min-height:0;display:grid;grid-template-columns:270px 1fr;gap:12px}
 .cy-pal{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:10px 12px;overflow:auto;min-height:0}
 .cy-pal h5{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:800 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--Blue);margin:8px 0 4px}
 .cy-pal h5:first-child{margin-top:0}
 .cy-pal h5 small{flex-basis:100%;font:italic 400 13px var(--body);letter-spacing:0;text-transform:none;color:var(--mute)}
 .cy-pal h5 .sw{width:18px;height:12px;border:2.5px solid var(--Blue);border-radius:3px;background:#fff}
-.cy-pal h5 .sw.f{height:0;border-width:2.5px 0 0;border-radius:0}
-.cy-pal h5 .sw.h{border-color:var(--accent);background:#fbefc9}
+.cy-pal h5 .sw.f{height:6px;border:2px solid #10313d;border-radius:0;background:#fffdf8}
+.cy-pal h5 .sw.h{border-color:#A4373A;background:#fbeeec}
 .cy-pal-list{display:flex;flex-wrap:wrap;gap:4px}
-.cy-pal .pi{font:400 14px/1.2 var(--body);text-align:left;color:var(--ink);background:#fff;border:1.5px solid #bcd9e0;border-radius:7px;padding:4px 7px;cursor:pointer}
+.cy-pal .pi{display:inline-flex;align-items:center;gap:5px;font:400 14px/1.2 var(--body);text-align:left;color:var(--ink);background:#fff;border:1.5px solid #bcd9e0;border-radius:7px;padding:4px 7px;cursor:pointer}
 .cy-pal .pi:hover{border-color:var(--Blue);background:rgba(66,168,191,.08)}
 .cy-pal .pi.stock{border-left:5px solid var(--Blue)}
 .cy-pal .pi.flow{border-radius:999px}
-.cy-pal .pi.human{width:100%;background:#fdf6e3;border-color:#e6c98a;border-left:5px solid var(--accent)}
+.cy-pal .pi.human{width:100%;display:grid;grid-template-columns:22px 1fr;column-gap:6px;background:#fbeeec;border-color:#e2b2a4;border-left:5px solid #A4373A}
+.cy-pal .pi.human .pic{grid-row:span 2;stroke:#A4373A}
+.cy-pal .pic{flex:none;width:19px;height:19px;fill:none;stroke:var(--Blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cy-pal .pi.flow .pic{stroke:#2f5f5a}
 .cy-pal .pi.human b{display:block;font-weight:700}
 .cy-pal .pi.human{padding:3px 8px}
 .cy-pal .pi.human span{font-size:13px;color:#b3452c}
 .cy-pal .pi.used{opacity:.55}
+.cy-pal .pi.human{position:relative}
+.cy-pal .pi.human.used::after{position:absolute;right:8px;top:5px}
 .cy-pal .pi.used::after{content:' ✓';color:#2e7d5b;font-weight:700}
 .cy-pal-empty{font-size:17px;color:var(--mute);padding:6px 2px}
 .cy-board{display:flex;flex-direction:column;gap:8px;min-height:0}
-.cy-key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;font:700 15px var(--sans);color:var(--mute);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:6px 14px}
+.cy-key{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;font:700 13.5px var(--sans);color:var(--mute);background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:6px 14px}
 .cy-key b{font:800 13px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--Blue)}
-.cy-key span{display:inline-flex;align-items:center;gap:8px}
-.cy-key svg{width:54px;height:22px;flex:none}
+.cy-key span{display:inline-flex;align-items:center;gap:6px}
+.cy-key svg{width:50px;height:20px;flex:none}
 .cy-canvas{position:relative;flex:1;min-height:0;background:#fff;border:2px solid var(--paper-2);border-radius:16px;background-image:radial-gradient(circle,#e4ddcc 1.4px,transparent 1.5px);background-size:28px 28px}
 #cy-svg{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none}
 #cy-svg[data-mode="stock"],#cy-svg[data-mode="human"],#cy-svg[data-mode="cloud"]{cursor:copy}
-#cy-svg[data-mode="flow"] .cy-node{cursor:crosshair}
+#cy-svg[data-mode="flow"] .cy-node,#cy-svg[data-mode="pos"] [data-id],#cy-svg[data-mode="neg"] [data-id]{cursor:crosshair}
 #cy-svg[data-mode="move"] .cy-node{cursor:grab}
 #cy-svg[data-mode="erase"] [data-id]{cursor:not-allowed}
 #cy-svg[data-mode="erase"] [data-id]:hover{opacity:.45}
@@ -215,24 +225,41 @@
 
 /* diagram pieces (builder, worked example and the printed page) */
 .cy-node .shape{fill:#fffdf8;stroke:#0d7397;stroke-width:3}
-.cy-node.human .shape{fill:#fbefc9;stroke:#C4851C}
-.cy-node.cloud .shape{fill:#f4f8f7;stroke:#75a29f;stroke-dasharray:8 6}
+.cy-node.human .shape{fill:#fbeeec;stroke:#A4373A}
+.cy-node.cloud .shape{fill:#f4f8f7;stroke:#4c6670;stroke-width:2.5;vector-effect:non-scaling-stroke}
 .cy-node.sel .shape{stroke:#C4851C;stroke-width:5}
 .cy-node.pending .shape{stroke:#2e7d5b;stroke-width:6}
 .cy-node .nm{font:400 20px 'PT Serif',Georgia,serif;fill:#10313d;text-anchor:middle}
 .cy-node.stock .nm{font-weight:700}
+.cy-node.human .nm{fill:#5e1f21}
 .cy-node .tag{font:700 11px 'PT Serif',Georgia,serif;letter-spacing:.12em;text-transform:uppercase;fill:#4c6670;text-anchor:middle}
-.cy-node .fic{fill:none;stroke:#8a5a10;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.cy-flow .line{fill:none;stroke:#0d7397;stroke-width:3}
-.cy-flow.human .line{stroke:#b3452c;stroke-dasharray:10 6}
-.cy-flow .hit{fill:none;stroke:transparent;stroke-width:22;cursor:pointer}
+.cy-node .ic{fill:none;stroke:#0d7397;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.cy-node.human .ic{stroke:#A4373A}
+.cy-flow .hit{fill:none;stroke:transparent;stroke-width:24;cursor:pointer}
+.cy-flow .pipe-o{fill:none;stroke:#10313d;stroke-width:9}
+.cy-flow .pipe-i{fill:none;stroke:#fffdf8;stroke-width:4.2}
+.cy-flow .head{fill:#10313d}
+.cy-flow.human .pipe-o{stroke:#A4373A}.cy-flow.human .head{fill:#A4373A}
+.cy-flow.sel .pipe-o{stroke:#C4851C}.cy-flow.sel .head{fill:#C4851C}
+.cy-flow.pending .pipe-o{stroke:#2e7d5b}
+.cy-flow .valve{cursor:pointer}
+.cy-flow .v-tie,.cy-flow .v-knob{fill:#fffdf8;stroke:#2f5f5a;stroke-width:2.4;stroke-linejoin:round}
+.cy-flow .v-stem{stroke:#2f5f5a;stroke-width:2.4}
+.cy-flow.human .v-tie,.cy-flow.human .v-knob{stroke:#A4373A}.cy-flow.human .v-stem{stroke:#A4373A}
+.cy-flow.sel .v-tie,.cy-flow.sel .v-knob{stroke:#C4851C;stroke-width:3.4}
 .cy-flow .lab-bg{fill:#fff;stroke:#bcd9e0;stroke-width:1.5}
 .cy-flow.human .lab-bg{stroke:#e2b2a4}
 .cy-flow.sel .lab-bg{stroke:#C4851C;stroke-width:3}
-.cy-flow.sel .line{stroke-width:5}
 .cy-flow .lab{font:400 16px 'PT Serif',Georgia,serif;fill:#10313d;text-anchor:middle;pointer-events:none}
 .cy-flow .lab.empty{fill:#4c6670;font-style:italic}
-.cy-flow .lab-ico{font:700 17px 'PT Serif',Georgia,serif;fill:#b3452c;text-anchor:middle}
+.cy-flow .lab-ico{font:700 17px 'PT Serif',Georgia,serif;fill:#A4373A;text-anchor:middle}
+.cy-link .hit{fill:none;stroke:transparent;stroke-width:18;cursor:pointer}
+.cy-link .line{fill:none;stroke-width:2.8}
+.cy-link.pos .line{stroke:#2f6b3f}.cy-link.pos .head{fill:#2f6b3f}.cy-link.pos .sgn-bg{stroke:#2f6b3f}.cy-link.pos .sgn{fill:#2f6b3f}
+.cy-link.neg .line{stroke:#A4373A}.cy-link.neg .head{fill:#A4373A}.cy-link.neg .sgn-bg{stroke:#A4373A}.cy-link.neg .sgn{fill:#A4373A}
+.cy-link .sgn-bg{fill:#fffdf8;stroke-width:2.2}
+.cy-link .sgn{font:800 18px 'Montserrat',sans-serif;text-anchor:middle;pointer-events:none}
+.cy-link.sel .line{stroke-width:4.5}.cy-link.sel .sgn-bg{stroke:#C4851C;stroke-width:3}
 
 /* === PRINT === the builder prints one landscape page; any other slide prints the deck */
 #print-sheet{display:none}
@@ -246,12 +273,14 @@
   .ps-title p{font-size:11pt;color:#4c6670;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
   .ps-diagram{flex:1;min-height:0;display:flex;flex-direction:column}
   .ps-diagram svg{flex:1;min-height:0;width:100%}
-  .ps-legend{font-size:9pt;color:#4c6670;display:flex;gap:.2in;justify-content:center}
+  .ps-legend{font-size:8.5pt;color:#4c6670;display:flex;gap:.12in;justify-content:center;white-space:nowrap}
   .ps-legend .lg::before{content:'';display:inline-block;width:.28in;height:.14in;margin-right:5px;vertical-align:middle;border:2px solid #0d7397;border-radius:3px;background:#fffdf8}
-  .ps-legend .flow::before{height:0;border-width:2px 0 0;border-radius:0}
-  .ps-legend .hflow::before{height:0;border-width:2px 0 0;border-style:dashed;border-color:#b3452c;border-radius:0}
-  .ps-legend .human::before{background:#fbefc9;border-color:#C4851C}
-  .ps-legend .cloud::before{border-style:dashed;border-color:#75a29f;border-radius:8px}
+  .ps-legend .flow::before{height:4px;border:2.5px solid #10313d;border-radius:0}
+  .ps-legend .hflow::before{height:4px;border:2.5px solid #A4373A;border-radius:0}
+  .ps-legend .pos::before{height:0;border-width:2px 0 0;border-color:#2f6b3f;border-radius:0}
+  .ps-legend .neg::before{height:0;border-width:2px 0 0;border-color:#A4373A;border-radius:0}
+  .ps-legend .human::before{background:#fbeeec;border-color:#A4373A}
+  .ps-legend .cloud::before{border-color:#4c6670;border-radius:8px;background:#f4f8f7}
   .ps-summary{display:grid;grid-template-columns:1.2fr 1fr;gap:.25in;border-top:2px solid #eccf72;padding-top:.08in;font-size:10pt;line-height:1.38}
   .ps-summary h2{font:700 9pt 'PT Serif',Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#0d7397;margin:.02in 0 .03in}
   .ps-summary ol{padding-left:.2in}
@@ -288,7 +317,29 @@
   </div>
 </section>
 
-<!-- 2. THE ASSIGNMENT (one prompt page, laid out like the reference review assignment) -->
+<!-- 2. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>4.4</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. THE ASSIGNMENT (one prompt page, laid out like the reference review assignment) -->
 <section class="slide">
   <div class="rail"><b>4.4</b><span>The assignment</span></div>
   <div class="content ap" style="top:40px;bottom:34px">
@@ -336,7 +387,7 @@
   </div>
 </section>
 
-<!-- 3. WORKED EXAMPLE: TEAM 6 SULFUR -->
+<!-- 4. WORKED EXAMPLE: TEAM 6 SULFUR -->
 <section class="slide" id="example">
   <div class="rail"><b>4.4</b><span>Worked example</span></div>
   <div class="content fill" style="top:60px;bottom:50px">
@@ -349,7 +400,7 @@
         <h3>The Sulfur Cycle in a Temperate Forest</h3>
         <h4>Synthesis statement</h4>
         <p id="wx-summary"></p>
-        <h4>Human impacts (red dashed arrows)</h4>
+        <h4>Human impacts (red pipes)</h4>
         <ol id="wx-impacts"></ol>
         <button class="btn" type="button" id="wx-open">Open it in the builder</button>
       </div>
@@ -357,7 +408,7 @@
   </div>
 </section>
 
-<!-- 4. BEFORE YOU UPLOAD (self-check and drawing conventions, laid out like the reference review assignment) -->
+<!-- 5. BEFORE YOU UPLOAD (self-check and drawing conventions, laid out like the reference review assignment) -->
 <section class="slide">
   <div class="rail"><b>4.4</b><span>Before you upload</span></div>
   <div class="content ap" style="top:44px;bottom:70px">
@@ -369,11 +420,12 @@
       <div class="ck-conv">
         <div class="ap-rule" style="margin-top:0"><span>Drawing conventions</span></div>
         <dl>
-          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="6" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="65" y="28" text-anchor="middle" font-size="15" font-family="PT Serif" fill="#10313d">Soil N</text></svg><dt>Stock</dt><dd>a box for each pool or reservoir</dd></div>
-          <div><svg viewBox="0 0 130 46"><defs><marker id="cv-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker></defs><path d="M10,23 Q65,8 120,23" fill="none" stroke="#0d7397" stroke-width="3" marker-end="url(#cv-ah)"/></svg><dt>Flow</dt><dd>a labeled arrow named after its process; the head shows direction</dd></div>
-          <div><svg viewBox="0 0 130 46"><defs><marker id="cv-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M10,23 Q65,8 120,23" fill="none" stroke="#b3452c" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#cv-ahh)"/></svg><dt>Human-caused flow</dt><dd>a dashed red arrow, explained in a sentence</dd></div>
-          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="17" fill="#f4f8f7" stroke="#75a29f" stroke-width="3" stroke-dasharray="8 6"/></svg><dt>Cloud</dt><dd>where matter enters from, or leaves to, outside your system</dd></div>
-          <div><svg viewBox="0 0 130 46"><rect x="10" y="6" width="110" height="34" rx="10" fill="#fbefc9" stroke="#C4851C" stroke-width="3"/><text x="65" y="28" text-anchor="middle" font-size="15" font-family="PT Serif" fill="#10313d">Traffic</text></svg><dt>Human touchpoint</dt><dd>an icon card, wired to the process it changes</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><rect x="8" y="6" width="104" height="32" rx="5" fill="#fffdf8" stroke="#0d7397" stroke-width="2.6"/><text x="60" y="27" text-anchor="middle" font-size="15" font-weight="700" font-family="PT Serif, serif" fill="#10313d">Soil N</text></svg><dt>Stock</dt><dd>a box for each pool or reservoir</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M6 28 H96" stroke="#10313d" stroke-width="9"/><path d="M6 28 H96" stroke="#fffdf8" stroke-width="4.4"/><path d="M110 28 l-14 -8 v16 Z" fill="#10313d"/><path d="M50 28 V16" stroke="#2f5f5a" stroke-width="2"/><circle cx="50" cy="12" r="4" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2"/><path transform="translate(50,28)" d="M-11 -8 L11 8 V-8 L-11 8 Z" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2" stroke-linejoin="round"/></svg><dt>Flow</dt><dd>a pipe with a valve, labeled with its process; the head shows direction</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 H32 C41 36 41 25 34 24 C35 15 25 12 21 18 C18 10 7 11 8 20 C1 20 0 36 8 36 Z" fill="#f4f8f7" stroke="#4c6670" stroke-width="2"/><path d="M42 28 H96" stroke="#10313d" stroke-width="9"/><path d="M42 28 H96" stroke="#fffdf8" stroke-width="4.4"/><path d="M110 28 l-14 -8 v16 Z" fill="#10313d"/><path d="M68 28 V16" stroke="#2f5f5a" stroke-width="2"/><circle cx="68" cy="12" r="4" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2"/><path transform="translate(68,28)" d="M-11 -8 L11 8 V-8 L-11 8 Z" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2" stroke-linejoin="round"/></svg><dt>Cloud</dt><dd>where matter enters from, or leaves to, outside your system</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 Q56 6 98 32" fill="none" stroke="#2f6b3f" stroke-width="2.6"/><path d="M110 38 l-15 -1 l7 -11 Z" fill="#2f6b3f"/><circle cx="55" cy="21" r="10" fill="#fffdf8" stroke="#2f6b3f" stroke-width="2"/><text x="55" y="27" text-anchor="middle" font-size="17" font-weight="800" font-family="Montserrat, sans-serif" fill="#2f6b3f">+</text></svg><dt>+ arrow</dt><dd>the two change in the same direction</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 Q56 6 98 32" fill="none" stroke="#A4373A" stroke-width="2.6"/><path d="M110 38 l-15 -1 l7 -11 Z" fill="#A4373A"/><circle cx="55" cy="21" r="10" fill="#fffdf8" stroke="#A4373A" stroke-width="2"/><text x="55" y="27" text-anchor="middle" font-size="17" font-weight="800" font-family="Montserrat, sans-serif" fill="#A4373A">−</text></svg><dt>− arrow</dt><dd>the two change in opposite directions</dd></div>
+          <div><svg viewBox="0 0 120 44" aria-hidden="true"><rect x="8" y="5" width="104" height="34" rx="11" fill="#fbeeec" stroke="#A4373A" stroke-width="2.4"/><path transform="translate(30,22) scale(.85)" d="M-11 5 v-4 l3 -6 h14 l4 6 h1 v4 z M-6 5 a2.5 2.5 0 1 0 .1 0 M6 5 a2.5 2.5 0 1 0 .1 0" fill="none" stroke="#A4373A" stroke-width="2.4" stroke-linejoin="round"/><text x="74" y="27" text-anchor="middle" font-size="14" font-weight="700" font-family="Montserrat, sans-serif" fill="#7a2a2c">Traffic</text></svg><dt>Human touchpoint</dt><dd>an icon card, wired to the process it changes</dd></div>
         </dl>
         <p class="ck-note">The same marks work in InsightMaker, Miro, Canva or on paper.</p>
       </div>
@@ -385,7 +437,7 @@
   </div>
 </section>
 
-<!-- 5. CYCLE SYSTEMS BUILDER -->
+<!-- 6. CYCLE SYSTEMS BUILDER -->
 <section class="slide" id="builder">
   <div class="rail"><b>4.4</b><span>Cycle builder</span></div>
   <div class="cy" id="cy">
@@ -404,25 +456,26 @@
         <button class="t on" type="button" data-tool="move">✋ Move</button>
         <button class="t" type="button" data-tool="stock"><span class="sw"></span>Stock</button>
         <button class="t" type="button" data-tool="flow">⇒ Flow</button>
+        <button class="t pos" type="button" data-tool="pos">+ Arrow</button>
+        <button class="t neg" type="button" data-tool="neg">− Arrow</button>
         <button class="t" type="button" data-tool="human"><span class="sw h"></span>Human impact</button>
         <button class="t" type="button" data-tool="cloud"><span class="sw c"></span>Cloud</button>
         <button class="t" type="button" data-tool="erase">⌫ Erase</button>
         <span class="sep"></span>
         <button class="t" type="button" data-cy="undo">↶ Undo</button>
-        <button class="t sm" type="button" data-cy="example">Load worked example</button>
-        <button class="t sm clear" type="button" data-cy="clear">🗑 Clear all</button>
       </div>
-      <div class="cy-tip" data-cy="tip"></div>
+      <div class="cy-tipbar"><div class="cy-tip" data-cy="tip"></div><button class="t sm" type="button" data-cy="example">Load worked example</button><button class="t sm clear" type="button" data-cy="clear">🗑 Clear all</button></div>
       <div class="cy-work">
       <aside class="cy-pal" data-cy="palette" aria-label="Stocks, processes and human impacts to add"></aside>
       <div class="cy-board">
       <div class="cy-key" aria-label="Drawing conventions">
         <b>Key</b>
-        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="3" fill="#fffdf8" stroke="#0d7397" stroke-width="2.5"/></svg>Stock</span>
-        <span><svg viewBox="0 0 54 22"><defs><marker id="ky-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#0d7397"/></marker></defs><path d="M4,11 H48" stroke="#0d7397" stroke-width="2.5" marker-end="url(#ky-ah)"/></svg>Flow</span>
-        <span><svg viewBox="0 0 54 22"><defs><marker id="ky-ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#b3452c"/></marker></defs><path d="M4,11 H48" stroke="#b3452c" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ky-ahh)"/></svg>Human-caused flow</span>
-        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="8" fill="#f4f8f7" stroke="#75a29f" stroke-width="2.5" stroke-dasharray="5 4"/></svg>Cloud (outside)</span>
-        <span><svg viewBox="0 0 54 22"><rect x="3" y="3" width="48" height="16" rx="5" fill="#fbefc9" stroke="#C4851C" stroke-width="2.5"/></svg>Human impact</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><rect x="8" y="6" width="104" height="32" rx="5" fill="#fffdf8" stroke="#0d7397" stroke-width="2.6"/><text x="60" y="27" text-anchor="middle" font-size="15" font-weight="700" font-family="PT Serif, serif" fill="#10313d">Soil N</text></svg>Stock</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M6 28 H96" stroke="#10313d" stroke-width="9"/><path d="M6 28 H96" stroke="#fffdf8" stroke-width="4.4"/><path d="M110 28 l-14 -8 v16 Z" fill="#10313d"/><path d="M50 28 V16" stroke="#2f5f5a" stroke-width="2"/><circle cx="50" cy="12" r="4" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2"/><path transform="translate(50,28)" d="M-11 -8 L11 8 V-8 L-11 8 Z" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2" stroke-linejoin="round"/></svg>Flow</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 H32 C41 36 41 25 34 24 C35 15 25 12 21 18 C18 10 7 11 8 20 C1 20 0 36 8 36 Z" fill="#f4f8f7" stroke="#4c6670" stroke-width="2"/><path d="M42 28 H96" stroke="#10313d" stroke-width="9"/><path d="M42 28 H96" stroke="#fffdf8" stroke-width="4.4"/><path d="M110 28 l-14 -8 v16 Z" fill="#10313d"/><path d="M68 28 V16" stroke="#2f5f5a" stroke-width="2"/><circle cx="68" cy="12" r="4" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2"/><path transform="translate(68,28)" d="M-11 -8 L11 8 V-8 L-11 8 Z" fill="#fffdf8" stroke="#2f5f5a" stroke-width="2" stroke-linejoin="round"/></svg>Cloud</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 Q56 6 98 32" fill="none" stroke="#2f6b3f" stroke-width="2.6"/><path d="M110 38 l-15 -1 l7 -11 Z" fill="#2f6b3f"/><circle cx="55" cy="21" r="10" fill="#fffdf8" stroke="#2f6b3f" stroke-width="2"/><text x="55" y="27" text-anchor="middle" font-size="17" font-weight="800" font-family="Montserrat, sans-serif" fill="#2f6b3f">+</text></svg>+ same way</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><path d="M8 36 Q56 6 98 32" fill="none" stroke="#A4373A" stroke-width="2.6"/><path d="M110 38 l-15 -1 l7 -11 Z" fill="#A4373A"/><circle cx="55" cy="21" r="10" fill="#fffdf8" stroke="#A4373A" stroke-width="2"/><text x="55" y="27" text-anchor="middle" font-size="17" font-weight="800" font-family="Montserrat, sans-serif" fill="#A4373A">−</text></svg>− opposite way</span>
+        <span><svg viewBox="0 0 120 44" aria-hidden="true"><rect x="8" y="5" width="104" height="34" rx="11" fill="#fbeeec" stroke="#A4373A" stroke-width="2.4"/><path transform="translate(30,22) scale(.85)" d="M-11 5 v-4 l3 -6 h14 l4 6 h1 v4 z M-6 5 a2.5 2.5 0 1 0 .1 0 M6 5 a2.5 2.5 0 1 0 .1 0" fill="none" stroke="#A4373A" stroke-width="2.4" stroke-linejoin="round"/><text x="74" y="27" text-anchor="middle" font-size="14" font-weight="700" font-family="Montserrat, sans-serif" fill="#7a2a2c">Traffic</text></svg>Human touchpoint</span>
       </div>
       <div class="cy-canvas">
         <svg id="cy-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="2 · Diagram canvas"></svg>
@@ -434,10 +487,11 @@
     <div class="cy-side">
       <div class="cy-box">
         <h4>Selected piece <span data-cy="ptype"></span></h4>
-        <p class="cy-hint" data-cy="hint">Click a stock or an arrow to name it. Press Delete to remove it.</p>
+        <p class="cy-hint" data-cy="hint">Click a stock, pipe or arrow to name it, flip it or remove it.</p>
         <div data-cy="panel" hidden>
-          <input data-cy="pname" list="cy-names" maxlength="60" aria-label="Name">
+          <div data-cy="pname-row"><input data-cy="pname" list="cy-names" maxlength="60" aria-label="Name"></div>
           <datalist id="cy-names" data-cy="names"></datalist>
+          <div data-cy="psign-row" hidden><button class="t sm" type="button" data-cy="psign"></button></div>
           <label class="chk" data-cy="phuman-row"><input type="checkbox" data-cy="phuman">A human-caused flow</label>
           <div data-cy="pnote-row" style="margin-top:8px"><textarea data-cy="pnote" rows="2" maxlength="300" placeholder="How does it disrupt the cycle?" aria-label="How does it disrupt the cycle?"></textarea></div>
           <div class="row"><button class="t sm" type="button" data-cy="pdone">Done</button><button class="t sm" type="button" data-cy="pdelete">Delete</button></div>
@@ -468,7 +522,8 @@
 <script src="../../shared/deck.js?v=2026-10-05"></script>
 <script type="module">
 import { loadSession, fill } from '../../shared/course.js';
-import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-14c';
+import { connect } from '../../shared/live.js';
+import { initBuilder, render, EXAMPLE, esc } from './builder.js?v=2026-10-15';
 
 /* Review Exercise 2 is the fourth Module 4 session (M4 L4). */
 const SESSION = 'm4-s4';
@@ -476,6 +531,24 @@ const $ = s => document.querySelector(s);
 
 /* === TITLE === module name and session label from course.json */
 loadSession(SESSION).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === ATTENDANCE === the same check-in as the lecture decks */
+const say = (el, msg, kind = '') => { el.textContent = msg; el.className = `status ${kind}`; };
+connect(SESSION).then(live => {
+  if (live.mode === 'demo') $('[data-mode-note]').textContent = 'Demo mode: check-ins stay in this browser until Firebase is connected.';
+  const showUser = () => { const u = live.user(); if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } };
+  showUser();
+  $('#checkin').addEventListener('click', async () => {
+    const st = $('#checkin-status');
+    say(st, 'Checking in…');
+    try {
+      await live.signIn($('[data-name]').value, $('[data-email]').value);
+      await live.checkIn($('#code').value);
+      say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+      showUser();
+    } catch (e) { say(st, e.message, 'err'); }
+  });
+}).catch(e => say($('#checkin-status'), `Check-in could not load: ${e.message}`, 'err'));
 
 /* === WORKED EXAMPLE === the Team 6 sulfur cycle, drawn by the same code as the builder */
 render($('#wx-svg'), EXAMPLE, { viewBox: 'fit' });
