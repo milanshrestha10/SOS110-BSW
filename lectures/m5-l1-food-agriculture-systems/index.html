@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 14 Sustainable food and agricultural systems · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="lecture.css?v=2026-10-16">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.2 1.7-3.7-1.7 0-3.3.4-4.9 1.1z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-tractor" viewBox="0 0 24 24"><path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.8 5h-6"/><path d="M16 18h-5"/><path d="M18 5a1 1 0 0 0-1 1v5.573"/><path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246"/><path d="M4 11V4"/><path d="M8 10V4"/><circle cx="7" cy="15" r="4"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 9c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 15c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 15c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 21c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 21c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 5V2"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.5L4.2 19a2 2 0 0 0 1.7 3h12.2a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-recycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="img/toast-hero.jpg" alt="A slice of dark bread topped with cucumber, avocado, tomato and sesame seeds on a white plate">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
+    <div class="title-k reveal d2">Lecture 14 · S&amp;M Chapter 12</div>
+    <h1 class="reveal d2" style="font-size:108px">Sustainable food and <em>agricultural systems</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">How food gets to our table, how farming became industrial, and what a more sustainable plate could look like.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- 2. MODULE 5 AT A GLANCE -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Module 5</span></div>
+  <div class="content fill">
+    <div class="k reveal">Module <span data-fill="module-num">5</span> · <span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
+    <h2 class="reveal d2">Where this module is <em>going</em></h2>
+    <div class="glance">
+      <div class="card accent reveal d3"><span class="tag">Learning objectives · by the end of Module 5 you can</span>
+        <ol class="num">
+          <li>Describe how our food and energy systems have changed over time.</li>
+          <li>Explain why sustainability issues are interconnected and complex.</li>
+          <li>Give examples of the food-energy-water nexus.</li>
+          <li>Compare renewable energy options and the policies behind an energy transition.</li>
+        </ol>
+      </div>
+      <div class="card gold reveal d4"><span class="tag">What's due in this module</span>
+        <ul class="clean" data-fill="assessments"><li>InQuizitive 12, 13 and 14</li><li>Quiz: US Energy Transition</li><li>What Would You Do? Exercise 3</li><li>Research topic selection and presentation outline</li></ul>
+        <div class="gold-rule" style="margin:26px 0 20px"></div>
+        <p style="font-size:28px"><b>Reading for today:</b> <span data-fill="reading">S&amp;M Ch. 12</span></p>
+        <p class="small mute" style="margin-top:16px">Due dates and submission links are on the course site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1500px">About how much of the plant calories people eat comes from just <em>three crops</em>?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>About 10%</button>
+      <button class="opt" type="button"><b>B</b>About 30%</button>
+      <button class="opt" type="button"><b>C</b>About 60%</button>
+      <button class="opt" type="button"><b>D</b>About 90%</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · the sustainability dimensions of food and agriculture, and some solutions</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 reveal d3" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><br><span class="tag">1 · Food system</span><h3>What is a food system?</h3><p>Use a bottle of ketchup to explain the social, ecological and technical processes involved.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-tractor"/></svg></span><br><span class="tag">2 · Industrial farming</span><h3>How did farming get industrialized?</h3><p>Trace what changes in farming and diets in the US meant for sustainability.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><br><span class="tag">3 · Lessons</span><h3>What can we learn from agricultural change?</h3><p>Explain how ecology, population, economics and food production fit together.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Today's food and agricultural systems have enormous impacts on the wellbeing of Earth and people. Sustainability principles can guide promising solutions.</div>
+  </div>
+</section>
+
+<!-- 6. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>14</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHAT IS A FOOD SYSTEM? -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 1 · Food system</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · everything between the farm and your plate</div>
+    <h2 class="reveal d2" style="font-size:72px">What is a <em>food system</em>?</h2>
+    <div class="fs-grid reveal d3">
+      <div class="fs-pics">
+        <figure class="fig plain" style="margin:0"><img class="tom" src="img/tomatoes.png" alt="A halved tomato and a whole tomato with water drops"></figure>
+        <figure class="fig plain" style="margin:0"><img class="ket" src="img/ketchup.png" alt="Ketchup pouring from a bottle"></figure>
+        <figure class="fig plain" style="margin:0"><img class="fry" src="img/fries.png" alt="French fries in a red carton"></figure>
+      </div>
+      <div class="fs-text">
+        <p class="lead">It is a system within the systems of <b>ecology</b>, <b>agriculture</b>, <b>processing</b>, <b>packaging</b>, <b>marketing</b>, <b>transportation</b>, and much more.</p>
+        <div class="hl">It covers all the stages of keeping people fed</div>
+        <div class="stages"><span>Growing</span><span>Harvesting</span><span>Packing</span><span>Processing</span><span>Transporting</span><span>Marketing</span><span>Consuming</span><span>Disposing of food</span></div>
+        <p class="lead" style="font-size:29px">It is the connected web of resources, activities and people, and the decisions they make, that gets food to our table.</p>
+        <p class="src">Source: Ecoliteracy.org</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOLLOW A BOTTLE OF KETCHUP -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 1 · Food system</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 1 · social, ecological and technical processes</div>
+    <h2 class="reveal d2" style="font-size:68px">Follow a bottle of <em>ketchup</em></h2>
+    <div class="reveal d3" style="display:flex;flex-direction:column;flex:1">
+      <div class="jr-tabs" id="jr-tabs"></div>
+      <div class="jr-body" id="jr-body"></div>
+      <p class="jr-ask">Pick a stage, then <b>say one thing</b> for each column. Who is involved? What does nature provide? What technology is used?</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. HOW HAVE OUR FOOD SYSTEMS CHANGED? -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 1 · Food system</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-earth"/></svg></span>Big idea 1 · checking the warm-up poll (answer: C)</div>
+    <h2 class="reveal d2" style="font-size:70px">How have our food systems <em>changed</em>?</h2>
+    <div class="chg reveal d3">
+      <div class="card accent">
+        <span class="tag">1 · Land</span>
+        <div class="bignum">~40<small>%</small></div>
+        <div class="landgrid" id="landgrid"></div>
+        <p>Together, <b>croplands and pastures</b> are now the largest land biome, covering almost 40% of Earth's land surface.</p>
+        <p class="note" style="margin-top:8px">A biome is a large region defined by its climate and the life in it, like desert or forest.</p>
+        <div class="photo"><img src="img/fields-aerial.jpg" alt="Aerial view of a patchwork of green farm fields"></div>
+      </div>
+      <div class="card green">
+        <span class="tag">2 · The system</span>
+        <h3>A food system is the complex web of processes that connect <em style="color:var(--accent);font-style:normal">agricultural production</em> to <em style="color:var(--accent);font-style:normal">food consumption</em>.</h3>
+        <p>From the field to the factory, the truck, the store and the plate, many people and many decisions are linked together.</p>
+        <div style="margin-top:auto"><img src="img/food-basket.png" alt="A basket of fresh vegetables, fruit, bread, cheese, eggs and drinks" style="width:100%;display:block"></div>
+      </div>
+      <div class="card gold revealbtn" data-def>
+        <span class="tag">3 · Fewer crops</span>
+        <div class="donutrow"><div class="donut"><b>60%</b></div><p style="font-size:24px">of human plant calories come from only <b>three crops</b>.</p></div>
+        <p>The types of crops we eat have <b>decreased tremendously</b>.</p>
+        <p class="think">Which three crops? Think, then tap to check.</p>
+        <div class="crops"><span>Rice</span><span>Maize (corn)</span><span>Wheat</span></div>
+        <p class="foot">Many more plants are edible, but our diet leans on just a few.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. THE SUSTAINABILITY DIMENSIONS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 1 · Food system</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 1 · what modern farming costs</div>
+    <h2 class="reveal d2" style="font-size:70px">The sustainability <em>dimensions</em></h2>
+    <div class="dim reveal d3">
+      <div class="dim-lead"><b>Modern-day agriculture</b><span>Increased yield and volume of production.</span></div>
+      <ul class="dim-list">
+        <li><span class="ico sm"><svg aria-hidden="true"><use href="#i-tractor"/></svg></span><span><b>Intensification of farming</b> with external inputs.</span></li>
+        <li><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><span><b>CAFOs</b> rely heavily on outside inputs (fertilizer, water, pesticides) and fossil fuels to push for higher yields.<span class="def">CAFO: a concentrated animal feeding operation, where many animals are fed in one place.</span></span></li>
+        <li><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><span>The rise of <b>processed food</b> overshadowed health, climate and biodiversity outcomes.</span></li>
+        <li><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-flask"/></svg></span><span>Loss of farmland, <b>chemical pollution</b>, soil degradation and labor exploitation.</span></li>
+        <li><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-truck"/></svg></span><span><b>Food deserts, food miles</b> and equity issues.<span class="def">Food desert: a place with little access to fresh, affordable food. Food miles: how far food travels.</span></span></li>
+        <li><span class="ico sm"><svg aria-hidden="true"><use href="#i-recycle"/></svg></span><span>Higher <b>consumption</b> and <b>food waste</b>.</span></li>
+      </ul>
+      <div class="dim-art"><img src="img/tomatoes.png" alt="A halved tomato and a whole tomato" style="width:260px"><img src="img/fries.png" alt="French fries in a red carton" style="width:190px"></div>
+    </div>
+    <p class="src">Source: Ecoliteracy.org</p>
+  </div>
+</section>
+
+<!-- 11. CHANGES IN AGRICULTURAL SYSTEMS: FIVE THINGS TO COMPARE -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 2 · Industrial farming</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tractor"/></svg></span>Big idea 2 · six ways of feeding people</div>
+    <h2 class="reveal d2" style="font-size:68px">Changes in <em>agricultural systems</em></h2>
+    <div class="stagebar reveal d3"><div>Hunters-Gatherers</div><div>Slash-and-Burn Farming</div><div>Agro-pastoralism</div><div>Subsistence Agriculture</div><div>Industrial Agriculture</div><div>Post-Industrial</div></div>
+    <p class="lead reveal d3" style="font-size:30px;margin-bottom:20px">For each way of farming, we will compare these five things:</p>
+    <div class="parts reveal d4">
+      <div class="part"><span class="ico"><svg aria-hidden="true"><use href="#i-fork"/></svg></span><span><b>1 · The diet</b>The key parts of the diet and where they come from.</span></div>
+      <div class="part"><span class="ico sky"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><span><b>2 · Energy transfer</b>Where the food sits on the food chain (its trophic level) and how much energy moves up.</span></div>
+      <div class="part"><span class="ico gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span><span><b>3 · Carrying capacity</b>How many people the land can feed, and how the population changes.</span></div>
+      <div class="part"><span class="ico green"><svg aria-hidden="true"><use href="#i-city"/></svg></span><span><b>4 · Society and technology</b>How people organize, and the tools needed to keep it going.</span></div>
+      <div class="part"><span class="ico bad"><svg aria-hidden="true"><use href="#i-alert"/></svg></span><span><b>5 · What it means</b>What each change in farming and diet means for people and the planet.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SIX STAGES -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 2 · Industrial farming</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tractor"/></svg></span>Big idea 2 · tap a card to see what that society was like</div>
+    <h2 class="reveal d2" style="font-size:68px">From foraging to <em>precision farming</em></h2>
+    <div class="vocab six reveal d3" data-stages></div>
+    <p class="pop-line reveal d4"><b>Population grew</b> as farming arrived and settlements formed, and density rose again with cities.</p>
+  </div>
+</section>
+
+<!-- 13. INDUSTRIAL AGRICULTURE -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 2 · Industrial farming</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 2 · policy shaped what grew</div>
+    <h2 class="reveal d2" style="font-size:68px">Industrial <em>agriculture</em></h2>
+    <p class="lead reveal d3" style="font-size:29px;margin:-20px 0 22px">In the US, government farm policy pushed farms toward monoculture: growing one crop over a large area.</p>
+    <div class="ind reveal d3">
+      <div class="ind-col">
+        <div class="card accent"><span class="tag">Policy 1</span><h3>Production efficiency through monoculture</h3><p>One crop at large scale is cheaper to plant and harvest by machine.</p></div>
+        <div class="ind-arrow">↓</div>
+        <div class="ind-out">Surplus grain leads to dumping</div>
+      </div>
+      <div class="ind-col">
+        <div class="card green"><span class="tag">Policy 2</span><h3>"Get big or get out" and "from fence row to fence row"</h3><p>Farmers were urged to expand and plant every acre.</p></div>
+        <div class="ind-arrow">↓</div>
+        <div class="ind-out">And to cattle feed lots</div>
+      </div>
+      <div class="ind-col">
+        <div class="card gold"><span class="tag">Policy 3</span><h3>Subsidies for the volume of five major crops</h3><p>A subsidy is government money that helps pay for growing something.</p></div>
+        <div class="ind-arrow">↓</div>
+        <div class="ind-out">And to Fast Food Nation</div>
+      </div>
+    </div>
+    <div class="ind-banner reveal d4"><img src="img/tractor.jpg" alt="A tractor with a sprayer boom driving through rows of green crops"><p>This inspired the Green Revolution, which increased yield but also created environmental and social impacts.</p></div>
+  </div>
+</section>
+
+<!-- 14. FOOD AND AG IS A BIG BUSINESS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 2 · Industrial farming</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cart"/></svg></span>Big idea 2 · fewer, bigger farms</div>
+    <h2 class="reveal d2" style="font-size:68px">Food and agriculture is <em>big business</em></h2>
+    <div class="biz reveal d3">
+      <div>
+        <figure class="fig plain" style="margin:0"><img src="img/farms-chart.jpg" alt="Line chart from 1850 to 2023: the number of US farms rises to about 6.8 million around 1935 and falls to 1.89 million; average farm size rises to 4.64 (hundreds of acres); land in farms stays near 0.879 billion acres"></figure>
+        <p class="credit">Farms, land in farms, and average acres per farm, 1850–2023. USDA Economic Research Service, using USDA National Agricultural Statistics Service data, Census of Agriculture (through 2022) and Farms and Land in Farms: 2023 Summary (February 2024).</p>
+        <div class="chart-note"><div><b>1.89 million</b>farms today, down from about 6.8 million</div><div><b>464 acres</b>average farm (4.64 hundreds of acres)</div></div>
+      </div>
+      <ul class="biz-facts">
+        <li><span class="ico sm"><svg aria-hidden="true"><use href="#i-cart"/></svg></span><span>It added about <b>$1.53 trillion</b> to US GDP in 2023, a <b>5.6%</b> share.</span></li>
+        <li><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><span><b>Factory farming</b> (industrial efficiency) drives much of the food and agriculture sector.</span></li>
+        <li><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-book"/></svg></span><span>The <b>Farm Bill</b> is a multi-year law that governs many food and farm programs.</span></li>
+        <li><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><span><b>Subsidies</b> play a huge role in production and in nutrition programs in the US.</span></li>
+        <li><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span>Environmental health, safety and equity are major <b>sustainability issues</b>.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 15. FOOD PRODUCTION AND SUSTAINABILITY -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 3 · Lessons</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · ecology, population, economics and food</div>
+    <h2 class="reveal d2" style="font-size:68px">Food production and <em>sustainability</em></h2>
+    <div class="fp reveal d3">
+      <div class="fp-cards">
+        <div class="card accent"><h3>Food is an ecosystem service</h3><p>It is a vital benefit provided by "nature". It relies on <b>net primary production</b> by copying the processes of less designed and managed ecosystems.<span class="def">Net primary production: the energy plants store as new growth, after using some to live.</span></p></div>
+        <div class="card green"><h3>Food sufficiency</h3><p>Having enough food has been the goal from foraging societies to modern civilizations.</p></div>
+        <div class="card gold"><h3>The Green Revolution</h3><p>It increased production <b>yield and volume</b>. But it needs <b>massive external inputs</b> and has <b>externalities</b>.<span class="def">Externality: a cost that falls on others, like polluted water, and is not in the price of the food.</span></p></div>
+      </div>
+      <div class="fp-ban"><img src="img/terraces.jpg" alt="Green terraced farm fields on a hillside"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. ECOLOGICAL ENERGETICS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 3 · Lessons</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-flame"/></svg></span>Big idea 3 · a refresher on ecological energetics</div>
+    <h2 class="reveal d2" style="font-size:66px">Why meat takes <em>so much more</em> to produce</h2>
+    <div class="en reveal d3">
+      <div>
+        <div class="pyr" id="pyr" data-step="1">
+          <div class="lv l1"><div class="bar"><span>Plants make food from sunlight: grain, grass, hay</span><b>10,000</b></div></div>
+          <div class="heat h1">about 90% is used up or lost as heat ↓</div>
+          <div class="lv l2"><div class="bar"><span>Plant-eaters: cattle, or people eating grain</span><b>1,000</b></div></div>
+          <div class="heat h2">about 90% lost again ↓</div>
+          <div class="lv l3"><div class="bar"><span>Meat-eaters: people eating beef</span><b>100</b></div></div>
+          <div class="heat h3">and again ↓</div>
+          <div class="lv l4"><div class="bar"><span>Top predators</span><b>10</b></div></div>
+        </div>
+        <div class="pyr-ctl"><button class="btn" type="button" id="pyr-btn">Pass the energy up</button><span class="status" id="pyr-note">Energy units are teaching numbers, not to scale.</span></div>
+      </div>
+      <div class="en-side">
+        <div class="sc"><b>2nd law of thermodynamics</b>Every time energy changes form or moves, some turns into heat that cannot do work again. So no step is 100% efficient.</div>
+        <div class="sc flow"><b>Rule of thumb</b>Only about 10% of the energy at one level reaches the next. Plants are the base of every food chain.</div>
+        <div class="eat">
+          <div><b>1,000</b>units reach you if you eat the <b style="display:inline;font-size:inherit;font-family:inherit;color:inherit">grain</b></div>
+          <div><b>100</b>units reach you if the grain is fed to cattle and you eat the <b style="display:inline;font-size:inherit;font-family:inherit;color:inherit">beef</b></div>
+        </div>
+        <div class="sc" style="border-left-color:var(--accent)"><b>What it means for the Green Revolution</b>Feeding more people, and more meat eaters, takes a lot more plant growth. Farms pushed yields up with new seeds, water, fertilizer and fuel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17. THE GREEN REVOLUTION -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 3 · Lessons</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span>Big idea 3 · more food, new costs</div>
+    <h2 class="reveal d2" style="font-size:60px">Modern agricultural practices: <em>The Green Revolution</em></h2>
+    <div class="gr reveal d3">
+      <div class="gr-cards">
+        <div class="card accent"><div class="gr-n"><i>1</i><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span></div><h3>New technologies</h3><p>High-yield varieties of wheat, rice and corn, developed in the 20th century, led to the "Green Revolution".</p></div>
+        <div class="card gold"><div class="gr-n"><i>2</i><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span></div><h3>Yields tripled fast</h3><p>After 1960, average grain yields tripled to <b>6 metric tons per hectare</b> in only 40 years.</p></div>
+        <div class="card green"><div class="gr-n"><i>3</i><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tractor"/></svg></span></div><h3>Machines and fuel</h3><p>Gas and diesel plows and harvesters replaced human and animal power. This saved time and effort, but meant more farm equipment and more fossil fuel use.</p></div>
+        <div class="card accent"><div class="gr-n"><i>4</i><span class="ico sm"><svg aria-hidden="true"><use href="#i-drop"/></svg></span></div><h3>Thirsty crops</h3><p>A huge demand for reliable water led to large dams, reservoirs and irrigation systems, which affect the water supply.</p></div>
+      </div>
+      <div class="yield">
+        <h3>Average grain yield</h3>
+        <div class="yb b1"><span>Before 1960 · about 2 tons per hectare</span><div class="t"><i style="--w:33%">2</i></div></div>
+        <div class="yb b2"><span>About 40 years later · 6 tons per hectare</span><div class="t"><i style="--w:100%">6</i></div></div>
+        <div class="times3">×3<small>in about 40 years</small></div>
+        <div class="yph"><img src="img/tractor.jpg" alt="A tractor sprayer in a field of crops"><img src="img/sprinkler.jpg" alt="A sprinkler watering a green field"></div>
+        <p class="note" style="margin-top:14px">Metric tons per hectare. A hectare is about 2.5 acres. The "before" bar is one third of 6 (the slide says yields tripled).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. BURGERNOMICS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Big idea 3 · Lessons</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · the price of one burger</div>
+    <h2 class="reveal d2" style="font-size:62px">Socio-ecological-technical systems of <em>burgernomics</em></h2>
+    <div class="bn reveal d3">
+      <div class="fp-list">
+        <div class="fpi"><span class="ico"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span><b>6.7</b><span><em>Feed</em>pounds of grains and forage</span></div>
+        <div class="fpi"><span class="ico sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><b>52.8</b><span><em>Water</em>gallons for drinking water and irrigating feed crops</span></div>
+        <div class="fpi"><span class="ico green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><b>74.5</b><span><em>Land</em>square feet for grazing and growing feed crops</span></div>
+        <div class="fpi"><span class="ico gold"><svg aria-hidden="true"><use href="#i-flame"/></svg></span><b>1,036</b><span><em>Fossil fuel energy</em>BTU for feed production and transport, enough to run a microwave for 18 minutes</span></div>
+        <div class="fpi"><span class="ico bad"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span><b>14.4</b><span><em>Carbon footprint</em>pounds of CO₂ equivalents from feed, transport and cattle emissions and manure</span></div>
+      </div>
+      <div>
+        <ul class="bn-pts">
+          <li><b>Demand and supply are linked.</b> What consumers want moves commodity prices, which moves the supply chain, which puts pressure on land use, and back again.</li>
+          <li><b>How it is farmed matters.</b> Depending on how suppliers and producers farm, the environmental and social results are very different.</li>
+          <li><b>Rules and choices both count.</b> Government regulation plays a huge role, but markets and consumers can also push toward sustainability.</li>
+        </ul>
+        <svg class="sets" viewBox="0 0 640 300" role="img" aria-label="Three overlapping circles: social, ecological and technical, with a burger in the middle">
+          <circle cx="240" cy="120" r="105" fill="rgba(236,207,114,.45)" stroke="#C4851C"/>
+          <circle cx="400" cy="120" r="105" fill="rgba(117,162,159,.45)" stroke="#4f8683"/>
+          <circle cx="320" cy="215" r="105" fill="rgba(66,168,191,.40)" stroke="#0d7397"/>
+          <text x="190" y="105">Social</text><text x="450" y="105">Ecological</text><text x="320" y="265">Technical</text>
+          <text class="big" x="320" y="160">Burger</text>
+        </svg>
+        <p class="credit" style="margin-top:14px">Footprint of one beef burger patty. J.L. Capper, Journal of Animal Science, December 2011, via Eliza Barclay, Jessica Stoller-Conrad and Kevin Uhrmacher, NPR.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. CLASS EXERCISE: WHAT ARE THE BEST SOLUTIONS? -->
+<section class="slide" id="burgers">
+  <div class="rail"><b>14</b><span>Class exercise</span></div>
+  <div class="content" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · about 10 minutes · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:60px;margin-bottom:24px">What are the best <em>solutions</em>?</h2>
+    <div class="bx reveal d3">
+      <div class="bcard"><div class="pic"><img src="img/beef-burger.png" alt="A tall triple beef cheeseburger"></div><h3>Beef burger</h3><p>A patty made from beef cattle.</p></div>
+      <div class="bcard"><div class="pic"><img src="img/whopper.png" alt="A plant-based Whopper with lettuce, tomato, onion and pickles"></div><h3>Burger King's plant-based Whopper</h3><p>A fast-food burger with a plant-based patty.</p></div>
+      <div class="bcard"><div class="pic"><img src="img/veggie-burger.png" alt="A vegetarian burger with a crumb-coated patty, lettuce and tomato"></div><h3>Vegetarian burger</h3><p>A patty made from vegetables and grains.</p></div>
+      <div class="bcard"><div class="pic"><img src="img/impossible.png" alt="An Impossible Burger with pickles and lettuce"></div><h3>Impossible Burger</h3><p>A plant-based patty made to taste like beef.</p></div>
+    </div>
+    <div class="lens reveal d4">
+      <div><span class="tag">Look at</span><b>Animals and ethics</b>How are the animals raised and treated?</div>
+      <div><span class="tag">Look at</span><b>CO₂ and methane</b>How much of these gases does it release?</div>
+      <div><span class="tag">Look at</span><b>Chemicals</b>What is used to grow and make it?</div>
+      <div><span class="tag">Look at</span><b>The environment</b>What does it do to land, water and wildlife?</div>
+      <div><span class="tag">Look at</span><b>Food sovereignty</b>Who controls the food: farmers and communities, or a few big companies?</div>
+    </div>
+    <div class="timer reveal d4">
+      <div class="clock" id="clock">10:00</div>
+      <button class="btn" type="button" id="clock-go">Start</button><button class="btn ghost" type="button" id="clock-reset">Reset</button>
+      <p><b>Your job:</b> pick one burger. List at least <b>3 reasons for</b> and <b>3 against</b>. Then answer on the next slide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 20. CLASS EXERCISE: YOUR ANSWERS -->
+<section class="slide" id="burger-form">
+  <div class="rail"><b>14</b><span>Class exercise</span></div>
+  <div class="content fill" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · your answers</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:24px">Is it a <em>sustainable</em> burger?</h2>
+    <div class="bxform reveal d3">
+      <div class="lens">
+        <div><b>Animals and ethics</b>How are the animals raised and treated?</div>
+        <div><b>CO₂ and methane</b>Cattle release methane, a strong heat-trapping gas.</div>
+        <div><b>Chemicals</b>Pesticides, fertilizer, additives and processing.</div>
+        <div><b>The environment</b>Land, water and wildlife.</div>
+        <div><b>Food sovereignty</b>The right of communities to control how their food is grown and shared.</div>
+      </div>
+      <div class="ex" data-burger-form>
+        <div><label for="bx-burger"><i>1</i>Which burger did you and your neighbor pick?</label>
+          <select id="bx-burger"><option value="">Pick one</option><option value="beef">Beef burger</option><option value="whopper">Plant-based Whopper</option><option value="veggie">Vegetarian burger</option><option value="impossible">Impossible Burger</option></select></div>
+        <div class="pair">
+          <div><label for="bx-pros"><i>2</i>Give 3 reasons <u>for</u> this burger.</label><textarea id="bx-pros" maxlength="600" placeholder="One reason on each line"></textarea></div>
+          <div><label for="bx-cons"><i>3</i>Give 3 reasons <u>against</u> this burger.</label><textarea id="bx-cons" maxlength="600" placeholder="One reason on each line"></textarea></div>
+        </div>
+        <div><label><i>4</i>Which topics did your reasons cover? Tick all that apply.</label>
+          <div class="topics"><label><input type="checkbox" value="animals">Animals and ethics</label><label><input type="checkbox" value="gases">CO₂ and methane</label><label><input type="checkbox" value="chemicals">Chemicals</label><label><input type="checkbox" value="environment">The environment</label><label><input type="checkbox" value="sovereignty">Food sovereignty</label></div></div>
+        <div><label for="bx-vegan"><i>5</i>Should we all become vegan? Why or why not?</label><textarea id="bx-vegan" maxlength="400" style="height:72px"></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="bx-save">Submit</button><span class="status" id="bx-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. POTENTIAL SOLUTIONS -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Solutions</span></div>
+  <div class="content fill" style="overflow:visible">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Big idea 3 · what can change</div>
+    <h2 class="reveal d2" style="font-size:70px">Potential <em>solutions</em></h2>
+    <div class="sol reveal d3">
+      <div class="it"><span class="ico"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span>Sustainable farming practices</div>
+      <div class="it"><span class="ico sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Water conservation techniques</div>
+      <div class="it"><span class="ico green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Agroforestry<span class="def" style="margin:0 0 0 -4px"></span></div>
+      <div class="it"><span class="ico bad"><svg aria-hidden="true"><use href="#i-flask"/></svg></span>Reduced reliance on chemical inputs</div>
+      <div class="it"><span class="ico gold"><svg aria-hidden="true"><use href="#i-fork"/></svg></span>Dietary shifts</div>
+      <div class="it"><span class="ico"><svg aria-hidden="true"><use href="#i-recycle"/></svg></span>Food waste reduction</div>
+      <div class="it"><span class="ico sky"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Supporting local food systems</div>
+      <div class="it reg"><span class="ico gold"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Regenerative agriculture</div>
+    </div>
+    <p class="note reveal d4" style="margin-top:22px;max-width:760px;font-size:22px">Agroforestry means growing trees together with crops or animals. Regenerative agriculture is next.</p>
+    <div class="sol-pic"><img src="img/salad.png" alt="A fresh salad with tomatoes, olives, cheese and lettuce, and a fork"></div>
+  </div>
+</section>
+
+<!-- 22. REGENERATIVE AGRICULTURE -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Solutions</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 3 · health, ecology, fairness and care</div>
+    <h2 class="reveal d2" style="font-size:66px"><em>Regenerative</em> agriculture</h2>
+    <div class="rg reveal d3">
+      <figure class="fig plain" style="margin:0"><img src="img/regenerative.jpg" alt="Six connected circles with icons: understand context of your farm operation, minimize soil disturbance, maximize crop diversity, keep the soil covered, maintain living roots year-round, integrate livestock" style="max-width:820px;margin:0 auto"></figure>
+      <p class="credit" style="margin-top:-12px;text-align:center">Source: agricaptureco2.eu</p>
+      <div class="rg-pr">
+        <div class="card"><h3><span class="n">1</span>Minimize soil disturbance</h3><p>Plow and dig less, so soil life and soil carbon stay in place.</p></div>
+        <div class="card"><h3><span class="n">2</span>Maximize crop diversity</h3><p>Grow many kinds of plants, not just one crop.</p></div>
+        <div class="card"><h3><span class="n">3</span>Keep the soil covered</h3><p>Plants or mulch protect bare soil from sun, wind and rain.</p></div>
+        <div class="card"><h3><span class="n">4</span>Keep living roots year-round</h3><p>Roots feed soil life and hold the soil together.</p></div>
+        <div class="card"><h3><span class="n">5</span>Integrate livestock</h3><p>Animals graze and add manure in a planned way.</p></div>
+        <div class="card"><h3><span class="n">6</span>Understand your farm's context</h3><p>Each farm has its own climate, soil, people and goals.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1500px">Why does eating <em>beef</em> need more land than eating grain directly?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Cattle are heavier than people</button>
+      <button class="opt" type="button"><b>B</b>Energy is lost at each step up the food chain, so it takes much more plant growth</button>
+      <button class="opt" type="button"><b>C</b>Beef is grown in greenhouses</button>
+      <button class="opt" type="button"><b>D</b>Grain is always cheaper than beef</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 24. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center bottom" src="img/terraces-hero.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1000px">
+    <div class="hero-badge reveal"><b>L<em>14</em></b><span>Sustainable food and agricultural systems</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="hero-lead reveal d2">Our food system reaches from the farm to the plate, and every step has <em>costs</em> we can change.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Industrial farming and the Green Revolution raised yields, but with heavy use of fuel, water and chemicals.</li>
+      <li>Energy is lost at each step up the food chain, so what we eat changes how much land and water we need.</li>
+      <li>Solutions such as regenerative farming, less food waste and local food systems can make food fairer and healthier.</li>
+    </ol>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, timer, burgerForm, esc, $, $$, say } from './lecture.js?v=2026-10-16';
+
+const LECTURE = 'm5-s1';
+
+/* === KEY TERMS === "Food system" is the central idea of the lecture (it is not in the glossary);
+   the other three are the Module 5 glossary terms listed for this session. */
+const KEY_TERMS = [['Agricultural Intensification', 'tractor', 'green'], ['Food Security', 'shield', 'gold'], ['Food Sovereignty', 'users', 'sky']];
+const FOOD_SYSTEM = { term: 'Food System', definition: 'The complex web of processes that connects agricultural production to food consumption: growing, harvesting, packing, processing, transporting, marketing, eating and disposing of food.', example: 'A bottle of ketchup starts as tomatoes on a farm and passes through factories, trucks, stores and kitchens before it reaches your fries.', significance: 'Seeing the whole system shows where costs and choices are hidden.' };
+const cardIcon = (i, tone) => `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  const cards = [[FOOD_SYSTEM, 'cycle', 'sky'], ...KEY_TERMS.map(([name, i, tone]) => [gloss.find(x => x.term === name) || { term: name, definition: '', example: '' }, i, tone])];
+  $('[data-vocab]').innerHTML = cards.map(([t, i, tone]) => flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, cardIcon(i, tone))).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill($('.slide.hero'), d); fill($('#deckStage .slide:nth-child(2)'), d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === KETCHUP JOURNEY === stages of one bottle, with what is social, ecological and technical at each */
+const JOURNEY = [
+  ['Grow', 'sprout', 'Tomatoes need sun, soil, water and insects to pollinate them. Weather and healthy soil decide the harvest.', 'Farmers and farm workers decide what to plant, and earn a share of the price.', 'Bred seeds, irrigation, tractors and fertilizer.'],
+  ['Harvest', 'tractor', 'Timing depends on ripeness and weather. Leftover plants return to the soil or are cleared away.', 'Seasonal workers pick or run the machines. Pay and working conditions matter.', 'Machines pick whole fields at once.'],
+  ['Process', 'factory', 'Factories use water and energy, and make waste such as peels and wastewater.', 'Factory workers and food-safety rules. Companies decide the recipe, like how much sugar goes in.', 'Washing, cooking, thickening and sealing in big machines.'],
+  ['Package', 'box', 'Glass, plastic and cardboard come from raw materials and become waste or recycling later.', 'Designers and marketers choose the bottle, label and size.', 'Filling lines and sealed caps keep it fresh for a long time.'],
+  ['Transport', 'truck', 'Trucks, trains and ships burn fuel and release CO₂. Longer trips mean more food miles.', 'Drivers and shipping companies connect farms to far-away cities.', 'Highways, shipping routes and tracking systems.'],
+  ['Sell', 'cart', 'Stores want the same look and taste all year, which favors a few crop varieties grown at large scale.', 'Prices, ads and store choices shape what people buy. Who can afford it and who lives near a store matters.', 'Barcodes, supply chains and online ordering.'],
+  ['Eat and waste', 'fork', 'Leftover food and packaging end up in landfills or recycling. Food waste in landfills makes methane.', 'Families and culture shape what we eat and how much we throw out.', 'Recycling plants, composting and landfills.'],
+];
+function showStage(n) {
+  const [name, , eco, soc, tech] = JOURNEY[n];
+  $$('#jr-tabs button').forEach((b, i) => b.classList.toggle('on', i === n));
+  $('#jr-body').innerHTML = [['Ecological', 'sprout', 'green', eco, 'What does nature provide? What is used up or left over?'], ['Social', 'users', 'gold', soc, 'Who is involved? Who gains, and who pays?'], ['Technical', 'factory', 'sky', tech, 'What tools and machines make this step possible?']]
+    .map(([t, i, tone, txt, q]) => `<div class="card ${tone === 'green' ? 'green' : tone === 'gold' ? 'gold' : 'accent'}">${cardIcon(i, tone)}<h3>${t}</h3><p>${esc(txt)}</p><p class="q">${esc(q)}</p></div>`).join('');
+}
+$('#jr-tabs').innerHTML = JOURNEY.map(([n, i, tone], k) => `<button type="button" data-n="${k}">${cardIcon(i, '')}${esc(n)}</button>`).join('');
+$$('#jr-tabs button').forEach(b => b.addEventListener('click', () => showStage(+b.dataset.n)));
+showStage(0);
+
+/* === LAND GRID === 40 of 100 squares */
+$('#landgrid').innerHTML = Array.from({ length: 100 }, (_, i) => `<i class="${i < 40 ? 'f' : ''}" style="--i:${i}"></i>`).join('');
+
+/* === SIX STAGES OF FARMING === */
+const STAGES = [
+  ['Hunters-Gatherers', 'earth', '', 'Since the first humans', 'Nomadism, a sharing economy and close knowledge of nature.', 'Coexistence with nature, nomadic life, a sharing economy, low population, no material possessions, small bands and no social hierarchies.'],
+  ['Slash-and-Burn Farming', 'flame', 'gold', 'About 13,000 BC', 'Nomadism, simple tools, sharing and rotational farming.', 'Swidden agriculture and horticulture: nomadic, simple tools, rotational farming, forest dependent, low population and few hierarchies.'],
+  ['Agro-pastoralism', 'leaf', 'green', ' ', 'Semi-nomadism, domesticated animals and grazing.', 'Herds turn grass people cannot eat into milk and meat, so people begin eating one step higher on the food chain.'],
+  ['Subsistence Agriculture', 'sprout', 'sky', '8500 to 6500 BC', 'Settled farming, domestication and a growing population.', 'Farming, settled life, villages, irrigation, low technology, domesticated animals, a growing population, diseases and social hierarchies.'],
+  ['Industrial Agriculture', 'factory', 'gold', 'End of the 18th century', 'A sophisticated society, technology, the nuclear family and specialization.', 'Industrialization, specialized mass production and a sophisticated society. Population density rises with cities.'],
+  ['Post-Industrial', 'gauge', 'sky', '2nd half of the 20th century', 'Information systems, high-tech and precision farming, with new risks.', 'Information technology and a service-based economy.'],
+];
+$('[data-stages]').innerHTML = STAGES.map(([t, i, tone, when, d, back]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: back, back: 'What it was like', hint: 'Tap for more', when }, cardIcon(i, tone))).join('');
+wireFlips($('[data-stages]'));
+
+/* === ENERGY PYRAMID === each press passes the energy up one more level */
+let step = 1;
+$('#pyr-btn').addEventListener('click', () => {
+  step = step >= 4 ? 1 : step + 1;
+  $('#pyr').dataset.step = step;
+  $('#pyr-btn').textContent = step >= 4 ? 'Start over' : 'Pass the energy up';
+  $('#pyr-note').textContent = step >= 4 ? 'Each step keeps about one tenth. These are teaching numbers, not to scale.' : 'Energy units are teaching numbers, not to scale.';
+});
+
+/* === QUICK QUESTIONS === tap to reveal, not recorded */
+wireReveals();
+
+/* === TEN-MINUTE TIMER === */
+timer($('#clock'), $('#clock-go'), $('#clock-reset'));
+
+/* === BURGER EXERCISE === */
+const burgers = burgerForm();
+
+/* === LIVE === attendance, polls and activities */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (id !== 'warmup' && !await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: BURGER EXERCISE === */
+$('#bx-save').addEventListener('click', async () => {
+  const st = $('#bx-status');
+  const { data, missing } = burgers.read();
+  if (missing) { say(st, `Answer question ${missing} first.`, 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('burger-pros-cons', data); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>

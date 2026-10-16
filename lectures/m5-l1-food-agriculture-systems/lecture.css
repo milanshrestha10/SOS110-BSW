@@ -1,0 +1,277 @@
+/* === LECTURE 14 STYLES === Sustainable food and agricultural systems (M5 L1) */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.fig.plain{border:0;background:transparent}
+.credit{font-size:16px;color:var(--mute);margin-top:6px;line-height:1.3}
+.credit a{color:var(--Blue)}
+.tag{display:inline-block;font:700 18px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
+.take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+.src{font-size:17px;color:var(--mute);margin-top:10px}
+.note{font-size:19px;color:var(--mute);line-height:1.35}
+.def{font-size:.78em;color:var(--mute);display:block;line-height:1.3;margin-top:2px}
+
+/* small callout boxes */
+.sc{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:14px;padding:12px 18px;font-size:21px;line-height:1.38}
+.sc b{display:block;font:700 16px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#8a6a14;margin-bottom:3px}
+.sc.flow{border-left-color:#2e7d5b}.sc.flow b{color:#2e7d5b}
+
+/* key terms: four flip cards */
+.vocab.four{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:28px 36px}
+.vocab.four .vcard{height:auto}
+.vocab.four .vcard .f,.vocab.four .vcard .b{padding:26px 36px}
+.vocab.four .vcard h4{font-size:40px;margin-bottom:10px}
+.vocab.four .vcard p{font-size:24px;line-height:1.38}
+
+/* module at a glance (same as Lecture 11) */
+.glance{flex:1;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.glance .card{padding:34px 40px}
+.glance .num{font-size:31px;line-height:1.4;margin-top:16px}
+.glance .num li{margin:26px 0}
+.glance ul.clean{font-size:31px;line-height:1.35;margin-top:16px}
+.glance ul.clean li{margin:22px 0}
+
+/* slide 7: what is a food system */
+.fs-grid{display:grid;grid-template-columns:600px 1fr;gap:56px;align-items:center;flex:1}
+.fs-pics{position:relative;height:100%;min-height:560px}
+.fs-pics img{position:absolute;display:block}
+.fs-pics .tom{left:0;bottom:10px;width:470px}
+.fs-pics .ket{left:150px;top:-10px;width:230px}
+.fs-pics .fry{right:0;bottom:0;width:220px}
+.fs-text .lead{font-size:31px;max-width:none}
+.fs-text .hl{display:inline-block;background:var(--golden);padding:6px 18px;border-radius:6px;font-weight:700;font-size:30px;margin:14px 0 20px}
+.stages{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px}
+.stages span{font:700 22px var(--body);padding:6px 16px;border-radius:999px;background:rgba(117,162,159,.16);border:2px solid var(--Green)}
+
+/* slide 8: ketchup journey explorer */
+.jr-tabs{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:22px}
+.jr-tabs button{font:700 21px/1.2 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px}
+.jr-tabs button .ico{width:50px;height:50px;margin:0}
+.jr-tabs button:hover{border-color:var(--Sky)}
+.jr-tabs button.on{border-color:var(--Blue);background:rgba(66,168,191,.14)}
+.jr-body{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;flex:1}
+.jr-body .card{padding:26px 30px}
+.jr-body .card h3{font:400 40px var(--display);margin:6px 0 10px}
+.jr-body .card p{font-size:32px;line-height:1.4}
+.jr-body .card p.q{font-size:25px;color:var(--mute);margin-top:18px;padding-top:14px;border-top:2px solid var(--paper-2)}
+.jr-body .card .ico{margin-bottom:8px}
+.jr-ask{font-size:26px;margin-top:20px;color:var(--ink)}
+.jr-ask b{color:var(--Blue)}
+
+/* slide 9: how have our food systems changed */
+.chg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;flex:1}
+.chg .card{display:flex;flex-direction:column;padding:28px 32px}
+.chg .card h3{font:400 34px/1.15 var(--display);margin-bottom:10px}
+.chg .card p{font-size:25px}
+.chg .bignum{font:400 110px/1 var(--display);color:var(--Blue)}
+.chg .bignum small{font-size:60px}
+.landgrid{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;margin:14px 0 14px}
+.landgrid i{aspect-ratio:1;border-radius:3px;background:var(--paper-2)}
+.landgrid i.f{background:var(--Green);opacity:0;transition:opacity .4s ease;transition-delay:calc(var(--i) * 28ms + .6s)}
+.slide.visible .landgrid i.f{opacity:1}
+.donutrow{display:flex;align-items:center;gap:26px;margin:6px 0 10px}
+.donut{flex:none;width:230px;height:230px;border-radius:50%;background:conic-gradient(var(--accent) 0 0%,var(--paper-2) 0);position:relative;transition:background 1.6s .6s}
+.slide.visible .donut{background:conic-gradient(var(--accent) 0 60%,var(--paper-2) 0)}
+.donut::after{content:'';position:absolute;inset:40px;border-radius:50%;background:var(--card)}
+.donut b{position:absolute;inset:0;display:grid;place-items:center;font:400 62px var(--display);z-index:1}
+.crops{display:none;gap:10px;flex-wrap:wrap;margin-top:8px}
+.crops span{font:700 24px var(--body);padding:6px 18px;border-radius:999px;background:var(--golden)}
+.open > .crops{display:flex}
+.open > .think{display:none}
+.revealbtn{cursor:pointer}
+.chg .think{font-size:24px;color:var(--mute);margin-top:10px}
+.chg .foot{margin-top:auto;font-size:21px;color:var(--mute);line-height:1.35;border-top:2px solid var(--paper-2);padding-top:12px}
+.chg .photo{height:150px;border-radius:12px;overflow:hidden;margin-top:auto}
+.chg .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* slide 10: sustainability dimensions */
+.dim{display:grid;grid-template-columns:420px 1fr 280px;gap:46px;align-items:stretch;flex:1}
+.dim-lead{background:var(--golden);border-radius:18px;padding:30px 34px;align-self:start}
+.dim-lead b{font:400 52px/1.1 var(--display);display:block;margin-bottom:12px}
+.dim-lead span{font-size:31px;line-height:1.35}
+.dim-list{list-style:none;display:flex;flex-direction:column;justify-content:space-between;gap:6px;margin:0;padding:0}
+.dim-list li{display:flex;gap:20px;align-items:flex-start;font-size:28px;line-height:1.3}
+.dim-list li .ico{margin-top:2px}
+.dim-art{display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.dim-art img{display:block;max-width:100%}
+
+/* slide 11: five things to compare */
+.stagebar{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-bottom:26px}
+.stagebar div{position:relative;background:linear-gradient(90deg,#5f8f8d,#8db9b6);color:var(--paper);padding:20px 12px 20px 30px;font:700 23px/1.2 var(--body);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%,22px 50%);text-align:center;opacity:.92}
+.stagebar div:first-child{clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%)}
+.stagebar div:nth-child(2){background:linear-gradient(90deg,#68a09d,#8dbbb8)}
+.stagebar div:nth-child(5),.stagebar div:nth-child(6){background:linear-gradient(90deg,#4f8683,#7fb0ad)}
+.parts{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;flex:1}
+.part{display:flex;gap:22px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:16px;padding:18px 26px;font-size:27px;line-height:1.3}
+.part b{display:block;font:400 32px var(--display);margin-bottom:2px}
+.part:last-child{grid-column:1/-1}
+
+/* slide 12: six stage flip cards */
+.vocab.six{grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px 28px;flex:1}
+.vocab.six .vcard{height:auto}
+.vocab.six .vcard .f,.vocab.six .vcard .b{padding:20px 28px}
+.vocab.six .vcard h4{font-size:38px;margin-bottom:8px}
+.vocab.six .vcard p{font-size:25px;line-height:1.35}
+.vocab.six .vcard .when{font:700 17px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.vocab.six .vcard .b h4{font-size:30px}
+.vocab.six .vcard .b p{font-size:23px}
+.pop-line{font-size:25px;margin-top:20px}
+.pop-line b{color:var(--Blue)}
+
+/* slide 13: industrial agriculture */
+.ind{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+.ind-col{display:flex;flex-direction:column;gap:0}
+.ind-col .card{padding:22px 28px;flex:1}
+.ind-col .card h3{font:400 35px/1.15 var(--display);margin-bottom:8px}
+.ind-col .card p{font-size:26px;line-height:1.35}
+.ind-arrow{text-align:center;font-size:44px;line-height:1;color:var(--accent);height:52px;display:grid;place-items:center}
+.ind-out{background:var(--ink);color:var(--paper);border-radius:14px;padding:18px 24px;font:400 34px/1.2 var(--display);text-align:center}
+.ind-banner{position:relative;margin-top:26px;border-radius:18px;overflow:hidden;flex:1;min-height:230px}
+.ind-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.ind-banner p{position:absolute;left:0;bottom:0;right:0;margin:0;padding:18px 34px;background:var(--golden);font-size:29px;font-weight:700;line-height:1.3}
+
+/* slide 14: big business */
+.biz{display:grid;grid-template-columns:640px 1fr;gap:60px;align-items:start}
+.biz-facts{list-style:none;margin:0;padding:0;font-size:29px;line-height:1.38}
+.biz-facts li{display:flex;gap:20px;align-items:flex-start;margin:0 0 30px}
+.biz-facts li b{color:var(--Blue)}
+.chart-note{display:flex;gap:16px;margin-top:12px}
+.chart-note div{flex:1;background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:10px 14px;font-size:20px;line-height:1.25}
+.chart-note b{display:block;font:400 32px var(--display);color:var(--Blue)}
+
+/* slide 15: food production and sustainability */
+.fp{display:flex;flex-direction:column;gap:26px;flex:1}
+.fp-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.fp-cards .card{padding:26px 32px}
+.fp-cards .card h3{font:400 38px/1.15 var(--display);margin-bottom:10px}
+.fp-cards .card p{font-size:27px;line-height:1.4}
+.fp-ban{flex:1;min-height:150px;border-radius:18px;overflow:hidden;position:relative;background:#fff;border:2px solid var(--paper-2)}
+.fp-ban img{position:absolute;left:0;bottom:0;width:100%;height:auto;display:block}
+
+/* slide 16: ecological energetics */
+.en{display:grid;grid-template-columns:900px 1fr;gap:48px;flex:1}
+.pyr{display:flex;flex-direction:column;gap:12px;align-items:center}
+.pyr .lv{display:grid;grid-template-columns:1fr;opacity:.18;transform:scale(.97);transition:opacity .6s var(--ease),transform .6s var(--ease);width:100%}
+.pyr .lv .bar{position:relative;margin:0 auto;height:92px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#fff;font-size:23px;line-height:1.2;transition:width 0s}
+.pyr .lv .bar b{font:400 42px var(--display);white-space:nowrap}
+.pyr .lv .bar span{max-width:60%}
+.pyr .l1,.pyr[data-step="2"] .l2,.pyr[data-step="3"] .l2,.pyr[data-step="4"] .l2,.pyr[data-step="3"] .l3,.pyr[data-step="4"] .l3,.pyr[data-step="4"] .l4{opacity:1;transform:none}
+.lv.l1 .bar{width:100%;background:#4f8f5c}
+.lv.l2 .bar{width:72%;background:#7a9a3d}
+.lv.l3 .bar{width:46%;background:#c4851c}
+.lv.l4 .bar{width:30%;background:#b3452c;padding:0 14px}
+.lv.l4 .bar span{display:none}
+.heat{font-size:21px;color:#b3452c;text-align:center;font-weight:700;letter-spacing:.04em;opacity:0;transition:opacity .5s}
+.pyr[data-step="2"] .h1,.pyr[data-step="3"] .h1,.pyr[data-step="4"] .h1,.pyr[data-step="3"] .h2,.pyr[data-step="4"] .h2,.pyr[data-step="4"] .h3{opacity:1}
+.pyr-ctl{display:flex;gap:14px;align-items:center;margin-top:14px}
+.pyr-ctl .btn{font-size:22px;padding:12px 24px}
+.pyr-ctl .status{margin:0;font-size:20px}
+.en-side{display:flex;flex-direction:column;gap:20px}
+.en-side .sc{font-size:24px;padding:16px 22px}
+.en-side .sc b{font-size:17px}
+.eat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.eat div{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:14px 18px;font-size:22px;line-height:1.3}
+.eat b{display:block;font:400 54px/1 var(--display);color:var(--Blue)}
+.eat div:last-child b{color:#b3452c}
+
+/* slide 17: green revolution */
+.gr{display:grid;grid-template-columns:1fr 520px;gap:44px;flex:1}
+.gr-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;grid-auto-rows:1fr}
+.gr-cards .card{padding:18px 26px;display:flex;flex-direction:column}
+.gr-cards .card p{font-size:27px;line-height:1.35}
+.gr-cards .card h3{font:400 33px/1.15 var(--display);margin:4px 0 6px}
+.gr-n{display:flex;align-items:center;gap:14px}
+.gr-n i{font-style:normal;width:44px;height:44px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 26px/44px var(--display);text-align:center;flex:none}
+.yph{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto}
+.yph img{width:100%;height:150px;object-fit:cover;border-radius:10px;display:block}
+.gr-cards .thumb{margin-top:auto;height:84px;border-radius:10px;overflow:hidden}
+.gr-cards .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.yield{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:26px 30px;display:flex;flex-direction:column}
+.yield h3{font:400 34px/1.15 var(--display);margin-bottom:12px}
+.yb{display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:22px;font-size:23px}
+.yb .t{height:72px;background:var(--paper-2);border-radius:8px;overflow:hidden}
+.yb .t i{display:block;height:100%;width:0;border-radius:0 8px 8px 0;transition:width 1.4s var(--ease);transition-delay:.7s;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;color:#fff;font:400 32px var(--display)}
+.slide.visible .yb .t i{width:var(--w)}
+.yb.b1 .t i{background:#8a7b6a}.yb.b2 .t i{background:var(--Green)}
+.times3{font:400 110px/1 var(--display);color:var(--accent)}
+.times3 small{font-size:34px;color:var(--ink);display:block;font-family:var(--body);margin-top:6px}
+
+/* slide 18: burger footprint */
+.bn{display:grid;grid-template-columns:680px 1fr;gap:54px;flex:1;min-height:0}
+.fp-list{display:grid;gap:10px;align-content:space-between}
+.fpi{display:grid;grid-template-columns:70px 150px 1fr;gap:16px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:6px 18px}
+.fpi b{font:400 52px/1 var(--display);color:var(--Blue)}
+.fpi span{font-size:23px;line-height:1.25;color:var(--ink)}
+.fpi em{font-style:normal;display:block;font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sets{max-height:290px;width:auto;height:auto;display:block;margin:6px auto 0}
+.sets circle{stroke-width:3}
+.sets text{font:700 24px var(--body);text-anchor:middle;fill:var(--ink)}
+.sets .big{font:400 30px var(--display)}
+.bn-pts{font-size:25px;line-height:1.35;margin:0 0 0 24px}
+.bn-pts li{margin:0 0 14px}
+
+/* slides 19 and 20: burger class exercise */
+.bx{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:22px}
+.bx .bcard{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:16px 18px 18px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.bx .bcard .pic{height:210px;display:grid;place-items:end center}
+.bx .bcard .pic img{max-height:210px;max-width:100%;display:block}
+.bx .bcard h3{font:400 28px/1.15 var(--display);margin:10px 0 4px}
+.bx .bcard p{font-size:19px;line-height:1.3;color:var(--mute)}
+.lens{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:22px}
+.lens div{background:var(--card);border:2px solid var(--paper-2);border-top:6px solid var(--Sky);border-radius:14px;padding:14px 16px;font-size:20px;line-height:1.3}
+.lens div b{display:block;font:400 26px/1.1 var(--display);margin:6px 0 4px}
+.lens div:nth-child(2){border-top-color:#c76f1e}.lens div:nth-child(3){border-top-color:#b3452c}.lens div:nth-child(4){border-top-color:var(--Green)}.lens div:nth-child(5){border-top-color:var(--golden)}
+.timer{display:flex;align-items:center;gap:22px;margin-top:22px}
+.timer .clock{font:400 84px/1 var(--display);color:var(--Blue);font-variant-numeric:tabular-nums;min-width:230px}
+.timer .clock.low{color:#b3452c}
+.timer .btn{font-size:22px;padding:12px 26px}
+.timer p{font-size:24px;margin:0 0 0 14px}
+.ex{display:grid;gap:14px}
+.ex label{display:block;font:700 21px/1.3 var(--body);margin-bottom:6px}
+.ex textarea,.ex select,.ex input[type=text]{width:100%;font:400 21px/1.35 var(--body);color:var(--ink);background:var(--card);border:2px solid var(--paper-2);border-radius:10px;padding:10px 14px}
+.ex textarea{height:88px}
+.ex textarea:focus,.ex select:focus,.ex input:focus{outline:3px solid var(--Sky);outline-offset:1px}
+.ex label i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--Blue);color:var(--paper);font:400 20px var(--display);margin-right:8px}
+.go-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.go-row .btn{font-size:22px;padding:12px 26px}
+.go-row .status{margin:0;font-size:20px}
+.bxform{display:grid;grid-template-columns:420px 1fr;gap:40px;flex:1}
+.bxform .lens{grid-template-columns:1fr;margin-top:0;gap:12px}
+.bxform .lens div{padding:10px 16px;font-size:21px}
+.bxform .lens div b{font-size:24px;margin:2px 0 2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.topics{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:20px}
+.topics label{display:inline-flex;align-items:center;gap:8px;font:400 20px var(--body);margin:0;cursor:pointer}
+.topics input{width:22px;height:22px;accent-color:var(--Blue)}
+
+/* slide 21: potential solutions */
+.sol{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px 28px;flex:1;align-content:start;max-width:1250px}
+.sol .it{display:flex;gap:20px;align-items:center;font:700 27px/1.2 var(--body);background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:20px 24px}
+.sol .it.reg{grid-column:span 2;background:var(--golden);border-color:var(--golden);font:400 40px var(--display)}
+.sol-pic{position:absolute;right:-70px;bottom:-60px;width:620px;pointer-events:none}
+.sol-pic img{width:100%;display:block}
+
+/* slide 22: regenerative agriculture */
+.rg{display:grid;grid-template-columns:1fr;gap:18px;flex:1;align-content:start}
+.rg-pr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rg-pr .card{padding:14px 24px}
+.rg-pr .card h3{font:400 28px/1.15 var(--display);margin:2px 0 4px}
+.rg-pr .card p{font-size:22px;line-height:1.3}
+.rg-pr .n{font:400 20px var(--display);display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--Blue);color:var(--paper);margin-right:10px;vertical-align:2px}
+.hl-gold{display:inline-block;background:var(--golden);font-weight:700;font-size:30px;padding:6px 20px;border-radius:6px}
+
+/* quick questions (tap to reveal, not recorded) */
+.mq{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.mq.one{grid-template-columns:1fr}
+.mq .reveal-card{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:18px;padding:22px 28px}
+.mq .reveal-card h3{font:400 34px var(--display);margin-bottom:10px}
+.mq .reveal-card .ans-text{display:none;font-size:23px;line-height:1.45}
+.mq .reveal-card.open .ans-text{display:block}
+.mq .reveal-card.open .think{display:none}
+.mq .think{font-size:21px;color:var(--mute)}
+
+@media (prefers-reduced-motion: reduce){
+  .landgrid i.f{transition:none;opacity:1}
+  .yb .t i{transition:none}
+  .donut{transition:none}
+}
+@media print{.landgrid i.f{opacity:1}}
