@@ -151,17 +151,17 @@
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · everything between the farm and your plate</div>
     <h2 class="reveal d2" style="font-size:72px">What is a <em>food system</em>?</h2>
     <div class="fs-grid reveal d3">
-      <div class="fs-pics">
-        <figure class="fig plain" style="margin:0"><img class="tom" src="img/tomatoes.png" alt="A halved tomato and a whole tomato with water drops"></figure>
-        <figure class="fig plain" style="margin:0"><img class="ket" src="img/ketchup.png" alt="Ketchup pouring from a bottle"></figure>
-        <figure class="fig plain" style="margin:0"><img class="fry" src="img/fries.png" alt="French fries in a red carton"></figure>
-      </div>
+      <div class="fs-tom"><figure class="fig plain" style="margin:0"><img src="img/tomatoes.png" alt="A halved tomato and a whole tomato with water drops"></figure></div>
       <div class="fs-text">
         <p class="lead">It is a system within the systems of <b>ecology</b>, <b>agriculture</b>, <b>processing</b>, <b>packaging</b>, <b>marketing</b>, <b>transportation</b>, and much more.</p>
         <div class="hl">It covers all the stages of keeping people fed</div>
         <div class="stages"><span>Growing</span><span>Harvesting</span><span>Packing</span><span>Processing</span><span>Transporting</span><span>Marketing</span><span>Consuming</span><span>Disposing of food</span></div>
         <p class="lead" style="font-size:29px">It is the connected web of resources, activities and people, and the decisions they make, that gets food to our table.</p>
         <p class="src">Source: Ecoliteracy.org</p>
+      </div>
+      <div class="fs-ketfry">
+        <figure class="fig plain" style="margin:0"><img class="ket" src="img/ketchup.png" alt="Ketchup pouring from a bottle"></figure>
+        <figure class="fig plain" style="margin:0"><img class="fry" src="img/fries.png" alt="French fries in a red carton"></figure>
       </div>
     </div>
   </div>
@@ -343,11 +343,11 @@
       <div>
         <div class="pyr" id="pyr" data-step="1">
           <div class="lv l1"><div class="bar"><span>Plants make food from sunlight: grain, grass, hay</span><b>10,000</b></div></div>
-          <div class="heat h1">about 90% is used up or lost as heat ↓</div>
+          <div class="heat h1">about 90% is used up or lost as heat ↑</div>
           <div class="lv l2"><div class="bar"><span>Plant-eaters: cattle, or people eating grain</span><b>1,000</b></div></div>
-          <div class="heat h2">about 90% lost again ↓</div>
+          <div class="heat h2">about 90% lost again ↑</div>
           <div class="lv l3"><div class="bar"><span>Meat-eaters: people eating beef</span><b>100</b></div></div>
-          <div class="heat h3">and again ↓</div>
+          <div class="heat h3">and again ↑</div>
           <div class="lv l4"><div class="bar"><span>Top predators</span><b>10</b></div></div>
         </div>
         <div class="pyr-ctl"><button class="btn" type="button" id="pyr-btn">Pass the energy up</button><span class="status" id="pyr-note">Energy units are teaching numbers, not to scale.</span></div>
@@ -390,34 +390,112 @@
   </div>
 </section>
 
-<!-- 18. BURGERNOMICS -->
+<!-- 18. FEEDING PHOENIX: THE MAP -->
 <section class="slide">
-  <div class="rail"><b>14</b><span>Big idea 3 · Lessons</span></div>
+  <div class="rail"><b>14</b><span>Class game · Phoenix</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · the price of one burger</div>
-    <h2 class="reveal d2" style="font-size:62px">Socio-ecological-technical systems of <em>burgernomics</em></h2>
-    <div class="bn reveal d3">
-      <div class="fp-list">
-        <div class="fpi"><span class="ico"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span><b>6.7</b><span><em>Feed</em>pounds of grains and forage</span></div>
-        <div class="fpi"><span class="ico sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><b>52.8</b><span><em>Water</em>gallons for drinking water and irrigating feed crops</span></div>
-        <div class="fpi"><span class="ico green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><b>74.5</b><span><em>Land</em>square feet for grazing and growing feed crops</span></div>
-        <div class="fpi"><span class="ico gold"><svg aria-hidden="true"><use href="#i-flame"/></svg></span><b>1,036</b><span><em>Fossil fuel energy</em>BTU for feed production and transport, enough to run a microwave for 18 minutes</span></div>
-        <div class="fpi"><span class="ico bad"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span><b>14.4</b><span><em>Carbon footprint</em>pounds of CO₂ equivalents from feed, transport and cattle emissions and manure</span></div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-city"/></svg></span>Class game · a stock and flow map of food in a desert city</div>
+    <h2 class="reveal d2" style="font-size:64px">Feeding <em>Phoenix</em>: inflows, stock and outflows</h2>
+    <div class="pm reveal d3">
+      <svg viewBox="0 0 1560 600" role="img" aria-label="A map of food flowing into Phoenix from California, Yuma, Mexico, the Midwest and local farms, into a stock of food on hand, and out as food eaten and food wasted">
+        <defs><marker id="pm-ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="26" markerHeight="26" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+        <text class="lab" x="0" y="22">INFLOWS · where the food comes from</text>
+        <text class="lab" x="880" y="22" text-anchor="middle">STOCK · food on hand</text>
+        <text class="lab" x="1170" y="22">OUTFLOWS · where it goes</text>
+        <rect x="0" y="40" width="660" height="556" rx="22" fill="#ece5d6" stroke="#d9cfb8" stroke-width="2"/>
+        <text x="632" y="82" text-anchor="end" class="ts">N ↑</text>
+        <text x="24" y="372" class="ts">A sketch, not to scale</text>
+        <g class="src">
+          <path d="M290 132 L470 322" stroke="#0d7397" stroke-width="16" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
+          <path d="M292 452 L462 372" stroke="#0d7397" stroke-width="16" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
+          <path d="M360 505 L480 392" stroke="#0d7397" stroke-width="12" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
+          <path d="M520 168 L500 312" stroke="#0d7397" stroke-width="12" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
+          <path d="M560 214 L520 322" stroke="#4f8f5c" stroke-width="5" fill="none" marker-end="url(#pm-ar)"/>
+        </g>
+        <g class="box"><rect x="24" y="64" width="270" height="76" rx="14"/><text x="159" y="96" text-anchor="middle">California</text><text x="159" y="124" text-anchor="middle" class="ts">Central Valley and ports</text></g>
+        <g class="box"><rect x="24" y="420" width="270" height="76" rx="14"/><text x="159" y="452" text-anchor="middle">Yuma</text><text x="159" y="480" text-anchor="middle" class="ts">winter vegetables</text></g>
+        <g class="box"><rect x="228" y="508" width="190" height="66" rx="14"/><text x="323" y="548" text-anchor="middle">Mexico</text></g>
+        <g class="box"><rect x="386" y="66" width="250" height="100" rx="14"/><text x="511" y="98" text-anchor="middle">Midwest</text><text x="511" y="126" text-anchor="middle" class="ts">grain and meat,</text><text x="511" y="150" text-anchor="middle" class="ts">by rail and truck</text></g>
+        <g class="box loc"><rect x="500" y="176" width="150" height="40" rx="12"/><text x="575" y="203" text-anchor="middle" class="ts">Local farms</text></g>
+        <circle cx="490" cy="348" r="32" fill="#eccf72" stroke="#C4851C" stroke-width="4"/>
+        <text x="490" y="356" text-anchor="middle" class="ph">PHX</text>
+        <path d="M530 350 L700 350" stroke="#0d7397" stroke-width="22" fill="none" marker-end="url(#pm-ar)"/>
+        <text x="618" y="326" text-anchor="middle" class="ts">imports</text>
+        <rect x="730" y="150" width="300" height="330" rx="30" fill="#fffdf8" stroke="#0d7397" stroke-width="7"/>
+        <path d="M737 330 Q790 312 850 330 T980 330 T1023 326 L1023 452 Q1023 473 1002 473 L758 473 Q737 473 737 452 Z" fill="#eccf72" opacity=".85"/>
+        <text x="880" y="238" text-anchor="middle" class="big2">about 4 days</text>
+        <text x="880" y="278" text-anchor="middle" class="ts">of food for everyone</text>
+        <text x="880" y="530" text-anchor="middle" class="ts">stores · warehouses · restaurants</text>
+        <text x="880" y="558" text-anchor="middle" class="ts">food pantries · homes</text>
+        <path d="M1030 280 L1150 224" stroke="#b3452c" stroke-width="18" fill="none" marker-end="url(#pm-ar)"/>
+        <path d="M1030 400 L1150 456" stroke="#b3452c" stroke-width="12" fill="none" marker-end="url(#pm-ar)"/>
+        <g class="box out"><rect x="1160" y="150" width="400" height="116" rx="16"/><text x="1360" y="196" text-anchor="middle">Eaten</text><text x="1360" y="232" text-anchor="middle" class="ts">about 5 million people, every day</text></g>
+        <g class="box out"><rect x="1160" y="410" width="400" height="116" rx="16"/><text x="1360" y="456" text-anchor="middle">Wasted</text><text x="1360" y="492" text-anchor="middle" class="ts">thrown away or left to spoil</text></g>
+      </svg>
+      <div class="pm-foot">
+        <div class="sc"><b>Look at the map</b>Phoenix grows only a small share of its own food. Most of it <b style="display:inline;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">flows in</b> from far away, so a small stock drains quickly if an inflow slows down.</div>
+        <p class="note">Sources and amounts are simplified. The stock size and shares are teaching numbers, not measured data.</p>
       </div>
-      <div>
-        <ul class="bn-pts">
-          <li><b>Demand and supply are linked.</b> What consumers want moves commodity prices, which moves the supply chain, which puts pressure on land use, and back again.</li>
-          <li><b>How it is farmed matters.</b> Depending on how suppliers and producers farm, the environmental and social results are very different.</li>
-          <li><b>Rules and choices both count.</b> Government regulation plays a huge role, but markets and consumers can also push toward sustainability.</li>
-        </ul>
-        <svg class="sets" viewBox="0 0 640 300" role="img" aria-label="Three overlapping circles: social, ecological and technical, with a burger in the middle">
-          <circle cx="240" cy="120" r="105" fill="rgba(236,207,114,.45)" stroke="#C4851C"/>
-          <circle cx="400" cy="120" r="105" fill="rgba(117,162,159,.45)" stroke="#4f8683"/>
-          <circle cx="320" cy="215" r="105" fill="rgba(66,168,191,.40)" stroke="#0d7397"/>
-          <text x="190" y="105">Social</text><text x="450" y="105">Ecological</text><text x="320" y="265">Technical</text>
-          <text class="big" x="320" y="160">Burger</text>
-        </svg>
-        <p class="credit" style="margin-top:14px">Footprint of one beef burger patty. J.L. Capper, Journal of Animal Science, December 2011, via Eliza Barclay, Jessica Stoller-Conrad and Kevin Uhrmacher, NPR.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18b. THE GAME -->
+<section class="slide" id="pgame">
+  <div class="rail"><b>14</b><span>Class game · Phoenix</span></div>
+  <div class="content fill" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>Class game · work with a neighbor · about 10 minutes</div>
+    <h2 class="reveal d2" style="font-size:56px;margin-bottom:18px">Fill the <em>processes</em>, then run the year</h2>
+    <div class="pg reveal d3">
+      <div class="pg-left">
+        <p class="pg-ask"><b>1.</b> Pick one process for each pipe. <b>2.</b> Press <b>Run the year</b>. <b>3.</b> Change your picks and run it again.</p>
+        <div class="pg-dia">
+          <div class="pg-col"><div class="slot" data-slot="imports"></div><div class="slot" data-slot="local"></div></div>
+          <div class="pg-arrow">▶</div>
+          <div class="pg-col pg-mid">
+            <div class="tub" id="pg-tub"><div class="lvl" id="pg-lvl"></div><div class="num"><b id="pg-days">4.0</b><span>days of food</span></div><div class="empty" id="pg-empty">EMPTY SHELVES</div></div>
+            <div class="slot" data-slot="storage"></div>
+          </div>
+          <div class="pg-arrow">▶</div>
+          <div class="pg-col"><div class="slot" data-slot="waste"></div><div class="slot" data-slot="goal"></div></div>
+        </div>
+      </div>
+      <div class="pg-right">
+        <div class="pg-chart">
+          <svg id="pg-chart" viewBox="0 0 640 330" role="img" aria-label="Line chart of days of food on hand over 52 weeks, with four shocks marked"></svg>
+          <div class="pg-keys"><span><i>1</i>Heat wave hits harvests</span><span><i>2</i>Highway and rail closed</span><span><i>3</i>Drought year</span><span><i>4</i>Panic buying</span></div>
+        </div>
+        <div class="pg-stats">
+          <div><b id="pg-s-empty">–</b><span>days with empty shelves</span></div>
+          <div><b id="pg-s-min">–</b><span>lowest stock, in days</span></div>
+        </div>
+        <div class="pg-btns"><button class="btn" type="button" id="pg-run">Run the year</button><button class="btn ghost" type="button" id="pg-reset">Clear picks</button></div>
+        <table class="pg-log"><thead><tr><th>Run</th><th>Shallow picks</th><th>Deep picks</th><th>Empty days</th></tr></thead><tbody id="pg-log"></tbody></table>
+        <p class="note" id="pg-note">Dashed gray line: the year with no changes. Teaching model with made-up numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18c. SHALLOW OR DEEP -->
+<section class="slide" id="pg-debrief">
+  <div class="rail"><b>14</b><span>Class game · Phoenix</span></div>
+  <div class="content fill" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Class game · what did you find?</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:22px">Shallow or <em>deep</em> leverage points?</h2>
+    <div class="pd reveal d3">
+      <div class="pd-left">
+        <div class="card accent"><h3><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Shallow: change a number</h3><p>Quick to do and easy to see, but the system keeps behaving the same way.</p><p class="eg">More trucks · bigger warehouses · more gardens · an ad campaign · a plea</p></div>
+        <div class="card green"><h3><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Deep: change how the system works</h3><p>Slower to build, but it changes the information, rules or goals that steer everyone's choices.</p><p class="eg">A shared dashboard · contracts with many regions · zoning and buying rules · a donate-or-compost rule · a new goal</p></div>
+        <p class="pd-sum" id="pd-sum">Run the game on the last slide to see how your picks did.</p>
+        <p class="note">Idea from Donella Meadows, "Leverage Points: Places to Intervene in a System" (1999). The model's effect sizes are made-up teaching numbers.</p>
+      </div>
+      <div class="ex pd-form" data-pg-form>
+        <div><label for="pg-better"><i>1</i>Over the whole year, which did better?</label>
+          <select id="pg-better"><option value="">Pick one</option><option value="shallow">Shallow changes</option><option value="deep">Deep changes</option><option value="same">About the same</option><option value="one">I only tried one kind</option></select></div>
+        <div><label for="pg-why"><i>2</i>Why do you think so?</label><textarea id="pg-why" maxlength="500" style="height:110px" placeholder="One or two sentences"></textarea></div>
+        <div><label for="pg-idea"><i>3</i>Name one deep change Phoenix could make this year.</label><textarea id="pg-idea" maxlength="300" style="height:80px"></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="pg-save">Submit</button><span class="status" id="pg-status"></span></div>
       </div>
     </div>
   </div>
@@ -561,6 +639,7 @@
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
 import { flipCard, wireFlips, wireReveals, timer, burgerForm, esc, $, $$, say } from './lecture.js?v=2026-10-16';
+import { SLOTS, SHOCKS, simulate } from './phoenix.js?v=2026-10-16';
 
 const LECTURE = 'm5-s1';
 
@@ -632,6 +711,74 @@ timer($('#clock'), $('#clock-go'), $('#clock-reset'));
 /* === BURGER EXERCISE === */
 const burgers = burgerForm();
 
+/* === PHOENIX FOOD SUPPLY GAME === students pick a process for each pipe, then run a year of four shocks */
+const ORDER = { imports: [1, 2], local: [2, 1], storage: [1, 2], waste: [2, 1], goal: [1, 2] }; // shallow = 1, deep = 2, shown in mixed order
+const picks = {}, runs = [];
+const BASE = simulate({}).weeks;
+let busy = false;
+$$('.slot').forEach(el => {
+  const s = SLOTS.find(x => x.id === el.dataset.slot);
+  el.innerHTML = `<div class="hd"><em>${s.kind}</em><b>${esc(s.name)}</b></div>` + ORDER[s.id].map(o => `<button type="button" class="op" data-slot="${s.id}" data-o="${o}">${esc(s.opts[o])}<i class="${o === 1 ? 's' : 'd'}">${o === 1 ? 'Shallow' : 'Deep'}</i></button>`).join('');
+});
+$$('.slot .op').forEach(b => b.addEventListener('click', () => {
+  if (busy) return;
+  const id = b.dataset.slot, o = +b.dataset.o;
+  picks[id] = picks[id] === o ? 0 : o;
+  $$(`.slot .op[data-slot="${id}"]`).forEach(x => x.classList.toggle('on', +x.dataset.o === picks[id]));
+}));
+const CW = 640, CH = 330, X0 = 46, X1 = 626, Y0 = 14, Y1 = 276, YMAX = 8;
+const cx = i => X0 + (i / 51) * (X1 - X0), cy = v => Y1 - (Math.min(v, YMAX) / YMAX) * (Y1 - Y0);
+const line = arr => arr.map((v, i) => `${i ? 'L' : 'M'}${cx(i).toFixed(1)} ${cy(v).toFixed(1)}`).join('');
+const chart = $('#pg-chart');
+chart.innerHTML = `${SHOCKS.map((s, i) => { const a = X0 + (s.from / 364) * (X1 - X0), w = ((s.to - s.from) / 364) * (X1 - X0); return `<rect x="${a.toFixed(1)}" y="${Y0}" width="${w.toFixed(1)}" height="${Y1 - Y0}" fill="#b3452c" opacity=".14"/><text x="${(a + w / 2).toFixed(1)}" y="${Y0 + 16}" text-anchor="middle" style="font-weight:700;fill:#b3452c">${i + 1}</text>`; }).join('')}
+  ${[0, 4, 8].map(v => `<line x1="${X0}" x2="${X1}" y1="${cy(v)}" y2="${cy(v)}" stroke="#d9cfb8" stroke-width="1.5"/><text x="${X0 - 8}" y="${cy(v) + 5}" text-anchor="end">${v}</text>`).join('')}
+  <text x="${X0}" y="${Y1 + 26}">Jan</text><text x="${(X0 + X1) / 2}" y="${Y1 + 26}" text-anchor="middle">Jul</text><text x="${X1}" y="${Y1 + 26}" text-anchor="end">Dec</text>
+  <text x="12" y="${(Y0 + Y1) / 2}" transform="rotate(-90 12 ${(Y0 + Y1) / 2})" text-anchor="middle">days of food on hand</text>
+  <path d="${line(BASE)}" fill="none" stroke="#7d8d93" stroke-width="3" stroke-dasharray="7 6"/>
+  <path id="pg-line" d="" fill="none" stroke="#0d7397" stroke-width="5" stroke-linejoin="round"/><g id="pg-dots"></g>`;
+function showTub(v) {
+  $('#pg-lvl').style.height = `${Math.min(v, YMAX) / YMAX * 100}%`;
+  $('#pg-days').textContent = v.toFixed(1);
+  $('#pg-tub').classList.toggle('out', v < 0.05);
+}
+showTub(4);
+function drawTo(res, n) {
+  const w = res.weeks.slice(0, n);
+  $('#pg-line').setAttribute('d', line(w));
+  $('#pg-dots').innerHTML = w.map((v, i) => v < 0.05 ? `<circle cx="${cx(i)}" cy="${cy(0)}" r="6" fill="#b3452c"/>` : '').join('');
+  showTub(w[w.length - 1]);
+}
+const count = (kind) => SLOTS.filter(s => picks[s.id] === kind).length;
+function bestRun() { return runs.reduce((b, r) => !b || r.empty < b.empty ? r : b, null); }
+function renderLog() {
+  const best = bestRun();
+  $('#pg-log').innerHTML = runs.slice(-4).map(r => `<tr class="${r === best ? 'best' : ''}"><td>${r.n}</td><td>${r.sh}</td><td>${r.de}</td><td>${r.empty}</td></tr>`).join('');
+  $('#pd-sum').textContent = best ? `Your best run: ${best.empty} days with empty shelves, using ${best.sh} shallow and ${best.de} deep picks. You ran the year ${runs.length} time${runs.length === 1 ? '' : 's'}.` : 'Run the game on the last slide to see how your picks did.';
+}
+$('#pg-run').addEventListener('click', () => {
+  if (busy) return;
+  busy = true;
+  const res = simulate(picks);
+  const run = { n: runs.length + 1, sh: count(1), de: count(2), empty: res.empty, min: res.minS, picks: SLOTS.map(s => [s.id, picks[s.id] || 0]) };
+  let i = 0;
+  const id = setInterval(() => {
+    i += 1; drawTo(res, i);
+    if (i >= res.weeks.length) {
+      clearInterval(id); busy = false;
+      runs.push(run);
+      $('#pg-s-empty').textContent = res.empty; $('#pg-s-empty').classList.toggle('bad', res.empty > 0);
+      $('#pg-s-min').textContent = res.minS.toFixed(1);
+      $$('.slot').forEach(s => s.classList.add('shown'));
+      renderLog();
+    }
+  }, 60);
+});
+$('#pg-reset').addEventListener('click', () => {
+  if (busy) return;
+  Object.keys(picks).forEach(k => delete picks[k]);
+  $$('.slot .op').forEach(b => b.classList.remove('on'));
+});
+
 /* === LIVE === attendance, polls and activities */
 const live = await connect(LECTURE);
 const note = $('[data-mode-note]');
@@ -683,6 +830,22 @@ $('#bx-save').addEventListener('click', async () => {
   if (!await ensureUser(st)) return;
   try { await live.saveSim('burger-pros-cons', data); say(st, 'Submitted. Thanks!', 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: PHOENIX FOOD SUPPLY GAME === */
+$('#pg-save').addEventListener('click', async () => {
+  const st = $('#pg-status');
+  const better = $('#pg-better').value, why = $('#pg-why').value.trim().slice(0, 500), idea = $('#pg-idea').value.trim().slice(0, 300);
+  const need = [[better, 1], [why, 2], [idea, 3]].find(([v]) => !v);
+  if (need) { say(st, `Answer question ${need[1]} first.`, 'err'); return; }
+  const best = bestRun();
+  if (!best) { say(st, 'Run the year on the game slide at least once first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const bestPicks = Object.fromEntries(best.picks.map(([k, o]) => [k, o === 1 ? 'shallow' : o === 2 ? 'deep' : 'keep']));
+  try {
+    await live.saveSim('phoenix-food-supply', { runs: runs.length, bestEmpty: best.empty, bestMin: Math.round(best.min * 10) / 10, bestShallow: best.sh, bestDeep: best.de, bestPicks, better, why, idea });
+    say(st, 'Submitted. Thanks!', 'ok');
+  } catch (e) { say(st, e.message, 'err'); }
 });
 </script>
 </body>

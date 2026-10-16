@@ -31,12 +31,12 @@
 .glance ul.clean li{margin:22px 0}
 
 /* slide 7: what is a food system */
-.fs-grid{display:grid;grid-template-columns:600px 1fr;gap:56px;align-items:center;flex:1}
-.fs-pics{position:relative;height:100%;min-height:560px}
-.fs-pics img{position:absolute;display:block}
-.fs-pics .tom{left:0;bottom:10px;width:470px}
-.fs-pics .ket{left:150px;top:-10px;width:230px}
-.fs-pics .fry{right:0;bottom:0;width:220px}
+.fs-grid{display:grid;grid-template-columns:470px 1fr 330px;gap:48px;align-items:center;flex:1}
+.fs-tom img{display:block;width:470px}
+.fs-ketfry{position:relative;height:600px;align-self:center}
+.fs-ketfry img{position:absolute;display:block}
+.fs-ketfry .ket{left:96px;top:0;width:210px;z-index:2}
+.fs-ketfry .fry{right:0;bottom:0;width:300px}
 .fs-text .lead{font-size:31px;max-width:none}
 .fs-text .hl{display:inline-block;background:var(--golden);padding:6px 18px;border-radius:6px;font-weight:700;font-size:30px;margin:14px 0 20px}
 .stages{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px}
@@ -149,7 +149,7 @@
 
 /* slide 16: ecological energetics */
 .en{display:grid;grid-template-columns:900px 1fr;gap:48px;flex:1}
-.pyr{display:flex;flex-direction:column;gap:12px;align-items:center}
+.pyr{display:flex;flex-direction:column-reverse;gap:12px;align-items:center}
 .pyr .lv{display:grid;grid-template-columns:1fr;opacity:.18;transform:scale(.97);transition:opacity .6s var(--ease),transform .6s var(--ease);width:100%}
 .pyr .lv .bar{position:relative;margin:0 auto;height:92px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#fff;font-size:23px;line-height:1.2;transition:width 0s}
 .pyr .lv .bar b{font:400 42px var(--display);white-space:nowrap}
@@ -195,19 +195,72 @@
 .times3{font:400 110px/1 var(--display);color:var(--accent)}
 .times3 small{font-size:34px;color:var(--ink);display:block;font-family:var(--body);margin-top:6px}
 
-/* slide 18: burger footprint */
-.bn{display:grid;grid-template-columns:680px 1fr;gap:54px;flex:1;min-height:0}
-.fp-list{display:grid;gap:10px;align-content:space-between}
-.fpi{display:grid;grid-template-columns:70px 150px 1fr;gap:16px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:6px 18px}
-.fpi b{font:400 52px/1 var(--display);color:var(--Blue)}
-.fpi span{font-size:23px;line-height:1.25;color:var(--ink)}
-.fpi em{font-style:normal;display:block;font:700 15px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.sets{max-height:290px;width:auto;height:auto;display:block;margin:6px auto 0}
-.sets circle{stroke-width:3}
-.sets text{font:700 24px var(--body);text-anchor:middle;fill:var(--ink)}
-.sets .big{font:400 30px var(--display)}
-.bn-pts{font-size:25px;line-height:1.35;margin:0 0 0 24px}
-.bn-pts li{margin:0 0 14px}
+/* slide 18: map of food flowing into Phoenix */
+.pm{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
+.pm svg{width:100%;flex:1;min-height:0;display:block}
+.pm text{font:700 28px var(--body);fill:var(--ink)}
+.pm .ts{font:400 22px var(--body);fill:var(--mute)}
+.pm .lab{font:700 20px var(--body);letter-spacing:.14em;fill:var(--Blue)}
+.pm .big2{font:400 50px var(--display);fill:var(--ink)}
+.pm .ph{font:700 22px var(--body);fill:var(--ink)}
+.pm .box rect{fill:#fffdf8;stroke:#0d7397;stroke-width:3}
+.pm .box.loc rect{stroke:#4f8f5c}
+.pm .box.out rect{stroke:#b3452c}
+.pm-foot{display:grid;grid-template-columns:1fr 520px;gap:30px;align-items:center}
+.pm-foot .sc{font-size:23px}
+
+/* slide 19: the Phoenix food supply game */
+.pg{flex:1;display:grid;grid-template-columns:900px 1fr;gap:36px;min-height:0}
+.pg-left{display:flex;flex-direction:column;min-height:0}
+.pg-ask{font-size:23px;margin:0 0 10px;line-height:1.35}
+.pg-dia{flex:1;display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;gap:0;align-items:stretch;min-height:0}
+.pg-col{display:flex;flex-direction:column;gap:12px;min-height:0}
+.pg-arrow{display:grid;place-items:center;font-size:26px;color:var(--Blue)}
+.slot{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:10px 12px 12px;display:flex;flex-direction:column;gap:7px;flex:1}
+.slot .hd{display:flex;align-items:baseline;gap:8px}
+.slot .hd em{font:700 14px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-style:normal}
+.slot .hd b{font:400 27px var(--display);color:var(--ink)}
+.slot .op{flex:1;text-align:left;font:400 20px/1.22 var(--body);color:var(--ink);background:#f6f2e9;border:2px solid #d9cfb8;border-radius:12px;padding:8px 12px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.slot .op:hover{border-color:var(--Blue)}
+.slot .op.on{background:#d9eef3;border-color:var(--Blue);box-shadow:inset 0 0 0 2px var(--Blue)}
+.slot .op i{font:700 14px var(--body);font-style:normal;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:1px 8px;align-self:flex-start;display:none}
+.slot.shown .op i{display:inline-block}
+.slot .op i.s{background:#eccf72;color:#6b4a07}
+.slot .op i.d{background:#0d7397;color:#fff}
+.pg-mid .tub{position:relative;flex:1.15;border:6px solid var(--Blue);border-radius:22px;background:#fffdf8;overflow:hidden;min-height:150px}
+.tub .lvl{position:absolute;left:0;right:0;bottom:0;height:50%;background:#eccf72;opacity:.9;transition:height .12s linear}
+.tub .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.tub .num b{font:400 54px/1 var(--display);color:var(--ink)}
+.tub .num span{font-size:20px;color:var(--ink)}
+.tub .empty{position:absolute;left:0;right:0;top:10px;text-align:center;font:700 18px var(--body);letter-spacing:.12em;color:#fff;background:#b3452c;display:none;padding:2px 0}
+.tub.out .empty{display:block}
+.pg-right{display:flex;flex-direction:column;gap:10px;min-height:0}
+.pg-chart{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:8px 10px}
+.pg-chart svg{width:100%;display:block}
+.pg-chart text{font:400 16px var(--body);fill:var(--mute)}
+.pg-keys{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:16px;color:var(--mute);padding:2px 6px 4px}
+.pg-keys i{font:700 14px var(--body);font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#b3452c;color:#fff;margin-right:6px}
+.pg-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pg-stats div{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:8px 14px;display:flex;align-items:center;gap:12px}
+.pg-stats b{font:400 46px/1 var(--display);color:var(--Blue)}
+.pg-stats b.bad{color:#b3452c}
+.pg-stats span{font-size:18px;line-height:1.2;color:var(--mute)}
+.pg-btns{display:flex;gap:12px}
+.pg-btns .btn{font-size:22px;padding:11px 24px}
+.pg-log{width:100%;border-collapse:collapse;font-size:18px}
+.pg-log th{font:700 13px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:left;padding:2px 8px}
+.pg-log td{padding:3px 8px;border-top:1px solid var(--paper-2)}
+.pg-log tr.best td{background:#e6f1ef;font-weight:700}
+
+/* slide 20: shallow or deep */
+.pd{flex:1;display:grid;grid-template-columns:1fr 760px;gap:44px;min-height:0}
+.pd-left{display:flex;flex-direction:column;gap:16px}
+.pd-left .card{padding:18px 26px}
+.pd-left h3{display:flex;align-items:center;gap:12px;font-size:32px;margin:0 0 6px}
+.pd-left p{font-size:23px;line-height:1.35;margin:0}
+.pd-left p.eg{margin-top:6px;font-size:20px;color:var(--mute)}
+.pd-sum{font-size:25px!important;background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:12px;padding:12px 18px}
+.pd-form{display:flex;flex-direction:column;gap:14px}
 
 /* slides 19 and 20: burger class exercise */
 .bx{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:22px}
