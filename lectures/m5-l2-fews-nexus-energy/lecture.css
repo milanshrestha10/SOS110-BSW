@@ -334,3 +334,4 @@ img.house{width:100%;border-radius:14px;display:block}
 .rnr .fig{height:auto}
 .rnr .fig img{height:auto}
 .prx{grid-template-columns:1fr 440px}
+.fewimg{grid-template-columns:820px 1fr;gap:44px}.fewimg .sc{font-size:22px}
