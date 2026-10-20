@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 14 · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../m5-l1-food-agriculture-systems/lecture.css?v=2026-10-16">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.2 1.7-3.7-1.7 0-3.3.4-4.9 1.1z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-tractor" viewBox="0 0 24 24"><path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.8 5h-6"/><path d="M16 18h-5"/><path d="M18 5a1 1 0 0 0-1 1v5.573"/><path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246"/><path d="M4 11V4"/><path d="M8 10V4"/><circle cx="7" cy="15" r="4"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 9c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 15c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 15c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 21c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 21c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 5V2"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.5L4.2 19a2 2 0 0 0 1.7 3h12.2a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-recycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="../m5-l1-food-agriculture-systems/img/toast-hero.jpg" alt="A slice of dark bread topped with cucumber, avocado, tomato and sesame seeds on a white plate">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
+    <div class="title-k reveal d2">Lecture 14 · Sustainable food and agricultural systems</div>
+    <h1 class="reveal d2">Class <em>Exercise 14</em></h1>
+    <p class="hero-sub reveal d3">Keep this page open. We will come back to it for each activity.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- CHECK IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>14</b><span>Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 1 -->
+<section class="slide">
+  <div class="rail"><b>14</b><span>Exercise 1 of 2 · Energy pyramid</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-flame"/></svg></span>Class exercise · energy and the food chain</div>
+    <h2 class="reveal d2" style="font-size:66px">Why meat takes <em>so much more</em> to produce</h2>
+    <div class="en reveal d3">
+      <div>
+        <div class="pyr" id="pyr" data-step="1">
+          <div class="lv l1"><div class="bar"><span>Plants make food from sunlight: grain, grass, hay</span><b>10,000</b></div></div>
+          <div class="heat h1">about 90% is used up or lost as heat ↑</div>
+          <div class="lv l2"><div class="bar"><span>Plant-eaters: cattle, or people eating grain</span><b>1,000</b></div></div>
+          <div class="heat h2">about 90% lost again ↑</div>
+          <div class="lv l3"><div class="bar"><span>Meat-eaters: people eating beef</span><b>100</b></div></div>
+          <div class="heat h3">and again ↑</div>
+          <div class="lv l4"><div class="bar"><span>Top predators</span><b>10</b></div></div>
+        </div>
+        <div class="pyr-ctl"><button class="btn" type="button" id="pyr-btn">Pass the energy up</button><span class="status" id="pyr-note">Energy units are teaching numbers, not to scale.</span></div>
+      </div>
+      <div class="en-side">
+        <div class="sc"><b>2nd law of thermodynamics</b>Every time energy changes form or moves, some turns into heat that cannot do work again. So no step is 100% efficient.</div>
+        <div class="sc flow"><b>Rule of thumb</b>Only about 10% of the energy at one level reaches the next. Plants are the base of every food chain.</div>
+        <div class="eat">
+          <div><b>1,000</b>units reach you if you eat the <b style="display:inline;font-size:inherit;font-family:inherit;color:inherit">grain</b></div>
+          <div><b>100</b>units reach you if the grain is fed to cattle and you eat the <b style="display:inline;font-size:inherit;font-family:inherit;color:inherit">beef</b></div>
+        </div>
+        <div class="sc" style="border-left-color:var(--accent)"><b>What it means for the Green Revolution</b>Feeding more people, and more meat eaters, takes a lot more plant growth. Farms pushed yields up with new seeds, water, fertilizer and fuel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 2 -->
+<section class="slide" id="burgers">
+  <div class="rail"><b>14</b><span>Exercise 2 of 2 · Best solutions</span></div>
+  <div class="content" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · about 10 minutes · work with a neighbor</div>
+    <h2 class="reveal d2" style="font-size:60px;margin-bottom:24px">What are the best <em>solutions</em>?</h2>
+    <div class="bx reveal d3">
+      <div class="bcard"><div class="pic"><img src="../m5-l1-food-agriculture-systems/img/beef-burger.png" alt="A tall triple beef cheeseburger"></div><h3>Beef burger</h3><p>A patty made from beef cattle.</p></div>
+      <div class="bcard"><div class="pic"><img src="../m5-l1-food-agriculture-systems/img/whopper.png" alt="A plant-based Whopper with lettuce, tomato, onion and pickles"></div><h3>Burger King's plant-based Whopper</h3><p>A fast-food burger with a plant-based patty.</p></div>
+      <div class="bcard"><div class="pic"><img src="../m5-l1-food-agriculture-systems/img/veggie-burger.png" alt="A vegetarian burger with a crumb-coated patty, lettuce and tomato"></div><h3>Vegetarian burger</h3><p>A patty made from vegetables and grains.</p></div>
+      <div class="bcard"><div class="pic"><img src="../m5-l1-food-agriculture-systems/img/impossible.png" alt="An Impossible Burger with pickles and lettuce"></div><h3>Impossible Burger</h3><p>A plant-based patty made to taste like beef.</p></div>
+    </div>
+    <div class="lens reveal d4">
+      <div><span class="tag">Look at</span><b>Animals and ethics</b>How are the animals raised and treated?</div>
+      <div><span class="tag">Look at</span><b>CO₂ and methane</b>How much of these gases does it release?</div>
+      <div><span class="tag">Look at</span><b>Chemicals</b>What is used to grow and make it?</div>
+      <div><span class="tag">Look at</span><b>The environment</b>What does it do to land, water and wildlife?</div>
+      <div><span class="tag">Look at</span><b>Food sovereignty</b>Who controls the food: farmers and communities, or a few big companies?</div>
+    </div>
+    <div class="timer reveal d4">
+      <div class="clock" id="clock">10:00</div>
+      <button class="btn" type="button" id="clock-go">Start</button><button class="btn ghost" type="button" id="clock-reset">Reset</button>
+      <p><b>Your job:</b> pick one burger. List at least <b>3 reasons for</b> and <b>3 against</b>. Then answer on the next slide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 2. YOUR ANSWERS -->
+<section class="slide" id="burger-form">
+  <div class="rail"><b>14</b><span>Exercise 2 of 2 · Your answers</span></div>
+  <div class="content fill" style="top:80px;bottom:50px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · your answers</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:24px">Is it a <em>sustainable</em> burger?</h2>
+    <div class="bxform reveal d3">
+      <div class="lens">
+        <div><b>Animals and ethics</b>How are the animals raised and treated?</div>
+        <div><b>CO₂ and methane</b>Cattle release methane, a strong heat-trapping gas.</div>
+        <div><b>Chemicals</b>Pesticides, fertilizer, additives and processing.</div>
+        <div><b>The environment</b>Land, water and wildlife.</div>
+        <div><b>Food sovereignty</b>The right of communities to control how their food is grown and shared.</div>
+      </div>
+      <div class="ex" data-burger-form>
+        <div><label for="bx-burger"><i>1</i>Which burger did you and your neighbor pick?</label>
+          <select id="bx-burger"><option value="">Pick one</option><option value="beef">Beef burger</option><option value="whopper">Plant-based Whopper</option><option value="veggie">Vegetarian burger</option><option value="impossible">Impossible Burger</option></select></div>
+        <div class="pair">
+          <div><label for="bx-pros"><i>2</i>Give 3 reasons <u>for</u> this burger.</label><textarea id="bx-pros" maxlength="600" placeholder="One reason on each line"></textarea></div>
+          <div><label for="bx-cons"><i>3</i>Give 3 reasons <u>against</u> this burger.</label><textarea id="bx-cons" maxlength="600" placeholder="One reason on each line"></textarea></div>
+        </div>
+        <div><label><i>4</i>Which topics did your reasons cover? Tick all that apply.</label>
+          <div class="topics"><label><input type="checkbox" value="animals">Animals and ethics</label><label><input type="checkbox" value="gases">CO₂ and methane</label><label><input type="checkbox" value="chemicals">Chemicals</label><label><input type="checkbox" value="environment">The environment</label><label><input type="checkbox" value="sovereignty">Food sovereignty</label></div></div>
+        <div><label for="bx-vegan"><i>5</i>Should we all become vegan? Why or why not?</label><textarea id="bx-vegan" maxlength="400" style="height:72px"></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="bx-save">Submit</button><span class="status" id="bx-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { timer, burgerForm, $, $$, say } from '../m5-l1-food-agriculture-systems/lecture.js?v=2026-10-16';
+
+const LECTURE = 'm5-s1';
+
+/* === COURSE DATA === fills the module title on the title slide */
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === ENERGY PYRAMID === each press passes the energy up one more level */
+let step = 1;
+$('#pyr-btn').addEventListener('click', () => {
+  step = step >= 4 ? 1 : step + 1;
+  $('#pyr').dataset.step = step;
+  $('#pyr-btn').textContent = step >= 4 ? 'Start over' : 'Pass the energy up';
+  $('#pyr-note').textContent = step >= 4 ? 'Each step keeps about one tenth. These are teaching numbers, not to scale.' : 'Energy units are teaching numbers, not to scale.';
+});
+
+/* === TEN-MINUTE TIMER === */
+timer($('#clock'), $('#clock-go'), $('#clock-reset'));
+
+/* === BURGER EXERCISE === */
+const burgers = burgerForm();
+
+/* === LIVE === attendance and activities. Saves under m5-s1, the same lecture as the deck, so results show on its instructor page. */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: BURGER EXERCISE === */
+$('#bx-save').addEventListener('click', async () => {
+  const st = $('#bx-status');
+  const { data, missing } = burgers.read();
+  if (missing) { say(st, `Answer question ${missing} first.`, 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('burger-pros-cons', data); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
