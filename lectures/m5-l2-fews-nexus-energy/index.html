@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 15 The FEWs nexus and energy systems · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="lecture.css?v=2026-10-20">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.2 1.7-3.7-1.7 0-3.3.4-4.9 1.1z"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 9c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 15c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 15c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 21c-2.5 0-4-1.7-4-4 2.5 0 4 1.7 4 4z"/><path d="M12 21c2.5 0 4-1.7 4-4-2.5 0-4 1.7-4 4z"/><path d="M12 5V2"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M3 22h12"/><path d="M4 9h10"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2 2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="img/coal-mine.jpg" alt="Terraced benches of a large surface coal mine on a hillside with autumn trees around it">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
+    <div class="title-k reveal d2">Lecture 15 · S&amp;M Chapters 13 and 14</div>
+    <h1 class="reveal d2" style="font-size:104px">The FEWs nexus and <em>energy systems</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">How food, energy and water depend on each other, and what it has cost to power our world.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- 2. WHAT'S DUE -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>What's due</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>Assignment deadlines · tick them off as you finish</div>
+    <h2 class="reveal d2">What's <em>due</em></h2>
+    <div class="due reveal d3">
+      <div class="due-now">
+        <span class="tag">Due today</span>
+        <h3>WWYD 3 video</h3>
+        <p>The video for <b>What Would You Do? Exercise 3</b> is due at the start of today's class.</p>
+        <ul class="chk" style="margin-top:22px"><li data-k="wwyd-video"><i>✓</i><span>I turned in my WWYD 3 video</span></li></ul>
+        <div class="big">TODAY<small>Check the course site for the submission link</small></div>
+      </div>
+      <div class="due-right">
+        <div class="card gold">
+          <span class="tag">Due at the Module 5 review session</span>
+          <h3>Project presentation topic selection and outline</h3>
+          <ul class="chk"><li data-k="topic"><i>✓</i><span>I picked my topic and wrote my outline</span></li></ul>
+        </div>
+        <div class="row2">
+          <div class="card accent">
+            <span class="tag">Also in Module 5</span>
+            <ul class="chk">
+              <li data-k="inq"><i>✓</i><span>InQuizitive 12, 13 and 14</span></li>
+              <li data-k="quiz"><i>✓</i><span>Quiz: US Energy Transition</span></li>
+              <li data-k="wwyd"><i>✓</i><span>What Would You Do? Exercise 3</span></li>
+            </ul>
+          </div>
+          <div class="card green">
+            <span class="tag">Read for today</span>
+            <p style="font-size:30px"><b>S&amp;M Chapters 13 and 14</b></p>
+            <p class="due-read" style="margin-top:14px">Due dates and submission links are on the course site. Your ticks stay on this device only.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:66px;max-width:1500px">Which source supplies the <em>biggest share</em> of all the energy used in the United States?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>Petroleum (oil)</button>
+      <button class="opt" type="button"><b>B</b>Natural gas</button>
+      <button class="opt" type="button"><b>C</b>Coal</button>
+      <button class="opt" type="button"><b>D</b>Renewable energy (solar, wind, hydropower and more)</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · energy, its costs, and how it connects to food and water</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 bigs reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><br><span class="tag">1 · Energy</span><h3>Where does our energy come from?</h3><p>Follow people from muscle and fire to coal, oil and electricity, and sort energy into primary, secondary, renewable and non-renewable.</p></div>
+      <div class="card green"><span class="ico bad lg"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><br><span class="tag">2 · Fossil fuels</span><h3>What did they give us, and what did they cost?</h3><p>See how coal formed, why we became dependent on it, and how to judge any energy source by what it gives back.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><br><span class="tag">3 · FEW nexus</span><h3>How are food, energy and water linked?</h3><p>Use feedback loops and a planning game to see how one energy choice ripples into food and water.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Energy powers everything we do, and the way we make it is tied to our food and our water.</div>
+  </div>
+</section>
+
+<!-- 6. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>15</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ENERGY CLOCK -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Big idea 1 · energy through human history</div>
+    <h2 class="reveal d2" style="font-size:70px">Energy in <em>human civilization</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:760px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img src="img/energy-clock.jpg" alt="A clock face showing when humans began using each energy source: animals for work, sails, waterwheels, windmills, coal steam engines, electricity, oil, nuclear fission and solar panels"></figure></div>
+      <div class="side">
+        <p class="lead">For nearly all of human history, our energy was our own <b>muscle</b> and <b>fire</b>. Energy changes line up with big human events and inventions.</p>
+        <div class="rq" data-def><h3>Quick question: when did the first coal-fired steam engine appear on the clock?</h3><p class="think">Look at the top of the clock, then tap to check.</p><p class="ans-text"><b>11:57:45 PM, the year 1698.</b> That leaves only about two minutes before midnight, and the first oil well (1859), nuclear fission (1942) and solar panels (1955) all come after it.</p></div>
+        <div class="rq" data-def><h3>Quick question: what powered people for most of the day?</h3><p class="think">Tap to check.</p><p class="ans-text"><b>Our own internal energy, and fire from burning biomass.</b> Animals for work and sails came later, and waterwheels and windmills later still.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ENERGY AND ITS SOURCES -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 1 · sorting energy sources</div>
+    <h2 class="reveal d2" style="font-size:70px">Energy and its <em>sources</em></h2>
+    <div class="src-grid reveal d3">
+      <div class="card accent">
+        <span class="tag">Primary or secondary?</span>
+        <h3>Energy is power from physical or chemical resources</h3>
+        <p><b>Primary sources</b> exist in nature: biomass, solar, wind, fossil fuels, nuclear and hydroelectricity.</p>
+        <p style="margin-top:12px"><b>Secondary sources</b> are energy carriers that people make from them, such as electricity and gasoline.</p>
+        <p class="push">There is no sunlight, no food and no life without energy. Global demand keeps growing as population and consumption grow.</p>
+      </div>
+      <div class="card green">
+        <span class="tag">Renewable or non-renewable?</span>
+        <h3>Renewed by nature, or used up?</h3>
+        <p><b>Renewable</b> energy is replenished by nature in a short time and can flow continuously.</p>
+        <div class="chips2">
+          <span><i class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></i>Solar</span>
+          <span><i class="ico sm sky"><svg aria-hidden="true"><use href="#i-wind"/></svg></i>Wind</span>
+          <span><i class="ico sm"><svg aria-hidden="true"><use href="#i-drop"/></svg></i>Hydropower</span>
+          <span><i class="ico sm green"><svg aria-hidden="true"><use href="#i-earth"/></svg></i>Geothermal</span>
+          <span><i class="ico sm green"><svg aria-hidden="true"><use href="#i-sprout"/></svg></i>Biofuel</span>
+        </div>
+        <p style="margin-top:12px"><b>Non-renewable</b> energy may not be replenished, or takes a very long geological time to form again.</p>
+        <div class="chips2 fos">
+          <span><i class="ico sm bad"><svg aria-hidden="true"><use href="#i-fuel"/></svg></i>Petroleum</span>
+          <span><i class="ico sm bad"><svg aria-hidden="true"><use href="#i-factory"/></svg></i>Coal</span>
+          <span><i class="ico sm bad"><svg aria-hidden="true"><use href="#i-flame"/></svg></i>Natural gas</span>
+          <span><i class="ico sm bad"><svg aria-hidden="true"><use href="#i-atom"/></svg></i>Nuclear</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. ENERGY PRINCIPLES -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 1 · seven things to know about energy</div>
+    <h2 class="reveal d2" style="font-size:70px">Energy <em>principles</em></h2>
+    <div class="pr reveal d3">
+      <div class="p"><i>1</i><span>Energy is a physical quantity that <b>follows precise natural laws</b>.</span></div>
+      <div class="p"><i>2</i><span>Physical processes on Earth are the result of <b>energy flow</b> through the Earth system.</span></div>
+      <div class="p"><i>3</i><span>Biological processes <b>depend on energy flow</b> through the Earth system.</span></div>
+      <div class="p"><i>4</i><span>Many sources can power human activities, and the energy often must be <b>moved from source to destination</b>.</span></div>
+      <div class="p"><i>5</i><span>Energy decisions are shaped by <b>economic, political, environmental and social</b> factors.</span></div>
+      <div class="p"><i>6</i><span>The amount of energy a society uses <b>depends on many factors</b>.</span></div>
+      <div class="p"><i>7</i><span>The <b>quality of life</b> of people and societies is affected by energy choices.</span></div>
+    </div>
+    <p class="src">Source: US Department of Energy, "Energy Literacy" (2017)</p>
+  </div>
+</section>
+
+<!-- 10. US ENERGY PORTFOLIO -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>Big idea 1 · checking the warm-up poll (answer: A)</div>
+    <h2 class="reveal d2" style="font-size:70px">The current energy <em>portfolio</em></h2>
+    <div class="us reveal d3">
+      <div>
+        <div class="usbars">
+          <div class="ub" style="--n:0;--v:35"><span>Petroleum</span><div class="t"><i class="fos"></i></div><b>35%</b></div>
+          <div class="ub" style="--n:1;--v:34"><span>Natural gas</span><div class="t"><i class="fos"></i></div><b>34%</b></div>
+          <div class="ub" style="--n:2;--v:12"><span>Renewables</span><div class="t"><i class="ren"></i></div><b>12%</b></div>
+          <div class="ub" style="--n:3;--v:10"><span>Coal</span><div class="t"><i class="fos"></i></div><b>10%</b></div>
+          <div class="ub" style="--n:4;--v:9"><span>Nuclear</span><div class="t"><i class="nuc"></i></div><b>9%</b></div>
+        </div>
+        <p class="src" style="margin-top:18px">Share of US energy use by source, rounded, from the course slides (US Energy Information Administration).</p>
+      </div>
+      <div class="us-side">
+        <div class="big2">79<small>%</small></div>
+        <p class="lead" style="font-size:30px">of US energy still comes from fossil fuels: petroleum, natural gas and coal.</p>
+        <p class="note" style="font-size:22px">Fossil fuels are a finite, non-renewable supply, and their impacts are a major challenge.</p>
+        <div class="rq" data-def><h3>Quick question: how close was the race?</h3><p class="think">Tap to check.</p><p class="ans-text">Petroleum (35%) beat natural gas (34%) by only one point. Most oil goes to transportation.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FROM SWAMP TO STEAM -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 2 · Fossil fuels</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 2 · where fossil fuels come from</div>
+    <h2 class="reveal d2" style="font-size:70px">From swamp to <em>steam</em></h2>
+    <div class="two reveal d3" style="grid-template-columns:1fr 560px">
+      <div class="coalwide">
+        <div class="ph"><img src="img/coal-formed.jpg" alt="Three panels showing how coal formed: plants die in swamps hundreds of millions of years ago, dead plant matter is buried and squeezed 100 million years ago, and today it has become coal"></div>
+        <div class="steps3">
+          <div class="sc"><b>Hundreds of millions of years ago</b>Plants in swamps die and are buried or submerged, so they do not decay.</div>
+          <div class="sc"><b>100 million years ago</b>Dead plant matter is buried under sediment and put under heat and pressure.</div>
+          <div class="sc"><b>Today</b>Over millions of years, the plant matter is transformed into coal.</div>
+        </div>
+        <div class="rq" data-def><h3>Quick question: why is coal called non-renewable?</h3><p class="think">Tap to check.</p><p class="ans-text">It takes hundreds of millions of years to form, far longer than the few centuries we have spent burning it.</p></div>
+      </div>
+      <div class="pic" style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+        <figure class="fig plain" style="margin:0"><img src="img/steam-engine.jpg" alt="Engraving of an early steam engine with a large beam, gears and a flywheel" style="max-height:560px"></figure>
+        <p class="note">An early steam engine. Coal-fired steam engines began the shift from muscle, wind and water to fossil fuels (1698).</p>
+        <p class="credit">Credit: Universal History Archive/UIG/Bridgeman Images</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. THE ENERGY DILEMMA -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 2 · Fossil fuels</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · what we gained and what it cost</div>
+    <h2 class="reveal d2" style="font-size:70px">The energy <em>dilemma</em></h2>
+    <div class="dil reveal d3">
+      <div>
+        <div class="dil-lab"><span>What we gained</span><span>Tap a card to see its cost</span></div>
+        <div class="dil-cards" data-dil style="height:610px"></div>
+      </div>
+      <div class="dil-pic">
+        <div class="ph"><img src="img/coal-mine.jpg" alt="A large surface coal mine cut into a hillside" style="object-position:center"></div>
+        <p class="note">A surface coal mine strips away soil and rock to reach the coal. Photo: Alan Gignoux/Alamy Stock Photo</p>
+        <div class="sc bad"><b>The dilemma</b>The world cannot work without energy, but today's main sources have created huge sustainability problems.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. CARBON CAPTURE -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 2 · Fossil fuels</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span>Big idea 2 · cutting carbon emissions, and a catch</div>
+    <h2 class="reveal d2" style="font-size:70px">Capturing <em>carbon</em> to pump oil</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img src="img/co2-eor.jpg" alt="Diagram: flue gas from a power plant goes to a capture system that keeps 90% of the CO2; a pipeline carries it 80 miles to an oil field where it forces oil to the surface"></figure></div>
+      <div class="side">
+        <p class="lead">Burning fossil fuels releases <b>carbon emissions</b> such as CO₂. This plant catches 90% of its CO₂ and sends it by pipeline to an oil field, where it is used to force more oil to the surface.</p>
+        <div class="sc sky"><b>Carbon emissions</b>Greenhouse gases like carbon dioxide that human activities release into the air. They trap heat and drive global warming.</div>
+        <div class="rq" data-def><h3>Quick question: is this a climate solution?</h3><p class="think">Think about it with a partner, then tap.</p><p class="ans-text">Partly. It keeps CO₂ out of the air at the plant. But the extra oil it brings up will be burned and release carbon again. Both are true, so we judge the whole system.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. EROI -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 2 · Fossil fuels</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>Big idea 2 · what does a source give back?</div>
+    <h2 class="reveal d2" style="font-size:66px">Energy return on <em>investment</em></h2>
+    <div class="eroi reveal d3">
+      <div class="eroi-l">
+        <div class="erow"><span>Energy spent: <b id="l-in">10</b></span><div class="t" id="e-in"><i></i></div></div>
+        <div class="erow"><span>Energy you get: <b id="l-out">100</b></span><div class="t" id="e-out"><i></i></div></div>
+        <div class="sim" style="display:block">
+          <div class="slider"><label>Energy spent to find, dig, drill and refine<output id="o-in">10</output></label><input type="range" id="s-in" min="1" max="20" value="10"></div>
+          <div class="slider"><label>Usable energy delivered<output id="o-out">100</output></label><input type="range" id="s-out" min="0" max="200" value="100"></div>
+        </div>
+        <div class="epre">
+          <button class="btn ghost" type="button" data-p="2,60">Like an oil well · 30 to 1</button>
+          <button class="btn ghost" type="button" data-p="20,20">Break-even · 1 to 1</button>
+          <button class="btn ghost" type="button" data-p="20,10">Loses energy</button>
+        </div>
+        <div class="erat"><b id="e-ratio">10:1</b><span id="e-msg">For every 1 unit of energy spent, you get 10 back.</span></div>
+        <p class="note">Teaching numbers. Real EROI values depend on the source and how it is measured.</p>
+      </div>
+      <div class="eroi-r">
+        <div class="sc sky"><b>EROI</b>The usable energy a source delivers divided by the energy spent to get and refine it.</div>
+        <div class="sc green"><b>Why it matters</b>A high EROI means a big net energy gain. It helps us judge whether a new source is worth building.</div>
+        <div class="rq" data-def><h3>Quick question: can a source with an EROI below 1 power a city?</h3><p class="think">Move the sliders, then tap to check.</p><p class="ans-text">No. It uses more energy than it delivers, so it works like a battery or a sink, not a source. A battery is a secondary energy carrier: it moves energy made somewhere else.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. FEEDBACK LOOPS -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 3 · FEW nexus</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 3 · systems thinking in the energy sector</div>
+    <h2 class="reveal d2" style="font-size:70px">Feedback <em>loops</em></h2>
+    <div class="loops reveal d3" id="loops">
+      <div class="card accent">
+        <span class="tag">Balancing loop</span>
+        <h3>Produces stability. It corrects itself.</h3>
+        <svg class="ch" viewBox="0 0 560 300" id="ch-bal" aria-label="Room temperature rising and levelling off at the target"></svg>
+        <p>A thermostat compares the room to a <b>target</b>. The bigger the gap, the harder the heater works, so the gap shrinks.</p>
+        <p class="eg"><b>In energy:</b> a higher price makes people use less, which lowers the price again.</p>
+      </div>
+      <div class="card gold">
+        <span class="tag">Reinforcing loop</span>
+        <h3>Leads to instability. It grows on itself.</h3>
+        <svg class="ch" viewBox="0 0 560 300" id="ch-rei" aria-label="Energy demand growing faster and faster"></svg>
+        <p>More births make more people, and more people make more births. The growth speeds up, like a snowball.</p>
+        <p class="eg"><b>In energy:</b> cheap energy helps the economy grow, and a bigger economy asks for more energy.</p>
+      </div>
+    </div>
+    <div class="loopbtn"><button class="btn" type="button" id="loop-go">Play both loops</button><span class="note">Teaching numbers, not real data. Look at the shape of each line.</span></div>
+  </div>
+</section>
+
+<!-- 16. STOCK AND FLOW: EFFICIENCY -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 3 · FEW nexus</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>Big idea 3 · stock and flow: energy efficiency</div>
+    <h2 class="reveal d2" style="font-size:66px">Closing the efficiency <em>gap</em></h2>
+    <div class="sf reveal d3">
+      <div class="sf-l">
+        <div class="sf-dia"><svg viewBox="0 0 860 340" aria-label="Stock and flow diagram: the efficiency gap drives the increase of efficiency, which fills the efficiency stock">
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0d7397"/></marker></defs>
+          <rect x="600" y="40" width="220" height="90" rx="12" fill="#e6f1ef" stroke="#0d7397" stroke-width="4"/>
+          <text x="710" y="82" text-anchor="middle" style="font-size:28px;font-weight:700">Efficiency</text><text x="710" y="108" text-anchor="middle" class="ts">the stock</text>
+          <path d="M40 85H596" stroke="#9fc7d3" stroke-width="14" fill="none"/>
+          <path d="M596 70l18 15-18 15z" fill="#0d7397"/>
+          <path d="M300 65l40 40V65l-40 40z" fill="#0d7397"/>
+          <text x="320" y="46" text-anchor="middle" style="font-weight:700">Increase of efficiency</text><text x="450" y="76" class="ts">the flow</text>
+          <circle cx="320" cy="225" r="50" fill="#fffdf8" stroke="#0d7397" stroke-width="3"/><text x="320" y="224" text-anchor="middle">Efficiency</text><text x="320" y="248" text-anchor="middle">gap</text>
+          <path d="M320 174V114" stroke="#0d7397" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+          <path d="M710 130C710 232 520 236 374 230" stroke="#0d7397" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+          <text x="560" y="262" class="ts">more efficiency shrinks the gap</text>
+          <path d="M70 250l36-36 36 36-36 36z" fill="#eccf72" stroke="#c4851c" stroke-width="3"/><text x="106" y="316" text-anchor="middle">Efficiency goal</text>
+          <path d="M146 246C190 240 220 234 264 228" stroke="#0d7397" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+          <path d="M470 286l32-32 32 32-32 32z" fill="#eccf72" stroke="#c4851c" stroke-width="3"/><text x="552" y="294" class="ts" style="fill:#10313d;font-size:20px">Time to reach goal</text>
+          <path d="M490 262C440 200 390 140 346 108" stroke="#0d7397" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#ah)"/>
+        </svg></div>
+        <div class="sf-chart"><svg viewBox="0 0 860 300" id="sf-ch" aria-label="Efficiency over 40 years rising toward the goal"></svg></div>
+      </div>
+      <div class="sf-r">
+        <p class="note" style="font-size:22px">Efficiency here means the share of energy that does useful work instead of being wasted. Teaching numbers.</p>
+        <div class="slider"><label>Efficiency goal<output id="so-goal">80%</output></label><input type="range" id="ss-goal" min="50" max="95" value="80"></div>
+        <div class="slider"><label>Time to reach the goal<output id="so-time">12 years</output></label><input type="range" id="ss-time" min="4" max="30" value="12"></div>
+        <div class="stat"><div><b id="st-90">28</b>years to close 90% of the gap</div><div><b id="st-20">74%</b>efficiency in year 20</div></div>
+        <div class="sc green"><b>Read it as a system</b>The gap is the balancing loop. A bigger gap speeds the flow, and the flow slows as the stock fills.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17. THE FEW NEXUS -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 3 · FEW nexus</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 3 · three systems, one tangle</div>
+    <h2 class="reveal d2" style="font-size:68px">The food-energy-water <em>nexus</em></h2>
+    <div class="fewimg reveal d3">
+      <div class="ph"><figure class="fig plain" style="margin:0"><img src="img/few-nexus.jpg" alt="The food-energy-water nexus: energy, food and water arrows around people, landscapes and ecosystems, with entry points at energy security, food security and water security"></figure></div>
+      <div>
+        <p class="lead" style="font-size:30px;max-width:none;margin-bottom:22px">A <b>nexus</b> is a place where things connect. Food, energy and water meet in <b>people, landscapes and ecosystems</b>, so changing one changes the other two.</p>
+        <div class="entry">
+          <div class="e en"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><span><b>Energy security</b>Governance and investment</span></div>
+          <div class="e fd"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-wheat"/></svg></span><span><b>Food security</b>Policy and investment</span></div>
+          <div class="e wt"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><span><b>Water security</b>Management and investment</span></div>
+        </div>
+        <p class="note" style="margin-top:14px">These are the three entry points for managing the nexus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. FEW LINKS -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 3 · FEW nexus</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 3 · six arrows, tap each one</div>
+    <h2 class="reveal d2" style="font-size:66px">Follow the <em>links</em></h2>
+    <div class="nx reveal d3">
+      <svg viewBox="0 0 960 700" id="nx-svg" aria-label="Food, energy and water with six numbered arrows between them"></svg>
+      <div class="nx-side" id="nx-side"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. GAME -->
+<section class="slide" id="mixgame">
+  <div class="rail"><b>15</b><span>Class game</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Class game · about 10 minutes, work in pairs</div>
+    <h2 class="reveal d2" style="font-size:64px">Keep the lights <em>on</em></h2>
+    <div class="mg reveal d3">
+      <div class="mg-l">
+        <p class="mg-ask">A city needs <b>10 blocks</b> of power. Fill all 10 and keep <b>every meter</b> inside its limit.</p>
+        <div id="mg-rows" style="display:flex;flex-direction:column;gap:8px;flex:1;min-height:0"></div>
+      </div>
+      <div class="mg-r">
+        <div class="tray" id="mg-tray"></div>
+        <div id="mg-meters" style="display:flex;flex-direction:column;gap:12px"></div>
+        <div class="mg-stat" id="mg-stat">Fill 10 blocks to begin.</div>
+        <button class="btn ghost" type="button" id="mg-reset">Clear all blocks</button>
+        <p class="note" style="font-size:18px">Always-on sources keep running day and night. Sun and wind come and go, and this game has no batteries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. DEBRIEF -->
+<section class="slide" id="mixdebrief">
+  <div class="rail"><b>15</b><span>Class game</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class game · what did you find?</div>
+    <h2 class="reveal d2" style="font-size:64px">What the game <em>showed</em></h2>
+    <div class="db reveal d3">
+      <div class="db-l">
+        <div class="db-sum" id="db-sum">Fill all 10 blocks on the game slide to see how your plan did.</div>
+        <div class="rq" data-def><h3>The trap: "renewable means no problems"</h3><p class="think">Which source looked clean but used the most water and farmland? Tap to check.</p><p class="ans-text"><b>Burning energy crops.</b> It is renewable and has lower carbon emissions than coal, but it uses the most water and the most farmland. It is a food-energy-water trade-off.</p></div>
+        <div class="rq" data-def><h3>Nuclear and coal vs. water</h3><p class="think">Which sources were low in carbon but high in water? Tap to check.</p><p class="ans-text"><b>Nuclear</b> is very low in carbon but uses a lot of cooling water. <b>Coal</b> is high in both.</p></div>
+        <div class="rq" data-def><h3>The cheapest "source"</h3><p class="think">What helped every meter at once? Tap to check.</p><p class="ans-text"><b>Using less (efficiency).</b> It covers demand without carbon, water or land. It is the demand side of the energy system.</p></div>
+      </div>
+      <div class="ex">
+        <div><label for="mx-hard"><i>1</i>Which goal was hardest to meet?</label>
+          <select id="mx-hard"><option value="">Choose one</option><option value="co2">Carbon emissions</option><option value="water">Water use</option><option value="land">Farmland and food pressure</option><option value="cost">Cost</option><option value="on">Keeping enough always-on power</option></select></div>
+        <div><label for="mx-trade"><i>2</i>Name one trade-off you saw between food, energy and water.</label><textarea id="mx-trade" maxlength="400" placeholder="For example: choosing X helped energy but hurt water because..."></textarea></div>
+        <div class="go-row"><button class="btn" type="button" id="mx-save">Submit my plan</button><span class="status" id="mx-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1500px">A farm pumps groundwater to irrigate its crops with a diesel pump. Which <em>links</em> does this show?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="2">
+      <button class="opt" type="button"><b>A</b>Food and water only</button>
+      <button class="opt" type="button"><b>B</b>Energy and water only</button>
+      <button class="opt" type="button"><b>C</b>Food, energy and water are all linked</button>
+      <button class="opt" type="button"><b>D</b>None. These systems are separate</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
+
+<!-- 22. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="img/fields-aerial.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1040px">
+    <div class="hero-badge reveal"><b>L<em>15</em></b><span>The FEWs nexus and energy systems</span></div>
+    <div class="title-k reveal d2">The takeaway</div>
+    <p class="hero-lead reveal d2">Food, energy and water are one tangled system, so a choice in one <em>ripples</em> into the others.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Fossil fuels powered modern life, but they cost us pollution, resources and a changing climate.</li>
+      <li>Judge any energy source by what it gives back (EROI), not only by what it costs.</li>
+      <li>Think in loops and links, and watch for trade-offs, even with renewable choices.</li>
+    </ol>
+    <div class="dstrip reveal d4"><b>Still due</b><span>Project topic selection and outline at the Module 5 review session. Check InQuizitive 12 to 14 and the US Energy Transition quiz on the course site.</span></div>
+  </div>
+</section>
+
+</main></div>
+
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, esc, $, $$, say, NS, pathOf } from './lecture.js?v=2026-10-20';
+import { SOURCES, GOALS, DEMAND, MAX_EFF, MIN_ON, score } from './mix.js?v=2026-10-20';
+
+const LECTURE = 'm5-s2';
+const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+
+/* === KEY TERMS === the four Module 5 glossary terms listed for this session */
+const KEY_TERMS = [['Food-Energy-Water (FEW) Nexus', 'cycle', 'sky'], ['Fossil Fuel', 'flame', 'bad'], ['Carbon Emissions', 'cloud', 'gold'], ['Energy Return on Investment (EROI)', 'gauge', 'green']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || { term: name, definition: '', example: '' }; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill($('.slide.hero'), d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === WHAT'S DUE === tick boxes, remembered on this device only */
+const dueKey = 'sos110-l15-due';
+let ticks = {};
+try { ticks = JSON.parse(localStorage.getItem(dueKey) || '{}'); } catch { ticks = {}; }
+$$('.chk li').forEach(li => {
+  li.classList.toggle('on', !!ticks[li.dataset.k]);
+  li.addEventListener('click', () => {
+    li.classList.toggle('on'); ticks[li.dataset.k] = li.classList.contains('on');
+    try { localStorage.setItem(dueKey, JSON.stringify(ticks)); } catch { /* private window */ }
+  });
+});
+
+/* === DILEMMA FLIP PAIRS === */
+const DIL = [
+  ['Established infrastructure', 'Familiar, transportable, reliable, versatile and affordable.', 'Air and water pollution', 'Burning fuel releases SO₂, NOₓ and particulate matter (PM), which cause health risks.'],
+  ['Economic growth', 'Efficiency, comfort and convenience.', 'Resource depletion', 'Digging and drilling disrupt local ecosystems and displace communities.'],
+  ['Access', 'Widely available, storable, affordable and reliable.', 'Climate change', 'CO₂ and CH₄ emissions are threats and increase vulnerability.'],
+];
+$('[data-dil]').innerHTML = DIL.map(([t, d, ct, cd]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: cd, back: `The cost: ${ct}`, hint: 'Tap to see the cost' })).join('');
+wireFlips($('[data-dil]'));
+
+/* === QUICK QUESTIONS === tap to reveal, not recorded */
+wireReveals();
+
+/* === EROI === */
+const sIn = $('#s-in'), sOut = $('#s-out');
+function showEroi() {
+  const a = +sIn.value, b = +sOut.value, r = b / a;
+  $('#o-in').textContent = a; $('#o-out').textContent = b;
+  $('#e-in i').style.width = `${a / 200 * 100}%`; $('#l-in').textContent = a;
+  $('#e-out i').style.width = `${b / 200 * 100}%`; $('#l-out').textContent = b;
+  $('#e-out').classList.toggle('loss', b < a);
+  $('#e-ratio').textContent = `${r >= 10 ? Math.round(r) : r.toFixed(1)}:1`;
+  $('#e-msg').textContent = b < a ? `You spend more energy than you get. Net change: ${b - a} units.` : b === a ? 'Break-even: you get back exactly what you spent. Nothing is left over to use.' : `For every 1 unit spent, you get ${r >= 10 ? Math.round(r) : r.toFixed(1)} back. Net gain: ${b - a} units.`;
+}
+[sIn, sOut].forEach(s => s.addEventListener('input', showEroi));
+$$('.epre [data-p]').forEach(b => b.addEventListener('click', () => { const [a, o] = b.dataset.p.split(',').map(Number); sIn.value = a; sOut.value = o; showEroi(); }));
+showEroi();
+
+/* === FEEDBACK LOOPS === */
+function chart(el, pts, { ymin, ymax, ylab, color, target }) {
+  const X0 = 64, X1 = 540, Y0 = 18, Y1 = 250;
+  const x = i => X0 + i / (pts.length - 1) * (X1 - X0), y = v => Y1 - (v - ymin) / (ymax - ymin) * (Y1 - Y0);
+  el.innerHTML = `<line x1="${X0}" y1="${Y1}" x2="${X1}" y2="${Y1}" stroke="#cfc4a8" stroke-width="2"/><line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1}" stroke="#cfc4a8" stroke-width="2"/>
+    ${target != null ? `<line x1="${X0}" x2="${X1}" y1="${y(target)}" y2="${y(target)}" stroke="#7d8d93" stroke-width="3" stroke-dasharray="8 7"/><text x="${X1}" y="${y(target) - 8}" text-anchor="end">target</text>` : ''}
+    <path class="cv" d="${pathOf(pts, x, y)}" stroke="${color}"/>
+    <text x="${X1}" y="${Y1 + 28}" text-anchor="end">time →</text><text x="14" y="${(Y0 + Y1) / 2}" transform="rotate(-90 14 ${(Y0 + Y1) / 2})" text-anchor="middle">${ylab}</text>`;
+  const p = $('path.cv', el); const len = p.getTotalLength(); p.style.setProperty('--len', Math.ceil(len));
+}
+const N = 41;
+chart($('#ch-bal'), Array.from({ length: N }, (_, i) => 72 - 17 * Math.exp(-0.5 * i / 4)), { ymin: 50, ymax: 78, ylab: 'room temperature', color: '#0d7397', target: 72 });
+chart($('#ch-rei'), Array.from({ length: N }, (_, i) => 100 * Math.exp(0.26 * i / 4)), { ymin: 0, ymax: 1400, ylab: 'energy demand', color: '#c4851c' });
+const loops = $('#loops');
+$('#loop-go').addEventListener('click', () => { loops.classList.remove('go'); void loops.offsetWidth; loops.classList.add('go'); });
+new MutationObserver(() => { if ($('#loops').closest('.slide').classList.contains('visible')) setTimeout(() => loops.classList.add('go'), 900); }).observe($('#loops').closest('.slide'), { attributes: true, attributeFilter: ['class'] });
+
+/* === STOCK AND FLOW: EFFICIENCY === each year the stock closes 1/T of the gap */
+const goalS = $('#ss-goal'), timeS = $('#ss-time');
+function showSF() {
+  const goal = +goalS.value, T = +timeS.value, start = 40, yrs = 40;
+  const e = [start]; for (let i = 1; i <= yrs; i++) e.push(e[i - 1] + (goal - e[i - 1]) / T);
+  $('#so-goal').textContent = `${goal}%`; $('#so-time').textContent = `${T} years`;
+  const n90 = Math.ceil(Math.log(0.1) / Math.log(1 - 1 / T));
+  $('#st-90').textContent = n90; $('#st-20').textContent = `${Math.round(e[20])}%`;
+  const X0 = 60, X1 = 840, Y0 = 16, Y1 = 256, x = i => X0 + i / yrs * (X1 - X0), y = v => Y1 - (v - 30) / 70 * (Y1 - Y0);
+  $('#sf-ch').innerHTML = `${[40, 60, 80, 100].map(v => `<line x1="${X0}" x2="${X1}" y1="${y(v)}" y2="${y(v)}" stroke="#ece5d6" stroke-width="2"/><text x="${X0 - 8}" y="${y(v) + 5}" text-anchor="end">${v}%</text>`).join('')}
+    <line x1="${X0}" x2="${X1}" y1="${y(goal)}" y2="${y(goal)}" stroke="#c4851c" stroke-width="3" stroke-dasharray="8 7"/><text x="${X1}" y="${y(goal) - 8}" text-anchor="end">goal</text>
+    <path d="${pathOf(e, x, y)}" fill="none" stroke="#0d7397" stroke-width="5" stroke-linejoin="round"/>
+    <text x="${X0}" y="${Y1 + 28}">year 0</text><text x="${X1}" y="${Y1 + 28}" text-anchor="end">year 40</text>`;
+}
+[goalS, timeS].forEach(s => s.addEventListener('input', showSF));
+showSF();
+
+/* === FEW NEXUS LINKS === */
+const NODES = { en: { x: 200, y: 120, label: 'Energy', sub: 'power, fuel, heat' }, fd: { x: 760, y: 120, label: 'Food', sub: 'farms, processing, meals' }, wt: { x: 480, y: 560, label: 'Water', sub: 'rivers, groundwater, pipes' } };
+const LINKS = [
+  { id: 1, a: [150, 180], b: [390, 500], t: 'Energy needs water', d: 'Producing energy needs water: for cooling power plants and for mining and processing fuel. It also changes water quality and how much water is available.', ph: 'Phoenix: the Palo Verde nuclear plant west of the city cools with treated wastewater from nearby cities.' },
+  { id: 2, a: [430, 500], b: [250, 180], t: 'Water needs energy', d: 'A clean water supply needs energy to pump, move and clean the water.', ph: 'Phoenix: the Central Arizona Project canal pumps Colorado River water uphill to the Phoenix area, which takes a lot of electricity.' },
+  { id: 3, a: [530, 500], b: [710, 180], t: 'Food needs water', d: 'Food production needs clean water for irrigation, and it depends on how much water is available.', ph: 'Arizona: farms here irrigate with Colorado River water and groundwater.' },
+  { id: 4, a: [820, 180], b: [570, 500], t: 'Food affects water', d: 'Farming changes water quality and availability, through runoff, irrigation and the dams and canals that supply farms.', ph: 'Back to Lecture 12: farm runoff down the Mississippi helps feed the Gulf dead zone.' },
+  { id: 5, a: [350, 82], b: [610, 82], t: 'Food needs energy', d: 'Food production, processing and transport all need energy: tractors, fertilizer, factories, refrigerated trucks and stores.', ph: 'Phoenix: most of our food arrives by truck, which burns fuel (see Lecture 14).' },
+  { id: 6, a: [610, 160], b: [350, 160], t: 'Food affects energy', d: 'Fossil fuel extraction, energy crops and carbon sequestration affect the food supply by using land and water that could grow food.', ph: 'Burning or brewing energy crops (like corn for ethanol) takes farmland and water away from food.' },
+];
+function buildNexus() {
+  const svg = $('#nx-svg');
+  let h = `<defs><marker id="nah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7d8d93"/></marker></defs>`;
+  h += LINKS.map(l => {
+    const mx = (l.a[0] + l.b[0]) / 2, my = (l.a[1] + l.b[1]) / 2;
+    return `<g class="lk" data-id="${l.id}" tabindex="0" role="button" aria-label="Link ${l.id}: ${esc(l.t)}"><path d="M${l.a[0]} ${l.a[1]}L${l.b[0]} ${l.b[1]}" marker-end="url(#nah)"/><circle cx="${mx}" cy="${my}" r="26"/><text x="${mx}" y="${my + 11}">${l.id}</text></g>`;
+  }).join('');
+  h += Object.entries(NODES).map(([k, n]) => `<g class="node ${k}"><rect x="${n.x - 150}" y="${n.y - 60}" width="300" height="120" rx="20"/><text x="${n.x}" y="${n.y + 6}">${n.label}</text><text class="ts" x="${n.x}" y="${n.y + 38}">${n.sub}</text></g>`).join('');
+  svg.innerHTML = h;
+  const show = id => {
+    const l = LINKS.find(x => x.id === id);
+    $$('#nx-svg .lk').forEach(g => g.classList.toggle('on', +g.dataset.id === id));
+    $('#nx-side').innerHTML = `<div class="card gold"><span class="tag">Arrow ${l.id} of 6</span><h3>${esc(l.t)}</h3><p>${esc(l.d)}</p></div><div class="ph">${icon('city', 'gold')}<span>${esc(l.ph)}</span></div><p class="note">Each arrow can be a problem or a chance. What would you change to help the other two systems?</p>`;
+  };
+  $$('#nx-svg .lk').forEach(g => { const go = () => show(+g.dataset.id); g.addEventListener('click', go); g.addEventListener('keydown', e => { if (e.key === 'Enter') go(); }); });
+  show(1);
+}
+buildNexus();
+
+/* === GAME: KEEP THE LIGHTS ON === */
+const COLORS = { coal: '#4a4a4a', gas: '#c4851c', nuclear: '#42a8bf', solar: '#eccf72', wind: '#75a29f', biomass: '#6fae3f', eff: '#0d7397' };
+const plan = {};
+const rows = $('#mg-rows');
+rows.innerHTML = SOURCES.map(s => `<div class="mrow${s.id === 'biomass' ? ' trap' : ''}">${icon(s.icon, s.tone)}<div class="nm"><b>${esc(s.name)}</b><span>${esc(s.note)}</span></div><div class="st"><button type="button" data-id="${s.id}" data-d="-1" aria-label="Remove one ${esc(s.name)} block">−</button><output id="n-${s.id}">0</output><button type="button" data-id="${s.id}" data-d="1" aria-label="Add one ${esc(s.name)} block">+</button></div></div>`).join('');
+$('#mg-tray').innerHTML = Array.from({ length: DEMAND }, () => '<i></i>').join('');
+$('#mg-meters').innerHTML = GOALS.map(g => `<div class="meter" id="m-${g.id}"><span>${esc(g.label)}</span><div class="t"><i></i><u style="left:${100 / 1.6}%"></u></div><b></b></div>`).join('')
+  + `<div class="meter" id="m-on"><span>Always-on blocks</span><div class="t"><i></i><u style="left:${MIN_ON * 10}%"></u></div><b></b></div>`;
+function showMix() {
+  const t = score(plan);
+  SOURCES.forEach(s => { $(`#n-${s.id}`).textContent = plan[s.id] || 0; });
+  const tray = $$('#mg-tray i'); let k = 0;
+  tray.forEach(c => { c.className = ''; c.style.background = ''; });
+  SOURCES.forEach(s => { for (let j = 0; j < (plan[s.id] || 0) && k < DEMAND; j++, k++) { tray[k].className = 'f'; tray[k].style.background = COLORS[s.id]; } });
+  GOALS.forEach(g => {
+    const m = $(`#m-${g.id}`); m.querySelector('i').style.width = `${Math.min(t[g.id] / (g.limit * 1.6), 1) * 100}%`;
+    m.querySelector('b').textContent = `${t[g.id]}/${g.limit}`; m.classList.toggle('bad', !t.met[g.id]); m.classList.toggle('ok', t.met[g.id] && t.full);
+  });
+  const mo = $('#m-on'); mo.querySelector('i').style.width = `${Math.min(t.on / 10, 1) * 100}%`; mo.querySelector('b').textContent = `${t.on}/${MIN_ON}`;
+  mo.classList.toggle('bad', !t.met.on && t.full); mo.classList.toggle('ok', t.met.on && t.full);
+  const st = $('#mg-stat'); st.classList.toggle('win', t.win);
+  if (!t.full) st.textContent = t.blocks < DEMAND ? `Fill ${DEMAND - t.blocks} more block${DEMAND - t.blocks === 1 ? '' : 's'} to meet the city's demand.` : 'Too many blocks. Remove some.';
+  else if (t.win) st.textContent = 'Every meter is inside its limit. Nice work! Try a different mix that also works.';
+  else {
+    const over = GOALS.filter(g => !t.met[g.id]).map(g => g.label.toLowerCase());
+    if (!t.met.on) over.push('not enough always-on power');
+    st.textContent = `Not yet. Problem: ${over.join(', ')}.`;
+  }
+  const w = $('#db-sum');
+  w.textContent = !t.full ? 'Fill all 10 blocks on the game slide to see how your plan did.'
+    : t.win ? `Your plan keeps every meter inside its limit: ${t.co2} carbon, ${t.water} water, ${t.land} farmland, cost ${t.cost}.`
+    : `Your plan does not meet every goal yet (${t.co2} carbon, ${t.water} water, ${t.land} farmland, cost ${t.cost}, ${t.on} always-on). Go back and adjust it.`;
+}
+$$('.mrow .st button').forEach(b => b.addEventListener('click', () => {
+  const id = b.dataset.id, d = +b.dataset.d, cur = plan[id] || 0, t = score(plan);
+  if (d > 0 && (t.blocks >= DEMAND || (id === 'eff' && cur >= MAX_EFF))) return;
+  if (d < 0 && cur <= 0) return;
+  plan[id] = cur + d; showMix();
+}));
+$('#mg-reset').addEventListener('click', () => { Object.keys(plan).forEach(k => delete plan[k]); showMix(); });
+showMix();
+
+/* === LIVE === attendance, polls and the game */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. The warm-up needs no check-in. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (id !== 'warmup' && !await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: THE GAME PLAN === */
+$('#mx-save').addEventListener('click', async () => {
+  const st = $('#mx-status');
+  const t = score(plan), hardest = $('#mx-hard').value, tradeoff = $('#mx-trade').value.trim().slice(0, 400);
+  if (!t.full) { say(st, 'Fill all 10 blocks on the game slide first.', 'err'); return; }
+  if (!hardest) { say(st, 'Answer question 1 first.', 'err'); return; }
+  if (!tradeoff) { say(st, 'Answer question 2 first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  const picks = Object.fromEntries(SOURCES.map(s => [s.id, plan[s.id] || 0]));
+  try {
+    await live.saveSim('few-energy-mix', { plan: picks, co2: t.co2, water: t.water, land: t.land, cost: t.cost, on: t.on, win: t.win, hardest, tradeoff });
+    say(st, 'Submitted. Thanks!', 'ok');
+  } catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
