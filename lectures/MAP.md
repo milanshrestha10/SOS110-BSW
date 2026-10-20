@@ -29,7 +29,7 @@ One row per class session in `course/course.json`. Use it to track which of the 
 | M5 | m5-s1 | Sustainable food systems | | | Not built |
 | M5 | m5-s2 | Lecture 15 · The FEWs nexus and energy systems | `m5-l2-fews-nexus-energy` | `Lecture14_EnergySystemsAndAlternatives.pdf` | **Converted** |
 | M5 | m5-s3 | Alternative energy and energy equity | | | Not built |
-| M5 | m5-s4 | Review · Complexity and cascading risks | | | Not built |
+| M5 | m5-s4 | Review · Complexity and cascading risks | `m5-l4-exercises` | | Exercises deck only |
 | M6 | m6-s1 | Waste management and circular economy | | | Not built |
 | M6 | m6-s2 | Urban ecology and cities | | | Not built |
 | M6 | m6-s3 | Environmental health and vulnerability | | | Not built |
