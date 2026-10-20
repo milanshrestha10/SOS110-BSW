@@ -319,8 +319,8 @@
       <div class="ch-card">
         <span class="optk">Option B</span>
         <h3><span class="ico sky"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Juneau glacial outburst flood</h3>
-        <p>A warmer climate melts glaciers. Meltwater collects behind ice, then bursts out as a flash flood that damages homes and roads. Early warnings help people get out.</p>
-        <p class="ch-chain">Warming → melting → flash flood → damage, and early warning saves lives</p>
+        <p>Meltwater fills a basin held back by glacier ice, then drains in days into the Mendenhall River. Floods damage homes, and gauges and forecasts give warning.</p>
+        <p class="ch-chain">Melt → full basin → outburst flood → damage, and early warning helps people get out</p>
         <button class="btn" type="button" data-case="jn-ex">Build the flood diagram →</button>
       </div>
     </div>
@@ -359,7 +359,8 @@
     <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">A glacial outburst <em>flood</em> in Juneau</h2>
     <p class="steps reveal d2"><b>Build the causal loop diagram with a neighbor.</b> For each new link, choose + or −. For each loop, choose R or B. Then tap Next step.</p>
     <div class="grid reveal d3" style="grid-template-columns:1120px 1fr;gap:36px;align-items:start">
-      <svg class="cld" id="cld-jn" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of a warming climate, melting glaciers, outburst floods, damage and early warning in Juneau, Alaska, built one link at a time as students choose each sign"></svg>
+      <div><svg class="cld" id="cld-jn" viewBox="0 70 1500 730" role="img" aria-label="Causal loop diagram of a warming climate, melting glaciers, outburst floods, damage and early warning in Juneau, Alaska, built one link at a time as students choose each sign"></svg>
+      <p class="credit" style="font-size:19px;line-height:1.4;margin-top:10px;max-width:1120px"><b>From the sources:</b> Suicide Basin is a glacier-dammed basin. In 2018 and 2019 it released about 30 million cubic meters of water in 4 to 5 days (USGS). The 2024 flood damaged over 300 homes and set a river gauge record of 15.99 feet. In August 2025 it reached 16.65 feet, and temporary barriers reduced the impact (CRS). Sources: <a href="https://www.usgs.gov/news/new-study-highlights-findings-and-predictions-juneau-glacial-outburst-flood" target="_blank" rel="noopener">USGS</a> and <a href="https://www.congress.gov/crs_external_products/IN/HTML/IN12606.html" target="_blank" rel="noopener">CRS Insight IN12606</a>.</p></div>
       <div class="dz-side">
         <p class="cld-cap" id="jn-cap"></p>
         <div class="dz-pick"><button class="btn ghost" type="button" id="jn-a"></button><button class="btn ghost" type="button" id="jn-b"></button></div>
@@ -605,54 +606,48 @@ const CHESAPEAKE = cldExercise('cb', 'cld-cb', 'chesapeake', {
   last: 'The whole system: a <b>reinforcing</b> loop helps the dead zone feed itself, and a <b>balancing</b> loop is how people push back. Oysters filter algae out of the water, so losing them makes it worse. Where would a small change have a big effect?',
 });
 
-/* ---- Option B: Juneau glacial outburst flood ---- */
+/* ---- Option B: Juneau glacial outburst flood ---- built from the USGS summary of the Suicide Basin study
+   (Kienholz and others, 2020) and CRS Insight IN12606 (2025) */
 const JUNEAU = cldExercise('jn', 'cld-jn', 'juneau', {
   graph: {
     nodes: [
-      ['warm', 'Warmer climate', 170, 120, 230, 'hum'], ['melt', 'Glacier melting', 520, 120, 230], ['basin', 'Meltwater in the|ice-dammed basin', 880, 120, 290],
-      ['out', 'Outburst flood|risk', 1250, 120, 230], ['flood', 'Flood water in|Mendenhall River', 1250, 360, 270],
-      ['ice', 'Bright ice cover|on the glacier', 250, 360, 250], ['heat', 'Heat absorbed|by the surface', 560, 420, 250],
-      ['damage', 'Damage to homes,|roads and power', 1250, 620, 300, 'hum'], ['act', 'Action: barriers,|flood maps, rules', 800, 745, 290, 'act'],
-      ['warn', 'Early warning|(river gauges, alerts)', 330, 570, 300, 'act'], ['leave', 'People leave|in time', 680, 570, 230], ['lives', 'Lives lost', 1000, 570, 190],
+      ['warm', 'Warmer climate', 170, 120, 230, 'hum'], ['melt', 'Glacier melt', 500, 120, 230], ['basin', 'Water in|Suicide Basin', 860, 120, 260],
+      ['out', 'Outburst flood|from the basin', 1230, 330, 260], ['river', 'Water in the|Mendenhall River', 1230, 530, 280],
+      ['damage', 'Flood damage|to homes and roads', 1230, 730, 300, 'hum'], ['act', 'Action: flood|barriers, forecasts', 740, 730, 290, 'act'],
+      ['warn', 'Early warning|(gauges, forecasts)', 230, 530, 290, 'act'], ['leave', 'People leave|in time', 570, 530, 230], ['harm', 'Harm to people', 880, 530, 230],
     ],
     links: [
-      ['warm', 'melt', '+', 30, 0], ['melt', 'basin', '+', 30, 1], ['basin', 'out', '+', 30, 2], ['out', 'flood', '+', 30, 3], ['flood', 'damage', '+', 20, 4],
-      ['flood', 'lives', '+', -20, 4], ['warn', 'leave', '+', 20, 5], ['leave', 'lives', '−', 30, 6],
-      ['melt', 'ice', '−', 40, 7], ['ice', 'heat', '−', 40, 7], ['heat', 'melt', '+', 40, 7],
+      ['warm', 'melt', '+', 30, 0], ['melt', 'basin', '+', 30, 1], ['basin', 'out', '+', 90, 2], ['out', 'river', '+', 30, 3], ['river', 'damage', '+', 30, 4],
+      ['river', 'harm', '+', -30, 4], ['warn', 'leave', '+', 20, 5], ['leave', 'harm', '−', 30, 6],
+      ['out', 'basin', '−', 90, 7],
       ['damage', 'act', '+', 80, 8], ['act', 'damage', '−', 80, 8],
     ],
-    loops: [['R', 440, 255, 7], ['B', 1030, 695, 8]],
+    loops: [['B', 1045, 225, 7], ['B', 985, 730, 8]],
   },
   asks: [
-    ['sign', '+', 'Warmer air melts glacier ice. More <b>warming</b> means ___ <b>glacier melting</b>. Is this link + or −?', 0],
-    ['sign', '+', 'Meltwater collects in a basin next to the Mendenhall Glacier, held back by ice. More <b>melting</b> means ___ <b>water in the basin</b>. + or −?', 1],
-    ['sign', '+', 'When the ice dam gives way, the water rushes out. A fuller basin means ___ <b>outburst flood risk</b>. + or −?', 2],
-    ['sign', '+', 'More <b>outburst flood risk</b> means ___ <b>flood water</b> in the Mendenhall River. + or −?', 3],
-    ['sign', '+', 'More <b>flood water</b> means ___ <b>damage</b> to homes, roads and power. + or −?', 4],
+    ['sign', '+', 'Warmer air melts more glacier ice. More <b>warming</b> means ___ <b>glacier melt</b>. Is this link + or −?', 0],
+    ['sign', '+', 'Meltwater collects in Suicide Basin, held back by Mendenhall Glacier ice. More <b>melt</b> means ___ <b>water in the basin</b>. + or −?', 1],
+    ['sign', '+', 'When the ice dam gives way, the basin drains in a few days. A fuller basin means ___ <b>outburst flood</b>. + or −?', 2],
+    ['sign', '+', 'A bigger <b>outburst flood</b> means ___ <b>water in the Mendenhall River</b>. + or −?', 3],
+    ['sign', '+', 'Higher <b>river water</b> means ___ <b>flood damage</b>. In 2024 the flood damaged over 300 homes. + or −?', 4],
     ['sign', '+', 'River gauges and forecasts give an <b>early warning</b>. More warning means ___ <b>people leave in time</b>. + or −?', 6],
-    ['sign', '−', 'More <b>people leave in time</b> means ___ <b>lives lost</b>. + or −?', 7],
-    ['loop', 'R', 'Less bright ice means less sunlight is reflected, so the surface absorbs more heat, which melts more ice. Count the − links around this loop. R or B?', 0],
-    ['loop', 'B', 'Damage pushes people to <b>act</b> (+), and action cuts damage (−). Count the − links around this loop. R or B?', 1],
+    ['sign', '−', 'More <b>people leave in time</b> means ___ <b>harm to people</b>. + or −?', 7],
+    ['loop', 'B', 'When the basin drains, the water in it drops. Count the − links around the loop between the basin and the outburst flood. R or B?', 0],
+    ['loop', 'B', 'Damage in 2024 led to temporary barriers in 2025 that reduced damage. Damage pushes people to <b>act</b> (+), and action cuts damage (−). R or B?', 1],
   ],
   caps: [
     'Warmer air melts more glacier ice: a <b>+</b> link.',
-    'More melting means <b>more water</b> collects in the basin: <b>+</b>.',
-    'A fuller basin means a <b>higher outburst flood risk</b>: <b>+</b>.',
-    'A bigger outburst sends <b>more flood water</b> down the river: <b>+</b>.',
-    'More flood water means <b>more damage</b> to homes, roads and power lines: <b>+</b>. Floods can also cost lives: the second <b>+</b> link.',
+    'More melt means <b>more water</b> collects in the basin: <b>+</b>.',
+    'A fuller basin means a <b>bigger outburst flood</b> when it drains: <b>+</b>.',
+    'A bigger outburst sends <b>more water</b> down the Mendenhall River: <b>+</b>.',
+    'Higher river water means <b>more damage</b>: <b>+</b>. High water also puts people at risk: the second <b>+</b> link.',
     'More early warning means <b>more people leave in time</b>: <b>+</b>.',
-    'More people who leave in time means <b>fewer lives lost</b>: a <b>−</b> link, because they move in opposite directions.',
-    'Two − links, an even number, so this is a <b>reinforcing loop (R)</b>. Melting makes the ice darker, and dark ice melts faster.',
+    'More people who leave in time means <b>less harm</b>: a <b>−</b> link, because they move in opposite directions.',
+    'One − link, an odd number, so this is a <b>balancing loop (B)</b>. Each flood empties the basin, then it fills again. That is why floods can come back year after year.',
     'This loop has one − link, an odd number, so it is a <b>balancing loop (B)</b>. It is how people can push back.',
   ],
-  last: 'The whole system: a <b>reinforcing</b> loop speeds up melting, a flood chain hurts property, and <b>early warning</b> and action are how people push back and save lives. Where would a small change have a big effect?',
+  last: 'The whole system: one <b>balancing</b> loop fills and empties the basin, and another is how people push back. Gauges and forecasts give warning, but the floods return while the glacier dams the basin. Where would a small change have a big effect?',
 });
-
-/* === CHOOSE A CASE === jump to the chosen exercise slide */
-$$('[data-case]').forEach(b => b.addEventListener('click', () => {
-  const i = window.Deck.slides.findIndex(s => s.id === b.dataset.case);
-  if (i >= 0) window.Deck.go(i);
-}));
 
 /* === LIVE === attendance and activities. Saves under m5-s4, so results show on its instructor page. */
 const live = await connect(LECTURE);
