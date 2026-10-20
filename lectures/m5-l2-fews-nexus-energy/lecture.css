@@ -148,21 +148,6 @@
 .loopbtn{display:flex;gap:16px;align-items:center;margin-top:18px}
 .loopbtn .btn{font-size:22px;padding:12px 26px}
 
-/* stock and flow: energy efficiency */
-.sf{display:grid;grid-template-columns:900px 1fr;gap:44px;flex:1;min-height:0}
-.sf-l{display:flex;flex-direction:column;gap:14px}
-.sf-dia{background:#fff;border:2px solid var(--paper-2);border-radius:14px}
-.sf-dia svg{width:100%;display:block}
-.sf-dia text{font:400 21px var(--body);fill:var(--ink)}
-.sf-dia .ts{font:400 18px var(--body);fill:var(--mute)}
-.sf-chart{background:#fff;border:2px solid var(--paper-2);border-radius:14px;padding:6px 10px}
-.sf-chart svg{width:100%;display:block}
-.sf-chart text{font:400 16px var(--body);fill:var(--mute)}
-.sf-r{display:flex;flex-direction:column;gap:16px;justify-content:center}
-.sf-r .slider{margin:0}
-.sf-r .stat{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.sf-r .stat div{background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 18px;font-size:20px;color:var(--mute);line-height:1.25}
-.sf-r .stat b{display:block;font:400 54px/1 var(--display);color:var(--Blue)}
 
 /* FEW nexus diagram */
 .fewimg{display:grid;grid-template-columns:760px 1fr;gap:50px;flex:1;min-height:0;align-items:center}
@@ -283,11 +268,11 @@
 .loops .card p{font-size:26px}
 .pr{gap:14px 30px}
 .pr .p{font-size:29px;padding:10px 28px}
+.pr1 .p{font-size:26px!important;padding:9px 24px!important}
 .usbars{gap:16px}
 .eroi-l{gap:12px}
 .eroi .slider{margin:0 0 10px}
 .erow .t{height:66px}
-.sf-chart svg{max-height:250px}
 .mrow{padding:2px 14px 2px 10px}
 .mrow .st button{width:48px;height:48px}
 .mrow .ico{width:46px;height:46px}
@@ -295,3 +280,57 @@
 #mg-rows{gap:6px!important}
 .nx .lk:focus{outline:none}
 .nx .lk:focus-visible circle{stroke:var(--Blue);stroke-width:7}
+
+/* lecture 15 revisions */
+.wie{display:grid;grid-template-columns:640px 1fr;gap:40px;flex:1;min-height:0}
+.wie-def{background:var(--golden);border-radius:20px;padding:40px 44px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.wie-def .tag{color:#6b4a07}
+.wie-def .wd{font:400 50px/1.2 var(--display)}
+.wie-def .wd b{font-weight:400;text-decoration:underline;text-decoration-color:var(--Blue);text-decoration-thickness:5px;text-underline-offset:6px}
+.wie-def .wn{font-size:26px;line-height:1.4}
+.wie-src{display:flex;flex-direction:column;gap:20px;justify-content:center}
+.wie-src .card{padding:22px 30px}
+.vid{display:grid;grid-template-columns:1120px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
+.vid .video{width:1120px}
+.vid-side{display:flex;flex-direction:column;gap:20px}
+.vid-side .small{font-size:23px}
+.prx{display:grid;grid-template-columns:1fr 560px;gap:40px;flex:1;min-height:0}
+.pr1{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.prx .prpics{display:flex;flex-direction:column;gap:22px;justify-content:center}
+.prx .prpics .fig img{width:100%;display:block;border-radius:14px}
+.prx .prpics figcaption{font-size:20px;color:var(--mute);margin-top:6px}
+.rnr{display:grid;grid-template-columns:1fr 520px;gap:40px;flex:1;min-height:0;align-items:center}
+.rnr .fig img{width:100%;display:block;border-radius:14px;background:#fff}
+.rnr-cap{display:flex;flex-direction:column;gap:22px}
+.ff{display:grid;grid-template-columns:760px 1fr;gap:44px;flex:1;min-height:0}
+.ff-l{display:flex;flex-direction:column;gap:22px;justify-content:center}
+.ff-l .fig img{width:100%;display:block;border-radius:14px;background:#fff}
+.ff-r{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.ff-r .lead{font-size:30px;line-height:1.38}
+.ff-r .ph{border-radius:14px;overflow:hidden;height:300px}
+.ff-r .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ff-r .note{font-size:19px;color:var(--mute)}
+.dil-why{display:flex;flex-direction:column;gap:18px;justify-content:center}
+img.house{width:100%;border-radius:14px;display:block}
+.due{grid-template-columns:1fr 1fr}
+.due-now .big{font-size:120px}
+.due-now h3{font-size:56px}
+.pr1 .p{font-size:25px!important;padding:6px 22px!important}
+.pr1 .p i{font-size:40px!important;width:46px!important}
+.prx .src,.content>.src{margin-top:8px}
+.us-side img.house{width:300px;margin:0 auto}
+.us-side .big2{font-size:120px}
+.rnr{grid-template-columns:1fr;gap:22px;align-items:start;justify-items:center}
+.rnr .fig{width:1280px}
+.rnr-cap{flex-direction:row;width:1280px}
+.rnr-cap .sc{flex:1;font-size:26px}
+.prx{grid-template-columns:1fr 470px}
+.prx .prpics figcaption{font-size:18px}
+.us-side img.house{width:250px}
+.pr1{justify-content:flex-start;gap:8px;align-self:start}
+.pr1 .p{font-size:28px!important;padding:11px 24px!important;line-height:1.25}
+.due-now .big{font-size:88px}
+.rnr{grid-template-rows:auto auto}
+.rnr .fig{height:auto}
+.rnr .fig img{height:auto}
+.prx{grid-template-columns:1fr 440px}
