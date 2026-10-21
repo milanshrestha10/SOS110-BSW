@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
-<link rel="stylesheet" href="lecture.css?v=2026-10-21">
+<link rel="stylesheet" href="lecture.css?v=2026-10-21b">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -533,19 +533,6 @@
   </div>
 </section>
 
-<!-- 19. FEW LINKS -->
-<section class="slide">
-  <div class="rail"><b>15</b><span>Big idea 3 · FEW nexus</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Big idea 3 · six arrows, tap each one</div>
-    <h2 class="reveal d2" style="font-size:66px">Follow the <em>links</em></h2>
-    <div class="nx reveal d3">
-      <svg viewBox="0 0 960 700" id="nx-svg" aria-label="Food, energy and water with six numbered arrows between them"></svg>
-      <div class="nx-side" id="nx-side"></div>
-    </div>
-  </div>
-</section>
-
 <!-- 20. GAME -->
 <section class="slide" id="mixgame">
   <div class="rail"><b>15</b><span>Class game</span></div>
@@ -708,35 +695,6 @@ new MutationObserver(() => { if ($('#loops').closest('.slide').classList.contain
 $$('[data-youtube]').forEach(v => {
   v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}?rel=0" title="${esc(v.dataset.title || 'Video')}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 });
-
-/* === FEW NEXUS LINKS === */
-const NODES = { en: { x: 200, y: 120, label: 'Energy', sub: 'power, fuel, heat' }, fd: { x: 760, y: 120, label: 'Food', sub: 'farms, processing, meals' }, wt: { x: 480, y: 560, label: 'Water', sub: 'rivers, groundwater, pipes' } };
-const LINKS = [
-  { id: 1, a: [150, 180], b: [390, 500], t: 'Energy needs water', d: 'Producing energy needs water: for cooling power plants and for mining and processing fuel. It also changes water quality and how much water is available.', ph: 'Phoenix: the Palo Verde nuclear plant west of the city cools with treated wastewater from nearby cities.' },
-  { id: 2, a: [430, 500], b: [250, 180], t: 'Water needs energy', d: 'A clean water supply needs energy to pump, move and clean the water.', ph: 'Phoenix: the Central Arizona Project canal pumps Colorado River water uphill to the Phoenix area, which takes a lot of electricity.' },
-  { id: 3, a: [530, 500], b: [710, 180], t: 'Food needs water', d: 'Food production needs clean water for irrigation, and it depends on how much water is available.', ph: 'Arizona: farms here irrigate with Colorado River water and groundwater.' },
-  { id: 4, a: [820, 180], b: [570, 500], t: 'Food affects water', d: 'Farming changes water quality and availability, through runoff, irrigation and the dams and canals that supply farms.', ph: 'Back to Lecture 12: farm runoff down the Mississippi helps feed the Gulf dead zone.' },
-  { id: 5, a: [350, 82], b: [610, 82], t: 'Food needs energy', d: 'Food production, processing and transport all need energy: tractors, fertilizer, factories, refrigerated trucks and stores.', ph: 'Phoenix: most of our food arrives by truck, which burns fuel (see Lecture 14).' },
-  { id: 6, a: [610, 160], b: [350, 160], t: 'Food affects energy', d: 'Fossil fuel extraction, energy crops and carbon sequestration affect the food supply by using land and water that could grow food.', ph: 'Burning or brewing energy crops (like corn for ethanol) takes farmland and water away from food.' },
-];
-function buildNexus() {
-  const svg = $('#nx-svg');
-  let h = `<defs><marker id="nah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7d8d93"/></marker></defs>`;
-  h += LINKS.map(l => {
-    const mx = (l.a[0] + l.b[0]) / 2, my = (l.a[1] + l.b[1]) / 2;
-    return `<g class="lk" data-id="${l.id}" tabindex="0" role="button" aria-label="Link ${l.id}: ${esc(l.t)}"><path d="M${l.a[0]} ${l.a[1]}L${l.b[0]} ${l.b[1]}" marker-end="url(#nah)"/><circle cx="${mx}" cy="${my}" r="26"/><text x="${mx}" y="${my + 11}">${l.id}</text></g>`;
-  }).join('');
-  h += Object.entries(NODES).map(([k, n]) => `<g class="node ${k}"><rect x="${n.x - 150}" y="${n.y - 60}" width="300" height="120" rx="20"/><text x="${n.x}" y="${n.y + 6}">${n.label}</text><text class="ts" x="${n.x}" y="${n.y + 38}">${n.sub}</text></g>`).join('');
-  svg.innerHTML = h;
-  const show = id => {
-    const l = LINKS.find(x => x.id === id);
-    $$('#nx-svg .lk').forEach(g => g.classList.toggle('on', +g.dataset.id === id));
-    $('#nx-side').innerHTML = `<div class="card gold"><span class="tag">Arrow ${l.id} of 6</span><h3>${esc(l.t)}</h3><p>${esc(l.d)}</p></div><div class="ph">${icon('city', 'gold')}<span>${esc(l.ph)}</span></div><p class="note">Each arrow can be a problem or a chance. What would you change to help the other two systems?</p>`;
-  };
-  $$('#nx-svg .lk').forEach(g => { const go = () => show(+g.dataset.id); g.addEventListener('click', go); g.addEventListener('keydown', e => { if (e.key === 'Enter') go(); }); });
-  show(1);
-}
-buildNexus();
 
 /* === GAME: KEEP THE LIGHTS ON === */
 const COLORS = { coal: '#4a4a4a', gas: '#c4851c', nuclear: '#42a8bf', solar: '#eccf72', wind: '#75a29f', biomass: '#6fae3f', eff: '#0d7397' };
