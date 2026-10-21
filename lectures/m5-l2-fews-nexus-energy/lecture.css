@@ -150,12 +150,6 @@
 
 
 /* FEW nexus diagram */
-.fewimg{display:grid;grid-template-columns:900px 1fr;gap:50px;flex:1;min-height:0;align-items:center}
-.fewimg .ph img{width:100%;display:block;border-radius:14px;background:#fff}
-.entry{display:grid;gap:18px}
-.entry .e{display:flex;gap:20px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:16px 26px;font-size:26px;line-height:1.3}
-.entry .e.en{border-left:10px solid #e88a2e}.entry .e.fd{border-left:10px solid #6fae3f}.entry .e.wt{border-left:10px solid var(--Sky)}
-.entry .e b{display:block;font:400 34px var(--display);margin-bottom:2px}
 
 /* FEW nexus links */
 .nx{display:grid;grid-template-columns:960px 1fr;gap:34px;flex:1;min-height:0}
@@ -334,4 +328,3 @@ img.house{width:100%;border-radius:14px;display:block}
 .rnr .fig{height:auto}
 .rnr .fig img{height:auto}
 .prx{grid-template-columns:1fr 440px}
-.fewimg{grid-template-columns:820px 1fr;gap:44px}.fewimg .sc{font-size:22px}
