@@ -63,15 +63,16 @@
 .mk-panel h3{font:400 34px var(--display);margin:0 0 4px;display:flex;align-items:center;gap:12px}
 .mk-panel .mk-chg{font:700 24px var(--body);min-height:36px;color:var(--ink)}
 .mk-panel .mk-chg .ar{color:var(--Blue)}
-.sd-cap{font-size:25px;line-height:1.4;min-height:140px}
+.sd-cap{font-size:25px;line-height:1.4;min-height:110px}
 .sd-cap b{color:var(--Blue)}
 .sd-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
 .sd-pick .btn{font-size:21px;padding:12px 10px}
 .sd-pick .btn.wrong{background:#b3452c;color:#fff;border-color:#b3452c}
 .sd-pick .btn.right{background:#2e7d5b;color:#fff;border-color:#2e7d5b}
 .sd-pick .btn:disabled:not(.right){opacity:.45}
-.sd-out{font-size:23px;line-height:1.38;min-height:120px;margin:10px 0 0}
-.sd-end[hidden]{display:none}
+.sd-out{font-size:22px;line-height:1.35;min-height:90px;margin:8px 0 0}
+.sd-end.ex label{font-size:21px}
+.sd-end.ex textarea{height:150px;font-size:21px}
 </style>
 </head>
 <body>
@@ -151,7 +152,7 @@
     <p class="steps reveal d2"><b>1.</b> Slide the price up and down. Watch the red gap. <b>2.</b> Press <b>More buyers</b>. <b>3.</b> Press <b>Reset</b>, then <b>Cheaper to make</b>. Each time, say what happens to the price.</p>
     <div class="mk-wrap reveal d3">
       <div>
-        <svg class="mk" id="mk1" viewBox="0 0 1080 560" role="img" aria-label="A supply and demand graph for bottled water at a street fair. The demand line slopes down, the supply line slopes up, and they cross at the market price."></svg>
+        <svg class="mk" id="mk1" viewBox="0 0 1080 560" role="img" aria-label="A supply and demand graph for natural gas, priced in dollars per MMBtu. The demand line slopes down, the supply line slopes up, and they cross at the market price."></svg>
       </div>
       <div class="mk-side">
         <div class="mk-price"><label for="mk-p">Price</label><input id="mk-p" type="range" min="0" max="14" step="0.5" value="8"><output id="mk-pv" for="mk-p">$8.00</output></div>
@@ -171,7 +172,7 @@
       <div class="sc"><b>Supply</b>How much sellers offer at each price. Higher price, more offered.</div>
       <div class="sc"><b>Market price</b>The price where the amount wanted equals the amount offered.</div>
     </div>
-    <p class="note" style="margin-top:12px;font-size:19px">The market is cold bottled water at a street fair in July. The prices and amounts are teaching numbers, not measured data.</p>
+    <p class="note" style="margin-top:12px;font-size:19px">The market is natural gas. MMBtu means one million British thermal units, a unit of energy, and gas is priced per MMBtu. The prices and amounts are teaching numbers, not measured data.</p>
   </div>
 </section>
 
@@ -241,8 +242,8 @@
         </div>
         <p class="sd-out" id="sd-out" aria-live="polite"></p>
         <div class="go-row"><button class="btn ghost" type="button" id="sd-prev">Back</button><button class="btn" type="button" id="sd-next" disabled>Next step</button></div>
-        <div class="sd-end ex" id="sd-end" hidden style="margin-top:16px"><div><label for="sd-why"><i>?</i>In one or two sentences, explain why natural gas is replacing coal. Use the words supply, demand and price.</label>
-          <textarea id="sd-why" maxlength="500" placeholder="Example: New drilling made gas supply…"></textarea></div>
+        <div class="sd-end ex" id="sd-end" style="margin-top:14px"><div><label for="sd-why"><i>?</i>Explain how natural gas came to dominate, and partly replace, coal. Use the market response model and the supply and demand curves.</label>
+          <textarea id="sd-why" maxlength="800" placeholder="Example: As coal got scarcer and costlier, … New drilling made gas supply …, so the gas price … and coal demand …"></textarea></div>
           <div class="go-row"><button class="btn" type="button" id="sd-save">Submit</button><span class="status" id="sd-status"></span></div></div>
       </div>
     </div>
@@ -293,8 +294,8 @@ function market(svg, { nums = false, qmax = 16, pmax = 16 } = {}) {
     `<line class="tk" x1="${L}" x2="${R}" y1="${sy(v)}" y2="${sy(v)}"/><text x="${L - 12}" y="${sy(v) + 7}" text-anchor="end">$${v}</text><text x="${sx(v)}" y="${B + 28}" text-anchor="middle">${v}</text>`).join('') : '';
   svg.innerHTML = `<defs><clipPath id="${id}"><rect x="${L}" y="${T}" width="${R - L}" height="${B - T}"/></clipPath></defs>
     ${ticks}<path class="ax" d="M${L} ${T - 6}V${B}H${R + 8}"/>
-    <text class="al" x="${(L + R) / 2}" y="${H - 10}" text-anchor="middle">${nums ? 'Bottles sold per hour (hundreds)' : 'Quantity'}</text>
-    <text class="al" transform="translate(${nums ? 24 : 22} ${(T + B) / 2}) rotate(-90)" text-anchor="middle">${nums ? 'Price per bottle' : 'Price'}</text>
+    <text class="al" x="${(L + R) / 2}" y="${H - 10}" text-anchor="middle">${nums ? 'Natural gas sold (teaching units)' : 'Quantity'}</text>
+    <text class="al" transform="translate(${nums ? 24 : 22} ${(T + B) / 2}) rotate(-90)" text-anchor="middle">${nums ? 'Price ($ per MMBtu)' : 'Price'}</text>
     <g clip-path="url(#${id})"><line class="ln d g" data-k="gd"/><line class="ln s g" data-k="gs"/><line class="ln d" data-k="d"/><line class="ln s" data-k="s"/></g>
     <text class="lb d" data-k="dl">D</text><text class="lb s" data-k="sl">S</text>
     <g data-k="pr" style="display:none"><line class="pl" data-k="pline"/><line class="gap" data-k="gapl"/><text class="gapt" data-k="gapt"></text><circle class="pd" r="11" data-k="pd1"/><circle class="pd" r="11" data-k="pd2"/></g>
@@ -510,7 +511,7 @@ $('#pc-save').addEventListener('click', async () => {
 /* === SAVE: EXPLAIN THE SHIFT === saves under m5-s2 as supply-demand-shift */
 $('#sd-save').addEventListener('click', async () => {
   const st = $('#sd-status');
-  const why = $('#sd-why').value.trim().slice(0, 500);
+  const why = $('#sd-why').value.trim().slice(0, 800);
   if (!why) { say(st, 'Write your explanation first.', 'err'); return; }
   if (!await ensureUser(st)) return;
   const right = firstTry.filter(Boolean).length;
