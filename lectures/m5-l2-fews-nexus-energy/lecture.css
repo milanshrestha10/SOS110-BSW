@@ -361,14 +361,14 @@ img.house{width:100%;border-radius:14px;display:block}
 .mk-panel h3{font:400 34px var(--display);margin:0 0 4px;display:flex;align-items:center;gap:12px}
 .mk-panel .mk-chg{font:700 24px var(--body);min-height:36px;color:var(--ink)}
 .mk-panel .mk-chg .ar{color:var(--Blue)}
-.sd-cap{font-size:25px;line-height:1.4;min-height:140px}
+.sd-cap{font-size:25px;line-height:1.4;min-height:110px}
 .sd-cap b{color:var(--Blue)}
 .sd-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
 .sd-pick .btn{font-size:21px;padding:12px 10px}
 .sd-pick .btn.wrong{background:#b3452c;color:#fff;border-color:#b3452c}
 .sd-pick .btn.right{background:#2e7d5b;color:#fff;border-color:#2e7d5b}
 .sd-pick .btn:disabled:not(.right){opacity:.45}
-.sd-out{font-size:23px;line-height:1.38;min-height:120px;margin:10px 0 0}
+.sd-out{font-size:22px;line-height:1.35;min-height:90px;margin:8px 0 0}
 .sd-end[hidden]{display:none}
 .sd-end.ex label{font-size:21px}
-.sd-end.ex textarea{height:88px;font-size:21px}
+.sd-end.ex textarea{height:150px;font-size:21px}

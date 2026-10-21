@@ -18,8 +18,8 @@ export function initExercise(live, ensureUser) {
       `<line class="tk" x1="${L}" x2="${R}" y1="${sy(v)}" y2="${sy(v)}"/><text x="${L - 12}" y="${sy(v) + 7}" text-anchor="end">$${v}</text><text x="${sx(v)}" y="${B + 28}" text-anchor="middle">${v}</text>`).join('') : '';
     svg.innerHTML = `<defs><clipPath id="${id}"><rect x="${L}" y="${T}" width="${R - L}" height="${B - T}"/></clipPath></defs>
       ${ticks}<path class="ax" d="M${L} ${T - 6}V${B}H${R + 8}"/>
-      <text class="al" x="${(L + R) / 2}" y="${H - 10}" text-anchor="middle">${nums ? 'Bottles sold per hour (hundreds)' : 'Quantity'}</text>
-      <text class="al" transform="translate(${nums ? 24 : 22} ${(T + B) / 2}) rotate(-90)" text-anchor="middle">${nums ? 'Price per bottle' : 'Price'}</text>
+      <text class="al" x="${(L + R) / 2}" y="${H - 10}" text-anchor="middle">${nums ? 'Natural gas sold (teaching units)' : 'Quantity'}</text>
+      <text class="al" transform="translate(${nums ? 24 : 22} ${(T + B) / 2}) rotate(-90)" text-anchor="middle">${nums ? 'Price ($ per MMBtu)' : 'Price'}</text>
       <g clip-path="url(#${id})"><line class="ln d g" data-k="gd"/><line class="ln s g" data-k="gs"/><line class="ln d" data-k="d"/><line class="ln s" data-k="s"/></g>
       <text class="lb d" data-k="dl">D</text><text class="lb s" data-k="sl">S</text>
       <g data-k="pr" style="display:none"><line class="pl" data-k="pline"/><line class="gap" data-k="gapl"/><text class="gapt" data-k="gapt"></text><circle class="pd" r="11" data-k="pd1"/><circle class="pd" r="11" data-k="pd2"/></g>
@@ -179,4 +179,24 @@ export function initExercise(live, ensureUser) {
   });
   $('#sd-prev').addEventListener('click', () => { if (step > 0) { step--; showStep(); } });
   drawMk('gas'); drawMk('coal'); showStep();
+
+  /* === SAVE: PROS AND CONS === saves under m5-s2 as fuel-weighin */
+  $('#pc-save').addEventListener('click', async () => {
+    const st = $('#pc-status');
+    if (Object.keys(marks).length < CARDS.length) { say(st, 'Mark every card first.', 'err'); return; }
+    if (!await ensureUser(st)) return;
+    try { await live.saveSim('fuel-weighin', { marks }); say(st, 'Submitted. Thanks!', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  });
+
+  /* === SAVE: EXPLAIN THE SHIFT === saves under m5-s2 as supply-demand-shift */
+  $('#sd-save').addEventListener('click', async () => {
+    const st = $('#sd-status');
+    const why = $('#sd-why').value.trim().slice(0, 800);
+    if (!why) { say(st, 'Write your explanation first.', 'err'); return; }
+    if (!await ensureUser(st)) return;
+    const right = firstTry.filter(Boolean).length;
+    try { await live.saveSim('supply-demand-shift', { right, tries: picked.map(p => p.split(',').filter(Boolean).length), why }); say(st, `Submitted: ${right} of ${STEPS.length} right on the first try.`, 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  });
 }

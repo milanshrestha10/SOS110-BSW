@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
-<link rel="stylesheet" href="lecture.css?v=2026-10-21b">
+<link rel="stylesheet" href="lecture.css?v=2026-10-21c">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -404,7 +404,7 @@
     <p class="steps reveal d2"><b>1.</b> Slide the price up and down. Watch the red gap. <b>2.</b> Press <b>More buyers</b>. <b>3.</b> Press <b>Reset</b>, then <b>Cheaper to make</b>. Each time, say what happens to the price.</p>
     <div class="mk-wrap reveal d3">
       <div>
-        <svg class="mk" id="mk1" viewBox="0 0 1080 560" role="img" aria-label="A supply and demand graph for bottled water at a street fair. The demand line slopes down, the supply line slopes up, and they cross at the market price."></svg>
+        <svg class="mk" id="mk1" viewBox="0 0 1080 560" role="img" aria-label="A supply and demand graph for natural gas, priced in dollars per MMBtu. The demand line slopes down, the supply line slopes up, and they cross at the market price."></svg>
       </div>
       <div class="mk-side">
         <div class="mk-price"><label for="mk-p">Price</label><input id="mk-p" type="range" min="0" max="14" step="0.5" value="8"><output id="mk-pv" for="mk-p">$8.00</output></div>
@@ -424,7 +424,7 @@
       <div class="sc"><b>Supply</b>How much sellers offer at each price. Higher price, more offered.</div>
       <div class="sc"><b>Market price</b>The price where the amount wanted equals the amount offered.</div>
     </div>
-    <p class="note" style="margin-top:12px;font-size:19px">The market is cold bottled water at a street fair in July. The prices and amounts are teaching numbers, not measured data.</p>
+    <p class="note" style="margin-top:12px;font-size:19px">The market is natural gas. MMBtu means one million British thermal units, a unit of energy, and gas is priced per MMBtu. The prices and amounts are teaching numbers, not measured data.</p>
   </div>
 </section>
 
@@ -494,8 +494,8 @@
         </div>
         <p class="sd-out" id="sd-out" aria-live="polite"></p>
         <div class="go-row"><button class="btn ghost" type="button" id="sd-prev">Back</button><button class="btn" type="button" id="sd-next" disabled>Next step</button></div>
-        <div class="sd-end ex" id="sd-end" hidden style="margin-top:16px"><div><label for="sd-why"><i>?</i>In one or two sentences, explain why natural gas is replacing coal. Use the words supply, demand and price.</label>
-          <textarea id="sd-why" maxlength="500" placeholder="Example: New drilling made gas supply…"></textarea></div>
+        <div class="sd-end ex" id="sd-end" style="margin-top:14px"><div><label for="sd-why"><i>?</i>Explain how natural gas came to dominate, and partly replace, coal. Use the market response model and the supply and demand curves.</label>
+          <textarea id="sd-why" maxlength="800" placeholder="Example: As coal got scarcer and costlier, … New drilling made gas supply …, so the gas price … and coal demand …"></textarea></div>
           <div class="go-row"><button class="btn" type="button" id="sd-save">Submit</button><span class="status" id="sd-status"></span></div></div>
       </div>
     </div>
@@ -630,7 +630,7 @@ import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
 import { flipCard, wireFlips, wireReveals, esc, $, $$, say, NS, pathOf } from './lecture.js?v=2026-10-21';
 import { SOURCES, GOALS, DEMAND, MAX_EFF, MIN_ON, score } from './mix.js?v=2026-10-20';
-import { initExercise } from './exercise.js?v=2026-10-21';
+import { initExercise } from './exercise.js?v=2026-10-21c';
 
 const LECTURE = 'm5-s2';
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
