@@ -27,7 +27,7 @@ One row per class session in `course/course.json`. Use it to track which of the 
 | M4 | m4-s2 | Lecture 12 · Stocks-and-flows (systems dynamics) | `m4-l2-stocks-and-flows` | `Lecture10_SystemsCyclesAndHumanImpacts.pdf` | **Converted** |
 | M4 | m4-s3 | Carbon cycle and climate change | | | Not built |
 | M5 | m5-s1 | Sustainable food systems | | | Not built |
-| M5 | m5-s2 | Lecture 15 · The FEWs nexus and energy systems | `m5-l2-fews-nexus-energy` | `Lecture14_EnergySystemsAndAlternatives.pdf` | **Converted**. Exercises deck: `m5-l2-exercises` |
+| M5 | m5-s2 | Lecture 15 · The FEWs nexus and energy systems | `m5-l2-fews-nexus-energy` | `Lecture14_EnergySystemsAndAlternatives.pdf` | **Converted**. Exercises deck: `m5-l2-exercises` (coal and gas weigh-in is slide 3) |
 | M5 | m5-s3 | Alternative energy and energy equity | | | Not built |
 | M5 | m5-s4 | Review · Complexity and cascading risks | `m5-l4-exercises` | | Exercises deck only |
 | M6 | m6-s1 | Waste management and circular economy | | | Not built |
