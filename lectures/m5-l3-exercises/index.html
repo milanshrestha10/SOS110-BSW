@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 16 · Energy transition and energy justice · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* === M5 L3 EXERCISES ONLY === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
+.pl{display:grid;grid-template-columns:1fr 560px;gap:34px;align-items:start}
+.pl-rows{display:grid;gap:10px}
+.opt-row{display:grid;grid-template-columns:62px 1fr 150px 78px;gap:16px;align-items:center;width:100%;text-align:left;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:8px 18px;font:400 24px/1.2 var(--body);color:var(--ink);cursor:pointer;transition:border-color .25s,background .25s}
+.opt-row:hover{border-color:var(--Sky)}
+.opt-row.on{border-color:#2e7d5b;background:rgba(46,125,91,.1)}
+.opt-row .ico{margin:0}
+.opt-row b{display:block;font-weight:700;font-size:26px}.opt-row .d{display:block;font-size:20px;color:var(--mute)}
+.pips{display:grid;gap:3px;font:700 14px var(--body);letter-spacing:.06em;color:var(--mute)}
+.pips div{display:flex;align-items:center;gap:6px}.pips i{display:inline-flex;gap:3px}.pips i u{width:14px;height:14px;border-radius:50%;background:var(--paper-2);display:block}
+.pips i u.f{background:var(--Blue)}.pips .h i u.f{background:#2e7d5b}.pips .e i u.f{background:var(--accent)}
+.opt-row .cost{font:400 42px var(--display);color:var(--Blue);text-align:right}.opt-row .cost small{font:700 14px var(--body);color:var(--mute);display:block;letter-spacing:.1em}
+.pl-side{display:grid;gap:14px}
+.budget{background:var(--card);border:3px solid var(--paper-2);border-radius:18px;padding:14px 22px}
+.budget .row{display:flex;justify-content:space-between;align-items:baseline;font:700 21px var(--body)}
+.budget .row b{font:400 46px var(--display);color:var(--Blue)}.budget.over .row b{color:#b3452c}
+.budget .t,.mt .t{height:22px;background:var(--paper-2);border-radius:8px;overflow:hidden}.budget .t i,.mt .t i{display:block;height:100%;background:var(--Blue);transition:width .35s var(--ease)}
+.budget.over .t i{background:#b3452c}
+.mt{display:grid;grid-template-columns:200px 1fr 54px;gap:12px;align-items:center;font:700 21px var(--body)}
+.mt b{font:400 32px var(--display);text-align:right}
+.mt.g .t i{background:var(--Sky)}.mt.h .t i{background:#2e7d5b}.mt.e .t i{background:var(--accent)}
+.pl-read{font-size:22px;line-height:1.35;background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:14px;padding:10px 18px;min-height:76px}
+.chipsel{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 10px}
+.chipsel button{font:700 20px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 18px;cursor:pointer}
+.chipsel button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.ex textarea{height:84px;font-size:21px}.ex label{font-size:22px}
+.ngh{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.nb{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:18px 28px}
+.nb h3{font:400 38px var(--display);display:flex;align-items:center;gap:14px;margin:0 0 4px}
+.nb p{font-size:23px;line-height:1.32;margin:0 0 10px;color:var(--mute)}
+.nb .mt{grid-template-columns:230px 1fr 54px;margin-bottom:8px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.rule{background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 20px;font:400 23px/1.28 var(--body);color:var(--ink);text-align:left;cursor:pointer}
+.rule b{display:block;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:var(--Blue);margin-bottom:2px}
+.rule:hover{border-color:var(--Sky)}.rule.on{border-color:var(--accent);background:rgba(196,133,28,.12)}
+.jc{display:grid;gap:14px}
+.jc-q{display:grid;grid-template-columns:1fr 520px;gap:20px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:16px;padding:14px 24px}
+.jc-q b{display:block;font:400 34px var(--display);margin-bottom:2px}.jc-q span.d{font-size:23px;color:var(--mute);line-height:1.3}
+.jc-q .chipsel{margin:0;justify-content:flex-end}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+.go-row .status{margin:0;font-size:20px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 40%" src="../m5-l3-alternative-energy-equity/img/installers-hero.jpg" alt="Two workers in orange safety gear kneel on a roof to install solar panels">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
+    <div class="title-k reveal d2">Lecture 16 · Alternative energy and energy equity</div>
+    <h1 class="reveal d2" style="font-size:96px">Class Exercise <em>16</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Plan an energy transition. Then ask whether it is fair.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- CHECK IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>16</b><span>Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 1. ENERGY TRANSITION: BUILD A PLAN -->
+<section class="slide" id="plan">
+  <div class="rail"><b>16</b><span>Exercise 1 of 3 · Energy transition</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Plan your city's <em>energy transition</em></h2>
+    <p class="steps reveal d2"><b>Tap the actions you want, up to 100 points.</b> The <b>energy transition</b> is the shift from fossil fuels to clean energy. Each action earns benefits in the three groups from the EPA reading.</p>
+    <div class="pl reveal d3">
+      <div class="pl-rows" id="pl-rows"></div>
+      <div class="pl-side">
+        <div class="budget" id="budget"><div class="row"><span>Points spent</span><b id="bd-n">0 / 100</b></div><div class="t"><i id="bd-bar" style="width:0"></i></div></div>
+        <div class="mt g"><span>Electricity system</span><div class="t"><i id="m-sys" style="width:0"></i></div><b id="v-sys">0</b></div>
+        <div class="mt h"><span>Emissions and health</span><div class="t"><i id="m-health" style="width:0"></i></div><b id="v-health">0</b></div>
+        <div class="mt e"><span>Economy</span><div class="t"><i id="m-econ" style="width:0"></i></div><b id="v-econ">0</b></div>
+        <div class="pl-read" id="pl-read" aria-live="polite">Pick actions to see your benefits add up.</div>
+        <div class="ex">
+          <label><i>1</i>Which benefit is your plan weakest at?</label>
+          <div class="chipsel" id="weak"><button type="button" data-v="sys">Electricity system</button><button type="button" data-v="health">Emissions and health</button><button type="button" data-v="econ">Economy</button></div>
+          <label for="pl-why"><i>2</i>Why did you pick these actions?</label>
+          <textarea id="pl-why" maxlength="600" placeholder="We picked … because …"></textarea>
+        </div>
+        <div class="go-row"><button class="btn" type="button" id="pl-save">Submit</button><span class="status" id="pl-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 2. ENERGY JUSTICE: WHO GETS IT -->
+<section class="slide" id="rule">
+  <div class="rail"><b>16</b><span>Exercise 2 of 3 · Energy justice</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Who gets the <em>benefits</em>?</h2>
+    <p class="steps reveal d2"><b>Tap each rule to compare how it treats two neighborhoods.</b> Then choose one and answer the two questions. <b>Energy justice</b> means benefits and burdens are shared fairly, and everyone has a voice.</p>
+    <div class="ngh reveal d3">
+      <div class="nb"><h3><span class="ico sm green"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Maple Court</h3><p>Mostly homeowners with higher incomes, big sunny roofs and newer buildings. Far from the old power plant.</p>
+        <div class="mt g"><span>Lower energy bills</span><div class="t"><i data-n="bills" style="width:0"></i></div><b data-nv="bills">·</b></div>
+        <div class="mt h"><span>Cleaner air</span><div class="t"><i data-n="air" style="width:0"></i></div><b data-nv="air">·</b></div>
+        <div class="mt e"><span>A voice in planning</span><div class="t"><i data-n="voice" style="width:0"></i></div><b data-nv="voice">·</b></div></div>
+      <div class="nb"><h3><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Riverside</h3><p>Mostly renters with lower incomes, older leaky buildings and high bills. Next to the old gas power plant and a busy road.</p>
+        <div class="mt g"><span>Lower energy bills</span><div class="t"><i data-n="bills" style="width:0"></i></div><b data-nv="bills">·</b></div>
+        <div class="mt h"><span>Cleaner air</span><div class="t"><i data-n="air" style="width:0"></i></div><b data-nv="air">·</b></div>
+        <div class="mt e"><span>A voice in planning</span><div class="t"><i data-n="voice" style="width:0"></i></div><b data-nv="voice">·</b></div></div>
+    </div>
+    <div class="rules reveal d3" id="rules"></div>
+    <div class="reveal d3 ex" style="display:grid;grid-template-columns:1fr 1fr 190px;gap:22px;align-items:end">
+      <div><label for="ru-left"><i>1</i>Who is still left out under your rule?</label><textarea id="ru-left" maxlength="500" placeholder="Under this rule, … is still left out because …"></textarea></div>
+      <div><label for="ru-add"><i>2</i>What one thing would you add to make it fairer?</label><textarea id="ru-add" maxlength="500" placeholder="I would add …"></textarea></div>
+      <div><button class="btn" type="button" id="ru-save" style="width:100%">Submit</button><span class="status" id="ru-status" style="display:block;margin:8px 0 0;font-size:19px"></span></div>
+    </div>
+    <p class="credit reveal d4" style="font-size:18px;margin-top:6px">The neighborhoods and every score are made-up teaching numbers (0 to 10). Look at the pattern, not the numbers.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 3. JUSTICE CHECK -->
+<section class="slide" id="check">
+  <div class="rail"><b>16</b><span>Exercise 3 of 3 · Justice check</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor · about 8 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Is your plan <em>fair</em>?</h2>
+    <p class="steps reveal d2"><b>Look back at the plan you built in Exercise 1.</b> Rate it on each question, then write one change that would make it fairer.</p>
+    <div class="jc reveal d3" id="jc"></div>
+    <div class="ex reveal d3" style="margin-top:14px"><label for="jc-fix"><i>4</i>Write one change that would make your plan fairer.</label>
+      <textarea id="jc-fix" maxlength="600" placeholder="To make my plan fairer, I would …"></textarea>
+      <div class="go-row"><button class="btn" type="button" id="jc-save">Submit</button><span class="status" id="jc-status"></span></div></div>
+  </div>
+</section>
+
+<!-- EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1560px">A city closes an old gas power plant and builds a solar farm across town. Which follow-up question is about <em>energy justice</em>?</h2>
+    <div class="poll reveal d3" data-poll="exitex" data-correct="1">
+      <button class="opt" type="button"><b>A</b>How many kilowatt-hours will the farm make each year?</button>
+      <button class="opt" type="button"><b>B</b>Who breathed the old plant's pollution, and do those residents and the plant's workers share in the new benefits?</button>
+      <button class="opt" type="button"><b>C</b>How many panels fit on one acre?</button>
+      <button class="opt" type="button"><b>D</b>Which panel brand is the cheapest?</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exitex">Show answer</button><span class="status" data-poll-status="exitex" style="margin:0"></span></div>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { $, $$, say, esc } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm5-s3';
+const icon = (i, tone = '') => `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+
+/* === COURSE DATA === fills the module title on the title slide */
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === EXERCISE 1: ENERGY TRANSITION PLAN === all points and scores are teaching numbers (0 to 3 per benefit) */
+const BUDGET = 100, MAXV = 12;
+const OPTS = [
+  { id: 'eff', name: 'Efficiency upgrades', note: 'Insulation, LED lights and better appliances in homes and schools', cost: 20, sys: 2, health: 2, econ: 3, i: 'gauge', tone: 'green' },
+  { id: 'dg', name: 'Rooftop solar on public buildings', note: 'Clean power made where it is used (distributed generation)', cost: 30, sys: 2, health: 2, econ: 2, i: 'sun', tone: 'gold' },
+  { id: 'farm', name: 'Wind and solar farm', note: 'Large renewable power plant outside the city', cost: 40, sys: 1, health: 3, econ: 2, i: 'wind', tone: 'sky' },
+  { id: 'bat', name: 'Batteries near neighborhoods', note: 'Store extra renewable power and ease strain on the grid at peak times', cost: 25, sys: 3, health: 1, econ: 1, i: 'battery', tone: 'sky' },
+  { id: 'dr', name: 'Peak-time demand response', note: 'Pay customers to cut use when the grid is stretched', cost: 15, sys: 3, health: 1, econ: 1, i: 'clock', tone: 'gold' },
+  { id: 'train', name: 'Clean-energy job training', note: 'Train residents, including fossil-fuel workers, for new jobs', cost: 15, sys: 0, health: 0, econ: 3, i: 'briefcase', tone: 'green' },
+];
+const dots = n => `<i>${[0, 1, 2].map(k => `<u class="${k < n ? 'f' : ''}"></u>`).join('')}</i>`;
+$('#pl-rows').innerHTML = OPTS.map(o => `<button type="button" class="opt-row" data-id="${o.id}">${icon(o.i, o.tone)}<span><b>${esc(o.name)}</b><span class="d">${esc(o.note)}</span></span><span class="pips"><div>GRID ${dots(o.sys)}</div><div class="h">HEALTH ${dots(o.health)}</div><div class="e">ECONOMY ${dots(o.econ)}</div></span><span class="cost">${o.cost}<small>POINTS</small></span></button>`).join('');
+const picked = new Set();
+const NAMES = { sys: 'the electricity system', health: 'emissions and health', econ: 'the economy' };
+function showPlan() {
+  const chosen = OPTS.filter(o => picked.has(o.id));
+  const cost = chosen.reduce((a, o) => a + o.cost, 0);
+  const tot = { sys: 0, health: 0, econ: 0 };
+  chosen.forEach(o => { for (const k in tot) tot[k] += o[k]; });
+  $$('.opt-row').forEach(r => r.classList.toggle('on', picked.has(r.dataset.id)));
+  $('#bd-n').textContent = `${cost} / ${BUDGET}`;
+  $('#bd-bar').style.width = `${Math.min(100, cost / BUDGET * 100)}%`;
+  $('#budget').classList.toggle('over', cost > BUDGET);
+  for (const k in tot) { $(`#m-${k}`).style.width = `${Math.min(100, tot[k] / MAXV * 100)}%`; $(`#v-${k}`).textContent = tot[k]; }
+  const lo = Object.keys(tot).sort((a, b) => tot[a] - tot[b])[0], hi = Object.keys(tot).sort((a, b) => tot[b] - tot[a])[0];
+  $('#pl-read').innerHTML = !chosen.length ? 'Pick actions to see your benefits add up.'
+    : cost > BUDGET ? `<b>Over budget by ${cost - BUDGET} points.</b> Remove an action.`
+    : `Your plan helps most with <b>${NAMES[hi]}</b> and least with <b>${NAMES[lo]}</b>. ${BUDGET - cost ? `You have ${BUDGET - cost} points left.` : 'You used every point.'}`;
+  return { cost, tot, chosen };
+}
+$$('.opt-row').forEach(r => r.addEventListener('click', () => { const id = r.dataset.id; picked.has(id) ? picked.delete(id) : picked.add(id); showPlan(); }));
+let weak = '';
+$$('#weak button').forEach(b => b.addEventListener('click', () => { weak = b.dataset.v; $$('#weak button').forEach(x => x.classList.toggle('on', x === b)); }));
+showPlan();
+
+/* === EXERCISE 2: WHO GETS THE BENEFITS === scores 0 to 10, made-up */
+const RULES = [
+  { id: 'first', tag: 'Rule A', text: 'First come, first served: rebates for rooftop solar.', m: { bills: 8, air: 3, voice: 7 }, r: { bills: 2, air: 2, voice: 2 } },
+  { id: 'equal', tag: 'Rule B', text: 'Every household gets the same rebate. Renters need their landlord to agree.', m: { bills: 6, air: 3, voice: 5 }, r: { bills: 3, air: 2, voice: 4 } },
+  { id: 'target', tag: 'Rule C', text: 'Help the households with the highest energy bills first: free efficiency upgrades and shared clean power, planned with residents.', m: { bills: 4, air: 3, voice: 5 }, r: { bills: 8, air: 7, voice: 8 } },
+  { id: 'farm', tag: 'Rule D', text: 'Build one big solar farm where land is cheapest, and let the utility decide.', m: { bills: 4, air: 3, voice: 1 }, r: { bills: 4, air: 6, voice: 1 } },
+];
+$('#rules').innerHTML = RULES.map(r => `<button type="button" class="rule" data-id="${r.id}"><b>${r.tag}</b>${esc(r.text)}</button>`).join('');
+let rule = '';
+function showRule() {
+  const R = RULES.find(x => x.id === rule);
+  $$('.rule').forEach(b => b.classList.toggle('on', b.dataset.id === rule));
+  $$('.ngh .nb').forEach((nb, i) => {
+    for (const k of ['bills', 'air', 'voice']) {
+      const v = R ? (i ? R.r : R.m)[k] : 0;
+      $(`[data-n="${k}"]`, nb).style.width = `${v * 10}%`;
+      $(`[data-nv="${k}"]`, nb).textContent = R ? v : '·';
+    }
+  });
+}
+$$('.rule').forEach(b => b.addEventListener('click', () => { rule = b.dataset.id; showRule(); }));
+showRule();
+
+/* === EXERCISE 3: JUSTICE CHECK === */
+const JQ = [
+  ['Who benefits?', 'Do cheaper bills, cleaner air and jobs reach every neighborhood?'],
+  ['Who carries the costs?', 'Does the plan avoid leaving the same groups with the pollution, higher bills or lost jobs, including fossil-fuel workers?'],
+  ['Who has a say?', 'Were residents and workers asked, or only the people who run the system?'],
+];
+const ratings = {};
+$('#jc').innerHTML = JQ.map(([t, d], i) => `<div class="jc-q" data-q="${i}"><div><b>${i + 1} · ${esc(t)}</b><span class="d">${esc(d)}</span></div><div class="chipsel"><button type="button" data-v="yes">Yes</button><button type="button" data-v="partly">Partly</button><button type="button" data-v="notyet">Not yet</button></div></div>`).join('');
+$$('.jc-q').forEach(q => $$('button', q).forEach(b => b.addEventListener('click', () => { ratings[q.dataset.q] = b.dataset.v; $$('button', q).forEach(x => x.classList.toggle('on', x === b)); })));
+
+/* === POLLS AND LIVE === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: TRANSITION PLAN === saves under m5-s3 as transition-plan */
+$('#pl-save').addEventListener('click', async () => {
+  const st = $('#pl-status'), { cost, tot, chosen } = showPlan();
+  const why = $('#pl-why').value.trim().slice(0, 600);
+  if (!chosen.length) { say(st, 'Pick at least one action.', 'err'); return; }
+  if (cost > BUDGET) { say(st, 'Your plan is over budget.', 'err'); return; }
+  if (!weak) { say(st, 'Pick the benefit your plan is weakest at.', 'err'); return; }
+  if (!why) { say(st, 'Write why you picked these actions.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('transition-plan', { plan: chosen.map(o => o.id), cost, totals: tot, weakest: weak, why }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: WHO GETS THE BENEFITS === saves under m5-s3 as justice-rule */
+$('#ru-save').addEventListener('click', async () => {
+  const st = $('#ru-status');
+  const left = $('#ru-left').value.trim().slice(0, 500), add = $('#ru-add').value.trim().slice(0, 500);
+  if (!rule) { say(st, 'Choose a rule first.', 'err'); return; }
+  if (!left || !add) { say(st, 'Answer both questions.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('justice-rule', { rule, left, add }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: JUSTICE CHECK === saves under m5-s3 as justice-check */
+$('#jc-save').addEventListener('click', async () => {
+  const st = $('#jc-status');
+  const fix = $('#jc-fix').value.trim().slice(0, 600);
+  if (Object.keys(ratings).length < JQ.length) { say(st, 'Rate all three questions.', 'err'); return; }
+  if (!fix) { say(st, 'Write one change first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('justice-check', { benefits: ratings[0], costs: ratings[1], voice: ratings[2], fix }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
