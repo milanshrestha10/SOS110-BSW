@@ -7,9 +7,102 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
+/* === LECTURE 16 === alternative energy and energy equity (M5 L3) */
+.content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
+/* five kinds of alternative energy */
+.alt5{display:grid;grid-template-columns:1fr 620px;gap:44px;flex:1;min-height:0}
+.alt-list{display:grid;grid-auto-rows:1fr;gap:14px}
+.alt-row{display:flex;gap:22px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--Sky);border-radius:16px;padding:10px 28px;font-size:27px;line-height:1.28}
+.alt-row b{display:block;font:700 31px var(--body);color:var(--Blue)}
+.alt-row .ico{flex:none;margin:0}
+.alt-side{display:flex;flex-direction:column;gap:20px;justify-content:space-between}
+.alt-side .fig img{max-height:330px;object-fit:cover;width:100%}
+.alt-side .rq h3{font-size:34px}.alt-side .rq .ans-text{font-size:26px}
+/* efficiency bars */
+.eff{display:grid;grid-template-columns:1fr 600px;gap:44px;flex:1;min-height:0;align-items:stretch}
+.eff-chart{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:30px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.eff-row .nm{display:block;margin-bottom:10px}.eff-row .nm b{display:block;font:700 34px var(--body)}.eff-row .nm i{font-style:normal;font-size:25px;color:var(--mute)}
+.eff-row .t{position:relative;height:92px;background:var(--paper-2);border-radius:12px;overflow:hidden}
+.eff-row .t i{display:block;height:100%;background:var(--Green);border-radius:0 12px 12px 0;transform-origin:left;animation:effgrow 1.1s var(--ease) both}
+.eff-row .t i.hi{background:#b3452c}
+.eff-row .t em{position:absolute;left:22px;top:0;line-height:92px;font:400 50px var(--display);font-style:normal;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+@keyframes effgrow{from{transform:scaleX(0)}to{transform:none}}
+.eff-chart .note{font-size:23px}
+.eff-side{display:grid;gap:18px;align-content:stretch}
+.eff-side .sc{font-size:29px}.eff-side .rq h3{font-size:34px}.eff-side .rq .ans-text{font-size:27px}
+/* three benefits */
+.ben{display:grid;grid-template-columns:1fr 560px;gap:40px;flex:1;min-height:0;align-items:stretch}
+.ben-cards{display:grid;grid-auto-rows:1fr;gap:18px}
+.ben-cards .card{padding:12px 34px;display:grid;grid-template-columns:auto 1fr;column-gap:26px;align-content:center;align-items:center}
+.ben-cards .card .ico{margin:0}
+.ben-cards .card .tag{margin-bottom:2px}
+.ben-cards .card h3{font:400 40px/1.1 var(--display);margin:0 0 4px}.ben-cards .card p{font-size:26px;line-height:1.28}
+.ben-cards .card br{display:none}
+.ben>.fig{align-self:center}.ben .fig img{width:100%;border-radius:14px;display:block}
+/* sort game */
+.srt{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:18px;align-content:start}.srt-def .sc{font-size:28px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 54px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:22px}
+.srt-btns .btn{font-size:32px;padding:18px 44px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-fb{font-size:30px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+/* emissions and health */
+.hl{display:grid;grid-template-columns:1fr 580px;gap:44px;flex:1;min-height:0;align-items:stretch}
+.hl-l{display:grid;gap:18px;align-content:stretch}.hl-l .sc{font-size:28px;display:flex;flex-direction:column;justify-content:center}
+.hl-l .rq h3{font-size:36px}.hl-l .rq .ans-text{font-size:27px}
+.hl-r{background:var(--Blue);color:var(--paper);border-radius:20px;padding:34px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.hl-r .tag{color:var(--golden)}
+.hl-num b{display:block;font:400 116px/1 var(--display);color:var(--golden)}.hl-num span{font-size:31px;line-height:1.3}
+.hl-r .note{color:#d6e6eb;font-size:23px}
+/* ledger game */
+.led{display:grid;grid-template-columns:1fr 620px;gap:44px;flex:1;min-height:0;align-items:stretch}
+.led-l{display:flex;flex-direction:column}
+.led .steps{font-size:28px;margin-bottom:18px}
+.led-rows{display:grid;grid-auto-rows:1fr;gap:14px;flex:1}
+.led-row{display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 26px;font:400 30px/1.2 var(--body);color:var(--ink);cursor:pointer;transition:border-color .25s,background .25s}
+.led-row b{display:block;font-weight:700}.led-row span.d{display:block;font-size:23px;color:var(--mute)}
+.led-row .amt{margin-left:auto;font:400 50px var(--display);color:var(--Blue);white-space:nowrap}
+.led-row:hover{border-color:var(--Sky)}
+.led-row.on{border-color:#2e7d5b;background:rgba(46,125,91,.1)}
+.led-row .ico{flex:none;margin:0}
+.led-r{display:flex;flex-direction:column;justify-content:space-between}
+.led-net{background:var(--card);border:3px solid #b3452c;border-radius:20px;padding:26px 34px;transition:border-color .3s}
+.led-net.pos{border-color:#2e7d5b}
+.led-net b{display:block;font:400 130px/1 var(--display);color:#b3452c;transition:color .3s}.led-net.pos b{color:#2e7d5b}
+.led-net span:last-child{display:block;font-size:29px;line-height:1.35;min-height:120px}
+.led-bar{display:grid;gap:14px}
+.led-bar>div{position:relative;height:66px;background:var(--paper-2);border-radius:12px;overflow:hidden}
+.led-bar i{display:block;height:100%;transition:width .5s var(--ease)}
+.led-cost i{background:#b3452c}.led-ben i{background:var(--Green)}
+.led-bar em{position:absolute;left:20px;line-height:66px;font:700 26px var(--body);font-style:normal;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+#led-reset{align-self:flex-start;font-size:24px}
+/* energy justice */
+.ej{display:grid;grid-template-columns:640px 1fr;gap:40px;flex:1;min-height:0;align-items:stretch}
+.ej-def{background:var(--golden);border-radius:20px;padding:36px 44px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+.ej-def .tag{color:#6b4a07}
+.ej-def .wd{font:400 48px/1.22 var(--display);margin:6px 0 10px}.ej-def .wd b{color:var(--ink)}
+.ej-def .wn{font-size:29px;line-height:1.38}
+.vocab.ej-cards{grid-template-columns:1fr;grid-auto-rows:1fr;gap:18px}
+.ej-cards .vcard{height:auto}
+.ej-cards .vcard .f,.ej-cards .vcard .b{padding:18px 34px}
+.ej-cards .vcard h4{font-size:40px;margin-bottom:6px}.ej-cards .vcard p{font-size:27px;line-height:1.32}
+.ej-cards .vcard .hint{font-size:17px}
+/* just transition */
+.jt{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;gap:28px;flex:1;min-height:0}
+.jt .card{padding:26px 38px}
+.jt-list{margin:10px 0 0 30px;font-size:33px;line-height:1.35}.jt-list li{margin-bottom:14px}
+.jt-q{grid-column:1/-1}
+.jt-q h3{font-size:40px}.jt-q .ans-text{font-size:29px}
+.two.r .num{font-size:34px!important}
+.two.r .side .rq h3{font-size:38px}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
-
 /* === CASCADE DIAGRAM === */
 .casc{width:100%;height:auto;display:block;overflow:visible}
 .casc .nd{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -35,33 +128,118 @@
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
   <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
   <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="m4.9 7 14.2 10"/><path d="M19.1 7 4.9 17"/><path d="m9 3.5 3 2.5 3-2.5"/><path d="m9 20.5 3-2.5 3 2.5"/></symbol>
-  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
-  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
   <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
-  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
 </svg>
 <div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
 
-<!-- TITLE -->
+<!-- 1. TITLE -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center 40%" src="../m5-l2-fews-nexus-energy/img/energy-transition.jpg" alt="A glowing battery icon on a circuit board beside wind turbines rising over solar panels at sunrise">
+  <img class="hero-img" style="object-position:center" src="img/solar-home-hero.jpg" alt="A modern house at sunset with solar roof tiles, a battery on the garage wall and an electric car in the driveway">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
     <div class="title-k reveal d2">Lecture 16</div>
-    <h1 class="reveal d2">Alternative energy and <em>energy equity</em></h1>
-    <p class="hero-sub reveal d3">Cleaner power, who gets it, and the risks that connect.</p>
+    <h1 class="reveal d2" style="font-size:104px">Alternative energy and <em>energy equity</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Cleaner power has many benefits. Who gets them, and who pays?</p>
     <div class="goldline"></div>
   </div>
 </section>
 
-<!-- CHECK IN -->
+<!-- 2. WHAT'S DUE -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>What's due</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>Assignment deadlines · tick them off as you finish</div>
+    <h2 class="reveal d2">What's <em>due</em></h2>
+    <div class="due reveal d3">
+      <div class="due-now">
+        <span class="tag">Module 5 quiz</span>
+        <h3>Quiz: US Energy Transition</h3>
+        <p>The quiz covers today's topic. Read the assigned EPA reading before you take it.</p>
+        <ul class="chk" style="margin-top:22px"><li data-k="quiz"><i>✓</i><span>I took the US Energy Transition quiz</span></li></ul>
+        <div class="big">QUIZ<small>Check the course site for the link</small></div>
+      </div>
+      <div class="due-now alt">
+        <span class="tag">Due at the Module 5 review session</span>
+        <h3>Research topic selection and presentation outline</h3>
+        <p>Pick the topic for your project presentation and write a short outline of it.</p>
+        <ul class="chk" style="margin-top:22px"><li data-k="topic"><i>✓</i><span>I picked my topic and wrote my outline</span></li></ul>
+        <div class="big">OUTLINE<small>Check the course site for the submission link</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">A utility can <em>save</em> a kilowatt-hour with an efficiency program, or <em>make</em> one in a new power plant. How do the costs compare?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>About the same</button>
+      <button class="opt" type="button"><b>B</b>Saving it costs about one-half to one-third as much</button>
+      <button class="opt" type="button"><b>C</b>Saving it costs about twice as much</button>
+      <button class="opt" type="button"><b>D</b>They cannot be compared</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · cleaner energy, its benefits, and who shares them</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 bigs reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-sun"/></svg></span><br><span class="tag">1 · Alternatives</span><h3>What counts as alternative energy?</h3><p>Compare renewable energy with the cheapest option of all: using less. See how a home can make, store and use clean power.</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><br><span class="tag">2 · Multiple benefits</span><h3>What do we gain from clean energy?</h3><p>Count the benefits to the power system, to air and health, and to the economy, not only the cost of a program.</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><br><span class="tag">3 · Energy justice</span><h3>Who gets the benefits, and who pays?</h3><p>Ask who is served, who has a say, and what happens to workers when the energy system changes.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Clean energy pays back in many ways, and a fair transition makes sure those gains reach everyone.</div>
+  </div>
+</section>
+
+<!-- 6. ATTENDANCE -->
 <section class="slide" id="attendance">
-  <div class="rail"><b>5.3</b><span>Check in</span></div>
+  <div class="rail"><b>16</b><span>Attendance</span></div>
   <div class="content center">
     <div class="k reveal">Check in</div>
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
@@ -81,11 +259,256 @@
   </div>
 </section>
 
-<!-- CASCADING RISK: NEPAL FLOODS -->
-<section class="slide" id="nepal">
-  <div class="rail"><b>5.3</b><span>Cascading risks</span></div>
+<!-- 7. WHAT COUNTS AS ALTERNATIVE ENERGY -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
   <div class="content fill">
-    <div class="k reveal">Case study · Nepal</div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Big idea 1 · five ways to cut fossil-fuel use</div>
+    <h2 class="reveal d2" style="font-size:70px">What counts as <em>alternative energy</em>?</h2>
+    <div class="alt5 reveal d3">
+      <div class="alt-list">
+        <div class="alt-row"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span><div><b>Energy efficiency</b><span>The same service from less energy.</span></div></div>
+        <div class="alt-row"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span><div><b>Renewable energy</b><span>Power from sources that are not used up, such as wind, solar and geothermal.</span></div></div>
+        <div class="alt-row"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-flame"/></svg></span><div><b>Combined heat and power (CHP)</b><span>Uses the waste heat from making electricity for heating or cooling.</span></div></div>
+        <div class="alt-row"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><div><b>Demand response</b><span>Cuts use at peak times, so fewer costly plants must run.</span></div></div>
+        <div class="alt-row"><span class="ico sm"><svg aria-hidden="true"><use href="#i-home"/></svg></span><div><b>Clean distributed generation</b><span>Small renewable or CHP systems at the place where the energy is used.</span></div></div>
+      </div>
+      <div class="alt-side">
+        <figure class="fig plain" style="margin:0"><img src="img/clean-tech-sketch.jpg" alt="A hand draws a diagram of wind turbines, solar panels, a battery and a light bulb connected by dashed lines"><figcaption class="credit">Clean energy system sketch. Image supplied by the instructor.</figcaption></figure>
+        <div class="rq" data-def><h3>Quick question: a rooftop solar system on a house. Which kind is it?</h3><p class="think">Tap to check.</p><p class="ans-text"><b>Two at once.</b> It is renewable energy, and because it sits where the power is used, it is also clean distributed generation.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.1, "What are energy efficiency and renewable energy?"</p>
+  </div>
+</section>
+
+<!-- 8. RENEWABLE ENERGY -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-wind"/></svg></span>Big idea 1 · what is on the list depends on where you live</div>
+    <h2 class="reveal d2" style="font-size:70px"><em>Renewable energy</em> in the EPA reading</h2>
+    <div class="two l reveal d3">
+      <div class="pic"><figure class="fig" style="margin:0"><img src="img/wind-dusk.jpg" alt="Seven wind turbines standing against a blue and orange dusk sky"><figcaption class="credit">Wind turbines at dusk. Image supplied by the instructor.</figcaption></figure></div>
+      <div class="side">
+        <div class="sc green"><b>EPA definition</b>Energy generated partly or fully from non-depleting energy sources, for direct use or to make electricity.</div>
+        <div class="sc sky"><b>Usually counted</b>Wind, solar and geothermal energy.</div>
+        <div class="sc"><b>Counted by some states</b>Low-impact or small hydro, biomass, biogas and waste-to-energy. <span style="display:block;margin-top:4px">The list <i>varies by state</i>, so check the rules before you compare.</span></div>
+        <div class="rq" data-def><h3>Quick question: why does the state list matter?</h3><p class="think">Tap to check.</p><p class="ans-text">A state that counts more sources can reach its renewable target sooner, so two states with the same target may have very different clean-energy mixes.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.1. The quick-question answer is an inference from the definition, not a quote.</p>
+  </div>
+</section>
+
+<!-- 9. EFFICIENCY IS CHEAPEST -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>Big idea 1 · the cheapest energy is the energy you do not use</div>
+    <h2 class="reveal d2" style="font-size:70px">Energy <em>efficiency</em> is a bargain</h2>
+    <div class="eff reveal d3">
+      <div class="eff-chart">
+        <div class="eff-row"><span class="nm"><b>Saving a kilowatt-hour</b><i>Efficiency programs, 20-state average</i></span><div class="t"><i style="width:34%"></i><em>2.3¢</em></div></div>
+        <div class="eff-row"><span class="nm"><b>Making a kilowatt-hour</b><i>New power plants and other new resources</i></span><div class="t"><i class="hi" style="width:68%"></i><em>about 4.6¢ to 6.9¢</em></div></div>
+        <p class="note">The second bar is worked out from the EPA's statement that efficiency costs "about one-half to one-third" as much as new resources. It is not a price quoted in the reading.</p>
+      </div>
+      <div class="eff-side">
+        <div class="sc green"><b>Warm-up answer</b>B. Saving energy costs about one-half to one-third as much as new supply.</div>
+        <div class="sc"><b>Why it matters</b>Every kilowatt-hour you save is one that no power plant has to make, burn fuel for, or pollute for.</div>
+        <div class="rq" data-def><h3>Quick question: name one efficiency step that a school or home could take.</h3><p class="think">Tap for ideas.</p><p class="ans-text">Swap old bulbs for LEDs, seal and insulate buildings, or use appliances that need less power for the same job.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.2.1, citing an analysis of 20 state efficiency programs (LBNL, 2015; Lazard, 2017).</p>
+  </div>
+</section>
+
+<!-- 10. A HOME THAT MAKES, STORES AND USES CLEAN POWER -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · the energy transition at one address</div>
+    <h2 class="reveal d2" style="font-size:70px">Make it, store it, <em>use it</em></h2>
+    <div class="two l reveal d3">
+      <div class="pic"><figure class="fig" style="margin:0"><img src="img/solar-home.jpg" alt="A house at sunset with solar roof tiles, an electric car in the garage and a battery on the garage wall"><figcaption class="credit">A home with rooftop solar, a battery and an electric car. Image supplied by the instructor.</figcaption></figure></div>
+      <div class="side">
+        <div class="sc"><b>1 · Make</b>Rooftop solar is clean distributed generation: it makes power where it is used.</div>
+        <div class="sc sky"><b>2 · Store</b>A battery can hold extra renewable power for later and ease strain on the grid at peak times.</div>
+        <div class="sc green"><b>3 · Use</b>Efficient appliances, and an electric car in place of a gas car, move a household away from fossil fuels.</div>
+        <p class="note"><b>Decarbonization</b> means phasing out carbon emissions. The <b>energy transition</b> is the shift to clean energy that gets us there.</p>
+      </div>
+    </div>
+    <p class="src reveal d4">Sources: US EPA (2018), sections 1.1 and 1.2.1 (distributed generation, storage). The electric-car point is general knowledge, not from the reading.</p>
+  </div>
+</section>
+
+<!-- 11. THREE KINDS OF BENEFIT -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · what the EPA reading is about</div>
+    <h2 class="reveal d2" style="font-size:70px">Three kinds of <em>benefit</em></h2>
+    <div class="ben reveal d3">
+      <div class="ben-cards">
+        <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><div class="bt"><span class="tag">1 · Electricity system</span><h3>A cheaper, steadier grid</h3><p>Fewer new power plants and wires, fewer outages and less exposure to price spikes.</p></div></div>
+        <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><div class="bt"><span class="tag">2 · Emissions and health</span><h3>Cleaner air, healthier people</h3><p>Less air pollution and fewer greenhouse gases from burning fossil fuels.</p></div></div>
+        <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><div class="bt"><span class="tag">3 · Economy</span><h3>Savings, jobs and income</h3><p>Lower energy bills, new jobs and more money spent locally.</p></div></div>
+      </div>
+      <figure class="fig plain" style="margin:0"><img src="img/green-globe.jpg" alt="A glowing green globe covered with icons for wind turbines, solar panels, factories and charts"><figcaption class="credit">Clean energy network. Image supplied by the instructor.</figcaption></figure>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.2, Figure I-2, "The multiple benefits of energy efficiency and renewable energy."</p>
+  </div>
+</section>
+
+<!-- 12. SORT: PRIMARY OR SECONDARY -->
+<section class="slide" id="sort">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Big idea 2 · try it · tap a button for each card</div>
+    <h2 class="reveal d2" style="font-size:62px">Primary or <em>secondary</em> grid benefit?</h2>
+    <div class="srt reveal d3">
+      <div class="srt-def">
+        <div class="sc sky"><b>Primary</b>Directly lowers the cost of electric service, and usually can be measured.</div>
+        <div class="sc"><b>Secondary</b>Lowers costs indirectly, adds reliability or security, and is harder to measure.</div>
+        <div class="srt-score"><span id="srt-n">0</span> of 8 right</div>
+        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
+      </div>
+      <div class="srt-card" id="srt-card" aria-live="polite">
+        <div class="srt-no" id="srt-no"></div>
+        <div class="srt-q" id="srt-q"></div>
+        <div class="srt-btns"><button class="btn" type="button" data-a="p">Primary</button><button class="btn" type="button" data-a="s">Secondary</button></div>
+        <div class="srt-fb" id="srt-fb"></div>
+        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.2.1, "Primary" and "Secondary electricity system benefits."</p>
+  </div>
+</section>
+
+<!-- 13. EMISSIONS AND HEALTH -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 2 · air, health and climate</div>
+    <h2 class="reveal d2" style="font-size:70px">Less burning, <em>healthier</em> air</h2>
+    <div class="hl reveal d3">
+      <div class="hl-l">
+        <div class="sc bad"><b>The problem</b>Burning fossil fuels for electricity makes air pollution, including fine particles, ozone, sulfur dioxide and nitrogen oxides. These can cause breathing illness. It is also the largest source of US greenhouse gas emissions from human activity (EPA, 2017, cited in the reading).</div>
+        <div class="sc green"><b>The benefit</b>Efficiency and renewable energy replace fossil-fuel generation, so there is less pollution to breathe and fewer warming gases.</div>
+        <div class="rq" data-def><h3>Quick question: who gains first when a nearby power plant runs less?</h3><p class="think">Tap to think.</p><p class="ans-text">People who live near the plant breathe less of its pollution. Pollution can also travel far, so people downwind gain too.</p></div>
+      </div>
+      <div class="hl-r">
+        <span class="tag">One example from the reading · 2013 · US power sector</span>
+        <div class="hl-num"><b>43,900</b><span>metric tons less nitrogen oxides (NOx)</span></div>
+        <div class="hl-num"><b>4,800</b><span>metric tons less fine particles (PM2.5)</span></div>
+        <p class="note">Cuts credited to state renewable portfolio standards (NREL, 2016).</p>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), section 1.2.2.</p>
+  </div>
+</section>
+
+<!-- 14. ECONOMY -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Big idea 2 · money, jobs and who loses</div>
+    <h2 class="reveal d2" style="font-size:70px">The <em>economic</em> benefits</h2>
+    <div class="two l reveal d3">
+      <div class="pic"><figure class="fig" style="margin:0"><img src="img/solar-installers.jpg" alt="Two workers in orange safety gear and harnesses kneel on a roof to install blue solar panels"><figcaption class="credit">Solar installers at work. Image supplied by the instructor.</figcaption></figure></div>
+      <div class="side">
+        <div class="sc green"><b>Savings</b>Lower energy and fuel costs for households, businesses and governments.</div>
+        <div class="sc sky"><b>Jobs and income</b>New jobs, profits and tax revenue in construction, manufacturing and services.</div>
+        <div class="sc"><b>Productivity</b>Cleaner air means fewer sick days for workers and students.</div>
+        <div class="sc bad"><b>Who loses</b>The reading says income, jobs and output can <i>fall</i> for fossil-fuel producers and their suppliers.</div>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), sections 1.2 and 1.2.3 (economic benefits and indirect effects).</p>
+  </div>
+</section>
+
+<!-- 15. COUNT THE WHOLE LEDGER -->
+<section class="slide" id="ledger">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · try it · tap each benefit to add it</div>
+    <h2 class="reveal d2" style="font-size:62px">Count the <em>whole</em> ledger</h2>
+    <div class="led reveal d3">
+      <div class="led-l">
+        <p class="steps">A state spends <b>$10 million</b> on an efficiency program. A report that counts only costs makes it look like a loss. Add the benefits one at a time.</p>
+        <div class="led-rows" id="led-rows"></div>
+      </div>
+      <div class="led-r">
+        <div class="led-net" id="led-net"><span class="tag">Net result · teaching numbers</span><b id="led-val">−$10M</b><span id="led-msg">Costs only: this looks like a bad deal.</span></div>
+        <div class="led-bar"><div class="led-cost"><i style="width:100%"></i><em>Cost $10M</em></div><div class="led-ben"><i id="led-fill" style="width:0"></i><em id="led-lab">Benefits $0M</em></div></div>
+        <button class="btn ghost" type="button" id="led-reset">Start over</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Dollar amounts are made-up teaching numbers. The idea is from US EPA (2018), section 1.1.1: leaving benefits out "overstates the net cost of the program."</p>
+  </div>
+</section>
+
+<!-- 16. WHAT IS ENERGY JUSTICE -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 3 · Energy justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · tap a card to see an example</div>
+    <h2 class="reveal d2" style="font-size:70px">What is <em>energy justice</em>?</h2>
+    <div class="ej reveal d3">
+      <div class="ej-def">
+        <span class="tag">Working definition</span>
+        <p class="wd">Energy justice means the <b>benefits</b> and the <b>burdens</b> of the energy system are shared <b>fairly</b>, and everyone has a <b>voice</b> in the decisions.</p>
+        <p class="wn">It applies the course idea of <b>environmental justice</b>: no group should carry an unfair share of pollution or risk.</p>
+      </div>
+      <div class="vocab ej-cards" data-ej></div>
+    </div>
+    <p class="src reveal d4">Not in the EPA reading. This is a teaching framework built on the course glossary term Environmental Justice. The examples are illustrations, not data.</p>
+  </div>
+</section>
+
+<!-- 17. WHO CAN USE ROOFTOP SOLAR -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 3 · Energy justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 3 · who is served?</div>
+    <h2 class="reveal d2" style="font-size:70px">Who can get a home like <em>this</em>?</h2>
+    <div class="two r reveal d3">
+      <div class="side">
+        <ol class="num" style="font-size:30px;margin:0">
+          <li>What must a household have to put solar tiles and a battery on its home?</li>
+          <li>Who might be left out, and why?</li>
+          <li>What could a city or utility change so more households can join?</li>
+        </ol>
+        <div class="rq" data-def><h3>Some ideas to compare</h3><p class="think">Tap after you talk with a neighbor.</p><p class="ans-text">Households need a roof they own, money or credit up front, and a sunny roof. Renters and people with low incomes may be left out. Efficiency upgrades, rebates aimed at lower-income households, and renter-friendly programs can widen access.</p></div>
+      </div>
+      <div class="pic"><figure class="fig" style="margin:0"><img src="img/solar-home.jpg" alt="A house at sunset with solar roof tiles, an electric car in the garage and a battery on the garage wall"><figcaption class="credit">A home with rooftop solar, a battery and an electric car.</figcaption></figure></div>
+    </div>
+    <p class="src reveal d4">Discussion slide. The ideas are teaching examples, not findings from the EPA reading.</p>
+  </div>
+</section>
+
+<!-- 18. A JUST TRANSITION -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 3 · Energy justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · winners, losers and a fair plan</div>
+    <h2 class="reveal d2" style="font-size:70px">A <em>just</em> transition</h2>
+    <div class="jt reveal d3">
+      <div class="card green"><span class="tag">The reading says people gain</span>
+        <ul class="jt-list"><li>Households and businesses with lower energy costs</li><li>Workers in construction, manufacturing and services</li><li>Communities with cleaner air</li></ul></div>
+      <div class="card gold"><span class="tag">The reading also says some lose</span>
+        <ul class="jt-list"><li>Income, jobs and output can fall for fossil-fuel producers and their suppliers</li><li>Utilities can lose revenue when customers use less electricity</li></ul></div>
+      <div class="rq jt-q" data-def><h3>Quick question: what would a fair plan do for a coal worker whose plant closes?</h3><p class="think">Tap to check.</p><p class="ans-text">Ideas: pay for retraining, help people move into the new clean-energy jobs, protect pensions, and bring workers and their town into the planning. These are examples to discuss, not policy from the EPA reading.</p></div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2018), sections 1.2.3 and 1.1 (indirect effects and sector transfers).</p>
+  </div>
+</section>
+
+<!-- 19. CASCADING RISK: NEPAL FLOODS -->
+<section class="slide" id="nepal">
+  <div class="rail"><b>16</b><span>Cascading risks</span></div>
+  <div class="content fill">
+    <div class="k reveal">Big idea 3 · energy under climate risk · case study · Nepal</div>
     <h2 class="reveal d2">Nepal's floods: a <em>cascade</em> of risks</h2>
     <div class="reveal d3">
       <svg class="casc" id="casc" viewBox="0 0 1700 560" role="img" aria-label="Seven-step cascade from climate change to settlements in flood-prone areas">
@@ -115,17 +538,148 @@
   </div>
 </section>
 
-</main></div>
+<!-- 20. EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1560px">A state judges an efficiency program by its costs and its bill savings only. What does the EPA reading say about that?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Nothing is missing, so the result is fair</button>
+      <button class="opt" type="button"><b>B</b>Leaving out health and economic benefits overstates the net cost</button>
+      <button class="opt" type="button"><b>C</b>Health and jobs benefits cannot be measured at all</button>
+      <button class="opt" type="button"><b>D</b>Only renewable energy has benefits beyond bill savings</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
+  </div>
+</section>
 
+<!-- 21. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 40%" src="img/wind-hero.jpg" alt="Wind turbines against a blue and orange dusk sky" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1040px">
+    <div class="hero-badge reveal"><b>L<em>16</em></b><span>Alternative energy and energy equity</span></div>
+    <div class="title-k reveal d2">Energy transition</div>
+    <p class="hero-lead reveal d2">Clean energy pays back in many ways. A fair transition makes sure <em>everyone</em> shares the gains.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Using less energy is the cheapest alternative, and renewables, storage and local generation can do the rest.</li>
+      <li>Count all the benefits: a steadier grid, healthier air, and savings and jobs.</li>
+      <li>Ask who is served, who has a say, and who bears the costs, including workers.</li>
+    </ol>
+    <div class="dstrip reveal d4"><b>Still due</b><span>The US Energy Transition quiz, and your project topic and outline at the Module 5 review session.</span></div>
+  </div>
+</section>
+
+</main></div>
 <script src="../../shared/deck.js?v=2026-10-05"></script>
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
-const $ = (s, r = document) => r.querySelector(s);
 const LECTURE = 'm5-s3';
+const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
-loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+/* === KEY TERMS === the four Module 5 glossary terms listed for this session */
+const KEY_TERMS = [['Renewable Energy', 'sun', 'gold'], ['Energy Transition', 'cycle', 'sky'], ['Energy Efficiency', 'gauge', 'green'], ['Decarbonization', 'cloud', 'bad']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || { term: name, definition: '', example: '' }; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill($('.slide.hero'), d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === WHAT'S DUE === tick boxes, remembered on this device only */
+const dueKey = 'sos110-l16-due';
+let ticks = {};
+try { ticks = JSON.parse(localStorage.getItem(dueKey) || '{}'); } catch { ticks = {}; }
+$$('.chk li').forEach(li => {
+  li.classList.toggle('on', !!ticks[li.dataset.k]);
+  li.addEventListener('click', () => {
+    li.classList.toggle('on'); ticks[li.dataset.k] = li.classList.contains('on');
+    try { localStorage.setItem(dueKey, JSON.stringify(ticks)); } catch { /* private window */ }
+  });
+});
+
+/* === ENERGY JUSTICE CARDS === three questions, with an example on the back */
+const EJ = [
+  ['Who gets the benefits?', 'Cheaper bills, cleaner air and new jobs should reach every neighborhood, not only the easiest ones to serve.', 'Example: a rebate for rooftop solar helps only people who own a roof. Efficiency help for renters reaches others.', 'sun', 'gold'],
+  ['Who carries the burdens?', 'Pollution, higher bills and lost jobs should not land on the same groups again and again.', 'Example: a neighborhood next to an old power plant breathes its pollution, and closing the plant is a chance to fix that.', 'alert', 'bad'],
+  ['Who has a say?', 'People who live with the results should help make the decisions, from siting a solar farm to planning a plant closing.', 'Example: a town meeting before a project is approved, with workers and residents at the table.', 'users', 'sky'],
+];
+$('[data-ej]').innerHTML = EJ.map(([t, d, ex, i, tone]) => flipCard({ term: t, definition: `<p>${esc(d)}</p>`, example: ex, back: 'Example', hint: 'Tap for example' }, icon(i, tone))).join('');
+wireFlips($('[data-ej]'));
+
+/* === QUICK QUESTIONS === tap to reveal, not recorded */
+wireReveals();
+
+/* === SORT: PRIMARY OR SECONDARY === checked in the browser only */
+const SORT = [
+  ['Money saved on the fuel and purchased power needed to make electricity', 'p', 'Primary. Avoided generation cost is the most direct way these programs lower the cost of electric service.'],
+  ['Delaying or avoiding the cost of building a new power plant', 'p', 'Primary. A plant that is never needed saves its building cost and its yearly running costs.'],
+  ['Less electricity lost as heat in wires and transformers on the way to customers', 'p', 'Primary. Every unit saved or made close to home also avoids the losses of delivering it.'],
+  ['Delaying or avoiding new transmission and distribution lines', 'p', 'Primary. Power made or saved close to where it is used can delay costly new wires.'],
+  ['Fewer power outages because the grid is under less strain at peak hours', 'p' === 's' ? 'p' : 's', 'Secondary. Better reliability is real, but it is harder to measure in dollars.'],
+  ['Less exposure to price spikes in any one fuel (fuel diversity)', 's', 'Secondary. Solar, wind and efficiency costs are largely unaffected by other fuel prices, which hedges against spikes.'],
+  ['Stronger energy security when attacks or disasters hit the grid', 's', 'Secondary. Diverse domestic resources lower the grid\'s vulnerability, which is hard to put a price on.'],
+  ['Lower wholesale electricity prices at peak hours', 's', 'Secondary. Lower demand or more cheap-to-run supply lets markets settle at lower prices, an indirect saving.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+function sortShow() {
+  answered = false;
+  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; });
+  $('#srt-n').textContent = score;
+}
+$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
+  if (answered) return;
+  answered = true;
+  const ok = b.dataset.a === SORT[si][1];
+  if (ok) score++;
+  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(SORT[si][2])}`;
+  $('#srt-n').textContent = score;
+  snext.hidden = false;
+  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
+  sfb.textContent = score >= 6 ? 'Strong work. Primary benefits are the ones a utility can count on a bill.' : 'The sorting rule: primary benefits cut the cost of electric service directly. Secondary ones help in other ways that are harder to measure.';
+  snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
+});
+$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+sortShow();
+
+/* === LEDGER === a $10M program, four benefits worth $20M in made-up teaching numbers */
+const LED = [
+  ['Energy bill savings', 'Households and businesses pay less for energy', 8, 'coins', 'gold'],
+  ['Cheaper, steadier grid', 'Fewer new power plants and wires needed', 4, 'bolt', 'sky'],
+  ['Health benefits', 'Cleaner air, fewer sick days and hospital visits', 5, 'heart', 'green'],
+  ['Jobs and local spending', 'Installers, manufacturers and the shops their pay supports', 3, 'briefcase', 'gold'],
+];
+const COST = 10, on = new Set();
+$('#led-rows').innerHTML = LED.map(([n, d, v, i, tone], k) => `<button type="button" class="led-row" data-k="${k}">${icon(i, tone)}<span><b>${esc(n)}</b><span class="d">${esc(d)}</span></span><span class="amt">+$${v}M</span></button>`).join('');
+function ledShow() {
+  const ben = [...on].reduce((a, k) => a + LED[k][2], 0), net = ben - COST;
+  $$('.led-row').forEach(r => r.classList.toggle('on', on.has(+r.dataset.k)));
+  $('#led-val').textContent = `${net < 0 ? '−' : '+'}$${Math.abs(net)}M`;
+  $('#led-net').classList.toggle('pos', net >= 0);
+  $('#led-fill').style.width = `${Math.min(100, ben / COST * 100)}%`;
+  $('#led-lab').textContent = `Benefits $${ben}M`;
+  $('#led-msg').textContent = on.size === 0 ? 'Costs only: this looks like a bad deal.'
+    : on.size === LED.length ? `The whole ledger: $${ben}M back for $${COST}M spent. Counting only some benefits overstated the net cost.`
+    : net < 0 ? 'Still a loss on paper, but benefits are missing. Keep adding.'
+    : 'Now the program pays for itself. Are any benefits still missing?';
+}
+$$('.led-row').forEach(r => r.addEventListener('click', () => { const k = +r.dataset.k; on.has(k) ? on.delete(k) : on.add(k); ledShow(); }));
+$('#led-reset').addEventListener('click', () => { on.clear(); ledShow(); });
+ledShow();
 
 /* === CASCADE === one click reveals the next step and its arrow */
 const STEPS = [
@@ -154,16 +708,20 @@ nx.addEventListener('click', () => { if (n < 7) { n++; draw(); } });
 $('#rs').addEventListener('click', () => { n = 0; draw(); });
 draw();
 
-/* === ATTENDANCE === */
+/* === ATTENDANCE, POLLS === */
 const live = await connect(LECTURE);
 const note = $('[data-mode-note]');
-if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins stay in this browser until Firebase is connected.';
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
 function showUser() {
   const u = live.user();
   if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
 }
 showUser();
-function say(el, msg, cls) { el.textContent = msg; el.className = 'status' + (cls ? ' ' + cls : ''); }
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
 $('#checkin').addEventListener('click', async () => {
   const st = $('#checkin-status');
   say(st, 'Checking in…');
@@ -174,6 +732,23 @@ $('#checkin').addEventListener('click', async () => {
     showUser();
   } catch (e) { say(st, e.message, 'err'); }
 });
+/* Polls: one answer per browser, changeable. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
 </script>
 </body>
 </html>
