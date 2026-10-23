@@ -365,7 +365,24 @@
   </div>
 </section>
 
-<!-- 11. THREE KINDS OF BENEFIT -->
+<!-- 12. VIDEO: SECOND CLIP -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Watch · second clip</div>
+    <h2 class="reveal d2" style="font-size:70px">Watch and <em>discuss</em></h2>
+    <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
+      <div class="video" style="width:1000px" id="clip2-video" data-title="Energy transition video"><div class="ph"><b>Loading video…</b><span>It needs an internet connection.</span></div></div>
+      <div class="vid-side">
+        <div class="sc sky"><b>As you watch</b>Listen for one benefit of clean energy and one challenge that is left.</div>
+        <div class="sc"><b>Then talk</b>Turn to a neighbor. Who gains most from this change, and who might be left out?</div>
+        <p class="small"><a href="https://www.youtube.com/watch?v=eRTakSsqgiA" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. THREE KINDS OF BENEFIT -->
 <section class="slide">
   <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
   <div class="content fill">
@@ -604,11 +621,9 @@ import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews
 const LECTURE = 'm5-s3';
 
 /* === VIDEO === embed the ABC News report */
-const AU_VIDEO = 'w0L_4ZX4_OU';
-{
-  const v = $('#au-video');
-  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(AU_VIDEO)}?rel=0" title="${esc(v.dataset.title)}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-}
+const embed = (id, yt) => { const v = $(id); v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt)}?rel=0" title="${esc(v.dataset.title)}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`; };
+embed('#au-video', 'w0L_4ZX4_OU');
+embed('#clip2-video', 'eRTakSsqgiA');
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
 /* === KEY TERMS === the four Module 5 glossary terms listed for this session */
