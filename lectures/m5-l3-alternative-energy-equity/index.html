@@ -342,6 +342,29 @@
   </div>
 </section>
 
+<!-- 11. VIDEO: AUSTRALIA'S TRANSITION -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Watch · ABC News, Daniel Mercer</div>
+    <h2 class="reveal d2" style="font-size:70px">The <em>energy transition</em> in Australia</h2>
+    <div class="vid reveal d3" style="grid-template-columns:840px 1fr;gap:36px">
+      <div class="video" style="width:840px" id="au-video" data-title="ABC News: Australia's renewable energy passes coal and gas">
+        <div class="ph"><b>Loading video…</b><span>It needs an internet connection.</span></div>
+      </div>
+      <div class="vid-side" style="gap:10px;font-size:21px">
+        <div class="sc green"><b>Renewables lead</b>Wind and solar were over half of eastern-grid supply in the 3 months to December.</div>
+        <div class="sc sky"><b>Batteries help</b>They store power when there is plenty and supply it when needed.</div>
+        <div class="sc"><b>Prices fell 44%</b>Down from a year earlier, with record renewable output and milder weather.</div>
+        <div class="sc green"><b>Off pace</b>Investors: the 82% target is possible, but "we're not on track right now".</div>
+        <div class="sc sky"><b>Coal lives on</b>New South Wales and Western Australia want to extend coal plant life.</div>
+        <div class="sc"><b>Bills lag</b>Cheaper wholesale prices will not necessarily mean cheaper bills.</div>
+      </div>
+    </div>
+    <p class="src reveal d4" style="margin-top:14px;max-width:840px">Source: ABC News report by Daniel Mercer. <a href="https://www.youtube.com/watch?v=w0L_4ZX4_OU" target="_blank" rel="noopener" style="color:var(--Blue)">Open on YouTube</a>. Figures are as stated in the video, not checked against the market operator's report.</p>
+  </div>
+</section>
+
 <!-- 11. THREE KINDS OF BENEFIT -->
 <section class="slide">
   <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
@@ -579,6 +602,13 @@ import { loadSession, fill } from '../../shared/course.js';
 import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
 const LECTURE = 'm5-s3';
+
+/* === VIDEO === embed the ABC News report */
+const AU_VIDEO = 'w0L_4ZX4_OU';
+{
+  const v = $('#au-video');
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(AU_VIDEO)}?rel=0" title="${esc(v.dataset.title)}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+}
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
 /* === KEY TERMS === the four Module 5 glossary terms listed for this session */
