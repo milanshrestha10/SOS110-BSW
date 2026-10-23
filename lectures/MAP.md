@@ -28,7 +28,7 @@ One row per class session in `course/course.json`. Use it to track which of the 
 | M4 | m4-s3 | Carbon cycle and climate change | | | Not built |
 | M5 | m5-s1 | Sustainable food systems | | | Not built |
 | M5 | m5-s2 | Lecture 15 · The FEWs nexus and energy systems | `m5-l2-fews-nexus-energy` | `Lecture14_EnergySystemsAndAlternatives.pdf` | **Converted**. Exercises deck: `m5-l2-exercises` (coal and gas weigh-in is slide 3) |
-| M5 | m5-s3 | Lecture 16 · Alternative energy and energy equity | `m5-l3-alternative-energy-equity` | US EPA (2018) reading (no instructor file) | **Current design**, built from the EPA reading. Exercises deck: `m5-l3-exercises`. slides 11 and 12 are the ABC News Australia video and a second clip; Nepal is slide 21 |
+| M5 | m5-s3 | Lecture 16 · Alternative energy and energy equity | `m5-l3-alternative-energy-equity` | US EPA (2018) reading (no instructor file) | **Current design**, built from the EPA reading. Exercises deck: `m5-l3-exercises`. slides 11 and 12 are the ABC News Australia video and a second clip, slide 18 is the low- and middle-income energy video, slide 19 is the energy poverty infographic, slide 20 is the SOLshare Bangladesh case; Nepal is slide 24 |
 | M5 | m5-s4 | Review · Complexity and cascading risks | `m5-l4-exercises` | | Exercises deck only |
 | M6 | m6-s1 | Waste management and circular economy | | | Not built |
 | M6 | m6-s2 | Urban ecology and cities | | | Not built |
