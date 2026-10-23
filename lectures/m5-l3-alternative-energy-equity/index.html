@@ -103,27 +103,6 @@
 .two.r .num{font-size:34px!important}
 .two.r .side .rq h3{font-size:38px}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
-/* === CASCADE DIAGRAM === */
-.casc{width:100%;height:auto;display:block;overflow:visible}
-.casc .nd{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.casc .nd.on{opacity:1;transform:none}
-.casc .nd rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
-.casc .nd.end rect{stroke:#b3452c;stroke-width:4}
-.casc .nd.now rect{stroke:var(--accent);stroke-width:6}
-.casc .nd circle.ic{fill:var(--Blue)}
-.casc .nd.end circle.ic{fill:#b3452c}
-.casc .nd use{color:#fff}
-.casc .nd .no{font:400 30px var(--display);fill:var(--accent);text-anchor:middle}
-.casc .nd .t{font:700 29px var(--body);fill:var(--ink)}
-.casc .nd .u{font:400 22px var(--body);fill:var(--mute)}
-.casc .ar{fill:none;stroke:#5d7780;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .8s var(--ease)}
-.casc .ar.on{stroke-dashoffset:0}
-.casc .ah{fill:#5d7780;opacity:0;transition:opacity .3s .6s}
-.casc .ah.on{opacity:1}
-.casc-cap{min-height:116px;margin-top:8px;font-size:29px;line-height:1.42;border-left:8px solid var(--golden);background:var(--card);border-radius:12px;padding:16px 26px}
-.casc-cap b{color:var(--Blue)}
-.casc-ctl{display:flex;gap:16px;align-items:center;margin-top:6px}
-.casc-ctl .src{margin-left:auto;font-size:19px;color:var(--mute);max-width:900px;text-align:right;line-height:1.35}
 </style>
 </head>
 <body>
@@ -144,10 +123,6 @@
   <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
   <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
-  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
-  <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
-  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="m4.9 7 14.2 10"/><path d="M19.1 7 4.9 17"/><path d="m9 3.5 3 2.5 3-2.5"/><path d="m9 20.5 3-2.5 3 2.5"/></symbol>
-  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
@@ -602,40 +577,6 @@
   </div>
 </section>
 
-<!-- 19. CASCADING RISK: NEPAL FLOODS -->
-<section class="slide" id="nepal">
-  <div class="rail"><b>16</b><span>Cascading risks</span></div>
-  <div class="content fill">
-    <div class="k reveal">Big idea 3 · energy under climate risk · case study · Nepal</div>
-    <h2 class="reveal d2">Nepal's floods: a <em>cascade</em> of risks</h2>
-    <div class="reveal d3">
-      <svg class="casc" id="casc" viewBox="0 0 1700 560" role="img" aria-label="Seven-step cascade from climate change to settlements in flood-prone areas">
-        <!-- arrows (drawn first so cards sit on top) -->
-        <path class="ar" id="a1" d="M380 100 H440" pathLength="1"/><path class="ah" id="h1" d="M440 100 l-16 -12 v24z"/>
-        <path class="ar" id="a2" d="M820 100 H880" pathLength="1"/><path class="ah" id="h2" d="M880 100 l-16 -12 v24z"/>
-        <path class="ar" id="a3" d="M1260 100 H1320" pathLength="1"/><path class="ah" id="h3" d="M1320 100 l-16 -12 v24z"/>
-        <path class="ar" id="a4" d="M1510 200 V280" pathLength="1"/><path class="ah" id="h4" d="M1510 280 l-12 -16 h24z"/>
-        <path class="ar" id="a5" d="M1320 380 H1260" pathLength="1"/><path class="ah" id="h5" d="M1260 380 l16 -12 v24z"/>
-        <path class="ar" id="a6" d="M880 380 H820" pathLength="1"/><path class="ah" id="h6" d="M820 380 l16 -12 v24z"/>
-
-        <g class="nd" id="n1"><rect x="0" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="70" cy="70" r="40"/><use href="#i-thermo" x="46" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="340" y="44">1</text><text class="t" x="28" y="142">Climate change</text><text class="u" x="28" y="176">the precondition</text></g>
-        <g class="nd" id="n2"><rect x="440" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="70" r="40"/><use href="#i-snow" x="486" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="44">2</text><text class="t" x="468" y="142">Permafrost thaws</text><text class="u" x="468" y="176">and glaciers melt</text></g>
-        <g class="nd" id="n3"><rect x="880" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="70" r="40"/><use href="#i-mountain" x="926" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="44">3</text><text class="t" x="908" y="142">Unstable slopes</text><text class="u" x="908" y="176">and hanging glaciers</text></g>
-        <g class="nd" id="n4"><rect x="1320" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="70" r="40"/><use href="#i-alert" x="1366" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="44">4</text><text class="t" x="1348" y="142">Rock-ice avalanche</text><text class="u" x="1348" y="176">a massive volume</text></g>
-        <g class="nd" id="n5"><rect x="1320" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="350" r="40"/><use href="#i-drop" x="1366" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="324">5</text><text class="t" x="1348" y="422">Debris-dammed lake</text><text class="u" x="1348" y="456">water piles up behind it</text></g>
-        <g class="nd" id="n6"><rect x="880" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="350" r="40"/><use href="#i-waves" x="926" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="324">6</text><text class="t" x="908" y="422">Debris flow</text><text class="u" x="908" y="456">water + rock, steep slope</text></g>
-        <g class="nd end" id="n7"><rect x="440" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="350" r="40"/><use href="#i-home" x="486" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="324">7</text><text class="t" x="468" y="422">Settlements</text><text class="u" x="468" y="456">in flood-prone areas</text></g>
-      </svg>
-    </div>
-    <div class="casc-ctl reveal d3">
-      <button class="btn" type="button" id="nx">Show first step</button>
-      <button class="btn ghost" type="button" id="rs">Start over</button>
-      <div class="src">Sources: ICIMOD study of the 2024 Thame flood (2025); news and agency reports on the 2026 Rasuwa flood (Kathmandu Post, Stimson Center, ICIMOD). Causes of the 2026 flood were still preliminary.</div>
-    </div>
-    <div class="casc-cap reveal d3" id="cap" aria-live="polite"></div>
-  </div>
-</section>
-
 <!-- 20. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>16</b><span>Exit ticket</span></div>
@@ -784,33 +725,6 @@ function ledShow() {
 $$('.led-row').forEach(r => r.addEventListener('click', () => { const k = +r.dataset.k; on.has(k) ? on.delete(k) : on.add(k); ledShow(); }));
 $('#led-reset').addEventListener('click', () => { on.clear(); ledShow(); });
 ledShow();
-
-/* === CASCADE === one click reveals the next step and its arrow */
-const STEPS = [
-  '<b>1. Climate change is the precondition.</b> Warmer air over decades heats high mountains. Nothing breaks yet, but every later step now becomes more likely.',
-  '<b>2. Permafrost thaws and glaciers melt.</b> Ground that stayed frozen like glue starts to warm, and glaciers shrink and leave new meltwater lakes behind.',
-  '<b>3. Slopes turn unstable and glaciers hang.</b> Without frozen glue, rock and ice sit loose on steep slopes, and hanging glaciers perch above the valley.',
-  '<b>4. A rock-ice avalanche lets go.</b> A massive volume of rock and ice falls at once. In the 2026 Rasuwa flood, satellite images showed a large collapse of glacier and rock high above the valley.',
-  '<b>5. A debris-dammed lake forms.</b> The pile blocks the river, so water backs up behind it. In 2024, a rock avalanche hit a glacial lake near Thame and broke its moraine (rock rubble) dam.',
-  '<b>6. The water becomes a debris flow.</b> Once the dam gives way, water mixes with rock, mud and ice. The steep gradient (slope) makes this slurry fast and heavy, and it can carry boulders for tens of kilometres. The 2024 Thame flow carried debris over 80 km.',
-  '<b>7. Settlements in flood-prone areas are hit.</b> Villages, bridges and power plants sit on flat land by the river, right in the path. <b>Quick question:</b> at which step could people break the chain, and how?',
-];
-let n = 0;
-const cap = $('#cap'), nx = $('#nx');
-function draw() {
-  for (let i = 1; i <= 7; i++) {
-    const g = $('#n' + i);
-    g.classList.toggle('on', i <= n);
-    g.classList.toggle('now', i === n);
-  }
-  for (let i = 1; i <= 6; i++) for (const p of ['a', 'h']) $('#' + p + i).classList.toggle('on', i < n);
-  cap.innerHTML = n ? STEPS[n - 1] : 'Press <b>Show first step</b>. Each press adds the next step in the chain.';
-  nx.textContent = n === 0 ? 'Show first step' : n < 7 ? 'Next step' : 'All steps shown';
-  nx.disabled = n === 7;
-}
-nx.addEventListener('click', () => { if (n < 7) { n++; draw(); } });
-$('#rs').addEventListener('click', () => { n = 0; draw(); });
-draw();
 
 /* === ATTENDANCE, POLLS === */
 const live = await connect(LECTURE);
