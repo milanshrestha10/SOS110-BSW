@@ -179,6 +179,23 @@
   </div>
 </section>
 
+<!-- VIDEO: ENERGY -->
+<section class="slide">
+  <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Watch and discuss · video</div>
+    <h2 class="reveal d2" style="font-size:70px">Watch: <em>energy</em> in action</h2>
+    <div class="vid reveal d3">
+      <div class="video" data-youtube="QGeAoXPF7yo" data-start="4" data-title="Energy video"></div>
+      <div class="vid-side">
+        <div class="sc sky"><b>As you watch</b>Listen for where the energy comes from and what it is used for.</div>
+        <div class="sc"><b>Then talk</b>Turn to a neighbor. What was one new idea about energy, and how does it connect to the definition we just saw?</div>
+        <p class="small"><a href="https://www.youtube.com/watch?v=QGeAoXPF7yo&amp;t=4s" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 9. VIDEO -->
 <section class="slide">
   <div class="rail"><b>15</b><span>Big idea 1 · Energy</span></div>
@@ -688,7 +705,7 @@ new MutationObserver(() => { if ($('#loops').closest('.slide').classList.contain
 
 /* === VIDEO === embed the YouTube video named in data-youtube */
 $$('[data-youtube]').forEach(v => {
-  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}?rel=0" title="${esc(v.dataset.title || 'Video')}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}?rel=0${v.dataset.start ? `&start=${encodeURIComponent(v.dataset.start)}` : ''}" title="${esc(v.dataset.title || 'Video')}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 });
 
 /* === GAME: KEEP THE LIGHTS ON === */
