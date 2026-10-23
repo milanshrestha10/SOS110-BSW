@@ -346,7 +346,7 @@
 <section class="slide">
   <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Watch · ABC News, Daniel Mercer</div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Watch · ABC News, Daniel Mercer</div>
     <h2 class="reveal d2" style="font-size:70px">The <em>energy transition</em> in Australia</h2>
     <div class="vid reveal d3" style="grid-template-columns:840px 1fr;gap:36px">
       <div class="video" style="width:840px" id="au-video" data-title="ABC News: Australia's renewable energy passes coal and gas">
@@ -369,7 +369,7 @@
 <section class="slide">
   <div class="rail"><b>16</b><span>Big idea 1 · Alternatives</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Watch · second clip</div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Watch · second clip</div>
     <h2 class="reveal d2" style="font-size:70px">Watch and <em>discuss</em></h2>
     <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
       <div class="video" style="width:1000px" id="clip2-video" data-title="Energy transition video"><div class="ph"><b>Loading video…</b><span>It needs an internet connection.</span></div></div>
@@ -485,6 +485,24 @@
       </div>
     </div>
     <p class="src reveal d4">Dollar amounts are made-up teaching numbers. The idea is from US EPA (2018), section 1.1.1: leaving benefits out "overstates the net cost of the program."</p>
+  </div>
+</section>
+
+<!-- 16. VIDEO: WHY ENERGY MATTERS IN LOW- AND MIDDLE-INCOME COUNTRIES -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Big idea 3 · Energy justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Watch · why energy is needed everywhere</div>
+    <h2 class="reveal d2" style="font-size:58px">Why <em>energy</em> matters in low- and middle-income countries</h2>
+    <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
+      <div class="video" style="width:1000px" id="clip3-video" data-title="Why energy is needed in low- and middle-income countries"><div class="ph"><b>Loading video…</b><span>It needs an internet connection.</span></div></div>
+      <div class="vid-side">
+        <div class="sc sky"><b>As you watch</b>Listen for what people in the video need energy for.</div>
+        <div class="sc"><b>Then talk</b>Think of one thing in your day that needs energy. What would change without it?</div>
+        <div class="sc green"><b>Link to justice</b>If clean energy is built mostly where people can pay for it, who is left out?</div>
+        <p class="small"><a href="https://www.youtube.com/watch?v=VA5MNgFbQ-U" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -624,6 +642,7 @@ const LECTURE = 'm5-s3';
 const embed = (id, yt) => { const v = $(id); v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt)}?rel=0" title="${esc(v.dataset.title)}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`; };
 embed('#au-video', 'w0L_4ZX4_OU');
 embed('#clip2-video', 'eRTakSsqgiA');
+embed('#clip3-video', 'VA5MNgFbQ-U');
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
 /* === KEY TERMS === the four Module 5 glossary terms listed for this session */
