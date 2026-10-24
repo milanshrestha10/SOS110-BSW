@@ -66,6 +66,11 @@
 .vcard .in{transition:transform .45s var(--io)}
 @media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
 @media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
 </style>
 </head>
 <body>
