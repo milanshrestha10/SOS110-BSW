@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lecture 17 Urban ecosystems and resilience · SOS110</title>
+<title>Lecture 18 Urban ecosystems and resilience · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
-/* === LECTURE 17 === urban ecosystems and resilience (M6 L2) */
+/* === LECTURE 18 === urban ecosystems and resilience (M6 L2) */
 .content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
 .two.l.w{grid-template-columns:1000px 1fr}
 .two.l.n{grid-template-columns:760px 1fr}
@@ -55,6 +55,22 @@
 .srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
 #srt-next{align-self:flex-start;font-size:26px}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+/* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button,.srt-btns .btn{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease;will-change:transform}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -97,7 +113,7 @@
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>06</em></b><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
-    <div class="title-k reveal d2">Lecture 17</div>
+    <div class="title-k reveal d2">Lecture 18</div>
     <h1 class="reveal d2" style="font-size:104px">Urban ecosystems and <em>resilience</em></h1>
     <p class="hero-sub reveal d3" style="max-width:860px">A city is an ecosystem too. How do we design one that can take a hit and keep going?</p>
     <div class="goldline"></div>
@@ -107,7 +123,7 @@
 
 <!-- 2. WHAT'S DUE -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>What's due</span></div>
+  <div class="rail"><b>18</b><span>What's due</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>Assignment deadlines · tick them off as you finish</div>
     <h2 class="reveal d2">What's <em>due</em></h2>
@@ -130,7 +146,7 @@
 
 <!-- 3. KEY TERMS -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Key terms</span></div>
+  <div class="rail"><b>18</b><span>Key terms</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
     <h2 class="reveal d2">Key <em>terms</em> for today</h2>
@@ -140,7 +156,7 @@
 
 <!-- 4. WARM-UP POLL -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Warm-up poll</span></div>
+  <div class="rail"><b>18</b><span>Warm-up poll</span></div>
   <div class="content center">
     <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
     <h2 class="reveal d2" style="font-size:62px;max-width:1560px">In 1950, about 3 in 10 people lived in cities. When did <em>half</em> of the world's people first live in a city?</h2>
@@ -156,7 +172,7 @@
 
 <!-- 5. BIG IDEAS -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big ideas</span></div>
+  <div class="rail"><b>18</b><span>Big ideas</span></div>
   <div class="content center">
     <div class="k reveal">Big ideas · cities as ecosystems that can bounce back</div>
     <h2 class="reveal d2">Today's big <em>ideas</em></h2>
@@ -171,7 +187,7 @@
 
 <!-- 6. ATTENDANCE -->
 <section class="slide" id="attendance">
-  <div class="rail"><b>17</b><span>Attendance</span></div>
+  <div class="rail"><b>18</b><span>Attendance</span></div>
   <div class="content center">
     <div class="k reveal">Check in</div>
     <h2 class="reveal d2">Enter today's <em>code</em></h2>
@@ -193,7 +209,7 @@
 
 <!-- 7. REVIEW QUIZ -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Review quiz</span></div>
+  <div class="rail"><b>18</b><span>Review quiz</span></div>
   <div class="content center">
     <div class="k reveal">Review quiz · from Lecture 16</div>
     <h2 class="reveal d2" style="font-size:60px;max-width:1560px">Which kind of <em>alternative energy</em> is usually the cheapest?</h2>
@@ -209,7 +225,7 @@
 
 <!-- 8. 1609 -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Think first · 1609</span></div>
+  <div class="rail"><b>18</b><span>Think first · 1609</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>Think first · look at all parts of the system</div>
     <h2 class="reveal d2" style="font-size:70px">Manhattan in <em>1609</em> and now</h2>
@@ -230,7 +246,7 @@
 
 <!-- 9. SYSTEMS THINKING -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Think first · Systems thinking</span></div>
+  <div class="rail"><b>18</b><span>Think first · Systems thinking</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Systems thinking in urban issues</div>
     <h2 class="reveal d2" style="font-size:70px">When the water <em>rises</em></h2>
@@ -249,7 +265,7 @@
 
 <!-- 10. CIRCULARITY -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 2 · Urban sustainability</span></div>
+  <div class="rail"><b>18</b><span>Big idea 2 · Urban sustainability</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · planning with circularity</div>
     <h2 class="reveal d2" style="font-size:70px">Cities and <em>circularity</em></h2>
@@ -276,7 +292,7 @@
 
 <!-- 11. SUSTAINABLE AND RESILIENT CITY -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 2 · Urban sustainability</span></div>
+  <div class="rail"><b>18</b><span>Big idea 2 · Urban sustainability</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · two ideas that work together</div>
     <h2 class="reveal d2" style="font-size:70px">A sustainable and <em>resilient</em> city</h2>
@@ -298,7 +314,7 @@
 
 <!-- 12. URBANIZATION CHART -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 2 · Urban sustainability</span></div>
+  <div class="rail"><b>18</b><span>Big idea 2 · Urban sustainability</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>Big idea 2 · an urbanizing world</div>
     <h2 class="reveal d2" style="font-size:70px">More of us live in <em>cities</em></h2>
@@ -317,7 +333,7 @@
 
 <!-- 13. NEW MEGACITIES -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 2 · Urban sustainability</span></div>
+  <div class="rail"><b>18</b><span>Big idea 2 · Urban sustainability</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-map"/></svg></span>Big idea 2 · where the biggest cities are, and where they will be</div>
     <h2 class="reveal d2" style="font-size:70px">The new <em>megacities</em></h2>
@@ -334,7 +350,7 @@
 
 <!-- 14. ATLANTA AND BARCELONA -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 2 · Urban sustainability</span></div>
+  <div class="rail"><b>18</b><span>Big idea 2 · Urban sustainability</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · same people, very different cities</div>
     <h2 class="reveal d2" style="font-size:70px">Atlanta and <em>Barcelona</em></h2>
@@ -354,7 +370,7 @@
 
 <!-- 15. IN, OF, FOR -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 1 · Types of urban ecology</span></div>
+  <div class="rail"><b>18</b><span>Big idea 1 · Types of urban ecology</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>Big idea 1 · three ways to study a city</div>
     <h2 class="reveal d2" style="font-size:70px">Ecology <em>in</em>, <em>of</em> and <em>for</em> cities</h2>
@@ -372,7 +388,7 @@
 
 <!-- 16. ECOLOGY IN THE CITY -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 1 · Types of urban ecology</span></div>
+  <div class="rail"><b>18</b><span>Big idea 1 · Types of urban ecology</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>Big idea 1 · ecology <i>in</i> the city</div>
     <h2 class="reveal d2" style="font-size:70px">Which <em>biome</em> has the most species?</h2>
@@ -389,7 +405,7 @@
 
 <!-- 17. URBAN METABOLISM -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 1 · Types of urban ecology</span></div>
+  <div class="rail"><b>18</b><span>Big idea 1 · Types of urban ecology</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Big idea 1 · ecology <i>of</i> the city</div>
     <h2 class="reveal d2" style="font-size:70px">Urban <em>metabolism</em></h2>
@@ -407,7 +423,7 @@
 
 <!-- 18. HETEROTROPHIC CITIES -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 1 · Types of urban ecology</span></div>
+  <div class="rail"><b>18</b><span>Big idea 1 · Types of urban ecology</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Big idea 1 · ecology <i>of</i> the city</div>
     <h2 class="reveal d2" style="font-size:70px">Cities are <em>"heterotrophic"</em></h2>
@@ -424,7 +440,7 @@
 
 <!-- 19. WATER IMPORTS -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 1 · Types of urban ecology</span></div>
+  <div class="rail"><b>18</b><span>Big idea 1 · Types of urban ecology</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Big idea 1 · ecology <i>of</i> the city</div>
     <h2 class="reveal d2" style="font-size:70px">Cities import most of their <em>water</em></h2>
@@ -441,7 +457,7 @@
 
 <!-- 20. ECOLOGY FOR THE CITY -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Big idea 3 · Resilience</span></div>
+  <div class="rail"><b>18</b><span>Big idea 3 · Resilience</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 3 · ecology <i>for</i> the city</div>
     <h2 class="reveal d2" style="font-size:70px">How <em>should</em> we design cities?</h2>
@@ -458,7 +474,7 @@
 
 <!-- 21. SORT GAME -->
 <section class="slide" id="sort">
-  <div class="rail"><b>17</b><span>Big idea 3 · Resilience</span></div>
+  <div class="rail"><b>18</b><span>Big idea 3 · Resilience</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 3 · try it · tap a button for each card</div>
     <h2 class="reveal d2" style="font-size:62px">Social, ecological or <em>technical</em>?</h2>
@@ -484,7 +500,7 @@
 
 <!-- 22. EXIT TICKET -->
 <section class="slide">
-  <div class="rail"><b>17</b><span>Exit ticket</span></div>
+  <div class="rail"><b>18</b><span>Exit ticket</span></div>
   <div class="content center">
     <div class="k reveal">Exit ticket · counts for participation</div>
     <h2 class="reveal d2" style="font-size:58px;max-width:1560px">A team tracks all the water, energy and materials that flow into and out of a whole city. Which kind of urban ecology is this?</h2>
@@ -503,7 +519,7 @@
   <img class="hero-img" style="object-position:center 40%" src="img/central-park-end.jpg" alt="Central Park and the city around it" aria-hidden="true">
   <div class="hero-scrim"></div>
   <div class="hero-text" style="width:1040px">
-    <div class="hero-badge reveal"><b>L<em>17</em></b><span>Urban ecosystems and resilience</span></div>
+    <div class="hero-badge reveal"><b>L<em>18</em></b><span>Urban ecosystems and resilience</span></div>
     <div class="title-k reveal d2">Takeaway</div>
     <p class="hero-lead reveal d2">A city is an ecosystem. Design it with <em>people, nature and technology</em> together, and it can bounce back.</p>
     <ol class="num reveal d3" style="font-size:28px">
@@ -537,7 +553,7 @@ loadSession(LECTURE).then(d => { fill($('.slide.hero'), d); showTerms(d); }).cat
 });
 
 /* === WHAT'S DUE === tick boxes, remembered on this device only */
-const dueKey = 'sos110-l17-due';
+const dueKey = 'sos110-l18-due';
 let ticks = {};
 try { ticks = JSON.parse(localStorage.getItem(dueKey) || '{}'); } catch { ticks = {}; }
 $$('.chk li').forEach(li => {
