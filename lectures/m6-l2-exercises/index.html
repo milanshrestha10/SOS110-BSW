@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 17 · Urban ecosystems and resilience · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* === M6 L2 EXERCISES ONLY === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
+.chipsel{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 12px}
+.chipsel button{font:700 22px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 20px;cursor:pointer}
+.chipsel button:hover{border-color:var(--Sky)}
+.chipsel button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.ex textarea{height:96px;font-size:22px}.ex label{font-size:24px}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+.go-row .status{margin:0;font-size:20px}
+.exl{display:grid;grid-template-columns:760px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
+.exl .pic img{width:100%;display:block;border-radius:14px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.three .col{background:var(--card);border:2px solid var(--paper-2);border-top:8px solid var(--Sky);border-radius:16px;padding:18px 22px}
+.three .col.s{border-top-color:var(--golden)}.three .col.e{border-top-color:#2e7d5b}
+.three h3{font:400 34px var(--display);margin:0 0 6px}.three .d{font-size:20px;color:var(--mute);margin-bottom:10px}
+.three .chipsel{flex-direction:column;align-items:stretch}.three .chipsel button{text-align:left;font-size:21px;border-radius:14px;line-height:1.25}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 40%" src="../m6-l2-urban-ecology/img/central-park-end.jpg" alt="Central Park and the city around it">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>06</em></b><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
+    <div class="title-k reveal d2">Lecture 17 · Urban ecosystems and resilience</div>
+    <h1 class="reveal d2" style="font-size:96px">Class Exercise <em>17</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Look at a city's past. Then plan for its next storm.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- CHECK IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>17</b><span>Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 1. THEN AND NOW -->
+<section class="slide" id="then">
+  <div class="rail"><b>17</b><span>Exercise 1 of 3 · Then and now</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Manhattan, <em>then</em> and now</h2>
+    <p class="steps reveal d2"><b>Look at the two pictures.</b> An <b>ecosystem service</b> is a free benefit that nature gives people, such as clean air or clean water.</p>
+    <div class="exl reveal d3">
+      <div class="pic"><figure class="fig" style="margin:0"><img src="../m6-l2-urban-ecology/img/mannahatta-1609.jpg" alt="Manhattan in 1609, covered in forest and wetland, next to lower Manhattan today, packed with skyscrapers"><figcaption class="credit">Left: Mannahatta circa 1609 (recreation), Markley Boyer / The Mannahatta Project. Right: lower Manhattan today, Stephen Amiaga. Via Wildlife Conservation Society.</figcaption></figure></div>
+      <div class="ex">
+        <label><i>1</i>Pick one ecosystem service that was strong in 1609 and is weaker now.</label>
+        <div class="chipsel" id="svc"><button type="button" data-v="Clean air">Clean air</button><button type="button" data-v="Clean water">Clean water</button><button type="button" data-v="Soaking up flood water">Soaking up flood water</button><button type="button" data-v="Cooling the air">Cooling the air</button><button type="button" data-v="Homes for wildlife">Homes for wildlife</button><button type="button" data-v="Places to relax">Places to relax</button></div>
+        <label for="th-why"><i>2</i>What replaced it in today's city? How could the city bring a little of it back?</label>
+        <textarea id="th-why" maxlength="600" placeholder="Now there is …, and the city could bring it back by …"></textarea>
+        <div class="go-row"><button class="btn" type="button" id="th-save">Submit</button><span class="status" id="th-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 2. STORM SURGE PLAN -->
+<section class="slide" id="plan">
+  <div class="rail"><b>17</b><span>Exercise 2 of 3 · Storm plan</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Plan for a <em>storm surge</em></h2>
+    <p class="steps reveal d2"><b>A hurricane is pushing seawater into a coastal city.</b> Pick one fix from each column. <b>Resilience</b> means a city can take a hit and keep working.</p>
+    <div class="three reveal d3">
+      <div class="col s"><h3>Social</h3><div class="d">People and rules</div>
+        <div class="chipsel" id="p-s"><button type="button" data-v="Text alerts and evacuation plans">Text alerts and evacuation plans</button><button type="button" data-v="Neighbors check on older residents">Neighbors check on older residents</button><button type="button" data-v="Free shelters in schools">Free shelters in schools</button><button type="button" data-v="Flood insurance for renters">Flood insurance for renters</button></div></div>
+      <div class="col e"><h3>Ecological</h3><div class="d">Living things and soil</div>
+        <div class="chipsel" id="p-e"><button type="button" data-v="Restore wetlands and oyster reefs">Restore wetlands and oyster reefs</button><button type="button" data-v="Rain gardens and parks that soak up water">Rain gardens and parks that soak up water</button><button type="button" data-v="Green roofs">Green roofs</button><button type="button" data-v="Street trees">Street trees</button></div></div>
+      <div class="col"><h3>Technical</h3><div class="d">Built things and machines</div>
+        <div class="chipsel" id="p-t"><button type="button" data-v="Sea wall">Sea wall</button><button type="button" data-v="Flood gates at subway entrances">Flood gates at subway entrances</button><button type="button" data-v="Power equipment moved upstairs">Power equipment moved upstairs</button><button type="button" data-v="Bigger storm drains and pumps">Bigger storm drains and pumps</button></div></div>
+    </div>
+    <div class="ex reveal d3" style="margin-top:14px"><label for="pl-why"><i>2</i>Which people or places would your plan protect first, and why?</label>
+      <textarea id="pl-why" maxlength="600" placeholder="Our plan protects … first because …"></textarea>
+      <div class="go-row"><button class="btn" type="button" id="pl-save">Submit</button><span class="status" id="pl-status"></span></div></div>
+  </div>
+</section>
+
+<!-- EXERCISE 3. CITY METABOLISM -->
+<section class="slide" id="loop">
+  <div class="rail"><b>17</b><span>Exercise 3 of 3 · City metabolism</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Close a <em>loop</em> in your city</h2>
+    <p class="steps reveal d2"><b>Think of the city or town you know best.</b> <b>Urban metabolism</b> means the water, energy and materials that flow into a city and the waste that flows out.</p>
+    <div class="exl reveal d3" style="grid-template-columns:1fr 1fr;gap:50px">
+      <div class="ex">
+        <label><i>1</i>Pick one thing your city brings in.</label>
+        <div class="chipsel" id="flow"><button type="button" data-v="Water">Water</button><button type="button" data-v="Energy">Energy</button><button type="button" data-v="Food">Food</button><button type="button" data-v="Building materials">Building materials</button></div>
+        <label><i>2</i>Pick one way to close the loop.</label>
+        <div class="chipsel" id="fix"><button type="button" data-v="Use less">Use less</button><button type="button" data-v="Reuse it">Reuse it</button><button type="button" data-v="Make it locally">Make it locally</button><button type="button" data-v="Recycle the waste">Recycle the waste</button></div>
+      </div>
+      <div class="ex">
+        <label for="lp-why"><i>3</i>Describe your idea in one or two sentences. Who would do it?</label>
+        <textarea id="lp-why" maxlength="600" style="height:170px" placeholder="Our city could … by …"></textarea>
+        <div class="go-row"><button class="btn" type="button" id="lp-save">Submit</button><span class="status" id="lp-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXIT TICKET -->
+<section class="slide">
+  <div class="rail"><b>17</b><span>Exit ticket</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit ticket · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1560px">A city plans for floods with a sea wall only. What is missing from a <em>resilient</em> plan?</h2>
+    <div class="poll reveal d3" data-poll="exitex" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Nothing. A strong wall is enough.</button>
+      <button class="opt" type="button"><b>B</b>The social and ecological parts: warnings and help for people, and wetlands or parks that soak up water</button>
+      <button class="opt" type="button"><b>C</b>A second sea wall</button>
+      <button class="opt" type="button"><b>D</b>Resilience cannot be planned</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exitex">Show answer</button><span class="status" data-poll-status="exitex" style="margin:0"></span></div>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm6-s2';
+
+/* === COURSE DATA === fills the module title on the title slide */
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === CHIP PICKERS === one choice per group */
+const picks = {};
+$$('.chipsel').forEach(g => $$('button', g).forEach(b => b.addEventListener('click', () => {
+  $$('button', g).forEach(x => x.classList.toggle('on', x === b));
+  picks[g.id] = b.dataset.v;
+})));
+
+/* === ATTENDANCE, POLLS === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+
+/* === SAVE: THEN AND NOW === saves under m6-s2 as then-now */
+$('#th-save').addEventListener('click', async () => {
+  const st = $('#th-status'), why = $('#th-why').value.trim().slice(0, 600);
+  if (!picks.svc) { say(st, 'Pick an ecosystem service first.', 'err'); return; }
+  if (!why) { say(st, 'Answer the second question.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('then-now', { service: picks.svc, why }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: STORM PLAN === saves under m6-s2 as storm-plan */
+$('#pl-save').addEventListener('click', async () => {
+  const st = $('#pl-status'), why = $('#pl-why').value.trim().slice(0, 600);
+  if (!picks['p-s'] || !picks['p-e'] || !picks['p-t']) { say(st, 'Pick one fix from each column.', 'err'); return; }
+  if (!why) { say(st, 'Write who or what you would protect first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('storm-plan', { social: picks['p-s'], ecological: picks['p-e'], technical: picks['p-t'], why }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: CITY LOOP === saves under m6-s2 as city-loop */
+$('#lp-save').addEventListener('click', async () => {
+  const st = $('#lp-status'), why = $('#lp-why').value.trim().slice(0, 600);
+  if (!picks.flow || !picks.fix) { say(st, 'Pick one thing and one way to close the loop.', 'err'); return; }
+  if (!why) { say(st, 'Describe your idea.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('city-loop', { flow: picks.flow, fix: picks.fix, why }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
