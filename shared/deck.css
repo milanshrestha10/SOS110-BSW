@@ -357,3 +357,18 @@ body.deck-embed .deck-side,body.deck-embed .deck-controls,body.deck-embed .deck-
 /* ROOMY HEADINGS (opt in with <main class="deck-stage roomy">): every slide heading keeps a
    clear gap above the text, cards and pictures below it. */
 .roomy .slide h2{margin-bottom:48px}
+
+/* === MOTION AND INTERACTION POLISH === (Emil Kowalski principles)
+   Strong ease-out for entrances, ease-in-out for on-screen movement, UI changes under 300ms,
+   transform and opacity only, press feedback on controls, clear keyboard focus. */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),box-shadow .2s ease,background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
