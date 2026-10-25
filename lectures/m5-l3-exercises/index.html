@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class Exercise 16 · Energy transition and energy justice · SOS110</title>
+<title>Class Exercise 16 · Solar at home and energy justice · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
@@ -52,6 +52,56 @@
 .jc-q .chipsel{margin:0;justify-content:flex-end}
 .go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
 .go-row .status{margin:0;font-size:20px}
+
+/* === EXERCISE 1: SOLAR PROS AND CONS === reference-guide style: white card, red tap icons, pop-up context panels */
+#plan{--red:#e53b3b;--rg:#2e7d5b;--rb:#b3452c;--rbody:'Archivo Narrow','Helvetica Neue','Arial Narrow',Arial,sans-serif;background:#eeeae0;font-family:var(--rbody);color:#222}
+#plan .top{position:absolute;left:60px;right:60px;top:26px;font:600 22px var(--rbody);letter-spacing:.12em;text-transform:uppercase;color:#555}
+#plan .card{position:absolute;left:60px;right:60px;top:80px;bottom:110px;background:#fff}
+#plan h2{position:absolute;left:70px;top:44px;margin:0;font:400 78px/1 var(--display);color:#2b2b2b}
+#plan .lead{position:absolute;left:74px;top:160px;width:900px;font:400 35px/1.3 var(--rbody);margin:0}
+#plan .lead i{font-style:italic}
+#plan .photo{position:absolute;right:0;top:0;width:700px;height:100%;background:#ddd}
+#plan .photo>img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#plan .photo .cut{position:absolute;right:20px;top:20px;width:150px;opacity:.95;pointer-events:none}
+#plan .credit-ph{position:absolute;left:14px;bottom:10px;font:600 16px var(--rbody);color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+#plan .col{position:absolute;font:700 22px var(--rbody);letter-spacing:.18em}
+#plan .p{position:absolute;width:420px;font:400 30px/1.22 var(--rbody);color:#222;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+#plan .ic,#plan .hs,#plan .note{display:inline-grid;place-items:center;border-radius:50%;background:var(--red);color:#fff;border:0;cursor:pointer;padding:0}
+#plan .ic{vertical-align:-6px;width:34px;height:34px;margin-left:8px;transition:transform .16s var(--ease)}
+#plan .p:hover .ic{transform:scale(1.15)}#plan .p:active .ic{transform:scale(.97)}
+#plan .ic svg,#plan .hs svg,#plan .note svg,#plan .x svg{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#plan .ic svg{width:19px;height:19px}
+#plan .ic.done{background:var(--rg)}
+#plan .hs{position:absolute;width:56px;height:56px;margin:-28px 0 0 -28px;border:4px solid #fff;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+#plan .hs svg{width:28px;height:28px}
+#plan .hs::after{content:"";position:absolute;inset:-11px;border-radius:50%;border:3px solid var(--red);opacity:.5}
+#plan .note{position:absolute;right:26px;bottom:26px;width:64px;height:64px;box-shadow:0 3px 12px rgba(0,0,0,.3)}#plan .note svg{width:32px;height:32px}
+#plan .ask{position:absolute;left:74px;top:790px;width:900px;font:400 30px/1.25 var(--rbody)}
+#plan .bar{position:absolute;left:60px;right:60px;bottom:22px;display:flex;gap:46px;align-items:baseline;font:400 26px var(--rbody);color:#555;white-space:nowrap}
+#plan .bar b{font:400 36px var(--display);color:#222;margin-left:8px}
+#plan .bar .src{margin-left:auto;font-size:18px;white-space:normal;width:830px;line-height:1.15}
+#plan .shade{position:absolute;inset:0;background:rgba(20,20,20,.5);display:none;z-index:5}
+#plan .pop{position:absolute;left:260px;top:150px;width:1400px;background:#fff;box-shadow:0 30px 90px rgba(0,0,0,.5);padding:44px 56px;display:none;z-index:6}
+#plan.open .shade,#plan.open .pop.on{display:block}
+#plan .pop .x{position:absolute;right:22px;top:20px;width:52px;height:52px;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;border:0;cursor:pointer}#plan .pop .x svg{width:24px;height:24px;stroke-width:2.6}
+#plan .pop .tag{font:600 21px var(--rbody);letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}#plan .pop .tag .ic{margin:0;cursor:default}
+#plan .pop h3{font:400 56px/1.05 var(--display);margin:10px 0 14px;color:#2b2b2b;max-width:1100px}
+#plan .pop p{font:400 31px/1.3 var(--rbody);margin:0 0 14px;max-width:1100px}
+#plan .pop .cutp{position:absolute;right:90px;top:28px;width:170px}
+#plan .abc{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:10px 0 18px}
+#plan .box{border-top:5px solid var(--red);background:#f7f5ef;padding:14px 22px 18px}
+#plan .box .l{font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555}
+#plan .box .v{font:400 62px/1.05 var(--display);margin:6px 0 4px}#plan .box .v small{font:400 28px var(--rbody)}
+#plan .box .d{font:400 25px/1.25 var(--rbody)}
+#plan .box.warn{border-top-color:var(--rb);background:#fbeee9}
+#plan .go{display:flex;gap:16px;align-items:center;margin-top:12px}
+#plan .rbtn{font:700 28px var(--rbody);letter-spacing:.04em;background:var(--red);color:#fff;padding:14px 34px;border-radius:6px;border:2px solid var(--red);cursor:pointer}#plan .rbtn.g{background:#fff;color:var(--red)}
+#plan .two{display:grid;grid-template-columns:1fr 580px;gap:44px;align-items:center}
+#plan .rchips{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 20px}
+#plan .rchips button{font:600 28px var(--rbody);border:2px solid var(--red);background:#fff;color:var(--red);border-radius:999px;padding:8px 24px;cursor:pointer}
+#plan .rchips button.on{background:var(--red);color:#fff}
+#plan .qn{font:400 30px var(--rbody);margin:0 0 4px}#plan .qn i{font:400 34px var(--display);color:var(--red);font-style:normal;margin-right:10px}
+#plan .status{font:600 24px var(--rbody);margin:0}
 </style>
 </head>
 <body>
@@ -73,6 +123,10 @@
   <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
   <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
   <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
 </svg>
 <div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
@@ -85,7 +139,7 @@
     <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
     <div class="title-k reveal d2">Lecture 16 · Alternative energy and energy equity</div>
     <h1 class="reveal d2" style="font-size:96px">Class Exercise <em>16</em></h1>
-    <p class="hero-sub reveal d3" style="max-width:860px">Plan an energy transition. Then ask whether it is fair.</p>
+    <p class="hero-sub reveal d3" style="max-width:860px">Weigh solar for your home. Then ask whether the benefits are fair.</p>
     <div class="goldline"></div>
   </div>
 </section>
@@ -112,31 +166,25 @@
   </div>
 </section>
 
-<!-- EXERCISE 1. ENERGY TRANSITION: BUILD A PLAN -->
+<!-- EXERCISE 1. SOLAR AT HOME: PROS AND CONS -->
 <section class="slide" id="plan">
-  <div class="rail"><b>16</b><span>Exercise 1 of 3 · Energy transition</span></div>
-  <div class="content fill" style="top:80px;bottom:40px">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
-    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Plan your city's <em>energy transition</em></h2>
-    <p class="steps reveal d2"><b>Tap the actions you want, up to 100 points.</b> The <b>energy transition</b> is the shift from fossil fuels to clean energy. Each action earns benefits in the three groups from the EPA reading.</p>
-    <div class="pl reveal d3">
-      <div class="pl-rows" id="pl-rows"></div>
-      <div class="pl-side">
-        <div class="budget" id="budget"><div class="row"><span>Points spent</span><b id="bd-n">0 / 100</b></div><div class="t"><i id="bd-bar" style="width:0"></i></div></div>
-        <div class="mt g"><span>Electricity system</span><div class="t"><i id="m-sys" style="width:0"></i></div><b id="v-sys">0</b></div>
-        <div class="mt h"><span>Emissions and health</span><div class="t"><i id="m-health" style="width:0"></i></div><b id="v-health">0</b></div>
-        <div class="mt e"><span>Economy</span><div class="t"><i id="m-econ" style="width:0"></i></div><b id="v-econ">0</b></div>
-        <div class="pl-read" id="pl-read" aria-live="polite">Pick actions to see your benefits add up.</div>
-        <div class="ex">
-          <label><i>1</i>Which benefit is your plan weakest at?</label>
-          <div class="chipsel" id="weak"><button type="button" data-v="sys">Electricity system</button><button type="button" data-v="health">Emissions and health</button><button type="button" data-v="econ">Economy</button></div>
-          <label for="pl-why"><i>2</i>Why did you pick these actions?</label>
-          <textarea id="pl-why" maxlength="600" placeholder="We picked … because …"></textarea>
-        </div>
-        <div class="go-row"><button class="btn" type="button" id="pl-save">Submit</button><span class="status" id="pl-status"></span></div>
-      </div>
+  <div class="top">SOS110 · Lecture 16 · Class Exercise 1 of 3 · Work with a neighbor · About 12 minutes</div>
+  <div class="card">
+    <h2>Should your home go <em>solar</em>?</h2>
+    <p class="lead">Arizona gets about <i>350 sunny days</i> a year. That is a big <i>pro</i> for solar. But there are <i>cons</i> too. <b>Tap each red icon</b> to read it, then add it to your pros or cons.</p>
+    <div id="cols"></div>
+    <div class="ask">When you have read them, tap the <span class="ic" style="margin:0"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pen"/></svg></span> pencil to answer two questions.</div>
+    <div class="photo">
+      <img class="ph" src="img/tempe-solar-home.jpg" alt="A Tempe home with rooftop solar panels under a blue sky">
+      <img class="cut" src="img/sun.png" alt="">
+      <button class="hs" type="button" data-open="sun" style="left:37%;top:46%" aria-label="Sunshine"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-sun"/></svg></button>
+      <div class="credit-ph">Photo: instructor-supplied</div>
+      <button class="note" type="button" data-open="answers" aria-label="Answer the questions"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pen"/></svg></button>
     </div>
   </div>
+  <div class="bar"><span>Pros<b id="n-pro">0 added</b></span><span>Cons<b id="n-con">0 added</b></span><span class="src">Dollars, units and rates are made-up teaching numbers. The federal incentive is modeled on the 30% residential clean energy credit. Rules change, so check current law.</span></div>
+  <div class="shade" id="shade"></div>
+  <div id="pops"></div>
 </section>
 
 <!-- EXERCISE 2. ENERGY JUSTICE: WHO GETS IT -->
@@ -171,11 +219,11 @@
   <div class="rail"><b>16</b><span>Exercise 3 of 3 · Justice check</span></div>
   <div class="content fill" style="top:80px;bottom:40px">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor · about 8 minutes</div>
-    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Is your plan <em>fair</em>?</h2>
-    <p class="steps reveal d2"><b>Look back at the plan you built in Exercise 1.</b> Rate it on each question, then write one change that would make it fairer.</p>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Is going solar <em>fair</em>?</h2>
+    <p class="steps reveal d2"><b>Look back at your solar choice in Exercise 1.</b> Rate it on each question, then write one change that would make it fairer.</p>
     <div class="jc reveal d3" id="jc"></div>
-    <div class="ex reveal d3" style="margin-top:14px"><label for="jc-fix"><i>4</i>Write one change that would make your plan fairer.</label>
-      <textarea id="jc-fix" maxlength="600" placeholder="To make my plan fairer, I would …"></textarea>
+    <div class="ex reveal d3" style="margin-top:14px"><label for="jc-fix"><i>4</i>Write one change that would make solar fairer.</label>
+      <textarea id="jc-fix" maxlength="600" placeholder="To make solar fairer, I would …"></textarea>
       <div class="go-row"><button class="btn" type="button" id="jc-save">Submit</button><span class="status" id="jc-status"></span></div></div>
   </div>
 </section>
@@ -209,40 +257,80 @@ const icon = (i, tone = '') => `<span class="ico sm ${tone}"><svg aria-hidden="t
 /* === COURSE DATA === fills the module title on the title slide */
 loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
 
-/* === EXERCISE 1: ENERGY TRANSITION PLAN === all points and scores are teaching numbers (0 to 3 per benefit) */
-const BUDGET = 100, MAXV = 12;
-const OPTS = [
-  { id: 'eff', name: 'Efficiency upgrades', note: 'Insulation, LED lights and better appliances in homes and schools', cost: 20, sys: 2, health: 2, econ: 3, i: 'gauge', tone: 'green' },
-  { id: 'dg', name: 'Rooftop solar on public buildings', note: 'Clean power made where it is used (distributed generation)', cost: 30, sys: 2, health: 2, econ: 2, i: 'sun', tone: 'gold' },
-  { id: 'farm', name: 'Wind and solar farm', note: 'Large renewable power plant outside the city', cost: 40, sys: 1, health: 3, econ: 2, i: 'wind', tone: 'sky' },
-  { id: 'bat', name: 'Batteries near neighborhoods', note: 'Store extra renewable power and ease strain on the grid at peak times', cost: 25, sys: 3, health: 1, econ: 1, i: 'battery', tone: 'sky' },
-  { id: 'dr', name: 'Peak-time demand response', note: 'Pay customers to cut use when the grid is stretched', cost: 15, sys: 3, health: 1, econ: 1, i: 'clock', tone: 'gold' },
-  { id: 'train', name: 'Clean-energy job training', note: 'Train residents, including fossil-fuel workers, for new jobs', cost: 15, sys: 0, health: 0, econ: 3, i: 'briefcase', tone: 'green' },
+/* === EXERCISE 1: SOLAR PROS AND CONS === all dollars, units and rates are teaching numbers */
+const CHART = `<svg viewBox="0 0 560 300" width="560" height="300" role="img" aria-label="Line chart: savings reach what you paid at 5.6 years, or about 8 years with a lower sell-back rate">
+<g stroke="#ddd" fill="none"><path d="M60 20V250H540M60 190H540M60 130H540M60 70H540"/></g>
+<g font-size="16" fill="#555"><text x="8" y="256">$0</text><text x="8" y="196">$2k</text><text x="8" y="136">$4k</text><text x="8" y="76">$6k</text><text x="52" y="274">0</text><text x="172" y="274">3</text><text x="292" y="274">6</text><text x="412" y="274">9</text><text x="522" y="274">12 yrs</text></g>
+<path d="M60 70H540" stroke="#222" stroke-width="3" fill="none" stroke-dasharray="8 6"/><text x="300" y="58" font-size="17" fill="#222">You paid $5,600 after the incentive</text>
+<path d="M60 250L540 10" stroke="#2e7d5b" stroke-width="5" fill="none"/><circle cx="347" cy="70" r="11" fill="#e53b3b" stroke="#fff" stroke-width="3"/>
+<path d="M60 250L540 130" stroke="#b3452c" stroke-width="5" fill="none"/>
+<text x="352" y="110" font-size="18" fill="#e53b3b" font-weight="700">5.6 yrs</text><text x="360" y="200" font-size="18" fill="#b3452c" font-weight="700">Lower sell-back rate</text><text x="110" y="170" font-size="18" fill="#2e7d5b" font-weight="700">Savings at full rate</text></svg>`;
+const SOL = [
+  { id: 'sun', side: 'pro', i: 'sun', q: 'Sunshine: how much power can a Tempe roof make?', tag: 'Pro · Sunshine', img: 'sun', title: 'Arizona has about 350 sunny days a year',
+    intro: 'More sun means more power from the same panels. A roof like this one can make more power than the home uses at midday.',
+    boxes: [['Sunny days a year', '~350', 'Among the sunniest places in the country.'], ['Peak sun', 'Midday', 'Panels make the most power when the sun is high.'], ['But', '6 pm', 'Everyone wants power after work, when the sun is low. That is peak time.', 1]] },
+  { id: 'bill', side: 'pro', i: 'coins', q: 'Bills: can solar lower what you pay each month?', tag: 'Pro · Bills', img: 'meter', title: 'Your own power means a smaller bill',
+    intro: 'Power from your roof is power you do not buy from the utility.',
+    boxes: [['Bill before solar', '$150', 'Per month, in this example.'], ['Bill after solar', '$65', 'Per month. You still buy power at night.'], ['You save', '~$1,000', 'About $1,000 a year.']] },
+  { id: 'air', side: 'pro', i: 'gauge', q: 'Air: what happens to pollution?', tag: 'Pro · Cleaner air', img: 'leaf', title: 'Solar makes power without burning anything',
+    intro: 'Some of Arizona’s power comes from burning gas and coal. Every unit your roof makes is a unit the power plant burns less of.',
+    boxes: [['Panels make', 'No smoke', 'Nothing burns on your roof.'], ['Less burning means', 'Less smog', 'Cleaner air for the whole valley.'], ['Less burning also means', 'Less CO₂', 'Carbon dioxide is a gas that warms the planet.']] },
+  { id: 'cost', side: 'con', i: 'coins', q: 'Cost: what does solar cost up front, and does an incentive help?', tag: 'Con · Cost and incentives', img: 'coins', title: 'Solar costs a lot up front. An incentive helps.',
+    intro: 'An <b>incentive</b> is money the government gives back to help you buy solar.',
+    boxes: [['Cost of panels', '$8,000', 'Paid before you save anything.'], ['Federal incentive', '−$2,400', '30% back. You pay <b>$5,600</b>.'], ['Barrier', 'Not for all', 'You need the money first, and a home you own.', 1]] },
+  { id: 'be', side: 'con', i: 'chart', q: 'Break-even: how many years until solar pays for itself?', tag: 'Con · Break-even', title: 'How long until solar pays for itself?',
+    intro: '<b>Break-even</b> is when your total savings equal what you paid. You paid <b>$5,600</b> after the incentive. Solar saves about <b>$1,000 a year</b>, so the green line crosses at <b>5.6 years</b>. Question: if you plan to move in 3 years, is solar worth it?', chart: CHART },
+  { id: 'net', side: 'con', i: 'alert', q: 'Net metering: why does selling power pay less?', tag: 'Con · Net metering', img: 'pylon', title: 'Net metering: selling is worth less than buying',
+    intro: '<b>Net metering</b> means your utility credits you for extra power your panels send to the grid.',
+    boxes: [['Midday: you make extra', '6 <small>units</small>', 'You send them to the grid while you are at work.'], ['You buy at 6 pm', '14¢ <small>per unit</small>', 'Evening power costs you the full price.'], ['The utility credits you', '7¢ <small>per unit</small>', 'Only half. Break-even moves from <b>5.6</b> to about <b>8 years</b>.', 1]] },
+  { id: 'rent', side: 'con', i: 'home', q: 'Renters: who cannot add panels?', tag: 'Con · Who can go solar', img: 'home', title: 'Not everyone can put panels on a roof',
+    intro: 'Exercise 2 asks who gets the benefits. Start here.',
+    boxes: [['Renters', 'No roof', 'You need your landlord to agree, and the roof is not yours.'], ['Shade or an old roof', 'Poor fit', 'Panels make less power, or the roof needs repair first.'], ['Money up front', '$5,600', 'Even after the incentive, many households cannot pay it.', 1]] },
 ];
-const dots = n => `<i>${[0, 1, 2].map(k => `<u class="${k < n ? 'f' : ''}"></u>`).join('')}</i>`;
-$('#pl-rows').innerHTML = OPTS.map(o => `<button type="button" class="opt-row" data-id="${o.id}">${icon(o.i, o.tone)}<span><b>${esc(o.name)}</b><span class="d">${esc(o.note)}</span></span><span class="pips"><div>GRID ${dots(o.sys)}</div><div class="h">HEALTH ${dots(o.health)}</div><div class="e">ECONOMY ${dots(o.econ)}</div></span><span class="cost">${o.cost}<small>POINTS</small></span></button>`).join('');
-const picked = new Set();
-const NAMES = { sys: 'the electricity system', health: 'emissions and health', econ: 'the economy' };
-function showPlan() {
-  const chosen = OPTS.filter(o => picked.has(o.id));
-  const cost = chosen.reduce((a, o) => a + o.cost, 0);
-  const tot = { sys: 0, health: 0, econ: 0 };
-  chosen.forEach(o => { for (const k in tot) tot[k] += o[k]; });
-  $$('.opt-row').forEach(r => r.classList.toggle('on', picked.has(r.dataset.id)));
-  $('#bd-n').textContent = `${cost} / ${BUDGET}`;
-  $('#bd-bar').style.width = `${Math.min(100, cost / BUDGET * 100)}%`;
-  $('#budget').classList.toggle('over', cost > BUDGET);
-  for (const k in tot) { $(`#m-${k}`).style.width = `${Math.min(100, tot[k] / MAXV * 100)}%`; $(`#v-${k}`).textContent = tot[k]; }
-  const lo = Object.keys(tot).sort((a, b) => tot[a] - tot[b])[0], hi = Object.keys(tot).sort((a, b) => tot[b] - tot[a])[0];
-  $('#pl-read').innerHTML = !chosen.length ? 'Pick actions to see your benefits add up.'
-    : cost > BUDGET ? `<b>Over budget by ${cost - BUDGET} points.</b> Remove an action.`
-    : `Your plan helps most with <b>${NAMES[hi]}</b> and least with <b>${NAMES[lo]}</b>. ${BUDGET - cost ? `You have ${BUDGET - cost} points left.` : 'You used every point.'}`;
-  return { cost, tot, chosen };
+const ric = n => `<svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-${n}"/></svg>`;
+const picked = { pro: new Set(), con: new Set() };
+const colHead = (t, c, x) => `<div class="col" style="left:${x}px;top:352px;color:${c}">${t}</div>`;
+$('#cols').innerHTML = colHead('PROS', '#2e7d5b', 74) + colHead('CONS AND BARRIERS', '#b3452c', 560)
+  + SOL.map(o => { const n = SOL.filter(x => x.side === o.side).indexOf(o); return `<button type="button" class="p" data-open="${o.id}" style="left:${o.side === 'pro' ? 74 : 560}px;top:${400 + n * 100}px;width:${o.side === 'pro' ? 420 : 440}px">${esc(o.q)}<span class="ic" data-ic="${o.id}">${ric(o.i)}</span></button>`; }).join('');
+const popHtml = o => `<div class="pop" id="pop-${o.id}" role="dialog" aria-modal="true" aria-label="${esc(o.title)}">
+  <button class="x" type="button" data-close aria-label="Close">${ric('x')}</button>
+  ${o.img ? `<img class="cutp" src="img/${o.img}.png" alt="">` : ''}
+  <div class="tag"><span class="ic">${ric(o.i)}</span>${esc(o.tag)}</div>
+  <h3>${esc(o.title)}</h3>
+  ${o.chart ? `<div class="two"><div><p>${o.intro}</p></div>${o.chart}</div>` : `<p>${o.intro}</p><div class="abc">${o.boxes.map(([l, v, d, w]) => `<div class="box${w ? ' warn' : ''}"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('')}</div>`}
+  <div class="go"><button class="rbtn" type="button" data-add="${o.id}"></button><button class="rbtn g" type="button" data-close>Close</button></div></div>`;
+const ansHtml = `<div class="pop" id="pop-answers" role="dialog" aria-modal="true" aria-label="Your answers">
+  <button class="x" type="button" data-close aria-label="Close">${ric('x')}</button>
+  <div class="tag"><span class="ic">${ric('pen')}</span>Your answers</div>
+  <h3>Would you go solar?</h3>
+  <p class="qn"><i>1</i>Would you put solar on your home?</p>
+  <div class="rchips" id="go-solar"><button type="button" data-v="yes">Yes, go solar</button><button type="button" data-v="notyet">Not yet</button></div>
+  <p class="qn"><i>2</i>Which barrier matters most to you?</p>
+  <div class="rchips" id="barrier"><button type="button" data-v="cost">Up-front cost</button><button type="button" data-v="breakeven">Break-even years</button><button type="button" data-v="netmeter">Net metering</button><button type="button" data-v="renting">Not owning a roof</button></div>
+  <div class="go"><button class="rbtn" type="button" id="pl-save">Submit</button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="pl-status"></span></div></div>`;
+$('#pops').innerHTML = SOL.map(popHtml).join('') + ansHtml;
+const plan = $('#plan');
+function showPop(id) { $$('#pops .pop').forEach(p => p.classList.toggle('on', p.id === `pop-${id}`)); plan.classList.toggle('open', !!id); if (id) refreshAdd(id); }
+function refreshAdd(id) {
+  const o = SOL.find(x => x.id === id); if (!o) return;
+  const b = $(`[data-add="${id}"]`), on = picked[o.side].has(id);
+  b.textContent = on ? `Remove from my ${o.side}s` : `Add to my ${o.side}s`;
 }
-$$('.opt-row').forEach(r => r.addEventListener('click', () => { const id = r.dataset.id; picked.has(id) ? picked.delete(id) : picked.add(id); showPlan(); }));
-let weak = '';
-$$('#weak button').forEach(b => b.addEventListener('click', () => { weak = b.dataset.v; $$('#weak button').forEach(x => x.classList.toggle('on', x === b)); }));
-showPlan();
+function refreshCounts() {
+  $('#n-pro').textContent = `${picked.pro.size} added`; $('#n-con').textContent = `${picked.con.size} added`;
+  SOL.forEach(o => $(`[data-ic="${o.id}"]`).classList.toggle('done', picked[o.side].has(o.id)));
+}
+plan.addEventListener('click', e => {
+  const op = e.target.closest('[data-open]'); if (op) { showPop(op.dataset.open); return; }
+  if (e.target.closest('[data-close]') || e.target.id === 'shade') { showPop(''); return; }
+  const ad = e.target.closest('[data-add]');
+  if (ad) { const o = SOL.find(x => x.id === ad.dataset.add), set = picked[o.side]; set.has(o.id) ? set.delete(o.id) : set.add(o.id); refreshAdd(o.id); refreshCounts(); }
+});
+addEventListener('keydown', e => { if (e.key === 'Escape' && plan.classList.contains('open')) { showPop(''); e.stopImmediatePropagation(); } }, true);
+let goSolar = '', barrier = '';
+$$('#go-solar button').forEach(b => b.addEventListener('click', () => { goSolar = b.dataset.v; $$('#go-solar button').forEach(x => x.classList.toggle('on', x === b)); }));
+$$('#barrier button').forEach(b => b.addEventListener('click', () => { barrier = b.dataset.v; $$('#barrier button').forEach(x => x.classList.toggle('on', x === b)); }));
+refreshCounts();
 
 /* === EXERCISE 2: WHO GETS THE BENEFITS === scores 0 to 10, made-up */
 const RULES = [
@@ -270,7 +358,7 @@ showRule();
 /* === EXERCISE 3: JUSTICE CHECK === */
 const JQ = [
   ['Who benefits?', 'Do cheaper bills, cleaner air and jobs reach every neighborhood?'],
-  ['Who carries the costs?', 'Does the plan avoid leaving the same groups with the pollution, higher bills or lost jobs, including fossil-fuel workers?'],
+  ['Who carries the costs?', 'Does going solar avoid leaving the same groups with the pollution, higher bills or lost jobs, including fossil-fuel workers?'],
   ['Who has a say?', 'Were residents and workers asked, or only the people who run the system?'],
 ];
 const ratings = {};
@@ -320,16 +408,14 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
   $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
 }));
 
-/* === SAVE: TRANSITION PLAN === saves under m5-s3 as transition-plan */
+/* === SAVE: SOLAR CHOICE === saves under m5-s3 as solar-choice */
 $('#pl-save').addEventListener('click', async () => {
-  const st = $('#pl-status'), { cost, tot, chosen } = showPlan();
-  const why = $('#pl-why').value.trim().slice(0, 600);
-  if (!chosen.length) { say(st, 'Pick at least one action.', 'err'); return; }
-  if (cost > BUDGET) { say(st, 'Your plan is over budget.', 'err'); return; }
-  if (!weak) { say(st, 'Pick the benefit your plan is weakest at.', 'err'); return; }
-  if (!why) { say(st, 'Write why you picked these actions.', 'err'); return; }
+  const st = $('#pl-status');
+  if (!picked.pro.size || !picked.con.size) { say(st, 'Read and add at least one pro and one con first.', 'err'); return; }
+  if (!goSolar) { say(st, 'Answer question 1.', 'err'); return; }
+  if (!barrier) { say(st, 'Answer question 2.', 'err'); return; }
   if (!await ensureUser(st)) return;
-  try { await live.saveSim('transition-plan', { plan: chosen.map(o => o.id), cost, totals: tot, weakest: weak, why }); say(st, 'Submitted. Thanks!', 'ok'); }
+  try { await live.saveSim('solar-choice', { pros: [...picked.pro], cons: [...picked.con], decision: goSolar, barrier }); say(st, 'Submitted. Thanks!', 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 
