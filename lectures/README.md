@@ -8,8 +8,8 @@ Shared pieces live in `../shared/`:
 
 | File | What it does |
 |---|---|
-| `deck.css` | The Course Brand design (sample 16) on a fixed 1920×1080 stage |
-| `deck.js` | Scaling, Back/Next side buttons, bottom pager, keyboard, swipe and progress bar |
+| `deck.css` | The Course Brand design (sample 16) on a fixed 1920×1080 stage, plus the reference-guide exercise style (`.ref`) |
+| `deck.js` | Scaling, Back/Next side buttons, bottom pager, keyboard, swipe and progress bar, and the pop-up panels of `.ref` slides |
 | `course.js` | Fills objectives, glossary cards and assignments from `../course/course.json` |
 | `live.js` | Attendance, polls and simulation results, through Firebase or demo mode |
 | `firebase-config.js` | Paste the Firebase web config here to go live |
@@ -69,3 +69,16 @@ It keeps everything from the enhanced style of Lecture 10 (`m3-l3-atmosphere`):
 - **Embedded video** when the instructor gives a link, with a link to open it on YouTube. Never leave a placeholder.
 - **Extra visual slides** that show a process or a trend (a formation diagram, a chart, a map), not only text and cards.
 - **Interactive pieces**: the warm-up and exit polls, flip cards and at least one game or simulation.
+
+## Reference-guide exercise style (from Lecture 16, exercise 1)
+
+Use it for an exercise where students tap icons to read short context panels before answering. Add the class `ref` to the `<section class="slide ref">`; `deck.css` and `deck.js` do the rest. Load the fonts `DM Serif Display` and `Archivo Narrow` (Google Fonts) in the page head.
+
+- **Look**: a white `.card` on a beige page (`#eeeae0`), headings in DM Serif Display, body in Archivo Narrow (a free stand-in for Helvetica Neue LT Pro 47 Light Condensed), red `#e53b3b` as the only accent. Highlighted words in headings stay gold `<em>`.
+- **Layout**: `.top` kicker line, `.card` holding `h2`, `.lead`, the text items and a `.photo` column (700px) on the right, `.bar` footer with counts and a source note. Position items with inline `left`/`top`, as Lecture 16 does.
+- **Red icons that open panels**: a text item is `<button class="p" data-open="NAME">text <span class="ic">…svg…</span></button>`; a hotspot on the photo is `<button class="hs" data-open="NAME">`; the pencil that opens the answer panel is `<button class="note" data-open="answers">`. Mark an icon `.done` (green) once the student has used it.
+- **Pop-up panels**: put them in `<div id="pops">` as `<div class="pop" id="pop-NAME">` with a `.x` close button, `.tag`, `h3`, `p`, optional `.abc` row of three `.box` stats (`.box.warn` for a caution) and `.go` buttons (`.rbtn`, `.rbtn.g`). `[data-close]`, the `.shade` or Esc closes it. For extra work when a panel opens, listen for `ref:open` on the slide (`e.detail` is the panel name, empty when closed).
+- **Cutouts**: transparent PNGs (`.cut` on the photo, `.cutp` in a panel) with the background removed, saved in the lecture's `img/`.
+- **Photo credit**: bottom-left of the photo in `.credit-ph`, written as `Name / Unsplash` for Unsplash photos, or `Photo: instructor-supplied`.
+- **Made-up numbers** are labeled in the footer source note.
+- **Status and submit**: answers use `.rchips` choice chips, `.qn` numbered questions, a `.rbtn` Submit and a `.status` line, saved through `live.js` like the other exercises.

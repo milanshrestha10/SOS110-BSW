@@ -6,7 +6,7 @@
 <title>Class Exercise 16 · Solar at home and energy justice · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-05bb">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-25">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
 /* === M5 L3 EXERCISES ONLY === */
@@ -53,55 +53,6 @@
 .go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
 .go-row .status{margin:0;font-size:20px}
 
-/* === EXERCISE 1: SOLAR PROS AND CONS === reference-guide style: white card, red tap icons, pop-up context panels */
-#plan{--red:#e53b3b;--rg:#2e7d5b;--rb:#b3452c;--rbody:'Archivo Narrow','Helvetica Neue','Arial Narrow',Arial,sans-serif;background:#eeeae0;font-family:var(--rbody);color:#222}
-#plan .top{position:absolute;left:60px;right:60px;top:26px;font:600 22px var(--rbody);letter-spacing:.12em;text-transform:uppercase;color:#555}
-#plan .card{position:absolute;left:60px;right:60px;top:80px;bottom:110px;background:#fff}
-#plan h2{position:absolute;left:70px;top:44px;margin:0;font:400 78px/1 var(--display);color:#2b2b2b}
-#plan .lead{position:absolute;left:74px;top:160px;width:900px;font:400 35px/1.3 var(--rbody);margin:0}
-#plan .lead i{font-style:italic}
-#plan .photo{position:absolute;right:0;top:0;width:700px;height:100%;background:#ddd}
-#plan .photo>img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#plan .photo .cut{position:absolute;right:20px;top:20px;width:150px;opacity:.95;pointer-events:none}
-#plan .credit-ph{position:absolute;left:14px;bottom:10px;font:600 16px var(--rbody);color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.7)}
-#plan .col{position:absolute;font:700 22px var(--rbody);letter-spacing:.18em}
-#plan .p{position:absolute;width:420px;font:400 30px/1.22 var(--rbody);color:#222;background:none;border:0;padding:0;text-align:left;cursor:pointer}
-#plan .ic,#plan .hs,#plan .note{display:inline-grid;place-items:center;border-radius:50%;background:var(--red);color:#fff;border:0;cursor:pointer;padding:0}
-#plan .ic{vertical-align:-6px;width:34px;height:34px;margin-left:8px;transition:transform .16s var(--ease)}
-#plan .p:hover .ic{transform:scale(1.15)}#plan .p:active .ic{transform:scale(.97)}
-#plan .ic svg,#plan .hs svg,#plan .note svg,#plan .x svg{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-#plan .ic svg{width:19px;height:19px}
-#plan .ic.done{background:var(--rg)}
-#plan .hs{position:absolute;width:56px;height:56px;margin:-28px 0 0 -28px;border:4px solid #fff;box-shadow:0 3px 12px rgba(0,0,0,.35)}
-#plan .hs svg{width:28px;height:28px}
-#plan .hs::after{content:"";position:absolute;inset:-11px;border-radius:50%;border:3px solid var(--red);opacity:.5}
-#plan .note{position:absolute;right:26px;bottom:26px;width:64px;height:64px;box-shadow:0 3px 12px rgba(0,0,0,.3)}#plan .note svg{width:32px;height:32px}
-#plan .ask{position:absolute;left:74px;top:790px;width:900px;font:400 30px/1.25 var(--rbody)}
-#plan .bar{position:absolute;left:60px;right:60px;bottom:22px;display:flex;gap:46px;align-items:baseline;font:400 26px var(--rbody);color:#555;white-space:nowrap}
-#plan .bar b{font:400 36px var(--display);color:#222;margin-left:8px}
-#plan .bar .src{margin-left:auto;font-size:18px;white-space:normal;width:830px;line-height:1.15}
-#plan .shade{position:absolute;inset:0;background:rgba(20,20,20,.5);display:none;z-index:5}
-#plan .pop{position:absolute;left:260px;top:150px;width:1400px;background:#fff;box-shadow:0 30px 90px rgba(0,0,0,.5);padding:44px 56px;display:none;z-index:6}
-#plan.open .shade,#plan.open .pop.on{display:block}
-#plan .pop .x{position:absolute;right:22px;top:20px;width:52px;height:52px;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;border:0;cursor:pointer}#plan .pop .x svg{width:24px;height:24px;stroke-width:2.6}
-#plan .pop .tag{font:600 21px var(--rbody);letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}#plan .pop .tag .ic{margin:0;cursor:default}
-#plan .pop h3{font:400 56px/1.05 var(--display);margin:10px 0 14px;color:#2b2b2b;max-width:1100px}
-#plan .pop p{font:400 31px/1.3 var(--rbody);margin:0 0 14px;max-width:1100px}
-#plan .pop .cutp{position:absolute;right:90px;top:28px;width:170px}
-#plan .abc{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:10px 0 18px}
-#plan .box{border-top:5px solid var(--red);background:#f7f5ef;padding:14px 22px 18px}
-#plan .box .l{font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555}
-#plan .box .v{font:400 62px/1.05 var(--display);margin:6px 0 4px}#plan .box .v small{font:400 28px var(--rbody)}
-#plan .box .d{font:400 25px/1.25 var(--rbody)}
-#plan .box.warn{border-top-color:var(--rb);background:#fbeee9}
-#plan .go{display:flex;gap:16px;align-items:center;margin-top:12px}
-#plan .rbtn{font:700 28px var(--rbody);letter-spacing:.04em;background:var(--red);color:#fff;padding:14px 34px;border-radius:6px;border:2px solid var(--red);cursor:pointer}#plan .rbtn.g{background:#fff;color:var(--red)}
-#plan .two{display:grid;grid-template-columns:1fr 580px;gap:44px;align-items:center}
-#plan .rchips{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 20px}
-#plan .rchips button{font:600 28px var(--rbody);border:2px solid var(--red);background:#fff;color:var(--red);border-radius:999px;padding:8px 24px;cursor:pointer}
-#plan .rchips button.on{background:var(--red);color:#fff}
-#plan .qn{font:400 30px var(--rbody);margin:0 0 4px}#plan .qn i{font:400 34px var(--display);color:var(--red);font-style:normal;margin-right:10px}
-#plan .status{font:600 24px var(--rbody);margin:0}
 </style>
 </head>
 <body>
@@ -167,7 +118,7 @@
 </section>
 
 <!-- EXERCISE 1. SOLAR AT HOME: PROS AND CONS -->
-<section class="slide" id="plan">
+<section class="slide ref" id="plan">
   <div class="top">SOS110 · Lecture 16 · Class Exercise 1 of 3 · Work with a neighbor · About 12 minutes</div>
   <div class="card">
     <h2>Should your home go <em>solar</em>?</h2>
@@ -245,7 +196,7 @@
 </section>
 
 </main></div>
-<script src="../../shared/deck.js?v=2026-10-05"></script>
+<script src="../../shared/deck.js?v=2026-10-25"></script>
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
@@ -310,7 +261,7 @@ const ansHtml = `<div class="pop" id="pop-answers" role="dialog" aria-modal="tru
   <div class="go"><button class="rbtn" type="button" id="pl-save">Submit</button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="pl-status"></span></div></div>`;
 $('#pops').innerHTML = SOL.map(popHtml).join('') + ansHtml;
 const plan = $('#plan');
-function showPop(id) { $$('#pops .pop').forEach(p => p.classList.toggle('on', p.id === `pop-${id}`)); plan.classList.toggle('open', !!id); if (id) refreshAdd(id); }
+function showPop(id) { if (id) refreshAdd(id); }
 function refreshAdd(id) {
   const o = SOL.find(x => x.id === id); if (!o) return;
   const b = $(`[data-add="${id}"]`), on = picked[o.side].has(id);
@@ -321,12 +272,10 @@ function refreshCounts() {
   SOL.forEach(o => $(`[data-ic="${o.id}"]`).classList.toggle('done', picked[o.side].has(o.id)));
 }
 plan.addEventListener('click', e => {
-  const op = e.target.closest('[data-open]'); if (op) { showPop(op.dataset.open); return; }
-  if (e.target.closest('[data-close]') || e.target.id === 'shade') { showPop(''); return; }
   const ad = e.target.closest('[data-add]');
   if (ad) { const o = SOL.find(x => x.id === ad.dataset.add), set = picked[o.side]; set.has(o.id) ? set.delete(o.id) : set.add(o.id); refreshAdd(o.id); refreshCounts(); }
 });
-addEventListener('keydown', e => { if (e.key === 'Escape' && plan.classList.contains('open')) { showPop(''); e.stopImmediatePropagation(); } }, true);
+plan.addEventListener('ref:open', e => showPop(e.detail));
 let goSolar = '', barrier = '';
 $$('#go-solar button').forEach(b => b.addEventListener('click', () => { goSolar = b.dataset.v; $$('#go-solar button').forEach(x => x.classList.toggle('on', x === b)); }));
 $$('#barrier button').forEach(b => b.addEventListener('click', () => { barrier = b.dataset.v; $$('#barrier button').forEach(x => x.classList.toggle('on', x === b)); }));

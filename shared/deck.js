@@ -91,6 +91,24 @@
     if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
   });
 
+  /* === REFERENCE-GUIDE PANELS === on a .slide.ref, [data-open="NAME"] shows .pop#pop-NAME and adds "open" to
+     the slide; [data-close], the .shade or Esc closes it. The slide gets a "ref:open" event (detail = NAME or '') */
+  function refShow(slide, id) {
+    slide.querySelectorAll('.pop').forEach(p => p.classList.toggle('on', p.id === 'pop-' + id));
+    slide.classList.toggle('open', !!id);
+    slide.dispatchEvent(new CustomEvent('ref:open', { detail: id }));
+  }
+  stage.addEventListener('click', e => {
+    const slide = e.target.closest('.slide.ref'); if (!slide) return;
+    const op = e.target.closest('[data-open]');
+    if (op) refShow(slide, op.dataset.open);
+    else if (e.target.closest('[data-close]') || e.target.classList.contains('shade')) refShow(slide, '');
+  });
+  addEventListener('keydown', e => {
+    const slide = stage.querySelector('.slide.ref.open');
+    if (e.key === 'Escape' && slide) { refShow(slide, ''); e.stopImmediatePropagation(); }
+  }, true);
+
   window.Deck = { go, get index() { return current; }, slides };
   go((parseInt(location.hash.slice(1), 10) || 1) - 1);
 })();
