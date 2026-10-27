@@ -41,6 +41,19 @@
 .ben-cards .card h3{font:400 40px/1.1 var(--display);margin:0 0 4px}.ben-cards .card p{font-size:26px;line-height:1.28}
 .ben-cards .card br{display:none}
 .ben>.fig{align-self:center}.ben .fig img{width:100%;border-radius:14px;display:block}
+/* green power quiz */
+.gq{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.gq-def{display:grid;gap:18px;align-content:start}.gq-def .sc{font-size:28px}
+.gq-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:20px 40px;display:flex;flex-direction:column;gap:12px}
+.gq-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.gq-q{font:400 40px/1.2 var(--display);min-height:96px}
+.gq-opts{display:grid;gap:10px}
+.gq-opts .btn{text-align:left;font-size:27px;padding:8px 22px;display:flex;gap:18px;align-items:center;border-radius:14px}
+.gq-opts .btn b{font:400 34px var(--display);flex:none}
+.gq-opts .btn:disabled{opacity:.55}.gq-opts .btn.right,.gq-opts .btn.wrong{opacity:1}
+.gq-opts .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.gq-opts .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.gq-fb{font-size:25px;line-height:1.3;min-height:66px}.gq-fb b{color:var(--Blue)}
+#gq-next{align-self:flex-start;font-size:24px;padding:8px 26px}
 /* sort game */
 .srt{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
 .srt-def{display:grid;gap:18px;align-content:start}.srt-def .sc{font-size:28px}
@@ -392,7 +405,32 @@
   </div>
 </section>
 
-<!-- 12. SORT: PRIMARY OR SECONDARY -->
+<!-- 12. GREEN POWER QUIZ -->
+<section class="slide" id="gpq">
+  <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · quiz · pick one answer for each question</div>
+    <h2 class="reveal d2" style="font-size:62px">What is <em>green power</em>?</h2>
+    <div class="gq reveal d3">
+      <div class="gq-def">
+        <div class="sc green"><b>Green power</b>The part of renewable energy with the highest environmental benefit: wind, solar, biomass, geothermal, biogas and low-impact hydropower.</div>
+        <div class="sc sky"><b>Where we stand</b>About 60% of US electricity still comes from burning fossil fuels, mostly coal and natural gas.</div>
+        <div class="srt-score"><span id="gq-n">0</span> of 5 right</div>
+        <button class="btn ghost" type="button" id="gq-reset">Start over</button>
+      </div>
+      <div class="gq-card" aria-live="polite">
+        <div class="gq-no" id="gq-no"></div>
+        <div class="gq-q" id="gq-q"></div>
+        <div class="gq-opts" id="gq-opts"></div>
+        <div class="gq-fb" id="gq-fb"></div>
+        <button class="btn ghost" type="button" id="gq-next" hidden>Next question</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: US EPA (2020), "U.S. electricity supply" chart, and EPA Green Power Partnership.</p>
+  </div>
+</section>
+
+<!-- 12b. SORT: PRIMARY OR SECONDARY -->
 <section class="slide" id="sort">
   <div class="rail"><b>16</b><span>Big idea 2 · Multiple benefits</span></div>
   <div class="content fill">
@@ -678,6 +716,43 @@ wireFlips($('[data-ej]'));
 
 /* === QUICK QUESTIONS === tap to reveal, not recorded */
 wireReveals();
+
+/* === GREEN POWER QUIZ === checked in the browser only; the first option listed is correct, order is shuffled */
+const GQ = [
+  ['Which of these is green power?', ['Solar', 'Coal', 'Nuclear', 'Natural gas'], 'Solar is green power. Coal, nuclear and natural gas are conventional power.'],
+  ['How is green power related to renewable energy?', ['It is the subset of renewable energy with the highest environmental benefit', 'It is the same thing as conventional power', 'It is any energy that costs less', 'It is energy made only in power plants'], 'Green power is a subset of renewable energy: the sources and technologies that do the most good for the environment.'],
+  ['Which source is renewable energy, but not green power?', ['Large hydropower', 'Wind', 'Geothermal', 'Biogas'], 'Large hydropower and municipal solid waste are renewable, but the EPA ranks them as "more beneficial" rather than "most beneficial."'],
+  ['About how much US electricity comes from burning fossil fuels?', ['About 60%', 'About 10%', 'About 25%', 'Almost none'], 'About 60% comes from fossil fuels, mostly coal and natural gas.'],
+  ['Which is one way to reduce greenhouse gases from electricity?', ['Expand the use of renewable sources of energy', 'Burn more coal', 'Build bigger power plants', 'Use more electricity'], 'The three ways are new energy efficiency, expanded renewables, and new or more stringent performance standards.'],
+];
+let gi = 0, gscore = 0, gdone = false;
+const gOpts = $('#gq-opts'), gNext = $('#gq-next');
+function gqShow() {
+  gdone = false;
+  const [q, o] = GQ[gi];
+  const order = o.map((t, k) => [t, k === 0]).sort(() => Math.random() - .5);
+  $('#gq-no').textContent = `Question ${gi + 1} of ${GQ.length}`;
+  $('#gq-q').textContent = q; $('#gq-fb').innerHTML = ''; gNext.hidden = true;
+  gOpts.innerHTML = order.map(([t, ok], k) => `<button type="button" class="btn ghost" data-ok="${ok ? 1 : 0}"><b>${'ABCD'[k]}</b><span>${esc(t)}</span></button>`).join('');
+  $('#gq-n').textContent = gscore;
+}
+gOpts.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || gdone) return;
+  gdone = true;
+  const ok = b.dataset.ok === '1'; if (ok) gscore++;
+  $$('button', gOpts).forEach(x => { x.disabled = true; if (x.dataset.ok === '1') x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  $('#gq-fb').innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(GQ[gi][2])}`;
+  $('#gq-n').textContent = gscore;
+  gNext.hidden = false; gNext.textContent = gi === GQ.length - 1 ? 'See score' : 'Next question';
+});
+gNext.addEventListener('click', () => {
+  if (gi < GQ.length - 1) { gi++; gqShow(); return; }
+  $('#gq-no').textContent = 'Done'; $('#gq-q').textContent = `You got ${gscore} of ${GQ.length}.`;
+  gOpts.innerHTML = ''; gNext.hidden = true;
+  $('#gq-fb').textContent = gscore >= 4 ? 'Strong work. Green power is the renewable energy with the most environmental benefit.' : 'Remember: green power is the part of renewable energy with the highest environmental benefit.';
+});
+$('#gq-reset').addEventListener('click', () => { gi = 0; gscore = 0; gqShow(); });
+gqShow();
 
 /* === SORT: PRIMARY OR SECONDARY === checked in the browser only */
 const SORT = [
