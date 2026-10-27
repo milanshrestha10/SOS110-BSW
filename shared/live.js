@@ -79,7 +79,7 @@ function demoBackend(lectureId) {
     async checkIn(code) {
       if (!me) throw new Error('Check in on the attendance slide first.');
       const want = (store.read().lecture || {}).code;
-      if (want && want.toUpperCase() !== String(code).trim().toUpperCase()) throw new Error('That code does not match the one on screen.');
+      if (code !== null && want && want.toUpperCase() !== String(code).trim().toUpperCase()) throw new Error('That code does not match the one on screen.');
       update(d => { (d.attendance ||= {})[me.uid] = { name: me.name, email: me.email, at: Date.now() }; });
     },
     async vote(poll, choice) {
@@ -151,7 +151,10 @@ async function firebaseBackend(lectureId) {
     async checkIn(code) {
       need();
       try {
-        await fs.setDoc(fs.doc(col('attendance'), me.uid), { name: me.name, email: me.email, code: String(code).trim().toUpperCase(), at: fs.serverTimestamp() });
+        /* code === null: a page that does not ask for the code (the rules allow this only where noted) */
+        const rec = { name: me.name, email: me.email, at: fs.serverTimestamp() };
+        if (code !== null) rec.code = String(code).trim().toUpperCase();
+        await fs.setDoc(fs.doc(col('attendance'), me.uid), rec);
       } catch (e) { throw explain(e, 'That code does not match the one on screen. If it does, ask your instructor to press New code again.'); }
     },
     async vote(poll, choice) {

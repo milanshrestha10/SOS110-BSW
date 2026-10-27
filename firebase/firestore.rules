@@ -33,7 +33,9 @@ service cloud.firestore {
           && shortText(request.resource.data.name) && request.resource.data.name.size() > 0
           && isEmail(request.resource.data.email)
           && stamped()
-          && request.resource.data.code == get(/databases/$(database)/documents/lectures/$(lecture)/private/code).data.code;
+          && (request.resource.data.code == get(/databases/$(database)/documents/lectures/$(lecture)/private/code).data.code
+              // The M5 final project page asks for name and email only, with no code.
+              || (lecture == 'm5-final-project' && !('code' in request.resource.data)));
         allow read, delete: if isAdmin();
       }
 
