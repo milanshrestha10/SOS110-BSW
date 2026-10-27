@@ -56,7 +56,11 @@
 .dc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;flex:1;min-height:0}
 .dc .card{padding:18px 26px}.dc .card .num{display:block;font:400 76px/1 var(--display);color:var(--Blue);margin:6px 0}.dc .card p{font-size:25px;line-height:1.3;margin:0}
 .dc-bar{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
-.dc-bar .rq h3{font-size:32px}.dc-bar .rq .ans-text{font-size:25px}
+.dc-ans{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:18px;padding:14px 24px}
+.dc-ans label{display:block;font:400 28px/1.2 var(--display);margin-bottom:8px}
+.dc-ans textarea{height:76px;width:100%}
+.dc-hint{font-size:22px;line-height:1.3;margin:8px 0 0}.dc-hint[hidden]{display:none}
+.dc-btns{display:flex;align-items:center;gap:14px;margin-top:10px}.dc-btns .btn{font-size:21px;padding:8px 20px}.dc-btns .status{font-size:19px;margin:0}
 </style>
 </head>
 <body>
@@ -151,7 +155,12 @@
     </div>
     <div class="dc-bar reveal d4">
       <div class="sc sky"><b>The link to this lecture</b>A utility says it lacks the power plants and lines to serve every request. New demand makes clean supply and efficiency matter more.</div>
-      <div class="rq" data-def><h3>Quick question: who should pay for the new power lines?</h3><p class="think">Tap to think.</p><p class="ans-text">Arizona's utility regulator says data centers should pay their own way, so households are not charged for upgrades built to serve them. Not everyone agrees on how.</p></div>
+      <div class="dc-ans ex">
+        <label for="dc-text"><i>1</i>Who should pay for the new power lines: the data center, or everyone who uses the grid? Why?</label>
+        <textarea id="dc-text" maxlength="500" placeholder="I think … should pay because …"></textarea>
+        <p class="dc-hint" id="dc-hint" hidden><b>Hint:</b> Ask who gains from the new lines, and who would pay if the cost went on every household's bill.</p>
+        <div class="dc-btns"><button class="btn ghost" type="button" id="dc-hint-btn" aria-expanded="false">Show a hint</button><button class="btn" type="button" id="dc-save">Submit</button><span class="status" id="dc-status"></span></div>
+      </div>
     </div>
     <p class="src reveal d4">Sources: AZFamily, "Data centers pushing Phoenix area's power grid to the limit" (Jul 2025; APS's Patrick Bogle). AZFamily (Feb 2026), water figures from Andy Masley, an estimate that others dispute. Not checked against APS or county records.</p>
   </div>
@@ -408,6 +417,19 @@ $('#pl-save').addEventListener('click', async () => {
   if (!barrier) { say(st, 'Answer question 2.', 'err'); return; }
   if (!await ensureUser(st)) return;
   try { await live.saveSim('solar-choice', { pros: [...picked.pro], cons: [...picked.con], decision: goSolar, barrier }); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* === SAVE: DATA CENTER QUESTION === saves under m5-s3 as data-center-answer */
+$('#dc-hint-btn').addEventListener('click', () => {
+  const h = $('#dc-hint'), b = $('#dc-hint-btn');
+  h.hidden = !h.hidden; b.textContent = h.hidden ? 'Show a hint' : 'Hide the hint'; b.setAttribute('aria-expanded', String(!h.hidden));
+});
+$('#dc-save').addEventListener('click', async () => {
+  const st = $('#dc-status'), answer = $('#dc-text').value.trim().slice(0, 500);
+  if (!answer) { say(st, 'Type your answer first.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  try { await live.saveSim('data-center-answer', { answer }); say(st, 'Submitted. Thanks!', 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 
