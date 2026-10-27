@@ -117,13 +117,12 @@
 <section class="slide ref" id="attendance">
   <div class="top">SOS110 · Final project · Step 2 of the capstone · Check in</div>
   <div class="card">
-    <h2>Enter the <em>code</em></h2>
-    <p class="lead">Your instructor shows a code on screen. Checking in counts toward your participation grade.</p>
+    <h2>Check <em>in</em></h2>
+    <p class="lead">Enter your name and email. Checking in counts toward your participation grade.</p>
     <div class="body" style="top:330px">
       <input class="fld mr" style="--i:1" data-name placeholder="Your full name" autocomplete="name" maxlength="120" aria-label="Your full name">
       <input class="fld mr" style="--i:2" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120" aria-label="Email address">
       <div class="ci-row mr" style="--i:3">
-        <input class="fld code" id="code" placeholder="Code" maxlength="8" autocomplete="off" aria-label="Code">
         <button class="rbtn" type="button" id="checkin">Check in</button>
       </div>
       <p class="status" id="checkin-status" style="margin-top:16px"></p>
@@ -268,7 +267,7 @@ $('#checkin').addEventListener('click', async () => {
   say(st, 'Checking in…');
   try {
     await live.signIn($('[data-name]').value, $('[data-email]').value);
-    await live.checkIn($('#code').value);
+    await live.checkIn(null);
     say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
   } catch (e) { say(st, e.message, 'err'); }
 });
