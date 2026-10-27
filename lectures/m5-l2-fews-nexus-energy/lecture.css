@@ -372,3 +372,12 @@ img.house{width:100%;border-radius:14px;display:block}
 .sd-end[hidden]{display:none}
 .sd-end.ex label{font-size:21px}
 .sd-end.ex textarea{height:150px;font-size:21px}
+
+/* emissions and health slide (moved from Lecture 16) */
+.hl{display:grid;grid-template-columns:1fr 580px;gap:44px;flex:1;min-height:0;align-items:stretch}
+.hl-l{display:grid;gap:18px;align-content:stretch}.hl-l .sc{font-size:28px;display:flex;flex-direction:column;justify-content:center}
+.hl-l .rq h3{font-size:36px}.hl-l .rq .ans-text{font-size:27px}
+.hl-r{background:var(--Blue);color:var(--paper);border-radius:20px;padding:34px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.hl-r .tag{color:var(--golden)}
+.hl-num b{display:block;font:400 116px/1 var(--display);color:var(--golden)}.hl-num span{font-size:31px;line-height:1.3}
+.hl-r .note{color:#d6e6eb;font-size:23px}
