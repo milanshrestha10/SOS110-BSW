@@ -53,6 +53,10 @@
 .go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
 .go-row .status{margin:0;font-size:20px}
 
+.dc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;flex:1;min-height:0}
+.dc .card{padding:18px 26px}.dc .card .num{display:block;font:400 76px/1 var(--display);color:var(--Blue);margin:6px 0}.dc .card p{font-size:25px;line-height:1.3;margin:0}
+.dc-bar{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.dc-bar .rq h3{font-size:32px}.dc-bar .rq .ans-text{font-size:25px}
 </style>
 </head>
 <body>
@@ -114,6 +118,42 @@
       <div class="status" id="checkin-status"></div>
       <p class="small mute" data-mode-note></p>
     </div>
+  </div>
+</section>
+
+<!-- D1. VIDEO: DATA CENTER BACKLASH -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Class exercise</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Watch · 60 Minutes</div>
+    <h2 class="reveal d2" style="font-size:70px">Data centers and <em>community</em> backlash</h2>
+    <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
+      <div class="video" style="width:1000px" id="dc-video" data-title="60 Minutes: Data center opposition a rare issue uniting Americans across the political divide"><div class="ph"><b>Loading video…</b><span>It needs an internet connection.</span></div></div>
+      <div class="vid-side">
+        <div class="sc sky"><b>As you watch</b>Listen for what communities worry about, and what the builders promise.</div>
+        <div class="sc"><b>Then talk</b>Should a desert city with little water and a hot summer grid say yes to more data centers? What would you ask for first?</div>
+        <p class="small"><a href="https://www.youtube.com/watch?v=FX1H_rGvoes" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- D2. CASE: DATA CENTERS IN THE SOUTHWEST -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Class exercise</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Case · a new kind of energy demand</div>
+    <h2 class="reveal d2" style="font-size:70px"><em>Data centers</em> in the Southwest</h2>
+    <div class="dc reveal d3">
+      <div class="card accent"><span class="tag">Phoenix area · power</span><span class="num">~140</span><p>data centers operate in the Phoenix area, with dozens more waiting to open. They use about 350 megawatts from APS.</p></div>
+      <div class="card gold"><span class="tag">The grid · APS</span><span class="num">19,000 MW</span><p>of demand if every data center that wants to locate in APS territory could. APS's record peak so far is 8,200 MW.</p></div>
+      <div class="card green"><span class="tag">Water · Maricopa County</span><span class="num">0.12%</span><p>of county water went to data centers in 2025 (about 905 million gallons), by one environmental writer's estimate. Golf courses used about 3.8%.</p></div>
+    </div>
+    <div class="dc-bar reveal d4">
+      <div class="sc sky"><b>The link to this lecture</b>A utility says it lacks the power plants and lines to serve every request. New demand makes clean supply and efficiency matter more.</div>
+      <div class="rq" data-def><h3>Quick question: who should pay for the new power lines?</h3><p class="think">Tap to think.</p><p class="ans-text">Arizona's utility regulator says data centers should pay their own way, so households are not charged for upgrades built to serve them. Not everyone agrees on how.</p></div>
+    </div>
+    <p class="src reveal d4">Sources: AZFamily, "Data centers pushing Phoenix area's power grid to the limit" (Jul 2025; APS's Patrick Bogle). AZFamily (Feb 2026), water figures from Andy Masley, an estimate that others dispute. Not checked against APS or county records.</p>
   </div>
 </section>
 
@@ -206,6 +246,9 @@ const LECTURE = 'm5-s3';
 const icon = (i, tone = '') => `<span class="ico sm ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
 /* === COURSE DATA === fills the module title on the title slide */
+const embed = (id, yt) => { const v = $(id); v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt)}?rel=0" title="${esc(v.dataset.title)}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`; };
+embed('#dc-video', 'FX1H_rGvoes');
+
 loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
 
 /* === EXERCISE 1: SOLAR PROS AND CONS === all dollars, units and rates are teaching numbers */
