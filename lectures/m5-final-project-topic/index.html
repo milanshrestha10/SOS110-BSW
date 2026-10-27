@@ -114,25 +114,6 @@
   <div class="pop" id="pop-browse"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 1 · Browse</div><h3>Browse ASU Library’s peer-reviewed databases</h3><p>Choose a general theme (e.g., water scarcity, green infrastructure, energy efficient building, solar energy, urban parks, plastic pollution, food systems). Use search filters (e.g., journal article, publication year, subject area) to locate the most recent and relevant studies. Note the environmental, social, and economic lenses.</p></div>  <div class="pop" id="pop-post"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 1 · Post</div><h3>Select three journal articles from the ASU Library that support your topic</h3><p>Goal: develop the core argument and supporting structure. Submit a short paragraph (~100 words) in the Module 3 Group Discussion board with your topic title, what sparked your interest, what you hope to discover, and an APA citation for each article.</p></div>  <div class="pop" id="pop-outline"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 2 · Outline</div><h3>Create an outline</h3><p>Submit a document (~700 words or 2 pages) describing the selected research topics and your analysis: a strong thesis statement, a synthesis of at least three peer-reviewed articles, a clear application of key class concepts, a proposed structure or storyboard, and a draft reference list in APA format.</p></div>  <div class="pop" id="pop-sample"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Sample topic</div><h3>The Impact of Urban Green Spaces on Community Well-Being</h3><p>In this project, I will explore how urban green spaces, such as parks and community gardens, contribute to the overall well-being of city residents (Jennings et al 2024). I plan to investigate the psychological and physical health benefits associated with access to these green areas, including reduced stress levels, increased physical activity, and improved social cohesion among community members (Lampert et al 2021; Lin et al 2025). By analyzing peer-reviewed studies and case examples from cities that have successfully integrated green spaces into their urban planning, I aim to demonstrate the importance of prioritizing green infrastructure in sustainable city development. This topic not only highlights the environmental aspect of sustainability but also emphasizes its social implications, making it a compelling area of research.</p></div>
 </section>
 
-<section class="slide ref" id="attendance">
-  <div class="top">SOS110 · Final project · Step 2 of the capstone · Check in</div>
-  <div class="card">
-    <h2>Check <em>in</em></h2>
-    <p class="lead">Enter your name and email. Checking in counts toward your participation grade.</p>
-    <div class="body" style="top:330px">
-      <input class="fld mr" style="--i:1" data-name placeholder="Your full name" autocomplete="name" maxlength="120" aria-label="Your full name">
-      <input class="fld mr" style="--i:2" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120" aria-label="Email address">
-      <div class="ci-row mr" style="--i:3">
-        <button class="rbtn" type="button" id="checkin">Check in</button>
-      </div>
-      <p class="status" id="checkin-status" style="margin-top:16px"></p>
-      <p class="small-cap" data-mode-note style="margin-top:8px;text-transform:none;letter-spacing:0"></p>
-    </div>
-    <div class="photo"><img class="ph" src="../m5-l3-alternative-energy-equity/img/green-globe.jpg" style="object-position:center" alt=""></div>
-  </div>
-  <div class="bar"><span>Capstone<b>Step 2</b></span><span>This slide<b>Check in</b></span></div>
-</section>
-
 <section class="slide ref">
   <div class="top">SOS110 · Final project · Step 2 of the capstone · Part 1 · Browse</div>
   <div class="card">
@@ -251,26 +232,6 @@
 
 </main></div>
 <script src="../../shared/deck.js?v=2026-10-25"></script>
-<script type="module">
-import { connect } from '../../shared/live.js';
 
-const LECTURE = 'm5-final-project';
-const $ = s => document.querySelector(s);
-const say = (el, msg, kind = '') => { el.textContent = msg; el.className = `status ${kind}`; };
-
-const live = await connect(LECTURE);
-if (live.mode === 'demo') $('[data-mode-note]').textContent = 'Demo mode: check-ins stay in this browser until Firebase is connected.';
-const u = live.user();
-if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
-$('#checkin').addEventListener('click', async () => {
-  const st = $('#checkin-status');
-  say(st, 'Checking in…');
-  try {
-    await live.signIn($('[data-name]').value, $('[data-email]').value);
-    await live.checkIn(null);
-    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
-  } catch (e) { say(st, e.message, 'err'); }
-});
-</script>
 </body>
 </html>
