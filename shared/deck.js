@@ -109,6 +109,24 @@
     if (e.key === 'Escape' && slide) { refShow(slide, ''); e.stopImmediatePropagation(); }
   }, true);
 
-  window.Deck = { go, get index() { return current; }, slides };
+  /* === SHARED ICONS === sprite for the reference-guide system; a page's own symbol with the same id wins.
+     i-search: tap for more information. i-data: facts and indicators. i-doc: write and submit an answer. */
+  (function () {
+    const S = {
+      x: '<path d="M18 6 6 18M6 6l12 12"/>',
+      plus: '<path d="M12 5v14M5 12h14"/>',
+      search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/><path d="M10.5 8v5M8 10.5h5"/>',
+      data: '<path d="M4 20V4"/><path d="M4 20h16"/><rect x="7.5" y="12" width="3" height="5.5"/><rect x="12.5" y="8" width="3" height="9.5"/><rect x="17.5" y="5" width="3" height="12.5"/>',
+      doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M8.5 12h7M8.5 15.5h4"/><path d="m16 19.5 3.2-3.2 1.3 1.3-3.2 3.2-1.8.5Z"/>'
+    };
+    const have = id => document.getElementById(id);
+    const sym = Object.keys(S).filter(k => !have('i-' + k)).map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${S[k]}</symbol>`).join('');
+    if (sym) document.body.insertAdjacentHTML('afterbegin', `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${sym}</svg>`);
+  })();
+
+  /* Mark a submit button as sent: Deck.sent(button, 'Submitted') */
+  function sent(btn, label) { btn.classList.add('sent'); if (label) { const t = btn.querySelector('span') || btn; t.textContent = label; } }
+
+  window.Deck = { go, sent, get index() { return current; }, slides };
   go((parseInt(location.hash.slice(1), 10) || 1) - 1);
 })();

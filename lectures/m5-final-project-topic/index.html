@@ -6,79 +6,15 @@
 <title>Final Project: Topic and Outline · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-25">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-28">
 <style>
-/* === FINAL PROJECT PAGE ONLY (reference-guide style from deck.css .ref) ===
-   Motion: strong ease-out, short durations, transform and opacity only, press scale 0.97, none for reduced motion. */
-.slide.ref{--out:cubic-bezier(.23,1,.32,1);--pp:cubic-bezier(.34,1.4,.64,1)}
-.mp{opacity:0;transform:scale(.7)}
-.slide.visible .mp{opacity:1;transform:none;transition:opacity .25s var(--out) calc(var(--i,0)*.1s + .15s),transform .4s var(--pp) calc(var(--i,0)*.1s + .15s)}
-.mr{opacity:0;transform:translateY(16px)}
-.slide.visible .mr{opacity:1;transform:none;transition:opacity .3s var(--out) calc(var(--i,0)*.09s + .15s),transform .45s var(--out) calc(var(--i,0)*.09s + .15s)}
-.mi{opacity:0;transform:translateX(-24px)}
-.slide.visible .mi{opacity:1;transform:none;transition:opacity .3s var(--out) calc(var(--i,0)*.12s + .2s),transform .5s var(--out) calc(var(--i,0)*.12s + .2s)}
-.ref .photo>img.ph{transform:scale(1.08);opacity:0}
-.slide.visible.ref .photo>img.ph{transform:none;opacity:1;transition:opacity .5s var(--out),transform 1.2s var(--out)}
-.ref h2 em{color:var(--accent);font-style:normal}
+/* === FINAL PROJECT PAGE ONLY === layout tweaks; the reference-guide components are in deck.css */
 .ref h2{width:1000px;font-size:70px}
 .ref .lead{top:150px;width:980px;font-size:32px}
 .ref .body{position:absolute;left:74px;top:250px;width:1000px;bottom:30px;display:flex;flex-direction:column}
-.ref .row{display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:20px;width:100%;border:0;border-top:2px solid #ddd;padding:16px 0;background:none;text-align:left;font:inherit;color:inherit;text-decoration:none;flex:1}
-.ref button.row,.ref a.row,.ref .inl{cursor:pointer}
-.ref .row .n{font:400 56px var(--display);color:var(--accent)}
-.ref .row b{display:block;font:400 40px/1.1 var(--display);color:#2b2b2b}
-.ref .row .d{display:block;font:400 28px/1.25 var(--rbody);color:#444;margin-top:4px}
-.ref .row .ic{width:44px;height:44px;margin:0}.ref .row .ic svg{width:24px;height:24px}
-.ref button.row:hover .ic,.ref .inl:hover .ic{transform:scale(1.15)}
-.ref button.row:active,.ref a.row:active,.ref .inl:active{transform:scale(.97)}
-.ref .row .rg{font:600 22px var(--rbody);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.ref .inl{display:inline-flex;align-items:center;gap:6px;border:0;background:none;font:inherit;color:inherit;padding:0;text-align:left}
-.ref .inl b{font-weight:700}
-.ref .sub{font:400 32px/1.3 var(--rbody);margin:0 0 8px}
-.ref .rchips{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 20px}
-.ref .rchips span{font:600 27px var(--rbody);border:2px solid var(--accent);background:#fff;color:#222;border-radius:999px;padding:6px 22px}
-.ref .steps{list-style:none;counter-reset:s;margin:0 0 20px}
-.ref .steps li,.ref .check li{font:400 32px/1.3 var(--rbody)}
-.ref .steps li{counter-increment:s;position:relative;padding:4px 0 4px 64px;margin:12px 0}
-.ref .steps li::before{content:counter(s);position:absolute;left:0;top:4px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;font:700 26px/44px var(--rbody);text-align:center}
-.ref .check{list-style:none;margin:6px 0 0}
-.ref .check li{position:relative;padding:12px 0 12px 62px;margin:8px 0}
-.ref .check li::before{content:"";position:absolute;left:0;top:14px;width:40px;height:40px;border-radius:50%;background:var(--rg)}
-.ref .check li::after{content:"";position:absolute;left:14px;top:21px;width:10px;height:20px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg)}
-.ref .lenses{display:flex;gap:44px;margin-top:6px}
-.ref .lens{text-align:center}
-.ref .lens .ring{width:120px;height:120px;border-radius:50%;border:7px solid var(--accent);display:grid;place-items:center;color:var(--accent);margin:0 auto 8px;background:#fff}
-.ref .lens .ring svg{width:56px;height:56px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.ref .lens b{font:400 32px var(--display)}
-.ref .fun{display:flex;flex-direction:column;gap:16px}
-.ref .fun div{border-radius:6px;padding:16px 30px;font:400 48px/1.1 var(--display);background:#eeeae0}
-.ref .fun small{display:block;font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#666;margin-bottom:2px}
-.ref .fun .f1{width:100%}.ref .fun .f2{width:76%;background:#e4e8dc}.ref .fun .f3{width:92%;background:#f6e6c8;border-left:8px solid var(--accent)}
-.ref .tests{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 0 20px}
-.ref .tests div{border-top:5px solid var(--accent);background:#f7f5ef;padding:16px 12px;text-align:center;font:400 38px var(--display)}
-.ref .sample p{font:400 30px/1.4 var(--rbody);margin:0 0 22px}
-.ref .cite{background:#f6e6c8;padding:0 6px;font-weight:700;white-space:nowrap}
 .ref .top{white-space:nowrap}
 .ref .pop{width:1400px;max-height:800px;overflow:hidden}
 .ref .pop p{max-width:1250px}
-.ref .pop a{color:var(--accent)}
-.ref .refs p{font:400 27px/1.3 var(--rbody);padding-left:50px;text-indent:-50px;margin:0 0 16px;max-width:1250px}
-.ref .refs a{word-break:break-all}
-.ref .small-cap{font:700 22px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555}
-.ref .bar{z-index:1}
-.ref a:focus-visible,.ref button:focus-visible{outline:4px solid #222;outline-offset:3px}
-
-.ref .fld{display:block;width:100%;font:400 32px var(--rbody);padding:14px 20px;border:3px solid var(--red);border-radius:6px;background:#fff;color:#222;margin:0 0 16px}
-.ref .fld::placeholder{color:#999}
-.ref .fld:focus-visible{outline:4px solid #222;outline-offset:3px}
-.ref .fld.code{width:300px;text-transform:uppercase;letter-spacing:.2em;margin:0}
-.ref .rbtn{transition:transform .16s var(--out)}.ref .rbtn:active{transform:scale(.97)}
-.ref .ci-row{display:flex;gap:18px;align-items:center}
-.ref .status.ok{color:var(--rg)}.ref .status.err{color:var(--rb)}
-@media (prefers-reduced-motion: reduce){
-  .mp,.mr,.mi,.ref .photo>img.ph{opacity:1!important;transform:none!important;transition:none!important}
-}
-
 .ref .outl .row{flex:0 0 auto;padding:10px 0}
 .ref .outl .row .n{font-size:46px}.ref .outl .row b{font-size:36px}.ref .outl .row .d{font-size:26px}
 .ref .tests{margin-top:6px}
@@ -103,15 +39,15 @@
     <h2>Topic and <em>outline</em></h2>
     <p class="lead">This is the second step toward your final project capstone. <b>Tap each red icon</b> to read the details.</p>
     <div class="body" style="top:330px">
-      <button class="row mr" type="button" data-open="browse" style="--i:1"><span class="n">1</span><span><b>Browse the library</b><span class="d">Search ASU Library’s peer-reviewed databases for a sustainability theme.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button>
-      <button class="row mr" type="button" data-open="post" style="--i:2"><span class="n">2</span><span><b>Post three articles</b><span class="d">Write a short paragraph (~100 words) in the Module 3 Group Discussion board.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button>
-      <button class="row mr" type="button" data-open="outline" style="--i:3"><span class="n">3</span><span><b>Write your outline</b><span class="d">Submit a document (~700 words or 2 pages) with your argument and your plan.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button>
+      <button class="row mr" type="button" data-open="browse" style="--i:1"><span class="n">1</span><span><b>Browse the library</b><span class="d">Search ASU Library’s peer-reviewed databases for a sustainability theme.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="post" style="--i:2"><span class="n">2</span><span><b>Post three articles</b><span class="d">Write a short paragraph (~100 words) in the Module 3 Group Discussion board.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="outline" style="--i:3"><span class="n">3</span><span><b>Write your outline</b><span class="d">Submit a document (~700 words or 2 pages) with your argument and your plan.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
     </div>
-    <div class="photo"><img class="ph" src="../m6-l2-urban-ecology/img/central-park-hero.jpg" style="object-position:60% center" alt=""><button class="hs" type="button" data-open="sample" style="left:58%;top:38%" aria-label="Sample topic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></button></div>
+    <div class="photo"><img class="ph" src="../m6-l2-urban-ecology/img/central-park-hero.jpg" style="object-position:60% center" alt=""><button class="hs" type="button" data-open="sample" style="left:58%;top:38%" aria-label="Sample topic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></button></div>
   </div>
   <div class="bar"><span>Capstone<b>Step 2</b></span><span>This slide<b>Overview</b></span></div>
   <div class="shade"></div>
-  <div class="pop" id="pop-browse"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 1 · Browse</div><h3>Browse ASU Library’s peer-reviewed databases</h3><p>Choose a general theme (e.g., water scarcity, green infrastructure, energy efficient building, solar energy, urban parks, plastic pollution, food systems). Use search filters (e.g., journal article, publication year, subject area) to locate the most recent and relevant studies. Note the environmental, social, and economic lenses.</p></div>  <div class="pop" id="pop-post"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 1 · Post</div><h3>Select three journal articles from the ASU Library that support your topic</h3><p>Goal: develop the core argument and supporting structure. Submit a short paragraph (~100 words) in the Module 3 Group Discussion board with your topic title, what sparked your interest, what you hope to discover, and an APA citation for each article.</p></div>  <div class="pop" id="pop-outline"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Part 2 · Outline</div><h3>Create an outline</h3><p>Submit a document (~700 words or 2 pages) describing the selected research topics and your analysis: a strong thesis statement, a synthesis of at least three peer-reviewed articles, a clear application of key class concepts, a proposed structure or storyboard, and a draft reference list in APA format.</p></div>  <div class="pop" id="pop-sample"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Sample topic</div><h3>The Impact of Urban Green Spaces on Community Well-Being</h3><p>In this project, I will explore how urban green spaces, such as parks and community gardens, contribute to the overall well-being of city residents (Jennings et al 2024). I plan to investigate the psychological and physical health benefits associated with access to these green areas, including reduced stress levels, increased physical activity, and improved social cohesion among community members (Lampert et al 2021; Lin et al 2025). By analyzing peer-reviewed studies and case examples from cities that have successfully integrated green spaces into their urban planning, I aim to demonstrate the importance of prioritizing green infrastructure in sustainable city development. This topic not only highlights the environmental aspect of sustainability but also emphasizes its social implications, making it a compelling area of research.</p></div>
+  <div class="pop" id="pop-browse"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1 · Browse</div><h3>Browse ASU Library’s peer-reviewed databases</h3><p>Choose a general theme (e.g., water scarcity, green infrastructure, energy efficient building, solar energy, urban parks, plastic pollution, food systems). Use search filters (e.g., journal article, publication year, subject area) to locate the most recent and relevant studies. Note the environmental, social, and economic lenses.</p></div>  <div class="pop" id="pop-post"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1 · Post</div><h3>Select three journal articles from the ASU Library that support your topic</h3><p>Goal: develop the core argument and supporting structure. Submit a short paragraph (~100 words) in the Module 3 Group Discussion board with your topic title, what sparked your interest, what you hope to discover, and an APA citation for each article.</p></div>  <div class="pop" id="pop-outline"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 2 · Outline</div><h3>Create an outline</h3><p>Submit a document (~700 words or 2 pages) describing the selected research topics and your analysis: a strong thesis statement, a synthesis of at least three peer-reviewed articles, a clear application of key class concepts, a proposed structure or storyboard, and a draft reference list in APA format.</p></div>  <div class="pop" id="pop-sample"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Sample topic</div><h3>The Impact of Urban Green Spaces on Community Well-Being</h3><p>In this project, I will explore how urban green spaces, such as parks and community gardens, contribute to the overall well-being of city residents (Jennings et al 2024). I plan to investigate the psychological and physical health benefits associated with access to these green areas, including reduced stress levels, increased physical activity, and improved social cohesion among community members (Lampert et al 2021; Lin et al 2025). By analyzing peer-reviewed studies and case examples from cities that have successfully integrated green spaces into their urban planning, I aim to demonstrate the importance of prioritizing green infrastructure in sustainable city development. This topic not only highlights the environmental aspect of sustainability but also emphasizes its social implications, making it a compelling area of research.</p></div>
 </section>
 
 <section class="slide ref">
@@ -146,14 +82,14 @@
         <li class="mi" style="--i:2"><b>Your chosen topic title</b> that is concise and appealing</li>
         <li class="mi" style="--i:3"><b>What sparked your interest</b> in this sustainability topic? Describe clearly how it is a sustainability issue</li>
         <li class="mi" style="--i:4"><b>What you hope to discover</b></li>
-        <li class="mi" style="--i:5"><button class="inl" type="button" data-open="apa"><b>APA citation</b> for each journal article<span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button></li>
+        <li class="mi" style="--i:5"><button class="inl" type="button" data-open="apa"><b>APA citation</b> for each journal article<span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button></li>
       </ul>
     </div>
     <div class="photo"><img class="ph" src="../m5-l3-alternative-energy-equity/img/green-globe.jpg" style="object-position:center" alt=""></div>
   </div>
   <div class="bar"><span>Capstone<b>Step 2</b></span><span>This slide<b>Part 1 · Post</b></span></div>
   <div class="shade"></div>
-  <div class="pop" id="pop-apa"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>APA citations</div><h3>Format your references in APA style</h3><p>Use the <a href="https://libguides.unf.edu/citationguide/apasample" target="_blank" rel="noopener">APA Style Guide</a> or similar to format your references.</p></div>
+  <div class="pop" id="pop-apa"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>APA citations</div><h3>Format your references in APA style</h3><p>Use the <a href="https://libguides.unf.edu/citationguide/apasample" target="_blank" rel="noopener">APA Style Guide</a> or similar to format your references.</p></div>
 </section>
 
 <section class="slide ref">
@@ -168,13 +104,13 @@
       </div>
       <p class="sub mr" style="--i:5">The topic must be:</p>
       <div class="tests"><div class="mp" style="--i:6">Interesting</div><div class="mp" style="--i:7">Relevant</div><div class="mp" style="--i:8">Specific</div><div class="mp" style="--i:9">Doable</div></div>
-      <button class="inl mr" type="button" data-open="tip" style="--i:7"><b>Read the tip</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button>
+      <button class="inl mr" type="button" data-open="tip" style="--i:7"><b>Read the tip</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
     </div>
     <div class="photo"><img class="ph" src="../m5-l3-exercises/img/tempe-solar-home.jpg" style="object-position:center" alt=""></div>
   </div>
   <div class="bar"><span>Capstone<b>Step 2</b></span><span>This slide<b>Part 1 · Tip</b></span></div>
   <div class="shade"></div>
-  <div class="pop" id="pop-tip"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Tip</div><h3>Be specific</h3><p>Be specific (e.g., “solar energy impacts on Phoenix” rather than just “renewable energy” or “Topic Selection”). The topic must be interesting, relevant, specific, and doable as the final project of this sustainability class.</p></div>
+  <div class="pop" id="pop-tip"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Tip</div><h3>Be specific</h3><p>Be specific (e.g., “solar energy impacts on Phoenix” rather than just “renewable energy” or “Topic Selection”). The topic must be interesting, relevant, specific, and doable as the final project of this sustainability class.</p></div>
 </section>
 
 <section class="slide ref">
@@ -184,13 +120,13 @@
     <p class="lead" style="font:400 40px/1.15 var(--display)">The Impact of Urban Green Spaces on Community Well-Being</p>
     <div class="body sample" style="top:270px">
       <p class="mr" style="--i:1">In this project, I will explore how urban green spaces, such as parks and community gardens, contribute to the overall well-being of city residents <span class="cite">(Jennings et al 2024)</span>. I plan to investigate the psychological and physical health benefits associated with access to these green areas, including reduced stress levels, increased physical activity, and improved social cohesion among community members <span class="cite">(Lampert et al 2021; Lin et al 2025)</span>. By analyzing peer-reviewed studies and case examples from cities that have successfully integrated green spaces into their urban planning, I aim to demonstrate the importance of prioritizing green infrastructure in sustainable city development. This topic not only highlights the environmental aspect of sustainability but also emphasizes its social implications, making it a compelling area of research.</p>
-      <button class="inl mr" type="button" data-open="refs" style="--i:3"><b>Cited references</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span></button>
+      <button class="inl mr" type="button" data-open="refs" style="--i:3"><b>Cited references</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
     </div>
     <div class="photo"><img class="ph" src="../m6-l2-urban-ecology/img/central-park-end.jpg" style="object-position:35% center" alt=""></div>
   </div>
   <div class="bar"><span>Capstone<b>Step 2</b></span><span>This slide<b>Sample topic</b></span></div>
   <div class="shade"></div>
-  <div class="pop" id="pop-refs"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-plus"/></svg></span>Sample topic</div><h3>Cited references</h3><div class="refs"><p>Jennings, V., Rigolon, A., Thompson, J., Murray, A., Henderson, A., &amp; Gragg, R. S. (2024). The dynamic relationship between social cohesion and urban green space in diverse communities: Opportunities and challenges to public health. <i>International Journal of Environmental Research and Public Health, 21</i>(6), 800. <a href="https://doi.org/10.3390/ijerph21060800" target="_blank" rel="noopener">https://doi.org/10.3390/ijerph21060800</a></p>
+  <div class="pop" id="pop-refs"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Sample topic</div><h3>Cited references</h3><div class="refs"><p>Jennings, V., Rigolon, A., Thompson, J., Murray, A., Henderson, A., &amp; Gragg, R. S. (2024). The dynamic relationship between social cohesion and urban green space in diverse communities: Opportunities and challenges to public health. <i>International Journal of Environmental Research and Public Health, 21</i>(6), 800. <a href="https://doi.org/10.3390/ijerph21060800" target="_blank" rel="noopener">https://doi.org/10.3390/ijerph21060800</a></p>
 <p>Lampert, T., Costa, J., Santos, O., Sousa, J., Ribeiro, T., &amp; Freire, E. (2021). Evidence on the contribution of community gardens to promote physical and mental health and well‑being of non‑institutionalized individuals: A systematic review. <i>PLOS ONE, 16</i>(8), e0255621. <a href="https://doi.org/10.1371/journal.pone.0255621" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0255621</a></p>
 <p>Lin, Y., Ma, X., Zhao, B., La, C., Zhang, P., &amp; Luo, Q. (2025). A moderated mediation model of green space exposure, mindfulness, physical activity level, and perceived stress. <i>Frontiers in Public Health, 13</i>. <a href="https://doi.org/10.3389/fpubh.2025.1674536" target="_blank" rel="noopener">https://doi.org/10.3389/fpubh.2025.1674536</a></p></div></div>
 </section>
@@ -231,7 +167,7 @@
 </section>
 
 </main></div>
-<script src="../../shared/deck.js?v=2026-10-25"></script>
+<script src="../../shared/deck.js?v=2026-10-28"></script>
 
 </body>
 </html>
