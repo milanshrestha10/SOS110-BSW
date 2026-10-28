@@ -77,7 +77,7 @@
 .figwrap.bag img{height:auto;width:860px}
 /* MSW calculator */
 .rchips button{transition:transform .16s var(--out),background-color .16s,color .16s}.rchips button:active{transform:scale(.97)}
-.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:6px 0 18px}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:10px 0 26px}
 .calc .cell{background:#f7f5ef;border-top:6px solid var(--accent);padding:14px 24px}
 .calc small{font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555;display:block}
 .calc .v{font:400 78px/1.05 var(--display);display:block;word-break:break-all}.calc .u{font:400 26px var(--rbody);color:#555}
@@ -208,7 +208,7 @@ a.vid:active{transform:scale(.97)}
     <div class="body"><input class="fld" data-name placeholder="Your full name" autocomplete="name" maxlength="120"><input class="fld" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
       <div class="ci-row"><input class="fld code" id="code" placeholder="CODE" maxlength="8" autocomplete="off"><button class="rbtn" type="button" id="checkin">Check in</button></div>
       <p class="status" id="checkin-status" style="margin-top:14px"></p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:22px;margin-top:10px" data-mode-note></p></div>
-    <div class="photo"><img class="ph" src="../m5-l1-food-agriculture-systems/img/garden.jpg" style="object-position:82% center" alt=""><span class="credit-ph">Photo: instructor-supplied</span></div>
+    <div class="photo"><img class="ph" src="../m6-l1-waste-circular-economy/img/barge-nyc.jpg" style="object-position:center" alt="Tugboats pushing a barge stacked with bales of trash past a suspension bridge in New York Harbor"><span class="credit-ph">Photo: instructor-supplied</span><span class="credit-ph">AP Photo / David Bookstaver</span></div>
     
   </div>
   <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Check-in</b></span><span class="src">Check-in is saved by the course site, not by this page.</span></div>
@@ -222,7 +222,7 @@ a.vid:active{transform:scale(.97)}
   <div class="card">
     <h2>How much do we <em>throw out</em>?</h2>
     <p class="lead">The EPA says Americans add <b>4.9 pounds</b> of garbage per person every day. Pick a group and see the total. Where does it all go? Mostly to a landfill. Then share one way you could cut your own.</p>
-    <div class="body"><div class="rchips" id="msw-chips"><button type="button" data-n="1" class="on">Just me</button><button type="button" data-n="170">This class (170 people)</button><button type="button" data-n="5000000">A Phoenix-area city (5 million)</button></div>
+    <div class="body" style="padding-top:18px"><div class="rchips" id="msw-chips" style="margin:14px 0 26px"><button type="button" data-n="1" class="on">Just me</button><button type="button" data-n="170">This class (170 people)</button><button type="button" data-n="5000000">A Phoenix-area city (5 million)</button></div>
       <div class="calc mr" style="--i:2"><div class="cell"><small>Every day</small><span class="v" id="msw-day">4.9</span><span class="u">pounds</span></div>
       <div class="cell"><small>Every year</small><span class="v" id="msw-year">1,789</span><span class="u">pounds</span></div></div>
       <p class="sub mr" style="--i:3" id="msw-note">That is one person. Look at the chart: which countries make more?</p>
