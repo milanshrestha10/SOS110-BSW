@@ -90,27 +90,38 @@
 .ch-def{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:26px}
 .ch-def div{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:12px;padding:14px 20px;font-size:23px;line-height:1.35}
 .ch-def b{font:400 28px var(--display);color:var(--Blue);display:block}
-/* === CASCADE DIAGRAM === */
-.casc{width:100%;height:auto;display:block;overflow:visible}
-.casc .nd{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.casc .nd.on{opacity:1;transform:none}
-.casc .nd rect{fill:var(--card);stroke:var(--Blue);stroke-width:3}
-.casc .nd.end rect{stroke:#b3452c;stroke-width:4}
-.casc .nd.now rect{stroke:var(--accent);stroke-width:6}
-.casc .nd circle.ic{fill:var(--Blue)}
-.casc .nd.end circle.ic{fill:#b3452c}
-.casc .nd use{color:#fff}
-.casc .nd .no{font:400 30px var(--display);fill:var(--accent);text-anchor:middle}
-.casc .nd .t{font:700 29px var(--body);fill:var(--ink)}
-.casc .nd .u{font:400 22px var(--body);fill:var(--mute)}
-.casc .ar{fill:none;stroke:#5d7780;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .8s var(--ease)}
-.casc .ar.on{stroke-dashoffset:0}
-.casc .ah{fill:#5d7780;opacity:0;transition:opacity .3s .6s}
-.casc .ah.on{opacity:1}
-.casc-cap{min-height:116px;margin-top:8px;font-size:29px;line-height:1.42;border-left:8px solid var(--golden);background:var(--card);border-radius:12px;padding:16px 26px}
-.casc-cap b{color:var(--Blue)}
-.casc-ctl{display:flex;gap:16px;align-items:center;margin-top:6px}
-.casc-ctl .src{margin-left:auto;font-size:19px;color:var(--mute);max-width:900px;text-align:right;line-height:1.35}
+/* first four pages: reference-guide style */
+.ref [hidden]{display:none!important}
+.ref .rfield{font:400 32px var(--rbody);padding:14px 20px;border:2px solid #ccc;background:#fff;color:#222;width:100%}
+.ref .rfield:focus{outline:4px solid #222;outline-offset:2px}
+.ref .rrow{display:flex;gap:18px;margin:0 0 18px;width:1000px}
+.ref .rbtn[disabled]{opacity:.45;cursor:default}
+.ref .vwrap{position:absolute;left:74px;top:160px;width:1000px;aspect-ratio:16/9;background:#222}
+.ref .vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ref .vwrap .ph{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:400 32px var(--rbody);text-align:center}
+.ref .vlink{color:var(--accent);position:absolute;left:74px;top:748px;font:400 28px var(--rbody)}
+.ref .side{position:absolute;left:1130px;right:44px;top:160px;display:flex;flex-direction:column;gap:22px}
+.ref .side .box .d{font-size:30px;line-height:1.3}
+.cs-slots{position:absolute;left:74px;top:270px;width:1660px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cs-slot{height:136px;border:3px dashed #cfc8b6;border-radius:8px;position:relative;background:#f7f5ef;transition:background .25s var(--out),border-color .25s var(--out)}
+.cs-slot::before{content:attr(data-n);position:absolute;left:20px;top:50%;transform:translateY(-50%);font:400 56px var(--display);color:var(--accent)}
+.cs-slot.over{background:#f6e6c8;border-color:var(--accent)}
+.cs-slot.ok{border:3px solid var(--rg);background:#eef6f0}
+.cs-slot.bad{border:3px solid var(--rb);background:#fbeee9}
+.cs-slot .cs-card{position:absolute;left:78px;right:10px;top:10px;bottom:10px;width:auto}
+.cs-label{position:absolute;left:74px;top:590px;font:700 22px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555}
+.cs-pool{position:absolute;left:74px;top:628px;width:1660px;min-height:128px;display:flex;gap:10px;align-items:stretch;border-radius:8px}
+.cs-pool.over{background:#f6e6c8}
+.cs-card{display:flex;align-items:center;gap:12px;flex:1;min-width:0;border:0;border-top:5px solid var(--red);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.18);padding:10px 14px;text-align:left;font:inherit;color:#222;cursor:grab;transition:transform .16s var(--out)}
+.cs-card:active{transform:scale(.97)}
+.cs-card .ic{flex:none;margin:0;width:44px;height:44px}
+.cs-card .ic svg{width:24px;height:24px}
+.cs-card b{display:block;font:400 30px/1.05 var(--display)}
+.cs-card .u{display:block;font:400 22px/1.15 var(--rbody);color:#555;margin-top:2px}
+.cs-pool .cs-card{flex-direction:column;align-items:flex-start;justify-content:flex-start}
+.cs-pool .cs-card b{font-size:27px}.cs-pool .cs-card .u{display:none}
+.cs-acts{position:absolute;left:74px;top:800px;display:flex;gap:16px;align-items:center}
+@media (prefers-reduced-motion:reduce){.cs-card,.cs-slot{transition:none}}
 </style>
 </head>
 <body>
@@ -161,7 +172,7 @@
 
 <!-- TITLE -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center" src="../m5-l1-food-agriculture-systems/img/terraces-hero.jpg" alt="Green terraced fields stepping down a hillside">
+  <img class="hero-img" style="object-position:center 62%" src="img/fracking-cover.jpg" alt="A pumpjack and storage tanks at an oil and gas well site on a flat plain under a blue sky">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>05</em></b><span data-fill="module-title">Interconnected SETs and Sustainability Issues</span></div>
@@ -173,75 +184,55 @@
 </section>
 
 <!-- CHECK IN -->
-<section class="slide" id="attendance">
-  <div class="rail"><b>5.4</b><span>Check in</span></div>
-  <div class="content center">
-    <div class="k reveal">Check in</div>
-    <h2 class="reveal d2">Enter today's <em>code</em></h2>
-    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
-    <div class="reveal d3">
-      <div class="signin">
-        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
-        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
-      </div>
-      <div class="signin">
-        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
-        <button class="btn" type="button" id="checkin">Check in</button>
-      </div>
-      <div class="status" id="checkin-status"></div>
-      <p class="small mute" data-mode-note></p>
+<section class="slide ref" id="attendance">
+  <div class="top">SOS110 · M5 Lecture 4 · Check in</div>
+  <div class="card">
+    <h2>Enter today's <em>code</em></h2>
+    <p class="lead mr" style="--i:1">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="body" style="top:330px">
+      <div class="rrow mr" style="--i:2"><input class="rfield" data-name placeholder="Your full name" autocomplete="name" maxlength="120"><input class="rfield" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120"></div>
+      <div class="rrow mr" style="--i:3;align-items:center"><input class="rfield" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px"><button class="rbtn submit" type="button" id="checkin"><span>Check in</span></button><span class="status" id="checkin-status"></span></div>
+      <p class="small-cap" data-mode-note></p>
     </div>
+    <div class="photo"><img class="ph" src="img/fracking-cover.jpg" style="object-position:62% center" alt="A pumpjack and storage tanks at a well site"></div>
   </div>
-</section>
-<!-- GROUP EXERCISE. NATURAL GAS: VIDEO -->
-<section class="slide" id="gas-video">
-  <div class="rail"><b>5.4</b><span>Group exercise · Natural gas</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-flame"/></svg></span>Watch · hydraulic fracturing</div>
-    <h2 class="reveal d2" style="font-size:70px">How does <em>fracking</em> work?</h2>
-    <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
-      <div class="video" style="width:1000px" data-youtube="Tudal_4x4F0" data-title="Fracking video"></div>
-      <div class="vid-side">
-        <div class="sc sky"><b>As you watch</b>Listen for how the gas gets out of the rock, and one thing that goes in and one thing that comes out.</div>
-        <div class="sc"><b>Next</b>Form a group of 3 to 5 students. You will talk about natural gas, then draw a diagram of it.</div>
-        <p class="small"><a href="https://www.youtube.com/watch?v=Tudal_4x4F0" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
-      </div>
-    </div>
-  </div>
+  <div class="bar"><span>Today<b>Fracking</b></span><span class="src">Photo: instructor-supplied</span></div>
 </section>
 
-<!-- EXERCISE 5. WORKED EXAMPLE: NEPAL FLOODS -->
-<section class="slide" id="nepal">
-  <div class="rail"><b>5.4</b><span>Worked example · Fracking cascade</span></div>
-  <div class="content fill">
-    <div class="k reveal">Worked example · one step at a time</div>
-    <h2 class="reveal d2">Fracking: a <em>cascade</em> of risks</h2>
-    <div class="reveal d3">
-      <svg class="casc" id="np-casc" viewBox="0 0 1700 560" role="img" aria-label="Seven-step cascade from hydraulic fracturing to public health and cleanup costs">
-        <!-- arrows (drawn first so cards sit on top) -->
-        <path class="ar" id="a1" d="M380 100 H440" pathLength="1"/><path class="ah" id="h1" d="M440 100 l-16 -12 v24z"/>
-        <path class="ar" id="a2" d="M820 100 H880" pathLength="1"/><path class="ah" id="h2" d="M880 100 l-16 -12 v24z"/>
-        <path class="ar" id="a3" d="M1260 100 H1320" pathLength="1"/><path class="ah" id="h3" d="M1320 100 l-16 -12 v24z"/>
-        <path class="ar" id="a4" d="M1510 200 V280" pathLength="1"/><path class="ah" id="h4" d="M1510 280 l-12 -16 h24z"/>
-        <path class="ar" id="a5" d="M1320 380 H1260" pathLength="1"/><path class="ah" id="h5" d="M1260 380 l16 -12 v24z"/>
-        <path class="ar" id="a6" d="M880 380 H820" pathLength="1"/><path class="ah" id="h6" d="M820 380 l16 -12 v24z"/>
-
-        <g class="nd" id="n1"><rect x="0" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="70" cy="70" r="40"/><use href="#i-flame" x="46" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="340" y="44">1</text><text class="t" x="28" y="142">Fracking</text><text class="u" x="28" y="176">water, sand, chemicals</text></g>
-        <g class="nd" id="n2"><rect x="440" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="70" r="40"/><use href="#i-drop" x="486" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="44">2</text><text class="t" x="468" y="142">Wastewater</text><text class="u" x="468" y="176">used water comes back up</text></g>
-        <g class="nd" id="n3"><rect x="880" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="70" r="40"/><use href="#i-alert" x="926" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="44">3</text><text class="t" x="908" y="142">Leaks and spills</text><text class="u" x="908" y="176">casings, tanks, trucks</text></g>
-        <g class="nd" id="n4"><rect x="1320" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="70" r="40"/><use href="#i-waves" x="1366" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="44">4</text><text class="t" x="1348" y="142">Water contaminated</text><text class="u" x="1348" y="176">groundwater and rivers</text></g>
-        <g class="nd" id="n5"><rect x="1320" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="350" r="40"/><use href="#i-home" x="1366" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="324">5</text><text class="t" x="1348" y="422">Drinking water</text><text class="u" x="1348" y="456">wells and town supplies</text></g>
-        <g class="nd" id="n6"><rect x="880" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="350" r="40"/><use href="#i-heart" x="926" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="324">6</text><text class="t" x="908" y="422">Public health</text><text class="u" x="908" y="456">exposure and illness risk</text></g>
-        <g class="nd end" id="n7"><rect x="440" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="350" r="40"/><use href="#i-coins" x="486" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="324">7</text><text class="t" x="468" y="422">Cleanup and rules</text><text class="u" x="468" y="456">costs and public trust</text></g>
-      </svg>
+<!-- GROUP EXERCISE. FRACKING: VIDEO -->
+<section class="slide ref" id="gas-video">
+  <div class="top">SOS110 · M5 Lecture 4 · Watch</div>
+  <div class="card">
+    <h2>How does <em>fracking</em> work?</h2>
+    <div class="vwrap video" data-youtube="Tudal_4x4F0" data-title="Fracking video"></div>
+    <a class="vlink" href="https://www.youtube.com/watch?v=Tudal_4x4F0" target="_blank" rel="noopener">Open the video on YouTube</a>
+    <div class="side">
+      <div class="box mr" style="--i:1"><div class="l">As you watch</div><div class="d">Listen for how the gas gets out of the rock, and one thing that goes in and one thing that comes out.</div></div>
+      <div class="box mr" style="--i:2"><div class="l">Next</div><div class="d">Put the steps from fracking to public health in order. Then form a group of 3 to 5 students for the group exercise.</div></div>
     </div>
-    <div class="casc-ctl reveal d3">
-      <button class="btn" type="button" id="np-nx">Show first step</button>
-      <button class="btn ghost" type="button" id="np-rs">Start over</button>
-      <div class="src">Teaching sketch of a typical chain. Not every well leaks, and health effects are still being studied. Step 5: US EPA (2016), Hydraulic Fracturing for Oil and Gas: Impacts on Drinking Water Resources.</div>
-    </div>
-    <div class="casc-cap reveal d3" id="np-cap" aria-live="polite"></div>
   </div>
+  <div class="bar"><span>Video<b>Fracking</b></span><span class="src">Video: YouTube</span></div>
+</section>
+
+<!-- WORKED EXAMPLE. FRACKING CASCADE: BUILD THE FLOW -->
+<section class="slide ref" id="cascade">
+  <div class="top">SOS110 · M5 Lecture 4 · Build the flow</div>
+  <div class="card">
+    <h2>Put the <em>cascade</em> in order</h2>
+    <p class="lead mr" style="--i:1;width:1500px">A <b>cascade</b> is a chain where one problem sets off the next. Drag each box into a numbered slot, or tap a box to fill the next slot. Start with fracking and end with the cost. Then tap Check.</p>
+    <div class="cs-slots" id="cs-slots"></div>
+    <div class="cs-label">Boxes to place</div>
+    <div class="cs-pool" id="cs-pool"></div>
+    <div class="cs-acts">
+      <button class="rbtn submit" type="button" id="cs-check"><span>Check order</span></button>
+      <button class="rbtn g" type="button" id="cs-reset">Start over</button>
+      <button class="inl" type="button" data-open="c-story" id="cs-story" hidden><b>Read the story</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <span class="status" id="cs-msg" aria-live="polite"></span>
+    </div>
+  </div>
+  <div class="bar"><span>Steps<b id="cs-n">0 of 7</b></span><span class="src">Teaching sketch. Not every well leaks. Step 5: US EPA (2016), Impacts on Drinking Water Resources.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-c-story" role="dialog" aria-modal="true" aria-label="The fracking cascade"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>The story</div><h3>How one risk leads to the next</h3><div class="refs"><p><b>1. Hydraulic fracturing (fracking) starts it.</b> Crews pump water, sand and chemicals deep underground at high pressure. The rock cracks, and gas flows out of the cracks.</p><p><b>2. Wastewater comes back up.</b> Each well returns a lot of used water that can be salty and carry chemicals from the rock. It has to be stored, trucked, treated or injected deep underground.</p><p><b>3. Something leaks or spills.</b> A weak well casing, a tank, a pit or a truck accident can let fluid escape. Most wells do not fail, but there are many wells.</p><p><b>4. Water becomes contaminated.</b> Fluid that escapes can reach groundwater or a river. Water moves, so the problem can spread far from the well.</p><p><b>5. Drinking water is affected.</b> Families with private wells and towns that draw from the river or aquifer may be drinking it. The 2016 US EPA study found fracking can affect drinking water in some cases.</p><p><b>6. Public health is at risk.</b> Chemicals in drinking water can cause illness, and people worry even when the risk is unclear. Scientists are still studying how big the health effects are.</p><p><b>7. Cleanup, costs and rules follow.</b> Someone pays for testing, cleanup and bottled water, and communities lose trust. Neighbors and taxpayers often pay, not the company. That is the <b>externality</b>.</p></div><p><b>Quick question:</b> where could people break the chain, and how?</p></div>
 </section>
 
 <!-- GROUP EXERCISE. NATURAL GAS: A WICKED PROBLEM -->
@@ -307,36 +298,56 @@ import { $, $$, say, esc } from '../m5-l1-food-agriculture-systems/lecture.js?v=
 
 const LECTURE = 'm5-s4';
 
-{
-/* === CASCADE === one click reveals the next step and its arrow */
-const STEPS = [
-  '<b>1. Hydraulic fracturing (fracking) starts it.</b> Crews pump water, sand and chemicals deep underground at high pressure. The rock cracks, and gas flows out of the cracks.',
-  '<b>2. Wastewater comes back up.</b> Each well returns a lot of used water that can be salty and carry chemicals from the rock. It has to be stored, trucked, treated or injected deep underground.',
-  '<b>3. Something leaks or spills.</b> A weak well casing, a tank, a pit or a truck accident can let fluid escape. Most wells do not fail, but there are many wells.',
-  '<b>4. Water becomes contaminated.</b> Fluid that escapes can reach groundwater or a river. Water moves, so the problem can spread far from the well.',
-  '<b>5. Drinking water is affected.</b> Families with private wells and towns that draw from the river or aquifer may be drinking it. The 2016 US EPA study found fracking can affect drinking water in some cases.',
-  '<b>6. Public health is at risk.</b> Chemicals in drinking water can cause illness, and people worry even when the risk is unclear. Scientists are still studying how big the health effects are.',
-  '<b>7. Cleanup, costs and rules follow.</b> Someone pays for testing, cleanup and bottled water, and communities lose trust. Neighbors and taxpayers often pay, not the company. That is the <b>externality</b>. <b>Quick question:</b> where could people break the chain?',
-];
-let n = 0;
-const cap = $('#np-cap'), nx = $('#np-nx');
-function draw() {
-  for (let i = 1; i <= 7; i++) {
-    const g = $('#n' + i);
-    g.classList.toggle('on', i <= n);
-    g.classList.toggle('now', i === n);
-  }
-  for (let i = 1; i <= 6; i++) for (const p of ['a', 'h']) $('#' + p + i).classList.toggle('on', i < n);
-  cap.innerHTML = n ? STEPS[n - 1] : 'Press <b>Show first step</b>. Each press adds the next step in the chain.';
-  nx.textContent = n === 0 ? 'Show first step' : n < 7 ? 'Next step' : 'All steps shown';
-  nx.disabled = n === 7;
+/* === CASCADE === students build the flow: drag or tap scrambled boxes into seven numbered slots */
+const CS = [["flame", "Fracking", "water, sand, chemicals"], ["drop", "Wastewater", "used water comes back up"], ["alert", "Leaks and spills", "casings, tanks, trucks"], ["waves", "Water contaminated", "groundwater and rivers"], ["home", "Drinking water", "wells and town supplies"], ["heart", "Public health", "exposure and illness risk"], ["coins", "Cleanup and rules", "costs and public trust"]];
+const csIc = n => `<svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-${n}"/></svg>`;
+let csSlots = Array(7).fill(null), csPool = [], csDrag = -1, csDone = false;
+function csReset() { csDone = false; $('#cs-story').hidden = true; say($('#cs-msg'), ''); const b = $('#cs-check'); b.classList.remove('sent'); b.querySelector('span').textContent = 'Check order'; }
+function csShuffle() {
+  csSlots = Array(7).fill(null); csDone = false;
+  do { csPool = [0, 1, 2, 3, 4, 5, 6].sort(() => Math.random() - .5); } while (csPool.some((v, i) => v === i));
+  csReset();
+  csDraw();
 }
-nx.addEventListener('click', () => { if (n < 7) { n++; draw(); } });
-$('#np-rs').addEventListener('click', () => { n = 0; draw(); });
-draw();
+const csCard = i => `<button class="cs-card" type="button" draggable="true" data-i="${i}"><span class="ic">${csIc(CS[i][0])}</span><span><b>${CS[i][1]}</b><span class="u">${CS[i][2]}</span></span></button>`;
+function csDraw() {
+  $('#cs-slots').innerHTML = csSlots.map((v, k) => `<div class="cs-slot" data-n="${k + 1}" data-k="${k}">${v === null ? '' : csCard(v)}</div>`).join('');
+  $('#cs-pool').innerHTML = csPool.map(csCard).join('');
+  $('#cs-n').textContent = `${csSlots.filter(v => v !== null).length} of 7`;
 }
-
-
+function csPlace(i, k) {
+  const from = csSlots.indexOf(i);
+  if (from >= 0) csSlots[from] = null; else csPool = csPool.filter(v => v !== i);
+  if (csSlots[k] !== null) csPool.push(csSlots[k]);
+  csSlots[k] = i; csReset(); csDraw();
+}
+function csUnplace(i) { const from = csSlots.indexOf(i); if (from >= 0) { csSlots[from] = null; csPool.push(i); csReset(); csDraw(); } }
+const csArea = $('#cascade');
+csArea.addEventListener('click', e => {
+  const c = e.target.closest('.cs-card'); if (!c) return;
+  const i = +c.dataset.i;
+  if (csSlots.includes(i)) csUnplace(i); else { const k = csSlots.indexOf(null); if (k >= 0) csPlace(i, k); }
+});
+csArea.addEventListener('dragstart', e => { const c = e.target.closest('.cs-card'); if (!c) return; csDrag = +c.dataset.i; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', String(csDrag)); });
+csArea.addEventListener('dragover', e => { const t = e.target.closest('.cs-slot, .cs-pool'); if (t && csDrag >= 0) { e.preventDefault(); $$('.over', csArea).forEach(x => x.classList.remove('over')); t.classList.add('over'); } });
+csArea.addEventListener('dragleave', e => { const t = e.target.closest('.cs-slot, .cs-pool'); if (t) t.classList.remove('over'); });
+csArea.addEventListener('drop', e => {
+  const t = e.target.closest('.cs-slot, .cs-pool'); if (!t || csDrag < 0) return;
+  e.preventDefault(); const i = csDrag; csDrag = -1;
+  if (t.classList.contains('cs-slot')) csPlace(i, +t.dataset.k); else csUnplace(i);
+});
+csArea.addEventListener('dragend', () => { csDrag = -1; $$('.over', csArea).forEach(x => x.classList.remove('over')); });
+$('#cs-check').addEventListener('click', () => {
+  const msg = $('#cs-msg');
+  if (csSlots.includes(null)) { say(msg, 'Fill all seven slots first.', 'err'); return; }
+  const slots = $$('.cs-slot', csArea);
+  const right = csSlots.filter((v, k) => v === k).length;
+  slots.forEach((el, k) => { el.classList.toggle('ok', csSlots[k] === k); el.classList.toggle('bad', csSlots[k] !== k); });
+  if (right === 7) { csDone = true; say(msg, 'All seven in order. Nice work!', 'ok'); $('#cs-story').hidden = false; Deck.sent($('#cs-check'), 'Correct'); }
+  else say(msg, `${right} of 7 in the right place. Move the boxes marked in brown.`, 'err');
+});
+$('#cs-reset').addEventListener('click', csShuffle);
+csShuffle();
 
 /* === COURSE DATA === fills the module title on the title slide */
 loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
