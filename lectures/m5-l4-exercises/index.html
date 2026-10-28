@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Class Exercises · Complex and cascading risks · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-10-28">
 <link rel="stylesheet" href="../m5-l1-food-agriculture-systems/lecture.css?v=2026-10-16">
 <style>
@@ -14,6 +14,9 @@
 .pyr .lv.l4 .bar .lvico{margin-right:0}
 
 /* === M5 L4 ONLY === */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 /* causal loop diagrams */
 .cld{width:100%;height:auto;display:block;overflow:visible}
@@ -151,6 +154,7 @@
   <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
   <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
   <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
 </svg>
 <div class="deck-viewport"><main class="deck-stage anim-pics roomy" id="deckStage">
@@ -189,132 +193,18 @@
     </div>
   </div>
 </section>
-<!-- EXERCISE 1. FEEDING PHOENIX: THE MAP -->
-<section class="slide">
-  <div class="rail"><b>5.4</b><span>Exercise 1 of 5 · Feeding Phoenix</span></div>
+<!-- GROUP EXERCISE. NATURAL GAS: VIDEO -->
+<section class="slide" id="gas-video">
+  <div class="rail"><b>5.4</b><span>Group exercise · Natural gas</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-city"/></svg></span>Class exercise · a stock and flow map of food in a desert city</div>
-    <h2 class="reveal d2" style="font-size:64px">Feeding <em>Phoenix</em>: inflows, stock and outflows</h2>
-    <div class="pm reveal d3">
-      <svg viewBox="0 0 1560 600" role="img" aria-label="A map of food flowing into Phoenix from California, Yuma, Mexico, the Midwest and local farms, into a stock of food on hand, and out as food eaten and food wasted">
-        <defs><marker id="pm-ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="26" markerHeight="26" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
-        <text class="lab" x="0" y="22">INFLOWS · where the food comes from</text>
-        <text class="lab" x="880" y="22" text-anchor="middle">STOCK · food on hand</text>
-        <text class="lab" x="1170" y="22">OUTFLOWS · where it goes</text>
-        <rect x="0" y="40" width="660" height="556" rx="22" fill="#ece5d6" stroke="#d9cfb8" stroke-width="2"/>
-        <text x="632" y="82" text-anchor="end" class="ts">N ↑</text>
-        <text x="24" y="372" class="ts">A sketch, not to scale</text>
-        <use href="#i-truck" x="540" y="286" width="44" height="44" fill="none" stroke="#0d7397" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <g class="src">
-          <path d="M290 150 L470 322" stroke="#0d7397" stroke-width="16" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
-          <path d="M292 440 L462 372" stroke="#0d7397" stroke-width="16" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
-          <path d="M340 512 L480 392" stroke="#0d7397" stroke-width="12" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
-          <path d="M510 200 L500 312" stroke="#0d7397" stroke-width="12" fill="none" opacity=".8" marker-end="url(#pm-ar)"/>
-          <path d="M232 280 L452 338" stroke="#4f8f5c" stroke-width="5" fill="none" marker-end="url(#pm-ar)"/>
-        </g>
-        <g class="box"><rect x="24" y="64" width="270" height="104" rx="14"/><text x="159" y="96" text-anchor="middle">California</text><text x="159" y="124" text-anchor="middle" class="ts">Central Valley and ports</text><text x="159" y="154" text-anchor="middle" class="mi">about 560 mi</text></g>
-        <g class="box"><rect x="24" y="404" width="270" height="104" rx="14"/><text x="159" y="436" text-anchor="middle">Yuma</text><text x="159" y="464" text-anchor="middle" class="ts">winter vegetables</text><text x="159" y="494" text-anchor="middle" class="mi">about 185 mi</text></g>
-        <g class="box"><rect x="204" y="516" width="230" height="72" rx="14"/><text x="319" y="548" text-anchor="middle">Mexico</text><text x="319" y="576" text-anchor="middle" class="mi">about 500+ mi</text></g>
-        <g class="box"><rect x="360" y="58" width="280" height="140" rx="14"/><text x="500" y="92" text-anchor="middle">Midwest</text><text x="500" y="118" text-anchor="middle" class="ts">grain and meat,</text><text x="500" y="142" text-anchor="middle" class="ts">by rail and truck</text><text x="500" y="176" text-anchor="middle" class="mi">about 1,500 mi</text></g>
-        <g class="box loc"><rect x="24" y="214" width="206" height="90" rx="14"/><text x="127" y="248" text-anchor="middle">Local farms</text><text x="127" y="286" text-anchor="middle" class="mi">under 50 mi</text></g>
-        <circle cx="490" cy="348" r="32" fill="#eccf72" stroke="#C4851C" stroke-width="4"/>
-        <text x="490" y="356" text-anchor="middle" class="ph">PHX</text>
-        <path d="M530 350 L700 350" stroke="#0d7397" stroke-width="22" fill="none" marker-end="url(#pm-ar)"/>
-        <text x="640" y="326" text-anchor="middle" class="ts">imports</text>
-        <rect x="730" y="150" width="300" height="330" rx="30" fill="#fffdf8" stroke="#0d7397" stroke-width="7"/>
-        <path d="M737 330 Q790 312 850 330 T980 330 T1023 326 L1023 452 Q1023 473 1002 473 L758 473 Q737 473 737 452 Z" fill="#eccf72" opacity=".85"/>
-        <text x="880" y="238" text-anchor="middle" class="big2">about 4 days</text>
-        <text x="880" y="278" text-anchor="middle" class="ts">of food for everyone</text>
-        <text x="880" y="530" text-anchor="middle" class="ts">stores · warehouses · restaurants</text>
-        <text x="880" y="558" text-anchor="middle" class="ts">food pantries · homes</text>
-        <path d="M1030 280 L1150 224" stroke="#b3452c" stroke-width="18" fill="none" marker-end="url(#pm-ar)"/>
-        <path d="M1030 400 L1150 456" stroke="#b3452c" stroke-width="12" fill="none" marker-end="url(#pm-ar)"/>
-        <g class="box out"><rect x="1160" y="150" width="400" height="116" rx="16"/><text x="1360" y="196" text-anchor="middle">Eaten</text><text x="1360" y="232" text-anchor="middle" class="ts">about 5 million people, every day</text></g>
-        <g class="box out"><rect x="1160" y="410" width="400" height="116" rx="16"/><text x="1360" y="456" text-anchor="middle">Wasted</text><text x="1360" y="492" text-anchor="middle" class="ts">thrown away or left to spoil</text></g>
-      </svg>
-      <div class="pm-foot">
-        <div class="sc"><b>Look at the map</b>Phoenix grows only a small share of its own food. Most of it <b style="display:inline;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">flows in</b> from far away, so a small stock drains quickly if an inflow slows down. Longer trips also mean more <b style="display:inline;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">food miles</b> and more fuel.</div>
-        <p class="note">Sources and amounts are simplified. The distances are rounded, straight-line teaching numbers. The stock size and shares are teaching numbers, not measured data.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXERCISE 2. FOOD MILES AND ENERGY AT EACH STAGE -->
-<section class="slide" id="stages">
-  <div class="rail"><b>5.4</b><span>Exercise 2 of 5 · Food miles and energy</span></div>
-  <div class="content fill" style="top:80px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Class exercise · work with a neighbor · about 5 minutes</div>
-    <h2 class="reveal d2" style="font-size:58px;margin-bottom:20px">Food miles and <em>energy</em> at each stage</h2>
-    <p class="steps reveal d2"><b>1.</b> Tap each place the food comes from. <b>2.</b> Find the stage that uses the most energy. <b>3.</b> Compare the winter greenhouse with the Midwest. Talk it over.</p>
-    <div class="reveal d3">
-      <div class="st-src" id="st-src"></div>
-      <div class="st-row" id="st-row"></div>
-      <div class="st-tot" id="st-tot"></div>
-      <p class="note" style="margin-top:18px;font-size:20px">Food miles are the distance food travels from where it is grown to where it is eaten. Distances are rounded. Energy units are teaching numbers for one unit of food, not measured data.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- EXERCISE 3. THE GAME -->
-<section class="slide" id="pgame">
-  <div class="rail"><b>5.4</b><span>Exercise 3 of 5 · Phoenix game</span></div>
-  <div class="content fill" style="top:80px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
-    <h2 class="reveal d2" style="font-size:56px;margin-bottom:18px">Fill the <em>processes</em>, then run the year</h2>
-    <div class="pg reveal d3">
-      <div class="pg-left">
-        <p class="pg-ask"><b>1.</b> Pick one process for each pipe. <b>2.</b> Press <b>Run the year</b>. <b>3.</b> Change your picks and run it again.</p>
-        <div class="pg-dia">
-          <div class="pg-col"><div class="slot" data-slot="imports"></div><div class="slot" data-slot="local"></div></div>
-          <div class="pg-arrow">▶</div>
-          <div class="pg-col pg-mid">
-            <div class="tub" id="pg-tub"><div class="lvl" id="pg-lvl"></div><div class="num"><b id="pg-days">4.0</b><span>days of food</span></div><div class="empty" id="pg-empty">EMPTY SHELVES</div></div>
-            <div class="slot" data-slot="storage"></div>
-          </div>
-          <div class="pg-arrow">▶</div>
-          <div class="pg-col"><div class="slot" data-slot="waste"></div><div class="slot" data-slot="goal"></div></div>
-        </div>
-      </div>
-      <div class="pg-right">
-        <div class="pg-chart">
-          <svg id="pg-chart" viewBox="0 0 640 330" role="img" aria-label="Line chart of days of food on hand over 52 weeks, with four shocks marked"></svg>
-          <div class="pg-keys"><span><i>1</i>Heat wave hits harvests</span><span><i>2</i>Highway and rail closed</span><span><i>3</i>Drought year</span><span><i>4</i>Panic buying</span></div>
-        </div>
-        <div class="pg-stats">
-          <div><b id="pg-s-empty">–</b><span>days with empty shelves</span></div>
-          <div><b id="pg-s-min">–</b><span>lowest stock, in days</span></div>
-        </div>
-        <div class="pg-btns"><button class="btn" type="button" id="pg-run">Run the year</button><button class="btn ghost" type="button" id="pg-reset">Clear picks</button></div>
-        <table class="pg-log"><thead><tr><th>Run</th><th>Shallow picks</th><th>Deep picks</th><th>Empty days</th></tr></thead><tbody id="pg-log"></tbody></table>
-        <p class="note" id="pg-note">Dashed gray line: the year with no changes. Teaching model with made-up numbers.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXERCISE 4. LEVERAGE POINTS -->
-<section class="slide" id="pg-debrief">
-  <div class="rail"><b>5.4</b><span>Exercise 4 of 5 · Leverage points</span></div>
-  <div class="content fill" style="top:80px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-search"/></svg></span>Class exercise · discuss with a neighbor</div>
-    <h2 class="reveal d2" style="font-size:58px;margin-bottom:22px">Leverage points for a <em>resilient</em> Phoenix</h2>
-    <div class="pd reveal d3">
-      <div class="pd-left">
-        <div class="card accent"><h3><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Shallow: change a number</h3><p>Quick to do and easy to see, but the system keeps behaving the same way.</p><p class="eg">More trucks · bigger warehouses · more gardens · an ad campaign · a plea</p></div>
-        <div class="card green"><h3><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Deep: change how the system works</h3><p>Slower to build, but it changes the information, rules or goals that steer everyone's choices.</p><p class="eg">A shared dashboard · contracts with many regions · zoning and buying rules · a donate-or-compost rule · a new goal</p></div>
-        <div class="sc flow"><b>Talk it over first</b>Which stage of the food system would your leverage point change: grow, process, transport, store and sell, or eat and waste? Who would need to agree to it?</div>
-        <p class="pd-sum" id="pd-sum">Run the game on the previous slide to see how your picks did.</p>
-        <p class="note">Idea from Donella Meadows, "Leverage Points: Places to Intervene in a System" (1999). The model's effect sizes are made-up teaching numbers.</p>
-      </div>
-      <div class="ex pd-form" data-pg-form>
-        <div><label for="pg-better"><i>1</i>Over the whole year, which did better?</label>
-          <select id="pg-better"><option value="">Pick one</option><option value="shallow">Shallow changes</option><option value="deep">Deep changes</option><option value="same">About the same</option><option value="one">I only tried one kind</option></select></div>
-        <div><label for="pg-why"><i>2</i>Why do you think so?</label><textarea id="pg-why" maxlength="500" style="height:70px" placeholder="One or two sentences"></textarea></div>
-        <div><label for="pg-lever"><i>3</i>Describe one leverage point that would make Phoenix's food system more resilient. What would change?</label><textarea id="pg-lever" maxlength="400" style="height:96px" placeholder="Think about the information, rules or goals that steer people's choices"></textarea></div>
-        <div><label for="pg-help"><i>4</i>How would it help when a heat wave or a closed highway hits?</label><textarea id="pg-help" maxlength="400" style="height:96px"></textarea></div>
-        <div class="go-row"><button class="btn" type="button" id="pg-save">Submit</button><span class="status" id="pg-status"></span></div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-flame"/></svg></span>Watch · hydraulic fracturing</div>
+    <h2 class="reveal d2" style="font-size:70px">How does <em>fracking</em> work?</h2>
+    <div class="vid reveal d3" style="grid-template-columns:1000px 1fr;gap:40px">
+      <div class="video" style="width:1000px" data-youtube="Tudal_4x4F0" data-title="Fracking video"></div>
+      <div class="vid-side">
+        <div class="sc sky"><b>As you watch</b>Listen for how the gas gets out of the rock, and one thing that goes in and one thing that comes out.</div>
+        <div class="sc"><b>Next</b>Form a group of 3 to 5 students. You will talk about natural gas, then draw a diagram of it.</div>
+        <p class="small"><a href="https://www.youtube.com/watch?v=Tudal_4x4F0" target="_blank" rel="noopener" style="color:var(--Blue)">Open the video on YouTube</a></p>
       </div>
     </div>
   </div>
@@ -322,12 +212,12 @@
 
 <!-- EXERCISE 5. WORKED EXAMPLE: NEPAL FLOODS -->
 <section class="slide" id="nepal">
-  <div class="rail"><b>5.4</b><span>Exercise 5 of 5 · Worked example · Nepal</span></div>
+  <div class="rail"><b>5.4</b><span>Worked example · Fracking cascade</span></div>
   <div class="content fill">
-    <div class="k reveal">Class exercise · worked example · Nepal</div>
-    <h2 class="reveal d2">Nepal's floods: a <em>cascade</em> of risks</h2>
+    <div class="k reveal">Worked example · one step at a time</div>
+    <h2 class="reveal d2">Fracking: a <em>cascade</em> of risks</h2>
     <div class="reveal d3">
-      <svg class="casc" id="np-casc" viewBox="0 0 1700 560" role="img" aria-label="Seven-step cascade from climate change to settlements in flood-prone areas">
+      <svg class="casc" id="np-casc" viewBox="0 0 1700 560" role="img" aria-label="Seven-step cascade from hydraulic fracturing to public health and cleanup costs">
         <!-- arrows (drawn first so cards sit on top) -->
         <path class="ar" id="a1" d="M380 100 H440" pathLength="1"/><path class="ah" id="h1" d="M440 100 l-16 -12 v24z"/>
         <path class="ar" id="a2" d="M820 100 H880" pathLength="1"/><path class="ah" id="h2" d="M880 100 l-16 -12 v24z"/>
@@ -336,99 +226,75 @@
         <path class="ar" id="a5" d="M1320 380 H1260" pathLength="1"/><path class="ah" id="h5" d="M1260 380 l16 -12 v24z"/>
         <path class="ar" id="a6" d="M880 380 H820" pathLength="1"/><path class="ah" id="h6" d="M820 380 l16 -12 v24z"/>
 
-        <g class="nd" id="n1"><rect x="0" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="70" cy="70" r="40"/><use href="#i-thermo" x="46" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="340" y="44">1</text><text class="t" x="28" y="142">Climate change</text><text class="u" x="28" y="176">the precondition</text></g>
-        <g class="nd" id="n2"><rect x="440" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="70" r="40"/><use href="#i-snow" x="486" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="44">2</text><text class="t" x="468" y="142">Permafrost thaws</text><text class="u" x="468" y="176">and glaciers melt</text></g>
-        <g class="nd" id="n3"><rect x="880" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="70" r="40"/><use href="#i-mountain" x="926" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="44">3</text><text class="t" x="908" y="142">Unstable slopes</text><text class="u" x="908" y="176">and hanging glaciers</text></g>
-        <g class="nd" id="n4"><rect x="1320" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="70" r="40"/><use href="#i-alert" x="1366" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="44">4</text><text class="t" x="1348" y="142">Rock-ice avalanche</text><text class="u" x="1348" y="176">a massive volume</text></g>
-        <g class="nd" id="n5"><rect x="1320" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="350" r="40"/><use href="#i-drop" x="1366" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="324">5</text><text class="t" x="1348" y="422">Debris-dammed lake</text><text class="u" x="1348" y="456">water piles up behind it</text></g>
-        <g class="nd" id="n6"><rect x="880" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="350" r="40"/><use href="#i-waves" x="926" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="324">6</text><text class="t" x="908" y="422">Debris flow</text><text class="u" x="908" y="456">water + rock, steep slope</text></g>
-        <g class="nd end" id="n7"><rect x="440" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="350" r="40"/><use href="#i-home" x="486" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="324">7</text><text class="t" x="468" y="422">Settlements</text><text class="u" x="468" y="456">in flood-prone areas</text></g>
+        <g class="nd" id="n1"><rect x="0" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="70" cy="70" r="40"/><use href="#i-flame" x="46" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="340" y="44">1</text><text class="t" x="28" y="142">Fracking</text><text class="u" x="28" y="176">water, sand, chemicals</text></g>
+        <g class="nd" id="n2"><rect x="440" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="70" r="40"/><use href="#i-drop" x="486" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="44">2</text><text class="t" x="468" y="142">Wastewater</text><text class="u" x="468" y="176">used water comes back up</text></g>
+        <g class="nd" id="n3"><rect x="880" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="70" r="40"/><use href="#i-alert" x="926" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="44">3</text><text class="t" x="908" y="142">Leaks and spills</text><text class="u" x="908" y="176">casings, tanks, trucks</text></g>
+        <g class="nd" id="n4"><rect x="1320" y="0" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="70" r="40"/><use href="#i-waves" x="1366" y="46" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="44">4</text><text class="t" x="1348" y="142">Water contaminated</text><text class="u" x="1348" y="176">groundwater and rivers</text></g>
+        <g class="nd" id="n5"><rect x="1320" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="1390" cy="350" r="40"/><use href="#i-home" x="1366" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1660" y="324">5</text><text class="t" x="1348" y="422">Drinking water</text><text class="u" x="1348" y="456">wells and town supplies</text></g>
+        <g class="nd" id="n6"><rect x="880" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="950" cy="350" r="40"/><use href="#i-heart" x="926" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="1220" y="324">6</text><text class="t" x="908" y="422">Public health</text><text class="u" x="908" y="456">exposure and illness risk</text></g>
+        <g class="nd end" id="n7"><rect x="440" y="280" width="380" height="200" rx="20"/><circle class="ic" cx="510" cy="350" r="40"/><use href="#i-coins" x="486" y="326" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text class="no" x="780" y="324">7</text><text class="t" x="468" y="422">Cleanup and rules</text><text class="u" x="468" y="456">costs and public trust</text></g>
       </svg>
     </div>
     <div class="casc-ctl reveal d3">
       <button class="btn" type="button" id="np-nx">Show first step</button>
       <button class="btn ghost" type="button" id="np-rs">Start over</button>
-      <div class="src">Sources: ICIMOD study of the 2024 Thame flood (2025); news and agency reports on the 2026 Rasuwa flood (Kathmandu Post, Stimson Center, ICIMOD). Causes of the 2026 flood were still preliminary.</div>
+      <div class="src">Teaching sketch of a typical chain. Not every well leaks, and health effects are still being studied. Step 5: US EPA (2016), Hydraulic Fracturing for Oil and Gas: Impacts on Drinking Water Resources.</div>
     </div>
     <div class="casc-cap reveal d3" id="np-cap" aria-live="polite"></div>
   </div>
 </section>
 
-<!-- EXERCISE 5. CHOOSE A CASE -->
-<section class="slide" id="choose">
-  <div class="rail"><b>5.4</b><span>Exercise 5 of 5 · Choose a case</span></div>
-  <div class="content fill" style="top:80px;bottom:50px">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-loop"/></svg></span>Class exercise · work with a neighbor · about 15 minutes</div>
-    <h2 class="reveal d2" style="font-size:58px;margin-bottom:22px">Follow a <em>cascading risk</em></h2>
-    <div class="ch-def reveal d2">
-      <div><b>Cascading risk</b>A chain reaction where a failure or disruption in one system causes a series of failures in connected systems.</div>
-      <div><b>Causal loop diagram</b>A map of links between things. A + link moves both the same way. A − link moves them opposite ways. Loops are R (reinforcing) or B (balancing).</div>
+<!-- GROUP EXERCISE. NATURAL GAS: A WICKED PROBLEM -->
+<section class="slide ref" id="gas-wicked">
+  <div class="top">SOS110 · M5 Lecture 4 · Group exercise · Part 1 of 2 · Groups of 3 to 5</div>
+  <div class="card">
+    <h2>Natural gas: a <em>wicked</em> problem</h2>
+    <p class="lead">You followed fracking from the well to water and health. Now talk it over as a group. <b>Tap each red icon</b> to read it, then answer the questions.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="g-ben" style="--i:1"><span class="n">1</span><span><b>Benefits</b><span class="d">Why some people call gas a bridge fuel</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="g-cost" style="--i:2"><span class="n">2</span><span><b>Costs</b><span class="d">What it does to air, water and neighbors</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="g-ext" style="--i:3"><span class="n">3</span><span><b>Externality</b><span class="d">A cost that someone else pays</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="g-wicked" style="--i:4"><span class="n">4</span><span><b>Wicked problem</b><span class="d">Fix one thing and another breaks</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
     </div>
-    <p class="steps reveal d3"><b>Pick one case with your neighbor.</b> Then build its causal loop diagram, one link at a time.</p>
-    <div class="ch-grid reveal d3">
-      <div class="ch-card">
-        <span class="optk">Option A</span>
-        <h3><span class="ico gold"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Chesapeake Bay dead zone</h3>
-        <p>Farms, cities and air pollution add nutrients to the rivers. Algae bloom, die and use up the oxygen. Crabs, oysters and fish pay the price.</p>
-        <p class="ch-chain">Nutrients → algae → low oxygen → dead zone</p>
-        <button class="btn" type="button" data-case="cb-ex">Build the eutrophication diagram →</button>
-      </div>
-      <div class="ch-card">
-        <span class="optk">Option B</span>
-        <h3><span class="ico sky"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Juneau glacial outburst flood</h3>
-        <p>Meltwater fills a basin held back by glacier ice, then drains in days into the Mendenhall River. Floods damage homes, and gauges and forecasts give warning.</p>
-        <p class="ch-chain">Melt → full basin → outburst flood → damage, and early warning helps people get out</p>
-        <button class="btn" type="button" data-case="jn-ex">Build the flood diagram →</button>
-      </div>
-    </div>
+    <div class="photo"><img class="ph" src="../m5-l2-fews-nexus-energy/img/drilling.jpg" style="object-position:60% center" alt="Silhouettes of oil and gas pumpjacks and power lines against an orange sunset sky"><button class="note" type="button" data-open="g-talk" aria-label="Open the discussion questions"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button></div>
   </div>
+  <div class="bar"><span>Group<b>3 to 5</b></span><span>Time<b>10 min</b></span><span class="src">When you have read all four, tap the document icon for your questions.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-g-ben" role="dialog" aria-modal="true" aria-label="Gas can bridge from coal to clean energy"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Benefits · bridge fuel</div><h3>Gas can bridge from coal to clean energy</h3><p>A <b>bridge fuel</b> helps us get from one energy source to a better one. Here is the case for gas.</p><div class="abc"><div class="box"><div class="l">Burns cleaner than coal</div><div class="v">About half</div><div class="d">the CO₂ of coal for the same electricity, and far less soot and sulfur.</div></div><div class="box"><div class="l">Fills the gaps</div><div class="v">On demand</div><div class="d">Gas plants can switch on fast when the sun sets or the wind drops.</div></div><div class="box"><div class="l">Jobs and income</div><div class="v">Local</div><div class="d">Drilling pays workers, landowners and local governments.</div></div></div></div>
+  <div class="pop" id="pop-g-cost" role="dialog" aria-modal="true" aria-label="Gas has costs that do not show up on a bill"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Costs · what goes wrong</div><h3>Gas has costs that do not show up on a bill</h3><p>Getting gas out of the ground and to a stove or power plant leaves a mess behind.</p><div class="abc"><div class="box warn"><div class="l">Leaked methane</div><div class="v">80× CO₂</div><div class="d">Over 20 years, methane traps more than 80 times the heat of the same weight of CO₂. Leaks add up.</div></div><div class="box warn"><div class="l">Water</div><div class="v">Wastewater</div><div class="d">Fracking uses a lot of water, and the used water must be cleaned or injected deep underground. Some injection wells have been linked to small earthquakes.</div></div><div class="box warn"><div class="l">Neighbors</div><div class="v">Air and noise</div><div class="d">Wells, trucks and flares sit close to homes in some places.</div></div></div></div>
+  <div class="pop" id="pop-g-ext" role="dialog" aria-modal="true" aria-label="An externality is a cost someone else pays"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Key idea · externality</div><h3>An externality is a cost someone else pays</h3><p>An <b>externality</b> is a cost (or benefit) that lands on people who were not part of the deal. The price of gas does not include it.</p><p>Example: the buyer pays for the gas and the seller is paid. A family downwind breathes the fumes, and the whole planet gets the leaked methane. <b>Nobody charges the seller or buyer for that.</b></p></div>
+  <div class="pop" id="pop-g-wicked" role="dialog" aria-modal="true" aria-label="A wicked problem has no single right fix"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Key idea · wicked problem</div><h3>A wicked problem has no single right fix</h3><p>A <b>wicked problem</b> is tangled up with many people and many goals. Every fix changes something else, and people disagree on what “solved” means.</p><p>Gas fits: it <b>solves</b> one problem (dirty coal power) and <b>creates</b> another (methane leaks, water use, new fossil fuel pipes that last for decades).</p></div>
+  <div class="pop" id="pop-g-talk" role="dialog" aria-modal="true" aria-label="Three questions for your group"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your group</div><h3>Three questions for your group</h3><p class="qn"><i>1</i>Who pays the costs that are not in the price of gas?</p><p class="qn"><i>2</i>How does gas solve one problem and create another?</p><p class="qn"><i>3</i>Is gas a bridge to clean energy, or a place we get stuck? Why?</p><p>Pick one person to share your group’s best idea with the class. Then go to the next slide to draw it.</p><div class="go"><button class="rbtn g" type="button" data-close>Close</button></div></div>
 </section>
 
-
-<!-- EXERCISE 5. EUTROPHICATION IN THE <EM>CHESAPEAKE BAY</EM> -->
-<section class="slide" id="cb-ex">
-  <div class="rail"><b>5.4</b><span>Exercise 5 · Option A · Chesapeake Bay</span></div>
-  <div class="content" style="top:80px;bottom:60px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Class exercise · Option A · Chesapeake Bay</div>
-    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">Eutrophication in the <em>Chesapeake Bay</em></h2>
-    <p class="steps reveal d2"><b>Build the causal loop diagram with a neighbor.</b> For each new link, choose + or −. For each loop, choose R or B. Then tap Next step.</p>
-    <div class="grid reveal d3" style="grid-template-columns:1120px 1fr;gap:36px;align-items:start">
-      <svg class="cld" id="cld-cb" viewBox="0 0 1500 800" role="img" aria-label="Causal loop diagram of nutrient pollution and the Chesapeake Bay dead zone, built one link at a time as students choose each sign"></svg>
-      <div class="dz-side">
-        <p class="cld-cap" id="cb-cap"></p>
-        <div class="dz-pick"><button class="btn ghost" type="button" id="cb-a"></button><button class="btn ghost" type="button" id="cb-b"></button></div>
-        <span class="status" id="cb-msg"></span>
-        <div class="go-row"><button class="btn ghost" type="button" id="cb-prev">Back</button><button class="btn" type="button" id="cb-next">Next step</button><button class="btn ghost" type="button" id="cb-all">Show all</button></div>
-        <div class="ex" style="margin-top:22px"><div><label for="cb-change"><i>?</i>Pick one link you would change to shrink the dead zone. How?</label>
-          <textarea id="cb-change" maxlength="400" placeholder="Example: fertilizer and manure to nutrients, by…"></textarea></div></div>
-        <div class="go-row" style="margin-top:12px"><button class="btn" type="button" id="cb-save">Submit</button><span class="status" id="cb-status"></span></div>
-      </div>
+<!-- GROUP EXERCISE. NATURAL GAS: BUILD A CAUSAL LOOP DIAGRAM -->
+<section class="slide ref" id="gas-cld">
+  <div class="top">SOS110 · M5 Lecture 4 · Group exercise · Part 2 of 2 · Groups of 3 to 5</div>
+  <div class="card">
+    <h2>Draw the <em>causal loop</em> diagram</h2>
+    <p class="lead">Show how natural gas production, water and health fit together. <b>Tap each red icon</b> for help, then build it.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="c-tool" style="--i:1"><span class="n">1</span><span><b>Pick a tool</b><span class="d">Canva, Google Slides, InsightMaker or Zoom Mindmap</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-vars" style="--i:2"><span class="n">2</span><span><b>Add the key variables</b><span class="d">Stocks, inflows and outflows</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-loops" style="--i:3"><span class="n">3</span><span><b>Add the feedback</b><span class="d">Accelerating (+) and dampening (−)</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-lev" style="--i:4"><span class="n">4</span><span><b>Mark the leverage points</b><span class="d">Where a change could shrink the harm</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
     </div>
+    <div class="photo"><img class="ph" src="../m5-l2-fews-nexus-energy/img/drilling.jpg" style="object-position:20% center" alt="Silhouettes of oil and gas pumpjacks and power lines against an orange sunset sky"><button class="note" type="button" data-open="c-send" aria-label="Open the submit form"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button></div>
   </div>
-</section>
-
-
-<!-- EXERCISE 5. A GLACIAL OUTBURST <EM>FLOOD</EM> IN JUNEAU -->
-<section class="slide" id="jn-ex">
-  <div class="rail"><b>5.4</b><span>Exercise 5 · Option B · Juneau, Alaska</span></div>
-  <div class="content" style="top:80px;bottom:60px">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-mountain"/></svg></span>Class exercise · Option B · Juneau, Alaska</div>
-    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">A glacial outburst <em>flood</em> in Juneau</h2>
-    <p class="steps reveal d2"><b>Build the causal loop diagram with a neighbor.</b> For each new link, choose + or −. For each loop, choose R or B. Then tap Next step.</p>
-    <div class="grid reveal d3" style="grid-template-columns:1120px 1fr;gap:36px;align-items:start">
-      <div><svg class="cld" id="cld-jn" viewBox="0 70 1500 730" role="img" aria-label="Causal loop diagram of a warming climate, melting glaciers, outburst floods, damage and early warning in Juneau, Alaska, built one link at a time as students choose each sign"></svg>
-      <p class="credit" style="font-size:19px;line-height:1.4;margin-top:10px;max-width:1120px"><b>From the sources:</b> Suicide Basin is a glacier-dammed basin. In 2018 and 2019 it released about 30 million cubic meters of water in 4 to 5 days (USGS). The 2024 flood damaged over 300 homes and set a river gauge record of 15.99 feet. In August 2025 it reached 16.65 feet, and temporary barriers reduced the impact (CRS). Sources: <a href="https://www.usgs.gov/news/new-study-highlights-findings-and-predictions-juneau-glacial-outburst-flood" target="_blank" rel="noopener">USGS</a> and <a href="https://www.congress.gov/crs_external_products/IN/HTML/IN12606.html" target="_blank" rel="noopener">CRS Insight IN12606</a>.</p></div>
-      <div class="dz-side">
-        <p class="cld-cap" id="jn-cap"></p>
-        <div class="dz-pick"><button class="btn ghost" type="button" id="jn-a"></button><button class="btn ghost" type="button" id="jn-b"></button></div>
-        <span class="status" id="jn-msg"></span>
-        <div class="go-row"><button class="btn ghost" type="button" id="jn-prev">Back</button><button class="btn" type="button" id="jn-next">Next step</button><button class="btn ghost" type="button" id="jn-all">Show all</button></div>
-        <div class="ex" style="margin-top:22px"><div><label for="jn-change"><i>?</i>Pick one link you would change to protect people in Juneau. How?</label>
-          <textarea id="jn-change" maxlength="400" placeholder="Example: early warning to people leave in time, by…"></textarea></div></div>
-        <div class="go-row" style="margin-top:12px"><button class="btn" type="button" id="jn-save">Submit</button><span class="status" id="jn-status"></span></div>
-      </div>
-    </div>
-  </div>
+  <div class="bar"><span>Group<b>3 to 5</b></span><span>Time<b>20 min</b></span><span class="src">When your diagram is done, tap the document icon to share what you found.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-c-tool" role="dialog" aria-modal="true" aria-label="Use any one of these"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Step 1 · Pick a tool</div><h3>Use any one of these</h3><p>Pick one tool and one person to draw. Everyone else calls out ideas.</p><p><a href="https://www.canva.com" target="_blank" rel="noopener"><b>Canva</b></a> (shapes and arrows) · <a href="https://slides.google.com" target="_blank" rel="noopener"><b>Google Slides</b></a> (shapes and arrows) · <a href="https://insightmaker.com" target="_blank" rel="noopener"><b>InsightMaker</b></a> (made for stocks and flows) · <b>Zoom Mindmap</b> (in a Zoom whiteboard).</p><p>Tip: put a variable in each box, then draw an arrow from the cause to the effect.</p></div>
+  <div class="pop" id="pop-c-vars" role="dialog" aria-modal="true" aria-label="Show what builds up and what flows"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Step 2 · Key variables</div><h3>Show what builds up and what flows</h3><p>A <b>stock</b> is an amount that builds up, like water in a tub. An <b>inflow</b> adds to it. An <b>outflow</b> drains it. Draw each stock as a box, and each flow as a thick arrow.</p><div class="abc"><div class="box"><div class="l">Stock</div><div class="v">A box</div><div class="d">Something that piles up. Ask: what builds up in this story?</div></div><div class="box"><div class="l">Inflow</div><div class="v">Arrow in</div><div class="d">What fills the stock. Ask: what adds to it?</div></div><div class="box"><div class="l">Outflow</div><div class="v">Arrow out</div><div class="d">What drains the stock. Ask: what takes it away?</div></div></div><p>Ideas to start with: wells drilled, gas in the market, gas price, wastewater stored, contaminated water, people exposed, cleanup cost.</p></div>
+  <div class="pop" id="pop-c-loops" role="dialog" aria-modal="true" aria-label="Find the loops that speed up and slow down"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Step 3 · Feedback</div><h3>Find the loops that speed up and slow down</h3><p>A <b>feedback loop</b> is a circle of causes. Label each arrow <b>+</b> if both things move the same way, or <b>−</b> if they move opposite ways.</p><div class="abc"><div class="box"><div class="l">R · Reinforcing</div><div class="v">Speeds up</div><div class="d">A positive loop. A change feeds more of the same change.</div></div><div class="box"><div class="l">B · Balancing</div><div class="v">Slows down</div><div class="d">A negative loop. A change triggers a push back.</div></div><div class="box"><div class="l">Your job</div><div class="v">Find one of each</div><div class="d">Draw at least one R loop and one B loop for natural gas.</div></div></div></div>
+  <div class="pop" id="pop-c-lev" role="dialog" aria-modal="true" aria-label="Where would a small change help the most?"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Step 4 · Leverage points</div><h3>Where would a small change help the most?</h3><p>A <b>leverage point</b> is a spot where a small push changes a lot. Circle two or three on your diagram, and write the change next to each. For example: a rule, a price, a tool, or a habit.</p><p>Ask: which change would cut the <b>harm to people who did not choose it</b> (the negative externality)? It is fine if it only <b>reduces</b> the harm and does not solve it. Wicked problems rarely get solved.</p></div>
+  <div class="pop" id="pop-c-send" role="dialog" aria-modal="true" aria-label="Share what your group found"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Share</div><h3>What did your group find?</h3>
+    <p class="qn"><i>1</i>Which tool did you use?</p>
+    <div class="rchips tool-pick" id="gs-tool"><button type="button" data-v="canva">Canva</button><button type="button" data-v="slides">Google Slides</button><button type="button" data-v="insightmaker">InsightMaker</button><button type="button" data-v="zoom">Zoom Mindmap</button></div>
+    <p class="qn"><i>2</i>Which leverage point would you try first? Why?</p>
+    <textarea id="gs-lever" maxlength="500" rows="3" style="width:100%;font:400 28px/1.3 var(--rbody);padding:10px 14px;border:2px solid #ccc"></textarea>
+    <p class="qn" style="margin-top:12px"><i>3</i>What harm would still be left?</p>
+    <textarea id="gs-left" maxlength="500" rows="3" style="width:100%;font:400 28px/1.3 var(--rbody);padding:10px 14px;border:2px solid #ccc"></textarea>
+    <div class="go"><button class="rbtn" type="button" id="gs-save">Submit</button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="gs-status"></span></div></div>
 </section>
 
 </main></div>
@@ -437,21 +303,20 @@
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
-import { timer, $, $$, say, esc } from '../m5-l1-food-agriculture-systems/lecture.js?v=2026-10-16';
-import { SLOTS, SHOCKS, simulate } from './phoenix.js?v=2026-10-16';
+import { $, $$, say, esc } from '../m5-l1-food-agriculture-systems/lecture.js?v=2026-10-16';
 
 const LECTURE = 'm5-s4';
 
 {
 /* === CASCADE === one click reveals the next step and its arrow */
 const STEPS = [
-  '<b>1. Climate change is the precondition.</b> Warmer air over decades heats high mountains. Nothing breaks yet, but every later step now becomes more likely.',
-  '<b>2. Permafrost thaws and glaciers melt.</b> Ground that stayed frozen like glue starts to warm, and glaciers shrink and leave new meltwater lakes behind.',
-  '<b>3. Slopes turn unstable and glaciers hang.</b> Without frozen glue, rock and ice sit loose on steep slopes, and hanging glaciers perch above the valley.',
-  '<b>4. A rock-ice avalanche lets go.</b> A massive volume of rock and ice falls at once. In the 2026 Rasuwa flood, satellite images showed a large collapse of glacier and rock high above the valley.',
-  '<b>5. A debris-dammed lake forms.</b> The pile blocks the river, so water backs up behind it. In 2024, a rock avalanche hit a glacial lake near Thame and broke its moraine (rock rubble) dam.',
-  '<b>6. The water becomes a debris flow.</b> Once the dam gives way, water mixes with rock, mud and ice. The steep gradient (slope) makes this slurry fast and heavy, and it can carry boulders for tens of kilometres. The 2024 Thame flow carried debris over 80 km.',
-  '<b>7. Settlements in flood-prone areas are hit.</b> Villages, bridges and power plants sit on flat land by the river, right in the path. <b>Quick question:</b> at which step could people break the chain, and how?',
+  '<b>1. Hydraulic fracturing (fracking) starts it.</b> Crews pump water, sand and chemicals deep underground at high pressure. The rock cracks, and gas flows out of the cracks.',
+  '<b>2. Wastewater comes back up.</b> Each well returns a lot of used water that can be salty and carry chemicals from the rock. It has to be stored, trucked, treated or injected deep underground.',
+  '<b>3. Something leaks or spills.</b> A weak well casing, a tank, a pit or a truck accident can let fluid escape. Most wells do not fail, but there are many wells.',
+  '<b>4. Water becomes contaminated.</b> Fluid that escapes can reach groundwater or a river. Water moves, so the problem can spread far from the well.',
+  '<b>5. Drinking water is affected.</b> Families with private wells and towns that draw from the river or aquifer may be drinking it. The 2016 US EPA study found fracking can affect drinking water in some cases.',
+  '<b>6. Public health is at risk.</b> Chemicals in drinking water can cause illness, and people worry even when the risk is unclear. Scientists are still studying how big the health effects are.',
+  '<b>7. Cleanup, costs and rules follow.</b> Someone pays for testing, cleanup and bottled water, and communities lose trust. Neighbors and taxpayers often pay, not the company. That is the <b>externality</b>. <b>Quick question:</b> where could people break the chain?',
 ];
 let n = 0;
 const cap = $('#np-cap'), nx = $('#np-nx');
@@ -475,267 +340,6 @@ draw();
 
 /* === COURSE DATA === fills the module title on the title slide */
 loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
-
-/* === FOOD MILES AND ENERGY === pick where the food comes from; energy units are teaching numbers
-   for one unit of food. Transport energy grows with the miles (1 unit per 50 miles). */
-const SOURCES = [
-  { name: 'Local farm', icon: 'sprout', miles: 30, grow: 30 },
-  { name: 'Local greenhouse, winter', icon: 'sun', miles: 30, grow: 70 },
-  { name: 'Yuma', icon: 'sprout', miles: 185, grow: 30 },
-  { name: 'California', icon: 'sprout', miles: 560, grow: 30 },
-  { name: 'Midwest', icon: 'wheat', miles: 1500, grow: 30 },
-];
-const STAGE_DEF = [
-  ['Grow', 'sprout', s => s.grow],
-  ['Process', 'factory', () => 20],
-  ['Package', 'box', () => 10],
-  ['Transport', 'truck', s => Math.round(s.miles / 50)],
-  ['Store and sell', 'cart', () => 20],
-  ['Cook and eat', 'home', () => 20],
-];
-const sym = (i, cls = '') => `<svg ${cls ? `class="${cls}" ` : ''}aria-hidden="true"><use href="#i-${i}"/></svg>`;
-$('#st-src').innerHTML = SOURCES.map((s, i) => `<button type="button" class="btn ghost" data-s="${i}">${sym(s.icon)}${esc(s.name)}</button>`).join('');
-function showSource(n) {
-  const s = SOURCES[n];
-  const en = STAGE_DEF.map(([, , f]) => f(s));
-  const max = Math.max(...en), total = en.reduce((a, b) => a + b, 0);
-  $$('#st-src button').forEach((b, i) => b.classList.toggle('on', i === n));
-  $('#st-row').innerHTML = STAGE_DEF.map(([name, icon], i) => `<div class="st-card${en[i] === max ? ' max' : ''}">
-    <span class="ico gold">${sym(icon)}</span><h4>${name}</h4>
-    <div class="st-en">${sym('bolt')}${en[i]}<small>units</small></div>
-    <div class="st-bar"><i style="width:${en[i] / 70 * 100}%"></i></div>
-    <div class="st-mi${name === 'Transport' ? '' : ' none'}">${sym('pin')}${s.miles.toLocaleString()} miles</div></div>`).join('');
-  $('#st-tot').innerHTML = `<div><b>${s.miles.toLocaleString()}</b><span>food miles</span></div><div><b>${total}</b><span>energy units, all stages</span></div><div><b>${Math.round(en[3] / total * 100)}%</b><span>of the energy is transport</span></div>
-    <div class="sc">${n === 1 ? 'Heating a greenhouse in winter can use more energy than trucking food in. Fewer miles do not always mean less energy.' : n === 4 ? 'Food from far away adds a lot of transport energy. Growing, storing and cooking still use energy too.' : 'Growing, processing and cooking use energy at every stage, even when the trip is short.'}</div>`;
-}
-$$('#st-src button').forEach(b => b.addEventListener('click', () => showSource(+b.dataset.s)));
-showSource(3);
-
-/* === TEN-MINUTE TIMER === (kept for the game slide if a clock is added) */
-void timer;
-
-function cld(svg, { nodes, links, loops = [] }, opts = {}) {
-  const N = Object.fromEntries(nodes.map(([id, label, x, y, w = 250, cls = '']) => [id, { id, label, x, y, w, h: label.includes('|') ? 86 : 60, cls }]));
-  const edge = (n, px, py) => {
-    const dx = px - n.x, dy = py - n.y;
-    const t = Math.min((n.w / 2 + 10) / Math.abs(dx || 1e-6), (n.h / 2 + 10) / Math.abs(dy || 1e-6));
-    return [n.x + dx * t, n.y + dy * t];
-  };
-  const id = svg.id;
-  let out = `<defs><marker id="${id}-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d7780"/></marker></defs>`;
-  links.forEach(([a, b, sign, bend = 40, step = 0], i) => {
-    const A = N[a], B = N[b];
-    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2, len = Math.hypot(B.x - A.x, B.y - A.y);
-    const cx = mx - (B.y - A.y) / len * bend, cy = my + (B.x - A.x) / len * bend;
-    const [x0, y0] = edge(A, cx, cy), [x2, y2] = edge(B, cx, cy);
-    const q = t => [(1 - t) ** 2 * x0 + 2 * (1 - t) * t * cx + t * t * x2, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cy + t * t * y2];
-    const [sx, sy] = q(.72);
-    const shown = sign === '?' ? '?' : sign === '+' ? '+' : '−';
-    const cls = sign === '?' ? 'q pick' : sign === '+' ? 'p' : 'n';
-    out += `<g class="s lk" data-step="${step}" style="--i:${opts.seq ? i : 0}"><path class="draw" pathLength="1" d="M${x0.toFixed(1)} ${y0.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" marker-end="url(#${id}-ah)"/>`
-      + `<g class="sg ${cls}" data-link="${i}"><circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="22"/><text x="${sx.toFixed(1)}" y="${(sy + 9).toFixed(1)}">${shown}</text></g></g>`;
-  });
-  nodes.forEach(([nid]) => {
-    const n = N[nid], lines = n.label.split('|');
-    const step = Math.min(...links.filter(l => l[0] === nid || l[1] === nid).map(l => l[4] || 0), 99);
-    out += `<g class="s node ${n.cls}" data-step="${step === 99 ? 0 : step}" style="--i:0"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="16"/>`
-      + lines.map((l, k) => `<text x="${n.x}" y="${n.y + 8 + (k - (lines.length - 1) / 2) * 28}">${esc(l)}</text>`).join('') + '</g>';
-  });
-  loops.forEach(([L, x, y, step = 0, label = '']) => {
-    out += `<g class="s loop ${L}" data-step="${step}" style="--i:${opts.seq ? links.length : 0}"><g class="spin"><circle cx="${x}" cy="${y}" r="34" stroke-dasharray="170 44"/></g><text x="${x}" y="${y + 14}">${L}</text>${label ? `<text x="${x}" y="${y + 66}" style="font:700 18px var(--body);fill:var(--mute)">${esc(label)}</text>` : ''}</g>`;
-  });
-  svg.innerHTML = out;
-}
-
-/* === PHOENIX FOOD SUPPLY GAME === students pick a process for each pipe, then run a year of four shocks */
-const ORDER = { imports: [1, 2], local: [2, 1], storage: [1, 2], waste: [2, 1], goal: [1, 2] }; // shallow = 1, deep = 2, shown in mixed order
-const picks = {}, runs = [];
-const BASE = simulate({}).weeks;
-let busy = false;
-$$('.slot').forEach(el => {
-  const s = SLOTS.find(x => x.id === el.dataset.slot);
-  el.innerHTML = `<div class="hd"><em>${s.kind}</em><b>${esc(s.name)}</b></div>` + ORDER[s.id].map(o => `<button type="button" class="op" data-slot="${s.id}" data-o="${o}">${esc(s.opts[o])}<i class="${o === 1 ? 's' : 'd'}">${o === 1 ? 'Shallow' : 'Deep'}</i></button>`).join('');
-});
-$$('.slot .op').forEach(b => b.addEventListener('click', () => {
-  if (busy) return;
-  const id = b.dataset.slot, o = +b.dataset.o;
-  picks[id] = picks[id] === o ? 0 : o;
-  $$(`.slot .op[data-slot="${id}"]`).forEach(x => x.classList.toggle('on', +x.dataset.o === picks[id]));
-}));
-const CW = 640, CH = 330, X0 = 46, X1 = 626, Y0 = 14, Y1 = 276, YMAX = 8;
-const cx = i => X0 + (i / 51) * (X1 - X0), cy = v => Y1 - (Math.min(v, YMAX) / YMAX) * (Y1 - Y0);
-const line = arr => arr.map((v, i) => `${i ? 'L' : 'M'}${cx(i).toFixed(1)} ${cy(v).toFixed(1)}`).join('');
-const chart = $('#pg-chart');
-chart.innerHTML = `${SHOCKS.map((s, i) => { const a = X0 + (s.from / 364) * (X1 - X0), w = ((s.to - s.from) / 364) * (X1 - X0); return `<rect x="${a.toFixed(1)}" y="${Y0}" width="${w.toFixed(1)}" height="${Y1 - Y0}" fill="#b3452c" opacity=".14"/><text x="${(a + w / 2).toFixed(1)}" y="${Y0 + 16}" text-anchor="middle" style="font-weight:700;fill:#b3452c">${i + 1}</text>`; }).join('')}
-  ${[0, 4, 8].map(v => `<line x1="${X0}" x2="${X1}" y1="${cy(v)}" y2="${cy(v)}" stroke="#d9cfb8" stroke-width="1.5"/><text x="${X0 - 8}" y="${cy(v) + 5}" text-anchor="end">${v}</text>`).join('')}
-  <text x="${X0}" y="${Y1 + 26}">Jan</text><text x="${(X0 + X1) / 2}" y="${Y1 + 26}" text-anchor="middle">Jul</text><text x="${X1}" y="${Y1 + 26}" text-anchor="end">Dec</text>
-  <text x="12" y="${(Y0 + Y1) / 2}" transform="rotate(-90 12 ${(Y0 + Y1) / 2})" text-anchor="middle">days of food on hand</text>
-  <path d="${line(BASE)}" fill="none" stroke="#7d8d93" stroke-width="3" stroke-dasharray="7 6"/>
-  <path id="pg-line" d="" fill="none" stroke="#0d7397" stroke-width="5" stroke-linejoin="round"/><g id="pg-dots"></g>`;
-function showTub(v) {
-  $('#pg-lvl').style.height = `${Math.min(v, YMAX) / YMAX * 100}%`;
-  $('#pg-days').textContent = v.toFixed(1);
-  $('#pg-tub').classList.toggle('out', v < 0.05);
-}
-showTub(4);
-function drawTo(res, n) {
-  const w = res.weeks.slice(0, n);
-  $('#pg-line').setAttribute('d', line(w));
-  $('#pg-dots').innerHTML = w.map((v, i) => v < 0.05 ? `<circle cx="${cx(i)}" cy="${cy(0)}" r="6" fill="#b3452c"/>` : '').join('');
-  showTub(w[w.length - 1]);
-}
-const count = (kind) => SLOTS.filter(s => picks[s.id] === kind).length;
-function bestRun() { return runs.reduce((b, r) => !b || r.empty < b.empty ? r : b, null); }
-function renderLog() {
-  const best = bestRun();
-  $('#pg-log').innerHTML = runs.slice(-4).map(r => `<tr class="${r === best ? 'best' : ''}"><td>${r.n}</td><td>${r.sh}</td><td>${r.de}</td><td>${r.empty}</td></tr>`).join('');
-  $('#pd-sum').textContent = best ? `Your best run: ${best.empty} days with empty shelves, using ${best.sh} shallow and ${best.de} deep picks. You ran the year ${runs.length} time${runs.length === 1 ? '' : 's'}.` : 'Run the game on the last slide to see how your picks did.';
-}
-$('#pg-run').addEventListener('click', () => {
-  if (busy) return;
-  busy = true;
-  const res = simulate(picks);
-  const run = { n: runs.length + 1, sh: count(1), de: count(2), empty: res.empty, min: res.minS, picks: SLOTS.map(s => [s.id, picks[s.id] || 0]) };
-  let i = 0;
-  const id = setInterval(() => {
-    i += 1; drawTo(res, i);
-    if (i >= res.weeks.length) {
-      clearInterval(id); busy = false;
-      runs.push(run);
-      $('#pg-s-empty').textContent = res.empty; $('#pg-s-empty').classList.toggle('bad', res.empty > 0);
-      $('#pg-s-min').textContent = res.minS.toFixed(1);
-      $$('.slot').forEach(s => s.classList.add('shown'));
-      renderLog();
-    }
-  }, 60);
-});
-$('#pg-reset').addEventListener('click', () => {
-  if (busy) return;
-  Object.keys(picks).forEach(k => delete picks[k]);
-  $$('.slot .op').forEach(b => b.classList.remove('on'));
-});
-
-
-/* === CAUSAL LOOP EXERCISES === one engine, two cases. Students pick the sign of each new link (+ or −)
-   or the type of each loop (R or B) before it is shown. Answers save as cascade-cld. */
-function cldExercise(p, svgId, caseId, { graph, asks, caps, last }) {
-  const svg = $('#' + svgId);
-  cld(svg, graph);
-  $$('.sg', svg).forEach(g => { g.dataset.sign = $('text', g).textContent; g.classList.remove('pick'); });
-  $$('.loop', svg).forEach((g, i) => { g.dataset.letter = $(':scope > text', g).textContent; g.dataset.n = i; });
-  const ans = asks.map(() => '');
-  let step = 0, all = false;
-  const right = () => ans.filter((a, i) => a === asks[i][1]).length;
-  const el = s => $(`#${p}-${s}`);
-  function draw() {
-    const [kind, key, ask, idx] = asks[step], picked = ans[step];
-    $$('.s', svg).forEach(g => g.classList.toggle('off', !all && +g.dataset.step > step));
-    $$('.lk', svg).forEach(g => {
-      const sg = $('.sg', g), hide = !all && kind === 'sign' && +sg.dataset.link === idx && !picked;
-      sg.classList.toggle('q', hide); $('text', sg).textContent = hide ? '?' : sg.dataset.sign;
-    });
-    $$('.loop', svg).forEach(g => { const hide = !all && kind === 'loop' && +g.dataset.n === idx && !picked; $(':scope > text', g).textContent = hide ? '?' : g.dataset.letter; });
-    const opts = kind === 'sign' ? [['+', '+ Same direction'], ['−', '− Opposite']] : [['R', 'R · Reinforcing'], ['B', 'B · Balancing']];
-    [el('a'), el('b')].forEach((b, i) => { b.dataset.v = opts[i][0]; b.textContent = opts[i][1]; b.classList.toggle('on', picked === opts[i][0]); b.disabled = !!picked || all; });
-    el('cap').innerHTML = all ? last : `<span class="small mute">Step ${step + 1} of ${asks.length}</span><br>${picked ? caps[step] : ask}`;
-    if (all) say(el('msg'), `You got ${right()} of ${asks.length} right.`);
-    else if (!picked) say(el('msg'), 'Choose an answer to see this step.');
-    else say(el('msg'), picked === key ? 'Right.' : `Not quite: the answer is ${key}.`, picked === key ? 'ok' : 'err');
-    el('prev').disabled = step === 0 && !all;
-    el('next').disabled = all || !picked;
-  }
-  [el('a'), el('b')].forEach(b => b.addEventListener('click', () => { if (!ans[step]) { ans[step] = b.dataset.v; draw(); } }));
-  el('next').addEventListener('click', () => { if (step === asks.length - 1) all = true; else step++; draw(); });
-  el('prev').addEventListener('click', () => { if (all) all = false; else step = Math.max(0, step - 1); draw(); });
-  el('all').addEventListener('click', () => { step = asks.length - 1; all = true; draw(); });
-  draw();
-  return { ans, right, total: asks.length, caseId, change: () => el('change').value.trim().slice(0, 400), p };
-}
-
-/* ---- Option A: Chesapeake Bay ---- asks: [kind, answer, question, index of the link or loop to hide] */
-const CHESAPEAKE = cldExercise('cb', 'cld-cb', 'chesapeake', {
-  graph: {
-    nodes: [
-      ['fert', 'Fertilizer and manure|on farms', 250, 200, 270, 'hum'], ['urban', 'Wastewater, lawns|and air pollution', 250, 560, 290, 'hum'],
-      ['nut', 'Nutrients (nitrogen|and phosphorus)|in the rivers', 650, 380, 290],
-      ['algae', 'Algae growth', 850, 110, 220], ['decomp', 'Decomposition|of dead algae', 1220, 110, 250], ['oxy', 'Oxygen in|bottom water', 1370, 390, 220],
-      ['rel', 'Phosphorus released|from bottom mud', 1010, 440, 280], ['dz', 'Dead zone size', 1230, 620, 230],
-      ['fish', 'Crabs, oysters|and fish', 1370, 750, 240], ['act', 'Action: cleanup|rules, wetlands, buffers', 560, 730, 290, 'act'],
-    ],
-    links: [
-      ['fert', 'nut', '+', 30, 0], ['urban', 'nut', '+', -30, 1], ['nut', 'algae', '+', 30, 2], ['algae', 'decomp', '+', 30, 3], ['decomp', 'oxy', '−', 40, 4],
-      ['oxy', 'dz', '−', 40, 5], ['dz', 'fish', '−', 20, 6],
-      ['oxy', 'rel', '−', 30, 7], ['rel', 'nut', '+', 30, 7], ['dz', 'act', '+', 30, 8], ['act', 'nut', '−', 30, 8],
-    ],
-    loops: [['R', 1010, 290, 7], ['B', 900, 610, 8]],
-  },
-  asks: [
-    ['sign', '+', 'Farms spread fertilizer and poultry manure. More <b>fertilizer and manure</b> means ___ <b>nutrients in the rivers</b>. Is this link + or −?', 0],
-    ['sign', '+', 'Cities add lawn fertilizer and treated sewage, and cars and power plants add nitrogen from the air. More of this means ___ <b>nutrients</b>. + or −?', 1],
-    ['sign', '+', 'In the Bay, more <b>nutrients</b> mean ___ <b>algae growth</b>. + or −?', 2],
-    ['sign', '+', 'More <b>algae</b> means ___ dead algae for bacteria to <b>decompose</b>. + or −?', 3],
-    ['sign', '−', 'Decomposers breathe oxygen. More <b>decomposition</b> means ___ <b>oxygen</b> in the bottom water. + or −?', 4],
-    ['sign', '−', 'When <b>oxygen</b> in the water goes down, what happens to the <b>dead zone</b>? Is this link + or −?', 5],
-    ['sign', '−', 'A bigger <b>dead zone</b> means ___ <b>crabs, oysters and fish</b>. + or −?', 6],
-    ['loop', 'R', 'With very little oxygen, the bottom mud lets go of phosphorus, which feeds more algae. Count the − links around this loop. R or B?', 0],
-    ['loop', 'B', 'A bigger dead zone pushes people to <b>act</b> (+), and cleanup cuts nutrients (−). Count the − links around this loop. R or B?', 1],
-  ],
-  caps: [
-    'More fertilizer and manure means <b>more nutrients</b> wash into the rivers: a <b>+</b> link.',
-    'More wastewater, lawn runoff and air pollution means more nutrients: another <b>+</b> link.',
-    'More nutrients feed <b>more algae</b>: <b>+</b>.',
-    'More algae means more dead algae to <b>decompose</b>: <b>+</b>.',
-    'More decomposition means <b>less oxygen</b>: a <b>−</b> link, because they move in opposite directions.',
-    'Less oxygen means a <b>bigger dead zone</b>: <b>−</b>, opposite directions again.',
-    'A bigger dead zone means <b>fewer crabs, oysters and fish</b>, and fewer fishing jobs: <b>−</b>.',
-    'Count the − links: decomposition to oxygen, and oxygen to phosphorus released. Two is an even number, so this is a <b>reinforcing loop (R)</b>. The dead zone helps keep itself going.',
-    'This loop has three − links, an odd number, so it is a <b>balancing loop (B)</b>. It is how people can push back.',
-  ],
-  last: 'The whole system: a <b>reinforcing</b> loop helps the dead zone feed itself, and a <b>balancing</b> loop is how people push back. Oysters filter algae out of the water, so losing them makes it worse. Where would a small change have a big effect?',
-});
-
-/* ---- Option B: Juneau glacial outburst flood ---- built from the USGS summary of the Suicide Basin study
-   (Kienholz and others, 2020) and CRS Insight IN12606 (2025) */
-const JUNEAU = cldExercise('jn', 'cld-jn', 'juneau', {
-  graph: {
-    nodes: [
-      ['warm', 'Warmer climate', 170, 120, 230, 'hum'], ['melt', 'Glacier melt', 500, 120, 230], ['basin', 'Water in|Suicide Basin', 860, 120, 260],
-      ['out', 'Outburst flood|from the basin', 1230, 330, 260], ['river', 'Water in the|Mendenhall River', 1230, 530, 280],
-      ['damage', 'Flood damage|to homes and roads', 1230, 730, 300, 'hum'], ['act', 'Action: flood|barriers, forecasts', 740, 730, 290, 'act'],
-      ['warn', 'Early warning|(gauges, forecasts)', 230, 530, 290, 'act'], ['leave', 'People leave|in time', 570, 530, 230], ['harm', 'Harm to people', 880, 530, 230],
-    ],
-    links: [
-      ['warm', 'melt', '+', 30, 0], ['melt', 'basin', '+', 30, 1], ['basin', 'out', '+', 90, 2], ['out', 'river', '+', 30, 3], ['river', 'damage', '+', 30, 4],
-      ['river', 'harm', '+', -30, 4], ['warn', 'leave', '+', 20, 5], ['leave', 'harm', '−', 30, 6],
-      ['out', 'basin', '−', 90, 7],
-      ['damage', 'act', '+', 80, 8], ['act', 'damage', '−', 80, 8],
-    ],
-    loops: [['B', 1045, 225, 7], ['B', 985, 730, 8]],
-  },
-  asks: [
-    ['sign', '+', 'Warmer air melts more glacier ice. More <b>warming</b> means ___ <b>glacier melt</b>. Is this link + or −?', 0],
-    ['sign', '+', 'Meltwater collects in Suicide Basin, held back by Mendenhall Glacier ice. More <b>melt</b> means ___ <b>water in the basin</b>. + or −?', 1],
-    ['sign', '+', 'When the ice dam gives way, the basin drains in a few days. A fuller basin means ___ <b>outburst flood</b>. + or −?', 2],
-    ['sign', '+', 'A bigger <b>outburst flood</b> means ___ <b>water in the Mendenhall River</b>. + or −?', 3],
-    ['sign', '+', 'Higher <b>river water</b> means ___ <b>flood damage</b>. In 2024 the flood damaged over 300 homes. + or −?', 4],
-    ['sign', '+', 'River gauges and forecasts give an <b>early warning</b>. More warning means ___ <b>people leave in time</b>. + or −?', 6],
-    ['sign', '−', 'More <b>people leave in time</b> means ___ <b>harm to people</b>. + or −?', 7],
-    ['loop', 'B', 'When the basin drains, the water in it drops. Count the − links around the loop between the basin and the outburst flood. R or B?', 0],
-    ['loop', 'B', 'Damage in 2024 led to temporary barriers in 2025 that reduced damage. Damage pushes people to <b>act</b> (+), and action cuts damage (−). R or B?', 1],
-  ],
-  caps: [
-    'Warmer air melts more glacier ice: a <b>+</b> link.',
-    'More melt means <b>more water</b> collects in the basin: <b>+</b>.',
-    'A fuller basin means a <b>bigger outburst flood</b> when it drains: <b>+</b>.',
-    'A bigger outburst sends <b>more water</b> down the Mendenhall River: <b>+</b>.',
-    'Higher river water means <b>more damage</b>: <b>+</b>. High water also puts people at risk: the second <b>+</b> link.',
-    'More early warning means <b>more people leave in time</b>: <b>+</b>.',
-    'More people who leave in time means <b>less harm</b>: a <b>−</b> link, because they move in opposite directions.',
-    'One − link, an odd number, so this is a <b>balancing loop (B)</b>. Each flood empties the basin, then it fills again. That is why floods can come back year after year.',
-    'This loop has one − link, an odd number, so it is a <b>balancing loop (B)</b>. It is how people can push back.',
-  ],
-  last: 'The whole system: one <b>balancing</b> loop fills and empties the basin, and another is how people push back. Gauges and forecasts give warning, but the floods return while the glacier dams the basin. Where would a small change have a big effect?',
-});
 
 /* === LIVE === attendance and activities. Saves under m5-s4, so results show on its instructor page. */
 const live = await connect(LECTURE);
@@ -762,32 +366,21 @@ $('#checkin').addEventListener('click', async () => {
   } catch (e) { say(st, e.message, 'err'); }
 });
 
-/* === SAVE: LEVERAGE POINTS (Phoenix game) === */
-$('#pg-save').addEventListener('click', async () => {
-  const st = $('#pg-status');
-  const better = $('#pg-better').value, why = $('#pg-why').value.trim().slice(0, 500), lever = $('#pg-lever').value.trim().slice(0, 400), help = $('#pg-help').value.trim().slice(0, 400);
-  const need = [[better, 1], [why, 2], [lever, 3], [help, 4]].find(([v]) => !v);
-  if (need) { say(st, `Answer question ${need[1]} first.`, 'err'); return; }
-  const best = bestRun();
-  if (!best) { say(st, 'Run the year on the game slide at least once first.', 'err'); return; }
-  if (!await ensureUser(st)) return;
-  const bestPicks = Object.fromEntries(best.picks.map(([k, o]) => [k, o === 1 ? 'shallow' : o === 2 ? 'deep' : 'keep']));
-  try {
-    await live.saveSim('phoenix-food-supply', { runs: runs.length, bestEmpty: best.empty, bestMin: Math.round(best.min * 10) / 10, bestShallow: best.sh, bestDeep: best.de, bestPicks, better, why, lever, help });
-    say(st, 'Submitted. Thanks!', 'ok');
-  } catch (e) { say(st, e.message, 'err'); }
+/* === VIDEO === embed the YouTube video named in data-youtube */
+$$('[data-youtube]').forEach(v => {
+  v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.dataset.youtube)}?rel=0" title="${esc(v.dataset.title || 'Video')}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 });
 
-/* === SAVE: CAUSAL LOOP EXERCISE === one record per student, so submitting both cases keeps the last */
-for (const ex of [CHESAPEAKE, JUNEAU]) {
-  $(`#${ex.p}-save`).addEventListener('click', async () => {
-    const st = $(`#${ex.p}-status`);
-    if (ex.ans.includes('')) { say(st, 'Answer every step first.', 'err'); return; }
-    const change = ex.change();
-    if (!change) { say(st, 'Answer the question first.', 'err'); return; }
+/* === SAVE: NATURAL GAS GROUP EXERCISE === one record per student */
+{
+  let tool = '';
+  $$('#gs-tool button').forEach(b => b.addEventListener('click', () => { tool = b.dataset.v; $$('#gs-tool button').forEach(x => x.classList.toggle('on', x === b)); }));
+  $('#gs-save').addEventListener('click', async () => {
+    const st = $('#gs-status');
+    const lever = $('#gs-lever').value.trim(), left = $('#gs-left').value.trim();
+    if (!tool || !lever || !left) { say(st, 'Answer all three first.', 'err'); return; }
     if (!await ensureUser(st)) return;
-    const right = ex.right();
-    try { await live.saveSim('cascade-cld', { case: ex.caseId, picks: ex.ans.join(''), right, change }); say(st, `Submitted: ${right} of ${ex.total} right.`, 'ok'); }
+    try { await live.saveSim('gas-wicked-cld', { tool, lever, left }); say(st, 'Submitted. Thanks!', 'ok'); }
     catch (e) { say(st, e.message, 'err'); }
   });
 }
