@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 17 · Waste and the circular economy · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-28">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* === LECTURE 17 === waste and the circular economy (M6 L1). Reference-guide components are in deck.css. */
+.ref h2{width:1000px;font-size:68px;white-space:nowrap}
+.ref .lead{top:150px;width:1010px;font-size:31px;line-height:1.28}
+.ref .body{position:absolute;left:74px;top:262px;width:1020px;bottom:28px;display:flex;flex-direction:column}
+.ref.wide h2,.ref.wide .lead{width:1660px}.ref.wide .body{width:1660px}.ref.wide .photo{display:none}
+.ref .top{white-space:nowrap}
+.ref .pop{width:1400px;max-height:820px;overflow:hidden}
+.ref .pop p{max-width:1250px}
+.ref .pop ul.clean{margin:6px 0 14px 4px}
+.ref ul.clean{list-style:none;margin:0;padding:0}
+.ref ul.clean li{font:400 31px/1.3 var(--rbody);padding:4px 0 4px 30px;position:relative}
+.ref ul.clean li::before{content:"";position:absolute;left:4px;top:18px;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.ref .photo>svg.ph{position:absolute;inset:0;width:100%;height:100%}
+.ref .row{padding:9px 0}
+.ref .row b{font-size:36px}.ref .row .d{font-size:25px}
+.ref .row .n{font-size:48px}
+.ref .qtext{font:400 44px/1.15 var(--display);margin:0 0 20px;color:#2b2b2b}
+.ref .takeaway{margin-top:auto;border-left:8px solid var(--accent);background:#f7f5ef;padding:16px 26px;font:400 30px/1.3 var(--rbody)}
+.ref .takeaway b{display:block;font:700 20px var(--rbody);letter-spacing:.16em;text-transform:uppercase;color:#6b4a07;margin-bottom:4px}
+.ref .qrow{display:flex;gap:20px;align-items:baseline;border-top:2px solid #ddd;padding-top:14px;margin-top:8px;font:400 30px/1.3 var(--rbody)}
+.ref .qrow .small-cap{color:var(--red);flex:none}
+.ref .go{flex-wrap:wrap}
+.ref .inl{margin-right:36px;font-size:30px}
+.ref .rq{background:#f7f5ef;border-left:6px solid var(--red);padding:12px 20px;font:400 28px/1.3 var(--rbody);cursor:pointer}
+.ref .rq .ans{display:none;font-weight:700}.ref .rq.open .ans{display:inline}
+.ref .sc{background:#f7f5ef;border-left:6px solid var(--accent);padding:14px 22px;font:400 28px/1.3 var(--rbody)}
+.ref .sc b{display:block;font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#6b4a07;margin-bottom:2px}
+/* title slide */
+.titlesl .lead{display:none}
+.titlesl .body{top:330px}
+.chips6{display:flex;gap:18px;align-items:center;margin:34px 0 0;font:400 28px/1.25 var(--rbody);max-width:960px}
+.chips6 .m6{font:400 40px var(--display);background:#2b2b2b;color:#fff;padding:6px 18px;border-radius:6px;flex:none}.chips6 .m6 em{color:var(--accent);font-style:normal}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.lg{display:flex;flex-direction:column;gap:10px;align-items:flex-start;font:400 25px/1.25 var(--rbody)}.lg b{display:block;font:400 34px var(--display)}
+.lg .ic{margin:0;width:54px;height:54px;flex:none}.lg .ic svg{width:30px;height:30px}
+/* module slide due panel */
+.duep .photo{background:#f7f5ef;border-left:6px solid var(--accent)}
+.duep .photo .in{position:absolute;inset:0;padding:44px 48px}
+.duep .small-cap{margin-bottom:10px}
+.duep ul.clean li{font-size:30px}
+/* key terms */
+.ref .vgrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:24px 30px;flex:1;min-height:0}
+.ref .vcard{height:auto;min-height:0}
+.ref .vcard .f{background:#f7f5ef;border:0;border-top:6px solid var(--red);border-radius:6px;font-family:var(--rbody);color:#222;padding:24px 34px}
+.ref .vcard .b{background:#2b2b2b;color:#fff;border-radius:6px;font-family:var(--rbody);padding:24px 34px}
+.ref .vcard h4{font:400 46px/1.05 var(--display);margin:0 0 10px}
+.ref .vcard .b h4{color:var(--golden,#eccf72)}
+.ref .vcard p{font:400 27px/1.3 var(--rbody)}
+.ref .vcard .hint{font:600 20px var(--rbody);color:var(--red);letter-spacing:.12em;opacity:1}
+/* polls and quiz options */
+.ropts{display:grid;gap:12px;margin-top:6px}
+.ropt{display:flex;align-items:center;gap:20px;text-align:left;font:400 31px/1.2 var(--rbody);color:#222;background:#fff;border:2px solid #cfc9b8;border-radius:6px;padding:12px 20px;cursor:pointer;transition:transform .16s var(--out),border-color .16s,background-color .16s}
+.ropt b{width:46px;height:46px;border-radius:50%;flex:none;background:#eeeae0;font:400 27px/46px var(--display);text-align:center}
+.ropt:hover{border-color:var(--red)}.ropt:active{transform:scale(.97)}
+.ropt.picked{border-color:var(--red);background:#fdeeee}.ropt.picked b{background:var(--red);color:#fff}
+.ropt.right{border-color:var(--rg);background:#eaf4ee}.ropt.right b{background:var(--rg);color:#fff}
+.ropt.wrong{border-color:var(--rb);background:#fbeee9}
+.ropt:focus-visible{outline:4px solid #222;outline-offset:3px}
+/* waste stream figure */
+.wsrow{display:flex;gap:40px;align-items:flex-start;flex:1;min-height:0}
+.figwrap{position:relative;flex:none;line-height:0}
+.figwrap img{display:block;height:590px;width:auto;max-width:1160px}
+.figwrap .hs{position:absolute}
+.wsside{flex:1;display:flex;flex-direction:column;gap:16px;min-width:0}
+.wsside.rows{gap:0}
+.figwrap.bag img{height:auto;width:860px}
+/* MSW calculator */
+.rchips button{transition:transform .16s var(--out),background-color .16s,color .16s}.rchips button:active{transform:scale(.97)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:6px 0 18px}
+.calc .cell{background:#f7f5ef;border-top:6px solid var(--accent);padding:14px 24px}
+.calc small{font:700 20px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555;display:block}
+.calc .v{font:400 78px/1.05 var(--display);display:block;word-break:break-all}.calc .u{font:400 26px var(--rbody);color:#555}
+/* hidden waste bars */
+.hbars{display:grid;gap:22px;margin:4px 0 18px}
+.hb{display:grid;grid-template-columns:480px 1fr 230px;gap:24px;align-items:center}
+.hb .hbl b{display:block;font:400 38px/1.05 var(--display)}.hb .hbl span{font:400 25px var(--rbody);color:#555}
+.hb .ht{height:56px;background:#eeeae0;border-radius:4px;overflow:hidden}.hb .ht i{display:block;height:100%;background:var(--accent);min-width:6px;transform-origin:left;transition:transform .8s var(--out)}
+.hb.big .ht i{background:var(--rb)}
+.hb .hv{font:400 44px var(--display);text-align:right}
+.ratio{display:flex;gap:28px;align-items:center;background:#f7f5ef;border-left:8px solid var(--rb);padding:16px 28px;margin-bottom:22px}
+.ratio .v{font:400 84px/1 var(--display);color:var(--rb);flex:none}.ratio span:last-child{font:400 29px/1.3 var(--rbody)}
+/* life cycle bar and refill slider */
+.lca{display:flex;gap:6px;margin:6px 0 24px;height:150px}
+.lca button{border:0;cursor:pointer;color:#fff;text-align:left;padding:14px 18px;font:400 24px/1.2 var(--rbody);display:flex;flex-direction:column;justify-content:space-between;transition:transform .16s var(--out)}
+.lca button:active{transform:scale(.97)}
+.lca button b{font:400 54px/1 var(--display)}
+.lca button:nth-child(1){background:#6f98a6}.lca button:nth-child(2){background:#b3452c}.lca button:nth-child(3){background:#2b2b2b}
+.refill{background:#f7f5ef;border-top:6px solid var(--accent);padding:20px 26px}
+.refill b{display:block;font:400 40px/1.1 var(--display);margin-bottom:6px}.refill span{font:400 27px/1.3 var(--rbody);display:block;min-height:76px}
+.rfs{display:flex;gap:24px;align-items:center;margin-top:10px}
+.rfs output{font:400 44px var(--display);min-width:210px;text-align:right}
+input[type=range]{-webkit-appearance:none;appearance:none;height:12px;border-radius:6px;background:#d9d3c0;flex:1;min-width:0;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:38px;height:38px;border-radius:50%;background:var(--red);border:4px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--red);border:4px solid #fff;cursor:pointer}
+input[type=range]:focus-visible{outline:4px solid #222;outline-offset:6px}
+/* sort game */
+.srt{display:flex;flex-direction:column;gap:14px;flex:1}
+.srt-top{display:flex;justify-content:space-between;align-items:baseline}
+.srt-no{font:700 20px var(--rbody);letter-spacing:.16em;text-transform:uppercase;color:#555}
+.srt-score{font:400 28px var(--rbody)}.srt-score b{font:400 44px var(--display);color:var(--accent)}
+.srt-q{font:400 54px/1.15 var(--display);min-height:210px}
+.rchips button.right{background:var(--rg);border-color:var(--rg);color:#fff}.rchips button.wrong{background:var(--rb);border-color:var(--rb);color:#fff}
+.srt-fb{font:400 28px/1.3 var(--rbody);min-height:110px}.srt-fb b{color:var(--rg)}
+/* recycling rates */
+.rwrap{display:grid;grid-template-columns:560px 1fr;gap:60px;align-items:center;flex:0 0 auto;margin:20px 0 40px}
+.rbig{background:#f7f5ef;border-top:6px solid var(--accent);padding:28px 30px;text-align:center}
+.rbig .v{font:400 118px/1 var(--display)}.rbig .ar{font:400 70px var(--display);color:var(--red);margin:0 14px}
+.rbig small{display:block;font:600 24px var(--rbody);letter-spacing:.1em;text-transform:uppercase;color:#555;margin-top:12px}
+.rb{display:grid;grid-template-columns:330px 1fr 260px;gap:20px;align-items:center;margin:12px 0}
+.rb .rl{font:400 32px var(--display)}.rb .rt{height:40px;background:#eeeae0;border-radius:4px;overflow:hidden}.rb .rt i{display:block;height:100%;background:var(--rg)}
+.rb.low .rt i{background:var(--rb)}.rb .rv{font:400 26px var(--rbody);color:#555}
+/* food waste: interactive-guide look */
+.intro{font:400 33px/1.3 var(--rbody);margin:0 0 20px;max-width:1000px}
+.stops{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:24px}
+.stop{position:relative;background:#f7f5ef;border:0;border-top:6px solid var(--accent);padding:14px 8px 18px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font:400 22px/1.15 var(--rbody);text-align:center;transition:transform .16s var(--out)}
+.stop:active{transform:scale(.97)}
+.stop .sico{width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center}.stop .sico svg{width:62px;height:62px}
+.stop b{font:400 26px/1.1 var(--display);min-height:58px}
+.stop .ic{margin:0;width:38px;height:38px}.stop .ic svg{width:21px;height:21px}
+.guide{list-style:none;counter-reset:g;margin:0 0 16px;font:400 30px/1.3 var(--rbody)}
+.guide li{counter-increment:g;padding-left:52px;position:relative;margin:6px 0}
+.guide li::before{content:counter(g);position:absolute;left:0;top:0;font:400 36px var(--display);color:var(--accent)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.prompt{position:relative;text-align:left;background:#f7f5ef;border:0;border-top:6px solid var(--red);padding:20px 26px 24px;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-height:230px;transition:transform .16s var(--out)}
+.prompt:active{transform:scale(.97)}
+.prompt b{font:400 40px/1.1 var(--display)}.prompt .small-cap{color:var(--red)}.prompt .ic{margin:auto 0 0}
+.instead span{font-size:30px;padding:8px 24px}
+/* simulation */
+.sim{display:grid;grid-template-columns:760px 1fr;gap:50px;flex:1;min-height:0}
+.slr{display:grid;grid-template-columns:1fr 100px;gap:6px 18px;align-items:center;margin-bottom:18px}
+.slr label{grid-column:1/-1;font:400 29px var(--rbody)}.slr label b{font:400 34px var(--display)}
+.slr output{font:400 40px var(--display);text-align:right}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{background:#f7f5ef;border-top:6px solid var(--accent);padding:12px 18px}
+.tile small{font:700 18px var(--rbody);letter-spacing:.14em;text-transform:uppercase;color:#555;display:block}
+.tile .v{font:400 72px/1.05 var(--display);display:block}.tile .u{font:400 23px var(--rbody);color:#555}
+.goals{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 14px}
+.goals span{font:600 25px var(--rbody);border:2px solid #cfc9b8;border-radius:999px;padding:6px 20px;background:#fff;transition:background-color .2s,color .2s,border-color .2s}
+.goals span.ok{background:var(--rg);border-color:var(--rg);color:#fff}.goals span.ok::before{content:"✓ "}
+.split{display:flex;height:46px;border-radius:4px;overflow:hidden;background:#eeeae0}
+.split i,.legend2 i{display:block}
+.split i{transition:flex-basis .35s var(--out);flex:0 0 0}
+.s1{background:#cfc9b8}.s2{background:#2e7d5b}.s3{background:#8bb369}.s4{background:#C4851C}.s5{background:#5d4b3a}
+.legend2{display:flex;gap:20px;flex-wrap:wrap;margin:8px 0 14px;font:400 22px var(--rbody)}
+.legend2 span{display:flex;align-items:center;gap:8px}.legend2 i{width:18px;height:18px;border-radius:3px}
+.simfb{font:400 28px/1.3 var(--rbody);min-height:110px}
+/* culture, circular */
+.lin{display:flex;gap:24px;align-items:center;background:#f7f5ef;padding:10px 22px;margin-bottom:10px;border-left:6px solid var(--rb)}
+.lin.cir{border-left-color:var(--rg)}
+.lin .small-cap{width:130px;flex:none}
+.chn{display:flex;gap:12px;align-items:center;font:400 30px var(--display);flex-wrap:wrap}.chn i{font-style:normal;color:var(--red);font-size:36px}.chn .bad{color:var(--rb)}
+@media (prefers-reduced-motion:reduce){.ropt,.lca button,.stop,.prompt,.hb .ht i,.split i{transition:none!important}}
+
+.ref .body{width:1000px}.ref.wide .body{width:1660px}
+.ref .inl{margin-right:30px}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide ref titlesl">
+  <div class="top">SOS110 · Class Exercise 17 · Waste and the circular economy</div>
+  <div class="card">
+    <h2 style="font-size:96px;line-height:1;width:1000px;white-space:normal;top:56px">Class Exercise <em>17</em></h2>
+    
+    <div class="body"><p class="sub mr" style="--i:1;font-size:36px;max-width:900px">Two short exercises. First follow a pair of jeans from cotton field to closet. Then sort the waste in a residence hall.</p>
+      <div class="chips6 mr" style="--i:2"><span class="m6">M<em>06</em></span><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
+      <p class="small-cap mr" style="--i:3;margin-top:44px">How this works</p><div class="legend"><div class="lg mr" style="--i:3"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span><span><b>Magnifier</b>Tap for more information</span></div><div class="lg mr" style="--i:4"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span><span><b>Bars</b>Tap for facts and numbers</span></div><div class="lg mr" style="--i:5"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span><span><b>Page and pencil</b>Tap to write and submit an answer</span></div></div></div>
+    <div class="photo"><img class="ph" src="../m4-l1-geosphere-soil-land-use/img/sprawl.jpg" style="object-position:35% center" alt=""><span class="credit-ph">New neighborhoods on the desert edge of the Valley</span></div>
+    
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Title</b></span><span class="src"></span></div>
+  <div class="shade"></div>
+  
+</section>
+
+<!-- 2. CHECK-IN -->
+<section class="slide ref " id="attendance">
+  <div class="top">SOS110 · Class Exercise 17 · Check in</div>
+  <div class="card">
+    <h2>Enter today’s <em>code</em></h2>
+    <p class="lead">Your instructor shows a code on screen. Checking in counts toward participation.</p>
+    <div class="body"><input class="fld" data-name placeholder="Your full name" autocomplete="name" maxlength="120"><input class="fld" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      <div class="ci-row"><input class="fld code" id="code" placeholder="CODE" maxlength="8" autocomplete="off"><button class="rbtn" type="button" id="checkin">Check in</button></div>
+      <p class="status" id="checkin-status" style="margin-top:14px"></p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:22px;margin-top:10px" data-mode-note></p></div>
+    <div class="photo"><img class="ph" src="../m5-l1-food-agriculture-systems/img/garden.jpg" style="object-position:82% center" alt=""><span class="credit-ph">Photo: instructor-supplied</span></div>
+    
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Check-in</b></span><span class="src">Check-in is saved by the course site, not by this page.</span></div>
+  <div class="shade"></div>
+  
+</section>
+
+<!-- 3. JEANS TRACE -->
+<section class="slide ref wide">
+  <div class="top">SOS110 · Class Exercise 17 · Exercise 1 · Life cycle of jeans</div>
+  <div class="card">
+    <h2>Trace a pair of <em>jeans</em></h2>
+    <p class="lead">A <b>life cycle assessment</b> follows a product from start to finish. Tap each stage, then tap the pencil to answer.</p>
+    <div class="body" style="top:262px"><div class="wsrow"><div class="figwrap bag mr" style="--i:1;width:700px"><img src="img/cotton-picking.jpg" alt="A farmer in a cotton field leans over a large pile of picked cotton" style="width:700px;height:380px;object-fit:cover;object-position:center 40%;border-radius:2px"><span class="small-cap" style="display:block;line-height:1.3;margin-top:10px;text-transform:none;letter-spacing:0;font-size:21px">Photo: Joerg Boethling/Alamy Stock Photo. Adapted from Luu (2018).</span><button class="inl" type="button" data-open="full" style="margin-top:14px"><b>See the textbook infographic</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="inl" type="button" data-open="cotton" style="margin-top:8px"><b>Cotton in numbers</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button></div><div class="wsside rows"><button class="row mr" type="button" data-open="st-fiber" style="--i:1"><span class="n">1</span><span><b>From fiber to fabric</b><span class="d">Cotton is grown, picked and spun into thread.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="st-make" style="--i:2"><span class="n">2</span><span><b>Cutting and sewing</b><span class="d">Fabric is cut, sewn, dyed and finished in a factory.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="st-ship" style="--i:3"><span class="n">3</span><span><b>Shipping and selling</b><span class="d">Jeans travel by ship and truck to a store or website.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="st-use" style="--i:4"><span class="n">4</span><span><b>Wearing and washing</b><span class="d">You wear them and wash them again and again.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="st-end" style="--i:5"><span class="n">5</span><span><b>The end of the line</b><span class="d">Closet, resale, recycling or landfill.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button></div></div></div>
+    
+    <button class="note" type="button" data-open="answers" aria-label="Write and submit your answer"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button>
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Jeans trace</b></span><span class="src">Stage 1 is from the textbook infographic. Stages 2 to 4 are typical descriptions and are not from the figure.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-st-fiber" role="dialog" aria-modal="true" aria-label="From fiber to fabric"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Stage 1 · The textbook infographic, step 1</div><h3>From fiber to fabric</h3><p>Jeans are usually cotton plus a stretchy fiber called elastane. Elastane is made from petroleum-based plastics.</p><p>Farming uses pesticides and chemical fertilizers. Some fiber is wasted when cotton is spun into thread, and dyeing puts chemicals into wastewater.</p></div><div class="pop" id="pop-st-make" role="dialog" aria-modal="true" aria-label="Cutting and sewing"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Stage 2 · Typical, not from the figure</div><h3>Cutting and sewing</h3><p>Fabric is cut into pieces and sewn together. Scraps of cloth are left over. Washing and dyeing the fabric use a lot of water and chemicals.</p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:24px">This step is a typical description. It is not from the textbook’s step 1 infographic.</p></div><div class="pop" id="pop-st-ship" role="dialog" aria-modal="true" aria-label="Shipping and selling"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Stage 3 · Typical, not from the figure</div><h3>Shipping and selling</h3><p>Jeans are packed, shipped and stored. Packaging and tags are added. Jeans that do not sell can end up as waste.</p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:24px">Typical description. Not from the textbook figure.</p></div><div class="pop" id="pop-st-use" role="dialog" aria-modal="true" aria-label="Wearing and washing"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Stage 4 · Typical, not from the figure</div><h3>Wearing and washing</h3><p>Most of the time you own jeans is spent wearing and washing them. Each wash uses water and energy. How long you keep them changes the whole life cycle.</p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:24px">Typical description. Not from the textbook figure.</p></div><div class="pop" id="pop-st-end" role="dialog" aria-modal="true" aria-label="The end of the line"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Stage 5 · You decide</div><h3>The end of the line</h3><p>One day the jeans are done for you. They can be handed down, resold, turned into something new, or thrown away. Slide 4 is about this step.</p></div><div class="pop" id="pop-full" role="dialog" aria-modal="true" aria-label="The textbook infographic: step 1"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>More information</div><h3>The textbook infographic: step 1</h3><img src="img/jeans-life-cycle.jpg" alt="Infographic: The Life Cycle of One Pair of Jeans, step 1 From Fiber to Fabric. Over 60 percent of the world’s cotton is grown by about 40 million small farmers, 99 percent of them in developing countries. Waste: pesticides and chemical fertilizers during farming, waste fiber as cotton is spun into thread, chemicals in wastewater from dyeing." style="width:1000px;display:block;margin:0 auto 6px;border:2px solid #ddd"><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:22px">Photo: Joerg Boethling/Alamy Stock Photo. Adapted from Luu (2018), as printed on the figure.</p></div><div class="pop" id="pop-cotton" role="dialog" aria-modal="true" aria-label="Cotton, the first stage"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Facts and numbers</div><h3>Cotton, the first stage</h3><p>From the textbook infographic.</p><div class="abc"><div class="box"><div class="l">World cotton grown by small farmers</div><div class="v">60%+</div><div class="d">about 40 million farmers</div></div><div class="box"><div class="l">Of those farmers, in developing countries</div><div class="v">99%</div><div class="d">they grow it for the world’s jeans</div></div><div class="box warn"><div class="l">Stretch fiber comes from</div><div class="v">Oil</div><div class="d">elastane is petroleum-based</div></div></div></div><div class="pop" id="pop-answers" role="dialog" aria-modal="true" aria-label="My jeans trace"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your answer</div><h3>My jeans trace</h3><p class="qn"><i>1</i>Which stage do you think makes the most waste?</p><div class="rchips" id="jt-stage"><button type="button" data-v="fiber">Fiber to fabric</button><button type="button" data-v="make">Cutting and sewing</button><button type="button" data-v="ship">Shipping and selling</button><button type="button" data-v="use">Wearing and washing</button><button type="button" data-v="end">The end of the line</button></div>
+             <p class="qn"><i>2</i>Name one waste or pollution that comes out of that stage.</p><input class="fld" id="jt-waste" maxlength="200" placeholder="One short sentence"><div class="go"><button class="rbtn submit" type="button" id="jt-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="jt-status"></span></div></div>
+</section>
+
+<!-- 4. END OF LIFE -->
+<section class="slide ref ">
+  <div class="top">SOS110 · Class Exercise 17 · Exercise 1 · Life cycle of jeans</div>
+  <div class="card">
+    <h2>Where do the jeans <em>go</em>?</h2>
+    <p class="lead">Five choices for the end of the line. The best ones come first. <b>Tap an icon</b>, then tap the pencil to answer.</p>
+    <div class="body"><button class="row mr" type="button" data-open="e-keep" style="--i:1"><span class="n">1</span><span><b>Wear them longer</b><span class="d">The best choice: no new jeans are made.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="e-fix" style="--i:2"><span class="n">2</span><span><b>Repair them</b><span class="d">Patch a hole instead of buying new.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="e-sell" style="--i:3"><span class="n">3</span><span><b>Resell or hand them down</b><span class="d">Someone else wears them.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="e-recycle" style="--i:4"><span class="n">4</span><span><b>Recycle the fabric</b><span class="d">Turn old jeans into something new.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="e-trash" style="--i:5"><span class="n">5</span><span><b>Throw them away</b><span class="d">They go to a landfill or an incinerator.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button></div>
+    <div class="photo"><svg class="ph art" viewBox="0 0 700 890" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A green loop of arrows around the words keep it in use"><rect width="700" height="890" fill="#f7f5ef"/><circle cx="350" cy="420" r="230" fill="none" stroke="#2e7d5b" stroke-width="22" stroke-dasharray="330 40" transform="rotate(-20 350 420)"/><path d="M570 280l30 60l-70-14z" fill="#2e7d5b"/><path d="M170 640l-34-56l72 6z" fill="#2e7d5b"/><path d="M400 192l-60-34l60-34z" fill="#2e7d5b" transform="translate(30 -6)"/><text x="350" y="410" text-anchor="middle" font-family="DM Serif Display,serif" font-size="58" fill="#2b2b2b">Keep it</text><text x="350" y="472" text-anchor="middle" font-family="DM Serif Display,serif" font-size="58" fill="#2b2b2b">in use</text></svg></div>
+    <button class="note" type="button" data-open="answers" aria-label="Write and submit your answer"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button>
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>End of life</b></span><span class="src">Choices follow the order of reduce, reuse, recycle, dispose from chapter 15. Descriptions are typical, not from the figure.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-e-keep" role="dialog" aria-modal="true" aria-label="Wear them longer"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End of life</div><h3>Wear them longer</h3><p>Every extra year you wear them is a year with no new jeans made. Nothing is wasted at stages 1 to 3.</p></div><div class="pop" id="pop-e-fix" role="dialog" aria-modal="true" aria-label="Repair them"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End of life</div><h3>Repair them</h3><p>A patch or a new button keeps the jeans in use. This slows the loop, which is one of the three circular economy strategies.</p></div><div class="pop" id="pop-e-sell" role="dialog" aria-modal="true" aria-label="Resell or hand them down"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End of life</div><h3>Resell or hand them down</h3><p>Reuse keeps jeans out of the landfill and replaces a new pair. Resale and swaps are growing ways to do it.</p></div><div class="pop" id="pop-e-recycle" role="dialog" aria-modal="true" aria-label="Recycle the fabric"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End of life</div><h3>Recycle the fabric</h3><p>Old fabric can be shredded and made into a different product. That is usually open-loop recycling: the new product is lower quality, so it works as downcycling.</p></div><div class="pop" id="pop-e-trash" role="dialog" aria-modal="true" aria-label="Throw them away"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End of life</div><h3>Throw them away</h3><p>Landfilled jeans take up space and are never used again. Burned jeans make some heat but release carbon dioxide and other pollution. Everything made upstream is lost.</p></div><div class="pop" id="pop-answers" role="dialog" aria-modal="true" aria-label="Where should my jeans go?"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your answer</div><h3>Where should my jeans go?</h3><p class="qn"><i>3</i>When your jeans wear out, which choice would you pick first?</p><div class="rchips" id="je-pick"><button type="button" data-v="keep">Wear longer</button><button type="button" data-v="fix">Repair</button><button type="button" data-v="sell">Resell or hand down</button><button type="button" data-v="recycle">Recycle</button><button type="button" data-v="trash">Throw away</button></div>
+             <p class="qn"><i>4</i>Write one reason for your choice.</p><input class="fld" id="je-why" maxlength="200" placeholder="One short sentence"><div class="go"><button class="rbtn submit" type="button" id="je-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="je-status"></span></div></div>
+</section>
+
+<!-- 5. DORM SORT -->
+<section class="slide ref ">
+  <div class="top">SOS110 · Class Exercise 17 · Exercise 2 · Sort waste in an ASU residence hall</div>
+  <div class="card">
+    <h2>Where does it <em>go</em>?</h2>
+    <p class="lead">ASU’s Zero Waste program asks students to sort. Pick the right place for each item.</p>
+    <div class="body"><div class="srt"><div class="srt-top"><span class="srt-no" id="ds-no"></span><span class="srt-score"><b id="ds-n">0</b> right</span></div>
+      <div class="srt-q" id="ds-q" style="min-height:130px"></div>
+      <div class="rchips" id="ds-btns"><button type="button" data-a="r">Recycling (blue bin)</button><button type="button" data-a="l">Landfill</button><button type="button" data-a="c">Compost (dining hall)</button><button type="button" data-a="s">Special drop-off</button></div>
+      <div class="srt-fb" id="ds-fb" aria-live="polite"></div><div class="go"><button class="rbtn g" type="button" id="ds-next" hidden>Next item</button></div></div></div>
+    <div class="photo"><svg class="ph art" viewBox="0 0 700 890" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Four bins labeled recycle, landfill, compost and special drop-off"><rect width="700" height="890" fill="#d8d2c0"/><rect y="520" width="700" height="370" fill="#c9c1ac"/><g><rect x="30" y="330" width="140" height="190" rx="10" fill="#2f6fb0" stroke="#2b2b2b" stroke-width="5"/><rect x="22" y="304" width="156" height="36" rx="8" fill="#2f6fb0" stroke="#2b2b2b" stroke-width="5"/><text x="100" y="440" text-anchor="middle" font-family="DM Serif Display,serif" font-size="26" fill="#fff">Recycle</text><text x="100" y="560" text-anchor="middle" font-family="Archivo Narrow,Arial Narrow,sans-serif" font-size="21" fill="#2b2b2b">blue bin</text></g><g><rect x="190" y="330" width="140" height="190" rx="10" fill="#6b6b6b" stroke="#2b2b2b" stroke-width="5"/><rect x="182" y="304" width="156" height="36" rx="8" fill="#6b6b6b" stroke="#2b2b2b" stroke-width="5"/><text x="260" y="440" text-anchor="middle" font-family="DM Serif Display,serif" font-size="26" fill="#fff">Landfill</text><text x="260" y="560" text-anchor="middle" font-family="Archivo Narrow,Arial Narrow,sans-serif" font-size="21" fill="#2b2b2b">trash</text></g><g><rect x="350" y="330" width="140" height="190" rx="10" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="5"/><rect x="342" y="304" width="156" height="36" rx="8" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="5"/><text x="420" y="440" text-anchor="middle" font-family="DM Serif Display,serif" font-size="26" fill="#fff">Compost</text><text x="420" y="560" text-anchor="middle" font-family="Archivo Narrow,Arial Narrow,sans-serif" font-size="21" fill="#2b2b2b">dining hall</text></g><g><rect x="510" y="330" width="140" height="190" rx="10" fill="#C4851C" stroke="#2b2b2b" stroke-width="5"/><rect x="502" y="304" width="156" height="36" rx="8" fill="#C4851C" stroke="#2b2b2b" stroke-width="5"/><text x="580" y="440" text-anchor="middle" font-family="DM Serif Display,serif" font-size="26" fill="#fff">Special</text><text x="580" y="560" text-anchor="middle" font-family="Archivo Narrow,Arial Narrow,sans-serif" font-size="21" fill="#2b2b2b">drop-off</text></g><text x="350" y="150" text-anchor="middle" font-family="DM Serif Display,serif" font-size="64" fill="#2b2b2b">Four places</text><text x="350" y="215" text-anchor="middle" font-family="DM Serif Display,serif" font-size="64" fill="#2b2b2b">a thing can go</text><text x="350" y="780" text-anchor="middle" font-family="Archivo Narrow,Arial Narrow,sans-serif" font-size="24" fill="#555">DRAWN FOR THIS SLIDE · COLORS ARE TEACHING COLORS</text></svg></div>
+    
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Dorm sort</b></span><span class="src">Rules come from ASU Zero Waste pages and the ASU blue bin guide. ASU’s lists change, so check the ASU Waste Directory for today’s rules.</span></div>
+  <div class="shade"></div>
+  
+</section>
+
+<!-- 6. DORM RULES -->
+<section class="slide ref ">
+  <div class="top">SOS110 · Class Exercise 17 · Exercise 2 · Sort waste in an ASU residence hall</div>
+  <div class="card">
+    <h2>Set up your <em>room</em></h2>
+    <p class="lead">What does ASU’s Zero Waste program say about a room like yours? <b>Tap an icon</b>, then tap the pencil to answer.</p>
+    <div class="body"><button class="row mr" type="button" data-open="f-desk" style="--i:1"><span class="n">1</span><span><b>Your room has two bins</b><span class="d">A deskside recycling bin and a deskside landfill bin.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="f-blue" style="--i:2"><span class="n">2</span><span><b>What goes in the blue bin</b><span class="d">Paper, rigid plastic, metal. Not soft plastic.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="f-soft" style="--i:3"><span class="n">3</span><span><b>Soft plastic and e-waste</b><span class="d">They have their own ASU drop-off.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="f-comp" style="--i:4"><span class="n">4</span><span><b>Food scraps</b><span class="d">Dining halls compost. Residence hall compost is paused.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="row mr" type="button" data-open="f-reuse" style="--i:5"><span class="n">5</span><span><b>Make less in the first place</b><span class="d">Reusables beat recycling.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button></div>
+    <div class="photo"><img class="ph" src="../m5-l1-food-agriculture-systems/img/garden.jpg" style="object-position:82% center" alt=""><span class="credit-ph">Photo: instructor-supplied</span></div>
+    <button class="note" type="button" data-open="answers" aria-label="Write and submit your answer"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button>
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Dorm rules</b></span><span class="src">Sources: ASU Zero Waste pages, ASU zero waste on-campus checklist and the ASU blue bin guide. Anything we could not verify is marked.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-f-desk" role="dialog" aria-modal="true" aria-label="Your room has two bins"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>ASU Zero Waste</div><h3>Your room has two bins</h3><p>ASU’s zero waste checklist says your room should have a deskside recycling bin and a deskside landfill bin. If either is missing, you can send a maintenance request. Find out where to empty each one.</p></div><div class="pop" id="pop-f-blue" role="dialog" aria-modal="true" aria-label="What goes in the blue bin"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>ASU Zero Waste</div><h3>What goes in the blue bin</h3><ul class="clean"><li><b>Yes:</b> paper you can rip, cardboard, rigid plastics like bottles, jugs and tubs, and metal cans and foil.</li><li><b>No:</b> plastic bags and other soft plastic, Styrofoam, and anything smaller than 2.5 inches.</li><li><b>Tips:</b> empty liquids first and keep food out. A pizza box counts only with no grease and no pizza.</li></ul><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:22px">ASU’s lists have changed over time. Check the ASU Waste Directory.</p></div><div class="pop" id="pop-f-soft" role="dialog" aria-modal="true" aria-label="Soft plastic and e-waste"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>ASU Zero Waste</div><h3>Soft plastic and e-waste</h3><p>ASU runs separate collections for soft plastics (film and bags) and for e-waste (old electronics). They do not go in the blue bin. Use the ASU Waste Directory to find where to take them.</p><p class="small-cap" style="text-transform:none;letter-spacing:0;font-size:22px">We could not verify drop-off spots for individual residence halls.</p></div><div class="pop" id="pop-f-comp" role="dialog" aria-modal="true" aria-label="Food scraps"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>ASU Zero Waste</div><h3>Food scraps</h3><p>ASU composts food waste and compostable paper in its dining halls and some other places. The residence hall compost program is paused for now, so scraps from your room go in the landfill bin unless you take them to a dining hall bin. Check the ASU Zero Waste pages for what is open today.</p></div><div class="pop" id="pop-f-reuse" role="dialog" aria-modal="true" aria-label="Make less in the first place"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>ASU Zero Waste</div><h3>Make less in the first place</h3><p>ASU’s checklist suggests: split shared supplies with your roommates, buy durable things that last past one year, rent big appliances, and swap single-use items for reusable bags, containers, utensils and water bottles.</p></div><div class="pop" id="pop-answers" role="dialog" aria-modal="true" aria-label="My dorm sorting plan"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your answer</div><h3>My dorm sorting plan</h3><p class="qn"><i>1</i>Which item will you most likely sort wrong?</p><div class="rchips" id="dp-item"><button type="button" data-v="bottle">Water bottle</button><button type="button" data-v="box">Cardboard box</button><button type="button" data-v="can">Aluminum can</button><button type="button" data-v="pizza">Pizza box</button><button type="button" data-v="foam">Foam cup</button><button type="button" data-v="bag">Chip bag</button><button type="button" data-v="cable">Old charger</button><button type="button" data-v="food">Leftover food</button></div>
+             <p class="qn"><i>2</i>Write one habit that will help you sort better.</p><input class="fld" id="dp-habit" maxlength="200" placeholder="One short sentence"><div class="go"><button class="rbtn submit" type="button" id="dp-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="dp-status"></span></div></div>
+</section>
+
+<!-- 7. EXIT TICKET -->
+<section class="slide ref ">
+  <div class="top">SOS110 · Class Exercise 17 · Exit ticket</div>
+  <div class="card">
+    <h2>Exit <em>ticket</em></h2>
+    <p class="lead">Counts for participation. Pick an answer, then tap <b>Show answer</b>.</p>
+    <div class="body"><p class="qtext" style="font-size:42px">Which choice for worn-out jeans does the most to cut waste?</p><div class="ropts" data-poll="exitex"><button class="ropt" type="button"><b>A</b>Throw them in the landfill bin</button><button class="ropt" type="button"><b>B</b>Hand them down or resell them</button><button class="ropt" type="button"><b>C</b>Burn them to make energy</button><button class="ropt" type="button"><b>D</b>Recycle them into a lower-quality product</button></div><div class="go" style="margin-top:16px"><button class="rbtn g" type="button" data-reveal="exitex">Show answer</button><span class="status" data-poll-status="exitex" style="margin:0"></span></div></div>
+    <div class="photo"><svg class="ph art" viewBox="0 0 700 890" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A green loop of arrows around the words keep it in use"><rect width="700" height="890" fill="#f7f5ef"/><circle cx="350" cy="420" r="230" fill="none" stroke="#2e7d5b" stroke-width="22" stroke-dasharray="330 40" transform="rotate(-20 350 420)"/><path d="M570 280l30 60l-70-14z" fill="#2e7d5b"/><path d="M170 640l-34-56l72 6z" fill="#2e7d5b"/><path d="M400 192l-60-34l60-34z" fill="#2e7d5b" transform="translate(30 -6)"/><text x="350" y="410" text-anchor="middle" font-family="DM Serif Display,serif" font-size="58" fill="#2b2b2b">Keep it</text><text x="350" y="472" text-anchor="middle" font-family="DM Serif Display,serif" font-size="58" fill="#2b2b2b">in use</text></svg></div>
+    
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Exit ticket</b></span><span class="src">Correct answer: B. Reuse keeps the whole product in use, which beats recycling.</span></div>
+  <div class="shade"></div>
+  
+</section>
+
+<!-- 8. TAKEAWAY -->
+<section class="slide ref ">
+  <div class="top">SOS110 · Class Exercise 17 · Takeaway</div>
+  <div class="card">
+    <h2 style="font-size:84px;width:1000px">Close the <em>loop</em></h2>
+    
+    <div class="body" style="top:170px"><p class="sub mr" style="--i:1;font-size:36px;max-width:960px">Every product has a life cycle. Every bin is a choice.</p>
+      <ol class="steps"><li class="mi" style="--i:2">A pair of jeans makes waste long before you buy it.</li><li class="mi" style="--i:3">Wearing, repairing and reusing beat recycling, and recycling beats the landfill.</li><li class="mi" style="--i:4">Sorting well in your residence hall keeps the blue bin clean and the landfill small.</li></ol></div>
+    <div class="photo"><img class="ph" src="../m4-l2-stocks-and-flows/img/tres-rios.jpg" style="object-position:center" alt=""><span class="credit-ph">Photo: instructor-supplied</span></div>
+    
+  </div>
+  <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Takeaway</b></span><span class="src">Photo: a constructed wetland in the Phoenix area that cleans used water.</span></div>
+  <div class="shade"></div>
+  
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-10-28"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm6-s1';
+loadSession(LECTURE).then(d => fill(document.body, d)).catch(() => {});
+wireReveals();
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-open]');
+  if (b && b.dataset.open) { const ic = b.querySelector('.ic'); if (ic) ic.classList.add('done'); }
+});
+
+/* === SORT WASTE IN AN ASU RESIDENCE HALL === rules from ASU Zero Waste pages and the ASU blue bin guide; ASU lists change */
+const NAME = { r: 'Recycling (blue bin)', l: 'Landfill', c: 'Compost (dining hall)', s: 'Special drop-off' };
+const SORT = [
+  ['An empty plastic water bottle', 'r', 'Rigid plastic goes in the blue bin. Empty the liquid out first.'],
+  ['A flattened cardboard box', 'r', 'Cardboard is accepted. Flatten it and keep it dry and clean.'],
+  ['An aluminum soda can', 'r', 'Metal cans go in the blue bin. Empty them first.'],
+  ['A greasy pizza box with cheese stuck on it', 'l', 'Grease and food ruin the paper. A clean, empty box could be recycled, but this one goes in the landfill bin.'],
+  ['A foam coffee cup', 'l', 'Styrofoam is not accepted in the blue bin. It goes in the landfill bin.'],
+  ['An empty chip bag', 's', 'This is soft plastic. It does not go in the blue bin. ASU runs a separate soft plastic collection, so check the ASU Waste Directory for the drop-off.'],
+  ['A broken phone charger', 's', 'Old electronics are e-waste. They do not go in either bin. ASU has an e-waste collection, so check the ASU Waste Directory.'],
+  ['Leftover food from your plate in the dining hall', 'c', 'Dining halls compost food waste. In a room, food scraps go in the landfill bin because residence hall compost is paused.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#ds-q'), sfb = $('#ds-fb'), snext = $('#ds-next');
+function sortShow() {
+  answered = false;
+  $('#ds-no').textContent = `Item ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#ds-btns button').forEach(b => { b.disabled = false; b.className = ''; });
+  $('#ds-n').textContent = score;
+}
+$$('#ds-btns button').forEach(b => b.addEventListener('click', () => {
+  if (answered) return; answered = true;
+  const ok = b.dataset.a === SORT[si][1]; if (ok) score++;
+  $$('#ds-btns button').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
+  $('#ds-n').textContent = score;
+  snext.hidden = false; snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next item';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#ds-no').textContent = 'Done';
+  sfb.textContent = score >= 6 ? 'Strong sorting. Keep checking the ASU Waste Directory, because the lists change.' : 'Rules can be tricky. When you are not sure, look it up in the ASU Waste Directory.';
+  snext.hidden = true; $$('#ds-btns button').forEach(b => { b.disabled = true; });
+});
+sortShow();
+
+/* === ATTENDANCE, POLL, ANSWERS === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() { const u = live.user(); if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } }
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status'); say(st, 'Checking in…');
+  try { await live.signIn($('[data-name]').value, $('[data-email]').value); await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); showUser(); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll, st = $(`[data-poll-status="${id}"]`);
+  $$('.ropt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.ropt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+const CORRECT = { exitex: 1 };
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const id = b.dataset.reveal, poll = $(`[data-poll="${id}"]`), right = CORRECT[id];
+  $$('.ropt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+const pick = (sel) => { let v = ''; $$(`${sel} button`).forEach(b => b.addEventListener('click', () => { v = b.dataset.v; $$(`${sel} button`).forEach(x => x.classList.toggle('on', x === b)); })); return () => v; };
+const done = btn => { btn.classList.add('sent'); btn.querySelector('span').textContent = 'Submitted'; };
+async function submit(btn, st, sim, data) {
+  if (!await ensureUser(st)) return;
+  say(st, 'Sending…');
+  try { await live.saveSim(sim, data); say(st, 'Submitted. Thanks!', 'ok'); done(btn); }
+  catch (e) { say(st, e.message, 'err'); }
+}
+const jtStage = pick('#jt-stage');
+$('#jt-save').addEventListener('click', e => {
+  const st = $('#jt-status'), waste = $('#jt-waste').value.trim();
+  if (!jtStage() || !waste) { say(st, 'Pick a stage and write one sentence.', 'err'); return; }
+  submit(e.currentTarget, st, 'jeans-trace', { stage: jtStage(), waste });
+});
+const jePick = pick('#je-pick');
+$('#je-save').addEventListener('click', e => {
+  const st = $('#je-status'), why = $('#je-why').value.trim();
+  if (!jePick() || !why) { say(st, 'Pick a choice and write one sentence.', 'err'); return; }
+  submit(e.currentTarget, st, 'jeans-end', { pick: jePick(), why });
+});
+const dpItem = pick('#dp-item');
+$('#dp-save').addEventListener('click', e => {
+  const st = $('#dp-status'), habit = $('#dp-habit').value.trim();
+  if (!dpItem() || !habit) { say(st, 'Pick an item and write one sentence.', 'err'); return; }
+  submit(e.currentTarget, st, 'dorm-plan', { item: dpItem(), habit, score });
+});
+</script>
+</body>
+</html>
