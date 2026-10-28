@@ -221,18 +221,19 @@ a.vid:active{transform:scale(.97)}
   <div class="top">SOS110 · Class Exercise 17 · Quick check · Trash per person</div>
   <div class="card">
     <h2>How much do we <em>throw out</em>?</h2>
-    <p class="lead">The EPA says Americans add <b>4.9 pounds</b> of garbage per person every day. Pick a group and see the total. Then ask: which country makes more?</p>
+    <p class="lead">The EPA says Americans add <b>4.9 pounds</b> of garbage per person every day. Pick a group and see the total. Where does it all go? Mostly to a landfill. Then share one way you could cut your own.</p>
     <div class="body"><div class="rchips" id="msw-chips"><button type="button" data-n="1" class="on">Just me</button><button type="button" data-n="170">This class (170 people)</button><button type="button" data-n="5000000">A Phoenix-area city (5 million)</button></div>
       <div class="calc mr" style="--i:2"><div class="cell"><small>Every day</small><span class="v" id="msw-day">4.9</span><span class="u">pounds</span></div>
       <div class="cell"><small>Every year</small><span class="v" id="msw-year">1,789</span><span class="u">pounds</span></div></div>
       <p class="sub mr" style="--i:3" id="msw-note">That is one person. Look at the chart: which countries make more?</p>
-      <div class="go"><button class="inl mr" type="button" data-open="msw-def" style="--i:4"><b>What counts as municipal solid waste?</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="inl mr" type="button" data-open="msw-data" style="--i:5"><b>See the numbers</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button></div></div>
+      <div class="go"><button class="inl mr" type="button" data-open="msw-def" style="--i:4"><b>What counts as municipal solid waste?</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="inl mr" type="button" data-open="msw-data" style="--i:5"><b>See the numbers</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button><button class="inl mr" type="button" data-open="lever" style="--i:6"><b>What could you cut? Share your idea</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span></button></div></div>
     <div class="photo" style="background:#fff"><img class="ph" src="../m6-l1-waste-circular-economy/img/msw-per-person.jpg" style="object-fit:contain;background:#fff" alt="Bar chart of daily municipal solid waste per person for 11 countries, 2018 to 2020. Denmark is highest at about 5.1 pounds, then the United States at about 4.9, Norway, Germany, Australia, Italy, Spain, the United Kingdom, South Korea, Poland and Japan at about 2."><button class="hs" type="button" data-open="msw-data" style="left:78.0%;top:31.8%" aria-label="msw-data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></button></div>
     
   </div>
   <div class="bar"><span>Exercise<b>17</b></span><span>This slide<b>Trash per person</b></span><span class="src">Chart adapted from OECD (2022). Group sizes are teaching numbers.</span></div>
   <div class="shade"></div>
   <div class="pop" id="pop-msw-def" role="dialog" aria-modal="true" aria-label="Municipal solid waste (MSW)"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>More information</div><h3>Municipal solid waste (MSW)</h3><p>MSW is the garbage households and businesses throw away. It does <b>not</b> count waste made upstream, in mines and factories, before the product reaches you.</p></div><div class="pop" id="pop-msw-data" role="dialog" aria-modal="true" aria-label="US trash in numbers"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Facts and numbers</div><h3>US trash in numbers</h3><p>Per person, the United States is one of the largest makers of MSW. Only Denmark is higher on this chart.</p><div class="abc"><div class="box"><div class="l">Per person, per day</div><div class="v">4.9 lb</div><div class="d">EPA estimate</div></div><div class="box"><div class="l">Per person, per year</div><div class="v">1,800+</div><div class="d">pounds, as the chapter states</div></div><div class="box warn"><div class="l">Compared with 1960</div><div class="v">~2×</div><div class="d">nearly double today</div></div></div></div>
+<div class="pop" id="pop-lever" role="dialog" aria-modal="true" aria-label="My leverage point"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your answer</div><h3>Where could you cut your trash?</h3><p>A leverage point is a small change that makes a big difference. Pick the one that fits you best.</p><p class="qn"><i>1</i>Pick one leverage point.</p><div class="rchips" id="lv-pick"><button type="button" data-v="buy-less">Buy less</button><button type="button" data-v="bring-own">Bring my own</button><button type="button" data-v="repair-reuse">Repair or reuse</button><button type="button" data-v="sort-right">Sort it right</button><button type="button" data-v="food">Waste less food</button></div><p class="qn"><i>2</i>Write one thing you will do to cut your own trash.</p><input class="fld" id="lv-idea" maxlength="200" placeholder="One short sentence"><div class="go"><button class="rbtn submit" type="button" id="lv-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="lv-status"></span></div></div>
 </section>
 
 <!-- 4. ASU ZERO WASTE -->
@@ -398,7 +399,7 @@ const mswShow = n => {
   const unit = x => x >= 40000 ? 'tons' : 'pounds';
   $('#msw-day').textContent = u(day); $('#msw-day').nextElementSibling.textContent = unit(day);
   $('#msw-year').textContent = u(year); $('#msw-year').nextElementSibling.textContent = unit(year);
-  $('#msw-note').textContent = n === 1 ? 'That is one person. Look at the chart: which countries make more?' : n === 170 ? 'One class of 170, one day. Multiply by 365 days for the year.' : 'A teaching number: about 5 million people. A ton is 2,000 pounds.';
+  $('#msw-note').textContent = n === 1 ? 'That is one person. Look at the chart: which countries make more?' : n === 170 ? 'One class of 170, one day. Most of it is buried in a landfill.' : 'A teaching number: about 5 million people. A ton is 2,000 pounds.';
 };
 $$('#msw-chips button').forEach(b => b.addEventListener('click', () => { $$('#msw-chips button').forEach(x => x.classList.toggle('on', x === b)); mswShow(Number(b.dataset.n)); }));
 mswShow(1);
@@ -504,6 +505,13 @@ on('#il-save', 'click', e => {
   const st = $('#il-status'), idea = $('#il-idea').value.trim();
   if (!ilStage() || !idea) { say(st, 'Pick a step and write one sentence.', 'err'); return; }
   submit(e.currentTarget, st, 'iphone-lca', { stage: ilStage(), idea });
+});
+
+const lvPick = pick('#lv-pick');
+on('#lv-save', 'click', e => {
+  const st = $('#lv-status'), idea = $('#lv-idea').value.trim();
+  if (!lvPick() || !idea) { say(st, 'Pick a leverage point and write one sentence.', 'err'); return; }
+  submit(e.currentTarget, st, 'waste-lever', { lever: lvPick(), idea });
 });
 const dl = ['solid', 'water', 'power'].map(k => pick(`#dl-${k}`));
 on('#dl-save', 'click', e => {
