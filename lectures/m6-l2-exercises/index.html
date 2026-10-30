@@ -19,6 +19,10 @@
 .ref .pair~.credit-ph{color:#444;text-shadow:none}
 .ref .bar .src{width:760px}
 .ref .pop textarea.fld{font-size:30px;line-height:1.35}
+/* exercise 3: clear column on the right, reserved for a Phoenix neighborhood picture */
+.loop-room{right:680px!important}
+.loop-room .exl{align-content:start;gap:16px!important}
+.loop-room .ex textarea{height:120px!important}
 /* === M6 L2 EXERCISES ONLY === */
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 .steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
@@ -171,11 +175,11 @@ p,li{text-wrap:pretty}
 <!-- EXERCISE 3. CITY METABOLISM -->
 <section class="slide" id="loop">
   <div class="rail"><b>18</b><span>Exercise 3 of 3 · City metabolism</span></div>
-  <div class="content fill" style="top:80px;bottom:40px">
+  <div class="content fill loop-room">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
     <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Close a <em>loop</em> in your city</h2>
     <p class="steps reveal d2"><b>Think of the city or town you know best.</b> <b>Urban metabolism</b> means the water, energy and materials that flow into a city and the waste that flows out.</p>
-    <div class="exl reveal d3" style="grid-template-columns:1fr 1fr;gap:50px">
+    <div class="exl reveal d3" style="grid-template-columns:1fr;gap:26px">
       <div class="ex">
         <label><i>1</i>Pick one thing your city brings in.</label>
         <div class="chipsel" id="flow"><button type="button" data-v="Water">Water</button><button type="button" data-v="Energy">Energy</button><button type="button" data-v="Food">Food</button><button type="button" data-v="Building materials">Building materials</button></div>
