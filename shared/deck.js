@@ -110,13 +110,14 @@
   }, true);
 
   /* === SHARED ICONS === sprite for the reference-guide system; a page's own symbol with the same id wins.
-     i-search: tap for more information. i-data: facts and indicators. i-pencil (alias i-doc): write and submit an answer, shown as the black answer icon. */
+     i-search: tap for more information. i-data: facts and indicators. i-route: linkages (how parts connect). i-pencil (alias i-doc): write and submit an answer, shown as the black answer icon. */
   (function () {
     const S = {
       x: '<path d="M18 6 6 18M6 6l12 12"/>',
       plus: '<path d="M12 5v14M5 12h14"/>',
       search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/><path d="M10.5 8v5M8 10.5h5"/>',
       data: '<path d="M4 20V4"/><path d="M4 20h16"/><rect x="7.5" y="12" width="3" height="5.5"/><rect x="12.5" y="8" width="3" height="9.5"/><rect x="17.5" y="5" width="3" height="12.5"/>',
+      route: '<circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/>',
       pencil: '<path d="m15.5 4.5 4 4L9 19l-5 1 1-5Z"/><path d="m13 7 4 4"/><path d="M12 21h9"/>',
     };
     S.doc = S.pencil;
