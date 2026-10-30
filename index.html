@@ -7,74 +7,88 @@
 <meta name="robots" content="noindex">
 <meta name="description" content="Lecture pages for SOS110, Building a Sustainable World.">
 
-<!-- === FONTS === Course Brand (sample 16): DM Serif Display headings, PT Serif body -->
+<!-- === FONTS === webapp design: DM Serif Display headings, Archivo Narrow body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===========================================
-   COURSE HOME
+   COURSE HOME (webapp design, same look as the lecture decks)
+   Beige page, white cards, DM Serif Display headings, Archivo Narrow body,
+   gold #C4851C accent, red #e53b3b for everything you tap, calm ease-out motion.
    A plain list of the lectures posted so far, grouped by module.
-   Add a card here when a new lecture folder is published.
+   Add a card in the <template> below when a new lecture folder is published.
    =========================================== */
 :root {
-  --Green:#75a29f; --golden:#eccf72; --Sky:#42a8bf; --Blue:#0d7397; --deep:#0a4f68;
-  --ink:#10313d; --mute:#4c6670; --paper:#f6f2e9; --paper-2:#ece5d6; --card:#fffdf8;
+  --page:#eeeae0; --card:#fff; --soft:#f7f5ef; --line:#d9d4c7;
+  --ink:#222; --head:#2b2b2b; --mute:#555;
+  --accent:#C4851C; --red:#e53b3b; --red-d:#c42f2f; --green:#2e7d5b;
   --display:'DM Serif Display', Georgia, serif;
-  --body:'PT Serif', Georgia, serif;
+  --body:'Archivo Narrow','Helvetica Neue','Arial Narrow',Arial,sans-serif;
+  --ease:cubic-bezier(.23,1,.32,1);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--paper); color:var(--ink); font:400 18px/1.55 var(--body); }
-a { color:var(--Blue); }
+body { background:var(--page); color:var(--ink); font:400 20px/1.4 var(--body); }
+a { color:var(--red); }
+.wrap { max-width:1120px; margin:0 auto; }
 
-/* === HEADER === blue band, like the title slides */
-header { background:var(--Blue); color:var(--paper); padding:56px 16px 48px; }
-.wrap { max-width:1040px; margin:0 auto; }
-header .k { color:var(--golden); }
-header h1 { font:400 clamp(40px, 7vw, 76px)/1.05 var(--display); margin:14px 0 18px; }
-header h1 em { color:var(--golden); }
-header p { max-width:640px; color:rgba(246,242,233,.9); }
-.swatches { display:flex; gap:10px; margin-top:26px; }
-.swatches i { width:22px; height:22px; border-radius:50%; border:2px solid var(--paper); }
+/* === HEADER === quiet kicker line, big serif title, gold rule */
+header { padding:44px 16px 8px; }
+header .k { font:600 15px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
+header h1 { font:400 clamp(44px, 7.5vw, 84px)/1 var(--display); color:var(--head); margin:14px 0 18px; }
+header h1 em { color:var(--accent); font-style:normal; }
+.rule { width:120px; height:5px; background:var(--accent); }
 
-.k { font:700 14px var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--Blue); }
-main { padding:48px 16px 72px; }
-h2 { font:400 clamp(28px, 4vw, 40px)/1.15 var(--display); margin:8px 0 20px; }
+main { padding:32px 16px 72px; }
+h2 { font:400 clamp(28px, 4vw, 40px)/1.1 var(--display); color:var(--head); margin:8px 0 18px; }
 
 [hidden] { display:none !important; }
-.module { margin-top:40px; }
+.module { margin-top:28px; background:var(--card); padding:28px 30px 30px; }
 .module:first-child { margin-top:8px; }
-.module h2 { padding-bottom:10px; border-bottom:3px solid var(--Green); }
-.module h2 span { display:block; font:700 14px var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--Blue); margin-bottom:6px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
-.card { display:block; text-decoration:none; color:inherit; background:var(--card);
-  border:2px solid var(--paper-2); border-top:8px solid var(--Sky); border-radius:16px; padding:20px 22px; transition:transform .2s, border-color .2s; }
-.card:hover, .card:focus-visible { transform:translateY(-3px); border-color:var(--Sky); outline:none; }
-.card.review { border-top-color:var(--golden); }
-.card .meta { font:700 12px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
-.card h3 { font:400 23px/1.2 var(--display); margin:8px 0; }
-.card .go { display:inline-block; margin-top:8px; font-weight:700; color:var(--Blue); }
+.module h2 { padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:20px; }
+.module h2 span { display:block; font:600 15px var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+.card { display:block; text-decoration:none; color:inherit; background:var(--soft);
+  border-top:5px solid var(--accent); padding:18px 22px 20px; transition:transform .25s var(--ease), box-shadow .25s var(--ease); }
+.card:hover, .card:focus-visible { transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.12); outline:none; }
+.card:focus-visible { outline:3px solid var(--red); outline-offset:2px; }
+.card:active { transform:scale(.97); }
+.card.review { border-top-color:var(--head); }
+.card .meta { font:600 14px var(--body); letter-spacing:.12em; text-transform:uppercase; color:var(--mute); }
+.card h3 { font:400 26px/1.15 var(--display); color:var(--head); margin:8px 0 10px; }
+.card .go { display:inline-flex; align-items:center; gap:8px; font:700 17px var(--body); color:var(--red); }
 
-/* === INSTRUCTOR GATE === the lecture list shows only after the admin signs in */
-.gate { max-width:560px; margin:24px auto 0; text-align:center; background:var(--card); border:2px solid var(--paper-2); border-top:8px solid var(--golden); border-radius:16px; padding:32px 24px; }
+/* === ACCESS GATE === the lecture list shows after the access code or instructor sign-in */
+.gate { max-width:600px; margin:24px auto 0; text-align:center; background:var(--card); border-top:6px solid var(--accent); padding:34px 26px; }
 .gate h2 { margin-top:0; }
 .gate p { color:var(--mute); }
-.btn { font:700 17px var(--body); background:var(--Blue); color:var(--paper); border:0; border-radius:999px; padding:12px 26px; cursor:pointer; margin-top:16px; }
-.btn:hover, .btn:focus-visible { background:var(--deep); }
+.btn { font:700 19px var(--body); letter-spacing:.02em; background:var(--red); color:#fff; border:0; border-radius:999px; padding:12px 28px; cursor:pointer; margin-top:16px; transition:transform .16s var(--ease), background .2s; }
+.btn:hover, .btn:focus-visible { background:var(--red-d); }
+.btn:active { transform:scale(.97); }
 .btn[disabled] { opacity:.6; cursor:wait; }
-.btn.quiet { background:transparent; color:var(--Blue); border:2px solid var(--Blue); padding:8px 18px; font-size:15px; margin:0; }
-.msg { min-height:1.5em; margin-top:14px; font-size:15px; }
-.msg.err { color:#a3361f; }
-.gate hr { border:0; border-top:1px solid var(--paper-2); margin:28px 0 20px; }
+.btn.quiet { background:#fff; color:var(--red); border:2px solid var(--red); padding:7px 18px; font-size:16px; margin:0; }
+.btn.quiet:hover, .btn.quiet:focus-visible { background:var(--red); color:#fff; }
+.msg { min-height:1.5em; margin-top:14px; font-size:17px; }
+.msg.err { color:#b3452c; }
+.gate hr { border:0; border-top:1px solid var(--line); margin:28px 0 20px; }
 .code-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
-.code-row input { font:700 18px var(--body); letter-spacing:.12em; text-transform:uppercase; padding:10px 16px; border:2px solid var(--paper-2); border-radius:999px; background:#fff; color:var(--ink); width:220px; }
-.code-row input:focus { outline:none; border-color:var(--Sky); }
+.code-row input { font:700 20px var(--body); letter-spacing:.12em; text-transform:uppercase; padding:10px 18px; border:2px solid var(--line); border-radius:0; background:#fff; color:var(--ink); width:230px; }
+.code-row input:focus { outline:3px solid var(--red); outline-offset:2px; border-color:var(--red); }
 .code-row .btn { margin-top:0; }
 .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
-.who { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font-size:15px; color:var(--mute); margin-bottom:8px; }
+.who { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font-size:17px; color:var(--mute); margin-bottom:8px; }
 
-footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:15px; color:var(--mute); }
+footer { border-top:1px solid var(--line); padding:28px 16px 40px; font-size:17px; color:var(--mute); }
+
+/* entrance: rise and fade, transform and opacity only */
+.module, .gate { animation:rise .5s var(--ease) both; }
+@keyframes rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce) {
+  .module, .gate { animation:none; }
+  .card, .btn { transition:none; }
+}
+@media (max-width:600px) { .module { padding:22px 18px 24px; } }
 
 </style>
 </head>
@@ -82,10 +96,9 @@ footer { border-top:1px solid var(--paper-2); padding:28px 16px 40px; font-size:
 
 <header>
   <div class="wrap">
+    <div class="k">Lectures and class exercises</div>
     <h1>SOS110 Building a <em>Sustainable</em> World</h1>
-    <div class="swatches" aria-hidden="true">
-      <i style="background:var(--Green)"></i><i style="background:var(--golden)"></i><i style="background:var(--Sky)"></i><i style="background:var(--deep)"></i>
-    </div>
+    <div class="rule" aria-hidden="true"></div>
   </div>
 </header>
 
