@@ -5,10 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Class Exercise 18 · Urban ecosystems and resilience · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30b">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30c">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
+/* reference-guide slides (8 and 9): icon rows on the left, photo on the right */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .pair{position:absolute;inset:0 0 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff}
+.ref .pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
+.ref .pair~.credit-ph{color:#444;text-shadow:none}
+.ref .bar .src{width:760px}
+.ref .pop textarea.fld{font-size:30px;line-height:1.35}
 /* === M6 L2 EXERCISES ONLY === */
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 .steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
@@ -114,45 +124,48 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- EXERCISE 1. THEN AND NOW -->
-<section class="slide" id="then">
-  <div class="rail"><b>18</b><span>Exercise 1 of 3 · Then and now</span></div>
-  <div class="content fill" style="top:80px;bottom:40px">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-tree"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
-    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Manhattan, <em>then</em> and now</h2>
-    <p class="steps reveal d2"><b>Look at the two pictures.</b> An <b>ecosystem service</b> is a free benefit that nature gives people, such as clean air or clean water.</p>
-    <div class="exl reveal d3">
-      <div class="pic"><figure class="fig" style="margin:0"><img src="../m6-l2-urban-ecology/img/mannahatta-1609.jpg" alt="Manhattan in 1609, covered in forest and wetland, next to lower Manhattan today, packed with skyscrapers"><figcaption class="credit">Left: Mannahatta circa 1609 (recreation), Markley Boyer / The Mannahatta Project. Right: lower Manhattan today, Stephen Amiaga. Via Wildlife Conservation Society.</figcaption></figure></div>
-      <div class="ex">
-        <label><i>1</i>Pick one ecosystem service that was strong in 1609 and is weaker now.</label>
-        <div class="chipsel" id="svc"><button type="button" data-v="Clean air">Clean air</button><button type="button" data-v="Clean water">Clean water</button><button type="button" data-v="Soaking up flood water">Soaking up flood water</button><button type="button" data-v="Cooling the air">Cooling the air</button><button type="button" data-v="Homes for wildlife">Homes for wildlife</button><button type="button" data-v="Places to relax">Places to relax</button></div>
-        <label for="th-why"><i>2</i>What replaced it in today's city? How could the city bring a little of it back?</label>
-        <textarea id="th-why" maxlength="600" placeholder="Now there is …, and the city could bring it back by …"></textarea>
-        <div class="go-row"><button class="btn" type="button" id="th-save">Submit</button><span class="status" id="th-status"></span></div>
-      </div>
+<!-- EXERCISE 1. THEN AND NOW (icons, then a typed answer; same as Lecture 18 slide 8) -->
+<section class="slide ref" id="manhattan">
+  <div class="top">SOS110 · Class Exercise 18 · Exercise 1 of 3 · Then and now</div>
+  <div class="card">
+    <h2>Manhattan in <em>1609</em> and now</h2>
+    <p class="lead">Before the city, this island was a forest, wetland and shoreline. <b>Tap the first three icons</b> to look closer, then tap the pencil and type your answer.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="m-explore" style="--i:1"><span class="n">1</span><span><b>Explore</b><span class="d">See the island in 1609 next to today</span></span><span class="ic" data-ic="m-explore"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="m-data" style="--i:2"><span class="n">2</span><span><b>Data</b><span class="d">A few facts about what lived here</span></span><span class="ic" data-ic="m-data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="m-link" style="--i:3"><span class="n">3</span><span><b>Linkages</b><span class="d">How nature, people and money were tied together</span></span><span class="ic" data-ic="m-link"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span></button>
+      <button class="row mr" type="button" data-open="m-ans" style="--i:4"><span class="n">4</span><span><b>Your answer (submits)</b><span class="d">Type it in your own words</span></span><span class="ic" data-ic="m-ans"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span></button>
     </div>
+    <div class="photo"><div class="pair"><img src="../m6-l2-urban-ecology/img/manhattan-1609-then.jpg" alt="A recreation of Manhattan in 1609, covered in forest and wetland"><img src="../m6-l2-urban-ecology/img/manhattan-1609-now.jpg" alt="Lower Manhattan today, packed with skyscrapers"></div><span class="credit-ph">Left: 1609 (recreation), Markley Boyer / The Mannahatta Project. Right: now, Stephen Amiaga. Via Wildlife Conservation Society.</span></div>
   </div>
+  <div class="bar"><span>Icons opened<b id="m-n">0 of 3</b></span><span class="src">Summary based on the New York Times virtual walk with ecologist Eric Sanderson (Kimmelman, 2020), described in secondary reports, in our own words. The article itself could not be opened for this page.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-m-explore" role="dialog" aria-modal="true" aria-label="Same island, 400 years apart"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Explore · 1609 and now</div><h3>Same island, 400 years apart</h3><p>Look at the two views. On the left is a recreation of Manhattan in 1609. On the right is lower Manhattan today.</p><img src="../m6-l2-urban-ecology/img/mannahatta-1609.jpg" alt="Left: Manhattan in 1609, forest and wetland. Right: lower Manhattan today, packed with skyscrapers." style="width:100%;max-height:430px;object-fit:cover;display:block;margin:6px 0 10px"><p style="font-size:24px;margin:0">Left: Mannahatta circa 1609 (recreation), Markley Boyer / The Mannahatta Project. Right: Stephen Amiaga. Via Wildlife Conservation Society. <a href="https://tinyurl.com/nytimes-1609" target="_blank" rel="noopener">Open the interactive comparison</a></p></div>
+  <div class="pop" id="pop-m-data" role="dialog" aria-modal="true" aria-label="Small island, many ecosystems"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data · what lived here</div><h3>Small island, many ecosystems</h3><div class="abc"><div class="box"><div class="l">Pre-colonial Manhattan</div><div class="v">55<small> ecosystems</small></div><div class="d">The ecologist's count for the island in 1609.</div></div><div class="box"><div class="l">Yellowstone today</div><div class="v">66<small> ecosystems</small></div><div class="d">Spread over about 2.2 million acres.</div></div><div class="box warn"><div class="l">Size</div><div class="v">~1<small> %</small></div><div class="d">Manhattan is about 1% the size of Yellowstone, yet it came close on variety.</div></div></div><p>Why it matters: a small place can hold a lot of different habitats, and each one does a job for the whole system.</p></div>
+  <div class="pop" id="pop-m-link" role="dialog" aria-modal="true" aria-label="Nature and people were connected"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Linkages · how it fit together</div><h3>Nature and people were connected</h3><p><b>Whales and money.</b> Early sketches of Manhattan show a whale in the Hudson River. A church charter claimed dead whales that washed ashore, for their oil and bone. Wildlife was part of the local economy.</p><p><b>One place, many services.</b> Forest, wetland and shoreline gave food, clean water and protection from storms at the same time. Take one away and the others change too.</p><p><b>A different path.</b> The ecologist wonders what if the country had been settled from the West: Manhattan might have been protected as a national park.</p></div>
+  <div class="pop" id="pop-m-ans" role="dialog" aria-modal="true" aria-label="Type your answer"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your answer (submits)</div><h3>Type your answer</h3><p class="qn">What did the city lose when forest and wetland became buildings, and how could it bring one part back? Write 2 to 4 sentences in your own words.</p><textarea id="m-text" class="fld" maxlength="900" rows="5" placeholder="Type here. Use your own words." style="height:230px;resize:none"></textarea><div class="go"><button class="rbtn submit" type="button" id="m-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="m-status"></span></div></div>
 </section>
 
-<!-- EXERCISE 2. STORM SURGE PLAN -->
-<section class="slide" id="plan">
-  <div class="rail"><b>18</b><span>Exercise 2 of 3 · Storm plan</span></div>
-  <div class="content fill" style="top:80px;bottom:40px">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
-    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Plan for a <em>storm surge</em></h2>
-    <p class="steps reveal d2"><b>A hurricane is pushing seawater into a coastal city.</b> Pick one fix from each column. <b>Resilience</b> means a city can take a hit and keep working.</p>
-    <div class="three reveal d3">
-      <div class="col s"><h3>Social</h3><div class="d">People and rules</div>
-        <div class="chipsel" id="p-s"><button type="button" data-v="Text alerts and evacuation plans">Text alerts and evacuation plans</button><button type="button" data-v="Neighbors check on older residents">Neighbors check on older residents</button><button type="button" data-v="Free shelters in schools">Free shelters in schools</button><button type="button" data-v="Flood insurance for renters">Flood insurance for renters</button></div></div>
-      <div class="col e"><h3>Ecological</h3><div class="d">Living things and soil</div>
-        <div class="chipsel" id="p-e"><button type="button" data-v="Restore wetlands and oyster reefs">Restore wetlands and oyster reefs</button><button type="button" data-v="Rain gardens and parks that soak up water">Rain gardens and parks that soak up water</button><button type="button" data-v="Green roofs">Green roofs</button><button type="button" data-v="Street trees">Street trees</button></div></div>
-      <div class="col"><h3>Technical</h3><div class="d">Built things and machines</div>
-        <div class="chipsel" id="p-t"><button type="button" data-v="Sea wall">Sea wall</button><button type="button" data-v="Flood gates at subway entrances">Flood gates at subway entrances</button><button type="button" data-v="Power equipment moved upstairs">Power equipment moved upstairs</button><button type="button" data-v="Bigger storm drains and pumps">Bigger storm drains and pumps</button></div></div>
+<!-- EXERCISE 2. WHEN THE WATER RISES (icons, then a typed answer; same as Lecture 18 slide 9) -->
+<section class="slide ref" id="water">
+  <div class="top">SOS110 · Class Exercise 18 · Exercise 2 of 3 · When the water rises</div>
+  <div class="card">
+    <h2>When the water <em>rises</em></h2>
+    <p class="lead">Sea-level rise is always a risk for a coastal city like New York. Add a storm and it gets worse. <b>Tap the first three icons</b>, then tap the pencil and type your answer.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="w-explore" style="--i:1"><span class="n">1</span><span><b>Explore</b><span class="d">Where does the water go in a storm surge?</span></span><span class="ic" data-ic="w-explore"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="w-data" style="--i:2"><span class="n">2</span><span><b>Data</b><span class="d">What to check on a map</span></span><span class="ic" data-ic="w-data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="w-link" style="--i:3"><span class="n">3</span><span><b>Linkages</b><span class="d">Social, ecological and technical parts</span></span><span class="ic" data-ic="w-link"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span></button>
+      <button class="row mr" type="button" data-open="w-ans" style="--i:4"><span class="n">4</span><span><b>Your answer (submits)</b><span class="d">Type it in your own words</span></span><span class="ic" data-ic="w-ans"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span></button>
     </div>
-    <div class="ex reveal d3" style="margin-top:14px"><label for="pl-why"><i>2</i>Which people or places would your plan protect first, and why?</label>
-      <textarea id="pl-why" maxlength="600" placeholder="Our plan protects … first because …"></textarea>
-      <div class="go-row"><button class="btn" type="button" id="pl-save">Submit</button><span class="status" id="pl-status"></span></div></div>
+    <div class="photo"><img class="ph" src="../m6-l2-urban-ecology/img/manhattan-night.jpg" style="object-position:center" alt="Lower Manhattan seen from above at night, with large parts of the island dark and clouds overhead"><span class="credit-ph">Lower Manhattan at night. Photographer and credit were not supplied.</span></div>
   </div>
+  <div class="bar"><span>Icons opened<b id="w-n">0 of 3</b></span><span class="src">Framework: McPhearson et al. (2022), a SETs framework for urban ecosystem services. The check list is a teaching list, not data.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-w-explore" role="dialog" aria-modal="true" aria-label="Storm surge"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Explore · storm surge</div><h3>Sea level is higher, then a storm pushes more water in</h3><p>A storm surge is a wall of seawater pushed onto land by a hurricane or strong storm. When the sea is already higher, the same storm reaches farther inland.</p><p>Heavy rain can make it worse: rain falling on pavement has nowhere to soak in, so water pools in low streets and underground spaces.</p><p><b>Think about:</b> which parts of a coastal city sit lowest, and what is underground there?</p></div>
+  <div class="pop" id="pop-w-data" role="dialog" aria-modal="true" aria-label="What to check"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data · what to check</div><h3>Questions a planner puts on the map</h3><div class="abc"><div class="box"><div class="l">Land</div><div class="v">Low</div><div class="d">Which blocks sit close to sea level?</div></div><div class="box"><div class="l">People</div><div class="v">Who?</div><div class="d">Who lives there, and can they leave quickly?</div></div><div class="box warn"><div class="l">Systems</div><div class="v">Below</div><div class="d">Which subway entrances and power rooms are below flood height?</div></div></div><p>These are the questions, not measured numbers. A real plan answers them with local maps and records.</p></div>
+  <div class="pop" id="pop-w-link" role="dialog" aria-modal="true" aria-label="Three parts at once"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Linkages · three parts at once</div><h3>A resilient plan covers people, nature and machines</h3><p><b>Social:</b> warnings, evacuation help, neighbors checking on each other, who is most at risk.</p><p><b>Ecological:</b> wetlands, oyster reefs, trees, parks and soil that soak up water. This is green infrastructure.</p><p><b>Technical:</b> sea walls, pumps, flood gates, power and subways.</p><p>If one part fails, the others carry more of the load. That is why a plan needs all three.</p></div>
+  <div class="pop" id="pop-w-ans" role="dialog" aria-modal="true" aria-label="Type your answer"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your answer (submits)</div><h3>Type your answer</h3><p class="qn">A storm surge hits a coastal city at higher sea level. What parts of the city are most at risk, and what one social, ecological or technical fix would you use first? Write 2 to 4 sentences.</p><textarea id="w-text" class="fld" maxlength="900" rows="5" placeholder="Type here. Use your own words." style="height:230px;resize:none"></textarea><div class="go"><button class="rbtn submit" type="button" id="w-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="w-status"></span></div></div>
 </section>
 
 <!-- EXERCISE 3. CITY METABOLISM -->
@@ -195,7 +208,7 @@ p,li{text-wrap:pretty}
 </section>
 
 </main></div>
-<script src="../../shared/deck.js?v=2026-10-30b"></script>
+<script src="../../shared/deck.js?v=2026-10-30c"></script>
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
@@ -254,25 +267,30 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
   $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
 }));
 
-/* === SAVE: THEN AND NOW === saves under m6-s2 as then-now */
-$('#th-save').addEventListener('click', async () => {
-  const st = $('#th-status'), why = $('#th-why').value.trim().slice(0, 600);
-  if (!picks.svc) { say(st, 'Pick an ecosystem service first.', 'err'); return; }
-  if (!why) { say(st, 'Answer the second question.', 'err'); return; }
-  if (!await ensureUser(st)) return;
-  try { await live.saveSim('then-now', { service: picks.svc, why }); say(st, 'Submitted. Thanks!', 'ok'); }
-  catch (e) { say(st, e.message, 'err'); }
-});
-
-/* === SAVE: STORM PLAN === saves under m6-s2 as storm-plan */
-$('#pl-save').addEventListener('click', async () => {
-  const st = $('#pl-status'), why = $('#pl-why').value.trim().slice(0, 600);
-  if (!picks['p-s'] || !picks['p-e'] || !picks['p-t']) { say(st, 'Pick one fix from each column.', 'err'); return; }
-  if (!why) { say(st, 'Write who or what you would protect first.', 'err'); return; }
-  if (!await ensureUser(st)) return;
-  try { await live.saveSim('storm-plan', { social: picks['p-s'], ecological: picks['p-e'], technical: picks['p-t'], why }); say(st, 'Submitted. Thanks!', 'ok'); }
-  catch (e) { say(st, e.message, 'err'); }
-});
+/* === TYPED ANSWERS (exercises 1 and 2) === open at least 2 of the 3 info icons, then type; saved as manhattan-summary and water-summary */
+function typedAnswer(slideId, pre, sim) {
+  const slide = $('#' + slideId), opened = new Set(), need = 2;
+  const txt = $(`#${pre}-text`), st = $(`#${pre}-status`), btn = $(`#${pre}-save`);
+  slide.addEventListener('ref:open', e => {
+    const id = e.detail;
+    if (id && !id.endsWith('-ans')) {
+      opened.add(id);
+      const ic = slide.querySelector(`[data-ic="${id}"]`); if (ic) ic.classList.add('done');
+      $(`#${pre}-n`).textContent = `${opened.size} of 3`;
+    }
+  });
+  btn.addEventListener('click', async () => {
+    const answer = txt.value.trim();
+    if (opened.size < need) { say(st, `Open at least ${need} of the 3 icons first.`, 'err'); return; }
+    if (answer.split(/\s+/).filter(Boolean).length < 12) { say(st, 'Type your answer in your own words (at least a couple of sentences).', 'err'); return; }
+    if (!await ensureUser(st)) return;
+    say(st, 'Sending…');
+    try { await live.saveSim(sim, { answer, opened: opened.size }); Deck.sent(btn, 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  });
+}
+typedAnswer('manhattan', 'm', 'manhattan-summary');
+typedAnswer('water', 'w', 'water-summary');
 
 /* === SAVE: CITY LOOP === saves under m6-s2 as city-loop */
 $('#lp-save').addEventListener('click', async () => {
