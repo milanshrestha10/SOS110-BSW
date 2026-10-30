@@ -1,0 +1,43 @@
+/* Class Exercise 16 slides inside the Lecture 16 deck */
+.steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
+.pl{display:grid;grid-template-columns:1fr 560px;gap:34px;align-items:start}
+.pl-rows{display:grid;gap:10px}
+.opt-row{display:grid;grid-template-columns:62px 1fr 150px 78px;gap:16px;align-items:center;width:100%;text-align:left;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:8px 18px;font:400 24px/1.2 var(--body);color:var(--ink);cursor:pointer;transition:border-color .25s,background .25s}
+.opt-row:hover{border-color:var(--Sky)}
+.opt-row.on{border-color:#2e7d5b;background:rgba(46,125,91,.1)}
+.opt-row .ico{margin:0}
+.opt-row b{display:block;font-weight:700;font-size:26px}.opt-row .d{display:block;font-size:20px;color:var(--mute)}
+.pips{display:grid;gap:3px;font:700 14px var(--body);letter-spacing:.06em;color:var(--mute)}
+.pips div{display:flex;align-items:center;gap:6px}.pips i{display:inline-flex;gap:3px}.pips i u{width:14px;height:14px;border-radius:50%;background:var(--paper-2);display:block}
+.pips i u.f{background:var(--Blue)}.pips .h i u.f{background:#2e7d5b}.pips .e i u.f{background:var(--accent)}
+.opt-row .cost{font:400 42px var(--display);color:var(--Blue);text-align:right}.opt-row .cost small{font:700 14px var(--body);color:var(--mute);display:block;letter-spacing:.1em}
+.pl-side{display:grid;gap:14px}
+.budget{background:var(--card);border:3px solid var(--paper-2);border-radius:18px;padding:14px 22px}
+.budget .row{display:flex;justify-content:space-between;align-items:baseline;font:700 21px var(--body)}
+.budget .row b{font:400 46px var(--display);color:var(--Blue)}.budget.over .row b{color:#b3452c}
+.budget .t,.mt .t{height:22px;background:var(--paper-2);border-radius:8px;overflow:hidden}.budget .t i,.mt .t i{display:block;height:100%;background:var(--Blue);transition:width .35s var(--ease)}
+.budget.over .t i{background:#b3452c}
+.mt{display:grid;grid-template-columns:200px 1fr 54px;gap:12px;align-items:center;font:700 21px var(--body)}
+.mt b{font:400 32px var(--display);text-align:right}
+.mt.g .t i{background:var(--Sky)}.mt.h .t i{background:#2e7d5b}.mt.e .t i{background:var(--accent)}
+.pl-read{font-size:22px;line-height:1.35;background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--golden);border-radius:14px;padding:10px 18px;min-height:76px}
+.chipsel{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 10px}
+.chipsel button{font:700 20px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 18px;cursor:pointer}
+.chipsel button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.ex textarea{height:84px;font-size:21px}.ex label{font-size:22px}
+.ngh{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.nb{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:18px 28px}
+.nb h3{font:400 38px var(--display);display:flex;align-items:center;gap:14px;margin:0 0 4px}
+.nb p{font-size:23px;line-height:1.32;margin:0 0 10px;color:var(--mute)}
+.nb .mt{grid-template-columns:230px 1fr 54px;margin-bottom:8px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.rule{background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 20px;font:400 23px/1.28 var(--body);color:var(--ink);text-align:left;cursor:pointer}
+.rule b{display:block;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:var(--Blue);margin-bottom:2px}
+.rule:hover{border-color:var(--Sky)}.rule.on{border-color:var(--accent);background:rgba(196,133,28,.12)}
+.jc{display:grid;gap:14px}
+.jc-q{display:grid;grid-template-columns:1fr 520px;gap:20px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-left:10px solid var(--golden);border-radius:16px;padding:14px 24px}
+.jc-q b{display:block;font:400 34px var(--display);margin-bottom:2px}.jc-q span.d{font-size:23px;color:var(--mute);line-height:1.3}
+.jc-q .chipsel{margin:0;justify-content:flex-end}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+.go-row .status{margin:0;font-size:20px}
+
