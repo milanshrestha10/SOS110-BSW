@@ -86,6 +86,8 @@
 .two.r .num{font-size:34px!important}
 .two.r .side .rq h3{font-size:38px}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.photo-bg .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.92) 50%,rgba(255,255,255,.55) 68%,rgba(255,255,255,.08) 84%,rgba(255,255,255,0) 94%)}
+.webapp .slide.photo-bg::before{display:none}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -492,12 +494,13 @@
 </section>
 
 <!-- 17. WHO CAN USE ROOFTOP SOLAR -->
-<section class="slide">
+<section class="slide photo-bg">
+  <img class="hero-img" style="object-position:center" src="img/solar-home-hero.jpg" alt="A house at sunset with solar roof tiles, an electric car in the garage and a battery on the garage wall"><div class="hero-scrim"></div>
   <div class="rail"><b>16</b><span>Big idea 3 · Energy justice</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 3 · who is served?</div>
     <h2 class="reveal d2" style="font-size:70px">Who can get a home like <em>this</em>?</h2>
-    <div class="two r reveal d3">
+    <div class="two r reveal d3" style="grid-template-columns:860px 1fr">
       <div class="side">
         <ol class="num" style="font-size:30px;margin:0">
           <li>What must a household have to put solar tiles and a battery on its home?</li>
@@ -506,10 +509,10 @@
         </ol>
         <div class="rq" data-def><h3>Some ideas to compare</h3><p class="think">Tap after you talk with a neighbor.</p><p class="ans-text">Households need a roof they own, money or credit up front, and a sunny roof. Renters and people with low incomes may be left out. Efficiency upgrades, rebates aimed at lower-income households, and renter-friendly programs can widen access.</p></div>
       </div>
-      <div class="pic"><figure class="fig" style="margin:0"><img src="img/solar-home.jpg" alt="A house at sunset with solar roof tiles, an electric car in the garage and a battery on the garage wall"><figcaption class="credit">A home with rooftop solar, a battery and an electric car.</figcaption></figure></div>
     </div>
     <p class="src reveal d4">Discussion slide. The ideas are teaching examples, not findings from the EPA reading.</p>
   </div>
+  <p class="hero-cap">A home with rooftop solar, a battery and an electric car.</p>
 </section>
 
 <!-- 18. A JUST TRANSITION -->
