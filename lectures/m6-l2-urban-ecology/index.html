@@ -18,13 +18,6 @@
 .ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
 .ref .bar .src{width:760px}
 .ref .pop textarea.fld{font-size:30px;line-height:1.35}
-/* slide 5: picture left, three big ideas stacked right */
-.b5{display:grid;grid-template-columns:540px 1fr;gap:40px;align-items:stretch;height:480px}
-.b5 .pic,.b5 .fig{position:relative;height:100%;margin:0;overflow:hidden}.b5 .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.b5 figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 0;font-size:15px;color:#666}
-.b5c{display:flex;flex-direction:column;gap:14px}
-.b5c .card{flex:none;height:152px;box-sizing:border-box;overflow:hidden;display:grid;grid-template-columns:76px 1fr;column-gap:20px;align-items:center;padding:8px 26px}
-.b5c .card .ico{grid-row:1/4;margin:0}.b5c .card br{display:none}
-.b5c .card h3{font-size:32px;margin:0}.webapp .slide .b5c .card p{font-size:23px;line-height:1.25;margin:0}.b5c .card .tag{margin:0 0 4px}.b5c .card .tag{font-size:18px}
 /* === LECTURE 18 === urban ecosystems and resilience (M6 L2) */
 .content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
 .two.l.w{grid-template-columns:1000px 1fr}
@@ -193,11 +186,11 @@ p,li{text-wrap:pretty}
   <div class="content center">
     <div class="k reveal">Big ideas · cities as ecosystems that can bounce back</div>
     <h2 class="reveal d2">Today's big <em>ideas</em></h2>
-    <div class="reveal d3 b5"><div class="pic"><figure class="fig" style="margin:0"><img src="img/cities-people-nature.jpg"  alt="Two city scenes side by side. Left: a cable car climbing a street in San Francisco at sunset. Right: a park with people on the grass, a cyclist and an apartment building."><figcaption class="credit">Photographer and credit were not supplied.</figcaption></figure></div><div class="b5c">
+    <div class="grid g3 bigs reveal d3">
       <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-tree"/></svg></span><br><span class="tag">1 · Types of urban ecology</span><h3>How do we study a city's ecology?</h3><p>Look at nature in the city, the flows of the city as a whole, and how to design cities for people and nature. Natural systems shape our quality of life.</p></div>
       <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-building"/></svg></span><br><span class="tag">2 · Urban sustainability issues</span><h3>Why do some cities do better?</h3><p>Some cities are more livable and prosperous than others. Sustainability can guide how a city is planned.</p></div>
       <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-waves"/></svg></span><br><span class="tag">3 · Making cities more resilient</span><h3>Can cities handle a changing climate?</h3><p>Resilience means absorbing a shock and recovering. Think about how the megacities of the future will manage.</p></div>
-    </div></div>
+    </div>
     <div class="take reveal d4"><b>Takeaway</b>We live in an increasingly urban world, so how we design cities will shape our future.</div>
   </div>
 </section>
@@ -317,13 +310,14 @@ p,li{text-wrap:pretty}
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · two ideas that work together</div>
     <h2 class="reveal d2" style="font-size:70px">A sustainable and <em>resilient</em> city</h2>
-    <div class="two l reveal d3" style="grid-template-columns:860px 1fr">
+    <div class="two l reveal d3" style="grid-template-columns:560px 440px 1fr;gap:36px">
       <div class="pic dia"><svg viewBox="0 0 600 440" role="img" aria-label="Two overlapping circles labeled urban ecology and sustainability">
         <circle cx="225" cy="220" r="170" fill="#75a29f" fill-opacity=".55"/><circle cx="375" cy="220" r="170" fill="#42a8bf" fill-opacity=".55"/>
         <text x="150" y="215" text-anchor="middle" font-size="34" font-weight="700" fill="#222">Urban</text><text x="150" y="255" text-anchor="middle" font-size="34" font-weight="700" fill="#222">ecology</text>
         <text x="470" y="235" text-anchor="middle" font-size="26" font-weight="700" fill="#222">Sustainability</text>
         <text x="300" y="215" text-anchor="middle" font-size="22" font-weight="700" fill="#222">Resilient</text><text x="300" y="243" text-anchor="middle" font-size="22" font-weight="700" fill="#222">city</text>
       </svg></div>
+      <div class="pic"><figure class="fig" style="position:relative;margin:0;height:100%;min-height:520px;overflow:hidden"><img src="img/cities-people-nature.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="Two city scenes side by side. Left: a cable car climbing a street in San Francisco at sunset. Right: a park with people on the grass, a cyclist and an apartment building."><figcaption class="credit" style="position:absolute;left:0;right:0;bottom:0;padding:6px 10px;color:#fff;background:rgba(0,0,0,.5);font-size:15px">A city for people and nature. Photographer and credit were not supplied.</figcaption></figure></div>
       <div class="side">
         <div class="sc green"><b>Urban ecology</b>The study of how living things, including people, relate to their urban environment.</div>
         <div class="sc sky"><b>Resilience</b>The capacity of a city's systems to absorb disturbances, adapt to changing conditions and keep working.</div>
