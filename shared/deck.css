@@ -490,3 +490,13 @@ body.deck-embed .deck-side,body.deck-embed .deck-controls,body.deck-embed .deck-
 .ref .rbtn.submit svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .ref .rbtn.submit.sent{background:var(--rg);border-color:var(--rg)}
 @media (prefers-reduced-motion: reduce){.ref .fact,.ref .ic,.ref .rbtn{transition:none!important}}
+
+/* ANSWER ICON (Milan, 2026-10-30): the icon that opens a pop-up where students write an answer that submits is a BLACK
+   round pencil (gold pencil on black, ASU gold #FFC627), unlike the learn-only icons. It is .note (corner button) or any
+   .ic that holds the #i-pencil / #i-doc symbol, so small inline copies and the panel tag match. Keep every
+   answer-submitting pop-up on this icon in all new decks. */
+.ref .note,.ref .ic:has(use[href="#i-pencil"]),.ref .ic:has(use[href="#i-doc"]){background:#000;color:#FFC627}
+.ref .note{box-shadow:0 3px 12px rgba(0,0,0,.35);transition:transform .16s var(--ease)}
+.ref .note:hover{transform:scale(1.1)}.ref .note:active{transform:scale(.97)}
+.ref .ic.done:has(use[href="#i-pencil"]),.ref .ic.done:has(use[href="#i-doc"]),.ref .note.done{background:var(--rg);color:#fff}
+@media (prefers-reduced-motion: reduce){.ref .note{transition:none}}

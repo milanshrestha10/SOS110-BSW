@@ -6,7 +6,7 @@
 <title>SOS110 design system · Reference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-28">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30b">
 <style>
 .ref h2{width:1200px;font-size:70px}
 .ref .lead{top:150px;width:1100px;font-size:32px}
@@ -37,7 +37,7 @@
       <div class="icons">
         <button class="row mr" type="button" data-open="more" style="--i:2;display:block;border:0;width:210px;padding:0;text-align:center;flex:none"><span class="ic" style="margin:0 auto 8px;display:inline-grid"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span><br>More information</button>
         <button class="row mr" type="button" data-open="facts" style="--i:3;display:block;border:0;width:210px;padding:0;text-align:center;flex:none"><span class="ic" style="margin:0 auto 8px;display:inline-grid"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span><br>Facts and indicators</button>
-        <button class="row mr" type="button" data-open="submit" style="--i:4;display:block;border:0;width:210px;padding:0;text-align:center;flex:none"><span class="ic" style="margin:0 auto 8px;display:inline-grid"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span><br>Write and submit</button>
+        <button class="row mr" type="button" data-open="submit" style="--i:4;display:block;border:0;width:210px;padding:0;text-align:center;flex:none"><span class="ic" style="margin:0 auto 8px;display:inline-grid"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span><br>Your answer (submits)</button>
       </div>
       <p class="sub mr" style="--i:5">Fonts: <b>DM Serif Display</b> for headings and numbers, <b>Archivo Narrow</b> for body (stand-in for Helvetica Neue LT Pro 47 Light Condensed).</p>
     </div>
@@ -48,12 +48,12 @@
   <div class="pop" id="pop-more"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Magnifying glass</div><h3>Tap for more information</h3><p>Use it on any text item, row or photo spot that has a longer explanation. The panel opens over a dimmed page and closes with the red X, a tap outside, or Esc.</p></div>
   <div class="pop" id="pop-facts"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data</div><h3>Facts and indicators</h3><p>Use it for numbers, rates and indicators. Show up to three boxes, and label made-up numbers as teaching numbers.</p>
     <div class="abc"><div class="box"><div class="l">Example fact</div><div class="v">~350</div><div class="d">Sunny days a year in Arizona.</div></div><div class="box"><div class="l">Example indicator</div><div class="v">5.6<small> years</small></div><div class="d">Break-even time.</div></div><div class="box warn"><div class="l">Caution</div><div class="v">6 pm</div><div class="d">Peak demand, low sun.</div></div></div></div>
-  <div class="pop" id="pop-submit"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Document</div><h3>Write and submit your answer</h3><p>The document icon opens the answer panel. Inside, the Submit button carries the same icon and turns green with Deck.sent(button, "Submitted") once saved.</p>
+  <div class="pop" id="pop-submit"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span>Your answer</div><h3>Write and submit your answer</h3><p>The pencil icon opens the answer panel. Inside, the Submit button carries the same icon and turns green with Deck.sent(button, "Submitted") once saved.</p>
     <div class="go"><button class="rbtn submit" type="button" id="demo-sub"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button></div></div>
 </section>
 
 </main></div>
-<script src="../../shared/deck.js?v=2026-10-28"></script>
+<script src="../../shared/deck.js?v=2026-10-30b"></script>
 <script>document.getElementById('demo-sub').addEventListener('click', e => Deck.sent(e.currentTarget, 'Submitted'));</script>
 </body>
 </html>
