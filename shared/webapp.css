@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap');
+/* ===========================================
+   SOS110 WEBAPP DESIGN (reference-guide style) applied to the older lecture and exercise decks.
+   Load AFTER deck.css and any lecture css, and add class "webapp" to main.deck-stage.
+   White card on a beige page, DM Serif Display headings, Archivo Narrow body (stand-in for Helvetica Neue
+   LT Pro 47 Light Condensed), gold #C4851C accent, red #e53b3b for everything you tap, calm ease-out motion.
+   Layout, behaviour and data hooks stay as authored; only colour, type, chrome and motion change.
+   =========================================== */
+:root:has(.webapp){--stage-bg:#d9d4c7}
+.webapp{
+  --slide-bg:#eeeae0;--paper:#eeeae0;--paper-2:#e6e1d4;--card:#fff;
+  --ink:#222;--mute:#555;
+  --Blue:#2b2b2b;--deep:#111;--Sky:#C4851C;--Green:#2e7d5b;--golden:#C4851C;--accent:#C4851C;
+  --red:#e53b3b;--red-d:#c42f2f;
+  --body:'Archivo Narrow','Helvetica Neue','Arial Narrow',Arial,sans-serif;
+  --sans:'Archivo Narrow','Helvetica Neue','Arial Narrow',Arial,sans-serif;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+.webapp .slide{font-size:30px;line-height:1.35;font-weight:400}
+.webapp .slide b,.webapp .slide strong{font-weight:700}
+
+/* --- page chrome: the blue rail becomes a quiet kicker line, content sits on a white card --- */
+.webapp .slide:not(.hero):not(.ref)::before{content:"";position:absolute;left:60px;right:60px;top:80px;bottom:40px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.webapp .rail{left:60px;right:60px;top:26px;bottom:auto;width:auto;height:auto;background:none;display:flex;align-items:baseline;gap:18px;z-index:1}
+.webapp .rail b{position:static;text-align:left;font:400 34px/1 var(--display);color:var(--accent)}
+.webapp .rail span{position:static;writing-mode:horizontal-tb;transform:none;margin:0;font:600 22px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#555}
+.webapp .slide:not(.ref) .content{left:150px;right:150px;top:112px;bottom:95px}
+.webapp .slide:not(.ref) .k{font:600 22px var(--body);letter-spacing:.14em;color:var(--accent)}
+.webapp .slide:not(.ref) h2{font-size:80px;color:#2b2b2b}
+.webapp .slide:not(.ref) h3{color:#2b2b2b}
+.webapp .slide:not(.ref) .lead{font-size:36px;line-height:1.3}
+.webapp .slide:not(.ref) .small{font-size:26px}
+.webapp .slide:not(.ref) .card p{font-size:26px;line-height:1.4}
+.webapp .slide:not(.ref) .card{border:0;border-radius:0;background:#f7f5ef;border-top:5px solid var(--accent)}
+.webapp .slide:not(.ref) .card.accent,.webapp .slide:not(.ref) .card.green,.webapp .slide:not(.ref) .card.gold,.webapp .slide:not(.ref) .card.blue{border-top:5px solid var(--accent)}
+.webapp .slide:not(.ref) .card .tag{font:600 19px var(--body);letter-spacing:.14em}
+.webapp .slide:not(.ref) .gold-rule{background:var(--accent);height:5px}
+.webapp .slide:not(.ref) ul.clean li::before{background:var(--accent)}
+.webapp .slide:not(.ref) ol.num li::before{background:#2b2b2b;color:#fff}
+.webapp .slide:not(.ref) .fig,.webapp .slide:not(.ref) .chart-box,.webapp .slide:not(.ref) .gauge{border:0;border-radius:0;background:#f7f5ef}
+.webapp .slide:not(.ref) .fig figcaption{font-size:18px;background:#f7f5ef}
+.webapp .slide:not(.ref) .chip{border:2px solid var(--accent);border-radius:0;background:#fff;font:600 24px var(--body);letter-spacing:.04em}
+.webapp .slide:not(.ref) .ico{background:#2b2b2b;color:#fff}
+.webapp .slide:not(.ref) .ico.sky,.webapp .slide:not(.ref) .ico.gold{background:var(--accent);color:#fff}
+.webapp .slide:not(.ref) .ico.green,.webapp .slide:not(.ref) .ico.good{background:var(--Green)}
+.webapp .slide:not(.ref) .ico.mars,.webapp .slide:not(.ref) .ico.bad{background:#b3452c}
+
+/* --- vocabulary flip cards --- */
+.webapp .slide:not(.ref) .vcard .f{border:0;border-left:8px solid var(--accent);border-radius:0;background:#f7f5ef}
+.webapp .slide:not(.ref) .vcard .b{background:#2b2b2b;color:#fff;border-radius:0}
+.webapp .slide:not(.ref) .vcard p{font-size:26px}
+.webapp .slide:not(.ref) .vcard .hint{font-size:20px}
+
+/* --- everything you tap is red --- */
+.webapp .slide:not(.ref) .btn,.webapp .slide:not(.ref) .rbtn{background:var(--red);color:#fff;border-radius:999px;font:700 26px var(--body);letter-spacing:.02em;transition:transform .16s var(--ease),background .2s}
+.webapp .slide:not(.ref) .btn:hover{background:var(--red-d)}
+.webapp .slide:not(.ref) .btn:active{transform:scale(.97)}
+.webapp .slide:not(.ref) .btn.ghost{background:#fff;color:var(--red);border:2px solid var(--red)}
+.webapp .slide:not(.ref) .btn.ghost:hover{background:var(--red);color:#fff}
+.webapp .slide:not(.ref) .field{border:2px solid #cfc9ba;border-radius:0;font-family:var(--body)}
+.webapp .slide:not(.ref) .field:focus{outline:3px solid var(--red);outline-offset:2px}
+.webapp .slide:not(.ref) .opt{border:2px solid #d9d4c7;border-radius:0;font:400 32px var(--body);transition:transform .16s var(--ease),border-color .2s}
+.webapp .slide:not(.ref) .opt:hover{border-color:var(--red)}.webapp .opt:active{transform:scale(.985)}
+.webapp .slide:not(.ref) .opt b{background:#eeeae0;font:400 30px/52px var(--display)}
+.webapp .slide:not(.ref) .opt.picked{border-color:var(--red);background:#fdf1f1}.webapp .opt.picked b{background:var(--red);color:#fff}
+.webapp .slider label output{color:var(--red)}
+.webapp .slide:not(.ref) input[type=range]{accent-color:var(--red)}
+.webapp .slide:not(.ref) .vcard,.webapp .slide:not(.ref) [data-reveal],.webapp .slide:not(.ref) .rq{transition-timing-function:var(--ease)}
+.webapp .slide:not(.ref) .status{font-size:26px}
+
+/* --- title and end slides: same photo reveal, white scrim, ink badge --- */
+.webapp .hero{background:#eeeae0}
+.webapp .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 36%,rgba(255,255,255,.62) 56%,rgba(255,255,255,.12) 76%,rgba(255,255,255,0) 88%)}
+.webapp .hero-badge b{border:3px solid var(--accent);border-radius:0;background:#fff;color:#2b2b2b}
+.webapp .hero-badge b em{color:var(--accent)}
+.webapp .hero-badge span{font:700 32px/1.1 var(--body);letter-spacing:.02em}
+.webapp .hero .title-k{color:var(--accent)}
+.webapp .hero-sub{font-size:34px}
+.webapp .hero-sub .tagline{color:#2b2b2b}
+.webapp .hero .goldline{background:var(--accent)}
+
+/* --- motion: strong ease-out, short, transform and opacity only --- */
+.webapp .reveal{transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.webapp .slide.visible .d2{transition-delay:.08s}.webapp .slide.visible .d3{transition-delay:.16s}.webapp .slide.visible .d4{transition-delay:.26s}
+.webapp .vcard .in{transition:transform .5s var(--ease)}
+
+/* --- deck chrome: red on hover, same look as the reference pages --- */
+body:has(.webapp) .deck-progress{background:#C4851C}
+body:has(.webapp) .deck-side button,body:has(.webapp) .deck-controls{background:#fff;color:#222;border:1px solid #d9d4c7}
+body:has(.webapp) .deck-side small{color:#555}
+body:has(.webapp) .deck-controls button{background:#eeeae0;color:#222}
+body:has(.webapp) .deck-side button:hover,body:has(.webapp) .deck-side button:focus-visible,
+body:has(.webapp) .deck-controls button:hover,body:has(.webapp) .deck-controls button:focus-visible{background:#e53b3b;color:#fff;border-color:#e53b3b}
+body:has(.webapp) .deck-side button:hover small,body:has(.webapp) .deck-side button:focus-visible small{color:#fff}
+body:has(.webapp) .deck-side button:focus-visible,body:has(.webapp) .deck-controls button:focus-visible{outline-color:#C4851C}
+@media print{.webapp .slide:not(.hero):not(.ref)::before{box-shadow:none}}
+@media (prefers-reduced-motion: reduce){.webapp .reveal{transform:none;transition:opacity .2s}}
