@@ -45,6 +45,10 @@
 .webapp .slide:not(.ref) .ico.green,.webapp .slide:not(.ref) .ico.good{background:var(--Green)}
 .webapp .slide:not(.ref) .ico.mars,.webapp .slide:not(.ref) .ico.bad{background:#b3452c}
 
+/* --- big filled panels (definitions, what's due, key lines) are white with a gold top rule, not solid brown --- */
+.webapp .slide:not(.ref) .ej-def,.webapp .slide:not(.ref) .due-now,.webapp .slide:not(.ref) .wie-def,.webapp .slide:not(.ref) .dim-lead,.webapp .slide:not(.ref) .erat{background:#fff;border:2px solid #d9d4c7;border-top:6px solid var(--accent);border-radius:0;color:var(--ink)}
+.webapp .slide:not(.ref) .ej-def .tag,.webapp .slide:not(.ref) .due-now .tag,.webapp .slide:not(.ref) .wie-def .tag,.webapp .slide:not(.ref) .dim-lead .tag{color:var(--accent)}
+
 /* --- vocabulary flip cards --- */
 .webapp .slide:not(.ref) .vcard .f{border:0;border-left:8px solid var(--accent);border-radius:0;background:#f7f5ef}
 .webapp .slide:not(.ref) .vcard .b{background:#2b2b2b;color:#fff;border-radius:0}
