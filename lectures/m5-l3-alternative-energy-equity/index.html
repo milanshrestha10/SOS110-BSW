@@ -89,6 +89,7 @@
 .photo-bg .hero-scrim{background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.92) 50%,rgba(255,255,255,.55) 68%,rgba(255,255,255,.08) 84%,rgba(255,255,255,0) 94%)}
 .webapp .slide.photo-bg::before{display:none}
 </style>
+<link rel="stylesheet" href="exercise.css?v=2026-10-30">
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
 <body>
@@ -116,6 +117,11 @@
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
   <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
   <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
 </svg>
 <div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
 
@@ -250,38 +256,95 @@
     </div>
     <div class="dc-bar reveal d4">
       <div class="sc sky"><b>The link to this lecture</b>A utility says it lacks the power plants and lines to serve every request. New demand makes clean supply and efficiency matter more.</div>
-      <div class="rq" data-def><h3>Quick question: who should pay for the new power lines?</h3><p class="think">Tap to think.</p><p class="ans-text">Arizona's utility regulator says data centers should pay their own way, so households are not charged for upgrades built to serve them. Not everyone agrees on how.</p></div>
+      <div class="dc-ans ex">
+        <label for="dc-text"><i>1</i>Who should pay for the new power lines: the data center, or everyone who uses the grid? Why?</label>
+        <textarea id="dc-text" maxlength="500" placeholder="I think … should pay because …"></textarea>
+        <p class="dc-hint" id="dc-hint" hidden><b>Hint:</b> Ask who gains from the new lines, and who would pay if the cost went on every household's bill.</p>
+        <div class="dc-btns"><button class="btn ghost" type="button" id="dc-hint-btn" aria-expanded="false">Show a hint</button><button class="btn" type="button" id="dc-save">Submit</button><span class="status" id="dc-status"></span></div>
+      </div>
     </div>
     <p class="src reveal d4">Sources: AZFamily, "Data centers pushing Phoenix area's power grid to the limit" (Jul 2025; APS's Patrick Bogle). AZFamily (Feb 2026), water figures from Andy Masley, an estimate that others dispute. Not checked against APS or county records.</p>
   </div>
 </section>
 
-<!-- 7b. SHOULD YOUR HOME GO SOLAR? -->
-<section class="slide">
-  <div class="rail"><b>16</b><span>Case · Home solar</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Case · power at home</div>
-    <h2 class="reveal d2" style="font-size:70px">Should your home go <em>solar</em>?</h2>
-    <div class="two r reveal d3">
-      <div class="side">
-        <div class="ben3">
-          <h3>Pros</h3>
-          <div class="b3"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span><div><b>Sunshine</b><span>About 350 sunny days a year in Arizona.</span></div></div>
-          <div class="b3"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><div><b>Bills</b><span>A $150 bill drops to about $65 a month, saving roughly $1,000 a year.</span></div></div>
-          <div class="b3"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><div><b>Cleaner air</b><span>Less burning means less smog and less CO₂.</span></div></div>
-        </div>
-        <div class="ben3">
-          <h3>Cons</h3>
-          <div class="b3"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><div><b>Cost and break-even</b><span>$8,000 up front, $5,600 after a 30% incentive. It pays for itself in about 5.6 years.</span></div></div>
-          <div class="b3"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><div><b>Net metering</b><span>Selling extra power earns about half of what evening power costs, so break-even slips to about 8 years.</span></div></div>
-          <div class="b3"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-home"/></svg></span><div><b>Renters</b><span>No roof, a shaded or old roof, or no money up front.</span></div></div>
-        </div>
-      </div>
-      <div class="pic"><figure class="fig" style="margin:0"><img style="max-height:560px;object-fit:cover" src="img/tempe-solar-home.jpg" alt="A Tempe home with rooftop solar panels under a blue sky"><figcaption class="credit">A Tempe home with rooftop solar. Photo supplied by the instructor.</figcaption></figure></div>
+<!-- EXERCISE 1. SOLAR AT HOME: PROS AND CONS -->
+<section class="slide ref" id="plan">
+  <div class="top">SOS110 · Lecture 16 · Class Exercise 1 of 3 · Work with a neighbor · About 12 minutes</div>
+  <div class="card">
+    <h2>Should your home go <em>solar</em>?</h2>
+    <p class="lead">Arizona gets about <i>350 sunny days</i> a year. That is a big <i>pro</i> for solar. But there are <i>cons</i> too. <b>Tap each red icon</b> to read it, then add it to your pros or cons.</p>
+    <div id="cols"></div>
+    <div class="ask">When you have read them, tap the <span class="ic" style="margin:0"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></span> pencil icon to answer two questions.</div>
+    <div class="photo">
+      <img class="ph" src="img/tempe-solar-home.jpg" alt="A Tempe home with rooftop solar panels under a blue sky">
+      <img class="cut" src="img/sun.png" alt="">
+      <button class="hs" type="button" data-open="sun" style="left:37%;top:46%" aria-label="Sunshine"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-sun"/></svg></button>
+      <div class="credit-ph">Photo: instructor-supplied</div>
+      <button class="note" type="button" data-open="answers" aria-label="Answer the questions"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></button>
     </div>
-    <p class="src reveal d4">Dollars, units and rates are made-up teaching numbers. The incentive is modeled on the 30% residential clean energy credit. Rules change, so check current law. You will weigh these in Class Exercise 16.</p>
+  </div>
+  <div class="bar"><span>Pros<b id="n-pro">0 added</b></span><span>Cons<b id="n-con">0 added</b></span><span class="src">Dollars, units and rates are made-up teaching numbers. The federal incentive is modeled on the 30% residential clean energy credit. Rules change, so check current law.</span></div>
+  <div class="shade" id="shade"></div>
+  <div id="pops"></div>
+</section>
+
+<!-- EXERCISE 2. ENERGY JUSTICE: WHO GETS IT -->
+<section class="slide" id="rule">
+  <div class="rail"><b>16</b><span>Exercise 2 of 3 · Energy justice</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · work with a neighbor · about 12 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Who gets the <em>benefits</em>?</h2>
+    <p class="steps reveal d2"><b>Tap each rule to compare how it treats two neighborhoods.</b> Then choose one and answer the two questions. <b>Energy justice</b> means benefits and burdens are shared fairly, and everyone has a voice.</p>
+    <div class="ngh reveal d3">
+      <div class="nb"><h3><span class="ico sm green"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Maple Court</h3><p>Mostly homeowners with higher incomes, big sunny roofs and newer buildings. Far from the old power plant.</p>
+        <div class="mt g"><span>Lower energy bills</span><div class="t"><i data-n="bills" style="width:0"></i></div><b data-nv="bills">·</b></div>
+        <div class="mt h"><span>Cleaner air</span><div class="t"><i data-n="air" style="width:0"></i></div><b data-nv="air">·</b></div>
+        <div class="mt e"><span>A voice in planning</span><div class="t"><i data-n="voice" style="width:0"></i></div><b data-nv="voice">·</b></div></div>
+      <div class="nb"><h3><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Riverside</h3><p>Mostly renters with lower incomes, older leaky buildings and high bills. Next to the old gas power plant and a busy road.</p>
+        <div class="mt g"><span>Lower energy bills</span><div class="t"><i data-n="bills" style="width:0"></i></div><b data-nv="bills">·</b></div>
+        <div class="mt h"><span>Cleaner air</span><div class="t"><i data-n="air" style="width:0"></i></div><b data-nv="air">·</b></div>
+        <div class="mt e"><span>A voice in planning</span><div class="t"><i data-n="voice" style="width:0"></i></div><b data-nv="voice">·</b></div></div>
+    </div>
+    <div class="rules reveal d3" id="rules"></div>
+    <div class="reveal d3 ex" style="display:grid;grid-template-columns:1fr 1fr 190px;gap:22px;align-items:end">
+      <div><label for="ru-left"><i>1</i>Who is still left out under your rule?</label><textarea id="ru-left" maxlength="500" placeholder="Under this rule, … is still left out because …"></textarea></div>
+      <div><label for="ru-add"><i>2</i>What one thing would you add to make it fairer?</label><textarea id="ru-add" maxlength="500" placeholder="I would add …"></textarea></div>
+      <div><button class="btn" type="button" id="ru-save" style="width:100%">Submit</button><span class="status" id="ru-status" style="display:block;margin:8px 0 0;font-size:19px"></span></div>
+    </div>
+    <p class="credit reveal d4" style="font-size:18px;margin-top:6px">The neighborhoods and every score are made-up teaching numbers (0 to 10). Look at the pattern, not the numbers.</p>
   </div>
 </section>
+
+<!-- EXERCISE 3. JUSTICE CHECK -->
+<section class="slide" id="check">
+  <div class="rail"><b>16</b><span>Exercise 3 of 3 · Justice check</span></div>
+  <div class="content fill" style="top:80px;bottom:40px">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Class exercise · work with a neighbor · about 8 minutes</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Is going solar <em>fair</em>?</h2>
+    <p class="steps reveal d2"><b>Look back at your solar choice in Exercise 1.</b> Rate it on each question, then write one change that would make it fairer.</p>
+    <div class="jc reveal d3" id="jc"></div>
+    <div class="ex reveal d3" style="margin-top:14px"><label for="jc-fix"><i>4</i>Write one change that would make solar fairer.</label>
+      <textarea id="jc-fix" maxlength="600" placeholder="To make solar fairer, I would …"></textarea>
+      <div class="go-row"><button class="btn" type="button" id="jc-save">Submit</button><span class="status" id="jc-status"></span></div></div>
+  </div>
+</section>
+
+<!-- EX. QUICK CHECK -->
+<section class="slide">
+  <div class="rail"><b>16</b><span>Quick check</span></div>
+  <div class="content center">
+    <div class="k reveal">Quick check · counts for participation</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1560px">A city closes an old gas power plant and builds a solar farm across town. Which follow-up question is about <em>energy justice</em>?</h2>
+    <div class="poll reveal d3" data-poll="exitex" data-correct="1">
+      <button class="opt" type="button"><b>A</b>How many kilowatt-hours will the farm make each year?</button>
+      <button class="opt" type="button"><b>B</b>Who breathed the old plant's pollution, and do those residents and the plant's workers share in the new benefits?</button>
+      <button class="opt" type="button"><b>C</b>How many panels fit on one acre?</button>
+      <button class="opt" type="button"><b>D</b>Which panel brand is the cheapest?</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exitex">Show answer</button><span class="status" data-poll-status="exitex" style="margin:0"></span></div>
+  </div>
+</section>
+
 
 <!-- 7. WHAT COUNTS AS ALTERNATIVE ENERGY -->
 <section class="slide">
@@ -597,6 +660,7 @@
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { loadSession, fill } from '../../shared/course.js';
+import { initExercise } from './exercise.js?v=2026-10-30';
 import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
 const LECTURE = 'm5-s3';
@@ -744,6 +808,7 @@ $('#checkin').addEventListener('click', async () => {
     showUser();
   } catch (e) { say(st, e.message, 'err'); }
 });
+initExercise(live, ensureUser);
 /* Polls: one answer per browser, changeable. */
 $$('[data-poll]').forEach(poll => {
   const id = poll.dataset.poll;
