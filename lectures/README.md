@@ -65,7 +65,7 @@ It keeps everything from the enhanced style of Lecture 10 (`m3-l3-atmosphere`):
 
 - **Icon badges** on section kickers, big-idea cards, the Key vocabulary heading and each vocab card. Copy the inline SVG sprite from Lecture 10 and add symbols as needed; the `.ico` badge styles are in `deck.css`.
 - **Real pictures** from the instructor's slides wherever the topic has one, in the lecture's `img/` folder, resized for the web, with credits kept. Use `.fig` for them.
-- **Drawn diagrams** (inline SVG) where no picture exists. Label made-up numbers as teaching numbers.
+- **Drawn diagrams** (inline SVG) where no picture exists. Draw them in the deck palette on a light background (ink #2b2b2b, gold #C4851C, green #2e7d5b, beige #f7f5ef): flat filled circles with the label inside, thick dark arrows with real arrowheads, no thin pale lines, and text large enough to read from the back of the room (Lecture 18 slides 10 and 11 are the model). Label made-up numbers as teaching numbers.
 - **Embedded video** when the instructor gives a link, with a link to open it on YouTube. Never leave a placeholder.
 - **Extra visual slides** that show a process or a trend (a formation diagram, a chart, a map), not only text and cards.
 - **Interactive pieces**: the warm-up and exit polls, flip cards and at least one game or simulation.
