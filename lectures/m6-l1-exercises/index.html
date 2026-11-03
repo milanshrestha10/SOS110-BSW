@@ -6,7 +6,7 @@
 <title>Class Exercise 17 · Waste and the circular economy · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30b">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-11-03a">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
 /* === LECTURE 17 === waste and the circular economy (M6 L1). Reference-guide components are in deck.css. */
@@ -382,9 +382,10 @@ a.vid:active{transform:scale(.97)}
 </section>
 
 </main></div>
-<script src="../../shared/deck.js?v=2026-10-30b"></script>
+<script src="../../shared/deck.js?v=2026-11-03a"></script>
 <script type="module">
 import { connect } from '../../shared/live.js';
+import { initPace } from '../../shared/pace.js';
 import { loadSession, fill } from '../../shared/course.js';
 import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
@@ -475,6 +476,7 @@ sortGame('tr', [
 
 /* === ATTENDANCE, POLLS, ANSWERS === */
 const live = await connect(LECTURE);
+initPace(live, 'm6-l1-exercises');
 const note = $('[data-mode-note]');
 if (note && live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
 function showUser() { const u = live.user(); if (u && $('[data-name]')) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } }
