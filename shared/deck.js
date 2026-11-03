@@ -47,8 +47,26 @@
   ['mousemove', 'pointerdown', 'touchstart'].forEach(t => addEventListener(t, wake, { passive: true }));
   wake();
 
+  /* === PACE LIMIT === the instructor can hold students back: Deck.setLimit(n) caps the highest
+     slide index a student can reach (null = no cap). Set by shared/pace.js on student pages only. */
+  let limit = null;
+  const wait = document.createElement('div');
+  wait.className = 'deck-wait';
+  wait.setAttribute('role', 'status');
+  wait.textContent = 'Your instructor will open the next step soon. Take a moment to review your work.';
+  document.body.appendChild(wait);
+  function setLimit(n) {
+    const was = limit;
+    limit = n === null || n === undefined ? null : Math.max(0, Math.floor(n));
+    if (limit !== null && current > limit) go(limit); else go(current);
+    if (was !== null && (limit === null || limit > was)) {
+      [side, ctl].forEach(el => { const b = el.querySelector('[data-go="1"]'); b.classList.remove('deck-ping'); void b.offsetWidth; b.classList.add('deck-ping'); });
+    }
+  }
+
   function go(i) {
-    i = Math.max(0, Math.min(slides.length - 1, i));
+    const top = limit === null ? slides.length - 1 : Math.min(slides.length - 1, limit);
+    i = Math.max(0, Math.min(top, i));
     slides.forEach((s, n) => { if (n !== i) s.classList.remove('active', 'visible'); });
     const s = slides[i];
     s.classList.add('active');
@@ -56,7 +74,8 @@
     current = i;
     bar.style.width = `${((i + 1) / slides.length) * 100}%`;
     ctl.querySelector('span').textContent = `${i + 1} / ${slides.length}`;
-    [side, ctl].forEach(el => { el.querySelector('[data-go="-1"]').disabled = i === 0; el.querySelector('[data-go="1"]').disabled = i === slides.length - 1; });
+    [side, ctl].forEach(el => { el.querySelector('[data-go="-1"]').disabled = i === 0; el.querySelector('[data-go="1"]').disabled = i >= top; });
+    wait.classList.toggle('on', limit !== null && i >= limit && limit < slides.length - 1);
     if (location.hash !== `#${i + 1}`) history.replaceState(null, '', `#${i + 1}`);
     document.dispatchEvent(new CustomEvent('deck:slide', { detail: { index: i, slide: s } }));
     tell();
@@ -129,6 +148,6 @@
   /* Mark a submit button as sent: Deck.sent(button, 'Submitted') */
   function sent(btn, label) { btn.classList.add('sent'); if (label) { const t = btn.querySelector('span') || btn; t.textContent = label; } }
 
-  window.Deck = { go, sent, get index() { return current; }, slides };
+  window.Deck = { go, sent, setLimit, get index() { return current; }, slides };
   go((parseInt(location.hash.slice(1), 10) || 1) - 1);
 })();
