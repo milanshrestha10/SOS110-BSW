@@ -147,7 +147,18 @@ async function firebaseBackend(lectureId) {
       return me;
     },
     async signOut() { await auth.signOut(a); me = null; },
-    onLecture: cb => fs.onSnapshot(lecRef, s => cb(s.data() || {}), () => cb({})),
+    /* Reading the lecture record needs a signed-in session. A student who has not checked in yet
+       has none, so start an anonymous one first; otherwise the listener is refused and never
+       recovers (this is what lets the instructor's pace control reach a student's deck). */
+    onLecture: cb => {
+      let off = () => {}, dead = false;
+      (async () => {
+        try { if (!a.currentUser) await studentSession(); } catch { /* offline: leave the deck open */ }
+        if (dead) return;
+        off = fs.onSnapshot(lecRef, s => cb(s.data() || {}), () => cb({}));
+      })();
+      return () => { dead = true; off(); };
+    },
     async checkIn(code) {
       need();
       try {
