@@ -93,6 +93,8 @@ function demoBackend(lectureId) {
       if (!me) throw new Error('Check in on the attendance slide first.');
       update(d => { (d.sims ||= {})[`${sim}__${me.uid}`] = { sim, uid: me.uid, name: me.name, data, at: Date.now() }; });
     },
+    /* this student's own saved result for one sim (or null), so a page can stay locked after a reload */
+    async mySim(sim) { return me ? (store.read().sims || {})[`${sim}__${me.uid}`] || null : null; },
     /* admin */
     async setLecture(patch) { update(d => { d.lecture = { ...(d.lecture || {}), ...patch }; }); },
     async getCode() { return (store.read().lecture || {}).code || ''; },
@@ -178,6 +180,12 @@ async function firebaseBackend(lectureId) {
       need();
       try { await fs.setDoc(fs.doc(col('sims'), `${sim}__${me.uid}`), { sim, uid: me.uid, name: me.name, data, at: fs.serverTimestamp() }); }
       catch (e) { throw explain(e, 'The class server did not accept this result. Check in on the attendance slide, then try again.'); }
+    },
+    /* this student's own saved result for one sim (or null), so a page can stay locked after a reload */
+    async mySim(sim) {
+      if (!me) return null;
+      try { const s = await fs.getDoc(fs.doc(col('sims'), `${sim}__${me.uid}`)); return s.exists() ? s.data() : null; }
+      catch { return null; }
     },
     /* admin */
     async setLecture(patch) {
