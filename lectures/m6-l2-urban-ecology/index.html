@@ -231,6 +231,29 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
+<!-- 7. POLL 18.1: CENTRAL PARK -->
+<section class="slide" id="cpark">
+  <div class="rail"><b>18</b><span>Poll 18.1</span></div>
+  <div class="content center">
+    <div class="pollwrap">
+      <div>
+        <h2 class="reveal d2" style="margin-bottom:22px">Poll <em>18.1</em></h2>
+        <p class="pq reveal d2">What value does Central Park provide to New York City?</p>
+        <p class="pnote reveal d3"><b>Select all that apply.</b> <i>Consider not only ecosystem services, but also socio-economic and technological values.</i></p>
+        <div class="poll multi reveal d3" data-poll="cpark" data-multi>
+          <button class="opt" type="button" role="checkbox" aria-checked="false"><b>A</b>Environmental infrastructures, such as cooling the city, improving air quality, absorbing stormwater, and supporting biodiversity</button>
+          <button class="opt" type="button" role="checkbox" aria-checked="false"><b>B</b>Economic value through tourism, recreation, jobs, nearby businesses, and property values</button>
+          <button class="opt" type="button" role="checkbox" aria-checked="false"><b>C</b>Shared public goods: gatherings/events, interactions, and a space and opportunities for exercise, relaxation, and stress reduction</button>
+          <button class="opt" type="button" role="checkbox" aria-checked="false"><b>D</b>Educational value through opportunities to study ecology, management, technology, and sustainable business</button>
+          <button class="opt" type="button" role="checkbox" aria-checked="false"><b>E</b>Central Park provides little or no meaningful value to New York City</button>
+        </div>
+        <div class="status" data-poll-status="cpark"></div>
+      </div>
+      <figure class="fig reveal d4"><img src="img/central-park-hero.jpg" alt="Aerial view of Central Park, a large green rectangle of trees and lakes surrounded by tall city buildings"><figcaption>Photo: Central Park Conservancy</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- 8. 1609 -->
 <section class="slide ref" id="manhattan">
   <div class="top">SOS110 · Lecture 18 · Think first · Look at all parts of the system</div>
@@ -781,15 +804,23 @@ function typedAnswer(slideId, pre, sim) {
 typedAnswer('manhattan', 'm', 'manhattan-summary');
 typedAnswer('water', 'w', 'water-summary');
 
-/* Polls: one answer per browser, changeable. */
+/* Polls: one answer per browser, changeable. A multi-select poll (data-multi) saves each option on its own
+   as poll id "<poll>-a" ... "-e" with choice 1 (ticked) or 0 (cleared), so students can tick several. */
 $$('[data-poll]').forEach(poll => {
   const id = poll.dataset.poll;
   const st = $(`[data-poll-status="${id}"]`);
+  const multi = poll.hasAttribute('data-multi');
   $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
     if (!await ensureUser(st)) return;
-    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    let on;
+    if (multi) { on = !btn.classList.contains('picked'); btn.classList.toggle('picked', on); btn.setAttribute('aria-checked', on); }
+    else $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
     say(st, 'Sending…');
-    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    try {
+      if (multi) await live.vote(`${id}-${'abcdefghij'[i]}`, on ? 1 : 0);
+      else await live.vote(id, i);
+      say(st, 'Answer recorded. You can change it until the poll closes.', 'ok');
+    }
     catch (e) { say(st, e.message, 'err'); }
   }));
 });
