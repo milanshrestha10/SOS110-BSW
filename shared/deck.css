@@ -509,3 +509,16 @@ body.deck-embed .deck-side,body.deck-embed .deck-controls,body.deck-embed .deck-
 @keyframes deck-ping{0%{box-shadow:0 0 0 0 rgba(236,207,114,.9)}100%{box-shadow:0 0 0 22px rgba(236,207,114,0)}}
 .pace-note{margin-top:10px;font:700 18px var(--body);color:var(--Blue)}
 @media (prefers-reduced-motion:reduce){.deck-wait{transition:none}.deck-ping{animation:none}}
+
+/* Poll slide with a photo and tick boxes (select all that apply) */
+.pollwrap{display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:center}
+.pq{font:700 38px/1.2 var(--body);margin:0 0 10px}
+.pnote{font:400 28px/1.3 var(--body);margin:0 0 20px}
+.poll.multi{gap:12px;max-width:none}
+.poll.multi .opt{font-size:26px;line-height:1.2;padding:12px 24px;gap:22px}
+.poll.multi .opt b{width:46px;height:46px;font-size:26px;line-height:46px;border-radius:10px}
+.poll.multi .opt.picked::after{content:"\2713";margin-left:auto;font-size:34px;color:var(--red,#b3452c)}
+.webapp .slide:not(.ref) .poll.multi .opt.picked b{background:var(--red,#b3452c);color:#fff}
+.webapp .slide:not(.ref) .poll.multi .opt{font-size:30px}
+.webapp .slide:not(.ref) .poll.multi .opt b{font-size:26px;line-height:46px}
+@media (max-width:900px){.pollwrap{grid-template-columns:1fr}}
