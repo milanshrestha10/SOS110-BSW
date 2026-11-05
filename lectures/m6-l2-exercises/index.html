@@ -40,6 +40,15 @@
 .three .col.s{border-top-color:var(--golden)}.three .col.e{border-top-color:#2e7d5b}
 .three h3{font:400 34px var(--display);margin:0 0 6px}.three .d{font-size:20px;color:var(--mute);margin-bottom:10px}
 .three .chipsel{flex-direction:column;align-items:stretch}.three .chipsel button{text-align:left;font-size:21px;border-radius:14px;line-height:1.25}
+/* exercises 3 and 4: Our World in Data city chart */
+.cityframe{position:relative;width:100%;height:600px;border-radius:18px;overflow:hidden;background:var(--card);border:2px solid var(--paper-2)}
+.cityframe iframe,.ref .photo iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cityframe .wait,.ref .photo .wait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--mute);font-size:24px}
+.yrs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 14px}
+.yrs button{font:700 24px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 22px;cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease}
+.yrs button:hover{border-color:var(--Sky)}.yrs button:active{transform:scale(.97)}
+.yrs button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.yrs .alt{font-size:20px;margin-left:auto;color:var(--mute)}.yrs .alt a{color:var(--Blue)}
 /* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
 :root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
 .reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
@@ -130,7 +139,7 @@ p,li{text-wrap:pretty}
 
 <!-- EXERCISE 1. THEN AND NOW (icons, then a typed answer; same as Lecture 18 slide 8) -->
 <section class="slide ref" id="manhattan">
-  <div class="top">SOS110 · Class Exercise 18 · Exercise 1 of 3 · Then and now</div>
+  <div class="top">SOS110 · Class Exercise 18 · Exercise 1 of 5 · Then and now</div>
   <div class="card">
     <h2>Manhattan in <em>1609</em> and now</h2>
     <p class="lead">Before the city, this island was a forest, wetland and shoreline. <b>Tap the first three icons</b> to look closer, then tap the pencil and type your answers.</p>
@@ -152,7 +161,7 @@ p,li{text-wrap:pretty}
 
 <!-- EXERCISE 2. WHEN THE WATER RISES (icons, then a typed answer; same as Lecture 18 slide 9) -->
 <section class="slide ref" id="water">
-  <div class="top">SOS110 · Class Exercise 18 · Exercise 2 of 3 · When the water rises</div>
+  <div class="top">SOS110 · Class Exercise 18 · Exercise 2 of 5 · When the water rises</div>
   <div class="card">
     <h2>When the water <em>rises</em></h2>
     <p class="lead">Sea-level rise is always a risk for a coastal city like New York. Add a storm and it gets worse. <b>Tap the first three icons</b>, then tap the pencil and type your answers.</p>
@@ -172,9 +181,44 @@ p,li{text-wrap:pretty}
   <div class="pop" id="pop-w-ans" role="dialog" aria-modal="true" aria-label="Type your answer"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your answer (submits)</div><h3>Type your answer</h3><p class="qn">A storm surge hits a coastal city at higher sea level. What parts of the city are most at risk, and what one social, ecological or technical fix would you use first? Write 2 to 4 sentences.</p><textarea id="w-text" class="fld" maxlength="900" rows="5" placeholder="Type here. Use your own words." style="height:230px;resize:none"></textarea><div class="go"><button class="rbtn submit" type="button" id="w-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="w-status"></span></div></div>
 </section>
 
-<!-- EXERCISE 3. CITY METABOLISM -->
+<!-- EXERCISE 3. WATCH THE CITIES GROW (Our World in Data chart; year buttons reload it) -->
+<section class="slide" id="cities">
+  <div class="rail"><b>18</b><span>Exercise 3 of 5 · Watch the cities grow</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Class exercise · watch and tap</div>
+    <h2 class="reveal d2" style="font-size:54px;margin-bottom:8px">The world's largest <em>cities</em>, 1950 to 2100</h2>
+    <p class="steps reveal d2"><b>Watch how the graph changes.</b> Tap <b>1950</b>, then <b>1960, 1980, 2000, 2020</b> and finally <b>2100</b> (a projection, not a fact). Which cities enter the list? Which fall out? Tap <b>Play</b> to see all the years in order.</p>
+    <div class="yrs reveal d3" id="yrs"><button type="button" data-y="1950">1950</button><button type="button" data-y="1960">1960</button><button type="button" data-y="1980">1980</button><button type="button" data-y="2000">2000</button><button type="button" data-y="2020">2020</button><button type="button" data-y="2100">2100 (projected)</button><button type="button" id="yplay">Play</button><span class="alt">Chart not showing? <a href="https://ourworldindata.org/grapher/population-of-the-worlds-largest-cities?time=earliest..2100" target="_blank" rel="noopener">Open it in a new tab</a></span></div>
+    <div class="cityframe reveal d4" id="cityframe"><div class="wait">Loading the Our World in Data chart…<br>It needs an internet connection.</div></div>
+    <p style="font-size:18px;color:var(--mute);margin:8px 0 0">Data: UN World Urbanization Prospects, via Our World in Data. Years after today are projections.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 4. COMPARE THE BIGGEST CHANGES (assessment; typed answers submit as cities-summary) -->
+<section class="slide ref" id="citycmp">
+  <div class="top">SOS110 · Class Exercise 18 · Exercise 4 of 5 · Compare the biggest changes</div>
+  <div class="card">
+    <h2>Which cities changed the <em>most</em>?</h2>
+    <p class="lead">Use the chart on the right to compare 1950 with 2020. <b>Tap the first three icons</b>, then tap the pencil and type your answers.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="c-explore" style="--i:1"><span class="n">1</span><span><b>Explore</b><span class="d">Compare 1950 and 2020 on the chart</span></span><span class="ic" data-ic="c-explore"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-data" style="--i:2"><span class="n">2</span><span><b>Data</b><span class="d">A quick guide to the Demographic Transition Model</span></span><span class="ic" data-ic="c-data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-link" style="--i:3"><span class="n">3</span><span><b>Linkages</b><span class="d">What fast growth does to a city</span></span><span class="ic" data-ic="c-link"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span></button>
+      <button class="row mr" type="button" data-open="c-ans" style="--i:4"><span class="n">4</span><span><b>Your answer (submits)</b><span class="d">Type it in your own words</span></span><span class="ic" data-ic="c-ans"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span></button>
+    </div>
+    <div class="photo"><div class="wait">Loading the chart…</div><iframe src="https://ourworldindata.org/grapher/population-of-the-worlds-largest-cities?time=1950..2020" title="Our World in Data: population of the world's largest cities, 1950 to 2020" loading="lazy" allow="web-share; clipboard-write"></iframe></div>
+  </div>
+  <div class="bar"><span>Icons opened<b id="c-n">0 of 3</b></span><span class="src">Chart: UN World Urbanization Prospects, via Our World in Data. Chart not showing? <a href="https://ourworldindata.org/grapher/population-of-the-worlds-largest-cities?time=1950..2020" target="_blank" rel="noopener" style="color:inherit">Open it in a new tab</a>. The DTM guide is a teaching summary.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-c-explore" role="dialog" aria-modal="true" aria-label="Compare 1950 and 2020"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Explore · 1950 and 2020</div><h3>Compare the two ends of the chart</h3><p><b>Step 1.</b> Find the biggest cities in 1950. Note two or three names and their sizes.</p><p><b>Step 2.</b> Find the biggest cities in 2020. Which ones are new to the list?</p><p><b>Step 3.</b> Pick the city whose size changed the most. Where in the world is it?</p><p>Tip: use the chart's timeline, or hover over a line or bar to see its numbers. If it does not load, open it in a new tab.</p></div>
+  <div class="pop" id="pop-c-data" role="dialog" aria-modal="true" aria-label="The Demographic Transition Model"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data · the DTM in brief</div><h3>The Demographic Transition Model (DTM)</h3><div class="abc"><div class="box"><div class="l">Stage 1</div><div class="v">High, high</div><div class="d">Many births, many deaths. Population stays small.</div></div><div class="box warn"><div class="l">Stage 2</div><div class="v">Deaths fall</div><div class="d">Medicine, food and clean water arrive. Births stay high, so population jumps.</div></div><div class="box"><div class="l">Stages 3 and 4</div><div class="v">Births fall</div><div class="d">Growth slows as families get smaller.</div></div></div><p>Cities also grow when people move in from the countryside to find work.</p></div>
+  <div class="pop" id="pop-c-link" role="dialog" aria-modal="true" aria-label="Fast growth"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Linkages · what fast growth does</div><h3>When a city grows quickly</h3><p><b>Water and energy:</b> more people need more clean water, power and food from farther away.</p><p><b>Land and housing:</b> the city spreads out, and some people end up in crowded homes without basic services.</p><p><b>Waste and air:</b> more trash, more traffic, more heat and pollution.</p><p>Think about which of these fits the city you picked.</p></div>
+  <div class="pop" id="pop-c-ans" role="dialog" aria-modal="true" aria-label="Type your answer"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your answer (submits)</div><h3>Type your answers</h3><p class="qn"><i>1</i>Which city changed the most between 1950 and 2020, and by how much?</p><textarea id="c-text" class="fld" maxlength="600" rows="2" placeholder="Type here. Use your own words." style="height:100px;font-size:28px;resize:none;margin-bottom:10px"></textarea><p class="qn"><i>2</i>What might explain that growth? Think about the Demographic Transition Model (DTM).</p><textarea id="c-text2" class="fld" maxlength="900" rows="3" placeholder="Type here. Use your own words." style="height:130px;font-size:28px;resize:none;margin-bottom:10px"></textarea><p class="qn"><i>3</i>What sustainability challenges could this growth bring?</p><textarea id="c-text3" class="fld" maxlength="900" rows="3" placeholder="Type here. Use your own words." style="height:130px;font-size:28px;resize:none;margin-bottom:10px"></textarea><div class="go"><button class="rbtn submit" type="button" id="c-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="c-status"></span></div></div>
+</section>
+
+<!-- EXERCISE 5. CITY METABOLISM -->
 <section class="slide" id="loop">
-  <div class="rail"><b>18</b><span>Exercise 3 of 3 · City metabolism</span></div>
+  <div class="rail"><b>18</b><span>Exercise 5 of 5 · City metabolism</span></div>
   <div class="content fill loop-room">
     <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-factory"/></svg></span>Class exercise · work with a neighbor · about 10 minutes</div>
     <h2 class="reveal d2" style="font-size:54px;margin-bottom:10px">Close a <em>loop</em> in your city</h2>
@@ -278,7 +322,7 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
 /* === TYPED ANSWERS (exercises 1 and 2) === open at least 2 of the 3 info icons, then type; saved as manhattan-summary and water-summary */
 function typedAnswer(slideId, pre, sim) {
   const slide = $('#' + slideId), opened = new Set(), need = 2;
-  const txt = $(`#${pre}-text`), txt2 = $(`#${pre}-text2`), st = $(`#${pre}-status`), btn = $(`#${pre}-save`);
+  const txt = $(`#${pre}-text`), txt2 = $(`#${pre}-text2`), txt3 = $(`#${pre}-text3`), st = $(`#${pre}-status`), btn = $(`#${pre}-save`);
   slide.addEventListener('ref:open', e => {
     const id = e.detail;
     if (id && !id.endsWith('-ans')) {
@@ -293,14 +337,38 @@ function typedAnswer(slideId, pre, sim) {
     const answer2 = txt2 ? txt2.value.trim() : '';
     if (txt2 && answer2.split(/\s+/).filter(Boolean).length < 8) { say(st, 'Answer both questions in your own words.', 'err'); return; }
     if (answer.split(/\s+/).filter(Boolean).length < (txt2 ? 5 : 12)) { say(st, 'Type your answer in your own words (at least a couple of sentences).', 'err'); return; }
+    const answer3 = txt3 ? txt3.value.trim() : '';
+    if (txt3 && answer3.split(/\s+/).filter(Boolean).length < 5) { say(st, 'Answer all three questions in your own words.', 'err'); return; }
     if (!await ensureUser(st)) return;
     say(st, 'Sending…');
-    try { await live.saveSim(sim, txt2 ? { answer, answer2, opened: opened.size } : { answer, opened: opened.size }); Deck.sent(btn, 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+    try { await live.saveSim(sim, txt3 ? { answer, answer2, answer3, opened: opened.size } : txt2 ? { answer, answer2, opened: opened.size } : { answer, opened: opened.size }); Deck.sent(btn, 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
     catch (e) { say(st, e.message, 'err'); }
   });
 }
 typedAnswer('manhattan', 'm', 'manhattan-summary');
 typedAnswer('water', 'w', 'water-summary');
+typedAnswer('citycmp', 'c', 'cities-summary');
+
+/* === CITY CHART === year buttons reload the Our World in Data chart from 1950 up to that year */
+const CHART = 'https://ourworldindata.org/grapher/population-of-the-worlds-largest-cities';
+const frame = $('#cityframe');
+function showYear(y) {
+  $$('#yrs [data-y]').forEach(b => b.classList.toggle('on', b.dataset.y === String(y)));
+  const src = `${CHART}?time=earliest..${y}`;
+  let f = $('iframe', frame);
+  if (!f) { frame.innerHTML = ''; f = document.createElement('iframe'); f.title = "Our World in Data: population of the world's largest cities"; f.allow = 'web-share; clipboard-write'; frame.appendChild(f); }
+  f.src = src;
+}
+let timer = null;
+function stopPlay() { clearInterval(timer); timer = null; $('#yplay').textContent = 'Play'; }
+$$('#yrs [data-y]').forEach(b => b.addEventListener('click', () => { stopPlay(); showYear(b.dataset.y); }));
+$('#yplay').addEventListener('click', () => {
+  if (timer) { stopPlay(); return; }
+  const ys = $$('#yrs [data-y]').map(b => b.dataset.y); let i = 0;
+  $('#yplay').textContent = 'Stop'; showYear(ys[i]);
+  timer = setInterval(() => { i++; if (i >= ys.length) { stopPlay(); return; } showYear(ys[i]); }, 4000);
+});
+showYear(2100);
 
 /* === SAVE: CITY LOOP === saves under m6-s2 as city-loop */
 $('#lp-save').addEventListener('click', async () => {
