@@ -15,14 +15,14 @@
 .credit{font-size:16px;color:var(--mute);margin-top:6px}
 .take{margin-top:34px;background:var(--Blue);color:var(--paper);border-radius:18px;padding:24px 34px;font-size:29px;line-height:1.4}
 .take b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
-/* key terms: ten flip cards, five across */
-.vocab.ten{flex:1;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:22px}
-.vocab.ten .vcard{height:auto}
-.vocab.ten .vcard .f,.vocab.ten .vcard .b{padding:20px 24px}
-.vocab.ten .vcard h4{font-size:30px;margin-bottom:10px}
-.vocab.ten .vcard h4 .ico{width:38px;height:38px}
-.vocab.ten .vcard p{font-size:22px;line-height:1.38}
-.vocab.ten .vcard .b p{font-size:20px}
+/* key terms: six flip cards, three across */
+.vocab.six{flex:1;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:22px}
+.vocab.six .vcard{height:auto}
+.vocab.six .vcard .f,.vocab.six .vcard .b{padding:20px 24px}
+.vocab.six .vcard h4{font-size:38px;margin-bottom:10px}
+.vocab.six .vcard h4 .ico{width:38px;height:38px}
+.vocab.six .vcard p{font-size:27px;line-height:1.38}
+.vocab.six .vcard .b p{font-size:26px}
 /* module at a glance */
 .glance{flex:1;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
 .glance .card{padding:34px 40px}
@@ -161,7 +161,17 @@
   </div>
 </section>
 
-<!-- 2. MODULE 1 AT A GLANCE -->
+<!-- 2. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>1</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Six key <em>sustainability terms</em></h2>
+    <div class="vocab six reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 3. MODULE 1 AT A GLANCE -->
 <section class="slide">
   <div class="rail"><b>1</b><span>Module 1</span></div>
   <div class="content fill">
@@ -183,16 +193,6 @@
         <p class="small mute" style="margin-top:16px">Due dates and submission links are on the course site.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 3. KEY TERMS -->
-<section class="slide">
-  <div class="rail"><b>1</b><span>Key terms</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
-    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
-    <div class="vocab ten reveal d3" data-vocab></div>
   </div>
 </section>
 
@@ -658,11 +658,7 @@ const KEY_TERMS = [
   ['Sustainability', 'sprout', 'green', null, null],
   ['Triple Bottom Line (TBL)', 'scale', 'gold', null, null],
   ['Sustainable Development Goals (SDGs)', 'earth', 'sky', null, null],
-  ['Wicked Problems', 'alert', 'bad', null, null],
-  ['Complexity', 'cycle', '', 'Many parts that affect each other, so a change in one place can cause surprises somewhere else.', 'A drought raises food prices, which hits low-income families hardest.'],
-  ['Strategic Thinking', 'bulb', 'gold', 'Planning for the long term: setting goals, looking ahead and choosing actions that last.', 'A city plants shade trees now for hotter summers in 20 years.'],
   ['Equity', 'scale', 'sky', 'Fairness: making sure the benefits and burdens of a choice are shared fairly among people.', 'Placing cooling centers in neighborhoods with the fewest trees.'],
-  ['Co-existence', 'fish', 'green', 'People and other living things sharing land and water so that both can thrive.', 'Leaving a river healthy enough for both salmon and fishing towns.'],
   ['Regeneration', 'cycle', 'green', 'Restoring land, water or communities so they can renew themselves.', 'Replanting native grasses so a damaged field rebuilds its soil.'],
   ['Non-Western Views', 'users', '', 'Ways of knowing, often Indigenous, that see people as part of nature, not separate from it.', 'Treating a river or a salmon run as a relative to care for.'],
 ];
