@@ -546,7 +546,33 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 21. IN, OF AND FOR QUIZ -->
+<!-- 21. SORT GAME: IN, OF OR FOR -->
+<section class="slide" id="sort">
+  <div class="rail"><b>18</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Sorting quiz · tap a button for each card</div>
+    <h2 class="reveal d2" style="font-size:62px">Ecology <em>in, of or for</em> the city?</h2>
+    <div class="srt reveal d3">
+      <div class="srt-def">
+        <div class="sc"><b>In</b>Studying nature that lives inside a city, like birds and plants in a park.</div>
+        <div class="sc green"><b>Of</b>Studying the whole city as a system, with people and nature together.</div>
+        <div class="sc sky"><b>For</b>Using what we learn to design and care for cities.</div>
+        <div class="srt-score"><span id="srt-n">0</span> of 8 right</div>
+        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
+      </div>
+      <div class="srt-card" id="srt-card" aria-live="polite">
+        <div class="srt-no" id="srt-no"></div>
+        <div class="srt-q" id="srt-q"></div>
+        <div class="srt-btns"><button class="btn" type="button" data-a="i">In the city</button><button class="btn" type="button" data-a="o">Of the city</button><button class="btn" type="button" data-a="f">For the city</button></div>
+        <div class="srt-fb" id="srt-fb"></div>
+        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching examples. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- 22. IN, OF AND FOR QUIZ -->
 <section class="slide" id="iofq">
   <div class="rail"><b>18</b><span>Check your understanding</span></div>
   <div class="content fill">
@@ -572,7 +598,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 22. TAKEAWAY -->
+<!-- 23. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" style="object-position:center 40%" src="img/central-park-end.jpg" alt="Central Park and the city around it" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -624,6 +650,47 @@ $$('.chk li').forEach(li => {
 
 /* === QUICK QUESTIONS === tap to reveal, not recorded */
 wireReveals();
+
+/* === SORT: IN, OF OR FOR THE CITY === checked in the browser only */
+const NAME = { i: 'Ecology in the city', o: 'Ecology of the city', f: 'Ecology for the city' };
+const SORT = [
+  ['Counting the bird species that live in one city park', 'i', 'It studies nature living inside the city, so it is ecology in the city.'],
+  ['Tracking all the water, energy and materials that flow into and out of a whole city', 'o', 'It treats the city as one system. This is urban metabolism, ecology of the city.'],
+  ['Planting rain gardens and street trees to cool hot blocks and soak up storms', 'f', 'It uses what we learn to design and care for the city, so it is ecology for the city.'],
+  ['Surveying the plants growing in a vacant lot', 'i', 'It studies the living things inside the city, so it is ecology in the city.'],
+  ['Studying how people, buildings and ecosystems affect each other across a whole city', 'o', 'People and nature together as one system: ecology of the city.'],
+  ["Designing a wetland that cleans a city's wastewater", 'f', 'Design and stewardship put knowledge to work: ecology for the city.'],
+  ['Measuring how many lizards live along a desert canal', 'i', 'It looks at wildlife inside the city, so it is ecology in the city.'],
+  ['Comparing how much water a city imports with how much it makes locally', 'o', 'It looks at the flows of the whole city: ecology of the city.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+function sortShow() {
+  answered = false;
+  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; });
+  $('#srt-n').textContent = score;
+}
+$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
+  if (answered) return;
+  answered = true;
+  const ok = b.dataset.a === SORT[si][1];
+  if (ok) score++;
+  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
+  $('#srt-n').textContent = score;
+  snext.hidden = false;
+  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
+  sfb.textContent = score >= 6 ? 'Strong work. You can tell studying nature in a city, the city as a whole system, and designing for a city apart.' : 'Remember: "in" studies nature inside a city, "of" studies the whole city as a system, and "for" uses what we learn to design and care for cities.';
+  snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
+});
+$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+sortShow();
 
 /* === IN, OF AND FOR QUIZ === checked in the browser only; the first option listed is correct, order is shuffled */
 const GQ = [
