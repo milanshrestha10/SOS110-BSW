@@ -260,7 +260,6 @@ p,li{text-wrap:pretty}
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { initPace } from '../../shared/pace.js';
-import { initCodeBadge } from '../../shared/code-badge.js';
 import { loadSession, fill } from '../../shared/course.js';
 import { $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
@@ -279,7 +278,6 @@ $$('.chipsel').forEach(g => $$('button', g).forEach(b => b.addEventListener('cli
 /* === ATTENDANCE, POLLS === */
 const live = await connect(LECTURE);
 initPace(live, 'm6-l2-exercises');
-initCodeBadge(live);
 const note = $('[data-mode-note]');
 if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
 function showUser() {
