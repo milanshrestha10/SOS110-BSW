@@ -64,6 +64,19 @@
 .srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
 .srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
 #srt-next{align-self:flex-start;font-size:26px}
+/* in, of and for quiz */
+.gq{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.gq-def{display:grid;gap:16px;align-content:start}.gq-def .sc{font-size:27px}
+.gq-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:20px 40px;display:flex;flex-direction:column;gap:12px}
+.gq-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.gq-q{font:400 40px/1.2 var(--display);min-height:96px}
+.gq-opts{display:grid;gap:10px}
+.gq-opts .btn{text-align:left;font-size:27px;padding:8px 22px;display:flex;gap:18px;align-items:center;border-radius:14px}
+.gq-opts .btn b{font:400 34px var(--display);flex:none}
+.gq-opts .btn:disabled{opacity:.55}.gq-opts .btn.right,.gq-opts .btn.wrong{opacity:1}
+.webapp .slide .gq-opts .btn.ghost.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.webapp .slide .gq-opts .btn.ghost.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.gq-fb{font-size:25px;line-height:1.3;min-height:66px}.gq-fb b{color:var(--Blue)}
+#gq-next{align-self:flex-start;font-size:24px;padding:8px 26px}
 .signin{display:flex;gap:16px;align-items:center;margin:20px 0}
 /* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
 :root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
@@ -575,7 +588,33 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 22. EXIT TICKET -->
+<!-- 22. IN, OF AND FOR QUIZ -->
+<section class="slide" id="iofq">
+  <div class="rail"><b>18</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Quiz · pick one answer for each question</div>
+    <h2 class="reveal d2" style="font-size:62px">Ecology <em>in, of and for</em> cities</h2>
+    <div class="gq reveal d3">
+      <div class="gq-def">
+        <div class="sc"><b>In</b>Studying nature that lives inside a city, like birds and plants in a park.</div>
+        <div class="sc green"><b>Of</b>Studying the whole city as a system, with people and nature together.</div>
+        <div class="sc sky"><b>For</b>Using what we learn to design and care for cities.</div>
+        <div class="srt-score"><span id="gq-n">0</span> of 8 right</div>
+        <button class="btn ghost" type="button" id="gq-reset">Start over</button>
+      </div>
+      <div class="gq-card" aria-live="polite">
+        <div class="gq-no" id="gq-no"></div>
+        <div class="gq-q" id="gq-q"></div>
+        <div class="gq-opts" id="gq-opts"></div>
+        <div class="gq-fb" id="gq-fb"></div>
+        <button class="btn ghost" type="button" id="gq-next" hidden>Next question</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Questions are based on the slides in this lecture. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- 23. EXIT TICKET -->
 <section class="slide">
   <div class="rail"><b>18</b><span>Exit ticket</span></div>
   <div class="content center">
@@ -591,7 +630,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 23. TAKEAWAY -->
+<!-- 24. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" style="object-position:center 40%" src="img/central-park-end.jpg" alt="Central Park and the city around it" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -684,6 +723,46 @@ snext.addEventListener('click', () => {
 });
 $('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
 sortShow();
+
+/* === IN, OF AND FOR QUIZ === checked in the browser only; the first option listed is correct, order is shuffled */
+const GQ = [
+  ['A student counts the bird species living in one city park. Which kind of urban ecology is this?', ['Ecology in the city', 'Ecology of the city', 'Ecology for the city', 'Urban metabolism'], 'This is ecology in the city: studying the nature that lives inside a city, like birds and plants in a park.'],
+  ['What does "ecology of the city" study?', ['The whole city as a system, with people and nature together', 'Only wild animals in parks', 'Only the buildings and roads', 'Only the weather'], 'Ecology of the city treats the whole city as a socio-ecological system, with people and nature together.'],
+  ['Which one is an example of "ecology for the city"?', ['Using what we learn to design and care for a city', 'Counting the plants in a vacant lot', 'Measuring how much water a city imports', 'Naming the biome a city sits in'], 'Ecology for the city is stewardship: using what we learn to design and care for cities.'],
+  ['Which kind is the most complex?', ['Ecology for the city (stewardship)', 'Ecology in the city', 'Ecology of the city', 'They are all equally complex'], 'Each step adds complexity. "In" is the most basic, "of" adds people, and "for" asks us to act on what we learn.'],
+  ['In urban metabolism, what flows INTO a city?', ['Water, energy and materials', 'Wastewater, waste and heat', 'Only sunlight', 'Only people'], 'Water, energy and materials flow in. Wastewater, waste, greenhouse gases and heat flow out.'],
+  ['Why do we call a city "heterotrophic"?', ['It uses much more energy than it makes, so it must import energy', 'It makes all of its own food', 'It has more producers than consumers', 'It never uses any energy'], 'A heterotroph cannot make its own food. A city is like this: it has many consumers and few producers, so energy is imported.'],
+  ['About how much of the water in Los Angeles County is imported?', ['About two-thirds', 'About one-third', 'Almost none', 'All of it'], 'About 67% of the water is imported. Only about 33% is local groundwater.'],
+  ['Which of these is green infrastructure?', ['Trees, parks and wetlands that hold rain and cool the air', 'A concrete sea wall', 'An underground water pipe', 'A paved parking lot'], 'Green infrastructure uses living systems to do jobs that pipes and walls do, like holding rain and cooling air.'],
+];
+let gi = 0, gscore = 0, gdone = false;
+const gOpts = $('#gq-opts'), gNext = $('#gq-next');
+function gqShow() {
+  gdone = false;
+  const [q, o] = GQ[gi];
+  const order = o.map((t, k) => [t, k === 0]).sort(() => Math.random() - .5);
+  $('#gq-no').textContent = `Question ${gi + 1} of ${GQ.length}`;
+  $('#gq-q').textContent = q; $('#gq-fb').innerHTML = ''; gNext.hidden = true;
+  gOpts.innerHTML = order.map(([t, ok], k) => `<button type="button" class="btn ghost" data-ok="${ok ? 1 : 0}"><b>${'ABCD'[k]}</b><span>${esc(t)}</span></button>`).join('');
+  $('#gq-n').textContent = gscore;
+}
+gOpts.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || gdone) return;
+  gdone = true;
+  const ok = b.dataset.ok === '1'; if (ok) gscore++;
+  $$('button', gOpts).forEach(x => { x.disabled = true; if (x.dataset.ok === '1') x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  $('#gq-fb').innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(GQ[gi][2])}`;
+  $('#gq-n').textContent = gscore;
+  gNext.hidden = false; gNext.textContent = gi === GQ.length - 1 ? 'See score' : 'Next question';
+});
+gNext.addEventListener('click', () => {
+  if (gi < GQ.length - 1) { gi++; gqShow(); return; }
+  $('#gq-no').textContent = 'Done'; $('#gq-q').textContent = `You got ${gscore} of ${GQ.length}.`;
+  gOpts.innerHTML = ''; gNext.hidden = true;
+  $('#gq-fb').textContent = gscore >= 6 ? 'Strong work. You can tell studying nature in a city, the city as a whole system, and designing for a city apart.' : 'Remember: "in" studies nature inside a city, "of" studies the whole city as a system, and "for" uses what we learn to design and care for cities.';
+});
+$('#gq-reset').addEventListener('click', () => { gi = 0; gscore = 0; gqShow(); });
+gqShow();
 
 /* === ATTENDANCE, POLLS === */
 const live = await connect(LECTURE);
