@@ -562,33 +562,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 21. SORT GAME -->
-<section class="slide" id="sort">
-  <div class="rail"><b>18</b><span>Big idea 3 · Resilience</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 3 · try it · tap a button for each card</div>
-    <h2 class="reveal d2" style="font-size:62px">Social, ecological or <em>technical</em>?</h2>
-    <div class="srt reveal d3">
-      <div class="srt-def">
-        <div class="sc"><b>Social</b>People, rules and ways of working together.</div>
-        <div class="sc green"><b>Ecological</b>Living things and natural systems, like trees, soil and wetlands.</div>
-        <div class="sc sky"><b>Technical</b>Built things and machines.</div>
-        <div class="srt-score"><span id="srt-n">0</span> of 8 right</div>
-        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
-      </div>
-      <div class="srt-card" id="srt-card" aria-live="polite">
-        <div class="srt-no" id="srt-no"></div>
-        <div class="srt-q" id="srt-q"></div>
-        <div class="srt-btns"><button class="btn" type="button" data-a="s">Social</button><button class="btn" type="button" data-a="e">Ecological</button><button class="btn" type="button" data-a="t">Technical</button></div>
-        <div class="srt-fb" id="srt-fb"></div>
-        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
-      </div>
-    </div>
-    <p class="src reveal d4">Teaching examples for a coastal city facing a storm surge. Real projects often mix the three parts.</p>
-  </div>
-</section>
-
-<!-- 22. IN, OF AND FOR QUIZ -->
+<!-- 21. IN, OF AND FOR QUIZ -->
 <section class="slide" id="iofq">
   <div class="rail"><b>18</b><span>Check your understanding</span></div>
   <div class="content fill">
@@ -614,23 +588,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 23. EXIT TICKET -->
-<section class="slide">
-  <div class="rail"><b>18</b><span>Exit ticket</span></div>
-  <div class="content center">
-    <div class="k reveal">Exit ticket · counts for participation</div>
-    <h2 class="reveal d2" style="font-size:58px;max-width:1560px">A team tracks all the water, energy and materials that flow into and out of a whole city. Which kind of urban ecology is this?</h2>
-    <div class="poll reveal d3" data-poll="exit" data-correct="1">
-      <button class="opt" type="button"><b>A</b>Ecology <i>in</i> the city: counting the birds in one park</button>
-      <button class="opt" type="button"><b>B</b>Ecology <i>of</i> the city: studying the city as a whole system (urban metabolism)</button>
-      <button class="opt" type="button"><b>C</b>Ecology <i>for</i> the city: planting a rooftop garden</button>
-      <button class="opt" type="button"><b>D</b>None of these</button>
-    </div>
-    <div style="display:flex;gap:20px;align-items:center;margin-top:20px"><button class="btn ghost" type="button" data-reveal="exit">Show answer</button><span class="status" data-poll-status="exit" style="margin:0"></span></div>
-  </div>
-</section>
-
-<!-- 24. TAKEAWAY -->
+<!-- 22. TAKEAWAY -->
 <section class="slide hero">
   <img class="hero-img" style="object-position:center 40%" src="img/central-park-end.jpg" alt="Central Park and the city around it" aria-hidden="true">
   <div class="hero-scrim"></div>
@@ -682,47 +640,6 @@ $$('.chk li').forEach(li => {
 
 /* === QUICK QUESTIONS === tap to reveal, not recorded */
 wireReveals();
-
-/* === SORT: SOCIAL, ECOLOGICAL OR TECHNICAL === checked in the browser only */
-const NAME = { s: 'Social', e: 'Ecological', t: 'Technical' };
-const SORT = [
-  ['Text alerts and clear evacuation plans for residents', 's', 'People and plans make this a social measure. It reaches the people at most risk.'],
-  ['Restoring wetlands and oyster reefs along the shore', 'e', 'Living systems that soak up waves and water. This is green infrastructure.'],
-  ['A flood gate at a subway entrance', 't', 'A built structure with a mechanical job: it keeps water out.'],
-  ['Neighbors checking on older people during a blackout', 's', 'Relationships between people. Strong community ties are part of resilience.'],
-  ['Rain gardens and parks that soak up heavy rain', 'e', 'Plants and soil hold the water. They are living, so they count as ecological.'],
-  ['Moving power equipment from basements to higher floors', 't', 'A change to buildings and machines that keeps the power system working.'],
-  ['Planting street trees to cool hot blocks', 'e', 'Trees shade and cool the air. They are also a cultural and health service.'],
-  ['Cooling centers open to everyone in a heat wave', 's', 'A public service that works through people and rules, not through machines or nature.'],
-];
-let si = 0, score = 0, answered = false;
-const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
-function sortShow() {
-  answered = false;
-  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
-  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
-  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; });
-  $('#srt-n').textContent = score;
-}
-$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
-  if (answered) return;
-  answered = true;
-  const ok = b.dataset.a === SORT[si][1];
-  if (ok) score++;
-  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
-  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
-  $('#srt-n').textContent = score;
-  snext.hidden = false;
-  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
-}));
-snext.addEventListener('click', () => {
-  if (si < SORT.length - 1) { si++; sortShow(); return; }
-  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
-  sfb.textContent = score >= 6 ? 'Strong work. A resilient plan needs all three kinds of fix.' : 'Rule of thumb: people and rules are social, living systems are ecological, built things are technical.';
-  snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
-});
-$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
-sortShow();
 
 /* === IN, OF AND FOR QUIZ === checked in the browser only; the first option listed is correct, order is shuffled */
 const GQ = [
