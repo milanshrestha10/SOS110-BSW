@@ -346,6 +346,7 @@ p,li{text-wrap:pretty}
 <script type="module">
 import { connect } from '../../shared/live.js';
 import { initPace } from '../../shared/pace.js';
+import { classWindow, draftStore } from '../../shared/save.js';
 import { loadSession, fill } from '../../shared/course.js';
 import { esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
@@ -357,6 +358,8 @@ loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
 /* === ATTENDANCE, POLLS === */
 const live = await connect(LECTURE);
 initPace(live, 'm6-l2-exercises');
+const cls = classWindow(live, 'm6-l2-exercises', LECTURE); // students can edit their answers until this closes (instructor closes it, or 3 hours after they start)
+const CLOSED_MSG = 'Class has ended. Your answers are locked.';
 const note = $('[data-mode-note]');
 if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
 function showUser() {
@@ -400,6 +403,39 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
 function typedAnswer(slideId, pre, sim) {
   const slide = $('#' + slideId), opened = new Set(), need = 2;
   const txt = $(`#${pre}-text`), txt2 = $(`#${pre}-text2`), txt3 = $(`#${pre}-text3`), st = $(`#${pre}-status`), btn = $(`#${pre}-save`);
+  const fields = [txt, txt2, txt3].filter(Boolean);
+  const draft = draftStore(`sos110-draft:${LECTURE}:${sim}`);
+  let submitted = false, timer = 0;
+  const label = t => { const sp = btn.querySelector('span'); if (sp) sp.textContent = t; };
+  const lockUI = closed => {
+    fields.forEach(f => { f.readOnly = closed; });
+    btn.disabled = closed;
+    if (closed) say(st, CLOSED_MSG, submitted ? 'ok' : 'err');
+  };
+  /* restore: this device's draft first, else the answer already sent (from this or another device) */
+  const prior = draft.get();
+  if (prior) fields.forEach((f, i) => { f.value = prior['t' + i] || ''; });
+  async function loadSent() {
+    if (!live.user()) return;
+    const r = await live.mySim(sim);
+    if (!r || !r.data) return;
+    submitted = true; label('Update answer'); Deck.sent(btn);
+    if (!draft.get()) { [r.data.answer, r.data.answer2, r.data.answer3].forEach((v, i) => { if (fields[i] && v) fields[i].value = v; }); }
+    cls.adopt(r.data.first);
+    if (!cls.isClosed()) say(st, 'Submitted. You can change your answer and press Update answer until class ends.', 'ok');
+  }
+  loadSent();
+  $('#checkin').addEventListener('click', () => setTimeout(loadSent, 800));
+  cls.onChange(lockUI);
+  /* autosave: every keystroke is kept on this device, so a closed tab or refresh loses nothing */
+  fields.forEach(f => f.addEventListener('input', () => {
+    cls.start();
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      draft.set(Object.fromEntries(fields.map((x, i) => ['t' + i, x.value])));
+      say(st, submitted ? 'Draft saved. Press Update answer to send the change.' : 'Draft saved on this device. Press Submit when you are ready.');
+    }, 500);
+  }));
   slide.addEventListener('ref:open', e => {
     const id = e.detail;
     if (id && !id.endsWith('-ans')) {
@@ -409,6 +445,7 @@ function typedAnswer(slideId, pre, sim) {
     }
   });
   btn.addEventListener('click', async () => {
+    if (cls.isClosed()) { lockUI(true); return; }
     const answer = txt.value.trim();
     if (opened.size < need) { say(st, `Open at least ${need} of the 3 icons first.`, 'err'); return; }
     const answer2 = txt2 ? txt2.value.trim() : '';
@@ -417,8 +454,11 @@ function typedAnswer(slideId, pre, sim) {
     const answer3 = txt3 ? txt3.value.trim() : '';
     if (txt3 && answer3.split(/\s+/).filter(Boolean).length < 5) { say(st, 'Answer all three questions in your own words.', 'err'); return; }
     if (!await ensureUser(st)) return;
+    cls.start();
     say(st, 'Sending…');
-    try { await live.saveSim(sim, txt3 ? { answer, answer2, answer3, opened: opened.size } : txt2 ? { answer, answer2, opened: opened.size } : { answer, opened: opened.size }); Deck.sent(btn, 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+    const data = txt3 ? { answer, answer2, answer3, opened: opened.size } : txt2 ? { answer, answer2, opened: opened.size } : { answer, opened: opened.size };
+    data.first = cls.startedAt();
+    try { await live.saveSim(sim, data); submitted = true; draft.set(Object.fromEntries(fields.map((x, i) => ['t' + i, x.value]))); Deck.sent(btn, 'Update answer'); say(st, 'Submitted. You can change your answer and press Update answer until class ends.', 'ok'); }
     catch (e) { say(st, e.message, 'err'); }
   });
 }
@@ -462,14 +502,16 @@ function sortDone() {
   if (sLocked) {
     $('#srt-no').textContent = 'Submitted';
     ssub.disabled = true; Deck.sent(ssub, 'Submitted');
-    say(sst, 'Your answers are submitted. You cannot change them.', 'ok');
+    say(sst, 'Your answers are submitted. It was one try, so they cannot be changed.', 'ok');
   } else {
     $('#srt-no').textContent = 'All 8 done';
-    say(sst, 'Press Submit to send your answers. You only get one try.');
+    ssub.disabled = cls.isClosed();
+    say(sst, cls.isClosed() ? CLOSED_MSG : 'Your progress is saved. Press Submit to send your answers. You only get one try.', cls.isClosed() ? 'err' : undefined);
   }
 }
 $$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
-  if (answered || sLocked || sAns.length >= SORT.length) return;
+  if (answered || sLocked || sAns.length >= SORT.length || cls.isClosed()) return;
+  cls.start();
   answered = true;
   const si = sAns.length, ok = b.dataset.a === SORT[si][1];
   sAns.push(b.dataset.a);
@@ -483,6 +525,7 @@ $$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
 snext.addEventListener('click', () => { sortShow(); });
 ssub.addEventListener('click', async () => {
   if (sLocked || sAns.length < SORT.length) return;
+  if (cls.isClosed()) { say(sst, CLOSED_MSG, 'err'); return; }
   if (!await ensureUser(sst)) return;
   say(sst, 'Sending…');
   try { await live.saveSim('city-sort', { answers: sAns.slice(), score: sScore(), total: SORT.length }); sLocked = true; sortDone(); }
@@ -500,6 +543,7 @@ async function sortCheckSaved() {
 }
 sortShow();
 sortCheckSaved();
+cls.onChange(c => { if (c && !sLocked) { if (sAns.length >= SORT.length) sortDone(); else { sBtns(true); say(sst, CLOSED_MSG, 'err'); } } });
 $('#checkin').addEventListener('click', () => setTimeout(sortCheckSaved, 800));
 
 /* === CITY CHART === year buttons reload the Our World in Data chart from 1950 up to that year */
@@ -530,15 +574,41 @@ $$('.chipsel').forEach(g => $$('button', g).forEach(b => b.addEventListener('cli
   picks[g.id] = b.dataset.v;
 })));
 
-/* === SAVE: CITY LOOP === saves under m6-s2 as city-loop */
-$('#lp-save').addEventListener('click', async () => {
-  const st = $('#lp-status'), why = $('#lp-why').value.trim().slice(0, 600);
-  if (!picks.flow || !picks.fix) { say(st, 'Pick one thing and one way to close the loop.', 'err'); return; }
-  if (!why) { say(st, 'Describe your idea.', 'err'); return; }
-  if (!await ensureUser(st)) return;
-  try { await live.saveSim('city-loop', { flow: picks.flow, fix: picks.fix, why }); say(st, 'Submitted. Thanks!', 'ok'); }
-  catch (e) { say(st, e.message, 'err'); }
-});
+/* === SAVE: CITY LOOP === saves under m6-s2 as city-loop; editable until class ends, draft kept on this device */
+{
+  const st = $('#lp-status'), btn = $('#lp-save'), why = $('#lp-why');
+  const draft = draftStore(`sos110-draft:${LECTURE}:city-loop`);
+  let sent = false;
+  const setPick = (id, v) => { const g = $('#' + id); if (!g || !v) return; picks[id] = v; $$('button', g).forEach(x => x.classList.toggle('on', x.dataset.v === v)); };
+  const keep = () => draft.set({ flow: picks.flow, fix: picks.fix, why: why.value });
+  const d0 = draft.get();
+  if (d0) { setPick('flow', d0.flow); setPick('fix', d0.fix); why.value = d0.why || ''; }
+  const lock = c => { why.readOnly = c; btn.disabled = c; $$('.chipsel button').forEach(b => { b.disabled = c; }); if (c) say(st, CLOSED_MSG, sent ? 'ok' : 'err'); };
+  cls.onChange(lock);
+  async function loadSent() {
+    if (!live.user()) return;
+    const r = await live.mySim('city-loop');
+    if (!r || !r.data) return;
+    sent = true; btn.textContent = 'Update answer';
+    if (!draft.get()) { setPick('flow', r.data.flow); setPick('fix', r.data.fix); why.value = r.data.why || ''; }
+    cls.adopt(r.data.first);
+    if (!cls.isClosed()) say(st, 'Submitted. You can change it and press Update answer until class ends.', 'ok');
+  }
+  loadSent();
+  $('#checkin').addEventListener('click', () => setTimeout(loadSent, 800));
+  $$('.chipsel button').forEach(b => b.addEventListener('click', () => { cls.start(); keep(); }));
+  why.addEventListener('input', () => { cls.start(); keep(); say(st, sent ? 'Draft saved. Press Update answer to send the change.' : 'Draft saved on this device. Press Submit when you are ready.'); });
+  btn.addEventListener('click', async () => {
+    if (cls.isClosed()) { lock(true); return; }
+    const w = why.value.trim().slice(0, 600);
+    if (!picks.flow || !picks.fix) { say(st, 'Pick one thing and one way to close the loop.', 'err'); return; }
+    if (!w) { say(st, 'Describe your idea.', 'err'); return; }
+    if (!await ensureUser(st)) return;
+    cls.start();
+    try { await live.saveSim('city-loop', { flow: picks.flow, fix: picks.fix, why: w, first: cls.startedAt() }); sent = true; keep(); btn.textContent = 'Update answer'; say(st, 'Submitted. You can change it and press Update answer until class ends.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  });
+}
 </script>
 </body>
 </html>
