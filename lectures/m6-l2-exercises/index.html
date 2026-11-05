@@ -73,6 +73,7 @@
 .srt-btns{display:flex;gap:18px;flex-wrap:wrap}
 .srt-btns .btn{font-size:30px;padding:16px 36px}
 .srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-go{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.srt-go .btn{font-size:30px;padding:16px 36px}.srt-go .btn.sent{background:#2e7d5b!important;border-color:#2e7d5b!important;color:#fff!important;opacity:1!important}.srt-go .status{font-size:26px}
 .srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
 #srt-next{align-self:flex-start;font-size:26px}
 /* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
@@ -211,7 +212,7 @@ p,li{text-wrap:pretty}
 <section class="slide" id="sort">
   <div class="rail"><b>18</b><span>Exercise 3 of 6 · Sorting quiz</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Sorting quiz · tap a button for each card</div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Sorting quiz · one try · tap a button for each card</div>
     <h2 class="reveal d2" style="font-size:62px">Ecology <em>in, of or for</em> the city?</h2>
     <div class="srt reveal d3">
       <div class="srt-def">
@@ -219,7 +220,6 @@ p,li{text-wrap:pretty}
         <div class="sc green"><b>Of</b>Studying the whole city as a system, with people and nature together.</div>
         <div class="sc sky"><b>For</b>Using what we learn to design and care for cities.</div>
         <div class="srt-score"><span id="srt-n">0</span> of 8 right</div>
-        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
       </div>
       <div class="srt-card" id="srt-card" aria-live="polite">
         <div class="srt-no" id="srt-no"></div>
@@ -227,9 +227,10 @@ p,li{text-wrap:pretty}
         <div class="srt-btns"><button class="btn" type="button" data-a="i">In the city</button><button class="btn" type="button" data-a="o">Of the city</button><button class="btn" type="button" data-a="f">For the city</button></div>
         <div class="srt-fb" id="srt-fb"></div>
         <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+        <div class="srt-go"><button class="btn" type="button" id="srt-submit" hidden>Submit my answers</button><span class="status" id="srt-status"></span></div>
       </div>
     </div>
-    <p class="src reveal d4">Teaching examples. Your answers are checked in your browser and are not recorded.</p>
+    <p class="src reveal d4">You get one try. When you finish all 8 cards, press Submit so your instructor gets your answers.</p>
   </div>
 </section>
 
@@ -425,7 +426,7 @@ typedAnswer('manhattan', 'm', 'manhattan-summary');
 typedAnswer('water', 'w', 'water-summary');
 typedAnswer('citycmp', 'c', 'cities-summary');
 
-/* === SORT: IN, OF OR FOR THE CITY === checked in the browser only */
+/* === SORT: IN, OF OR FOR THE CITY === one try; progress kept in this browser, then submitted as city-sort */
 const NAME = { i: 'Ecology in the city', o: 'Ecology of the city', f: 'Ecology for the city' };
 const SORT = [
   ['Counting the bird species that live in one city park', 'i', 'It studies nature living inside the city, so it is ecology in the city.'],
@@ -437,34 +438,69 @@ const SORT = [
   ['Measuring how many lizards live along a desert canal', 'i', 'It looks at wildlife inside the city, so it is ecology in the city.'],
   ['Comparing how much water a city imports with how much it makes locally', 'o', 'It looks at the flows of the whole city: ecology of the city.'],
 ];
-let si = 0, score = 0, answered = false;
-const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+const SKEY = `sos110-sort:${LECTURE}`;
+let sAns = [], answered = false, sLocked = false;
+try { const r = JSON.parse(localStorage.getItem(SKEY)); if (Array.isArray(r)) sAns = r.filter(x => 'iof'.includes(x)).slice(0, SORT.length); } catch { /* ignore */ }
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next'), ssub = $('#srt-submit'), sst = $('#srt-status');
+const sScore = () => sAns.filter((x, k) => x === SORT[k][1]).length;
+const sBtns = dis => $$('#srt-card [data-a]').forEach(b => { b.disabled = dis; b.className = 'btn'; });
+const sMsg = sc => sc >= 6 ? 'Strong work. You can tell studying nature in a city, the city as a whole system, and designing for a city apart.' : 'Remember: "in" studies nature inside a city, "of" studies the whole city as a system, and "for" uses what we learn to design and care for cities.';
 function sortShow() {
-  answered = false;
+  answered = false; sfb.innerHTML = ''; snext.hidden = true; ssub.hidden = true;
+  $('#srt-n').textContent = sScore();
+  if (sAns.length >= SORT.length) { sortDone(); return; }
+  const si = sAns.length;
   $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
-  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
-  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; });
-  $('#srt-n').textContent = score;
+  sq.textContent = SORT[si][0];
+  sBtns(false); $('.srt-btns').style.display = '';
+}
+function sortDone() {
+  sBtns(true); $('.srt-btns').style.display = 'none'; snext.hidden = true;
+  sq.textContent = `You got ${sScore()} of ${SORT.length}.`;
+  sfb.textContent = sMsg(sScore());
+  ssub.hidden = false;
+  if (sLocked) {
+    $('#srt-no').textContent = 'Submitted';
+    ssub.disabled = true; Deck.sent(ssub, 'Submitted');
+    say(sst, 'Your answers are submitted. You cannot change them.', 'ok');
+  } else {
+    $('#srt-no').textContent = 'All 8 done';
+    say(sst, 'Press Submit to send your answers. You only get one try.');
+  }
 }
 $$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
-  if (answered) return;
+  if (answered || sLocked || sAns.length >= SORT.length) return;
   answered = true;
-  const ok = b.dataset.a === SORT[si][1];
-  if (ok) score++;
+  const si = sAns.length, ok = b.dataset.a === SORT[si][1];
+  sAns.push(b.dataset.a);
+  try { localStorage.setItem(SKEY, JSON.stringify(sAns)); } catch { /* ignore */ }
   $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
   sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
-  $('#srt-n').textContent = score;
+  $('#srt-n').textContent = sScore();
   snext.hidden = false;
   snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
 }));
-snext.addEventListener('click', () => {
-  if (si < SORT.length - 1) { si++; sortShow(); return; }
-  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
-  sfb.textContent = score >= 6 ? 'Strong work. You can tell studying nature in a city, the city as a whole system, and designing for a city apart.' : 'Remember: "in" studies nature inside a city, "of" studies the whole city as a system, and "for" uses what we learn to design and care for cities.';
-  snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
+snext.addEventListener('click', () => { sortShow(); });
+ssub.addEventListener('click', async () => {
+  if (sLocked || sAns.length < SORT.length) return;
+  if (!await ensureUser(sst)) return;
+  say(sst, 'Sending…');
+  try { await live.saveSim('city-sort', { answers: sAns.slice(), score: sScore(), total: SORT.length }); sLocked = true; sortDone(); }
+  catch (e) { say(sst, e.message, 'err'); }
 });
-$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+/* a student who already submitted (on this or another device) sees the locked result */
+async function sortCheckSaved() {
+  if (sLocked || !live.user()) return;
+  const r = await live.mySim('city-sort');
+  if (!r || !r.data || !Array.isArray(r.data.answers)) return;
+  sAns = r.data.answers.filter(x => 'iof'.includes(x)).slice(0, SORT.length);
+  sLocked = true;
+  try { localStorage.setItem(SKEY, JSON.stringify(sAns)); } catch { /* ignore */ }
+  sortShow();
+}
 sortShow();
+sortCheckSaved();
+$('#checkin').addEventListener('click', () => setTimeout(sortCheckSaved, 800));
 
 /* === CITY CHART === year buttons reload the Our World in Data chart from 1950 up to that year */
 const CHART = 'https://ourworldindata.org/grapher/population-of-the-worlds-largest-cities';
