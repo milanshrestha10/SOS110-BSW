@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 19 Environmental health and justice · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30c">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* reference-guide slides (8 and 9): icon rows on the left, photo on the right */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .pair{position:absolute;inset:0 0 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff}
+.ref .pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
+.ref .pair~.credit-ph{color:#444;text-shadow:none}
+.ref .bar .src{width:760px}
+.ref .hs.done{background:var(--rg)}
+#cityeco .row{padding:8px 0}#cityeco .row b{font-size:36px}#cityeco .row .d{font-size:25px;margin-top:0}#cityeco .row .n{font-size:48px}
+.ref .pop textarea.fld{font-size:30px;line-height:1.35}
+/* === LECTURE 18 === urban ecosystems and resilience (M6 L2) */
+.content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
+.two.l.w{grid-template-columns:1000px 1fr}
+.two.l.n{grid-template-columns:760px 1fr}
+.two .pic img.tall{max-height:700px}
+.two .side .num{font-size:30px;margin:0}
+.two .side .sc{font-size:26px}
+.link-btn{display:inline-block;font:700 26px var(--body);color:var(--Blue);border:3px solid var(--Blue);border-radius:12px;padding:10px 22px;text-decoration:none;align-self:flex-start}
+.link-btn:hover{background:var(--Blue);color:var(--paper)}
+/* stack: wide picture on top, three notes below */
+.stk{display:flex;flex-direction:column;gap:26px;flex:1;min-height:0}
+.stk .fig{margin:0}.stk .fig img{width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block}
+.stk .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.stk .row3 .sc,.stk .row3 .rq{font-size:25px}
+.stk .row3 .rq h3{font-size:31px}.stk .row3 .rq .ans-text{font-size:24px}
+/* in, of, for cards */
+.iof{display:grid;gap:16px;align-content:stretch}
+.iof .sc{font-size:26px;display:flex;flex-direction:column;justify-content:center}
+.iof .sc b{font-size:19px}
+/* circularity and overlap diagrams */
+.dia{background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:16px;display:flex;align-items:center;justify-content:center}
+.dia svg{width:100%;height:auto;display:block}
+.dia svg text{font-family:var(--body)}
+/* chips on megacity list */
+.mega{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;list-style:none}
+.mega li{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--Sky);border-radius:12px;padding:10px 18px;font-size:28px;font-weight:700}
+.mega li small{display:block;font:400 19px var(--body);color:var(--mute)}
+/* compare numbers */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp>div{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:16px 22px}
+.cmp h4{font:400 34px var(--display);margin-bottom:6px}
+.cmp .n{font:400 54px/1 var(--display);color:var(--Blue)}.cmp .n.hi{color:#b3452c}
+.cmp span{font-size:21px;color:var(--mute);display:block;margin-bottom:8px}
+/* sort game */
+.srt{display:grid;grid-template-columns:600px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:16px;align-content:start}.srt-def .sc{font-size:27px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 52px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:18px;flex-wrap:wrap}
+.srt-btns .btn{font-size:30px;padding:16px 36px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+/* in, of and for quiz */
+.gq{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.gq-def{display:grid;gap:16px;align-content:start}.gq-def .sc{font-size:27px}
+.gq-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:20px 40px;display:flex;flex-direction:column;gap:12px}
+.gq-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.gq-q{font:400 40px/1.2 var(--display);min-height:96px}
+.gq-opts{display:grid;gap:10px}
+.gq-opts .btn{text-align:left;font-size:27px;padding:8px 22px;display:flex;gap:18px;align-items:center;border-radius:14px}
+.gq-opts .btn b{font:400 34px var(--display);flex:none}
+.gq-opts .btn:disabled{opacity:.55}.gq-opts .btn.right,.gq-opts .btn.wrong{opacity:1}
+.webapp .slide .gq-opts .btn.ghost.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.webapp .slide .gq-opts .btn.ghost.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.gq-fb{font-size:25px;line-height:1.3;min-height:66px}.gq-fb b{color:var(--Blue)}
+#gq-next{align-self:flex-start;font-size:24px;padding:8px 26px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+/* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button,.srt-btns .btn{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease;will-change:transform}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+/* === LECTURE 19 === environmental health and justice (M6 L3) */
+.vocab.eight{flex:1;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:20px}
+.vocab.eight .vcard{height:auto}
+.vocab.eight .vcard .f,.vocab.eight .vcard .b{padding:20px 24px}
+.vocab.eight .vcard h4{font-size:34px;margin-bottom:8px}
+.vocab.eight .vcard p{font-size:21px;line-height:1.34}
+.tlg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0;align-content:stretch}
+.tlg .tc{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Sky);border-radius:16px;padding:16px 22px;display:flex;flex-direction:column;gap:6px}
+.tlg .tc .y{font:400 62px/1 var(--display);color:var(--Blue)}
+.tlg .tc p{font-size:25px;line-height:1.3;margin:0}
+.tlg .tc.gold{border-top-color:var(--accent)}.tlg .tc.gold .y{color:var(--accent)}
+.tlg .tc.green{border-top-color:#2e7d5b}.tlg .tc.green .y{color:#2e7d5b}
+.tlg.five{grid-template-columns:repeat(5,1fr)}
+.tlg.five .tc .y{font-size:56px}.tlg.five .tc p{font-size:24px}
+.tlg .tc .tg{font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.eqbtns{display:flex;gap:14px;margin-bottom:6px}
+.eqbtns .btn{font-size:28px;padding:12px 30px}
+.eqbtns .btn.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0}
+.vs>div{border-radius:20px;padding:26px 34px;display:flex;flex-direction:column;gap:12px}
+.vs h3{font:400 50px/1.1 var(--display)}
+.vs .q{font:700 32px/1.25 var(--body)}
+.vs p{font-size:27px;line-height:1.38;margin:0}
+.vs .a{background:#e8f2ee;border:3px solid #2e7d5b}.vs .b{background:#fbf1dc;border:3px solid var(--accent)}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1;min-height:0}
+.fl .qs{display:grid;gap:12px;align-content:start}
+.fl .qs label{display:block;font:700 26px/1.25 var(--body);margin-bottom:4px}
+.fl textarea.fld{width:100%;height:88px;font-size:24px;line-height:1.3;resize:none}
+.fl .cases{display:grid;gap:14px;align-content:start}
+.fl .cases .sc{font-size:25px}
+.fl .num{font:400 26px var(--display);color:var(--accent);margin-right:8px}
+.bnr{background:var(--Blue);color:#fff;border-radius:18px;padding:20px 32px;font-size:30px;line-height:1.35}
+.bnr b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:4px}
+.eqsvg text{font-family:var(--body)}
+.hs.done{background:var(--rg)}
+.bigph{width:100%;height:200px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px}
+.grid.lg .card h3{font-size:44px;line-height:1.15}
+.grid.lg .card p{font-size:32px;line-height:1.38}
+.grid.lg .card .tag{font-size:20px}
+.vs h3{font-size:58px}.vs .q{font-size:42px}.vs p{font-size:34px}.vs .sc{font-size:30px}
+.tlg .tc p{font-size:31px}.tlg.five .tc p{font-size:29px}.tlg .tc .tg{font-size:20px}
+.fl .qs label{font-size:30px}.fl textarea.fld{height:150px;font-size:28px}
+.fl .qs{gap:20px}
+.content .grid.lg .card h3{font-size:44px;line-height:1.15}
+.content .grid.lg .card p{font-size:32px;line-height:1.38}
+.vs>div{justify-content:center}
+.vs p{font-size:36px}.vs .sc{font-size:32px}
+.tlg.five .tc p{font-size:32px}
+.content.fill>.grid.lg{flex:1;min-height:0}
+.content.fill>.grid.lg .card{display:flex;flex-direction:column;justify-content:center}
+</style>
+<link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 7c-2-2-6-1-6 4 0 5 3 10 6 10s6-5 6-10c0-5-4-6-6-4z"/><path d="M12 7c0-2 1-4 3-5"/></symbol>
+  <symbol id="i-vote" viewBox="0 0 24 24"><path d="M5 12h14v8H5z"/><path d="m8 12 4-9 4 9"/><path d="M9 16h6"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="img/hero.jpg" alt="Smoke and steam rising from the stacks and cooling towers of an industrial plant">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>06</em></b><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
+    <div class="title-k reveal d2">Lecture 19</div>
+    <h1 class="reveal d2" style="font-size:104px">Environmental health and <em>justice</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Where you live changes what you breathe, drink and risk. Is that fair?</p>
+    <div class="goldline"></div>
+  </div>
+  <p class="hero-cap">Photo: instructor's lecture slides</p>
+</section>
+
+<!-- 2. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab eight reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 3. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">In which year did the Voting Rights Act forbid states from <em>discriminating</em> against voters?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>1870</button>
+      <button class="opt" type="button"><b>B</b>1920</button>
+      <button class="opt" type="button"><b>C</b>1965</button>
+      <button class="opt" type="button"><b>D</b>1990</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 4. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · health, fairness and who is most at risk</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 bigs reveal d3">
+      <div class="card accent"><img class="bigph" src="img/power-plant.jpg" style="object-position:center 55%" alt="A power plant with smoke rising, beside a wheat field"><span class="tag">1 · Environmental health</span><h3>How does the place you live affect your health?</h3><p>Air, water, food, noise and green space all shape health where people live, work and play.</p></div>
+      <div class="card green"><img class="bigph" src="img/handshake.jpg" style="object-position:center 40%" alt="Two hands clasped in a handshake"><span class="tag">2 · Environmental justice</span><h3>Who carries the burdens?</h3><p>Some groups get fewer benefits and more pollution than others. Equality gives everyone the same. Equity gives each person what they need.</p></div>
+      <div class="card gold"><img class="bigph" src="img/la-skyline.jpg" style="object-position:center 30%" alt="A city skyline at sunset with palm trees in a hazy sky"><span class="tag">3 · Vulnerability and fairness</span><h3>Why does the same hazard hurt some people more?</h3><p>Exposure, sensitivity and the ability to cope decide the harm. Fair outcomes need fair sharing and a fair voice.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Sustainability cannot be achieved without fairness and justice for all.</div>
+  </div>
+</section>
+
+<!-- 5. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>19</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. REVIEW QUIZ -->
+<section class="slide" id="review">
+  <div class="rail"><b>19</b><span>Review quiz</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">Which of these is <em>NOT</em> typically an environmental justice issue?</h2>
+    <div class="poll reveal d3" data-poll="review" data-correct="3">
+      <button class="opt" type="button"><b>A</b>Closeness to toxic waste sites</button>
+      <button class="opt" type="button"><b>B</b>Access to green spaces</button>
+      <button class="opt" type="button"><b>C</b>Air pollution in urban areas</button>
+      <button class="opt" type="button"><b>D</b>Protecting endangered species</button>
+    </div>
+    <div class="status" data-poll-status="review"></div>
+    <div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="review">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 7. VOTING RIGHTS TIMELINE -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Setting the scene</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-vote"/></svg></span>Setting the scene · who gets a say?</div>
+    <h2 class="reveal d2" style="font-size:70px">Voting rights in the <em>United States</em></h2>
+    <div class="tlg reveal d3">
+      <div class="tc"><span class="y">1776</span><p>Voting is limited to property owners, mostly white men over 21.</p></div>
+      <div class="tc"><span class="y">1787</span><p>States are given the power to regulate voting rights.</p></div>
+      <div class="tc"><span class="y">1868</span><p>The 14th Amendment gives former slaves citizenship, but only men can vote.</p></div>
+      <div class="tc"><span class="y">1870</span><p>The 15th Amendment removes race as a barrier to voting, but states keep discriminating.</p></div>
+      <div class="tc green"><span class="y">1920</span><p>The 19th Amendment gives women the right to vote.</p></div>
+      <div class="tc green"><span class="y">1924</span><p>Native Americans are granted citizenship and voting rights.</p></div>
+      <div class="tc green"><span class="y">1952</span><p>People of Asian ancestry are granted citizenship and the right to vote.</p></div>
+      <div class="tc gold"><span class="y">1965</span><p>The Voting Rights Act forbids states from discriminating against voters.</p></div>
+    </div>
+    <p class="src reveal d4"><b>Warm-up answer:</b> C, 1965. Timeline from the instructor's lecture slides.</p>
+  </div>
+</section>
+
+<!-- 8. WHY VOTING MATTERS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Setting the scene</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Setting the scene · why a voice matters for the environment</div>
+    <h2 class="reveal d2" style="font-size:70px">Voting is the foundation of <em>representation</em></h2>
+    <div class="grid g3 lg reveal d3">
+      <div class="card accent"><span class="tag">1 · Democracy</span><h3>Voting gives the public a voice</h3><p>Voting is the very foundation of democracy. It makes the government legitimate in the eyes of the public.</p></div>
+      <div class="card green"><span class="tag">2 · Policy</span><h3>Elected officials decide</h3><p>All environmental and sustainability policies are affected, directly or indirectly, by the decisions of elected officials.</p></div>
+      <div class="card gold"><span class="tag">3 · Priorities</span><h3>No voice, no priority</h3><p>When a group is not represented, its needs can be left off the agenda and left out of how resources are shared.</p></div>
+    </div>
+    <div class="rq reveal d4" data-def style="margin-top:28px"><h3>Quick question: how could a lack of votes lead to a polluted neighborhood?</h3><p class="think">Tap to check.</p><p class="ans-text">Officials answer to the people who vote. If a neighborhood has little voice, its needs like clean air and water can end up last on the list, and projects that bring pollution can end up there first.</p></div>
+  </div>
+</section>
+
+<!-- 9. FIVE FACTORS (reference style) -->
+<section class="slide ref" id="factors">
+  <div class="top">SOS110 · Lecture 19 · Big idea 1 · Environmental health</div>
+  <div class="card">
+    <h2>Five things that shape your <em>health</em></h2>
+    <p class="lead"><b>Environmental health</b> studies how the world around us affects our health. <b>Tap the numbers</b> to see five examples.</p>
+    <div class="body" style="top:300px">
+      <button class="row mr" type="button" data-open="f1" style="--i:1"><span class="n">1</span><span><b>Healthy food</b><span class="d">Can people buy fresh food nearby?</span></span><span class="ic" data-ic="f1"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-apple"/></svg></span></button>
+      <button class="row mr" type="button" data-open="f2" style="--i:2"><span class="n">2</span><span><b>Water quality</b><span class="d">Is the tap water safe to drink?</span></span><span class="ic" data-ic="f2"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-drop"/></svg></span></button>
+      <button class="row mr" type="button" data-open="f3" style="--i:3"><span class="n">3</span><span><b>Noise</b><span class="d">Can people sleep and rest?</span></span><span class="ic" data-ic="f3"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-volume"/></svg></span></button>
+      <button class="row mr" type="button" data-open="f4" style="--i:4"><span class="n">4</span><span><b>Air quality</b><span class="d">What is in the air people breathe?</span></span><span class="ic" data-ic="f4"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-wind"/></svg></span></button>
+      <button class="row mr" type="button" data-open="f5" style="--i:5"><span class="n">5</span><span><b>Green space</b><span class="d">Is there a park or trees close by?</span></span><span class="ic" data-ic="f5"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-tree"/></svg></span></button>
+    </div>
+    <div class="photo" style="background:#f7f5ef">
+      <svg viewBox="0 0 700 900" role="img" aria-label="A neighborhood cross-section: a water tower at left, a grocery store in the middle, a factory with smoke at right, a busy road below them, and a park with trees at the bottom." style="position:absolute;inset:0;width:100%;height:100%;display:block" font-family="'Archivo Narrow',Arial,sans-serif">
+        <rect width="700" height="900" fill="#f7f5ef"/>
+        <circle cx="90" cy="90" r="46" fill="#C4851C"/>
+        <g fill="#2b2b2b"><rect x="60" y="300" width="12" height="240"/><rect x="108" y="300" width="12" height="240"/><rect x="30" y="236" width="120" height="70" rx="10"/></g>
+        <text x="90" y="282" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">WATER</text>
+        <rect x="230" y="400" width="150" height="140" fill="#2b2b2b"/><rect x="215" y="385" width="180" height="26" fill="#2e7d5b"/>
+        <rect x="250" y="440" width="46" height="100" fill="#fff"/><rect x="316" y="440" width="44" height="46" fill="#fff"/>
+        <text x="305" y="432" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">FOOD</text>
+        <rect x="430" y="340" width="170" height="200" fill="#2b2b2b"/><rect x="545" y="250" width="32" height="92" fill="#2b2b2b"/>
+        <g fill="#8a8a8a"><circle cx="561" cy="222" r="26"/><circle cx="596" cy="176" r="34"/><circle cx="560" cy="130" r="40"/></g>
+        <g fill="#fff"><rect x="452" y="372" width="30" height="30"/><rect x="498" y="372" width="30" height="30"/><rect x="544" y="372" width="30" height="30"/></g>
+        <rect x="0" y="540" width="700" height="14" fill="#2b2b2b"/>
+        <rect x="0" y="554" width="700" height="100" fill="#4a4a4a"/>
+        <path d="M0 604H700" stroke="#fff" stroke-width="6" stroke-dasharray="36 28"/>
+        <g><rect x="90" y="566" width="90" height="34" rx="8" fill="#C4851C"/><rect x="420" y="608" width="90" height="34" rx="8" fill="#42a8bf"/></g>
+        <g fill="none" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round"><path d="M200 566q20 18 0 36"/><path d="M222 556q30 28 0 56"/></g>
+        <rect x="0" y="654" width="700" height="246" fill="#2e7d5b"/>
+        <g fill="#1d5a40"><rect x="120" y="760" width="16" height="70"/><rect x="330" y="740" width="16" height="90"/><rect x="540" y="770" width="16" height="64"/></g>
+        <g fill="#75a29f"><circle cx="128" cy="740" r="56"/><circle cx="338" cy="714" r="68"/><circle cx="548" cy="744" r="52"/></g>
+      </svg>
+      <button class="hs" type="button" data-open="f1" aria-label="Healthy food" style="left:44%;top:52%;font:400 30px var(--display)">1</button><button class="hs" type="button" data-open="f2" aria-label="Water quality" style="left:13%;top:37%;font:400 30px var(--display)">2</button><button class="hs" type="button" data-open="f3" aria-label="Noise" style="left:23%;top:68%;font:400 30px var(--display)">3</button><button class="hs" type="button" data-open="f4" aria-label="Air quality" style="left:80%;top:22%;font:400 30px var(--display)">4</button><button class="hs" type="button" data-open="f5" aria-label="Green space" style="left:50%;top:88%;font:400 30px var(--display)">5</button>
+    </div>
+  </div>
+  <div class="bar"><span>Numbers opened<b id="f-n">0 of 5</b></span><span class="src">Teaching diagram, not to scale. Five factors from the instructor's lecture slides, in our own words.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-f1" role="dialog" aria-modal="true" aria-label="Healthy food"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-apple"/></svg></span>1 · Healthy food</div><h3>Food that is close, fresh and affordable</h3><p>Limited access to healthy food can increase the risk of obesity and diabetes. A neighborhood with only fast food and corner stores makes the healthy choice the hard choice.</p></div>
+  <div class="pop" id="pop-f2" role="dialog" aria-modal="true" aria-label="Water quality"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-drop"/></svg></span>2 · Water quality</div><h3>Safe water is basic health</h3><p>Contaminated water sources can cause poisoning and other health risks. We look at one real case, Flint, Michigan, later in this lecture.</p></div>
+  <div class="pop" id="pop-f3" role="dialog" aria-modal="true" aria-label="Noise"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-volume"/></svg></span>3 · Noise</div><h3>Noise is a pollutant too</h3><p>Environmental noise, like traffic or planes, can disrupt sleep and cause stress-related health problems.</p></div>
+  <div class="pop" id="pop-f4" role="dialog" aria-modal="true" aria-label="Air quality"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-wind"/></svg></span>4 · Air quality</div><h3>What you breathe matters</h3><p>Polluted air can lead to serious health issues like asthma and heart disease. Living next to a factory or a busy road raises how much polluted air you breathe.</p></div>
+  <div class="pop" id="pop-f5" role="dialog" aria-modal="true" aria-label="Green space"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-tree"/></svg></span>5 · Green space</div><h3>Parks are good for the mind</h3><p>Access to green spaces can improve mental health and thinking. Trees also give shade and clean the air.</p></div>
+</section>
+
+<!-- 10. THREE SCIENCES -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 1 · Environmental health</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 1 · three ways to study environmental health</div>
+    <h2 class="reveal d2" style="font-size:70px">How do we <em>find out</em> what harms health?</h2>
+    <div class="grid g3 lg reveal d3">
+      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-users"/></svg></span><br><span class="tag">Epidemiology</span><h3>Look for patterns in people</h3><p>Studies who gets sick, where, and why across a whole population. Example: do asthma rates rise near busy roads?</p></div>
+      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-alert"/></svg></span><br><span class="tag">Toxicology</span><h3>Test how a substance harms</h3><p>Studies the harmful effects of chemicals and pollutants on living things. Example: how much lead is too much for a child?</p></div>
+      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><br><span class="tag">Public health</span><h3>Protect whole communities</h3><p>Uses what we learn to set rules, give warnings and run programs that keep people healthy. Example: testing school water.</p></div>
+    </div>
+    <div class="rq reveal d4" data-def style="margin-top:28px"><h3>Quick question: a doctor sees many children on one street with asthma. Which science looks for the pattern?</h3><p class="think">Tap to check.</p><p class="ans-text">Epidemiology. It compares groups of people to find where an illness is common and what they share. Toxicology could then test whether a pollutant there is the cause.</p></div>
+  </div>
+</section>
+
+<!-- 11. HEALTH VS JUSTICE -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big ideas 1 and 2</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Two questions · health first, then fairness</div>
+    <h2 class="reveal d2" style="font-size:70px">Environmental health vs. environmental <em>justice</em></h2>
+    <div class="vs reveal d3">
+      <div class="a"><h3>Environmental health</h3><p class="q">How do environmental factors affect the places people live, work and play?</p><p>The study of how the physical, chemical and biological world affects people's health.</p></div>
+      <div class="b"><h3>Environmental justice</h3><p class="q">How do some environmental health issues create more burdens for some people than for others?</p><p>Benefits and burdens are often shared unevenly, especially for low-income and minority groups.</p></div>
+    </div>
+    <div class="bnr reveal d4" style="margin-top:26px"><b>Our lens</b>We use the idea of <b style="display:inline;font:inherit;letter-spacing:0;text-transform:none;color:var(--golden)">equality versus equity</b> from sustainability to judge what is fair.</div>
+  </div>
+</section>
+
+<!-- 12. FUNDAMENTAL CONCEPTS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · three ideas that build on each other</div>
+    <h2 class="reveal d2" style="font-size:70px">Ethics, equity and <em>environmental justice</em></h2>
+    <div class="two r reveal d3" style="grid-template-columns:1fr 860px">
+      <div class="side">
+        <div class="sc"><b>Ethics</b>Is it right? This covers humans versus non-humans and fair treatment.</div>
+        <div class="sc green"><b>Equity</b>Its role in sustainability and its effects on the economy and the environment.</div>
+        <div class="sc bad"><b>Environmental justice</b>Policies hit different groups differently. Benefits and burdens are shared unequally, along lines of race, class, ethnicity, gender and other social groups.</div>
+        <div class="rq" data-def><h3>Quick question: why do the burdens end up unequal?</h3><p class="think">Tap to check.</p><p class="ans-text">Three reasons from the lecture: scarcity (there is not enough good land, air and water for everyone), a lack of benevolence (people look after themselves first), and uneven power (some groups have a bigger voice).</p></div>
+      </div>
+      <div class="pic dia"><svg viewBox="0 0 800 560" role="img" aria-label="Three circles joined by arrows: Ethics, then Equity, then Environmental justice. Below them a bar reads: caused by scarcity, lack of benevolence and uneven power.">
+        <defs><marker id="arJ" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
+        <g font-family="'DM Serif Display',serif" fill="#fff" text-anchor="middle">
+          <circle cx="120" cy="190" r="100" fill="#2e7d5b"/><text x="120" y="202" font-size="38">Ethics</text>
+          <circle cx="400" cy="190" r="100" fill="#C4851C"/><text x="400" y="202" font-size="38">Equity</text>
+          <circle cx="680" cy="190" r="100" fill="#2b2b2b"/><text x="680" y="176" font-size="32">Environ-</text><text x="680" y="214" font-size="32">mental</text><text x="680" y="252" font-size="32">justice</text>
+        </g>
+        <g fill="none" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round"><path d="M228 190H290" marker-end="url(#arJ)"/><path d="M508 190H570" marker-end="url(#arJ)"/></g>
+        <rect x="40" y="370" width="720" height="150" rx="22" fill="#f7f5ef" stroke="#2b2b2b" stroke-width="5"/>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" fill="#2b2b2b" text-anchor="middle" font-weight="700">
+          <text x="400" y="420" font-size="30">Why it happens</text>
+          <text x="400" y="468" font-size="34" fill="#b3452c">Scarcity · lack of benevolence · uneven power</text>
+        </g>
+        <path d="M400 306V366" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arJ)"/>
+      </svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. EQUALITY VS EQUITY PICTURE -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · look at the picture</div>
+    <h2 class="reveal d2" style="font-size:70px">Equality and <em>equity</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1100px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img src="img/equality-equity.jpg" alt="Two baseball-game pictures. Left, equality: three people of different heights each stand on one identical crate behind a fence, and the shortest cannot see the game. Right, equity: the tall person stands on the ground, the middle person on one crate and the shortest on two, so all three can see."><figcaption class="credit">Illustration: Interaction Institute for Social Change | Artist: Angus Maguire. From the instructor's lecture slides.</figcaption></figure></div>
+      <div class="side">
+        <div class="sc"><b>Equality (left)</b>Everyone gets the same resources or opportunities, no matter their circumstances.</div>
+        <div class="sc green"><b>Equity (right)</b>Resources are shared by individual need, to reach a fair outcome.</div>
+        <div class="rq" data-def><h3>Quick question: who still cannot see on the left?</h3><p class="think">Tap to check.</p><p class="ans-text">The shortest person. The same box does not fix a bigger barrier. On the right, each person gets what they need, so everyone can see the game.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. EQUALITY VS EQUITY, TRY IT -->
+<section class="slide" id="eq">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · tap a button to switch</div>
+    <h2 class="reveal d2" style="font-size:70px">Try it: equality or <em>equity</em>?</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
+      <div class="pic">
+        <div class="eqbtns"><button class="btn on" type="button" id="eq-a">Equality</button><button class="btn ghost" type="button" id="eq-b">Equity</button></div>
+        <div class="dia" style="padding:10px"><svg id="eq-svg" class="eqsvg" viewBox="0 150 720 410" role="img" aria-label="Three people of different heights standing behind a fence that blocks the view. In equality each stands on the same size box; in equity the boxes differ so all three can see."></svg></div>
+      </div>
+      <div class="side">
+        <div class="sc" id="eq-def"></div>
+        <div class="sc sky" id="eq-res"></div>
+        <div class="rq" data-def><h3>Quick question: which one gives everyone the same outcome?</h3><p class="think">Tap to check.</p><p class="ans-text">Equity. Equality gives everyone the same box, but the shortest person still cannot see. Equity gives each person what they need, so all can see.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching drawing, not to scale. Definitions from the instructor's lecture slides.</p>
+  </div>
+</section>
+
+<!-- 14. FAIRNESS FOR ALL -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · benefits and burdens</div>
+    <h2 class="reveal d2" style="font-size:70px">Sustainability needs fairness and justice for <em>all</em></h2>
+    <div class="vs reveal d3">
+      <div class="a"><h3>Benefits are not shared evenly</h3><p>Clean water, clean air and other ecosystem services are not equally or fairly spread across groups.</p></div>
+      <div class="b"><h3>Burdens fall unevenly</h3><p>Environmental "bads", or externalities, hit low-income and racial minority groups harder.</p></div>
+    </div>
+    <div class="bnr reveal d4" style="margin-top:26px"><b>Environmental justice</b>The principle that no community should bear more environmental burdens, or enjoy fewer environmental benefits, than others.</div>
+  </div>
+</section>
+
+<!-- 15. EJ MILESTONES -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>Big idea 2 · when communities spoke up</div>
+    <h2 class="reveal d2" style="font-size:70px">Environmental justice <em>milestones</em></h2>
+    <div class="tlg five reveal d3">
+      <div class="tc"><span class="y">1978</span><span class="tg">Love Canal</span><p>Residents protest after a neighborhood is found built over buried toxic waste.</p></div>
+      <div class="tc"><span class="y">1982</span><span class="tg">Warren County, NC</span><p>Protests against a landfill sited in a mostly African-American, low-income community.</p></div>
+      <div class="tc"><span class="y">1983</span><span class="tg">GAO study</span><p>3 out of 4 hazardous waste landfills in the South were in minority and low-income communities.</p></div>
+      <div class="tc green"><span class="y">1991</span><span class="tg">People of color summit</span><p>The first national People of Color Environmental Leadership Summit.</p></div>
+      <div class="tc gold"><span class="y">1994</span><span class="tg">Executive order</span><p>A presidential order tells federal agencies to address environmental justice.</p></div>
+    </div>
+    <div class="rq reveal d4" data-def style="margin-top:26px"><h3>Quick question: what do these events have in common?</h3><p class="think">Tap to check.</p><p class="ans-text">Ordinary residents saw that hazards were being placed in their communities, and they organized. Their protests led to evidence (the GAO study) and then to government action.</p></div>
+    <p class="src reveal d4">Milestones from the instructor's lecture slides. The 1991 summit year and the 1994 order are added from public record; the original photo was not supplied.</p>
+  </div>
+</section>
+
+<!-- 17. EJ TOOLS TODAY -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-map"/></svg></span>Big idea 2 · mapping and action today</div>
+    <h2 class="reveal d2" style="font-size:70px">Maps and policy for <em>justice</em></h2>
+    <div class="two r reveal d3" style="grid-template-columns:1fr 960px">
+      <div class="side">
+        <div class="sc green"><b>Map it</b>One important tool is the ability to document and map environmental concerns. It helps communities take part.</div>
+        <div class="sc"><b>Plan for it</b>The federal government and many states now include environmental justice in their long-term planning.</div>
+        <div class="sc sky"><b>Enforce it</b>In 2022, the Department of Justice set up a new Office of Environmental Justice to enforce the rules and protect underserved communities.</div>
+        <div class="rq" data-def><h3>Quick question: what do the two Baltimore maps show together?</h3><p class="think">Tap to check.</p><p class="ans-text">Areas where redlining was historically very common (dark red, left) tend to match areas with lower life expectancy today (lighter shades, right). Past decisions about places still shape health.</p></div>
+      </div>
+      <div class="pic"><figure class="fig plain" style="margin:0"><img style="max-height:560px" src="img/redlining-baltimore.jpg" alt="Two maps of Baltimore. Left: historic redlining score, with the city center very high. Right: life expectancy today, with lower life expectancy in the city center and higher at the edges."><figcaption class="credit">Historic redlining score (left) and life expectancy (right), Baltimore. Adapted from the National Community Reinvestment Coalition (2020). From the instructor's lecture slides.</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. VULNERABILITY -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Vulnerability</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · why the same hazard hurts people differently</div>
+    <h2 class="reveal d2" style="font-size:70px">The <em>vulnerability</em> framework</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1060px 1fr">
+      <div class="pic dia"><svg viewBox="0 0 1000 420" role="img" aria-label="A hazard leads into vulnerability, which has three parts: exposure, sensitivity and adaptive capacity. Exposure and sensitivity raise the harm and adaptive capacity lowers it. The result is impacts.">
+        <defs><marker id="arV" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
+        <circle cx="90" cy="210" r="82" fill="#b3452c"/>
+        <text x="90" y="206" text-anchor="middle" font-family="'DM Serif Display',serif" font-size="32" fill="#fff">Hazard</text><text x="90" y="236" text-anchor="middle" font-family="'Archivo Narrow',Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">heat, flood,</text><text x="90" y="260" text-anchor="middle" font-family="'Archivo Narrow',Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">toxins</text>
+        <rect x="215" y="12" width="580" height="396" rx="28" fill="#f7f5ef" stroke="#2b2b2b" stroke-width="5"/>
+        <text x="505" y="62" text-anchor="middle" font-family="'DM Serif Display',serif" font-size="38" fill="#2b2b2b">Vulnerability</text>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" font-weight="700" fill="#fff" text-anchor="middle">
+          <circle cx="335" cy="230" r="80" fill="#C4851C"/><text x="335" y="212" font-size="29">Exposure</text><text x="335" y="244" font-size="22">who is</text><text x="335" y="268" font-size="22">in the way</text>
+          <circle cx="505" cy="230" r="80" fill="#2b2b2b"/><text x="505" y="212" font-size="29">Sensitivity</text><text x="505" y="244" font-size="22">how easily</text><text x="505" y="268" font-size="22">harmed</text>
+          <circle cx="675" cy="230" r="80" fill="#2e7d5b"/><text x="675" y="206" font-size="27">Adaptive</text><text x="675" y="236" font-size="27">capacity</text><text x="675" y="268" font-size="22">ability to cope</text>
+        </g>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle"><text x="335" y="356" fill="#b3452c">raises harm</text><text x="505" y="356" fill="#b3452c">raises harm</text><text x="675" y="356" fill="#2e7d5b">lowers harm</text></g>
+        <path d="M178 210H208" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arV)"/>
+        <path d="M802 210H830" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arV)"/>
+        <circle cx="905" cy="210" r="82" fill="#2b2b2b"/><text x="905" y="222" text-anchor="middle" font-family="'DM Serif Display',serif" font-size="32" fill="#fff">Impacts</text>
+      </svg></div>
+      <div class="side">
+        <div class="sc bad"><b>Hazard</b>The event or substance that can cause harm.</div>
+        <div class="sc"><b>Same hazard, different harm</b>Vulnerability decides how big the impact is.</div>
+        <div class="rq" data-def><h3>Quick question: a heat wave hits Phoenix. One home has air conditioning and a car. Another has neither. What differs?</h3><p class="think">Tap to check.</p><p class="ans-text">The hazard is the same. The second household has less adaptive capacity (no cooling, no ride to a cool place), so the impact is bigger. Age or illness would raise sensitivity, and hours spent outside would raise exposure.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Framework from the instructor's lecture slide; the three-part grouping is our teaching summary.</p>
+  </div>
+</section>
+
+<!-- 19. FLINT CASE -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Case study · Flint, Michigan</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Case study · read first, then answer on the next slide</div>
+    <h2 class="reveal d2" style="font-size:70px">Water contamination in <em>Flint, MI</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:600px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img style="max-height:540px;object-fit:contain" src="img/flint-map.jpg" alt="Map of Flint, Michigan by ward. Red areas show higher predicted blood lead levels in children, mostly in the center of the city, and blue and green areas show lower levels. Each ward label gives the percent of the ward where any water sample was over 15 parts per billion."><figcaption class="credit">Predicted children's blood lead, Flint. Source: Hanna-Attisha et al. (2016).</figcaption></figure></div>
+      <div class="side">
+        <div class="sc"><b>2014 · The switch</b>While the city was run by a state-appointed manager, Flint changed its water supply to the Flint River to save money.</div>
+        <div class="sc bad"><b>The problem</b>The river water was corrosive and was not treated to control corrosion. Lead from old pipes washed into homes. Residents complained for months.</div>
+        <div class="sc green"><b>The finding</b>A study (Hanna-Attisha et al., 2016) found more children had high lead in their blood after the switch. Red areas on the map are where predicted blood lead was highest.</div>
+        <div class="rq" data-def><h3>Quick question: why is lead in water a problem for children?</h3><p class="think">Tap to check.</p><p class="ans-text">Lead is a toxin. Children are small and still growing, so even low levels can harm the brain and learning. There is no safe level of lead for children.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Map from the instructor's lecture slide. The short summary on the right is from public reports, in our own words, and is simplified.</p>
+  </div>
+</section>
+
+<!-- 20. FLINT QUESTIONS -->
+<section class="slide" id="flint">
+  <div class="rail"><b>19</b><span>Case study · Flint, Michigan</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Your answers · type a sentence or two for each question</div>
+    <h2 class="reveal d2" style="font-size:62px">Flint: <em>health</em> or <em>justice</em>?</h2>
+    <div class="fl reveal d3">
+      <div class="qs">
+        <div><label><span class="num">1</span>What was the hazardous event?</label><textarea class="fld" id="fl1" maxlength="400" placeholder="Type here"></textarea></div>
+        <div><label><span class="num">2</span>How is this an environmental health or public health issue?</label><textarea class="fld" id="fl2" maxlength="400" placeholder="Type here"></textarea></div>
+        <div><label><span class="num">3</span>Is this also an environmental justice issue? How?</label><textarea class="fld" id="fl3" maxlength="400" placeholder="Type here"></textarea></div>
+      </div>
+      <div class="qs">
+        <div><label><span class="num">4</span>How did race play a significant role here?</label><textarea class="fld" id="fl4" maxlength="400" placeholder="Type here"></textarea></div>
+        <div><label><span class="num">5</span>How could this disaster have been avoided altogether?</label><textarea class="fld" id="fl5" maxlength="400" placeholder="Type here"></textarea></div>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:8px"><button class="btn" type="button" id="fl-save">Submit my answers</button><div class="status" id="fl-status"></div></div>
+        <p class="small mute">Answer at least three questions. Your answers go to your instructor.</p>
+      </div>
+    </div>
+    <p class="src reveal d4">Questions from the instructor's lecture slide. Source: Hanna-Attisha et al. (2016).</p>
+  </div>
+</section>
+
+<!-- 19. SUBSTANTIVE VS PROCEDURAL -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Fairness</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · two ways to be fair</div>
+    <h2 class="reveal d2" style="font-size:70px">Approaches to <em>equity</em></h2>
+    <div class="vs reveal d3">
+      <div class="a"><h3>Substantive equity</h3><p class="q">Fairness in distribution</p><p>Who gets what? Needs, merits and choices are the key things to weigh.</p><div class="sc green"><b>Example</b>Welfare support, like help paying for health care or cooling.</div></div>
+      <div class="b"><h3>Procedural equity</h3><p class="q">Fairness in the system</p><p>Who gets a say in the decision? People need a representative voice in decision-making.</p><div class="sc"><b>Examples</b>Residents on the board that picks a site. Affirmative action.</div></div>
+    </div>
+    <p class="src reveal d4">From the instructor's lecture slide. Link back to slide 7: voting rights are the root of procedural equity.</p>
+  </div>
+</section>
+
+<!-- 20. SORTING GAME -->
+<section class="slide" id="sort">
+  <div class="rail"><b>19</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Sorting quiz · tap a button for each card</div>
+    <h2 class="reveal d2" style="font-size:62px"><em>Substantive</em> or <em>procedural</em>?</h2>
+    <div class="srt reveal d3">
+      <div class="srt-def">
+        <div class="sc green"><b>Substantive</b>Fairness in <i>who gets what</i>.</div>
+        <div class="sc"><b>Procedural</b>Fairness in <i>who decides</i>.</div>
+        <div class="srt-score"><span id="srt-n">0</span> of 6 right</div>
+        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
+      </div>
+      <div class="srt-card" id="srt-card" aria-live="polite">
+        <div class="srt-no" id="srt-no"></div>
+        <div class="srt-q" id="srt-q"></div>
+        <div class="srt-btns"><button class="btn" type="button" data-a="s">Substantive</button><button class="btn" type="button" data-a="p">Procedural</button></div>
+        <div class="srt-fb" id="srt-fb"></div>
+        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching examples. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- 21. EXIT POLL -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Exit poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit poll · one answer</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1600px">A city plants extra shade trees in its <em>hottest, least-shaded</em> neighborhood. Which idea fits best?</h2>
+    <div class="poll reveal d3" data-poll="exit">
+      <button class="opt" type="button"><b>A</b>Equality: every neighborhood gets the same number of trees</button>
+      <button class="opt" type="button"><b>B</b>Equity: help goes where the need is greatest</button>
+      <button class="opt" type="button"><b>C</b>Hazard: trees are the threat</button>
+      <button class="opt" type="button"><b>D</b>None of these</button>
+    </div>
+    <div class="status" data-poll-status="exit"></div>
+  </div>
+</section>
+
+<!-- 22. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 30%" src="img/end.jpg" alt="A garbage truck dumping waste onto a landfill" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1040px">
+    <div class="hero-badge reveal"><b>L<em>19</em></b><span>Environmental health and justice</span></div>
+    <div class="title-k reveal d2">Takeaway</div>
+    <p class="hero-lead reveal d2">Sustainability cannot be reached without <em>fairness and justice for all</em>.</p>
+    <ol class="num reveal d3" style="font-size:28px">
+      <li>Air, water, food, noise and green space shape health, and not everyone gets the same share.</li>
+      <li>Equality gives everyone the same. Equity gives each person what they need.</li>
+      <li>Fair outcomes need fair sharing and a fair voice in the decision.</li>
+    </ol>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-10-30c"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm6-s3';
+const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+
+/* === KEY TERMS === the six glossary terms for this session, plus environmental justice and equity */
+const KEY_TERMS = [['Environmental Health', 'heart', 'green'], ['Epidemiology', 'users', 'sky'], ['Toxicology', 'alert', 'gold'], ['Hazard', 'flame', 'gold'], ['Vulnerability', 'home', 'sky'], ['Risk', 'gauge', 'green'], ['Environmental Justice', 'scale', 'gold'], ['Community Resilience', 'waves', 'sky']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || { term: name, definition: '', example: '' }; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { fill($('.slide.hero'), d); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+/* === QUICK QUESTIONS === tap to reveal, not recorded */
+wireReveals();
+
+/* === EQUALITY OR EQUITY === drawn in the deck palette. Standing height + box must reach 165 to see over the fence. */
+const PEOPLE = [{ h: 175, c: '#2b2b2b', name: 'Tall' }, { h: 150, c: '#C4851C', name: 'Medium' }, { h: 110, c: '#2e7d5b', name: 'Short' }];
+const BOXES = { eq: [30, 30, 30], ty: [0, 15, 55] };
+const EQ_TXT = {
+  eq: ['Equality', 'Everyone gets the same resources or opportunities, no matter their circumstances.', 'Result: the shortest person still cannot see over the fence.'],
+  ty: ['Equity', 'Resources are shared by individual need, to reach a fair outcome.', 'Result: everyone can see over the fence.'],
+};
+function drawEq(mode) {
+  const ground = 500, seeH = 165, boxes = BOXES[mode];
+  let s = `<rect x="0" y="150" width="720" height="410" fill="#f7f5ef"/><rect x="0" y="${ground}" width="720" height="60" fill="#e4d8bd"/><rect x="0" y="${ground}" width="720" height="8" fill="#2b2b2b"/>`;
+  s += `<g stroke="#2b2b2b" stroke-width="5"><rect x="470" y="${ground - seeH + 12}" width="220" height="${seeH - 12}" fill="#d9c9a3"/></g>`;
+  s += `<text x="580" y="${ground - 60}" text-anchor="middle" font-size="40" font-weight="700" fill="#2b2b2b">Fence</text>`;
+  PEOPLE.forEach((p, k) => {
+    const x = 80 + k * 130, bx = boxes[k], top = ground - bx - p.h, sees = p.h + bx >= seeH;
+    if (bx) s += `<rect x="${x - 45}" y="${ground - bx}" width="90" height="${bx}" fill="#fff" stroke="#2b2b2b" stroke-width="5"/>`;
+    s += `<rect x="${x - 26}" y="${top + 40}" width="52" height="${p.h - 40}" rx="14" fill="${p.c}"/><circle cx="${x}" cy="${top + 20}" r="24" fill="${p.c}"/>`;
+    s += `<circle cx="${x + 9}" cy="${top + 18}" r="5" fill="#fff"/>`;
+    s += `<text x="${x}" y="272" text-anchor="middle" font-size="30" font-weight="700" fill="${sees ? '#2e7d5b' : '#b3452c'}">${sees ? 'Can see' : 'Cannot see'}</text>`;
+  });
+  s += `<path d="M 30 ${ground - seeH} H 470" stroke="#2b2b2b" stroke-width="4" stroke-dasharray="14 12" fill="none"/>`;
+  $('#eq-svg').innerHTML = s;
+  const [t, d, r] = EQ_TXT[mode];
+  $('#eq-def').innerHTML = `<b>${t}</b>${d}`; $('#eq-res').innerHTML = `<b>What happens</b>${r.replace('Result: ', '').replace(/^./, c => c.toUpperCase())}`;
+  $('#eq-a').className = mode === 'eq' ? 'btn on' : 'btn ghost'; $('#eq-b').className = mode === 'ty' ? 'btn on' : 'btn ghost';
+}
+$('#eq-a').addEventListener('click', () => drawEq('eq'));
+$('#eq-b').addEventListener('click', () => drawEq('ty'));
+drawEq('eq');
+
+/* === FIVE FACTORS === counts the numbers a student has opened */
+(function () {
+  const slide = $('#factors'), opened = new Set();
+  slide.addEventListener('ref:open', e => {
+    const id = e.detail; if (!id) return;
+    opened.add(id);
+    slide.querySelectorAll(`[data-ic="${id}"],.hs[data-open="${id}"]`).forEach(el => el.classList.add('done'));
+    $('#f-n').textContent = `${opened.size} of 5`;
+  });
+})();
+
+/* === SORT: SUBSTANTIVE OR PROCEDURAL === checked in the browser only */
+const NAME = { s: 'Substantive equity', p: 'Procedural equity' };
+const SORT = [
+  ['A clinic opens in a neighborhood that has no doctors', 's', 'It changes who gets health care, a fair distribution. That is substantive equity.'],
+  ['Residents get a seat on the board that decides where a waste site goes', 'p', 'It gives people a voice in the decision. That is procedural equity.'],
+  ['The city pays for air conditioning for older residents on low incomes', 's', 'It gives help based on need. That is substantive equity.'],
+  ['A city holds public meetings in several languages and at night', 'p', 'It makes the decision process open to more people. That is procedural equity.'],
+  ['More shade trees go to the hottest, least-shaded blocks', 's', 'It shares a benefit according to need. That is substantive equity.'],
+  ['Voting rights are protected so every group can elect its representatives', 'p', 'It protects a fair voice in the system. That is procedural equity.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+function sortShow() {
+  answered = false;
+  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; });
+  $('#srt-n').textContent = score;
+}
+$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
+  if (answered) return;
+  answered = true;
+  const ok = b.dataset.a === SORT[si][1];
+  if (ok) score++;
+  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(SORT[si][2])}`;
+  $('#srt-n').textContent = score;
+  snext.hidden = false;
+  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
+  sfb.textContent = score >= 5 ? 'Strong work. You can tell fairness in who gets what from fairness in who decides.' : 'Remember: substantive equity is about who gets what. Procedural equity is about who has a say.';
+  snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
+});
+$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+sortShow();
+
+/* === ATTENDANCE, POLLS, FLINT ANSWERS === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Flint answers: five typed answers, saved as sim "flint-case" */
+$('#fl-save').addEventListener('click', async () => {
+  const st = $('#fl-status'), btn = $('#fl-save');
+  const a = [1, 2, 3, 4, 5].map(n => $('#fl' + n).value.trim());
+  if (a.filter(x => x.split(/\s+/).filter(Boolean).length >= 3).length < 3) { say(st, 'Answer at least three questions in a sentence each.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  say(st, 'Sending…');
+  try { await live.saveSim('flint-case', { a1: a[0], a2: a[1], a3: a[2], a4: a[3], a5: a[4] }); Deck.sent(btn, 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+
+/* Polls: one answer per browser, changeable. */
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll;
+  const st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+</script>
+</body>
+</html>
