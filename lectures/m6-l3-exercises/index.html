@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 19 · Environmental health and justice · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-11-05a">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* reference-guide slides (8 and 9): icon rows on the left, photo on the right */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .pair{position:absolute;inset:0 0 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff}
+.ref .pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
+.ref .pair~.credit-ph{color:#444;text-shadow:none}
+.ref .bar .src{width:760px}
+.ref .pop textarea.fld{font-size:30px;line-height:1.35}
+/* exercise 3: clear column on the right, reserved for a Phoenix neighborhood picture */
+.loop-room{right:680px!important}
+.loop-room .exl{align-content:start;gap:16px!important}
+.loop-room .ex textarea{height:120px!important}
+/* === M6 L2 EXERCISES ONLY === */
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.steps{font-size:26px;line-height:1.4;color:var(--ink);margin:0 0 14px}.steps b{color:var(--Blue)}
+.chipsel{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 12px}
+.chipsel button{font:700 22px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 20px;cursor:pointer}
+.chipsel button:hover{border-color:var(--Sky)}
+.chipsel button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.ex textarea{height:96px;font-size:22px}.ex label{font-size:24px}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+.go-row .status{margin:0;font-size:20px}
+.exl{display:grid;grid-template-columns:760px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
+.exl .pic img{width:100%;display:block;border-radius:14px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.three .col{background:var(--card);border:2px solid var(--paper-2);border-top:8px solid var(--Sky);border-radius:16px;padding:18px 22px}
+.three .col.s{border-top-color:var(--golden)}.three .col.e{border-top-color:#2e7d5b}
+.three h3{font:400 34px var(--display);margin:0 0 6px}.three .d{font-size:20px;color:var(--mute);margin-bottom:10px}
+.three .chipsel{flex-direction:column;align-items:stretch}.three .chipsel button{text-align:left;font-size:21px;border-radius:14px;line-height:1.25}
+/* exercise 3, part 2: world map of the largest cities */
+.ref .mapyrs{position:absolute;left:74px;top:236px;display:flex;gap:12px}
+.ref .mapyrs button{font:700 28px var(--rbody);border:2px solid #2b2b2b;background:#fff;color:#2b2b2b;border-radius:999px;padding:6px 28px;cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,color .16s ease}
+.ref .mapyrs button:active{transform:scale(.97)}
+.ref .mapyrs button.on{background:var(--red);border-color:var(--red);color:#fff}
+.ref .mapbox{position:absolute;left:74px;right:74px;top:304px}
+.ref .mapbox>svg{display:block;width:100%;height:auto;border-radius:14px}
+.ref .mkey{display:flex;gap:12px;align-items:center;font:400 24px var(--rbody);color:#555;margin-top:10px}
+.ref .mread{position:absolute;left:74px;right:74px;bottom:20px;margin:0;font:400 30px/1.25 var(--rbody)}
+#mdots circle{fill:#C4851C;fill-opacity:.6;stroke:#2b2b2b;stroke-width:1.6;transition:r .5s var(--out)}
+#mlab text{font:700 15px 'Archivo Narrow',Arial,sans-serif;fill:#2b2b2b;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}
+#mlab text tspan.v{font-weight:400}
+#mlead line{stroke:#2b2b2b;stroke-width:1.2}
+@media (prefers-reduced-motion:reduce){#mdots circle{transition:none}}
+/* exercises 3 and 4: Our World in Data city chart */
+.cityframe{position:relative;width:100%;height:600px;border-radius:18px;overflow:hidden;background:var(--card);border:2px solid var(--paper-2)}
+.cityframe iframe,.ref .photo iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cityframe .wait,.ref .photo .wait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--mute);font-size:24px}
+.yrs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 14px}
+.yrs button{font:700 24px var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 22px;cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease}
+.yrs button:hover{border-color:var(--Sky)}.yrs button:active{transform:scale(.97)}
+.yrs button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.yrs .alt{font-size:20px;margin-left:auto;color:var(--mute)}.yrs .alt a{color:var(--Blue)}
+/* sorting quiz (exercise 3) */
+.srt{display:grid;grid-template-columns:600px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:16px;align-content:start}.srt-def .sc{font-size:27px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 52px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:18px;flex-wrap:wrap}
+.srt-btns .btn{font-size:30px;padding:16px 36px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-go{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.srt-go .btn{font-size:30px;padding:16px 36px}.srt-go .btn.sent{background:#2e7d5b!important;border-color:#2e7d5b!important;color:#fff!important;opacity:1!important}.srt-go .status{font-size:26px}
+.srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+/* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button,.srt-btns .btn{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease;will-change:transform}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+/* === M6 L3 EXERCISES ONLY === the shade budget */
+.sp{display:grid;grid-template-columns:1120px 1fr;gap:36px;flex:1;min-height:0;align-items:stretch}
+.sp .rows{display:grid;gap:18px;align-content:start}
+.sp .nb{display:grid;grid-template-columns:270px 290px 1fr;gap:18px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--Sky);border-radius:14px;padding:22px 20px}
+.sp .nb h3{font:400 38px var(--display);margin:0}.sp .nb small{display:block;font:400 20px var(--body);color:var(--mute)}
+.sp .amt{display:flex;align-items:center;gap:12px}
+.sp .amt button{font:700 34px var(--body);width:56px;height:56px;border-radius:14px;border:2px solid var(--Blue);background:#fff;color:var(--Blue);cursor:pointer;line-height:1}
+.sp .amt button:disabled{opacity:.35;cursor:not-allowed}
+.sp .amt b{font:400 34px var(--display);min-width:130px;text-align:center}
+.sp .risk{display:grid;grid-template-columns:1fr 64px;gap:12px;align-items:center}
+.sp .bar2{height:38px;background:var(--paper-2);border-radius:8px;overflow:hidden}
+.sp .bar2 i{display:block;height:100%;background:#b3452c;border-radius:0 8px 8px 0;transition:width .3s var(--io)}
+.sp .risk b{font:400 38px var(--display);text-align:right}
+.sp .tabs{display:flex;gap:12px;margin-bottom:6px}
+.sp .tabs button{font:700 26px var(--body);border:2px solid var(--Blue);background:#fff;color:var(--Blue);border-radius:999px;padding:10px 28px;cursor:pointer}
+.sp .tabs button.on{background:var(--Blue);color:#fff}
+.sp .side{display:grid;gap:14px;align-content:start}
+.sp .cmpt{width:100%;border-collapse:collapse;font-size:28px}
+.sp .cmpt th{font:700 17px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:left;padding:6px 8px}
+.sp .cmpt td{padding:8px;border-top:2px solid var(--paper-2)}.sp .cmpt td.n{font:400 32px var(--display)}
+.sp .left{font:400 40px var(--display)}.sp .left span{color:var(--accent)}
+.role{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 10px}
+.role .btn{font-size:28px;padding:12px 28px}
+.rolebadge{font:400 46px var(--display);padding:6px 24px;border-radius:14px;color:#fff;background:#2e7d5b}.rolebadge.against{background:#b3452c}
+.claim{background:var(--Blue);color:#fff;border-radius:18px;padding:20px 30px;font:400 40px/1.2 var(--display)}
+.claim b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:6px}
+.arg{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1;min-height:0}
+.arg .ex label{font-size:26px}.arg .ex textarea{height:150px;font-size:26px}
+.arg .facts{display:grid;gap:10px}
+.arg .facts button{text-align:left;font:400 25px/1.3 var(--body);border:2px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:14px;padding:10px 16px;cursor:pointer}
+.arg .facts button.on{border-color:var(--Blue);background:#e4f2f6}
+.arg .round2{border-top:3px dashed var(--paper-2);margin-top:14px;padding-top:12px}
+.dbf{display:grid;gap:18px;flex:1;min-height:0;align-content:start}
+.dbf label{display:block;font:700 30px/1.25 var(--body);margin-bottom:4px}.dbf textarea{width:100%;height:130px;font-size:26px;resize:none}
+</style>
+<link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol></svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="../m6-l3-environmental-health/img/hero.jpg" alt="Smoke and steam rising from the stacks and cooling towers of an industrial plant">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>06</em></b><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
+    <div class="title-k reveal d2">Lecture 19 · Environmental health and justice</div>
+    <h1 class="reveal d2" style="font-size:96px">Class Exercise <em>19</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">The Shade Budget. Same money, four neighborhoods. Who gets shade first?</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- CHECK IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>19</b><span>Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE 1. MEET THE NEIGHBORHOODS -->
+<section class="slide ref" id="brief">
+  <div class="top">SOS110 · Class Exercise 19 · Exercise 1 of 4 · Meet four neighborhoods</div>
+  <div class="card">
+    <h2>The <em>Shade</em> Budget</h2>
+    <p class="lead">You run a city's sustainability office with <b>$100,000</b> for shade trees and cooling. <b>Tap the first three icons</b> to learn about the four neighborhoods, then tap the pencil.</p>
+    <div class="body" style="top:330px">
+      <button class="row mr" type="button" data-open="b-explore" style="--i:1"><span class="n">1</span><span><b>Explore</b><span class="d">Walk through the four neighborhoods</span></span><span class="ic" data-ic="b-explore"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="b-data" style="--i:2"><span class="n">2</span><span><b>Data</b><span class="d">Trees, air conditioning and heat risk</span></span><span class="ic" data-ic="b-data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="b-link" style="--i:3"><span class="n">3</span><span><b>Linkages</b><span class="d">How shade, heat, health, money and voice connect</span></span><span class="ic" data-ic="b-link"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span></button>
+      <button class="row mr" type="button" data-open="b-ans" style="--i:4"><span class="n">4</span><span><b>Your guess (submits)</b><span class="d">Before you spend, make a prediction</span></span><span class="ic" data-ic="b-ans"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span></button>
+    </div>
+    <div class="photo" style="background:#f7f5ef">
+      <svg viewBox="0 0 700 900" role="img" aria-label="Four neighborhood strips from top to bottom: Hillside with many trees, Downtown with some trees, Eastside with few trees, and Industrial Edge with almost none and a factory." style="position:absolute;inset:0;width:100%;height:100%;display:block" font-family="'Archivo Narrow',Arial,sans-serif">
+        <rect width="700" height="900" fill="#f7f5ef"/>
+        <g id="bandsvg"></g>
+      </svg>
+    </div>
+  </div>
+  <div class="bar"><span>Icons opened<b id="b-n">0 of 3</b></span><span class="src">All neighborhoods and numbers are teaching numbers, made up for this exercise. They are not real Phoenix data.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-b-explore" role="dialog" aria-modal="true" aria-label="The four neighborhoods"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Explore · four neighborhoods</div><h3>Same city, four very different blocks</h3><p><b>Hillside.</b> Big yards, many trees, most homes have air conditioning.</p><p><b>Downtown.</b> Offices and apartments. Some street trees, some shade.</p><p><b>Eastside.</b> Older homes, few trees, many renters. Summer afternoons are hot.</p><p><b>Industrial Edge.</b> Next to a factory and a highway. Almost no trees, and many homes cannot afford to cool.</p></div>
+  <div class="pop" id="pop-b-data" role="dialog" aria-modal="true" aria-label="The numbers"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data · teaching numbers</div><h3>Heat risk before any spending</h3><table style="width:100%;border-collapse:collapse;font-size:27px"><tr style="text-align:left;color:#666"><th>Neighborhood</th><th>Tree cover</th><th>Homes without AC</th><th>Heat risk (0 to 100)</th></tr><tr><td><b>Hillside</b></td><td>38%</td><td>5%</td><td>30</td></tr><tr><td><b>Downtown</b></td><td>18%</td><td>15%</td><td>55</td></tr><tr><td><b>Eastside</b></td><td>9%</td><td>30%</td><td>75</td></tr><tr><td><b>Industrial Edge</b></td><td>4%</td><td>40%</td><td>90</td></tr></table><div class="abc" style="margin-top:14px"><div class="box"><div class="l">The rule</div><div class="v">$5,000</div><div class="d">Each $5,000 removes 6% of a neighborhood's heat risk.</div></div><div class="box warn"><div class="l">The limit</div><div class="v">$60,000</div><div class="d">After that, a neighborhood cannot improve any more.</div></div><div class="box"><div class="l">Your budget</div><div class="v">$100,000</div><div class="d">Four neighborhoods, 20 chunks of $5,000.</div></div></div></div>
+  <div class="pop" id="pop-b-link" role="dialog" aria-modal="true" aria-label="How it connects"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Linkages · how it connects</div><h3>Shade is more than trees</h3><p><b>Shade and health.</b> Fewer trees mean hotter blocks, and more heat illness. People with no air conditioning are the most exposed.</p><p><b>Heat and money.</b> Cooling bills hit low-income homes hardest. For a business, heat means lost work days, health costs and a risk to reputation.</p><p><b>Voice and power.</b> Neighborhoods with less say at city hall are often last in line for trees and parks. Remember the voting rights timeline from the lecture.</p></div>
+  <div class="pop" id="pop-b-ans" role="dialog" aria-modal="true" aria-label="Your guess"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your guess (submits)</div><h3>Make a prediction</h3><p class="qn">If the city gives each neighborhood the same $25,000, which one will still be the hottest, and why? Write 2 or 3 sentences.</p><textarea id="b-text" class="fld" maxlength="700" rows="4" placeholder="Type here. Use your own words." style="height:220px;resize:none"></textarea><div class="go"><button class="rbtn submit" type="button" id="b-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="b-status"></span></div></div>
+</section>
+
+<!-- EXERCISE 2. SPEND THE BUDGET -->
+<section class="slide" id="spend">
+  <div class="rail"><b>19</b><span>Exercise 2 of 4 · Spend the budget</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Class exercise · work with a neighbor · about 5 minutes</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">Equal split, then <em>your plan</em></h2>
+    <p class="steps reveal d2"><b>Step 1:</b> look at the equal split. <b>Step 2:</b> tap "Round 2" and move money with the + and − buttons. Spend all 20 chunks of $5,000. Try to lower the heat risk where it is highest.</p>
+    <div class="sp reveal d3">
+      <div>
+        <div class="tabs"><button type="button" class="on" id="tab-eq">Round 1 · Equal split</button><button type="button" id="tab-ty">Round 2 · Your plan</button></div>
+        <div class="rows" id="sp-rows"></div>
+      </div>
+      <div class="side">
+        <div class="left" id="sp-left"></div>
+        <table class="cmpt"><thead><tr><th></th><th>Hottest block</th><th>Total heat risk</th></tr></thead><tbody id="sp-cmp"></tbody></table>
+        <div class="ex"><label for="sp-why"><i>1</i>Why did you spend it this way? One or two sentences.</label><textarea id="sp-why" maxlength="500" style="height:120px" placeholder="We gave more to … because …"></textarea>
+        <div class="go-row"><button class="btn" type="button" id="sp-save">Submit my plan</button><span class="status" id="sp-status"></span></div></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching numbers, not real data. Risk = starting risk × (1 − 0.06 × chunks of $5,000), up to 12 chunks.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 3. ARGUE IT -->
+<section class="slide" id="argue">
+  <div class="rail"><b>19</b><span>Exercise 3 of 4 · Argue both sides</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Class exercise · pair up · about 6 minutes</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">Argue it: <em>for</em> and <em>against</em></h2>
+    <div class="claim reveal d2"><b>The claim</b>Splitting the shade budget equally is the fairest choice.</div>
+    <div class="arg reveal d3" style="margin-top:16px">
+      <div class="ex">
+        <label><i>1</i>Pick the fact you will use.</label>
+        <div class="facts" id="facts"></div>
+        <label style="margin-top:14px"><i>2</i>Your role</label>
+        <div class="role"><button class="btn ghost" type="button" id="role-rand">Give me a role</button><span id="role-badge"></span></div>
+      </div>
+      <div class="ex">
+        <div id="rd1">
+          <label for="ar-text1"><i>3</i>In two sentences, argue your side using your fact.</label>
+          <textarea id="ar-text1" maxlength="600" placeholder="Using the fact that … I argue … because …"></textarea>
+          <div class="go-row"><button class="btn" type="button" id="ar-save1">Submit my argument</button><span class="status" id="ar-status1"></span></div>
+        </div>
+        <div id="rd2" class="round2" hidden>
+          <label for="ar-text2"><i>4</i>Now switch! Argue the <b id="rd2-side"></b> side, with the same fact or a new one.</label>
+          <textarea id="ar-text2" maxlength="600" placeholder="This time I argue … because …"></textarea>
+          <div class="go-row"><button class="btn" type="button" id="ar-save2">Submit the other side</button><span class="status" id="ar-status2"></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="src reveal d4">Tip: you do not have to believe your side. Good business leaders can argue both sides before they decide.</p>
+  </div>
+</section>
+
+<!-- EXERCISE 4. DEBRIEF -->
+<section class="slide" id="debrief">
+  <div class="rail"><b>19</b><span>Exercise 4 of 4 · Debrief</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Debrief · type a sentence or two for each question, then submit</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">What did we <em>learn</em>?</h2>
+    <div class="dbf reveal d3">
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">1</i>Which round gave the better result, and why? Think about the hottest block and the total heat risk.</label><textarea id="db1" maxlength="500" placeholder="Type here"></textarea></div>
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">2</i>Who had no say in your plan? How could you give them a voice in the decision?</label><textarea id="db2" maxlength="500" placeholder="Type here"></textarea></div>
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">3</i>Finish this sentence: "A business decision where equity beats equality is…"</label><textarea id="db3" maxlength="500" placeholder="Type here"></textarea></div>
+      <div class="go-row"><button class="btn" type="button" id="db-save">Submit my debrief</button><span class="status" id="db-status"></span></div>
+    </div>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-11-03a"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { initPace } from '../../shared/pace.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm6-s3';
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === TEACHING NUMBERS === four made-up neighborhoods; risk = base x (1 - 0.06 x chunks), up to 12 chunks of $5,000 */
+const NB = [
+  { n: 'Hillside', base: 30, note: '38% tree cover', trees: 8 },
+  { n: 'Downtown', base: 55, note: '18% tree cover', trees: 4 },
+  { n: 'Eastside', base: 75, note: '9% tree cover', trees: 2 },
+  { n: 'Industrial Edge', base: 90, note: '4% tree cover', trees: 1 },
+];
+const risk = (i, u) => Math.round(NB[i].base * (1 - 0.06 * Math.min(u, 12)) * 10) / 10;
+const stats = u => { const r = u.map((x, i) => risk(i, x)); return { r, max: Math.max(...r), total: Math.round(r.reduce((a, b) => a + b, 0) * 10) / 10 }; };
+const EQ = [5, 5, 5, 5];
+
+/* === NEIGHBORHOOD PICTURE (slide 3) === */
+$('#bandsvg').innerHTML = NB.map((b, i) => {
+  const y = 24 + i * 218, houses = [0, 1, 2, 3, 4].map(k => `<rect x="${40 + k * 74}" y="${y + 100}" width="56" height="52" fill="#2b2b2b"/><path d="M${34 + k * 74} ${y + 102}L${68 + k * 74} ${y + 76}L${102 + k * 74} ${y + 102}Z" fill="#8a6a14"/>`).join('');
+  const trees = Array.from({ length: b.trees }, (_, k) => `<rect x="${62 + k * 40}" y="${y + 126}" width="8" height="30" fill="#1d5a40"/><circle cx="${66 + k * 40}" cy="${y + 116}" r="22" fill="#2e7d5b"/>`).join('');
+  const heat = Math.round(b.base);
+  return `<rect x="14" y="${y}" width="672" height="200" rx="16" fill="#fff" stroke="#2b2b2b" stroke-width="4"/><text x="36" y="${y + 50}" font-size="38" font-weight="700" fill="#2b2b2b">${b.n}</text><text x="664" y="${y + 50}" text-anchor="end" font-size="30" font-weight="700" fill="#b3452c">Heat risk ${heat}</text>${houses}${trees}<rect x="14" y="${y + 160}" width="672" height="40" rx="0" fill="#e4d8bd"/><text x="36" y="${y + 188}" font-size="24" font-weight="700" fill="#2b2b2b">${b.note}</text>`;
+}).join('');
+
+/* === ATTENDANCE === */
+const live = await connect(LECTURE);
+initPace(live, 'm6-l3-exercises');
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() {
+  const u = live.user();
+  if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; }
+}
+showUser();
+async function ensureUser(statusEl) {
+  if (live.user()) return true;
+  say(statusEl, 'Check in on the attendance slide first.', 'err');
+  return false;
+}
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status');
+  say(st, 'Checking in…');
+  try {
+    await live.signIn($('[data-name]').value, $('[data-email]').value);
+    await live.checkIn($('#code').value);
+    say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok');
+    showUser();
+  } catch (e) { say(st, e.message, 'err'); }
+});
+const words = s => s.trim().split(/\s+/).filter(Boolean).length;
+async function save(sim, data, btn, st, label = 'Submitted') {
+  if (!await ensureUser(st)) return false;
+  say(st, 'Sending…');
+  try { await live.saveSim(sim, data); Deck.sent(btn, label); say(st, 'Submitted. Thanks!', 'ok'); return true; }
+  catch (e) { say(st, e.message, 'err'); return false; }
+}
+
+/* === EXERCISE 1: tap three icons, then the guess === */
+(function () {
+  const slide = $('#brief'), opened = new Set(), st = $('#b-status');
+  slide.addEventListener('ref:open', e => {
+    const id = e.detail;
+    if (id && !id.endsWith('-ans')) { opened.add(id); const ic = slide.querySelector(`[data-ic="${id}"]`); if (ic) ic.classList.add('done'); $('#b-n').textContent = `${opened.size} of 3`; }
+  });
+  $('#b-save').addEventListener('click', () => {
+    const answer = $('#b-text').value.trim();
+    if (opened.size < 2) { say(st, 'Open at least 2 of the 3 icons first.', 'err'); return; }
+    if (words(answer) < 8) { say(st, 'Type your guess in your own words (a couple of sentences).', 'err'); return; }
+    save('shade-guess', { answer, opened: opened.size }, $('#b-save'), st);
+  });
+})();
+
+/* === EXERCISE 2: spend the budget === */
+let mode = 'eq', plan = [...EQ];
+const rowsEl = $('#sp-rows');
+function renderSpend() {
+  const u = mode === 'eq' ? EQ : plan, s = stats(u), used = u.reduce((a, b) => a + b, 0);
+  rowsEl.innerHTML = NB.map((b, i) => `<div class="nb"><div><h3>${b.n}</h3><small>${b.note}</small></div><div class="amt"><button type="button" data-i="${i}" data-d="-1" ${mode === 'eq' || u[i] <= 0 ? 'disabled' : ''} aria-label="Less for ${b.n}">−</button><b>$${(u[i] * 5000).toLocaleString()}</b><button type="button" data-i="${i}" data-d="1" ${mode === 'eq' || used >= 20 || u[i] >= 12 ? 'disabled' : ''} aria-label="More for ${b.n}">+</button></div><div class="risk"><div class="bar2"><i style="width:${s.r[i]}%"></i></div><b>${s.r[i]}</b></div></div>`).join('');
+  const left = 20 - used;
+  $('#sp-left').innerHTML = mode === 'eq' ? 'Equal split: <span>$25,000</span> each' : `Left to spend: <span>$${(left * 5000).toLocaleString()}</span>`;
+  const e = stats(EQ), y = stats(plan);
+  $('#sp-cmp').innerHTML = `<tr><td>Equal split</td><td class="n">${e.max}</td><td class="n">${e.total}</td></tr><tr><td>Your plan</td><td class="n">${y.max}</td><td class="n">${y.total}</td></tr>`;
+  $('#tab-eq').classList.toggle('on', mode === 'eq'); $('#tab-ty').classList.toggle('on', mode === 'ty');
+}
+rowsEl.addEventListener('click', e => {
+  const b = e.target.closest('button[data-i]'); if (!b || mode !== 'ty') return;
+  const i = +b.dataset.i, d = +b.dataset.d, used = plan.reduce((a, c) => a + c, 0);
+  if (d > 0 && (used >= 20 || plan[i] >= 12)) return; if (d < 0 && plan[i] <= 0) return;
+  plan[i] += d; renderSpend();
+});
+$('#tab-eq').addEventListener('click', () => { mode = 'eq'; renderSpend(); });
+$('#tab-ty').addEventListener('click', () => { if (mode === 'eq') plan = [5, 5, 5, 5]; mode = 'ty'; renderSpend(); });
+renderSpend();
+$('#sp-save').addEventListener('click', () => {
+  const st = $('#sp-status'), why = $('#sp-why').value.trim();
+  if (plan.reduce((a, b) => a + b, 0) !== 20) { say(st, 'Spend all 20 chunks in Round 2 first.', 'err'); return; }
+  if (words(why) < 6) { say(st, 'Explain your choice in a sentence or two.', 'err'); return; }
+  const y = stats(plan), same = plan.every((v, i) => v === EQ[i]);
+  save('shade-plan', { units: plan, risks: y.r, max: y.max, total: y.total, same, why }, $('#sp-save'), st, 'Submitted');
+});
+
+/* === EXERCISE 3: argue for and against === */
+const FACTS = [
+  'Industrial Edge starts with the highest heat risk (90) and almost no trees.',
+  'With an equal split, Industrial Edge is still the hottest block (risk about 63).',
+  'Each $5,000 removes 6% of a neighborhood\'s risk, so the same money removes more points where risk is high.',
+  'Hillside already has the most trees and almost every home has air conditioning.',
+];
+let fact = -1, role = '';
+$('#facts').innerHTML = FACTS.map((f, i) => `<button type="button" data-f="${i}">${esc(f)}</button>`).join('');
+$('#facts').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; fact = +b.dataset.f; $$('#facts button').forEach(x => x.classList.toggle('on', x === b)); });
+function setRole(r) {
+  role = r;
+  $('#role-badge').innerHTML = `<span class="rolebadge ${r === 'AGAINST' ? 'against' : ''}">${r}</span>`;
+  $('#rd2-side').textContent = r === 'FOR' ? 'AGAINST' : 'FOR';
+}
+$('#role-rand').addEventListener('click', () => setRole(Math.random() < .5 ? 'FOR' : 'AGAINST'));
+$('#ar-save1').addEventListener('click', async () => {
+  const st = $('#ar-status1'), text = $('#ar-text1').value.trim();
+  if (fact < 0) { say(st, 'Pick a fact first.', 'err'); return; }
+  if (!role) { say(st, 'Tap "Give me a role" first.', 'err'); return; }
+  if (words(text) < 10) { say(st, 'Write two sentences in your own words.', 'err'); return; }
+  if (await save('shade-argue-1', { role, fact: FACTS[fact], text }, $('#ar-save1'), st)) $('#rd2').hidden = false;
+});
+$('#ar-save2').addEventListener('click', () => {
+  const st = $('#ar-status2'), text = $('#ar-text2').value.trim();
+  if (words(text) < 10) { say(st, 'Write two sentences in your own words.', 'err'); return; }
+  save('shade-argue-2', { role: role === 'FOR' ? 'AGAINST' : 'FOR', fact: fact >= 0 ? FACTS[fact] : '', text }, $('#ar-save2'), st);
+});
+
+/* === EXERCISE 4: debrief === */
+$('#db-save').addEventListener('click', () => {
+  const st = $('#db-status'), a = [1, 2, 3].map(n => $('#db' + n).value.trim());
+  if (a.filter(x => words(x) >= 4).length < 2) { say(st, 'Answer at least two questions in a sentence each.', 'err'); return; }
+  save('shade-debrief', { a1: a[0], a2: a[1], a3: a[2] }, $('#db-save'), st);
+});
+</script>
+</body>
+</html>
