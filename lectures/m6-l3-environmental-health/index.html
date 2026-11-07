@@ -131,6 +131,7 @@ p,li{text-wrap:pretty}
 .bnr b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:4px}
 .eqsvg text{font-family:var(--body)}
 .hs.done{background:var(--rg)}
+.bigph{width:100%;height:200px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px}
 .grid.lg .card h3{font-size:44px;line-height:1.15}
 .grid.lg .card p{font-size:32px;line-height:1.38}
 .grid.lg .card .tag{font-size:20px}
@@ -187,7 +188,7 @@ p,li{text-wrap:pretty}
 
 <!-- 1. TITLE -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center" src="img/hero.jpg" alt="Phoenix homes at the edge of the desert, with mountains behind">
+  <img class="hero-img" style="object-position:center" src="img/hero.jpg" alt="Smoke and steam rising from the stacks and cooling towers of an industrial plant">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>06</em></b><span data-fill="module-title">Complex Socio-economic Issues and Sustainable Innovations</span></div>
@@ -196,7 +197,7 @@ p,li{text-wrap:pretty}
     <p class="hero-sub reveal d3" style="max-width:860px">Where you live changes what you breathe, drink and risk. Is that fair?</p>
     <div class="goldline"></div>
   </div>
-  <p class="hero-cap">Photo: Phoenix-area neighborhood edge</p>
+  <p class="hero-cap">Photo: instructor's lecture slides</p>
 </section>
 
 <!-- 2. KEY TERMS -->
@@ -232,9 +233,9 @@ p,li{text-wrap:pretty}
     <div class="k reveal">Big ideas · health, fairness and who is most at risk</div>
     <h2 class="reveal d2">Today's big <em>ideas</em></h2>
     <div class="grid g3 bigs reveal d3">
-      <div class="card accent"><span class="ico sky lg"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><br><span class="tag">1 · Environmental health</span><h3>How does the place you live affect your health?</h3><p>Air, water, food, noise and green space all shape health where people live, work and play.</p></div>
-      <div class="card green"><span class="ico green lg"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><br><span class="tag">2 · Environmental justice</span><h3>Who carries the burdens?</h3><p>Some groups get fewer benefits and more pollution than others. Equality gives everyone the same. Equity gives each person what they need.</p></div>
-      <div class="card gold"><span class="ico gold lg"><svg aria-hidden="true"><use href="#i-alert"/></svg></span><br><span class="tag">3 · Vulnerability and fairness</span><h3>Why does the same hazard hurt some people more?</h3><p>Exposure, sensitivity and the ability to cope decide the harm. Fair outcomes need fair sharing and a fair voice.</p></div>
+      <div class="card accent"><img class="bigph" src="img/power-plant.jpg" style="object-position:center 55%" alt="A power plant with smoke rising, beside a wheat field"><span class="tag">1 · Environmental health</span><h3>How does the place you live affect your health?</h3><p>Air, water, food, noise and green space all shape health where people live, work and play.</p></div>
+      <div class="card green"><img class="bigph" src="img/handshake.jpg" style="object-position:center 40%" alt="Two hands clasped in a handshake"><span class="tag">2 · Environmental justice</span><h3>Who carries the burdens?</h3><p>Some groups get fewer benefits and more pollution than others. Equality gives everyone the same. Equity gives each person what they need.</p></div>
+      <div class="card gold"><img class="bigph" src="img/la-skyline.jpg" style="object-position:center 30%" alt="A city skyline at sunset with palm trees in a hazy sky"><span class="tag">3 · Vulnerability and fairness</span><h3>Why does the same hazard hurt some people more?</h3><p>Exposure, sensitivity and the ability to cope decide the harm. Fair outcomes need fair sharing and a fair voice.</p></div>
     </div>
     <div class="take reveal d4"><b>Takeaway</b>Sustainability cannot be achieved without fairness and justice for all.</div>
   </div>
@@ -421,12 +422,29 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 13. EQUALITY VS EQUITY -->
+<!-- 13. EQUALITY VS EQUITY PICTURE -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · look at the picture</div>
+    <h2 class="reveal d2" style="font-size:70px">Equality and <em>equity</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1100px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img src="img/equality-equity.jpg" alt="Two baseball-game pictures. Left, equality: three people of different heights each stand on one identical crate behind a fence, and the shortest cannot see the game. Right, equity: the tall person stands on the ground, the middle person on one crate and the shortest on two, so all three can see."><figcaption class="credit">Illustration: Interaction Institute for Social Change | Artist: Angus Maguire. From the instructor's lecture slides.</figcaption></figure></div>
+      <div class="side">
+        <div class="sc"><b>Equality (left)</b>Everyone gets the same resources or opportunities, no matter their circumstances.</div>
+        <div class="sc green"><b>Equity (right)</b>Resources are shared by individual need, to reach a fair outcome.</div>
+        <div class="rq" data-def><h3>Quick question: who still cannot see on the left?</h3><p class="think">Tap to check.</p><p class="ans-text">The shortest person. The same box does not fix a bigger barrier. On the right, each person gets what they need, so everyone can see the game.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. EQUALITY VS EQUITY, TRY IT -->
 <section class="slide" id="eq">
   <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · tap a button to switch</div>
-    <h2 class="reveal d2" style="font-size:70px">Equality and <em>equity</em></h2>
+    <h2 class="reveal d2" style="font-size:70px">Try it: equality or <em>equity</em>?</h2>
     <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
       <div class="pic">
         <div class="eqbtns"><button class="btn on" type="button" id="eq-a">Equality</button><button class="btn ghost" type="button" id="eq-b">Equity</button></div>
@@ -474,7 +492,25 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 16. VULNERABILITY -->
+<!-- 17. EJ TOOLS TODAY -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 2 · Environmental justice</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-map"/></svg></span>Big idea 2 · mapping and action today</div>
+    <h2 class="reveal d2" style="font-size:70px">Maps and policy for <em>justice</em></h2>
+    <div class="two r reveal d3" style="grid-template-columns:1fr 960px">
+      <div class="side">
+        <div class="sc green"><b>Map it</b>One important tool is the ability to document and map environmental concerns. It helps communities take part.</div>
+        <div class="sc"><b>Plan for it</b>The federal government and many states now include environmental justice in their long-term planning.</div>
+        <div class="sc sky"><b>Enforce it</b>In 2022, the Department of Justice set up a new Office of Environmental Justice to enforce the rules and protect underserved communities.</div>
+        <div class="rq" data-def><h3>Quick question: what do the two Baltimore maps show together?</h3><p class="think">Tap to check.</p><p class="ans-text">Areas where redlining was historically very common (dark red, left) tend to match areas with lower life expectancy today (lighter shades, right). Past decisions about places still shape health.</p></div>
+      </div>
+      <div class="pic"><figure class="fig plain" style="margin:0"><img style="max-height:560px" src="img/redlining-baltimore.jpg" alt="Two maps of Baltimore. Left: historic redlining score, with the city center very high. Right: life expectancy today, with lower life expectancy in the city center and higher at the edges."><figcaption class="credit">Historic redlining score (left) and life expectancy (right), Baltimore. Adapted from the National Community Reinvestment Coalition (2020). From the instructor's lecture slides.</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. VULNERABILITY -->
 <section class="slide">
   <div class="rail"><b>19</b><span>Big idea 3 · Vulnerability</span></div>
   <div class="content fill">
@@ -507,23 +543,26 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 17. FLINT CASE -->
+<!-- 19. FLINT CASE -->
 <section class="slide">
   <div class="rail"><b>19</b><span>Case study · Flint, Michigan</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Case study · read first, then answer on the next slide</div>
     <h2 class="reveal d2" style="font-size:70px">Water contamination in <em>Flint, MI</em></h2>
-    <div class="grid g3 lg reveal d3">
-      <div class="card accent"><span class="tag">2014 · The switch</span><h3>A new water source</h3><p>While the city was run by a state-appointed manager, Flint changed its water supply to the Flint River to save money.</p></div>
-      <div class="card gold"><span class="tag">The problem</span><h3>Lead in the tap water</h3><p>The river water was corrosive and was not treated to control corrosion. Lead from old pipes washed into homes. Residents complained for months.</p></div>
-      <div class="card green"><span class="tag">The finding</span><h3>Children's blood lead rose</h3><p>A study by Hanna-Attisha and colleagues (2016) found more children had high lead in their blood after the switch.</p></div>
+    <div class="two l reveal d3" style="grid-template-columns:600px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0"><img style="max-height:540px;object-fit:contain" src="img/flint-map.jpg" alt="Map of Flint, Michigan by ward. Red areas show higher predicted blood lead levels in children, mostly in the center of the city, and blue and green areas show lower levels. Each ward label gives the percent of the ward where any water sample was over 15 parts per billion."><figcaption class="credit">Predicted children's blood lead, Flint. Source: Hanna-Attisha et al. (2016).</figcaption></figure></div>
+      <div class="side">
+        <div class="sc"><b>2014 · The switch</b>While the city was run by a state-appointed manager, Flint changed its water supply to the Flint River to save money.</div>
+        <div class="sc bad"><b>The problem</b>The river water was corrosive and was not treated to control corrosion. Lead from old pipes washed into homes. Residents complained for months.</div>
+        <div class="sc green"><b>The finding</b>A study (Hanna-Attisha et al., 2016) found more children had high lead in their blood after the switch. Red areas on the map are where predicted blood lead was highest.</div>
+        <div class="rq" data-def><h3>Quick question: why is lead in water a problem for children?</h3><p class="think">Tap to check.</p><p class="ans-text">Lead is a toxin. Children are small and still growing, so even low levels can harm the brain and learning. There is no safe level of lead for children.</p></div>
+      </div>
     </div>
-    <div class="rq reveal d4" data-def style="margin-top:28px"><h3>Quick question: why is lead in water a problem for children?</h3><p class="think">Tap to check.</p><p class="ans-text">Lead is a toxin. Children are small and still growing, so even low levels can harm the brain and learning. There is no safe level of lead for children.</p></div>
-    <p class="src reveal d4">Summary of well-known public reports, in our own words. Source named on the instructor's slide: Hanna-Attisha et al. (2016). Details are simplified.</p>
+    <p class="src reveal d4">Map from the instructor's lecture slide. The short summary on the right is from public reports, in our own words, and is simplified.</p>
   </div>
 </section>
 
-<!-- 18. FLINT QUESTIONS -->
+<!-- 20. FLINT QUESTIONS -->
 <section class="slide" id="flint">
   <div class="rail"><b>19</b><span>Case study · Flint, Michigan</span></div>
   <div class="content fill">
@@ -603,7 +642,7 @@ p,li{text-wrap:pretty}
 
 <!-- 22. TAKEAWAY -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center 30%" src="img/hero.jpg" alt="Phoenix homes at the edge of the desert, with mountains behind" aria-hidden="true">
+  <img class="hero-img" style="object-position:center 30%" src="img/end.jpg" alt="A garbage truck dumping waste onto a landfill" aria-hidden="true">
   <div class="hero-scrim"></div>
   <div class="hero-text" style="width:1040px">
     <div class="hero-badge reveal"><b>L<em>19</em></b><span>Environmental health and justice</span></div>
@@ -628,7 +667,7 @@ const LECTURE = 'm6-s3';
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
 /* === KEY TERMS === the six glossary terms for this session, plus environmental justice and equity */
-const KEY_TERMS = [['Environmental Health', 'heart', 'green'], ['Epidemiology', 'users', 'sky'], ['Toxicology', 'alert', 'gold'], ['Hazard', 'flame', 'gold'], ['Vulnerability', 'home', 'sky'], ['Risk', 'gauge', 'green'], ['Environmental Justice', 'scale', 'gold'], ['Environmental Equity', 'scale', 'sky']];
+const KEY_TERMS = [['Environmental Health', 'heart', 'green'], ['Epidemiology', 'users', 'sky'], ['Toxicology', 'alert', 'gold'], ['Hazard', 'flame', 'gold'], ['Vulnerability', 'home', 'sky'], ['Risk', 'gauge', 'green'], ['Environmental Justice', 'scale', 'gold'], ['Community Resilience', 'waves', 'sky']];
 function showTerms({ course }) {
   const gloss = course.glossary.flatMap(g => g.terms);
   $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || { term: name, definition: '', example: '' }; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
