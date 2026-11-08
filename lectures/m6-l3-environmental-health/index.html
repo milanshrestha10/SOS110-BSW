@@ -146,6 +146,16 @@ p,li{text-wrap:pretty}
 .tlg.five .tc p{font-size:32px}
 .content.fill>.grid.lg{flex:1;min-height:0}
 .content.fill>.grid.lg .card{display:flex;flex-direction:column;justify-content:center}
+.vt{margin:0 auto;border:0;background:#fff;display:flex;justify-content:center;flex:1;min-height:0;align-items:center}
+.vt img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.ejm{display:grid;grid-template-columns:620px 1fr;gap:34px;flex:1;min-height:0;align-items:stretch}
+.ejm .fig{display:flex;align-items:center;justify-content:center;background:#fff;min-height:0}.ejm .fig img{height:100%;width:100%;object-fit:contain;object-position:left center}
+.ejm .tlg.five{grid-template-columns:1fr;gap:12px}
+.ejm .tlg.five .tc{display:grid;grid-template-columns:130px 1fr;grid-template-rows:auto auto;column-gap:18px;row-gap:0;padding:4px 18px;align-items:center;min-height:0}
+.ejm .tlg.five .tc .y{grid-row:1/3;font-size:46px}
+.ejm .tlg.five .tc .tg{font-size:17px}
+.ejm .tlg.five .tc p{font-size:22px;line-height:1.2}
+.ejm .tlg.five{gap:10px}.ejm .tlg.five .tc{border-top-width:6px}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -285,17 +295,7 @@ p,li{text-wrap:pretty}
   <div class="rail"><b>19</b><span>Setting the scene</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-vote"/></svg></span>Setting the scene · who gets a say?</div>
-    <h2 class="reveal d2" style="font-size:70px">Voting rights in the <em>United States</em></h2>
-    <div class="tlg reveal d3">
-      <div class="tc"><span class="y">1776</span><p>Voting is limited to property owners, mostly white men over 21.</p></div>
-      <div class="tc"><span class="y">1787</span><p>States are given the power to regulate voting rights.</p></div>
-      <div class="tc"><span class="y">1868</span><p>The 14th Amendment gives former slaves citizenship, but only men can vote.</p></div>
-      <div class="tc"><span class="y">1870</span><p>The 15th Amendment removes race as a barrier to voting, but states keep discriminating.</p></div>
-      <div class="tc green"><span class="y">1920</span><p>The 19th Amendment gives women the right to vote.</p></div>
-      <div class="tc green"><span class="y">1924</span><p>Native Americans are granted citizenship and voting rights.</p></div>
-      <div class="tc green"><span class="y">1952</span><p>People of Asian ancestry are granted citizenship and the right to vote.</p></div>
-      <div class="tc gold"><span class="y">1965</span><p>The Voting Rights Act forbids states from discriminating against voters.</p></div>
-    </div>
+    <figure class="fig plain reveal d3 vt"><img src="img/voting-rights-timeline.jpg" alt="Timeline of voting rights in the United States: 1776 voting restricted to property owners, mostly white men over 21; 1787 states given power to regulate voting; 1868 14th Amendment; 1870 15th Amendment; 1920 19th Amendment gives women the vote; 1924 Native Americans granted citizenship and voting rights; 1952 people of Asian ancestry granted citizenship and the right to vote; 1965 Voting Rights Act forbids states from voter discrimination."></figure>
     <p class="src reveal d4"><b>Warm-up answer:</b> C, 1965. Timeline from the instructor's lecture slides.</p>
   </div>
 </section>
@@ -480,15 +480,18 @@ p,li{text-wrap:pretty}
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>Big idea 2 · when communities spoke up</div>
     <h2 class="reveal d2" style="font-size:70px">Environmental justice <em>milestones</em></h2>
-    <div class="tlg five reveal d3">
-      <div class="tc"><span class="y">1978</span><span class="tg">Love Canal</span><p>Residents protest after a neighborhood is found built over buried toxic waste.</p></div>
-      <div class="tc"><span class="y">1982</span><span class="tg">Warren County, NC</span><p>Protests against a landfill sited in a mostly African-American, low-income community.</p></div>
-      <div class="tc"><span class="y">1983</span><span class="tg">GAO study</span><p>3 out of 4 hazardous waste landfills in the South were in minority and low-income communities.</p></div>
-      <div class="tc green"><span class="y">1991</span><span class="tg">People of color summit</span><p>The first national People of Color Environmental Leadership Summit.</p></div>
-      <div class="tc gold"><span class="y">1994</span><span class="tg">Executive order</span><p>A presidential order tells federal agencies to address environmental justice.</p></div>
+    <div class="ejm reveal d3">
+      <figure class="fig plain" style="margin:0"><img src="img/warren-county-protest.jpg" alt="Black and white photo of marchers on a rural road in Warren County, North Carolina, carrying an American flag and signs protesting a landfill."></figure>
+      <div class="tlg five">
+        <div class="tc"><span class="y">1978</span><span class="tg">Love Canal</span><p>Residents protest after a neighborhood is found built over buried toxic waste.</p></div>
+        <div class="tc"><span class="y">1982</span><span class="tg">Warren County, NC</span><p>Protests against a landfill sited in a mostly African-American, low-income community.</p></div>
+        <div class="tc"><span class="y">1983</span><span class="tg">GAO study</span><p>3 out of 4 hazardous waste landfills in the South were in minority and low-income communities.</p></div>
+        <div class="tc green"><span class="y">1991</span><span class="tg">People of color summit</span><p>The first national People of Color Environmental Leadership Summit.</p></div>
+        <div class="tc gold"><span class="y">1994</span><span class="tg">Executive order</span><p>A presidential order tells federal agencies to address environmental justice.</p></div>
+      </div>
     </div>
     <div class="rq reveal d4" data-def style="margin-top:26px"><h3>Quick question: what do these events have in common?</h3><p class="think">Tap to check.</p><p class="ans-text">Ordinary residents saw that hazards were being placed in their communities, and they organized. Their protests led to evidence (the GAO study) and then to government action.</p></div>
-    <p class="src reveal d4">Milestones from the instructor's lecture slides. The 1991 summit year and the 1994 order are added from public record; the original photo was not supplied.</p>
+    <p class="src reveal d4">Milestones from the instructor's lecture slides. The 1991 summit year and the 1994 order are added from public record. Photo of the 1982 Warren County march: ncpcbarchives.com.</p>
   </div>
 </section>
 
