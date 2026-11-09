@@ -157,6 +157,35 @@ p,li{text-wrap:pretty}
 .ejm .tlg.five .tc .tg{font-size:17px}
 .ejm .tlg.five .tc p{font-size:22px;line-height:1.2}
 .ejm .tlg.five{gap:10px}.ejm .tlg.five .tc{border-top-width:6px}
+/* risk and disasters block */
+.hrud{flex:1;min-height:0;align-content:stretch}
+.hrud{gap:20px}.hrud .card{padding:16px 28px;display:grid;grid-template-columns:64px 1fr;column-gap:20px;align-content:center}.hrud .card .ico{grid-row:1/3;margin:0;align-self:start}.hrud .card h3{font:400 40px var(--display);margin:0 0 2px}.hrud .card p{font-size:27px;line-height:1.3;margin:0}
+.mt{display:grid;grid-template-columns:640px 1fr;gap:44px;flex:1;min-height:0;align-items:start}
+.mt-l{display:grid;gap:18px}
+.mt-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 20px}
+.mt-row h3{font:400 38px var(--display);margin:0;white-space:nowrap}.mt-row small{display:block;font:700 22px var(--body);color:var(--mute);min-height:26px}
+.mt-row.ok{border-color:#2e7d5b}.mt-row.no{border-color:#b3452c}
+.mt-ch{display:flex;gap:8px}
+.mt-ch button{font:700 28px var(--body);width:58px;height:58px;border-radius:12px;border:2px solid var(--Blue);background:#fff;color:var(--Blue);cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,color .16s ease}
+.mt-ch button:active{transform:scale(.97)}.mt-ch button.on{background:var(--Blue);color:#fff}
+.mt-ch button.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.mt-ch button.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.mt-ch button:disabled{cursor:default}
+.mt-r{display:grid;gap:16px}
+.mt-o{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 20px;font-size:28px;line-height:1.3}
+.mt-o b{font:400 44px var(--display);color:var(--accent)}
+.mt-go{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}.mt-go .btn{font-size:28px;padding:14px 32px}
+.mt-score{font:400 40px var(--display);color:var(--Blue)}
+.cloud{max-width:420px;margin:0 auto -8px}
+.kat{display:grid;grid-template-columns:760px 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.kat-l{display:grid;gap:18px}.kat .sc{font-size:28px}.kat .sc ul{margin:6px 0 0 24px;padding:0}.kat .sc li{margin:4px 0;line-height:1.3}
+.kt{width:100%;border-collapse:collapse;font-size:27px;background:#fff}
+.kt caption{font:700 24px var(--body);text-align:left;padding:0 0 8px}
+.kt th{background:#087b97;color:#fff;font:700 21px/1.2 var(--body);text-align:left;padding:10px 12px}
+.kt td{padding:7px 12px;border-top:2px solid var(--paper-2)}.kt td.num{text-align:right}.kt th:last-child{text-align:right}
+.kt tr.hot td{background:#f9e4de;font-weight:700;color:#b3452c}
+.eq2{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid #b3452c;border-radius:14px;padding:14px 24px}
+.eq2.good{border-left-color:#2e7d5b}.eq2 h3{font:400 38px var(--display);margin:0 0 4px}.eq2 span{display:block;font-size:27px;line-height:1.3}
+.eq2 b{display:block;font:400 46px var(--display);margin-top:4px;color:#b3452c}.eq2.good b{color:#2e7d5b}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -246,7 +275,7 @@ p,li{text-wrap:pretty}
     <div class="grid g3 bigs reveal d3">
       <div class="card accent"><img class="bigph" src="img/power-plant.jpg" style="object-position:center 55%" alt="A power plant with smoke rising, beside a wheat field"><span class="tag">1 · Environmental health</span><h3>How does the place you live affect your health?</h3><p>Air, water, food, noise and green space all shape health where people live, work and play.</p></div>
       <div class="card green"><img class="bigph" src="img/handshake.jpg" style="object-position:center 40%" alt="Two hands clasped in a handshake"><span class="tag">2 · Environmental justice</span><h3>Who carries the burdens?</h3><p>Some groups get fewer benefits and more pollution than others. Equality gives everyone the same. Equity gives each person what they need.</p></div>
-      <div class="card gold"><img class="bigph" src="img/la-skyline.jpg" style="object-position:center 30%" alt="A city skyline at sunset with palm trees in a hazy sky"><span class="tag">3 · Vulnerability and fairness</span><h3>Why does the same hazard hurt some people more?</h3><p>Exposure, sensitivity and the ability to cope decide the harm. Fair outcomes need fair sharing and a fair voice.</p></div>
+      <div class="card gold"><img class="bigph" src="img/la-skyline.jpg" style="object-position:center 30%" alt="A city skyline at sunset with palm trees in a hazy sky"><span class="tag">3 · Risk, disasters and fairness</span><h3>Why does the same hazard hurt some people more?</h3><p>Risk, perception and preparedness shape disasters. Exposure, sensitivity and the ability to cope decide the harm.</p></div>
     </div>
     <div class="take reveal d4"><b>Takeaway</b>Sustainability cannot be achieved without fairness and justice for all.</div>
   </div>
@@ -514,6 +543,115 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
+<!-- 18a. KEY CONCEPTS: HAZARD, RISK, UNCERTAINTY, DISASTER -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Risk and disasters</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · four words that are easy to mix up</div>
+    <h2 class="reveal d2" style="font-size:66px">Hazard, risk, uncertainty and <em>disaster</em></h2>
+    <div class="grid g2 hrud reveal d3">
+      <div class="card"><span class="ico bad"><svg aria-hidden="true"><use href="#i-alert"/></svg></span><h3>Hazard</h3><p>An object, condition or process that threatens people and society, for example their way of earning a living or raising a family.</p></div>
+      <div class="card"><span class="ico gold"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span><h3>Risk</h3><p>The known (or estimated) chance that a decision about a hazard will have a bad result.</p></div>
+      <div class="card"><span class="ico sky"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span><h3>Uncertainty</h3><p>How much we do not know about the outcome of a decision or situation.</p></div>
+      <div class="card"><span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span><h3>Disaster</h3><p>A major hazard event that disrupts a whole community or region so much that it cannot cope without outside help.</p></div>
+    </div>
+    <div class="rq reveal d4" data-def style="margin-top:24px"><h3>Quick question: a shark in the ocean. Is that a hazard or a risk?</h3><p class="think">Tap to check.</p><p class="ans-text">The shark is the hazard, the threat. The risk is the chance it hurts you, and that depends on whether you swim there.</p></div>
+    <p class="src reveal d4">Definitions: Robbins et al. (2022); Reynold Geosciences (2003). Shark example is ours.</p>
+  </div>
+</section>
+
+<!-- 18b. QUICK CHECK: MATCH TWO COLUMNS -->
+<section class="slide" id="match">
+  <div class="rail"><b>19</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Quick check · match the two columns</div>
+    <h2 class="reveal d2" style="font-size:62px">Match each <em>word</em> to an example</h2>
+    <div class="mt reveal d3">
+      <div class="mt-l" id="mt-l" role="group" aria-label="Words to match"></div>
+      <div class="mt-r">
+        <div class="mt-o"><b>A</b>The chance that a coastal city will flood because of sea level rise.</div>
+        <div class="mt-o"><b>B</b>A toxic chemical spill that causes long-term health effects, such as the Love Canal incident.</div>
+        <div class="mt-o"><b>C</b>The potential for a volcanic eruption near a densely populated area.</div>
+        <div class="mt-o"><b>D</b>Not being able to predict the exact effects of climate change on farm output.</div>
+        <div class="mt-go"><button class="btn" type="button" id="mt-check">Check answers</button><button class="btn ghost" type="button" id="mt-reset">Start over</button><span class="mt-score" id="mt-score" aria-live="polite"></span></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Tap one letter for each word. Each letter is used once. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- 18c. RISK PERCEPTIONS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Risk and disasters</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · why risks feel bigger or smaller than they are</div>
+    <h2 class="reveal d2" style="font-size:66px">Risk <em>perceptions</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1020px 1fr">
+      <div class="pic dia" style="padding:10px"><svg viewBox="0 0 1000 740" role="img" aria-label="A chart of how people perceive risks. Across: from chronic, common, fatality uncertain on the left to catastrophic, less common, fatality certain on the right. Up and down: from involuntary, uncontrollable, delayed at the top to voluntary, controllable, immediate at the bottom. Nuclear power sits near the top right, pesticides and flying upper right, food additives and X-rays upper left, driving and swimming lower right, electric power and skiing lower left." style="display:block;width:100%;height:auto">
+        <defs><marker id="arQ" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
+        <rect x="500" y="70" width="290" height="300" fill="#f9e4de"/><rect x="210" y="370" width="290" height="300" fill="#e3f3ea"/>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" font-weight="700" fill="#2b2b2b" text-anchor="middle" font-size="25">
+          <text x="500" y="30">Involuntary · Uncontrollable · Delayed</text>
+          <text x="500" y="712">Voluntary · Controllable · Immediate</text>
+        </g>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" font-weight="700" fill="#2b2b2b" font-size="25"><text x="10" y="352">Chronic</text><text x="10" y="384">Common</text><text x="10" y="416">Fatality</text><text x="10" y="446">uncertain</text>
+        <text x="990" y="352" text-anchor="end">Catastrophic</text><text x="990" y="384" text-anchor="end">Less common</text><text x="990" y="416" text-anchor="end">Fatality</text><text x="990" y="446" text-anchor="end">certain</text></g>
+        <path d="M215 370H800" stroke="#2b2b2b" stroke-width="7" stroke-linecap="round" fill="none" marker-end="url(#arQ)"/>
+        <path d="M500 665V80" stroke="#2b2b2b" stroke-width="7" stroke-linecap="round" fill="none" marker-end="url(#arQ)"/>
+        <g font-family="'Archivo Narrow',Arial,sans-serif" fill="#2b2b2b" font-weight="700"><circle cx="295" cy="175" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="271" y="184" text-anchor="end" font-size="28">Food additives</text><circle cx="362" cy="246" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="386" y="256" font-size="28">X-rays</text><circle cx="579" cy="183" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="603" y="192" font-size="28">Pesticides</text><circle cx="676" cy="120" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="700" y="129" font-size="28">Nuclear power</text><circle cx="769" cy="259" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="793" y="268" font-size="28">Flying</text><circle cx="443" cy="422" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="419" y="431" text-anchor="end" font-size="28">Electric power</text><circle cx="636" cy="417" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="660" y="426" font-size="28">Driving</text><circle cx="309" cy="553" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="333" y="562" font-size="28">Skiing</text><circle cx="568" cy="562" r="14" fill="#C4851C" stroke="#2b2b2b" stroke-width="3"/><text x="592" y="571" font-size="28">Swimming</text></g>
+      </svg></div>
+      <div class="side">
+        <div class="cloud"><svg viewBox="0 0 520 250" role="img" aria-label="A thought cloud that says Biases" style="display:block;width:100%;height:auto">
+          <circle cx="130" cy="120" r="70" fill="#7b8794"/><circle cx="215" cy="80" r="75" fill="#7b8794"/><circle cx="315" cy="85" r="72" fill="#7b8794"/><circle cx="395" cy="125" r="65" fill="#7b8794"/><circle cx="260" cy="150" r="80" fill="#7b8794"/>
+          <text x="262" y="142" text-anchor="middle" font-family="'DM Serif Display',serif" font-size="70" fill="#fff">Biases</text>
+          <circle cx="440" cy="205" r="17" fill="#7b8794"/><circle cx="490" cy="232" r="9" fill="#7b8794"/>
+        </svg></div>
+        <div class="sc bad"><b>Upper right feels scariest</b>Involuntary, uncontrollable and catastrophic risks.</div>
+        <div class="sc green"><b>Lower left feels acceptable</b>Voluntary, controllable and immediate risks.</div>
+        <div class="rq" data-def><h3>Quick question: why do many people fear flying more than driving?</h3><p class="think">Tap to check.</p><p class="ans-text">Plane crashes are rare but catastrophic, and passengers cannot control them. Driving is common and feels controllable. Biases, not only numbers, shape what we fear.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Chart redrawn from the instructor's lecture slide. The idea follows the psychometric model of risk perception (Slovic, 1987), added by us.</p>
+  </div>
+</section>
+
+<!-- 18d. HURRICANE KATRINA -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Risk and disasters</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm bad"><svg aria-hidden="true"><use href="#i-waves"/></svg></span>Case · August 29, 2005 · 6 AM</div>
+    <h2 class="reveal d2" style="font-size:62px">Hurricane Katrina turned <em>disastrous</em></h2>
+    <div class="kat reveal d3">
+      <div class="kat-l">
+        <div class="sc bad"><b>Damages</b><ul><li>80% of New Orleans flooded</li><li>1,464 killed and 135 missing</li><li>Damage along the Gulf Coast from Louisiana to Florida</li><li>Estimated economic losses of US $125 billion</li></ul></div>
+        <div class="sc"><b>What went wrong?</b><ul><li>Environmental justice components</li><li>Risk communication and preparation</li><li>Risk underestimation</li></ul></div>
+      </div>
+      <div class="kat-r">
+        <table class="kt"><caption>Top 10 costliest hurricanes in the United States</caption><thead><tr><th>Rank</th><th>Year</th><th>Hurricane</th><th>Insured loss, billions of 2020 dollars</th></tr></thead><tbody><tr class="hot"><td>1</td><td>2005</td><td>Hurricane Katrina</td><td class="num">86.57</td></tr><tr><td>2</td><td>2012</td><td>Hurricane Sandy</td><td class="num">33.93</td></tr><tr><td>3</td><td>2017</td><td>Hurricane Harvey</td><td class="num">31.96</td></tr><tr><td>4</td><td>2017</td><td>Hurricane Irma</td><td class="num">31.85</td></tr><tr><td>5</td><td>2017</td><td>Hurricane Maria</td><td class="num">31.27</td></tr><tr><td>6</td><td>1992</td><td>Hurricane Andrew</td><td class="num">29.70</td></tr><tr><td>7</td><td>2008</td><td>Hurricane Ike</td><td class="num">21.76</td></tr><tr><td>8</td><td>2005</td><td>Hurricane Wilma</td><td class="num">14.01</td></tr><tr><td>9</td><td>2018</td><td>Hurricane Michael</td><td class="num">13.71</td></tr><tr><td>10</td><td>2004</td><td>Hurricane Ivan</td><td class="num">12.06</td></tr></tbody></table>
+      </div>
+    </div>
+    <p class="src reveal d4">Source: Sherman &amp; Montgomery (2023). Insured losses are lower than total economic losses.</p>
+  </div>
+</section>
+
+<!-- 18e. VALUE OF DISASTER PREPAREDNESS -->
+<section class="slide">
+  <div class="rail"><b>19</b><span>Big idea 3 · Risk and disasters</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 3 · two earthquakes, two outcomes</div>
+    <h2 class="reveal d2" style="font-size:66px">The value of disaster <em>preparedness</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <div class="pic"><figure class="fig plain" style="margin:0;background:#fff"><img style="max-height:600px" src="img/haiti-time-article.jpg" alt="A TIME magazine article, Chile and Haiti: A Tale of Two Earthquakes, with a photo of rescuers and an excavator on collapsed buildings in Haiti."><figcaption class="credit">TIME, "Chile and Haiti: A Tale of Two Earthquakes," by Tim Padgett, March 1, 2010.</figcaption></figure></div>
+      <div class="side">
+        <div class="eq2 bad"><h3>Haiti earthquake</h3><span>January 12, 2010</span><span>7.0 magnitude</span><b>200,000 fatalities</b></div>
+        <div class="eq2 good"><h3>Chile earthquake</h3><span>February 27, 2010</span><span>8.8 magnitude</span><b>525 fatalities</b></div>
+        <div class="rq" data-def><h3>Quick question: Chile's quake was much stronger. Why far fewer deaths?</h3><p class="think">Tap to check.</p><p class="ans-text">Preparedness. Chile had stricter building rules and better emergency planning. The same kind of hazard caused a very different disaster.</p></div>
+      </div>
+    </div>
+    <p class="src reveal d4">Numbers from the instructor's lecture slide. The preparedness explanation follows the TIME article's theme and is our summary.</p>
+  </div>
+</section>
+
 <!-- 18. VULNERABILITY -->
 <section class="slide">
   <div class="rail"><b>19</b><span>Big idea 3 · Vulnerability</span></div>
@@ -761,6 +899,26 @@ snext.addEventListener('click', () => {
   snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.disabled = true; });
 });
 $('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+
+/* quick check: match two columns (checked in the browser, not recorded) */
+const MT = [['Hazard', 'C', 'A threat, not yet an event.'], ['Risk', 'A', 'A chance of a bad result.'], ['Uncertainty', 'D', 'Not knowing the outcome.'], ['Disaster', 'B', 'A major event hits a community.']];
+let mtPick = [null, null, null, null], mtDone = false;
+function mtDraw() {
+  $('#mt-l').innerHTML = MT.map((m, i) => `<div class="mt-row${mtDone ? (mtPick[i] === m[1] ? ' ok' : ' no') : ''}"><div><h3>${i + 1}. ${m[0]}</h3><small>${mtDone ? (mtPick[i] === m[1] ? 'Right. ' : 'Not quite. ') + esc(m[2]) : ''}</small></div><div class="mt-ch">${['A', 'B', 'C', 'D'].map(L => `<button type="button" data-i="${i}" data-l="${L}" class="${mtPick[i] === L && !mtDone ? 'on' : ''}${mtDone && L === m[1] ? ' right' : ''}${mtDone && mtPick[i] === L && L !== m[1] ? ' wrong' : ''}" ${mtDone ? 'disabled' : ''}>${L}</button>`).join('')}</div></div>`).join('');
+}
+$('#mt-l').addEventListener('click', e => {
+  const b = e.target.closest('button[data-i]'); if (!b || mtDone) return;
+  const i = +b.dataset.i, L = b.dataset.l;
+  mtPick = mtPick.map((v, j) => (j !== i && v === L) ? null : v);
+  mtPick[i] = mtPick[i] === L ? null : L; $('#mt-score').textContent = ''; mtDraw();
+});
+$('#mt-check').addEventListener('click', () => {
+  if (mtPick.some(v => !v)) { $('#mt-score').textContent = 'Pick a letter for all four words.'; return; }
+  mtDone = true; const n = MT.filter((m, i) => mtPick[i] === m[1]).length; $('#mt-score').textContent = `${n} of 4 right`; mtDraw();
+});
+$('#mt-reset').addEventListener('click', () => { mtPick = [null, null, null, null]; mtDone = false; $('#mt-score').textContent = ''; mtDraw(); });
+mtDraw();
+
 sortShow();
 
 /* === ATTENDANCE, POLLS, FLINT ANSWERS === */
