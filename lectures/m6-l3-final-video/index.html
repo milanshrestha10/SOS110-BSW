@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Video Presentation · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30b">
+<style>
+/* === FINAL VIDEO PAGE ONLY === layout tweaks; the reference-guide components are in deck.css */
+.ref h2{width:1000px;font-size:70px}
+.ref .lead{top:150px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:250px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .top{white-space:nowrap}
+.ref .pop{width:1400px;max-height:800px;overflow:hidden}
+.ref .pop p{max-width:1250px}
+.ref .outl .row{flex:0 0 auto;padding:12px 0}
+.ref .outl .row .n{font-size:46px}.ref .outl .row b{font-size:38px}.ref .outl .row .d{font-size:27px}
+.ref .tline{display:flex;gap:0;margin-top:20px}
+.ref .seg{border:0;cursor:pointer;text-align:left;font:400 30px/1.2 var(--rbody);padding:60px 26px;min-height:300px;color:#222;transition:transform .16s var(--ease)}
+.ref .seg b{display:block;white-space:nowrap;font:400 42px var(--display);margin-bottom:6px}
+.ref .seg:active{transform:scale(.97)}
+.ref .seg.s1{flex:2;background:#f6e6c8;border-top:8px solid var(--accent)}.ref .seg.s2{flex:4;background:#e4e8dc;border-top:8px solid #75a29f}.ref .seg.s3{flex:1.6;background:#dfeaf0;border-top:8px solid #42a8bf}
+.ref .tmax{display:flex;justify-content:space-between;font:700 22px var(--rbody);letter-spacing:.12em;text-transform:uppercase;color:#555;margin:14px 0 30px}
+.ref .sysd{width:1000px;height:520px;display:block;font-family:var(--rbody)}
+.ref .rub{display:grid;grid-template-columns:400px 1fr 90px 44px;align-items:center;gap:18px;border:0;border-top:2px solid #ddd;background:none;padding:14px 0;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.ref .rub .rl{font:400 32px/1.1 var(--display)}.ref .rp{font:400 42px var(--display);color:var(--accent);text-align:right}
+.ref .rbar{height:26px;background:#eeeae0;display:block}.ref .rbar i{display:block;height:100%;background:var(--accent);transform-origin:left;transition:transform .5s var(--out)}
+.ref .rub .ic{margin:0}
+.ref .tick .tkb{background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0;display:block;width:100%;transition:transform .16s var(--out)}
+.ref .tick .tkb:active{transform:scale(.97)}
+.ref .tick li{padding-top:6px;padding-bottom:6px;margin:4px 0;font-size:30px}
+.ref .tick li::before{background:#cfcabc;top:8px}.ref .tick li::after{opacity:0;top:15px}
+.ref .tick li.on::before{background:var(--rg)}.ref .tick li.on::after{opacity:1}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+</svg>
+<div class="deck-viewport"><main class="deck-stage" id="deckStage">
+
+<section class="slide ref" id="intro">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Instructions</div>
+  <div class="card">
+    <h2>Deliver your <em>sustainability story</em></h2>
+    <p class="lead">This is the third and last step of your final project capstone. Turn your topic and thesis into a compelling video. <b>Tap each red icon</b> to read the details.</p>
+    <div class="body outl" style="top:380px">
+      <button class="row mr" type="button" data-open="video" style="--i:1"><span class="n">1</span><span><b>Video</b><span class="d">A 5 to 7 minute narrated video.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="file" style="--i:2"><span class="n">2</span><span><b>Presentation file</b><span class="d">The original slides you used in the video.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="refs" style="--i:3"><span class="n">3</span><span><b>Reference page</b><span class="d">Every source and visual you used.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="peers" style="--i:4"><span class="n">4</span><span><b>Peer comments</b><span class="d">Watch your teammates’ videos and comment on at least two.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo"><img class="ph" src="../m4-l2-stocks-and-flows/img/globe-hero.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Overview</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-video"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1 · Video</div><h3>Narrated video, 5 to 7 minutes</h3><p>Submit one video of <b>5 to 7 minutes</b>. Seven minutes is the maximum. Your face must be visible for <b>at least the first 2 minutes</b>.</p><p>Your professor can approve another format if you ask first.</p></div>
+  <div class="pop" id="pop-file"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1 · File</div><h3>Submit your original presentation file</h3><p>Upload the file you used to make the video: PowerPoint, Google Slides, Canva or similar.</p></div>
+  <div class="pop" id="pop-refs"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1 · References</div><h3>One reference page</h3><p>List every source and every visual you used. You can submit it separately or put it at the end of your video.</p></div>
+  <div class="pop" id="pop-peers"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 2 · Peers</div><h3>Comment on your teammates’ projects</h3><p>Watch your teammates’ presentations. Give substantive and constructive comments on <b>at least two</b> of your peers’ projects.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Required parts</div>
+  <div class="card">
+    <h2>Four <em>required parts</em></h2>
+    <p class="lead">Your video must cover all four. Tap a part to see what it looks like.</p>
+    <div class="body outl" style="top:380px">
+      <button class="row mr" type="button" data-open="p1" style="--i:1"><span class="n">1</span><span><b>Background and thesis</b><span class="d">An appealing, specific title and a clear problem statement.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="p2" style="--i:2"><span class="n">2</span><span><b>Systems thinking</b><span class="d">A diagram and a short summary with feedback loops.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="p3" style="--i:3"><span class="n">3</span><span><b>Ecosystem services and cycles</b><span class="d">How your issue connects to nature and to people.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="p4" style="--i:4"><span class="n">4</span><span><b>Solution strategies</b><span class="d">What can be done, and why it would work.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo"><img class="ph" src="../m6-l2-urban-ecology/img/central-park-hero.jpg" style="object-position:60% center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Four parts</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-p1"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 1</div><h3>Background and thesis</h3><p>Give your video a <b>specific title</b>. Explain the problem and state your <b>thesis</b>, the one sentence that is your central argument.</p><p>Back it up with facts and figures from your sources.</p></div>
+  <div class="pop" id="pop-p2"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Part 2</div><h3>Systems thinking</h3><p>Show a <b>diagram</b> of the social, ecological and technological parts of your issue and how they connect.</p><p>Point out at least one <b>feedback loop</b>, then explain it in a short summary.</p></div>
+  <div class="pop" id="pop-p3"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 3</div><h3>Ecosystem services and biogeochemical cycles</h3><p>Tell us which <b>ecosystem services</b> or <b>cycles</b> (carbon, nitrogen, phosphorus, water) your issue affects, and how that reaches people.</p></div>
+  <div class="pop" id="pop-p4"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Part 4</div><h3>Sustainability solution strategies</h3><p>Propose a <b>set</b> of strategies, not just one. For each, say who does it and which part of the system it changes.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Timing</div>
+  <div class="card">
+    <h2>Your <em>5 to 7</em> minutes</h2>
+    <div class="body" style="top:230px">
+      <div class="tline">
+        <button class="seg s1 mr" type="button" data-open="t1" style="--i:1"><b>0 – 2 min</b>Face on camera</button>
+        <button class="seg s2 mr" type="button" data-open="t2" style="--i:2"><b>2 – 6 min</b>Slides and voice</button>
+        <button class="seg s3 mr" type="button" data-open="t3" style="--i:3"><b>6 – 7 min</b>Wrap up</button>
+      </div>
+      <div class="tmax mr" style="--i:4"><span>5 min: shortest</span><span>7 min: stop here</span></div>
+      <p class="sub mr" style="--i:5;margin-top:26px">Your face must be visible for at least the first 2 minutes. Tap a block for what belongs there.</p>
+    </div>
+    <div class="photo"><img class="ph" src="../m4-l3-carbon-cycle-climate/img/thermometer-hero.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Timing</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-t1"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>First 2 minutes</div><h3>Introduce yourself and your topic</h3><p>Be on camera. Say your <b>title</b>, why the issue matters, and your <b>thesis</b>.</p></div>
+  <div class="pop" id="pop-t2"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Middle</div><h3>Show the system</h3><p>Share your slides while you talk: facts with citations, your <b>systems diagram</b>, the ecosystem and cycle connections, then your solutions.</p></div>
+  <div class="pop" id="pop-t3"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>End</div><h3>Wrap up and give credit</h3><p>Restate your thesis in one sentence and say what should happen next. Show your reference page if you put it in the video.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Systems diagram</div>
+  <div class="card">
+    <h2>Draw your <em>systems diagram</em></h2>
+    <p class="lead" style="top:150px">An example only: show how parts of your own issue connect.</p>
+    <div class="body" style="top:270px">
+      <svg class="sysd mr" style="--i:1" viewBox="0 0 1000 520" role="img" aria-label="Example systems diagram: heat, air conditioning use and waste heat form a reinforcing loop; tree canopy balances heat">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#222"/></marker></defs>
+        <rect width="1000" height="520" fill="#f7f5ef"/>
+        <g fill="none" stroke="#222" stroke-width="4" marker-end="url(#ah)">
+          <path d="M421 231 L289 166"/><path d="M200 212 Q180 270 200 318"/><path d="M283 372 Q370 375 421 308"/>
+          <path d="M565 205 Q680 150 770 215"/><path d="M770 322 Q680 395 565 332"/>
+        </g>
+        <circle cx="500" cy="270" r="88" fill="#eccf72" stroke="#222" stroke-width="3"/><text x="500" y="264" text-anchor="middle" font-size="26" font-weight="700">Outdoor</text><text x="500" y="294" text-anchor="middle" font-size="26" font-weight="700">heat</text>
+        <circle cx="215" cy="130" r="82" fill="#42a8bf" stroke="#222" stroke-width="3"/><text x="215" y="124" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">Air</text><text x="215" y="152" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">conditioning</text>
+        <circle cx="215" cy="400" r="82" fill="#0d7397" stroke="#222" stroke-width="3"/><text x="215" y="394" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">Waste heat</text><text x="215" y="422" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">and power use</text>
+        <circle cx="830" cy="270" r="88" fill="#75a29f" stroke="#222" stroke-width="3"/><text x="830" y="264" text-anchor="middle" font-size="26" font-weight="700">Tree</text><text x="830" y="294" text-anchor="middle" font-size="26" font-weight="700">canopy</text>
+        <g font-size="34" font-weight="700" text-anchor="middle"><text x="75" y="270" fill="#a33">R</text><text x="665" y="125" fill="#222">B</text></g>
+        <text x="665" y="445" text-anchor="middle" font-size="20" fill="#444">more shade, less heat</text>
+      </svg>
+      <p class="sub mr" style="--i:2;margin-top:14px"><b>R</b> = reinforcing loop. <b>B</b> = balancing loop. Tap to learn more.</p>
+      <div style="display:flex;gap:28px;margin-top:10px"><button class="inl mr" type="button" data-open="rl" style="--i:3"><b>What is R?</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="inl mr" type="button" data-open="bl" style="--i:4"><b>What is B?</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button><button class="inl mr" type="button" data-open="dtip" style="--i:5"><b>Diagram tips</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button></div>
+    </div>
+    <div class="photo"><img class="ph" src="../m6-l3-environmental-health/img/power-plant.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Systems diagram</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-rl"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Reinforcing loop (R)</div><h3>A loop that speeds itself up</h3><p>Hotter days lead to more air conditioning. That adds waste heat and power use, which makes it hotter still. Each pass around the loop pushes things further the same way.</p></div>
+  <div class="pop" id="pop-bl"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Balancing loop (B)</div><h3>A loop that pushes back</h3><p>A growing tree canopy gives shade and cools the air, which lowers heat. The change is pulled back toward a steady state.</p></div>
+  <div class="pop" id="pop-dtip"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Tips</div><h3>Make the diagram work for you</h3><p>Use circles or boxes for the parts and <b>arrows</b> for how one affects the next. Mark each loop <b>R</b> or <b>B</b>. Show impacts across systems (nature, people, technology), and use data visuals where you can.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Grading</div>
+  <div class="card">
+    <h2>How it is <em>graded</em></h2>
+    <p class="lead">The video is worth 10% of your course grade. Tap a row to see what top marks look like.</p>
+    <div class="body" style="top:330px">
+      <button class="rub mr" type="button" data-open="r0" style="--i:1"><span class="rl">Introduction and thesis</span><span class="rbar"><i style="width:60%"></i></span><span class="rp">15%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="rub mr" type="button" data-open="r1" style="--i:2"><span class="rl">Systems thinking approach</span><span class="rbar"><i style="width:60%"></i></span><span class="rp">15%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="rub mr" type="button" data-open="r2" style="--i:3"><span class="rl">Ecosystem characteristics</span><span class="rbar"><i style="width:60%"></i></span><span class="rp">15%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="rub mr" type="button" data-open="r3" style="--i:4"><span class="rl">Sustainability strategies and solutions</span><span class="rbar"><i style="width:80%"></i></span><span class="rp">20%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="rub mr" type="button" data-open="r4" style="--i:5"><span class="rl">Research citations and synthesis</span><span class="rbar"><i style="width:40%"></i></span><span class="rp">10%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="rub mr" type="button" data-open="r5" style="--i:6"><span class="rl">Presentation creativity and quality</span><span class="rbar"><i style="width:100%"></i></span><span class="rp">25%</span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo"><img class="ph" src="../m5-l3-alternative-energy-equity/img/green-globe.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Rubric</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-r0"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 15%</div><h3>Introduction and thesis</h3><p>Is the title specific? Is the problem clear and the thesis justified with facts and figures?</p></div>
+  <div class="pop" id="pop-r1"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 15%</div><h3>Systems thinking approach</h3><p>Does your diagram and summary show connected parts and feedback loops?</p></div>
+  <div class="pop" id="pop-r2"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 15%</div><h3>Ecosystem characteristics</h3><p>Do you explain the links to ecosystem services and biogeochemical cycles?</p></div>
+  <div class="pop" id="pop-r3"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 20%</div><h3>Sustainability strategies and solutions</h3><p>Are your strategies specific, connected to the system, and well argued?</p></div>
+  <div class="pop" id="pop-r4"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 10%</div><h3>Research citations and synthesis</h3><p>Do you use at least three peer-reviewed sources and connect their ideas?</p></div>
+  <div class="pop" id="pop-r5"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Rubric · 25%</div><h3>Presentation creativity and quality</h3><p>Is the video clear, organized, creative and well narrated, with meaningful visuals?</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Sources</div>
+  <div class="card">
+    <h2>Sources and the <em>reference page</em></h2>
+    <p class="lead">Cite everything you use, in the video and on the page.</p>
+    <div class="body" style="top:330px">
+      <ul class="check">
+        <li class="mi" style="--i:1"><b>At least three peer-reviewed sources</b> (journal articles)</li>
+        <li class="mi" style="--i:2"><b>Cite visuals</b>: every photo, chart and diagram you did not draw</li>
+        <li class="mi" style="--i:3"><b>Show citations on slides</b> next to the facts they support</li>
+        <li class="mi" style="--i:4"><b>Reference page</b> submitted separately or at the end of the video</li>
+      </ul>
+      <button class="inl mr" type="button" data-open="cite" style="--i:5;margin-top:8px"><b>See a sample citation</b><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo"><img class="ph" src="../m6-l3-environmental-health/img/redlining-baltimore.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Sources</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-cite"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Sample</div><h3>How a slide shows a citation</h3><p>On the slide, put a short note beside the fact: <span class="cite">(Jennings et al 2024)</span>.</p><p>On the reference page, give the full APA entry:</p><div class="refs"><p>Jennings, V., Rigolon, A., Thompson, J., Murray, A., Henderson, A., &amp; Gragg, R. S. (2024). The dynamic relationship between social cohesion and urban green space in diverse communities: Opportunities and challenges to public health. <i>International Journal of Environmental Research and Public Health.</i></p></div><p>Use your own sources from Step 2.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Your work</div>
+  <div class="card">
+    <h2>Make it <em>your own</em></h2>
+    <p class="lead">This is a separate assignment from your topic and outline.</p>
+    <div class="body" style="top:330px">
+      <ul class="check">
+        <li class="mi" style="--i:1"><b>Original work.</b> No copy and paste</li>
+        <li class="mi" style="--i:2"><b>Not AI generated.</b> The ideas, words and voice are yours</li>
+        <li class="mi" style="--i:3"><b>Use visuals meaningfully</b>: feedback loops, impacts across systems, data shown visually</li>
+        <li class="mi" style="--i:4"><b>Submit the original file</b> you used (PowerPoint, Google Slides, Canva)</li>
+      </ul>
+    </div>
+    <div class="photo"><img class="ph" src="../m5-l1-food-agriculture-systems/img/garden.jpg" style="object-position:82% center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Your work</b></span></div>
+  <div class="shade"></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Part 2 · Peers</div>
+  <div class="card">
+    <h2>Comment on <em>two peers</em></h2>
+    <p class="lead">Watch your teammates’ videos. Give substantive, constructive comments on at least two.</p>
+    <div class="body outl" style="top:380px">
+      <button class="row mr" type="button" data-open="thin" style="--i:1"><span class="n">1</span><span><b>A thin comment</b><span class="d">Short and general. Tap to see why it does not help.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="good" style="--i:2"><span class="n">2</span><span><b>A substantive comment</b><span class="d">Specific and kind. Tap to see what it looks like.</span></span><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo"><img class="ph" src="../m6-l3-environmental-health/img/equality-equity.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Peer comments</b></span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-thin"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Example</div><h3>“Great video, I liked it.”</h3><p>This is kind, but it tells your teammate nothing about what worked or what to change.</p></div>
+  <div class="pop" id="pop-good"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Example</div><h3>A comment that helps</h3><p>“Your feedback loop showing heat and air conditioning made the problem clear. I could not tell which solution matters most. Could you say which one you would start with, and which source supports it?”</p><p>It names a strength, asks one specific question, and points to evidence.</p></div>
+</section>
+
+<section class="slide ref">
+  <div class="top">SOS110 · Lecture 19 · Final project · Step 3 of the capstone · Checklist</div>
+  <div class="card">
+    <h2>Before you <em>upload</em></h2>
+    <p class="lead">Tap each item as you finish it. It is saved only on this device.</p>
+    <div class="body" style="top:300px">
+      <ul class="check tick">
+        <li class="mi" style="--i:1"><button type="button" class="tkb" data-k="0">5 to 7 minutes long</button></li>
+        <li class="mi" style="--i:2"><button type="button" class="tkb" data-k="1">Face visible for the first 2 minutes</button></li>
+        <li class="mi" style="--i:3"><button type="button" class="tkb" data-k="2">Specific title, problem and thesis</button></li>
+        <li class="mi" style="--i:4"><button type="button" class="tkb" data-k="3">Facts with citations on your slides</button></li>
+        <li class="mi" style="--i:5"><button type="button" class="tkb" data-k="4">At least one systems diagram with feedback loops</button></li>
+        <li class="mi" style="--i:6"><button type="button" class="tkb" data-k="5">Link to ecosystem services or cycles</button></li>
+        <li class="mi" style="--i:7"><button type="button" class="tkb" data-k="6">A set of sustainability solutions</button></li>
+        <li class="mi" style="--i:8"><button type="button" class="tkb" data-k="7">Reference page with 3+ peer-reviewed sources, and your original file</button></li>
+      </ul>
+    </div>
+    <div class="photo"><img class="ph" src="../m6-l3-environmental-health/img/end.jpg" style="object-position:center" alt=""></div>
+  </div>
+  <div class="bar"><span>Capstone<b>Step 3</b></span><span>This slide<b>Checklist</b></span></div>
+  <div class="shade"></div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-10-30b"></script>
+<script>
+(function(){var K='sos110-final-video-checklist',st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+document.querySelectorAll('.tkb').forEach(function(b){var li=b.parentNode;if(st[b.dataset.k])li.classList.add('on');
+b.addEventListener('click',function(){li.classList.toggle('on');st[b.dataset.k]=li.classList.contains('on')?1:0;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}})})})();
+</script>
+
+</body>
+</html>
