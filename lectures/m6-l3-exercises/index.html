@@ -130,6 +130,8 @@ p,li{text-wrap:pretty}
 .hi{display:grid;grid-template-columns:940px 1fr;gap:30px;flex:1;min-height:0;align-items:start}
 .hi .fig{background:transparent;border:0}.hi .fig img{border-radius:14px}.hi .fig img{width:100%;height:auto;display:block}
 .hic{display:grid;gap:20px}
+.vt{margin:0 auto;border:0;background:#fff;display:flex;justify-content:center;flex:1;min-height:0;align-items:center}
+.vt img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -164,7 +166,8 @@ p,li{text-wrap:pretty}
   <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
   <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
-  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol></svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>  <symbol id="i-vote" viewBox="0 0 24 24"><path d="M5 12h14v8H5z"/><path d="m8 12 4-9 4 9"/><path d="M9 16h6"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
 
 <!-- TITLE -->
 <section class="slide hero">
@@ -198,6 +201,16 @@ p,li{text-wrap:pretty}
       <div class="status" id="checkin-status"></div>
       <p class="small mute" data-mode-note></p>
     </div>
+  </div>
+</section>
+
+<!-- VOTING RIGHTS TIMELINE -->
+<section class="slide" id="votetl">
+  <div class="rail"><b>19</b><span>Before you start</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-vote"/></svg></span>Setting the scene · who gets a say?</div>
+    <figure class="fig plain reveal d3 vt"><img src="img/voting-rights-timeline.jpg" alt="Timeline of voting rights in the United States: 1776 voting restricted to property owners, mostly white men over 21; 1787 states given power to regulate voting; 1868 14th Amendment; 1870 15th Amendment; 1920 19th Amendment gives women the vote; 1924 Native Americans granted citizenship and voting rights; 1952 people of Asian ancestry granted citizenship and the right to vote; 1965 Voting Rights Act forbids states from voter discrimination."></figure>
+    <p class="src reveal d4">Timeline from the instructor's lecture slides.</p>
   </div>
 </section>
 
