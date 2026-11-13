@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Exercise 20 · Indigenous sustainability · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-11-05a">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:290px;width:1000px;bottom:14px}
+.ref .row{padding:2px 0;min-height:0}.ref .row b{font-size:34px}.ref .row .d{font-size:25px;margin-top:0}.ref .row .n{font-size:48px}
+.ref .row .ic.done{background:#2e7d5b;border-color:#2e7d5b}
+.ref .bar .src{width:760px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+.steps{font-size:30px;line-height:1.4;color:var(--ink);margin:0 0 18px}.steps b{color:var(--Blue)}
+.chipsel{display:flex;gap:12px;flex-wrap:wrap;margin:4px 0 16px}
+.chipsel button{font:700 32px var(--body);border:3px solid var(--paper-2);background:var(--card);color:var(--ink);border-radius:999px;padding:14px 30px;cursor:pointer;transition:transform .16s var(--out),background-color .16s,color .16s}
+.chipsel button:active{transform:scale(.97)}
+.chipsel button:hover{border-color:var(--Sky)}
+.chipsel button.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.chipsel.big{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}.chipsel.big button{font-size:42px;padding:34px 40px;border-radius:24px;text-align:left}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:16px}
+.go-row .status{margin:0;font-size:24px}
+.tk{display:grid;grid-template-columns:760px 1fr;gap:44px;flex:1;min-height:0;align-items:start}
+.tk-l{display:grid;gap:22px}.tk-l h3{font:400 44px/1.1 var(--display);margin:0}
+.tk-lab{display:block;font:700 32px/1.25 var(--body);margin:18px 0 10px}
+.tk-r textarea{width:100%;height:340px;font-size:36px;resize:none;margin-bottom:6px}
+.tk-count{font:700 28px var(--body);color:var(--mute)}.tk-count b{color:var(--Blue)}
+.dbf{display:grid;gap:18px;flex:1;min-height:0;align-content:start}
+.dbf label{display:block;font:700 30px/1.25 var(--body);margin-bottom:4px}.dbf textarea{width:100%;height:130px;font-size:26px;resize:none}
+</style>
+<link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>  <symbol id="i-vote" viewBox="0 0 24 24"><path d="M5 12h14v8H5z"/><path d="m8 12 4-9 4 9"/><path d="M9 16h6"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+
+<!-- TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="../m7-l1-indigenous-sustainability/img/hero.jpg" alt="A clay bowl of blue corn chips beside ears of blue corn and dried chiles">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>07</em></b><span data-fill="module-title">Institutional Change for Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 20 · Indigenous sustainability</div>
+    <h1 class="reveal d2" style="font-size:96px">Class Exercise <em>20</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Pick one Indigenous practice. Talk it over in a small group. How can it help us reach sustainability?</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- CHECK IN -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>20</b><span>Check in</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="slide" id="intro">
+  <div class="rail"><b>20</b><span>How this works</span></div>
+  <div class="content center">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Before you start · three steps</div>
+    <h2 class="reveal d2" style="font-size:66px">Learn from a <em>practice</em>, then talk it through</h2>
+    <div class="grid g3 reveal d3">
+      <div class="card accent"><span class="tag">Step 1 · On your own</span><h3>Pick one practice</h3><p>Read about the eight practices. Then choose the one you find most interesting.</p></div>
+      <div class="card green"><span class="tag">Step 2 · In a group of 2 to 5</span><h3>Talk it over</h3><p>Find classmates who picked the same practice, or one close to it. Share what you learned and what surprised you.</p></div>
+      <div class="card gold"><span class="tag">Step 3 · Write it down</span><h3>Say why it helps</h3><p>Write one short answer, up to 140 characters: how can this practice help us reach sustainability?</p></div>
+    </div>
+    <p class="src reveal d4" style="margin-top:20px">Optional: read the Washington Post article in Module 7 first.</p>
+  </div>
+</section>
+
+<!-- MEET THE EIGHT PRACTICES -->
+<section class="slide ref" id="meet">
+  <div class="top">SOS110 · Class Exercise 20 · Step 1 of 3 · Meet the eight practices</div>
+  <div class="card">
+    <h2>Eight <em>Indigenous</em> practices</h2>
+    <p class="lead">Each one has helped people live well with the land. <b>Tap the magnifier</b> beside a practice to read about it. Read at least three.</p>
+    <div class="body" style="top:290px;bottom:14px;width:1000px;display:grid;grid-template-columns:1fr;grid-auto-rows:minmax(0,1fr)">
+<button class="row mr" type="button" data-open="p-clam" style="--i:1"><span class="n">1</span><span><b>Swinomish clam gardens</b><span class="d">Rock walls that make more room for clams</span></span><span class="ic" data-ic="p-clam"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-hopi" style="--i:2"><span class="n">2</span><span><b>Hopi dryland farming</b><span class="d">Many kinds of corn on very little rain</span></span><span class="ic" data-ic="p-hopi"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-zuni" style="--i:3"><span class="n">3</span><span><b>Zuni waffle gardens</b><span class="d">Small sunken squares that hold water</span></span><span class="ic" data-ic="p-zuni"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-fire" style="--i:4"><span class="n">4</span><span><b>Prescribed fire</b><span class="d">Planned fires that clear brush</span></span><span class="ic" data-ic="p-fire"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-forest" style="--i:5"><span class="n">5</span><span><b>San Carlos Apache tribal forestry</b><span class="d">A tribe that manages its own forests</span></span><span class="ic" data-ic="p-forest"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-salmon" style="--i:6"><span class="n">6</span><span><b>Karuk and Yurok salmon restoration</b><span class="d">Bringing Chinook salmon back to the river</span></span><span class="ic" data-ic="p-salmon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-acequia" style="--i:7"><span class="n">7</span><span><b>New Mexico acequias</b><span class="d">Shared ditches and shared water rules</span></span><span class="ic" data-ic="p-acequia"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+<button class="row mr" type="button" data-open="p-seeds" style="--i:8"><span class="n">8</span><span><b>Resilient seeds worldwide</b><span class="d">Saving and sharing many seed varieties</span></span><span class="ic" data-ic="p-seeds"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+    </div>
+    <div class="photo" style="background:#f7f5ef">
+      <svg viewBox="0 0 700 900" role="img" aria-label="A wheel of eight numbered circles around a center, one for each practice" style="position:absolute;inset:0;width:100%;height:100%;display:block" font-family="'Archivo Narrow',Arial,sans-serif">
+        <defs><marker id="arX" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
+        <rect width="700" height="900" fill="#f7f5ef"/>
+        <path d="M350 342L350 246" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="350" cy="150" r="62" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><text x="350" y="167" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">1</text><path d="M410 374L463 306" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="516" cy="238" r="62" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><text x="516" y="255" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">2</text><path d="M435 450L510 450" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="585" cy="450" r="62" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><text x="585" y="467" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">3</text><path d="M410 526L463 594" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="516" cy="662" r="62" fill="#b3452c" stroke="#2b2b2b" stroke-width="4"/><text x="516" y="679" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">4</text><path d="M350 558L350 654" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="350" cy="750" r="62" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><text x="350" y="767" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">5</text><path d="M290 526L237 594" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="184" cy="662" r="62" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><text x="184" y="679" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">6</text><path d="M265 450L190 450" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="115" cy="450" r="62" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><text x="115" y="467" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">7</text><path d="M290 374L237 306" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arX)"/><circle cx="184" cy="238" r="62" fill="#75a29f" stroke="#2b2b2b" stroke-width="4"/><text x="184" y="255" text-anchor="middle" font-size="52" font-weight="700" fill="#fff">8</text>
+        <circle cx="350" cy="450" r="92" fill="#2b2b2b"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="28"><text x="350" y="445">Indigenous</text><text x="350" y="480">practices</text></g>
+      </svg>
+    </div>
+  </div>
+  <div class="bar"><span>Practices read<b id="m-n">0 of 8</b></span><span class="src">The short summaries are written for this class from the lecture and general knowledge. Check them against the Module 7 reading.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-p-clam" role="dialog" aria-modal="true" aria-label="Swinomish clam gardens"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 1 of 8</div><h3>Swinomish clam gardens</h3><p><b>What it is.</b> The Swinomish people shape the shore with rock walls so the beach is flatter and more clams can grow. The gardens are tended, harvested and looked after over many years.</p><p><b>Think about it.</b> A food place that gets better because people look after it. What does that say about harvesting and caring together?</p></div>
+  <div class="pop" id="pop-p-hopi" role="dialog" aria-modal="true" aria-label="Hopi dryland farming"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 2 of 8</div><h3>Hopi dryland farming</h3><p><b>What it is.</b> Hopi farmers grow corn in a dry place with only 6 to 10 inches of rain a year. They keep many varieties, follow the natural cycle, and set plant spacing and depth to fit the land.</p><p><b>Think about it.</b> Corn is raised to fit the environment, not the other way round. How does keeping many varieties help in a drought?</p></div>
+  <div class="pop" id="pop-p-zuni" role="dialog" aria-modal="true" aria-label="Zuni waffle gardens"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 3 of 8</div><h3>Zuni waffle gardens</h3><p><b>What it is.</b> Zuni gardeners build small square beds with low walls of earth around them, like a waffle. The walls hold rain and water from the ditch near the plants.</p><p><b>Think about it.</b> Water is scarce in a dry place. How does shaping the land help a small garden use less water?</p></div>
+  <div class="pop" id="pop-p-fire" role="dialog" aria-modal="true" aria-label="Prescribed fire"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 4 of 8</div><h3>Prescribed fire</h3><p><b>What it is.</b> Some Indigenous peoples use planned, controlled burns to clear dry brush. Cleared land has less fuel, so big, hot wildfires are less likely.</p><p><b>Think about it.</b> Fire is a tool here, not only a danger. How could burning on purpose protect people, forests and homes?</p></div>
+  <div class="pop" id="pop-p-forest" role="dialog" aria-modal="true" aria-label="San Carlos Apache tribal forestry"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 5 of 8</div><h3>San Carlos Apache tribal forestry</h3><p><b>What it is.</b> The San Carlos Apache Tribe runs a forestry program to look after the forests on its land in Arizona.</p><p><b>Think about it.</b> Who makes the choices about a forest? What changes when the people who live there manage it?</p></div>
+  <div class="pop" id="pop-p-salmon" role="dialog" aria-modal="true" aria-label="Karuk and Yurok salmon restoration"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 6 of 8</div><h3>Karuk and Yurok salmon restoration</h3><p><b>What it is.</b> The Karuk and Yurok peoples work to restore Chinook salmon runs. Salmon matter for food, culture and a healthy river.</p><p><b>Think about it.</b> One fish can link a river, a culture and a food supply. Who loses when the salmon disappear, and who gains when they return?</p></div>
+  <div class="pop" id="pop-p-acequia" role="dialog" aria-modal="true" aria-label="New Mexico acequias"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 7 of 8</div><h3>New Mexico acequias</h3><p><b>What it is.</b> Acequias are community-run irrigation ditches in New Mexico. Neighbors share the water and the work of keeping the ditch clean, using rules they agree on together.</p><p><b>Think about it.</b> Shared rules can share a scarce resource fairly. What makes a community follow them?</p></div>
+  <div class="pop" id="pop-p-seeds" role="dialog" aria-modal="true" aria-label="Resilient seeds worldwide"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Practice 8 of 8</div><h3>Resilient seeds worldwide</h3><p><b>What it is.</b> Communities around the world save, swap and plant many varieties of seeds, like Hopi corn and Andean potatoes. A mix of varieties helps crops survive pests, drought and a changing climate.</p><p><b>Think about it.</b> If every farm grew the same seed, what could go wrong? How do saved seeds protect food in the future?</p></div>
+</section>
+
+<!-- STEP 1: CHOOSE -->
+<section class="slide" id="choose">
+  <div class="rail"><b>20</b><span>Step 1 of 3 · Choose</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Step 1 · choose one practice, then submit</div>
+    <h2 class="reveal d2" style="font-size:62px">Which practice will <em>you</em> explore?</h2>
+    <div class="reveal d3">
+      <p class="steps">Tap <b>one</b> practice. You can change your mind until you submit.</p>
+      <div class="chipsel big" id="pick"><button type="button" data-v="clam">Swinomish clam gardens</button><button type="button" data-v="hopi">Hopi dryland farming</button><button type="button" data-v="zuni">Zuni waffle gardens</button><button type="button" data-v="fire">Prescribed fire</button><button type="button" data-v="forest">San Carlos Apache tribal forestry</button><button type="button" data-v="salmon">Karuk and Yurok salmon restoration</button><button type="button" data-v="acequia">New Mexico acequias</button><button type="button" data-v="seeds">Resilient seeds worldwide</button></div>
+      <div class="go-row"><button class="btn" type="button" id="pick-save">Submit my choice</button><span class="status" id="pick-status"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 AND 3: DISCUSS AND ANSWER -->
+<section class="slide" id="talk">
+  <div class="rail"><b>20</b><span>Step 2 and 3 · Discuss and answer</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Steps 2 and 3 · group of 2 to 5</div>
+    <h2 class="reveal d2" style="font-size:62px">How can this practice help <em>sustainability</em>?</h2>
+    <div class="tk reveal d3">
+      <div class="tk-l">
+        <div class="card accent"><span class="tag">Your practice</span><h3 id="tk-name">Choose a practice on the last slide</h3></div>
+        <div class="card"><span class="tag">Talk about these, one at a time</span>
+          <ol class="num" style="font-size:30px">
+            <li>What does the practice do for people and for nature?</li>
+            <li>Why does it work in that place?</li>
+            <li>How could it help us reach sustainability today?</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tk-r">
+        <label for="tk-size" class="tk-lab">How many people are in your group?</label>
+        <div class="chipsel" id="size"><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button></div>
+        <label for="tk-text" class="tk-lab">Your group's answer: why and how does it help? (140 characters)</label>
+        <textarea id="tk-text" maxlength="140" rows="4" placeholder="Type your group's answer here"></textarea>
+        <div class="go-row"><span class="tk-count"><b id="tk-n">0</b> of 140</span><button class="btn" type="button" id="tk-save">Submit answer</button><span class="status" id="tk-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEBRIEF -->
+<section class="slide" id="debrief">
+  <div class="rail"><b>20</b><span>Debrief</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Debrief · one or two sentences each, then submit</div>
+    <h2 class="reveal d2" style="font-size:58px;margin-bottom:10px">What did we <em>learn</em>?</h2>
+    <div class="dbf reveal d3">
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">1</i>Which practice from another group surprised you, and why?</label><textarea id="db1" maxlength="500" placeholder="Type here"></textarea></div>
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">2</i>What do these practices have in common?</label><textarea id="db2" maxlength="500" placeholder="Type here"></textarea></div>
+      <div><label><i style="font:400 28px var(--display);color:var(--accent);margin-right:8px">3</i>Name one thing a city like Phoenix could learn from one of them.</label><textarea id="db3" maxlength="500" placeholder="Type here"></textarea></div>
+      <div class="go-row"><button class="btn" type="button" id="db-save">Submit my debrief</button><span class="status" id="db-status"></span></div>
+    </div>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-11-03a"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { initPace } from '../../shared/pace.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm7-s1';
+const NAMES = {"clam": "Swinomish clam gardens", "hopi": "Hopi dryland farming", "zuni": "Zuni waffle gardens", "fire": "Prescribed fire", "forest": "San Carlos Apache tribal forestry", "salmon": "Karuk and Yurok salmon restoration", "acequia": "New Mexico acequias", "seeds": "Resilient seeds worldwide"};
+loadSession(LECTURE).then(d => fill($('.slide.hero'), d)).catch(() => {});
+
+/* === ATTENDANCE === */
+const live = await connect(LECTURE);
+initPace(live, 'm7-l1-exercises');
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() { const u = live.user(); if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } }
+showUser();
+async function ensureUser(statusEl) { if (live.user()) return true; say(statusEl, 'Check in on the attendance slide first.', 'err'); return false; }
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status'); say(st, 'Checking in…');
+  try { await live.signIn($('[data-name]').value, $('[data-email]').value); await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); showUser(); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+async function save(sim, data, btn, st, label = 'Submitted') {
+  if (!await ensureUser(st)) return false;
+  say(st, 'Sending…');
+  try { await live.saveSim(sim, data); Deck.sent(btn, label); say(st, 'Submitted. Thanks!', 'ok'); return true; }
+  catch (e) { say(st, e.message, 'err'); return false; }
+}
+
+/* === STEP 1: read about the practices === */
+(function () {
+  const slide = $('#meet'), opened = new Set();
+  slide.addEventListener('ref:open', e => {
+    const id = e.detail; if (!id) return;
+    opened.add(id);
+    const ic = slide.querySelector(`[data-ic="${id}"]`); if (ic) ic.classList.add('done');
+    $('#m-n').textContent = `${opened.size} of 8`;
+  });
+})();
+
+/* === STEP 1: choose one practice === */
+let picked = '';
+$$('#pick button').forEach(b => b.addEventListener('click', () => {
+  picked = b.dataset.v;
+  $$('#pick button').forEach(x => x.classList.toggle('on', x === b));
+  $('#tk-name').textContent = NAMES[picked];
+}));
+$('#pick-save').addEventListener('click', () => {
+  const st = $('#pick-status');
+  if (!picked) { say(st, 'Tap one practice first.', 'err'); return; }
+  save('practice-choice', { key: picked, practice: NAMES[picked] }, $('#pick-save'), st);
+});
+
+/* === STEPS 2 AND 3: group answer, 140 characters === */
+let size = 0;
+$$('#size button').forEach(b => b.addEventListener('click', () => { size = +b.dataset.v; $$('#size button').forEach(x => x.classList.toggle('on', x === b)); }));
+$('#tk-text').addEventListener('input', () => { $('#tk-n').textContent = $('#tk-text').value.length; });
+$('#tk-save').addEventListener('click', () => {
+  const st = $('#tk-status'), text = $('#tk-text').value.trim();
+  if (!picked) { say(st, 'Choose a practice on the last slide first.', 'err'); return; }
+  if (!size) { say(st, 'Tap how many people are in your group.', 'err'); return; }
+  if (text.split(/\s+/).filter(Boolean).length < 4) { say(st, 'Write a short sentence about why and how it helps.', 'err'); return; }
+  save('practice-answer', { key: picked, practice: NAMES[picked], size, answer: text }, $('#tk-save'), st);
+});
+
+/* === DEBRIEF === */
+$('#db-save').addEventListener('click', () => {
+  const st = $('#db-status'), a = [1, 2, 3].map(n => $('#db' + n).value.trim());
+  if (a.filter(x => x.split(/\s+/).filter(Boolean).length >= 3).length < 2) { say(st, 'Answer at least two questions in a sentence each.', 'err'); return; }
+  save('practice-debrief', { a1: a[0], a2: a[1], a3: a[2] }, $('#db-save'), st);
+});
+</script>
+</body>
+</html>
