@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 20 Indigenous sustainability · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30c">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* reference-guide slides (8 and 9): icon rows on the left, photo on the right */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .pair{position:absolute;inset:0 0 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff}
+.ref .pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
+.ref .pair~.credit-ph{color:#444;text-shadow:none}
+.ref .bar .src{width:760px}
+.ref .hs.done{background:var(--rg)}
+#cityeco .row{padding:8px 0}#cityeco .row b{font-size:36px}#cityeco .row .d{font-size:25px;margin-top:0}#cityeco .row .n{font-size:48px}
+.ref .pop textarea.fld{font-size:30px;line-height:1.35}
+/* === LECTURE 18 === urban ecosystems and resilience (M6 L2) */
+.content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
+.two.l.w{grid-template-columns:1000px 1fr}
+.two.l.n{grid-template-columns:760px 1fr}
+.two .pic img.tall{max-height:700px}
+.two .side .num{font-size:30px;margin:0}
+.two .side .sc{font-size:26px}
+.link-btn{display:inline-block;font:700 26px var(--body);color:var(--Blue);border:3px solid var(--Blue);border-radius:12px;padding:10px 22px;text-decoration:none;align-self:flex-start}
+.link-btn:hover{background:var(--Blue);color:var(--paper)}
+/* stack: wide picture on top, three notes below */
+.stk{display:flex;flex-direction:column;gap:26px;flex:1;min-height:0}
+.stk .fig{margin:0}.stk .fig img{width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block}
+.stk .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.stk .row3 .sc,.stk .row3 .rq{font-size:25px}
+.stk .row3 .rq h3{font-size:31px}.stk .row3 .rq .ans-text{font-size:24px}
+/* in, of, for cards */
+.iof{display:grid;gap:16px;align-content:stretch}
+.iof .sc{font-size:26px;display:flex;flex-direction:column;justify-content:center}
+.iof .sc b{font-size:19px}
+/* circularity and overlap diagrams */
+.dia{background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:16px;display:flex;align-items:center;justify-content:center}
+.dia svg{width:100%;height:auto;display:block}
+.dia svg text{font-family:var(--body)}
+/* chips on megacity list */
+.mega{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;list-style:none}
+.mega li{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--Sky);border-radius:12px;padding:10px 18px;font-size:28px;font-weight:700}
+.mega li small{display:block;font:400 19px var(--body);color:var(--mute)}
+/* compare numbers */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp>div{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:16px 22px}
+.cmp h4{font:400 34px var(--display);margin-bottom:6px}
+.cmp .n{font:400 54px/1 var(--display);color:var(--Blue)}.cmp .n.hi{color:#b3452c}
+.cmp span{font-size:21px;color:var(--mute);display:block;margin-bottom:8px}
+/* sort game */
+.srt{display:grid;grid-template-columns:600px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:16px;align-content:start}.srt-def .sc{font-size:27px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 52px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:18px;flex-wrap:wrap}
+.srt-btns .btn{font-size:30px;padding:16px 36px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+/* in, of and for quiz */
+.gq{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.gq-def{display:grid;gap:16px;align-content:start}.gq-def .sc{font-size:27px}
+.gq-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:20px 40px;display:flex;flex-direction:column;gap:12px}
+.gq-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.gq-q{font:400 40px/1.2 var(--display);min-height:96px}
+.gq-opts{display:grid;gap:10px}
+.gq-opts .btn{text-align:left;font-size:27px;padding:8px 22px;display:flex;gap:18px;align-items:center;border-radius:14px}
+.gq-opts .btn b{font:400 34px var(--display);flex:none}
+.gq-opts .btn:disabled{opacity:.55}.gq-opts .btn.right,.gq-opts .btn.wrong{opacity:1}
+.webapp .slide .gq-opts .btn.ghost.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.webapp .slide .gq-opts .btn.ghost.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.gq-fb{font-size:25px;line-height:1.3;min-height:66px}.gq-fb b{color:var(--Blue)}
+#gq-next{align-self:flex-start;font-size:24px;padding:8px 26px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+/* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button,.srt-btns .btn{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease;will-change:transform}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+/* === LECTURE 19 === environmental health and justice (M6 L3) */
+.vocab.eight{flex:1;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:20px}
+.vocab.eight .vcard{height:auto}
+.vocab.eight .vcard .f,.vocab.eight .vcard .b{padding:20px 24px}
+.vocab.eight .vcard h4{font-size:34px;margin-bottom:8px}
+.vocab.eight .vcard p{font-size:21px;line-height:1.34}
+.tlg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0;align-content:stretch}
+.tlg .tc{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Sky);border-radius:16px;padding:16px 22px;display:flex;flex-direction:column;gap:6px}
+.tlg .tc .y{font:400 62px/1 var(--display);color:var(--Blue)}
+.tlg .tc p{font-size:25px;line-height:1.3;margin:0}
+.tlg .tc.gold{border-top-color:var(--accent)}.tlg .tc.gold .y{color:var(--accent)}
+.tlg .tc.green{border-top-color:#2e7d5b}.tlg .tc.green .y{color:#2e7d5b}
+.tlg.five{grid-template-columns:repeat(5,1fr)}
+.tlg.five .tc .y{font-size:56px}.tlg.five .tc p{font-size:24px}
+.tlg .tc .tg{font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.eqbtns{display:flex;gap:14px;margin-bottom:6px}
+.eqbtns .btn{font-size:28px;padding:12px 30px}
+.eqbtns .btn.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0}
+.vs>div{border-radius:20px;padding:26px 34px;display:flex;flex-direction:column;gap:12px}
+.vs h3{font:400 50px/1.1 var(--display)}
+.vs .q{font:700 32px/1.25 var(--body)}
+.vs p{font-size:27px;line-height:1.38;margin:0}
+.vs .a{background:#e8f2ee;border:3px solid #2e7d5b}.vs .b{background:#fbf1dc;border:3px solid var(--accent)}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1;min-height:0}
+.fl .qs{display:grid;gap:12px;align-content:start}
+.fl .qs label{display:block;font:700 26px/1.25 var(--body);margin-bottom:4px}
+.fl textarea.fld{width:100%;height:88px;font-size:24px;line-height:1.3;resize:none}
+.fl .cases{display:grid;gap:14px;align-content:start}
+.fl .cases .sc{font-size:25px}
+.fl .num{font:400 26px var(--display);color:var(--accent);margin-right:8px}
+.bnr{background:var(--Blue);color:#fff;border-radius:18px;padding:20px 32px;font-size:30px;line-height:1.35}
+.bnr b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:4px}
+.eqsvg text{font-family:var(--body)}
+.hs.done{background:var(--rg)}
+.bigph{width:100%;height:200px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px}
+.grid.lg .card h3{font-size:44px;line-height:1.15}
+.grid.lg .card p{font-size:32px;line-height:1.38}
+.grid.lg .card .tag{font-size:20px}
+.vs h3{font-size:58px}.vs .q{font-size:42px}.vs p{font-size:34px}.vs .sc{font-size:30px}
+.tlg .tc p{font-size:31px}.tlg.five .tc p{font-size:29px}.tlg .tc .tg{font-size:20px}
+.fl .qs label{font-size:30px}.fl textarea.fld{height:150px;font-size:28px}
+.fl .qs{gap:20px}
+.content .grid.lg .card h3{font-size:44px;line-height:1.15}
+.content .grid.lg .card p{font-size:32px;line-height:1.38}
+.vs>div{justify-content:center}
+.vs p{font-size:36px}.vs .sc{font-size:32px}
+.tlg.five .tc p{font-size:32px}
+.content.fill>.grid.lg{flex:1;min-height:0}
+.content.fill>.grid.lg .card{display:flex;flex-direction:column;justify-content:center}
+.vt{margin:0 auto;border:0;background:#fff;display:flex;justify-content:center;flex:1;min-height:0;align-items:center}
+.vt img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.ejm{display:grid;grid-template-columns:620px 1fr;gap:34px;flex:1;min-height:0;align-items:stretch}
+.ejm .fig{display:flex;align-items:center;justify-content:center;background:#fff;min-height:0}.ejm .fig img{height:100%;width:100%;object-fit:contain;object-position:left center}
+.ejm .tlg.five{grid-template-columns:1fr;gap:12px}
+.ejm .tlg.five .tc{display:grid;grid-template-columns:130px 1fr;grid-template-rows:auto auto;column-gap:18px;row-gap:0;padding:4px 18px;align-items:center;min-height:0}
+.ejm .tlg.five .tc .y{grid-row:1/3;font-size:46px}
+.ejm .tlg.five .tc .tg{font-size:17px}
+.ejm .tlg.five .tc p{font-size:22px;line-height:1.2}
+.ejm .tlg.five{gap:10px}.ejm .tlg.five .tc{border-top-width:6px}
+/* risk and disasters block */
+.hrud{flex:1;min-height:0;align-content:stretch}
+.hrud{gap:20px}.hrud .card{padding:16px 28px;display:grid;grid-template-columns:64px 1fr;column-gap:20px;align-content:center}.hrud .card .ico{grid-row:1/3;margin:0;align-self:start}.hrud .card h3{font:400 40px var(--display);margin:0 0 2px}.hrud .card p{font-size:27px;line-height:1.3;margin:0}
+.mt{display:grid;grid-template-columns:640px 1fr;gap:44px;flex:1;min-height:0;align-items:start}
+.mt-l{display:grid;gap:18px}
+.mt-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 20px}
+.mt-row h3{font:400 38px var(--display);margin:0;white-space:nowrap}.mt-row small{display:block;font:700 22px var(--body);color:var(--mute);min-height:26px}
+.mt-row.ok{border-color:#2e7d5b}.mt-row.no{border-color:#b3452c}
+.mt-ch{display:flex;gap:8px}
+.mt-ch button{font:700 28px var(--body);width:58px;height:58px;border-radius:12px;border:2px solid var(--Blue);background:#fff;color:var(--Blue);cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,color .16s ease}
+.mt-ch button:active{transform:scale(.97)}.mt-ch button.on{background:var(--Blue);color:#fff}
+.mt-ch button.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.mt-ch button.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.mt-ch button:disabled{cursor:default}
+.mt-r{display:grid;gap:16px}
+.mt-o{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 20px;font-size:28px;line-height:1.3}
+.mt-o b{font:400 44px var(--display);color:var(--accent)}
+.mt-go{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}.mt-go .btn{font-size:28px;padding:14px 32px}
+.mt-score{font:400 40px var(--display);color:var(--Blue)}
+.cloud{max-width:420px;margin:0 auto -8px}
+.kat{display:grid;grid-template-columns:760px 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.kat-l{display:grid;gap:18px}.kat .sc{font-size:28px}.kat .sc ul{margin:6px 0 0 24px;padding:0}.kat .sc li{margin:4px 0;line-height:1.3}
+.kt{width:100%;border-collapse:collapse;font-size:27px;background:#fff}
+.kt caption{font:700 24px var(--body);text-align:left;padding:0 0 8px}
+.kt th{background:#087b97;color:#fff;font:700 21px/1.2 var(--body);text-align:left;padding:10px 12px}
+.kt td{padding:7px 12px;border-top:2px solid var(--paper-2)}.kt td.num{text-align:right}.kt th:last-child{text-align:right}
+.kt tr.hot td{background:#f9e4de;font-weight:700;color:#b3452c}
+.eq2{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid #b3452c;border-radius:14px;padding:14px 24px}
+.eq2.good{border-left-color:#2e7d5b}.eq2 h3{font:400 38px var(--display);margin:0 0 4px}.eq2 span{display:block;font-size:27px;line-height:1.3}
+.eq2 b{display:block;font:400 46px var(--display);margin-top:4px;color:#b3452c}.eq2.good b{color:#2e7d5b}
+/* === LECTURE 20 === Indigenous sustainability (M7 L1) */
+.pics3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:6px}
+.pics3 img{width:100%;height:250px;object-fit:cover;border-radius:14px;display:block}
+.fg{display:grid;grid-template-columns:1120px 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.fg-fields{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.fg-f{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:14px 18px}
+.fg-f h3{font:400 32px var(--display);margin:0 0 6px}
+.fg-f svg{width:100%;height:auto;display:block;background:#f7f5ef;border-radius:12px}
+.fg-t{font:700 28px var(--body);margin-top:8px}
+.fg-side{display:grid;gap:14px;align-content:start}
+.fg-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg-btns .btn{font-size:30px;padding:16px 10px}
+.fg-btns .btn.on{background:var(--ink);border-color:var(--ink)}
+.fg-key{display:flex;gap:10px;flex-wrap:wrap;font-size:24px}
+.fg-key span{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:4px 14px}
+.fg-key i{width:18px;height:18px;border-radius:50%;display:inline-block}
+.fg-side .srt-fb{font-size:27px;min-height:130px}
+</style>
+<link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 7c-2-2-6-1-6 4 0 5 3 10 6 10s6-5 6-10c0-5-4-6-6-4z"/><path d="M12 7c0-2 1-4 3-5"/></symbol>
+  <symbol id="i-vote" viewBox="0 0 24 24"><path d="M5 12h14v8H5z"/><path d="m8 12 4-9 4 9"/><path d="M9 16h6"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+
+<!-- 1. TITLE -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center" src="img/hero.jpg" alt="A clay bowl of blue corn chips beside ears of blue corn and dried chiles">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>07</em></b><span data-fill="module-title">Institutional Change for Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 20</div>
+    <h1 class="reveal d2" style="font-size:112px"><em>Indigenous</em> sustainability</h1>
+    <p class="hero-sub reveal d3" style="max-width:860px">Knowledge, seeds and ways of life that kept people and land going for generations.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- 2. MODULE 7 AT A GLANCE -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Module 7</span></div>
+  <div class="content fill">
+    <div class="k reveal">Module <span data-fill="module-num">7</span> · <span data-fill="module-title">Institutional Change for Sustainability</span></div>
+    <h2 class="reveal d2">Where this module is <em>going</em></h2>
+    <div class="glance">
+      <div class="card accent reveal d3"><span class="tag">Learning objectives · by the end of Module 7 you can</span>
+        <ol class="num">
+          <li>Describe Indigenous knowledge and traditional ecological knowledge, and what they teach us about living with nature.</li>
+          <li>Explain how people make decisions about the environment, and why those choices are not always rational.</li>
+          <li>Describe how rules, rights and institutions shape who uses natural resources, and how.</li>
+          <li>Explain how policy and governance can move a community or a country toward sustainability.</li>
+        </ol>
+      </div>
+      <div class="card gold reveal d4"><span class="tag">What's due in this module</span>
+        <ul class="clean" data-fill="assessments"><li>InQuizitive 18, 19 and 20</li><li>Quiz: Indigenous Sustainability</li><li>Review Exercise 3: Systems Analysis for Sustainability</li></ul>
+        <div class="gold-rule" style="margin:26px 0 20px"></div>
+        <p style="font-size:28px"><b>Reading for today:</b> <span data-fill="reading">Nelson (2017)</span></p>
+        <p class="small mute" style="margin-top:16px">Due dates and submission links are on the course site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KEY TERMS -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 4. WARM-UP POLL -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">What share of the world's <em>biodiversity</em> do Indigenous Peoples protect on their lands?</h2>
+    <div class="poll reveal d3" data-poll="warmup">
+      <button class="opt" type="button"><b>A</b>About 10%</button>
+      <button class="opt" type="button"><b>B</b>About 30%</button>
+      <button class="opt" type="button"><b>C</b>About 50%</button>
+      <button class="opt" type="button"><b>D</b>About 80%</button>
+    </div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 5. BIG IDEAS -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · knowledge that comes from living in one place</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 bigs reveal d3">
+      <div class="card accent"><img class="bigph" src="img/plateau.jpg" style="object-position:center 55%" alt="A dry plateau with a flat-topped mesa and rows of corn plants"><span class="tag">1 · Traditional ecological knowledge</span><h3>What do people learn from living in one place for generations?</h3><p>A deep knowledge of plants, animals and land, handed down over generations.</p></div>
+      <div class="card green"><img class="bigph" src="img/four-mother-corn.jpg" style="object-position:center 40%" alt="A painting of four ears of Hopi corn in different colors"><span class="tag">2 · Lessons of Indigenous practices</span><h3>How do farmers grow food in a dry, changing climate?</h3><p>Hopi dryland farming keeps many kinds of corn, so some crops survive when the weather turns.</p></div>
+      <div class="card gold"><img class="bigph" src="img/globe.png" style="object-fit:contain;background:#fff" alt="A globe with colorful animals around it"><span class="tag">3 · Knowledge and education</span><h3>Why does Indigenous knowledge matter for the planet?</h3><p>Indigenous Peoples protect about 80% of global biodiversity, and their ways of learning treat people and nature as connected.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>No single knowledge system has all the answers. Sustainability grows from many.</div>
+  </div>
+</section>
+
+<!-- 6. ATTENDANCE -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>20</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REVIEW QUIZ -->
+<section class="slide" id="review">
+  <div class="rail"><b>20</b><span>Review quiz</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · from the last lecture · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">Which word means giving each person <em>what they need</em> to reach a fair outcome?</h2>
+    <div class="poll reveal d3" data-poll="review" data-correct="1">
+      <button class="opt" type="button"><b>A</b>Equality</button>
+      <button class="opt" type="button"><b>B</b>Equity</button>
+      <button class="opt" type="button"><b>C</b>Hazard</button>
+      <button class="opt" type="button"><b>D</b>Vulnerability</button>
+    </div>
+    <div class="status" data-poll-status="review"></div>
+    <div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="review">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 8. COLORADO PLATEAU -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Setting the scene · a dry place where people farm</div>
+    <h2 class="reveal d2" style="font-size:70px">The <em>Colorado Plateau</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <figure class="fig pic"><img src="img/plateau.jpg" alt="A flat-topped mesa above red desert soil with young corn plants in rows" style="width:100%;height:100%;max-height:680px;object-fit:cover"><figcaption>Photo: Flickr / southwestdesertlover</figcaption></figure>
+      <div class="side">
+        <div class="grid" style="gap:14px">
+          <div class="sc"><b>Climate</b>Semi-arid and cold</div>
+          <div class="sc"><b>Where</b>North-eastern Arizona, 4,500 to 5,000 feet up</div>
+          <div class="sc"><b>Rain</b>Only 6 to 10 inches a year, and drought keeps coming back</div>
+          <div class="sc"><b>Land</b>Desert shrubs and grasses, sandy and clay loam soils</div>
+          <div class="sc green"><b>Survival strategy</b>Dryland farming, kept going for a very long time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. MINDS AT THE MARGIN -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Setting the scene</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Setting the scene · who gets to count as an expert?</div>
+    <h2 class="reveal d2" style="font-size:70px">Most Indigenous peoples have used <em>nature-based solutions</em> to survive</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1fr 1fr 1fr">
+      <figure class="fig pic" style="grid-column:span 1"><img src="img/beans.jpg" alt="A pile of many kinds of dried beans and peas" style="width:100%;height:100%;max-height:620px;object-fit:cover"></figure>
+      <figure class="fig pic"><img src="img/veg.jpg" alt="A tomato, red onion, peppers and leeks on a pink background" style="width:100%;height:100%;max-height:620px;object-fit:cover"></figure>
+      <div class="side" style="justify-content:center">
+        <div class="claim" style="background:var(--Blue);color:#fff;border-radius:18px;padding:30px 34px;font:400 46px/1.2 var(--display)">&ldquo;Minds at the margin are not marginal minds.&rdquo;<b style="display:block;font:700 22px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--golden);margin-top:16px">Anil Gupta</b></div>
+        <p style="font-size:28px;margin-top:22px">People living at the edges of power often hold deep, tested knowledge. Today we listen to some of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. TEK -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 1 · Traditional ecological knowledge</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 1 · what TEK is and why it works</div>
+    <h2 class="reveal d2" style="font-size:66px"><em>Traditional ecological knowledge</em> and Western science</h2>
+    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:28px">
+      <div class="card green"><span class="tag">Traditional ecological knowledge (TEK)</span><p>Built over many generations of living in one place. It sees plants, animals, land, people and spirit as one connected whole. It is passed on through stories, practice and ceremony.</p></div>
+      <div class="card accent"><span class="tag">Western science</span><p>Built by testing ideas with experiments and measurements. It often studies one part of a system at a time, and writes results in papers and data.</p></div>
+    </div>
+    <p class="src reveal d3" style="margin-top:6px">Teaching summary. The two ways of knowing are different, and they can work side by side.</p>
+    <div class="grid g3 reveal d4" style="margin-top:8px">
+      <div class="card gold"><span class="tag">Evidence 1</span><p><b>Hopi farmers</b> grow corn on 6 to 10 inches of rain a year.</p></div>
+      <div class="card gold"><span class="tag">Evidence 2</span><p><b>About 80%</b> of global biodiversity is on lands managed by Indigenous Peoples (IPBES 2018).</p></div>
+      <div class="rq" data-def><h3>Quick question: why trust knowledge that is not written in a science journal?</h3><p class="think">Tap to check.</p><p class="ans-text">Because it is tested every day for generations. If a practice failed, people would not survive and would not pass it on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. EIGHT PRACTICES -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · eight practices to explore</div>
+    <h2 class="reveal d2" style="font-size:66px">Indigenous practices that support <em>sustainability</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1080px 1fr">
+      <div class="pic dia" style="padding:10px"><svg viewBox="0 0 1000 740" role="img" aria-label="A wheel with eight practices around the center: Swinomish clam gardens, Hopi dryland farming, Zuni waffle gardens, prescribed fire, San Carlos Apache tribal forestry, Karuk and Yurok salmon runs, New Mexico acequias and resilient seeds worldwide." style="display:block;width:100%;height:auto" font-family="'Archivo Narrow',Arial,sans-serif">
+        <defs><marker id="arW" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
+        <g id="wheel"></g>
+        <circle cx="500" cy="370" r="118" fill="#2b2b2b"/>
+        <g font-weight="700" fill="#fff" text-anchor="middle" font-size="34"><text x="500" y="358">Indigenous</text><text x="500" y="400">practices</text></g>
+      </svg></div>
+      <div class="side" style="justify-content:center;gap:18px">
+        <div class="sc green"><b>Hopi dryland farming</b>We look at this one closely today.</div>
+        <div class="sc gold"><b>Class exercise</b>You will choose one practice and discuss it in a group of 2 to 5. How can it help us reach sustainability?</div>
+        <p class="small mute">Read the Washington Post article in Module 7 (recommended) before you choose.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. HOPI CORN -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Big idea 2 · Hopi dryland farming</div>
+    <h2 class="reveal d2" style="font-size:70px">Hopi <em>corn</em></h2>
+    <figure class="fig reveal d3" style="margin:0 0 18px"><img src="img/hopi-field.jpg" alt="People walking between rows of corn plants on a dry plateau" style="width:100%;height:300px;object-fit:cover;object-position:center 40%"></figure>
+    <div class="two l reveal d3" style="grid-template-columns:1fr 760px">
+      <ul class="clean" style="font-size:29px;line-height:1.3">
+        <li>Knowledge and a huge variety of corn, rich in <b>genetic biodiversity</b></li>
+        <li>A way of life that follows the natural cycle</li>
+        <li>The Hopi agricultural calendar, tied to snow and rain</li>
+        <li>Place-based adaptive management</li>
+        <li>Plant spacing and depth set by the environment</li>
+        <li>Drought-tolerant plants</li>
+      </ul>
+      <div class="claim" style="background:var(--Blue);color:#fff;border-radius:18px;padding:26px 32px;font:400 36px/1.22 var(--display)">&ldquo;Hopi is one of the few places I know where corn is raised to fit the environment, and the environment is not manipulated to fit the corn.&rdquo;<b style="display:block;font:700 20px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--golden);margin-top:12px">Kotutwa</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. CORN IS THE CENTRAL BOND -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 2 · corn is more than food</div>
+    <h2 class="reveal d2" style="font-size:66px">For Hopi people, corn is the <em>central bond</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:520px 640px 1fr;align-items:start">
+      <figure class="fig"><img src="img/four-mother-corn.jpg" alt="A painting of four ears of corn in cream, blue-gray, brown and white" style="width:100%;max-height:560px;object-fit:cover"><figcaption style="position:static">Four Mother Corn</figcaption></figure>
+      <figure class="fig"><img src="img/kachinas.jpg" alt="A painting of kachinas helping tall corn plants grow under rain and a rainbow" style="width:100%;max-height:560px;object-fit:cover"><figcaption style="position:static">Kachinas Germinating Plants</figcaption></figure>
+      <div class="side" style="gap:10px">
+        <div class="sc"><b>People</b>Matriarchy, oral tradition, hard work and humility</div>
+        <div class="sc"><b>Bonding</b>Corn farming, foods and rituals</div>
+        <div class="sc"><b>Quality</b>Hard, colorful, well-sized corn is kept</div>
+        <div class="sc green"><b>Seeds</b>Saving seeds and adapting to local conditions</div>
+        <div class="sc gold"><b>Change</b>Young people and off-farm jobs</div>
+      </div>
+    </div>
+    <p class="src reveal d4">Paintings by Dawakema (Milland Lomakema), acrylic. Courtesy of Artist Hopid, Second Mesa, Arizona (Glenn 2008, Exemplary Arts: Corn as Life Essence).</p>
+  </div>
+</section>
+
+<!-- 14. REVIEW Q 20.1 -->
+<section class="slide" id="rq1">
+  <div class="rail"><b>20</b><span>Review question 20.1</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question 20.1 · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1560px">What type of <em>social organization</em> do Hopi people practice?</h2>
+    <div class="poll reveal d3" data-poll="rq1" data-correct="0">
+      <button class="opt" type="button"><b>A</b>Matriarchal system</button>
+      <button class="opt" type="button"><b>B</b>Patriarchal system</button>
+      <button class="opt" type="button"><b>C</b>Mixed system</button>
+      <button class="opt" type="button"><b>D</b>Feudal system</button>
+    </div>
+    <div class="status" data-poll-status="rq1"></div>
+    <div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq1">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 15. GAME: ONE VARIETY OR MANY -->
+<section class="slide" id="fieldgame">
+  <div class="rail"><b>20</b><span>Try it · One variety or many?</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Try it · tap a weather shock and watch two fields</div>
+    <h2 class="reveal d2" style="font-size:62px">One variety or <em>many</em>?</h2>
+    <div class="fg reveal d3">
+      <div class="fg-fields">
+        <div class="fg-f"><h3>Field A · one variety</h3><svg id="fa" viewBox="0 0 560 420" role="img" aria-label="Field A: twelve plants, all the same blue variety"></svg><p id="fa-t" class="fg-t">12 of 12 plants</p></div>
+        <div class="fg-f"><h3>Field B · four varieties</h3><svg id="fb" viewBox="0 0 560 420" role="img" aria-label="Field B: twelve plants of four varieties, three of each"></svg><p id="fb-t" class="fg-t">12 of 12 plants</p></div>
+      </div>
+      <div class="fg-side">
+        <div class="sc"><b>Pick a year</b>Each variety handles only two of the four shocks.</div>
+        <div class="fg-btns"><button class="btn" type="button" data-s="0">Drought</button><button class="btn" type="button" data-s="1">Pests</button><button class="btn" type="button" data-s="2">Cold snap</button><button class="btn" type="button" data-s="3">Wet year</button></div>
+        <div class="fg-key" id="fg-key"></div>
+        <div class="srt-fb" id="fg-fb">Tap a year to see what happens.</div>
+        <button class="btn ghost" type="button" id="fg-reset">Reset fields</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching numbers, not real crop data. Hopi farmers keep many corn varieties for this reason.</p>
+  </div>
+</section>
+
+<!-- 16. THE SAMENESS -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 2 · the risk of sameness</div>
+    <h2 class="reveal d2" style="font-size:70px">The <em>sameness</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1fr 1fr;align-items:center">
+      <figure class="fig plain" style="background:transparent;border:0"><img src="img/potato-infographic.jpg" alt="An infographic of the U.S. potato industry: production by state, how potatoes are used, and production figures" style="max-height:700px;width:auto;margin:0 auto;border-radius:14px"></figure>
+      <div class="side" style="gap:22px">
+        <div style="display:flex;gap:30px;align-items:flex-end"><img src="img/tomatoes.png" alt="Two ripe red tomatoes" style="height:300px;width:auto"><img src="img/fries.png" alt="A red carton of french fries" style="height:300px;width:auto"></div>
+        <div class="sc gold"><b>The lesson</b>Over-reliance on one variety led to the Irish Potato Famine.</div>
+        <p style="font-size:32px">When every plant is the same, one disease or one bad season can take them all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17. PACHAMAMA -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 2 · potatoes in the Andes</div>
+    <h2 class="reveal d2" style="font-size:70px"><em>Pachamama</em>, the Earth Mother</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1050px 1fr">
+      <figure class="fig"><img src="img/andes.jpg" alt="Farmers working potato fields in the Andes with snow-capped mountains behind" style="width:100%;max-height:640px;object-fit:cover"><figcaption>The Columbian Exchange to the International Potato Park.</figcaption></figure>
+      <div class="side" style="justify-content:center;gap:14px">
+        <div class="sc green"><b>Who is she?</b>The Earth Mother in the Andes: earth, life, harvest, farming, crops and fertility.</div>
+        <div class="sc"><b>What does she do?</b>Presides over planting and harvest. She embodies the mountains and causes earthquakes.</div>
+        <div class="sc gold"><b>Why it matters</b>Respect for the land shapes how people farm it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. REVIEW Q 20.2 -->
+<section class="slide" id="rq2">
+  <div class="rail"><b>20</b><span>Review question 20.2</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question 20.2 · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1600px">Climate change has directly hurt <em>Andean potatoes</em>, and local people are actively adapting by developing new varieties.</h2>
+    <div class="poll reveal d3" data-poll="rq2" data-correct="0">
+      <button class="opt" type="button"><b>A</b>True</button>
+      <button class="opt" type="button"><b>B</b>False</button>
+      <button class="opt" type="button"><b>C</b>Maybe</button>
+    </div>
+    <div class="status" data-poll-status="rq2"></div>
+    <div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq2">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 19. BIODIVERSITY -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 3 · Knowledge and education</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 3 · biocultural diversity matters</div>
+    <h2 class="reveal d2" style="font-size:70px"><em>Biodiversity</em> and Indigenous Peoples</h2>
+    <div class="two l reveal d3" style="grid-template-columns:760px 1fr;align-items:center">
+      <figure class="fig plain" style="background:transparent;border:0"><img src="img/globe.png" alt="A globe surrounded by colorful animals" style="max-height:640px;width:auto;margin:0 auto"></figure>
+      <div class="side" style="gap:18px">
+        <div class="cmp" style="grid-template-columns:1fr 1fr 1fr">
+          <div><span>Share of global biodiversity protected</span><div class="n">80%</div></div>
+          <div><span>Share of the planet's land</span><div class="n">25%</div></div>
+          <div><span>Share of the world's population</span><div class="n hi">&lt;5%</div></div>
+        </div>
+        <div class="sc gold"><b>Biocultural diversity matters</b>Where Indigenous Peoples keep their culture and their land, nature does well too.</div>
+        <p class="src">Source: IPBES (2018).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. EIGHTH FIRE -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 3 · Knowledge and education</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Big idea 3 · how Indigenous knowledge is learned</div>
+    <h2 class="reveal d2" style="font-size:66px">Nelson (2018): <em>Eighth Fire</em></h2>
+    <p class="lead reveal d3" style="font-size:32px;max-width:1700px">Holistic and interdependent learning based on three key elements.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card green"><span class="tag">1</span><h3>Learning spirits</h3></div>
+      <div class="card accent"><span class="tag">2</span><h3>Embodied learning</h3></div>
+      <div class="card gold"><span class="tag">3</span><h3>Symbiotic and contextual learning</h3></div>
+    </div>
+    <div class="pics3 reveal d4"><img src="img/reed-boat.jpg" alt="Two women paddling a boat made of bundled reeds"><img src="img/reeds.jpg" alt="A person gathering cut reeds at the water's edge"><img src="img/solar-boat.jpg" alt="A solar panel above a carved wooden boat decoration"></div>
+    <p class="src reveal d4">Photos courtesy of The Cultural Conservancy, <a href="https://www.nativeland.org/guardians-of-the-waters" target="_blank" rel="noopener">nativeland.org/guardians-of-the-waters</a>.</p>
+  </div>
+</section>
+
+<!-- 21. EXIT POLL -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Exit poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit poll · one answer</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1600px">Indigenous sustainability is called sustainability with a <em>small “s”</em>. What does that mean?</h2>
+    <div class="poll reveal d3" data-poll="exit">
+      <button class="opt" type="button"><b>A</b>One set of knowledge is better than all the others</button>
+      <button class="opt" type="button"><b>B</b>Many kinds of knowledge can work side by side, with none claiming to be supreme</button>
+      <button class="opt" type="button"><b>C</b>Only scientists can judge a practice</button>
+      <button class="opt" type="button"><b>D</b>Indigenous practices belong only in the past</button>
+    </div>
+    <div class="status" data-poll-status="exit"></div>
+  </div>
+</section>
+
+<!-- 22. TAKEAWAY -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 40%" src="img/end.jpg" alt="Farmers working potato fields in the Andes under snow-capped mountains" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1140px">
+    <div class="hero-badge reveal"><b>L<em>20</em></b><span>Indigenous sustainability</span></div>
+    <div class="title-k reveal d2">Takeaway</div>
+    <p class="hero-lead reveal d2" style="font-size:54px">Sustainability grows from <em>many ways of knowing</em>.</p>
+    <ol class="num reveal d3" style="font-size:31px">
+      <li>Many Indigenous peoples have been pushed off their lands and pushed to the margins.</li>
+      <li>Indigenous sustainability is sustainability with a small “s”. It does not claim that one set of knowledge is better.</li>
+      <li>Many practices are survival and a deep belief system, where hope and faith go on whatever the circumstances.</li>
+      <li>Many of these practices are crucial for global biodiversity.</li>
+      <li>These practices are also acts of resistance and persistence.</li>
+    </ol>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-11-03a"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm7-s1';
+const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+
+/* === KEY TERMS === the two glossary terms for this session, plus two central ideas that are not in the glossary */
+const EXTRA = {
+  'Biocultural Diversity': { term: 'Biocultural Diversity', definition: 'The link between the variety of life and the variety of human cultures and languages. Where one is kept, the other often is too.', example: 'Hopi corn in many colors, tied to Hopi farming, language and ceremony.', significance: 'Protecting a culture and its land helps protect the species that live there.' },
+  'Genetic Diversity': { term: 'Genetic Diversity', definition: 'The variety of genes within one species, such as many different kinds of corn or potato.', example: 'Hopi blue, white, red and yellow corn, or many potato varieties in the Andes.', significance: 'Lets a crop adapt when drought, pests or climate change hit.' },
+};
+const KEY_TERMS = [['Indigenous Knowledge', 'users', 'green'], ['Traditional Ecological Knowledge (TEK)', 'leaf', 'sky'], ['Biocultural Diversity', 'globe', 'gold'], ['Genetic Diversity', 'cycle', 'green']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || EXTRA[name]; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+wireReveals();
+
+/* === WHEEL OF EIGHT PRACTICES === flat circles, labels inside, dark arrows from the center */
+(function () {
+  const P = [['Swinomish', 'clam gardens', '#2e7d5b'], ['Hopi', 'dryland farming', '#C4851C'], ['Zuni', 'waffle gardens', '#42a8bf'], ['Prescribed', 'fire', '#b3452c'], ['San Carlos', 'Apache forestry', '#2e7d5b'], ['Karuk and Yurok', 'salmon runs', '#42a8bf'], ['New Mexico', 'acequias', '#C4851C'], ['Resilient', 'seeds worldwide', '#75a29f']];
+  const cx = 500, cy = 370; let s = '';
+  P.forEach((p, i) => {
+    const a = -Math.PI / 2 + i * 2 * Math.PI / 8, x = cx + 380 * Math.cos(a), y = cy + 265 * Math.sin(a);
+    const ex = cx + (x - cx) * 0.36, ey = cy + (y - cy) * 0.36, sx = cx + (x - cx) * 0.66, sy = cy + (y - cy) * 0.66;
+    s += `<path d="M${ex.toFixed(0)} ${ey.toFixed(0)}L${sx.toFixed(0)} ${sy.toFixed(0)}" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arW)"/>`;
+    s += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="92" fill="${p[2]}" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="25"><text x="${x.toFixed(0)}" y="${(y - 4).toFixed(0)}">${esc(p[0])}</text><text x="${x.toFixed(0)}" y="${(y + 26).toFixed(0)}">${esc(p[1])}</text></g>`;
+  });
+  $('#wheel').innerHTML = s;
+})();
+
+/* === ONE VARIETY OR MANY === teaching numbers. Each variety survives two of four shocks, so a mixed field always keeps half. */
+const SHOCKS = ['Drought', 'Pests', 'Cold snap', 'Wet year'];
+const VARS = [
+  { n: 'Blue', c: '#2b6cb0', ok: [0, 2] },
+  { n: 'Red', c: '#b3452c', ok: [0, 1] },
+  { n: 'White', c: '#d9d3c0', ok: [1, 3] },
+  { n: 'Yellow', c: '#e0a622', ok: [2, 3] },
+];
+$('#fg-key').innerHTML = VARS.map(v => `<span><i style="background:${v.c};border:2px solid #2b2b2b"></i>${v.n}</span>`).join('');
+const FA = Array(12).fill(0), FB = Array.from({ length: 12 }, (_, i) => i % 4);
+function drawField(id, field, shock) {
+  let s = '<rect x="0" y="330" width="560" height="90" fill="#e4d8bd"/>';
+  field.forEach((v, i) => {
+    const col = i % 6, row = Math.floor(i / 6), x = 55 + col * 90, y = 30 + row * 150;
+    const alive = shock === null || VARS[v].ok.includes(shock);
+    s += `<path d="M${x} ${y + 140}V${y + (alive ? 30 : 110)}" stroke="${alive ? '#2e7d5b' : '#8a6d3b'}" stroke-width="9" stroke-linecap="round" fill="none"/>`;
+    s += alive ? `<ellipse cx="${x}" cy="${y + 32}" rx="26" ry="42" fill="${VARS[v].c}" stroke="#2b2b2b" stroke-width="4"/>` : `<ellipse cx="${x + 8}" cy="${y + 136}" rx="32" ry="12" fill="#b8a27a" stroke="#2b2b2b" stroke-width="3"/>`;
+  });
+  $('#' + id).innerHTML = s;
+  const n = field.filter(v => shock === null || VARS[v].ok.includes(shock)).length;
+  $('#' + id + '-t').textContent = `${n} of 12 plants`;
+  return n;
+}
+function fgReset() { drawField('fa', FA, null); drawField('fb', FB, null); $$('.fg-btns .btn').forEach(b => b.classList.remove('on')); $('#fg-fb').textContent = 'Tap a year to see what happens.'; }
+$$('.fg-btns .btn').forEach(b => b.addEventListener('click', () => {
+  const sk = +b.dataset.s; $$('.fg-btns .btn').forEach(x => x.classList.toggle('on', x === b));
+  const a = drawField('fa', FA, sk), c = drawField('fb', FB, sk);
+  $('#fg-fb').innerHTML = `<b>${SHOCKS[sk]}.</b> ` + (a === 0 ? 'Field A lost every plant, because one variety shared one weakness. ' : 'Field A got lucky this year: its variety can handle this shock. ') + `Field B kept <b>${c} of 12</b>. Try another year. The single variety cannot be lucky every time.`;
+}));
+$('#fg-reset').addEventListener('click', fgReset);
+fgReset();
+
+/* === ATTENDANCE AND POLLS === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() { const u = live.user(); if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } }
+showUser();
+async function ensureUser(statusEl) { if (live.user()) return true; say(statusEl, 'Check in on the attendance slide first.', 'err'); return false; }
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status'); say(st, 'Checking in…');
+  try { await live.signIn($('[data-name]').value, $('[data-email]').value); await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); showUser(); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll, st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+</script>
+</body>
+</html>
