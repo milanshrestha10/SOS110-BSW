@@ -422,10 +422,10 @@ p,li{text-wrap:pretty}
 <section class="slide">
   <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · eight practices to explore</div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · nine practices to explore</div>
     <h2 class="reveal d2" style="font-size:66px">Indigenous practices that support <em>sustainability</em></h2>
     <div class="two l reveal d3" style="grid-template-columns:1080px 1fr">
-      <div class="pic dia" style="padding:10px"><svg viewBox="0 0 1000 740" role="img" aria-label="A wheel with eight practices around the center: Swinomish clam gardens, Hopi dryland farming, Zuni waffle gardens, prescribed fire, San Carlos Apache tribal forestry, Karuk and Yurok salmon runs, New Mexico acequias and resilient seeds worldwide." style="display:block;width:100%;height:auto" font-family="'Archivo Narrow',Arial,sans-serif">
+      <div class="pic dia" style="padding:10px"><svg viewBox="0 0 1000 740" role="img" aria-label="A wheel with nine practices around the center: Zuni waffle gardens, cultural burns, acequias, tribal forestry, Hopi dryland farming, salmon runs, resilient seeds, Swinomish clam gardens and Indigenous climate design." style="display:block;width:100%;height:auto" font-family="'Archivo Narrow',Arial,sans-serif">
         <defs><marker id="arW" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="20" refY="13" orient="auto"><path d="M3 3L23 13L3 23z" fill="#2b2b2b"/></marker></defs>
         <g id="wheel"></g>
         <circle cx="500" cy="370" r="118" fill="#2b2b2b"/>
@@ -433,8 +433,8 @@ p,li{text-wrap:pretty}
       </svg></div>
       <div class="side" style="justify-content:center;gap:18px">
         <div class="sc green"><b>Hopi dryland farming</b>We look at this one closely today.</div>
-        <div class="sc gold"><b>Class exercise</b>You will choose one practice and discuss it in a group of 2 to 5. How can it help us reach sustainability?</div>
-        <p class="small mute">Read the Washington Post article in Module 7 (recommended) before you choose.</p>
+        <div class="sc gold"><b>Class exercise</b>In the class exercise you will tap through each practice, then explain in 3 or 4 sentences how it supports sustainability.</div>
+        <p class="small mute">The nine come from the Washington Post article in Module 7 (Gilbert, 2024).</p>
       </div>
     </div>
   </div>
@@ -673,10 +673,10 @@ wireReveals();
 
 /* === WHEEL OF EIGHT PRACTICES === flat circles, labels inside, dark arrows from the center */
 (function () {
-  const P = [['Swinomish', 'clam gardens', '#2e7d5b'], ['Hopi', 'dryland farming', '#C4851C'], ['Zuni', 'waffle gardens', '#42a8bf'], ['Prescribed', 'fire', '#b3452c'], ['San Carlos', 'Apache forestry', '#2e7d5b'], ['Karuk and Yurok', 'salmon runs', '#42a8bf'], ['New Mexico', 'acequias', '#C4851C'], ['Resilient', 'seeds worldwide', '#75a29f']];
+  const P = [['Zuni', 'waffle gardens', '#42a8bf'], ['Cultural', 'burns', '#b3452c'], ['New Mexico', 'acequias', '#C4851C'], ['Tribal', 'forestry', '#2e7d5b'], ['Hopi', 'dryland farming', '#C4851C'], ['Salmon', 'runs', '#42a8bf'], ['Resilient', 'seeds', '#75a29f'], ['Swinomish', 'clam gardens', '#2e7d5b'], ['Indigenous', 'climate design', '#7b5ea7']];
   const cx = 500, cy = 370; let s = '';
   P.forEach((p, i) => {
-    const a = -Math.PI / 2 + i * 2 * Math.PI / 8, x = cx + 380 * Math.cos(a), y = cy + 265 * Math.sin(a);
+    const a = -Math.PI / 2 + i * 2 * Math.PI / 9, x = cx + 380 * Math.cos(a), y = cy + 265 * Math.sin(a);
     const ex = cx + (x - cx) * 0.36, ey = cy + (y - cy) * 0.36, sx = cx + (x - cx) * 0.66, sy = cy + (y - cy) * 0.66;
     s += `<path d="M${ex.toFixed(0)} ${ey.toFixed(0)}L${sx.toFixed(0)} ${sy.toFixed(0)}" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arW)"/>`;
     s += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="92" fill="${p[2]}" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="25"><text x="${x.toFixed(0)}" y="${(y - 4).toFixed(0)}">${esc(p[0])}</text><text x="${x.toFixed(0)}" y="${(y + 26).toFixed(0)}">${esc(p[1])}</text></g>`;
