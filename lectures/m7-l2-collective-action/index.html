@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture 21 Collective action and decisions · SOS110</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/deck.css?v=2026-10-30c">
+<link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
+<style>
+/* reference-guide slides (8 and 9): icon rows on the left, photo on the right */
+.ref h2{font-size:66px}
+.ref .lead{top:140px;width:980px;font-size:32px}
+.ref .body{position:absolute;left:74px;top:330px;width:1000px;bottom:30px;display:flex;flex-direction:column}
+.ref .pair{position:absolute;inset:0 0 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff}
+.ref .pair img{width:100%;height:100%;object-fit:cover;display:block}
+.ref .credit-ph{left:8px;right:8px;bottom:8px;font-size:15px}
+.ref .pair~.credit-ph{color:#444;text-shadow:none}
+.ref .bar .src{width:760px}
+.ref .hs.done{background:var(--rg)}
+#cityeco .row{padding:8px 0}#cityeco .row b{font-size:36px}#cityeco .row .d{font-size:25px;margin-top:0}#cityeco .row .n{font-size:48px}
+.ref .pop textarea.fld{font-size:30px;line-height:1.35}
+/* === LECTURE 18 === urban ecosystems and resilience (M6 L2) */
+.content.fill>.content.fill>.src{margin-top:auto;padding-top:10px}
+.two.l.w{grid-template-columns:1000px 1fr}
+.two.l.n{grid-template-columns:760px 1fr}
+.two .pic img.tall{max-height:700px}
+.two .side .num{font-size:30px;margin:0}
+.two .side .sc{font-size:26px}
+.link-btn{display:inline-block;font:700 26px var(--body);color:var(--Blue);border:3px solid var(--Blue);border-radius:12px;padding:10px 22px;text-decoration:none;align-self:flex-start}
+.link-btn:hover{background:var(--Blue);color:var(--paper)}
+/* stack: wide picture on top, three notes below */
+.stk{display:flex;flex-direction:column;gap:26px;flex:1;min-height:0}
+.stk .fig{margin:0}.stk .fig img{width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block}
+.stk .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.stk .row3 .sc,.stk .row3 .rq{font-size:25px}
+.stk .row3 .rq h3{font-size:31px}.stk .row3 .rq .ans-text{font-size:24px}
+/* in, of, for cards */
+.iof{display:grid;gap:16px;align-content:stretch}
+.iof .sc{font-size:26px;display:flex;flex-direction:column;justify-content:center}
+.iof .sc b{font-size:19px}
+/* circularity and overlap diagrams */
+.dia{background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:16px;display:flex;align-items:center;justify-content:center}
+.dia svg{width:100%;height:auto;display:block}
+.dia svg text{font-family:var(--body)}
+/* chips on megacity list */
+.mega{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;list-style:none}
+.mega li{background:var(--card);border:2px solid var(--paper-2);border-left:8px solid var(--Sky);border-radius:12px;padding:10px 18px;font-size:28px;font-weight:700}
+.mega li small{display:block;font:400 19px var(--body);color:var(--mute)}
+/* compare numbers */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp>div{background:var(--card);border:2px solid var(--paper-2);border-radius:16px;padding:16px 22px}
+.cmp h4{font:400 34px var(--display);margin-bottom:6px}
+.cmp .n{font:400 54px/1 var(--display);color:var(--Blue)}.cmp .n.hi{color:#b3452c}
+.cmp span{font-size:21px;color:var(--mute);display:block;margin-bottom:8px}
+/* sort game */
+.srt{display:grid;grid-template-columns:600px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:16px;align-content:start}.srt-def .sc{font-size:27px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 52px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:18px;flex-wrap:wrap}
+.srt-btns .btn{font-size:30px;padding:16px 36px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+/* in, of and for quiz */
+.gq{display:grid;grid-template-columns:560px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.gq-def{display:grid;gap:16px;align-content:start}.gq-def .sc{font-size:27px}
+.gq-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:20px 40px;display:flex;flex-direction:column;gap:12px}
+.gq-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.gq-q{font:400 40px/1.2 var(--display);min-height:96px}
+.gq-opts{display:grid;gap:10px}
+.gq-opts .btn{text-align:left;font-size:27px;padding:8px 22px;display:flex;gap:18px;align-items:center;border-radius:14px}
+.gq-opts .btn b{font:400 34px var(--display);flex:none}
+.gq-opts .btn:disabled{opacity:.55}.gq-opts .btn.right,.gq-opts .btn.wrong{opacity:1}
+.webapp .slide .gq-opts .btn.ghost.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.webapp .slide .gq-opts .btn.ghost.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.gq-fb{font-size:25px;line-height:1.3;min-height:66px}.gq-fb b{color:var(--Blue)}
+#gq-next{align-self:flex-start;font-size:24px;padding:8px 26px}
+.signin{display:flex;gap:16px;align-items:center;margin:20px 0}
+/* motion polish: strong ease-out, short UI timings, press feedback, transform and opacity only */
+:root{--out:cubic-bezier(.23,1,.32,1);--io:cubic-bezier(.77,0,.175,1)}
+.reveal{transform:translateY(14px);transition:opacity .45s var(--out),transform .45s var(--out)}
+.slide.visible .d2{transition-delay:.05s}.slide.visible .d3{transition-delay:.1s}.slide.visible .d4{transition-delay:.15s}
+.btn,.opt,.link-btn,.chipsel button,.srt-btns .btn{transition:transform .16s var(--out),background-color .16s ease,border-color .16s ease,color .16s ease;will-change:transform}
+.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:scale(.97)}
+.deck-side button{transition:opacity .2s ease,transform .16s var(--out),background-color .16s ease,color .16s ease}
+.deck-progress{transition:width .3s var(--io)}
+.vcard .in{transition:transform .45s var(--io)}
+@media (hover:none){.opt:hover,.chipsel button:hover,.link-btn:hover{border-color:inherit;background:inherit;color:inherit}}
+@media (prefers-reduced-motion:reduce){.reveal{transform:none}.btn:active,.opt:active,.link-btn:active,.chipsel button:active{transform:none}}
+/* quality pass: visible focus, readable small text, balanced headings */
+.btn:focus-visible,.opt:focus-visible,.link-btn:focus-visible,.chipsel button:focus-visible,textarea:focus-visible,input:focus-visible{outline:4px solid var(--golden);outline-offset:3px}
+.srt-no,.cmp span,.mega li small,.three .d{font-size:max(1em,21px)}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+/* === LECTURE 19 === environmental health and justice (M6 L3) */
+.vocab.eight{flex:1;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:20px}
+.vocab.eight .vcard{height:auto}
+.vocab.eight .vcard .f,.vocab.eight .vcard .b{padding:20px 24px}
+.vocab.eight .vcard h4{font-size:34px;margin-bottom:8px}
+.vocab.eight .vcard p{font-size:21px;line-height:1.34}
+.tlg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0;align-content:stretch}
+.tlg .tc{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Sky);border-radius:16px;padding:16px 22px;display:flex;flex-direction:column;gap:6px}
+.tlg .tc .y{font:400 62px/1 var(--display);color:var(--Blue)}
+.tlg .tc p{font-size:25px;line-height:1.3;margin:0}
+.tlg .tc.gold{border-top-color:var(--accent)}.tlg .tc.gold .y{color:var(--accent)}
+.tlg .tc.green{border-top-color:#2e7d5b}.tlg .tc.green .y{color:#2e7d5b}
+.tlg.five{grid-template-columns:repeat(5,1fr)}
+.tlg.five .tc .y{font-size:56px}.tlg.five .tc p{font-size:24px}
+.tlg .tc .tg{font:700 17px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.eqbtns{display:flex;gap:14px;margin-bottom:6px}
+.eqbtns .btn{font-size:28px;padding:12px 30px}
+.eqbtns .btn.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0}
+.vs>div{border-radius:20px;padding:26px 34px;display:flex;flex-direction:column;gap:12px}
+.vs h3{font:400 50px/1.1 var(--display)}
+.vs .q{font:700 32px/1.25 var(--body)}
+.vs p{font-size:27px;line-height:1.38;margin:0}
+.vs .a{background:#e8f2ee;border:3px solid #2e7d5b}.vs .b{background:#fbf1dc;border:3px solid var(--accent)}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1;min-height:0}
+.fl .qs{display:grid;gap:12px;align-content:start}
+.fl .qs label{display:block;font:700 26px/1.25 var(--body);margin-bottom:4px}
+.fl textarea.fld{width:100%;height:88px;font-size:24px;line-height:1.3;resize:none}
+.fl .cases{display:grid;gap:14px;align-content:start}
+.fl .cases .sc{font-size:25px}
+.fl .num{font:400 26px var(--display);color:var(--accent);margin-right:8px}
+.bnr{background:var(--Blue);color:#fff;border-radius:18px;padding:20px 32px;font-size:30px;line-height:1.35}
+.bnr b{display:block;font:700 18px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--golden);margin-bottom:4px}
+.eqsvg text{font-family:var(--body)}
+.hs.done{background:var(--rg)}
+.bigph{width:100%;height:200px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px}
+.grid.lg .card h3{font-size:44px;line-height:1.15}
+.grid.lg .card p{font-size:32px;line-height:1.38}
+.grid.lg .card .tag{font-size:20px}
+.vs h3{font-size:58px}.vs .q{font-size:42px}.vs p{font-size:34px}.vs .sc{font-size:30px}
+.tlg .tc p{font-size:31px}.tlg.five .tc p{font-size:29px}.tlg .tc .tg{font-size:20px}
+.fl .qs label{font-size:30px}.fl textarea.fld{height:150px;font-size:28px}
+.fl .qs{gap:20px}
+.content .grid.lg .card h3{font-size:44px;line-height:1.15}
+.content .grid.lg .card p{font-size:32px;line-height:1.38}
+.vs>div{justify-content:center}
+.vs p{font-size:36px}.vs .sc{font-size:32px}
+.tlg.five .tc p{font-size:32px}
+.content.fill>.grid.lg{flex:1;min-height:0}
+.content.fill>.grid.lg .card{display:flex;flex-direction:column;justify-content:center}
+.vt{margin:0 auto;border:0;background:#fff;display:flex;justify-content:center;flex:1;min-height:0;align-items:center}
+.vt img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.ejm{display:grid;grid-template-columns:620px 1fr;gap:34px;flex:1;min-height:0;align-items:stretch}
+.ejm .fig{display:flex;align-items:center;justify-content:center;background:#fff;min-height:0}.ejm .fig img{height:100%;width:100%;object-fit:contain;object-position:left center}
+.ejm .tlg.five{grid-template-columns:1fr;gap:12px}
+.ejm .tlg.five .tc{display:grid;grid-template-columns:130px 1fr;grid-template-rows:auto auto;column-gap:18px;row-gap:0;padding:4px 18px;align-items:center;min-height:0}
+.ejm .tlg.five .tc .y{grid-row:1/3;font-size:46px}
+.ejm .tlg.five .tc .tg{font-size:17px}
+.ejm .tlg.five .tc p{font-size:22px;line-height:1.2}
+.ejm .tlg.five{gap:10px}.ejm .tlg.five .tc{border-top-width:6px}
+/* risk and disasters block */
+.hrud{flex:1;min-height:0;align-content:stretch}
+.hrud{gap:20px}.hrud .card{padding:16px 28px;display:grid;grid-template-columns:64px 1fr;column-gap:20px;align-content:center}.hrud .card .ico{grid-row:1/3;margin:0;align-self:start}.hrud .card h3{font:400 40px var(--display);margin:0 0 2px}.hrud .card p{font-size:27px;line-height:1.3;margin:0}
+.mt{display:grid;grid-template-columns:640px 1fr;gap:44px;flex:1;min-height:0;align-items:start}
+.mt-l{display:grid;gap:18px}
+.mt-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--card);border:3px solid var(--paper-2);border-radius:16px;padding:12px 20px}
+.mt-row h3{font:400 38px var(--display);margin:0;white-space:nowrap}.mt-row small{display:block;font:700 22px var(--body);color:var(--mute);min-height:26px}
+.mt-row.ok{border-color:#2e7d5b}.mt-row.no{border-color:#b3452c}
+.mt-ch{display:flex;gap:8px}
+.mt-ch button{font:700 28px var(--body);width:58px;height:58px;border-radius:12px;border:2px solid var(--Blue);background:#fff;color:var(--Blue);cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,color .16s ease}
+.mt-ch button:active{transform:scale(.97)}.mt-ch button.on{background:var(--Blue);color:#fff}
+.mt-ch button.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.mt-ch button.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.mt-ch button:disabled{cursor:default}
+.mt-r{display:grid;gap:16px}
+.mt-o{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:12px 20px;font-size:28px;line-height:1.3}
+.mt-o b{font:400 44px var(--display);color:var(--accent)}
+.mt-go{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}.mt-go .btn{font-size:28px;padding:14px 32px}
+.mt-score{font:400 40px var(--display);color:var(--Blue)}
+.cloud{max-width:420px;margin:0 auto -8px}
+.kat{display:grid;grid-template-columns:760px 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.kat-l{display:grid;gap:18px}.kat .sc{font-size:28px}.kat .sc ul{margin:6px 0 0 24px;padding:0}.kat .sc li{margin:4px 0;line-height:1.3}
+.kt{width:100%;border-collapse:collapse;font-size:27px;background:#fff}
+.kt caption{font:700 24px var(--body);text-align:left;padding:0 0 8px}
+.kt th{background:#087b97;color:#fff;font:700 21px/1.2 var(--body);text-align:left;padding:10px 12px}
+.kt td{padding:7px 12px;border-top:2px solid var(--paper-2)}.kt td.num{text-align:right}.kt th:last-child{text-align:right}
+.kt tr.hot td{background:#f9e4de;font-weight:700;color:#b3452c}
+.eq2{background:var(--card);border:2px solid var(--paper-2);border-left:10px solid #b3452c;border-radius:14px;padding:14px 24px}
+.eq2.good{border-left-color:#2e7d5b}.eq2 h3{font:400 38px var(--display);margin:0 0 4px}.eq2 span{display:block;font-size:27px;line-height:1.3}
+.eq2 b{display:block;font:400 46px var(--display);margin-top:4px;color:#b3452c}.eq2.good b{color:#2e7d5b}
+/* === LECTURE 20 === Indigenous sustainability (M7 L1) */
+.pics3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:6px}
+.pics3 img{width:100%;height:250px;object-fit:cover;border-radius:14px;display:block}
+.fg{display:grid;grid-template-columns:1120px 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.fg-fields{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.fg-f{background:var(--card);border:2px solid var(--paper-2);border-radius:18px;padding:14px 18px}
+.fg-f h3{font:400 32px var(--display);margin:0 0 6px}
+.fg-f svg{width:100%;height:auto;display:block;background:#f7f5ef;border-radius:12px}
+.fg-t{font:700 28px var(--body);margin-top:8px}
+.fg-side{display:grid;gap:14px;align-content:start}
+.fg-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg-btns .btn{font-size:30px;padding:16px 10px}
+.fg-btns .btn.on{background:var(--ink);border-color:var(--ink)}
+.fg-key{display:flex;gap:10px;flex-wrap:wrap;font-size:24px}
+.fg-key span{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:4px 14px}
+.fg-key i{width:18px;height:18px;border-radius:50%;display:inline-block}
+.fg-side .srt-fb{font-size:27px;min-height:130px}
+/* === LECTURE 21 === collective action and human decisions (M7 L2) */
+.two.l.m{grid-template-columns:1fr 1fr}
+.lg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;flex:1;min-height:0;align-content:stretch}
+.lg3 .card{display:flex;flex-direction:column;justify-content:center}
+.lg3 .card h3{font:400 62px/1.1 var(--display);margin:8px 0 16px}
+.lg3 .card p{font-size:40px;line-height:1.35;margin:0}
+.lg3 .card .tag,.lg4 .card .tag,.lg2 .card .tag{font-size:21px}
+.lg4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;flex:1;min-height:0;align-content:stretch}
+.lg4 .card{display:flex;flex-direction:column;justify-content:center}
+.lg4 .card h3{font:400 54px/1.1 var(--display);margin:6px 0 14px}
+.lg4 .card p{font-size:35px;line-height:1.33;margin:0}
+.lg2{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0;align-content:stretch}
+.lg2 .card{display:flex;flex-direction:column;justify-content:center}
+.lg2 .card h3{font:400 64px/1.1 var(--display);margin:6px 0 16px}
+.lg2 .card p{font-size:42px;line-height:1.36;margin:0}
+.dia.tall{flex:1;min-height:0}
+.dia.tall svg{height:100%;width:100%}
+.mini{display:grid;gap:14px;align-content:start}
+.mini .sc{font-size:28px}
+.stp{display:grid;grid-template-columns:700px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
+.stp .fld{width:100%;font-size:28px;resize:none;margin-bottom:6px}
+.stp textarea.fld{height:150px}
+.stp label{display:block;font:700 28px/1.25 var(--body);margin:8px 0 6px}
+.stp .go-row{display:flex;gap:16px;align-items:center;margin-top:12px}.stp .go-row .status{margin:0;font-size:24px}
+.go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+.wide-img{width:100%;max-height:420px;object-fit:contain;background:#fff;border-radius:14px;display:block}
+.bigph.con{object-fit:contain;background:#fff}
+.nudge{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0}
+.nudge .card{display:flex;flex-direction:column;gap:10px}
+.nudge .card img{width:100%;height:230px;object-fit:contain;background:#fff;border-radius:12px;display:block}
+.nudge .card h3{font:400 40px var(--display);margin:0}
+.nudge .card p{font-size:26px;line-height:1.32;margin:0}
+.ie{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0}
+.ie>div{border-radius:20px;padding:24px 34px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.ie h3{font:400 56px var(--display)}
+.ie ul{margin:0;padding-left:34px;font-size:34px;line-height:1.5}
+.ie .i{background:#e8f2ee;border:3px solid #2e7d5b}.ie .c{background:#fbf1dc;border:3px solid var(--accent)}
+</style>
+<link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a4 4 0 0 0 6 0Z"/><path d="m19 7-3 7a4 4 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v14"/><path d="m5 12 7 7 7-7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5c0-1-.4-2-1-2.8A4 4 0 0 0 12 2a4 4 0 0 0-4 6.2A4.7 4.7 0 0 0 7 11a5 5 0 0 0 5 5Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9 3 3 5v16l6-2 5.1 1.6L21 19V3z"/><path d="M9 3v16M14 4.6v16"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 7c-2-2-6-1-6 4 0 5 3 10 6 10s6-5 6-10c0-5-4-6-6-4z"/><path d="M12 7c0-2 1-4 3-5"/></symbol>
+  <symbol id="i-vote" viewBox="0 0 24 24"><path d="M5 12h14v8H5z"/><path d="m8 12 4-9 4 9"/><path d="M9 16h6"/></symbol>
+</svg><div class="deck-viewport"><main class="deck-stage webapp anim-pics roomy" id="deckStage">
+
+<!-- 1 -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 30%" src="img/fridge.jpg" alt="A crowded shared office fridge with sticky notes asking people to eat or remove their food">
+  <div class="hero-scrim"></div>
+  <div class="hero-text">
+    <div class="hero-badge reveal"><b>M<em>07</em></b><span data-fill="module-title">Institutional Change for Sustainability</span></div>
+    <div class="title-k reveal d2">Lecture 21 · Reading: S&amp;M Chapter 18</div>
+    <h1 class="reveal d2" style="font-size:104px">Collective <em>action</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:900px">Why people fail to cooperate when everyone would gain, and what rules, markets and nudges can do about it.</p>
+    <div class="goldline"></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Key terms</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
+    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <div class="vocab four reveal d3" data-vocab></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Warm-up poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
+    <h2 class="reveal d2" style="font-size:62px;max-width:1600px">In the NBA draft lottery, which team gets the <em>best chance</em> at the top pick?</h2>
+    <div class="poll reveal d3" data-poll="warmup"><button class="opt" type="button"><b>A</b>The team with the best record</button><button class="opt" type="button"><b>B</b>The team with the worst record</button><button class="opt" type="button"><b>C</b>Every team has the same chance</button><button class="opt" type="button"><b>D</b>The team from the biggest city</button></div>
+    <div class="status" data-poll-status="warmup"></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Big ideas</span></div>
+  <div class="content center">
+    <div class="k reveal">Big ideas · when what is best for me is not best for us</div>
+    <h2 class="reveal d2">Today's big <em>ideas</em></h2>
+    <div class="grid g3 bigs reveal d3">
+      <div class="card accent"><img class="bigph" src="img/fridge.jpg" style="object-position:center 40%" alt="A crowded shared fridge"><span class="tag">1 · Collective action problems</span><h3>Why do people fail to cooperate even when everyone would gain?</h3><p>Free riding, the tragedy of the commons and the prisoner's dilemma.</p></div>
+      <div class="card green"><img class="bigph con" src="img/ownership.jpg" alt="Privately held and publicly held firms"><span class="tag">2 · Three solutions</span><h3>Who can fix a shared problem?</h3><p>Markets, governments and civil society, each with strengths and limits.</p></div>
+      <div class="card gold"><img class="bigph con" src="img/thermostat.jpg" alt="A smart thermostat showing 75 degrees"><span class="tag">3 · Changing behavior</span><h3>How do we get people to choose differently?</h3><p>Incentives and constraints, persuasion, bargaining, coercion and nudges.</p></div>
+    </div>
+    <div class="take reveal d4"><b>Takeaway</b>Good rules make the choice that is good for everyone the easy choice for each person.</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="attendance">
+  <div class="rail"><b>21</b><span>Attendance</span></div>
+  <div class="content center">
+    <div class="k reveal">Check in</div>
+    <h2 class="reveal d2">Enter today's <em>code</em></h2>
+    <p class="lead reveal d3">Your instructor shows a code on screen at the start of class. Checking in counts toward your participation grade.</p>
+    <div class="reveal d3">
+      <div class="signin">
+        <input class="field" data-name placeholder="Your full name" autocomplete="name" maxlength="120">
+        <input class="field" data-email type="email" placeholder="Email address" autocomplete="email" maxlength="120">
+      </div>
+      <div class="signin">
+        <input class="field" id="code" placeholder="Code" maxlength="8" autocomplete="off" style="text-transform:uppercase;width:260px">
+        <button class="btn" type="button" id="checkin">Check in</button>
+      </div>
+      <div class="status" id="checkin-status"></div>
+      <p class="small mute" data-mode-note></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="review">
+  <div class="rail"><b>21</b><span>Review quiz</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question · from the last lecture · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">About what share of the world's <em>biodiversity</em> do Indigenous Peoples help protect on their lands?</h2>
+    <div class="poll reveal d3" data-poll="review" data-correct="3"><button class="opt" type="button"><b>A</b>About 10%</button><button class="opt" type="button"><b>B</b>About 30%</button><button class="opt" type="button"><b>C</b>About 50%</button><button class="opt" type="button"><b>D</b>About 80%</button></div>
+    <div class="status" data-poll-status="review"></div><div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="review">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Where today fits</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Setting the scene · three kinds of systems</div>
+    <h2 class="reveal d2" style="font-size:68px">Today we look at <em>social</em> systems</h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 800 640" role="img" aria-label="Three overlapping circles: ecological, social and technological systems, with social highlighted"><g stroke="#2b2b2b" stroke-width="4"><circle cx="400" cy="230" r="190" fill="#e8f2ee" fill-opacity=".9"/><circle cx="270" cy="430" r="190" fill="#f6e3b0" fill-opacity=".85"/><circle cx="530" cy="430" r="190" fill="#d6ecf2" fill-opacity=".85"/></g><g font-family="inherit" text-anchor="middle" fill="#2b2b2b" font-weight="700"><text x="400" y="130" font-size="34">Ecological</text><text x="400" y="168" font-size="23" font-weight="400">Earth and life systems</text><text x="195" y="470" font-size="34" fill="#8a5a0a">Social</text><text x="195" y="506" font-size="23" font-weight="400">Decisions, ethics</text><text x="195" y="534" font-size="23" font-weight="400">and values</text><text x="605" y="470" font-size="34">Technological</text><text x="605" y="506" font-size="23" font-weight="400">Engineering, matter</text><text x="605" y="534" font-size="23" font-weight="400">and energy</text></g></svg></div>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Societal systems</b>Rules in use, called institutions, play a big role in solving collective action problems.</div>
+        <div class="sc green"><b>Human behavioral change</b>Which theories explain why people act as they do, and how to shift it.</div>
+        <div class="sc sky"><b>Governance</b>How the rules are made and carried out, and by whom.</div>
+        <p class="src">We call this the SET frame: social, ecological and technological. You will use it in today's exercise.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Human decision making</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 1 · how people decide</div>
+    <h2 class="reveal d2" style="font-size:68px">What shapes a <em>behavioral decision</em>?</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 1000 640" role="img" aria-label="Beliefs, cultural values, rules and norms all feed into behavioral decisions"><defs><marker id="ard" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b2b2b"/></marker></defs><path d="M246 175L384 254" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#ard)"/><path d="M754 175L616 254" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#ard)"/><path d="M246 465L384 386" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#ard)"/><path d="M754 465L616 386" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#ard)"/><circle cx="150" cy="120" r="105" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="150" y="114">Belief</text><text x="150" y="146">systems</text></g><circle cx="850" cy="120" r="105" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="850" y="114">Cultural values</text><text x="850" y="146">and ethics</text></g><circle cx="150" cy="520" r="105" fill="#b3452c" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="150" y="514">Rules</text><text x="150" y="546">(formal)</text></g><circle cx="850" cy="520" r="105" fill="#7b5ea7" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="850" y="514">Norms</text><text x="850" y="546">(informal)</text></g><circle cx="500" cy="320" r="120" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="30"><text x="500" y="314">Behavioral</text><text x="500" y="350">decisions</text></g></svg></div>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Inside us</b>Beliefs, cultural values and ethics tell us what matters.</div>
+        <div class="sc gold"><b>Between us</b>Norms are the unwritten rules about how people around us act.</div>
+        <div class="sc green"><b>Over us</b>Rules are written, with a penalty or a reward attached.</div>
+        <div class="rq" data-def><h3>Quick question: why do you recycle, or not?</h3><p class="think">Tap to check.</p><p class="ans-text">Most answers mix all four: what you believe, what you value, what your neighbors do, and what the rules and bins make easy.</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Collective action problem</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 1 · when cooperation fails</div>
+    <h2 class="reveal d2" style="font-size:68px">The <em>collective action</em> problem</h2>
+    <div class="claim reveal d3" style="background:var(--Blue);color:#fff;border-radius:18px;padding:22px 34px;font:400 40px/1.25 var(--display);margin-bottom:22px">A situation where individuals fail to cooperate even though they would all gain from it.</div>
+    <div class="lg3 reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Free riding</h3><p>Enjoying the benefit without paying your share, like leaving others to clean the shared fridge.</p></div>
+      <div class="card green"><span class="tag">2</span><h3>Tragedy of the commons</h3><p>Everyone takes a little too much from a shared resource, until it is gone.</p></div>
+      <div class="card gold"><span class="tag">3</span><h3>Prisoner's dilemma</h3><p>Each side does better by acting alone, so both end up worse off than if they had cooperated.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Collective action problem</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Setting the scene · a shared fridge</div>
+    <h2 class="reveal d2" style="font-size:68px">Whose job is it to <em>clean the fridge</em>?</h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <figure class="fig pic"><img src="img/fridge.jpg" alt="A crowded shared fridge with notes asking people to remove their food" style="width:100%;height:100%;max-height:680px;object-fit:cover;object-position:center 40%"><figcaption>Photo: Ross Anania / Getty Images, from the instructor's slides</figcaption></figure>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Everyone gains</b>A clean fridge helps all of us.</div>
+        <div class="sc gold"><b>Each person's choice</b>Skip the cleaning and still use the fridge.</div>
+        <div class="rq" data-def><h3>Quick question: what usually happens, and why?</h3><p class="think">Tap to check.</p><p class="ans-text">Everyone waits for someone else, so the fridge gets worse. Each person's best private choice leaves the group worse off. That is a collective action problem.</p></div>
+        <div class="rq" data-def><h3>Quick question: how could an office fix it?</h3><p class="think">Tap to check.</p><p class="ans-text">A rule and a rotation (government-style), a cleaning fee that hires someone (market), or a team agreement everyone keeps (civil society).</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Collective interest</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 1 · the shared resource</div>
+    <h2 class="reveal d2" style="font-size:68px">Collective <em>interest</em> matters</h2>
+    <div class="lg2 reveal d3">
+      <div class="card accent"><span class="tag">Individual preferences</span><h3>What is best for me</h3><p>Each person, company or team wants to win, save money or keep its own stuff safe.</p></div>
+      <div class="card green"><span class="tag">Collective interests</span><h3>What is best for all of us</h3><p>Clean air, a healthy forest, a fair league, a stable climate. Nobody owns them alone, and everybody needs them.</p></div>
+    </div>
+    <div class="take reveal d4" style="margin-top:22px"><b>Shared resources</b>A shared fridge, a river, the air, and even a sports league are all resources that many people depend on.</div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Three solutions</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · who can fix a shared problem?</div>
+    <h2 class="reveal d2" style="font-size:68px">Three <em>solutions</em>, working together</h2>
+    <div class="two l reveal d3" style="grid-template-columns:760px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 820 700" role="img" aria-label="Market, government and civil society, each connected to the other two"><defs><marker id="art" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b2b2b"/></marker></defs><path d="M343 231L211 432" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#art)" marker-start="url(#art)"/><path d="M261 540L551 540" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#art)" marker-start="url(#art)"/><path d="M613 439L481 238" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#art)" marker-start="url(#art)"/><circle cx="410" cy="130" r="115" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="32"><text x="410" y="141">Market</text></g><circle cx="140" cy="540" r="115" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="32"><text x="140" y="551">Government</text></g><circle cx="680" cy="540" r="115" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="32"><text x="680" y="551">Civil society</text></g></svg></div>
+      <div class="side"><div class="grid" style="gap:16px">
+        <div class="sc sky"><b>Market</b>Competition and efficiency, consumer choice, potential for lower costs. Rests on <b style="display:inline">property rights</b>.</div>
+        <div class="sc green"><b>Government</b>Public funding and scale, prescriptive regulation, accountability and equity.</div>
+        <div class="sc gold"><b>Civil society</b>Community engagement, volunteerism, advocacy and awareness. Builds <b style="display:inline">equity and engagement</b>.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Collective action in sports</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Setting the scene · the NBA as a shared resource</div>
+    <h2 class="reveal d2" style="font-size:66px">Thirty rivals who <em>agree on rules</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 1100 560" role="img" aria-label="A loop: private teams compete, league rules share the load, competitive balance keeps fans interested, and team value stays high"><defs><marker id="arl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b2b2b"/></marker></defs><path d="M296 140L796 140" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M910 246L910 316" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M804 430L304 430" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M190 324L190 254" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><circle cx="190" cy="140" r="100" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="190" y="134">30 private</text><text x="190" y="166">teams compete</text></g><circle cx="910" cy="140" r="100" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="910" y="134">League rules</text><text x="910" y="166">draft and cap</text></g><circle cx="910" cy="430" r="100" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="910" y="424">Any team can</text><text x="910" y="456">win someday</text></g><circle cx="190" cy="430" r="100" fill="#7b5ea7" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="190" y="424">Fans, TV deals</text><text x="190" y="456">and team value</text></g></svg></div>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Private owners</b>Each team is a privately owned business trying to make a profit and win.</div>
+        <div class="sc gold"><b>The shared resource</b>A league where any team has a chance. If the same few teams always won, fans and TV money would drift away.</div>
+        <div class="sc green"><b>The rules</b>The draft gives weaker teams the best odds at top young players. A salary cap and revenue sharing work the same way.</div>
+        <p class="src">Rules as described in public NBA materials and may change. Check the current NBA rules before class.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Private ownership</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Setting the scene · who owns the firm?</div>
+    <h2 class="reveal d2" style="font-size:68px">Private <em>ownership</em> and public ownership</h2>
+    <div class="two l reveal d3" style="grid-template-columns:1020px 1fr">
+      <figure class="fig pic" style="background:#fff"><img src="img/ownership.jpg" alt="Privately held firms are run by a founder, managers and investors. Publicly held firms have a board and CEO, managers and employees, and many stockholders." style="width:100%;height:100%;max-height:660px;object-fit:contain"><figcaption>From the instructor's slides</figcaption></figure>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Privately held</b>A small group of owners decides, such as a founder and investors.</div>
+        <div class="sc gold"><b>Publicly held</b>Many stockholders share ownership, and a board and CEO decide.</div>
+        <div class="sc green"><b>In a market system</b>Firms compete for profit. They still choose to follow shared rules, because the rules make the whole market work.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="thinkpair">
+  <div class="rail"><b>21</b><span>Think and pair</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Think and pair · about 6 minutes · submit one answer each</div>
+    <h2 class="reveal d2" style="font-size:60px">Suppose the Suns finish <em>last</em> in 2028</h2>
+    <div class="stp reveal d3">
+      <div class="mini">
+        <div class="card accent"><span class="tag">The scene</span><p style="font-size:29px">In the 2028 season, the Phoenix Suns end with the worst record in the league. Under the draft rules, that gives them the best odds of a top pick. This is a made-up case.</p></div>
+        <div class="card gold"><span class="tag">Think first (1 minute), then pair up</span><p style="font-size:29px"><b>1.</b> How is the draft a collective action?<br><b>2.</b> How does it help a private-ownership, market-based system in the US?</p></div>
+        <p class="src" style="font-size:22px">Hint: think of 30 owners, one shared league, and what would happen to fans and team values if the same teams always won.</p>
+      </div>
+      <div>
+        <label for="tp-pair">Your pair (both names)</label><input class="field" id="tp-pair" maxlength="160" placeholder="Name and partner's name" style="width:100%;font-size:28px">
+        <label for="tp-1">1. How is this a collective action?</label>
+        <textarea class="fld" id="tp-1" maxlength="600" placeholder="Type your answer here."></textarea>
+        <label for="tp-2">2. How does it help a private-ownership market system in the US?</label>
+        <textarea class="fld" id="tp-2" maxlength="600" placeholder="Type your answer here."></textarea>
+        <div class="go-row"><button class="btn" type="button" id="tp-save">Submit</button><span class="status" id="tp-status"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Government tools</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 2 · how can government regulate?</div>
+    <h2 class="reveal d2" style="font-size:68px">Five <em>tools</em> government can use</h2>
+    <img class="wide-img reveal d3" src="img/gov-tools.jpg" alt="Five tools: prescriptive regulations, payments, penalties, property rights and persuasion" style="max-height:480px">
+    <div class="take reveal d4" style="margin-top:22px"><b>Takeaway</b>Government has great power and resources that can reward or penalize choices, in a legitimate and responsive way.</div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Governments</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 2 · what makes governance work?</div>
+    <h2 class="reveal d2" style="font-size:68px">Four <em>qualities</em> of good governance</h2>
+    <div class="lg4 reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Legitimacy</h3><p>People accept that the government has the right to make the rules.</p></div>
+      <div class="card gold"><span class="tag">2</span><h3>Coercion</h3><p>It can enforce the rules with fines or force when people break them.</p></div>
+      <div class="card green"><span class="tag">3</span><h3>Capacity</h3><p>It has the money, skills and agencies to carry the rules out.</p></div>
+      <div class="card sky"><span class="tag">4</span><h3>Responsiveness</h3><p>It listens to people and adjusts when conditions change.</p></div>
+    </div>
+    <div class="take reveal d4" style="margin-top:22px"><b>Polycentric governments</b>Many decision centers, such as federal, state, regional and local, tend to have more legitimacy and responsiveness.</div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" id="rq1">
+  <div class="rail"><b>21</b><span>Review question 21.1</span></div>
+  <div class="content center">
+    <div class="k reveal">Review question 21.1 · pick one answer</div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">A city offers a <em>tax rebate</em> to people who install solar panels. Which government tool is that?</h2>
+    <div class="poll reveal d3" data-poll="rq1" data-correct="1"><button class="opt" type="button"><b>A</b>Prescriptive regulation</button><button class="opt" type="button"><b>B</b>Payments</button><button class="opt" type="button"><b>C</b>Penalties</button><button class="opt" type="button"><b>D</b>Persuasion</button></div>
+    <div class="status" data-poll-status="rq1"></div><div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq1">Show the answer</button></div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide" id="sort">
+  <div class="rail"><b>21</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Sorting game · tap a button for each card</div>
+    <h2 class="reveal d2" style="font-size:62px">Which <em>collective action problem</em> is it?</h2>
+    <div class="srt reveal d3">
+      <div class="srt-def">
+        <div class="sc"><b>Free riding</b>Getting the benefit without paying your share.</div>
+        <div class="sc green"><b>Tragedy of the commons</b>Everyone over-uses a shared resource.</div>
+        <div class="sc gold"><b>Prisoner's dilemma</b>Each does better acting alone, but both lose.</div>
+        <div class="srt-score"><span id="srt-n">0</span> of 6 right</div>
+        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
+      </div>
+      <div class="srt-card" id="srt-card" aria-live="polite">
+        <div class="srt-no" id="srt-no"></div>
+        <div class="srt-q" id="srt-q" style="font-size:44px;min-height:240px"></div>
+        <div class="srt-btns"><button class="btn" type="button" data-a="f">Free riding</button><button class="btn" type="button" data-a="t">Tragedy of the commons</button><button class="btn" type="button" data-a="p">Prisoner's dilemma</button></div>
+        <div class="srt-fb" id="srt-fb"></div>
+        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching examples made up for this lecture. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Human behavioral decisions</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 3 · some assumptions</div>
+    <h2 class="reveal d2" style="font-size:68px">How we think about <em>behavioral decisions</em></h2>
+    <div class="lg3 reveal d3">
+      <div class="card accent"><span class="tag">Assumption 1</span><h3>Structured by incentives and constraints</h3><p>People respond to rewards and limits in their surroundings.</p></div>
+      <div class="card green"><span class="tag">Assumption 2</span><h3>People act to achieve goals</h3><p>Choices are purposeful, even when they look odd from outside.</p></div>
+      <div class="card gold"><span class="tag">Assumption 3</span><h3>People can create rules</h3><p>We are not only shaped by rules. We can write, change and break them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Factors in behavioral change 1</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 3 · three ways to move people</div>
+    <h2 class="reveal d2" style="font-size:68px">Persuasion, bargaining or <em>coercion</em>?</h2>
+    <div class="lg3 reveal d3">
+      <div class="card sky"><span class="tag">Short-term goals</span><h3>Persuasion</h3><p>Appeal to quality, convenience or time. "This is easier and cheaper."</p></div>
+      <div class="card gold"><span class="tag">In between</span><h3>Bargaining</h3><p>Trade favors or exchange something. "I'll do this if you do that."</p></div>
+      <div class="card accent"><span class="tag">Long-term goals</span><h3>Coercion</h3><p>Enforcement or a ban. "You may not do this, and you will be fined."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Strategies to influence behavior</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Big idea 3 · four strategies</div>
+    <h2 class="reveal d2" style="font-size:68px">Educate, give feedback, ask for commitment, <em>nudge</em></h2>
+    <div class="nudge reveal d3">
+      <div class="card accent"><img src="img/energy-label.jpg" alt="A fuel economy label on a new car"><h3>Educate</h3><p>Give clear information, like a fuel economy label on a new car.</p></div>
+      <div class="card green"><img src="img/thermostat.jpg" alt="A smart thermostat"><h3>Feedback</h3><p>Show people their own use, like a smart thermostat that reports energy.</p></div>
+      <div class="card sky"><h3 style="margin-top:40px">Commitment</h3><p>Ask people to pledge in public, such as promising to cut energy use this month. People tend to keep promises they have said out loud.</p></div>
+      <div class="card gold"><img src="img/lights-sign.jpg" alt="A sign that says please turn off lights when leaving room"><h3>Nudge</h3><p>Make the better choice the easy one, like a sign by the switch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Factors in behavioral change 2</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Big idea 3 · incentives and constraints</div>
+    <h2 class="reveal d2" style="font-size:68px"><em>Incentives</em> and constraints</h2>
+    <div class="ie reveal d3">
+      <div class="i"><h3>Incentives</h3><ul><li>Fuel-efficient cars</li><li>Tax rebates</li><li>Research grants</li></ul></div>
+      <div class="c"><h3>Constraints</h3><ul><li>Rules and regulations</li><li>Enforcement</li><li>Product bans</li></ul></div>
+    </div>
+    <div class="take reveal d4" style="margin-top:22px"><b>Think about it</b>The market makes cars, not the government. Producers make fuel-efficient cars if there is a profit in it, and consumers buy them at a competitive price.</div>
+  </div>
+</section>
+
+<!-- 24 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Factors in behavioral change 3</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · people are strategic</div>
+    <h2 class="reveal d2" style="font-size:68px">People know the rules and <em>respond creatively</em></h2>
+    <div class="lg2 reveal d3">
+      <div class="card green"><span class="tag">1 · Adaptive learning</span><h3>People learn and adapt</h3><p>They can create rules and new ways of doing things.</p></div>
+      <div class="card accent"><span class="tag">2 · Perverse behaviors</span><h3>Short-term interest wins</h3><p>The result when individuals chase short-term interest and deviate from the rules or norms in society.</p></div>
+    </div>
+    <div class="rq reveal d4" data-def style="margin-top:22px"><h3>Quick question: what is a perverse result of a rule?</h3><p class="think">Tap to check.</p><p class="ans-text">A rule built to cut waste that people dodge by dumping at night. Good rule design expects people to respond, and watches for it.</p></div>
+  </div>
+</section>
+
+<!-- 25 -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Exit poll</span></div>
+  <div class="content center">
+    <div class="k reveal">Exit poll · one answer</div>
+    <h2 class="reveal d2" style="font-size:58px;max-width:1600px">Why do people often fail to <em>cooperate</em> even when everyone would gain?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1"><button class="opt" type="button"><b>A</b>They do not care about the group</button><button class="opt" type="button"><b>B</b>Each person's best private choice is not the best choice for the group</button><button class="opt" type="button"><b>C</b>The government forbids cooperation</button><button class="opt" type="button"><b>D</b>Cooperation is never worth it</button></div>
+    <div class="status" data-poll-status="exit"></div>
+  </div>
+</section>
+
+<!-- 26 -->
+<section class="slide hero">
+  <img class="hero-img" style="object-position:center 70%" src="img/fridge.jpg" alt="A crowded shared fridge" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="hero-text" style="width:1140px">
+    <div class="hero-badge reveal"><b>L<em>21</em></b><span>Collective action</span></div>
+    <div class="title-k reveal d2">Takeaway</div>
+    <p class="hero-lead reveal d2" style="font-size:54px">Make the choice that is good for everyone <em>the easy choice</em>.</p>
+    <ol class="num reveal d3" style="font-size:31px">
+      <li>Collective action problems appear when individual choices add up to a worse result for everyone.</li>
+      <li>Markets, governments and civil society each help, and they work best together.</li>
+      <li>Rules, incentives and nudges change behavior, but people respond strategically.</li>
+      <li>Even private businesses in a market system agree on shared rules when the whole system depends on it.</li>
+    </ol>
+  </div>
+</section>
+
+</main></div>
+<script src="../../shared/deck.js?v=2026-11-03a"></script>
+<script type="module">
+import { connect } from '../../shared/live.js';
+import { loadSession, fill } from '../../shared/course.js';
+import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+
+const LECTURE = 'm7-s2';
+const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
+
+/* === KEY TERMS === the three glossary terms for this session, plus collective action, which is not in the glossary */
+const EXTRA = {
+  'Collective Action': { term: 'Collective Action', definition: 'People or groups working together to reach a goal that benefits them all, such as keeping a shared fridge clean or cutting air pollution.', example: 'Thirty NBA teams agreeing to a draft and a salary cap so the league stays competitive.', significance: 'Many sustainability problems, like clean air and water, need people to cooperate when going alone is easier.' },
+};
+const KEY_TERMS = [['Collective Action', 'users', 'green'], ['Behavioral Economics', 'scale', 'gold'], ['Incentive', 'coins', 'sky'], ['Ecosystem Valuation', 'leaf', 'green']];
+function showTerms({ course }) {
+  const gloss = course.glossary.flatMap(g => g.terms);
+  $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name) || EXTRA[name]; return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
+  wireFlips($('[data-vocab]'));
+}
+loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); showTerms(d); }).catch(() => {
+  $('[data-vocab]').innerHTML = '<p class="small mute">Open this page from GitHub Pages or a local web server to load the glossary.</p>';
+});
+
+wireReveals();
+
+/* === SORT: WHICH COLLECTIVE ACTION PROBLEM === teaching examples, checked in the browser only */
+const NAME = { f: 'Free riding', t: 'The tragedy of the commons', p: "The prisoner's dilemma" };
+const SORT = [
+  ['Five roommates in a Tempe apartment all enjoy a clean kitchen, but only two ever clean it.', 'f', 'Three people get the benefit without paying their share of the work.'],
+  ['Farms and cities all pump from one shared aquifer. Each pumps more, because if they stop, someone else will take the water, and the water table keeps falling.', 't', 'A shared resource is used up because each user takes a little too much.'],
+  ['Two nearby cities each offer big tax breaks to land a new factory. Both lose tax money, but each fears the other will offer more.', 'p', 'Each does better acting alone, yet both end up worse off than if they had agreed.'],
+  ['On a popular Phoenix mountain trail, hikers each cut a switchback to save a minute, and the hillside washes away.', 't', 'Each shortcut seems small, but together they wear out a shared resource.'],
+  ['Some riders skip paying the light rail fare, while everyone else’s fares keep the system running.', 'f', 'They enjoy the service without paying their share.'],
+  ['Two coffee shops near campus each cut prices to win customers. Both would earn more if both kept prices high, but each fears the other cuts first.', 'p', 'Cooperating would help both, but acting alone seems safer, so both lose.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+function sortShow() {
+  answered = false;
+  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; b.hidden = false; });
+  $('#srt-n').textContent = score;
+}
+$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
+  if (answered) return;
+  answered = true;
+  const ok = b.dataset.a === SORT[si][1];
+  if (ok) score++;
+  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
+  $('#srt-n').textContent = score;
+  snext.hidden = false;
+  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
+  sfb.innerHTML = ''; snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.hidden = true; });
+});
+$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+sortShow();
+
+/* === ATTENDANCE, POLLS AND THE THINK-AND-PAIR ANSWER === */
+const live = await connect(LECTURE);
+const note = $('[data-mode-note]');
+if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
+function showUser() { const u = live.user(); if (u) { $('[data-name]').value = u.name; $('[data-email]').value = u.email || ''; } }
+showUser();
+async function ensureUser(statusEl) { if (live.user()) return true; say(statusEl, 'Check in on the attendance slide first.', 'err'); return false; }
+$('#checkin').addEventListener('click', async () => {
+  const st = $('#checkin-status'); say(st, 'Checking in…');
+  try { await live.signIn($('[data-name]').value, $('[data-email]').value); await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); showUser(); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+$$('[data-poll]').forEach(poll => {
+  const id = poll.dataset.poll, st = $(`[data-poll-status="${id}"]`);
+  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
+    if (!await ensureUser(st)) return;
+    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
+    say(st, 'Sending…');
+    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
+    catch (e) { say(st, e.message, 'err'); }
+  }));
+});
+$$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const poll = $(`[data-poll="${b.dataset.reveal}"]`);
+  const right = Number(poll.dataset.correct);
+  $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
+}));
+$('#tp-save').addEventListener('click', async () => {
+  const st = $('#tp-status'), a = $('#tp-1').value.trim(), c = $('#tp-2').value.trim();
+  if (a.split(/\s+/).filter(Boolean).length < 4 || c.split(/\s+/).filter(Boolean).length < 4) { say(st, 'Write at least a short sentence for each question.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  say(st, 'Sending…');
+  try { await live.saveSim('suns-think-pair', { pair: $('#tp-pair').value.trim(), collective: a, market: c }); Deck.sent($('#tp-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+</script>
+</body>
+</html>
