@@ -203,6 +203,20 @@ p,li{text-wrap:pretty}
 .fg-key span{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:2px solid var(--paper-2);border-radius:999px;padding:4px 14px}
 .fg-key i{width:18px;height:18px;border-radius:50%;display:inline-block}
 .fg-side .srt-fb{font-size:27px;min-height:130px}
+.m7{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;flex:1;min-height:0;align-items:stretch}
+.m7-topics{list-style:none;margin:6px 0 20px;padding:0;display:grid;gap:14px}
+.m7-topics li{display:grid;grid-template-columns:200px 1fr auto;gap:18px;align-items:center;border:2px solid var(--paper-2);border-radius:14px;padding:18px 22px;background:#fff;font-size:32px}
+.m7-topics li b{font:400 38px var(--display);color:var(--accent)}
+.m7-topics li.now{border-color:var(--accent);background:#fbf3df}
+.m7-topics li i{font:700 20px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:999px;padding:6px 16px;font-style:normal}
+.m7-also{font-size:26px;color:var(--mute);margin:0}
+.m7-due{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-content:start;min-width:0}
+.m7-due .tag{font:700 20px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.m7-hi{background:var(--Blue);color:#fff;border-radius:18px;padding:26px 34px;border-left:14px solid var(--golden)}
+.m7-hi b{display:block;font:400 42px/1.12 var(--display);color:#fff;margin-bottom:6px}
+.m7-hi span{font-size:28px;line-height:1.3;color:#e6f1f4}
+.m7-hi a{color:var(--golden);font-weight:700}
+.m7-hi.prep{background:#2b2b2b}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -256,26 +270,26 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 2. MODULE 7 AT A GLANCE -->
+<!-- 2. MODULE 7: LECTURE TOPICS AND WHAT'S DUE -->
 <section class="slide">
   <div class="rail"><b>20</b><span>Module 7</span></div>
   <div class="content fill">
     <div class="k reveal">Module <span data-fill="module-num">7</span> · <span data-fill="module-title">Institutional Change for Sustainability</span></div>
-    <h2 class="reveal d2">Where this module is <em>going</em></h2>
-    <div class="glance">
-      <div class="card accent reveal d3"><span class="tag">Learning objectives · by the end of Module 7 you can</span>
-        <ol class="num">
-          <li>Describe Indigenous knowledge and traditional ecological knowledge, and what they teach us about living with nature.</li>
-          <li>Explain how people make decisions about the environment, and why those choices are not always rational.</li>
-          <li>Describe how rules, rights and institutions shape who uses natural resources, and how.</li>
-          <li>Explain how policy and governance can move a community or a country toward sustainability.</li>
+    <h2 class="reveal d2">Topics and what's <em>due</em></h2>
+    <div class="m7">
+      <div class="card accent reveal d3"><span class="tag">Lecture topics in this module</span>
+        <ol class="m7-topics">
+          <li class="now"><b>Lecture 20</b><span>Indigenous sustainability</span><i>Today</i></li>
+          <li><b>Lecture 21</b><span>Human behavior and decision-making</span></li>
+          <li><b>Lecture 22</b><span>Institutional approach to sustainability</span></li>
         </ol>
+        <p class="m7-also"><b>Also due in this module:</b> InQuizitive 18, 19 and 20 · Quiz: Indigenous Sustainability</p>
       </div>
-      <div class="card gold reveal d4"><span class="tag">What's due in this module</span>
-        <ul class="clean" data-fill="assessments"><li>InQuizitive 18, 19 and 20</li><li>Quiz: Indigenous Sustainability</li><li>Review Exercise 3: Systems Analysis for Sustainability</li></ul>
-        <div class="gold-rule" style="margin:26px 0 20px"></div>
-        <p style="font-size:28px"><b>Reading for today:</b> <span data-fill="reading">Nelson (2017)</span></p>
-        <p class="small mute" style="margin-top:16px">Due dates and submission links are on the course site.</p>
+      <div class="m7-due reveal d4">
+        <span class="tag">Assignments due · mark these</span>
+        <div class="m7-hi"><b>Short Survey 2</b><span>Due with Lecture 21, Human behavior and decision-making</span></div>
+        <div class="m7-hi"><b>Review Session 3 · Review Exercise 3</b><span>Systems Analysis for Sustainability. Due with Lecture 22</span></div>
+        <div class="m7-hi prep"><b>Prepare your final project video presentation</b><span>Start now. See the requirements on the <a href="../final-project-video/" target="_blank" rel="noopener">final video page</a></span></div>
       </div>
     </div>
   </div>
@@ -314,9 +328,9 @@ p,li{text-wrap:pretty}
     <div class="k reveal">Big ideas · knowledge that comes from living in one place</div>
     <h2 class="reveal d2">Today's big <em>ideas</em></h2>
     <div class="grid g3 bigs reveal d3">
-      <div class="card accent"><img class="bigph" src="img/plateau.jpg" style="object-position:center 55%" alt="A dry plateau with a flat-topped mesa and rows of corn plants"><span class="tag">1 · Traditional ecological knowledge</span><h3>What do people learn from living in one place for generations?</h3><p>A deep knowledge of plants, animals and land, handed down over generations.</p></div>
-      <div class="card green"><img class="bigph" src="img/four-mother-corn.jpg" style="object-position:center 40%" alt="A painting of four ears of Hopi corn in different colors"><span class="tag">2 · Lessons of Indigenous practices</span><h3>How do farmers grow food in a dry, changing climate?</h3><p>Hopi dryland farming keeps many kinds of corn, so some crops survive when the weather turns.</p></div>
-      <div class="card gold"><img class="bigph" src="img/globe.png" style="object-fit:contain;background:#fff" alt="A globe with colorful animals around it"><span class="tag">3 · Knowledge and education</span><h3>Why does Indigenous knowledge matter for the planet?</h3><p>Indigenous Peoples protect about 80% of global biodiversity, and their ways of learning treat people and nature as connected.</p></div>
+      <div class="card gold"><img class="bigph" src="img/globe.png" style="object-fit:contain;background:#fff" alt="A globe with colorful animals around it"><span class="tag">1 · Knowledge and education</span><h3>Why does Indigenous knowledge matter for the planet?</h3><p>Indigenous Peoples protect about 80% of global biodiversity, and their ways of learning treat people and nature as connected.</p></div>
+      <div class="card accent"><img class="bigph" src="img/plateau.jpg" style="object-position:center 55%" alt="A dry plateau with a flat-topped mesa and rows of corn plants"><span class="tag">2 · Traditional ecological knowledge</span><h3>What do people learn from living in one place for generations?</h3><p>A deep knowledge of plants, animals and land, handed down over generations.</p></div>
+      <div class="card green"><img class="bigph" src="img/four-mother-corn.jpg" style="object-position:center 40%" alt="A painting of four ears of Hopi corn in different colors"><span class="tag">3 · Lessons of Indigenous practices</span><h3>How do farmers grow food in a dry, changing climate?</h3><p>Hopi dryland farming keeps many kinds of corn, so some crops survive when the weather turns.</p></div>
     </div>
     <div class="take reveal d4"><b>Takeaway</b>No single knowledge system has all the answers. Sustainability grows from many.</div>
   </div>
@@ -361,9 +375,47 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 8. COLORADO PLATEAU -->
+<!-- 8. BIODIVERSITY -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 1 · Knowledge and education</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 1 · biocultural diversity matters</div>
+    <h2 class="reveal d2" style="font-size:70px"><em>Biodiversity</em> and Indigenous Peoples</h2>
+    <div class="two l reveal d3" style="grid-template-columns:760px 1fr;align-items:center">
+      <figure class="fig plain" style="background:transparent;border:0"><img src="img/globe.png" alt="A globe surrounded by colorful animals" style="max-height:640px;width:auto;margin:0 auto"></figure>
+      <div class="side" style="gap:18px">
+        <div class="cmp" style="grid-template-columns:1fr 1fr 1fr">
+          <div><span>Share of global biodiversity protected</span><div class="n">80%</div></div>
+          <div><span>Share of the planet's land</span><div class="n">25%</div></div>
+          <div><span>Share of the world's population</span><div class="n hi">&lt;5%</div></div>
+        </div>
+        <div class="sc gold"><b>Biocultural diversity matters</b>Where Indigenous Peoples keep their culture and their land, nature does well too.</div>
+        <p class="src">Source: IPBES (2018).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. EIGHTH FIRE -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 1 · Knowledge and education</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Big idea 1 · how Indigenous knowledge is learned</div>
+    <h2 class="reveal d2" style="font-size:66px">Nelson (2018): <em>Eighth Fire</em></h2>
+    <p class="lead reveal d3" style="font-size:32px;max-width:1700px">Holistic and interdependent learning based on three key elements.</p>
+    <div class="grid g3 reveal d3">
+      <div class="card green"><span class="tag">1</span><h3>Learning spirits</h3></div>
+      <div class="card accent"><span class="tag">2</span><h3>Embodied learning</h3></div>
+      <div class="card gold"><span class="tag">3</span><h3>Symbiotic and contextual learning</h3></div>
+    </div>
+    <div class="pics3 reveal d4"><img src="img/reed-boat.jpg" alt="Two women paddling a boat made of bundled reeds"><img src="img/reeds.jpg" alt="A person gathering cut reeds at the water's edge"><img src="img/solar-boat.jpg" alt="A solar panel above a carved wooden boat decoration"></div>
+    <p class="src reveal d4">Photos courtesy of The Cultural Conservancy, <a href="https://www.nativeland.org/guardians-of-the-waters" target="_blank" rel="noopener">nativeland.org/guardians-of-the-waters</a>.</p>
+  </div>
+</section>
+
+<!-- 10. COLORADO PLATEAU -->
+<section class="slide">
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Setting the scene · a dry place where people farm</div>
     <h2 class="reveal d2" style="font-size:70px">The <em>Colorado Plateau</em></h2>
@@ -382,7 +434,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 9. MINDS AT THE MARGIN -->
+<!-- 11. MINDS AT THE MARGIN -->
 <section class="slide">
   <div class="rail"><b>20</b><span>Setting the scene</span></div>
   <div class="content fill">
@@ -399,11 +451,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 10. TEK -->
+<!-- 12. TEK -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 1 · Traditional ecological knowledge</span></div>
+  <div class="rail"><b>20</b><span>Big idea 2 · Traditional ecological knowledge</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 1 · what TEK is and why it works</div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>Big idea 2 · what TEK is and why it works</div>
     <h2 class="reveal d2" style="font-size:66px"><em>Traditional ecological knowledge</em> and Western science</h2>
     <div class="grid reveal d3" style="grid-template-columns:1fr 1fr;gap:28px">
       <div class="card green"><span class="tag">Traditional ecological knowledge (TEK)</span><p>Built over many generations of living in one place. It sees plants, animals, land, people and spirit as one connected whole. It is passed on through stories, practice and ceremony.</p></div>
@@ -418,11 +470,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 11. EIGHT PRACTICES -->
+<!-- 13. EIGHT PRACTICES -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 2 · nine practices to explore</div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 3 · nine practices to explore</div>
     <h2 class="reveal d2" style="font-size:66px">Indigenous practices that support <em>sustainability</em></h2>
     <div class="two l reveal d3" style="grid-template-columns:1080px 1fr">
       <div class="pic dia" style="padding:10px"><svg viewBox="0 0 1000 740" role="img" aria-label="A wheel with nine practices around the center: Zuni waffle gardens, cultural burns, acequias, tribal forestry, Hopi dryland farming, salmon runs, resilient seeds, Swinomish clam gardens and Indigenous climate design." style="display:block;width:100%;height:auto" font-family="'Archivo Narrow',Arial,sans-serif">
@@ -440,11 +492,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 12. HOPI CORN -->
+<!-- 14. HOPI CORN -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Big idea 2 · Hopi dryland farming</div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>Big idea 3 · Hopi dryland farming</div>
     <h2 class="reveal d2" style="font-size:70px">Hopi <em>corn</em></h2>
     <figure class="fig reveal d3" style="margin:0 0 18px"><img src="img/hopi-field.jpg" alt="People walking between rows of corn plants on a dry plateau" style="width:100%;height:300px;object-fit:cover;object-position:center 40%"></figure>
     <div class="two l reveal d3" style="grid-template-columns:1fr 760px">
@@ -461,11 +513,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 13. CORN IS THE CENTRAL BOND -->
+<!-- 15. CORN IS THE CENTRAL BOND -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 2 · corn is more than food</div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>Big idea 3 · corn is more than food</div>
     <h2 class="reveal d2" style="font-size:66px">For Hopi people, corn is the <em>central bond</em></h2>
     <div class="two l reveal d3" style="grid-template-columns:520px 640px 1fr;align-items:start">
       <figure class="fig"><img src="img/four-mother-corn.jpg" alt="A painting of four ears of corn in cream, blue-gray, brown and white" style="width:100%;max-height:560px;object-fit:cover"><figcaption style="position:static">Four Mother Corn</figcaption></figure>
@@ -482,7 +534,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 14. REVIEW Q 20.1 -->
+<!-- 16. REVIEW Q 20.1 -->
 <section class="slide" id="rq1">
   <div class="rail"><b>20</b><span>Review question 20.1</span></div>
   <div class="content center">
@@ -499,7 +551,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 15. GAME: ONE VARIETY OR MANY -->
+<!-- 17. GAME: ONE VARIETY OR MANY -->
 <section class="slide" id="fieldgame">
   <div class="rail"><b>20</b><span>Try it · One variety or many?</span></div>
   <div class="content fill">
@@ -522,11 +574,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 16. THE SAMENESS -->
+<!-- 18. THE SAMENESS -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 2 · the risk of sameness</div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 3 · the risk of sameness</div>
     <h2 class="reveal d2" style="font-size:70px">The <em>sameness</em></h2>
     <div class="two l reveal d3" style="grid-template-columns:1fr 1fr;align-items:center">
       <figure class="fig plain" style="background:transparent;border:0"><img src="img/potato-infographic.jpg" alt="An infographic of the U.S. potato industry: production by state, how potatoes are used, and production figures" style="max-height:700px;width:auto;margin:0 auto;border-radius:14px"></figure>
@@ -539,11 +591,11 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 17. PACHAMAMA -->
+<!-- 19. PACHAMAMA -->
 <section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 2 · Lessons of Indigenous practices</span></div>
+  <div class="rail"><b>20</b><span>Big idea 3 · Lessons of Indigenous practices</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 2 · potatoes in the Andes</div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 3 · potatoes in the Andes</div>
     <h2 class="reveal d2" style="font-size:70px"><em>Pachamama</em>, the Earth Mother</h2>
     <div class="two l reveal d3" style="grid-template-columns:1050px 1fr">
       <figure class="fig"><img src="img/andes.jpg" alt="Farmers working potato fields in the Andes with snow-capped mountains behind" style="width:100%;max-height:640px;object-fit:cover"><figcaption>The Columbian Exchange to the International Potato Park.</figcaption></figure>
@@ -556,7 +608,7 @@ p,li{text-wrap:pretty}
   </div>
 </section>
 
-<!-- 18. REVIEW Q 20.2 -->
+<!-- 20. REVIEW Q 20.2 -->
 <section class="slide" id="rq2">
   <div class="rail"><b>20</b><span>Review question 20.2</span></div>
   <div class="content center">
@@ -569,44 +621,6 @@ p,li{text-wrap:pretty}
     </div>
     <div class="status" data-poll-status="rq2"></div>
     <div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq2">Show the answer</button></div>
-  </div>
-</section>
-
-<!-- 19. BIODIVERSITY -->
-<section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 3 · Knowledge and education</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 3 · biocultural diversity matters</div>
-    <h2 class="reveal d2" style="font-size:70px"><em>Biodiversity</em> and Indigenous Peoples</h2>
-    <div class="two l reveal d3" style="grid-template-columns:760px 1fr;align-items:center">
-      <figure class="fig plain" style="background:transparent;border:0"><img src="img/globe.png" alt="A globe surrounded by colorful animals" style="max-height:640px;width:auto;margin:0 auto"></figure>
-      <div class="side" style="gap:18px">
-        <div class="cmp" style="grid-template-columns:1fr 1fr 1fr">
-          <div><span>Share of global biodiversity protected</span><div class="n">80%</div></div>
-          <div><span>Share of the planet's land</span><div class="n">25%</div></div>
-          <div><span>Share of the world's population</span><div class="n hi">&lt;5%</div></div>
-        </div>
-        <div class="sc gold"><b>Biocultural diversity matters</b>Where Indigenous Peoples keep their culture and their land, nature does well too.</div>
-        <p class="src">Source: IPBES (2018).</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 20. EIGHTH FIRE -->
-<section class="slide">
-  <div class="rail"><b>20</b><span>Big idea 3 · Knowledge and education</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Big idea 3 · how Indigenous knowledge is learned</div>
-    <h2 class="reveal d2" style="font-size:66px">Nelson (2018): <em>Eighth Fire</em></h2>
-    <p class="lead reveal d3" style="font-size:32px;max-width:1700px">Holistic and interdependent learning based on three key elements.</p>
-    <div class="grid g3 reveal d3">
-      <div class="card green"><span class="tag">1</span><h3>Learning spirits</h3></div>
-      <div class="card accent"><span class="tag">2</span><h3>Embodied learning</h3></div>
-      <div class="card gold"><span class="tag">3</span><h3>Symbiotic and contextual learning</h3></div>
-    </div>
-    <div class="pics3 reveal d4"><img src="img/reed-boat.jpg" alt="Two women paddling a boat made of bundled reeds"><img src="img/reeds.jpg" alt="A person gathering cut reeds at the water's edge"><img src="img/solar-boat.jpg" alt="A solar panel above a carved wooden boat decoration"></div>
-    <p class="src reveal d4">Photos courtesy of The Cultural Conservancy, <a href="https://www.nativeland.org/guardians-of-the-waters" target="_blank" rel="noopener">nativeland.org/guardians-of-the-waters</a>.</p>
   </div>
 </section>
 
