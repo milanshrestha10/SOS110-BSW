@@ -73,6 +73,17 @@
 .stp{display:grid;grid-template-columns:760px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
 .stp label{display:block;font:700 28px/1.25 var(--body);margin:8px 0 6px}
 .stp textarea{height:200px;resize:none}
+
+.ref .pop table{width:100%;border-collapse:collapse;font:400 28px/1.25 var(--rbody);margin:8px 0 6px}
+.ref .pop th{background:#2b2b2b;color:#fff;font:700 22px var(--rbody);letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:10px 16px}
+.ref .pop td{padding:9px 16px;border-top:2px solid #e8e3d6;vertical-align:top}.ref .pop td:first-child{font-weight:700;width:300px}
+.ref .pop .two2{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:6px 0}
+.ref .pop .two2>div{background:#f7f5ef;border-top:5px solid var(--red);padding:14px 24px 10px}
+.ref .pop .two2 h4{font:400 40px var(--display);margin:0 0 6px}
+.ref .pop .two2 p{font-size:27px;margin:0 0 8px}
+.ref .pop .chips{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
+.ref .pop .chips button{font:700 28px var(--rbody);border:3px solid #2b2b2b;background:#fff;color:#2b2b2b;border-radius:999px;padding:10px 26px;cursor:pointer}
+.ref .pop .chips button.on{background:var(--red);border-color:var(--red);color:#fff}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -118,7 +129,7 @@
     <div class="hero-badge reveal"><b>M<em>07</em></b><span data-fill="module-title">Institutional Change for Sustainability</span></div>
     <div class="title-k reveal d2">Lecture 21 · Collective action</div>
     <h1 class="reveal d2" style="font-size:92px">Class Exercise <em>21</em></h1>
-    <p class="hero-sub reveal d3" style="max-width:900px">Drive until you qualify? A housing choice, three systems and three biases.</p>
+    <p class="hero-sub reveal d3" style="max-width:900px">Rent in the city or own at the edge? Every choice is a trade-off, and it shapes the land, the roads and the air.</p>
     <div class="goldline"></div>
   </div>
 </section>
@@ -146,224 +157,80 @@
 </section>
 
 <!-- 3 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>How this works</span></div>
-  <div class="content center">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Before you start · about 25 minutes</div>
-    <h2 class="reveal d2" style="font-size:66px">Drive until you <em>qualify</em>?</h2>
-    <div class="grid reveal d3" style="grid-template-columns:1fr 1fr 1fr">
-      <div class="card accent"><span class="tag">Part I · In pairs · 8 minutes</span><h3>Price and trade-offs</h3><p>Name the most rent you would pay. Then list pros and cons for two places.</p></div>
-      <div class="card green"><span class="tag">Part II · Groups of 4 · 8 minutes</span><h3>Draw the system</h3><p>Join another pair. Map your list onto Social, Technological and Ecological circles.</p></div>
-      <div class="card gold"><span class="tag">Part III · Whole class · 6 minutes</span><h3>Debrief</h3><p>Share your numbers. Spot three decision biases and redesign one choice.</p></div>
-    </div>
-    <p class="src reveal d4" style="margin-top:20px">Framing takes about 3 minutes first. The numbers in this exercise are teaching numbers from your instructor, not quotes from a landlord.</p>
+<section class="slide" id="places">
+  <div class="rail"><b>21</b><span>The two places</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Step 1 · read · about 3 minutes</div>
+    <h2 class="reveal d2" style="font-size:60px">Rent in <em>Downtown Tempe</em> or own in <em>Queen Creek</em>?</h2>
+    <p class="lead reveal d2" style="font-size:31px;margin-bottom:14px">You just graduated and start an entry-level business job in the East Valley. Read what each place offers. Then you will choose one.</p>
+    <table class="ct reveal d3" style="font-size:31px">
+      <thead><tr><th></th><th>Rent in Downtown Tempe (urban core)</th><th>Own in Queen Creek (growing outer suburb)</th></tr></thead>
+      <tbody>
+        <tr><td>Home</td><td>1-bedroom apartment in a walkable, trendy district</td><td>Spacious 3-bedroom house or townhome with a yard and garage</td></tr>
+        <tr><td>Getting around</td><td>Valley Metro light rail and Orbit buses right outside</td><td>Car-dependent: a 30 to 45+ minute commute each way on Loop 202 or US-60</td></tr>
+        <tr><td>Lifestyle</td><td>High energy, nightlife, dense urban activity</td><td>Quiet, family-oriented, newer schools, away from urban noise</td></tr>
+      </tbody>
+    </table>
+    <div class="take reveal d4" style="margin-top:22px"><b>Trade-off</b>Choosing one means giving up something good about the other. People make trade-offs like this every day.</div>
   </div>
 </section>
 
 <!-- 4 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>The scenario</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>Setting the scene · a familiar Valley choice</div>
-    <h2 class="reveal d2" style="font-size:62px">You just graduated. <em>Where do you live</em>?</h2>
-    <div class="nums reveal d3">
-      <div><div class="big">$62,000</div><span>Starting salary for an entry-level business job in the East Valley</span></div>
-      <div><div class="big gold">~$3,900</div><span>Monthly take-home pay</span></div>
-      <div><div class="big green">$1,650 to $1,750</div><span>A common rule of thumb: keep housing and transportation together at about 40 to 45% of take-home pay</span></div>
+<section class="slide ref" id="explore">
+  <div class="top">SOS110 · Class Exercise 21 · Trade-offs and systems</div>
+  <div class="card">
+    <h2>Where would <em>you</em> live?</h2>
+    <p class="lead">Tap the three icons to read the scenario, the data and facts, and how each choice reaches the land and the roads. Then tap the pencil to decide.</p>
+    <div class="body" style="top:268px;bottom:14px;width:1000px">
+      <button class="row mr" type="button" data-open="scn" style="--i:1"><span class="n">1</span><span><b>Scenario</b><span class="d">Your pay, your budget and the two choices</span></span><span class="ic" data-ic="scn"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span></button>
+      <button class="row mr" type="button" data-open="data" style="--i:2"><span class="n">2</span><span><b>Data and facts</b><span class="d">What each choice costs in money and time</span></span><span class="ic" data-ic="data"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span></button>
+      <button class="row mr" type="button" data-open="sys" style="--i:3"><span class="n">3</span><span><b>Systems linkages</b><span class="d">Technology and environment effects of where you live</span></span><span class="ic" data-ic="sys"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span></button>
+      <button class="row mr" type="button" data-open="ans" style="--i:4"><span class="n">4</span><span><b>Your decision (submits)</b><span class="d">Choose one place and give your reasons</span></span><span class="ic" data-ic="ans"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span></button>
     </div>
-    <div class="take reveal d4" style="margin-top:26px"><b>Your job</b>Two places, one budget. Decide what you would really pay for, and what the sticker rent leaves out.</div>
+    <div class="photo" style="background:#f7f5ef">
+      <svg viewBox="0 0 700 900" role="img" aria-label="Two circles, rent in Downtown Tempe and own in Queen Creek, joined by a trade-off arrow" style="position:absolute;inset:0;width:100%;height:100%;display:block" font-family="'Archivo Narrow',Arial,sans-serif">
+        <defs><marker id="arT" markerUnits="userSpaceOnUse" markerWidth="30" markerHeight="30" refX="22" refY="15" orient="auto-start-reverse"><path d="M3 3L25 15L3 27z" fill="#2b2b2b"/></marker></defs>
+        <rect width="700" height="900" fill="#f7f5ef"/>
+        <circle cx="350" cy="210" r="150" fill="#42a8bf" stroke="#2b2b2b" stroke-width="5"/>
+        <g font-weight="700" fill="#fff" text-anchor="middle"><text x="350" y="190" font-size="44">Rent in</text><text x="350" y="245" font-size="44">Downtown</text><text x="350" y="300" font-size="44">Tempe</text></g>
+        <path d="M350 385L350 515" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round" fill="none" marker-start="url(#arT)" marker-end="url(#arT)"/>
+        <text x="390" y="460" font-size="40" font-weight="700" fill="#2b2b2b">trade-off</text>
+        <circle cx="350" cy="690" r="150" fill="#C4851C" stroke="#2b2b2b" stroke-width="5"/>
+        <g font-weight="700" fill="#fff" text-anchor="middle"><text x="350" y="670" font-size="44">Own in</text><text x="350" y="725" font-size="44">Queen</text><text x="350" y="780" font-size="44">Creek</text></g>
+      </svg>
+    </div>
   </div>
+  <div class="bar"><span>Icons opened<b id="m-n">0 of 3</b></span><span class="src">Teaching numbers supplied by your instructor. Tempe and Queen Creek are real places, but the budget and costs are simplified for this class.</span></div>
+  <div class="shade"></div>
+  <div class="pop" id="pop-scn" role="dialog" aria-modal="true"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>Scenario</div><h3>The scenario</h3><div class="two2"><div><h4>Rent in Downtown Tempe</h4><p>Your pay is about <b>$3,900 a month</b> after taxes. A common rule of thumb keeps housing and transportation together near <b>$1,650 to $1,750</b>.</p><p>A walkable, high-energy district. You can reach work, food and friends on foot, by bike or by light rail.</p></div><div><h4>Own in Queen Creek</h4><p>Same pay, same rule of thumb. You buy a <b>spacious house with a yard and garage</b> in a quiet, family-oriented area with newer schools.</p><p>Almost every trip, including the 30 to 45+ minute commute, is by car.</p></div></div>
+    <p class="small mute">Teaching numbers from your instructor. Owning also brings a down payment, property taxes and repairs, which are not priced here.</p></div>
+  <div class="pop" id="pop-data" role="dialog" aria-modal="true"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-data"/></svg></span>Data and facts</div><h3>What each choice costs</h3><table><thead><tr><th></th><th>Rent in Downtown Tempe</th><th>Own in Queen Creek</th></tr></thead><tbody>
+      <tr><td>Monthly housing</td><td>$1,850, utilities included</td><td>About $1,650, plus higher summer A/C and water bills</td></tr>
+      <tr><td>Monthly car costs</td><td>Little or none (light rail, buses, walking)</td><td>About $600 to $800 for gas, insurance, car payment and maintenance</td></tr>
+      <tr><td>Housing plus car</td><td><b>About $1,850</b></td><td><b>About $2,250 to $2,450</b></td></tr>
+      <tr><td>Commute</td><td>Short, often on foot or by rail</td><td>30 to 45+ minutes each way, about 7 to 10 hours a week</td></tr>
+      <tr><td>Time in traffic</td><td>Very little</td><td>350+ hours a year</td></tr></tbody></table>
+    <p class="small mute">Teaching numbers from your instructor. Car costs vary by driver and vehicle.</p></div>
+  <div class="pop" id="pop-sys" role="dialog" aria-modal="true"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-route"/></svg></span>Systems linkages</div><h3>How where you live reaches the land and the air</h3><div class="two2"><div><h4>Technological (T): what is built</h4><p><b>Tempe:</b> light rail, Orbit buses, walkable streets, apartments that share walls.</p><p><b>Queen Creek:</b> Loop 202 and US-60, single-family zoning, a large house to cool, gas cars.</p></div><div><h4>Ecological (E): what nature takes</h4><p><b>Tempe:</b> a lower carbon footprint per person, but a strong urban heat island.</p><p><b>Queen Creek:</b> tailpipe CO<sub>2</sub> and smog, Salt River and CAP water for lawns, desert habitat split by sprawl.</p></div></div>
+    <p style="font-size:28px"><b>Social to technological (S → T).</b> Many people choosing big lots creates demand for wider freeways and single-family zoning.</p>
+    <p style="font-size:28px"><b>Technological to social (T → S).</b> With no light rail, every resident must drive, so congestion and road rage grow.</p>
+    <p style="font-size:28px"><b>Social + technological to ecological (S + T → E).</b> Car commuting and large-lot cooling raise greenhouse gases and water stress.</p></div>
+  <div class="pop" id="pop-ans" role="dialog" aria-modal="true"><button class="x" type="button" data-close aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-x"/></svg></button><div class="tag"><span class="ic"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg></span>Your decision (submits)</div><h3>Your decision and your reasons</h3><p class="qn" style="font-size:30px">Pick one. Then explain why in 2 to 4 sentences.</p>
+    <div class="chips" id="dc-pick"><button type="button" data-v="Rent in Downtown Tempe">Rent in Downtown Tempe</button><button type="button" data-v="Own in Queen Creek">Own in Queen Creek</button></div>
+    <div class="selfchk"><span>Self-check before you submit:</span>
+      <label><input type="checkbox"> I said what I give up (my trade-off).</label>
+      <label><input type="checkbox"> I used a fact or number.</label>
+      <label><input type="checkbox"> I named an environmental or technological effect of my choice.</label></div>
+    <textarea id="dc-text" class="fld" maxlength="900" rows="6" placeholder="Type your reasons here." style="height:230px;resize:none"></textarea>
+    <div class="go"><button class="rbtn submit" type="button" id="dc-save"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pencil"/></svg><span>Submit</span></button><button class="rbtn g" type="button" data-close>Close</button><span class="status" id="dc-status"></span></div></div>
 </section>
 
 <!-- 5 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>Two choices</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Setting the scene · side by side</div>
-    <h2 class="reveal d2" style="font-size:62px">Downtown Tempe or <em>Queen Creek</em>?</h2>
-    <table class="ct reveal d3">
-      <thead><tr><th></th><th>Option A · Downtown Tempe (urban core)</th><th>Option B · Queen Creek (growing outer suburb)</th></tr></thead>
-      <tbody>
-        <tr><td>Housing type</td><td>1-bedroom apartment in a walkable, trendy district</td><td>Spacious 3-bedroom house or townhome with a yard and garage</td></tr>
-        <tr><td>Transit access</td><td>Valley Metro light rail and Orbit buses right outside</td><td>Car-dependent: a 30 to 45+ minute commute each way on Loop 202 or US-60</td></tr>
-        <tr><td>Lifestyle</td><td>High energy, nightlife, dense urban activity</td><td>Quiet, family-oriented, newer schools, away from urban noise</td></tr>
-        <tr><td>Starting base rent</td><td><b class="n">$1,850</b> a month, utilities included</td><td><b class="n">$1,650</b> a month, plus higher summer A/C and water bills</td></tr>
-      </tbody>
-    </table>
-    <p class="src reveal d4" style="margin-top:16px">Teaching numbers supplied by your instructor.</p>
-  </div>
-</section>
-
-<!-- 6 -->
-<section class="slide" id="pc">
-  <div class="rail"><b>21</b><span>Part I · Price check</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Part I · step 1 of 2 · about 3 minutes · work in pairs</div>
-    <h2 class="reveal d2" style="font-size:62px">The <em>price check</em></h2>
-    <div class="stp reveal d3">
-      <div class="mini">
-        <div class="card accent"><span class="tag">Talk about this</span><p style="font-size:32px">Look at the $200 a month gap in base rent. What is the <b>most monthly rent</b> you would actually pay to live in Downtown Tempe before you switch to Queen Creek? Or the reverse?</p></div>
-        <div class="card gold"><span class="tag">What you must produce</span><p style="font-size:32px">Your exact dollar number, and the <b>number 1 reason</b> behind it.</p></div>
-      </div>
-      <div>
-        <label for="pc-pair">Your pair (both names)</label><input class="field" id="pc-pair" maxlength="160" placeholder="Name and partner's name">
-        <label for="pc-who">Which place would you rent in at that price?</label>
-        <div class="chipsel" id="pc-pick"><button type="button" data-v="Downtown Tempe">Downtown Tempe</button><button type="button" data-v="Queen Creek">Queen Creek</button></div>
-        <label for="pc-wtp">Your maximum monthly rent ($)</label><input class="field" id="pc-wtp" inputmode="numeric" maxlength="6" placeholder="Example: 1900" style="width:300px">
-        <label for="pc-why">Your number 1 reason</label>
-        <textarea id="pc-why" maxlength="400" placeholder="Type your reason here." style="height:120px"></textarea>
-        <div class="go-row"><button class="btn" type="button" id="pc-save">Submit step 1</button><span class="status" id="pc-status"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 -->
-<section class="slide" id="tradeoff">
-  <div class="rail"><b>21</b><span>Part I · Trade-off audit</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Part I · step 2 of 2 · about 5 minutes · work in pairs</div>
-    <h2 class="reveal d2" style="font-size:58px">The <em>trade-off</em> audit</h2>
-    <p class="lead reveal d2" style="font-size:30px;margin-bottom:12px">List at least 2 pros and 2 cons for each place. Think about money, daily behavior and the environment.</p>
-    <div class="f2 reveal d3">
-      <div class="grp"><h3>Downtown Tempe</h3>
-        <label for="to-tp">Pros (benefits and perceived value)</label><textarea id="to-tp" maxlength="500" placeholder="At least 2 pros."></textarea>
-        <label for="to-tc" style="margin-top:10px">Cons (hidden financial, behavioral and ecological costs)</label><textarea id="to-tc" maxlength="500" placeholder="At least 2 cons."></textarea></div>
-      <div class="grp"><h3>Queen Creek</h3>
-        <label for="to-qp">Pros (benefits and perceived value)</label><textarea id="to-qp" maxlength="500" placeholder="At least 2 pros."></textarea>
-        <label for="to-qc" style="margin-top:10px">Cons (hidden financial, behavioral and ecological costs)</label><textarea id="to-qc" maxlength="500" placeholder="At least 2 cons."></textarea></div>
-    </div>
-    <div class="go-row"><input class="field" id="to-pair" maxlength="160" placeholder="Your pair (both names)" style="width:520px;font-size:26px"><button class="btn" type="button" id="to-save">Submit step 2</button><span class="status" id="to-status"></span></div>
-  </div>
-</section>
-
-<!-- 8 -->
-<section class="slide" id="examples">
-  <div class="rail"><b>21</b><span>Part I · Examples</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Part I · compare with examples</div>
-    <h2 class="reveal d2" style="font-size:58px">One way to fill in the <em>table</em></h2>
-    <table class="ct reveal d3" style="font-size:31px">
-      <thead><tr><th>Location</th><th>Pros (benefits and perceived value)</th><th>Cons (hidden financial, behavioral and ecological costs)</th></tr></thead>
-      <tbody>
-        <tr><td>Downtown Tempe</td><td>• Zero daily commute fuel and wear and tear<br>• Walkable social life and networking<br>• Lower per-person carbon footprint</td><td>• Higher base rent per square foot<br>• Urban heat island, noise and crowding<br>• Limited space for a future family or pets</td></tr>
-        <tr><td>Queen Creek</td><td>• Larger lot, private yard, quiet streets<br>• Perceived investment and family stability<br>• Lower sticker rent per square foot</td><td>• Gas, insurance, car payment and maintenance (about $600 to $800 a month)<br>• Commute stress and lost time (about 7 to 10 hours a week)<br>• High CO<sub>2</sub> emissions, yard water use and urban sprawl</td></tr>
-      </tbody>
-    </table>
-    <p class="src reveal d4" style="margin-top:16px">Example answers and figures supplied by your instructor. Yours may differ.</p>
-  </div>
-</section>
-
-<!-- 9 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>Part II · The SET frame</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Part II · groups of 4 · about 8 minutes</div>
-    <h2 class="reveal d2" style="font-size:62px">Map your list onto a <em>SET</em> system</h2>
-    <div class="two l reveal d3" style="grid-template-columns:980px 1fr">
-      <div class="dia"><svg viewBox="0 0 1000 560" role="img" aria-label="Starter diagram: social to technological, technological back to social, and both to ecological"><defs><marker id="arx" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b2b2b"/></marker></defs><path d="M290 150L710 150" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arx)"/><path d="M710 235L290 235" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arx)"/><path d="M262 257L412 378" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arx)"/><path d="M738 257L588 378" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arx)"/><circle cx="180" cy="190" r="100" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="28"><text x="180" y="184">Social</text><text x="180" y="218">(S)</text></g><circle cx="820" cy="190" r="100" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="28"><text x="820" y="184">Technological</text><text x="820" y="218">(T)</text></g><circle cx="500" cy="450" r="100" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="28"><text x="500" y="444">Ecological</text><text x="500" y="478">(E)</text></g><g font-weight="700" fill="#2b2b2b" font-size="25" text-anchor="middle"><text x="500" y="128">1. S → T</text><text x="500" y="276">2. T → S</text><text x="250" y="400" text-anchor="end">3. S + T → E</text></g></svg></div>
-      <div class="side"><div class="mini">
-        <div class="sc gold"><b>Social (S)</b>People, norms and money: willingness to pay, status, schools, road rage, affordability.</div>
-        <div class="sc sky"><b>Technological (T)</b>Built things: light rail, Loop 202, zoning codes, air-conditioning load, EV or gas cars.</div>
-        <div class="sc green"><b>Ecological (E)</b>Nature and resources: tailpipe CO<sub>2</sub> and smog, Salt River and CAP water, desert habitat, Tempe heat island.</div>
-        <p class="src">Two pairs join to make a group of 4. Draw three circles. Put at least two items from your table in each, and label at least two arrows.</p>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 10 -->
-<section class="slide" id="set">
-  <div class="rail"><b>21</b><span>Part II · Your SET diagram</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Part II · submit one answer for your group</div>
-    <h2 class="reveal d2" style="font-size:56px">Fill in your <em>SET</em> diagram</h2>
-    <div class="f2 se reveal d3" style="grid-template-columns:1fr 1fr 1fr;flex:none">
-      <div class="grp"><h3>Social (S)</h3><label for="se-s">At least 2 items</label><textarea id="se-s" maxlength="400" placeholder="Example: willingness to pay for space"></textarea></div>
-      <div class="grp"><h3>Technological (T)</h3><label for="se-t">At least 2 items</label><textarea id="se-t" maxlength="400" placeholder="Example: Loop 202 freeway"></textarea></div>
-      <div class="grp"><h3>Ecological (E)</h3><label for="se-e">At least 2 items</label><textarea id="se-e" maxlength="400" placeholder="Example: Tempe urban heat island"></textarea></div>
-      <div class="grp"><h3>Arrow: S → T</h3><label for="se-st">How does behavior shape infrastructure?</label><textarea id="se-st" maxlength="400" placeholder="Write one sentence."></textarea></div>
-      <div class="grp"><h3>Arrow: T → S</h3><label for="se-ts">How does infrastructure lock in behavior?</label><textarea id="se-ts" maxlength="400" placeholder="Write one sentence."></textarea></div>
-      <div class="grp"><h3>Arrow: S + T → E</h3><label for="se-ste">How do they combine to affect nature?</label><textarea id="se-ste" maxlength="400" placeholder="Write one sentence."></textarea></div>
-    </div>
-    <div class="go-row"><input class="field" id="se-group" maxlength="200" placeholder="Group members (names)" style="width:620px;font-size:26px"><button class="btn" type="button" id="se-save">Submit group diagram</button><span class="status" id="se-status"></span></div>
-    <p class="src" style="margin-top:10px">Label at least two arrows. All three is better.</p>
-  </div>
-</section>
-
-<!-- 11 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>Part III · The real cost</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Part III · whole class · about 6 minutes</div>
-    <h2 class="reveal d2" style="font-size:62px">Look past the <em>sticker rent</em></h2>
-    <div class="nums reveal d3">
-      <div><div class="big">$1,850</div><span>Downtown Tempe: base rent, utilities included</span></div>
-      <div><div class="big gold">$2,250 to $2,450</div><span>Queen Creek: $1,650 rent plus about $600 to $800 a month in car costs</span></div>
-      <div><div class="big green">350+ hours</div><span>A year stuck in traffic: about 7 to 10 hours a week on Loop 202 or US-60</span></div>
-    </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Share</b>Three groups: tell us your maximum rent. Then we use your answers to spot three classic biases.</div>
-    <p class="src reveal d4" style="margin-top:14px">Teaching numbers supplied by your instructor. Car costs vary by driver and vehicle.</p>
-  </div>
-</section>
-
-<!-- 12 -->
-<section class="slide">
-  <div class="rail"><b>21</b><span>Part III · Three biases</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Part III · behavioral economics debrief</div>
-    <h2 class="reveal d2" style="font-size:62px">Three <em>biases</em> behind the choice</h2>
-    <div class="lg3 reveal d3">
-      <div class="card accent"><span class="tag">1 · Present bias and salience</span><h3>Sticker shock today</h3><p>Why fixate on $1,650 versus $1,850 now, while underestimating about $700 a month in car costs and 350+ hours in traffic?</p></div>
-      <div class="card green"><span class="tag">2 · Split incentives and externalities</span><h3>Who pays?</h3><p>When one resident picks a private yard, who pays for the air pollution, freeway congestion and water use?</p></div>
-      <div class="card gold"><span class="tag">3 · Choice architecture</span><h3>Redesign the choice</h3><p>How could a developer, employer or city planner make the sustainable choice the easiest financial choice?</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 13 -->
-<section class="slide" id="redesign">
-  <div class="rail"><b>21</b><span>Part III · Redesign</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>Part III · choice architecture · individual or group</div>
-    <h2 class="reveal d2" style="font-size:58px">Make the <em>sustainable choice</em> the easy one</h2>
-    <div class="stp reveal d3">
-      <div class="mini">
-        <div class="card accent"><span class="tag">Your task</span><p style="font-size:32px">Pick one actor: a <b>real estate developer</b>, an <b>employer</b> or a <b>city planner</b>. Change a Technological (T) or Social (S) incentive so the sustainable choice costs less than the other one.</p></div>
-        <div class="card gold"><span class="tag">Ideas to start from</span><p style="font-size:29px">Employer transit passes. Denser, walkable town centers in Queen Creek. Shaded walking and bike corridors in Tempe.</p></div>
-      </div>
-      <div>
-        <label for="ca-who">Who are you?</label>
-        <div class="chipsel" id="ca-pick"><button type="button" data-v="Real estate developer">Developer</button><button type="button" data-v="Employer">Employer</button><button type="button" data-v="City planner">City planner</button></div>
-        <label for="ca-text">Your redesign, in one or two sentences</label>
-        <textarea id="ca-text" maxlength="600" placeholder="Type your redesign here."></textarea>
-        <div class="go-row"><input class="field" id="ca-names" maxlength="200" placeholder="Your name or group" style="width:420px;font-size:26px"><button class="btn" type="button" id="ca-save">Submit</button><span class="status" id="ca-status"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 14 -->
-<section class="slide" id="poll">
-  <div class="rail"><b>21</b><span>Class poll</span></div>
-  <div class="content center">
-    <div class="k reveal">Class poll · one answer</div>
-    <h2 class="reveal d2" style="font-size:56px;max-width:1640px">Now that you have seen the full monthly cost, <em>where would you live</em>?</h2>
-    <div class="poll reveal d3" data-poll="housing">
-      <button class="opt" type="button"><b>A</b>Downtown Tempe</button>
-      <button class="opt" type="button"><b>B</b>Queen Creek</button>
-      <button class="opt" type="button"><b>C</b>Neither. I would look for a third option</button>
-    </div>
-    <div class="status" data-poll-status="housing"></div>
-  </div>
-</section>
-
-<!-- 15 -->
 <section class="slide" id="close">
   <div class="rail"><b>21</b><span>Takeaway</span></div>
   <div class="content center">
     <div class="k reveal">Closing takeaway</div>
-    <div class="claim reveal d2" style="background:var(--Blue);color:#fff;border-radius:20px;padding:50px 60px;font:400 50px/1.25 var(--display);max-width:1600px">Every housing choice is private, and every housing choice is also a vote on roads, rail, water and heat. When the sustainable choice is the easy, cheap one, people make it without being told to.</div>
+    <div class="claim reveal d2" style="background:var(--Blue);color:#fff;border-radius:20px;padding:50px 60px;font:400 50px/1.25 var(--display);max-width:1600px">Where you live is a private choice with public effects. Every option gives up something, and the roads, rail, water and heat around us are shaped by thousands of choices like yours.</div>
   </div>
 </section>
 
@@ -378,6 +245,16 @@ import { esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10
 const LECTURE = 'm7-s2';
 loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); }).catch(() => {});
 
+/* tap-to-explore: count the three read-only icons */
+const seen = new Set();
+const slide = $('#explore');
+slide.addEventListener('ref:open', e => {
+  const id = e.detail; if (!id || id === 'ans') return;
+  seen.add(id);
+  const ic = slide.querySelector(`[data-ic="${id}"]`); if (ic) ic.classList.add('done');
+  $('#m-n').textContent = `${seen.size} of 3`;
+});
+
 const live = await connect(LECTURE);
 initPace(live, 'm7-l2-exercises');
 const note = $('[data-mode-note]');
@@ -390,55 +267,18 @@ $('#checkin').addEventListener('click', async () => {
   try { await live.signIn($('[data-name]').value, $('[data-email]').value); await live.checkIn($('#code').value); say(st, `Checked in. Thanks, ${live.user().name}!`, 'ok'); showUser(); }
   catch (e) { say(st, e.message, 'err'); }
 });
-async function save(sim, data, btn, st, label = 'Submitted') {
-  if (!await ensureUser(st)) return false;
+const sentences = t => (t.match(/[^.!?]+[.!?]+/g) || (t.trim() ? [t] : [])).length;
+let choice = '';
+$$('#dc-pick button').forEach(b => b.addEventListener('click', () => { choice = b.dataset.v; $$('#dc-pick button').forEach(x => x.classList.toggle('on', x === b)); }));
+$('#dc-save').addEventListener('click', async () => {
+  const st = $('#dc-status'), text = $('#dc-text').value.trim(), n = sentences(text);
+  if (seen.size < 3) { say(st, 'Close this and tap Scenario, Data and facts, and Systems linkages first.', 'err'); return; }
+  if (!choice) { say(st, 'Pick Rent in Downtown Tempe or Own in Queen Creek first.', 'err'); return; }
+  if (n < 2 || n > 6) { say(st, 'Write 2 to 4 sentences. You have ' + n + '.', 'err'); return; }
+  if (!await ensureUser(st)) return;
   say(st, 'Sending…');
-  try { await live.saveSim(sim, data); Deck.sent(btn, label); say(st, 'Submitted. Thanks!', 'ok'); return true; }
-  catch (e) { say(st, e.message, 'err'); return false; }
-}
-const words = t => t.trim().split(/\s+/).filter(Boolean).length;
-const pick = (sel) => { let v = ''; $$(sel + ' button').forEach(b => b.addEventListener('click', () => { v = b.dataset.v; $$(sel + ' button').forEach(x => x.classList.toggle('on', x === b)); })); return () => v; };
-
-/* Part I, step 1: willingness to pay */
-const pcWho = pick('#pc-pick');
-$('#pc-save').addEventListener('click', () => {
-  const st = $('#pc-status'), amt = Number($('#pc-wtp').value.replace(/[$,\s]/g, '')), why = $('#pc-why').value.trim();
-  if (!pcWho()) { say(st, 'Pick Downtown Tempe or Queen Creek first.', 'err'); return; }
-  if (!(amt > 0 && amt < 20000)) { say(st, 'Type your maximum monthly rent as a number, like 1900.', 'err'); return; }
-  if (words(why) < 3) { say(st, 'Write your number 1 reason.', 'err'); return; }
-  save('wtp', { pair: $('#pc-pair').value.trim(), place: pcWho(), amount: amt, reason: why }, $('#pc-save'), st);
-});
-/* Part I, step 2: trade-off audit */
-$('#to-save').addEventListener('click', () => {
-  const st = $('#to-status'), f = ['to-tp', 'to-tc', 'to-qp', 'to-qc'].map(id => $('#' + id).value.trim());
-  if (f.some(v => words(v) < 4)) { say(st, 'Fill in pros and cons for both places.', 'err'); return; }
-  save('tradeoff', { pair: $('#to-pair').value.trim(), tempePros: f[0], tempeCons: f[1], queenPros: f[2], queenCons: f[3] }, $('#to-save'), st);
-});
-/* Part II: SET diagram */
-$('#se-save').addEventListener('click', () => {
-  const st = $('#se-status'), ids = ['se-s', 'se-t', 'se-e'], v = ids.map(id => $('#' + id).value.trim()), ar = ['se-st', 'se-ts', 'se-ste'].map(id => $('#' + id).value.trim());
-  if (v.some(x => words(x) < 3)) { say(st, 'Add at least two items to each circle.', 'err'); return; }
-  if (ar.filter(x => words(x) >= 4).length < 2) { say(st, 'Label at least two arrows with a sentence.', 'err'); return; }
-  save('set-diagram', { group: $('#se-group').value.trim(), social: v[0], tech: v[1], eco: v[2], sToT: ar[0], tToS: ar[1], steToE: ar[2] }, $('#se-save'), st);
-});
-/* Part III: redesign */
-const caWho = pick('#ca-pick');
-$('#ca-save').addEventListener('click', () => {
-  const st = $('#ca-status'), t = $('#ca-text').value.trim();
-  if (!caWho()) { say(st, 'Pick developer, employer or city planner first.', 'err'); return; }
-  if (words(t) < 6) { say(st, 'Write one or two sentences.', 'err'); return; }
-  save('redesign', { names: $('#ca-names').value.trim(), actor: caWho(), text: t }, $('#ca-save'), st);
-});
-/* Poll */
-$$('[data-poll]').forEach(poll => {
-  const id = poll.dataset.poll, st = $(`[data-poll-status="${id}"]`);
-  $$('.opt', poll).forEach((btn, i) => btn.addEventListener('click', async () => {
-    if (!await ensureUser(st)) return;
-    $$('.opt', poll).forEach(b => b.classList.toggle('picked', b === btn));
-    say(st, 'Sending…');
-    try { await live.vote(id, i); say(st, 'Answer recorded. You can change it until the poll closes.', 'ok'); }
-    catch (e) { say(st, e.message, 'err'); }
-  }));
+  try { await live.saveSim('housing-decision', { choice, sentences: n, text }); Deck.sent($('#dc-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
 });
 </script>
 </body>
