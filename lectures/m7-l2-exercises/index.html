@@ -6,10 +6,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Class Exercise 20 · Indigenous sustainability · SOS110</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Archivo+Narrow:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/deck.css?v=2026-11-05a">
 <link rel="stylesheet" href="../m5-l2-fews-nexus-energy/lecture.css?v=2026-10-21c">
 <style>
+/* automatic thinking slide (copied from Ryan Cornell's Chapter 18 deck, sized for this deck) */
+#autothink .bt-q{margin:0 0 14px;max-width:1640px;font:400 30px/1.45 Merriweather,serif;color:#23253b}
+#autothink .bt-q b{font-weight:900;color:var(--accent)}
+#autothink .bt-split{display:grid;grid-template-columns:960px 1fr;gap:40px;align-items:center;flex:1;min-height:0}
+#autothink .bt-svg{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 20px rgba(30,30,55,.14))}
+#autothink .bt-side{display:flex;flex-direction:column;gap:14px}
+#autothink [hidden]{display:none!important}
+#autothink .bt-card{padding:22px 26px;background:#fdfbf5;border:1px solid rgba(176,72,62,.42);border-top:6px solid var(--accent);border-radius:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 24px -16px rgba(30,30,55,.5)}
+#autothink .bt-lbl{font:800 17px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#a5574d}
+#autothink .bt-in{display:flex;align-items:center;gap:12px;margin:6px 0 2px;font:700 28px Merriweather,serif;color:#23253b}
+#autothink .bt-in input{width:130px;font:900 44px Merriweather,serif;color:#23253b;background:#fff6d8;border:2px solid #23253b;border-radius:10px;padding:4px 12px;text-align:right}
+#autothink .bt-in input::-webkit-outer-spin-button,#autothink .bt-in input::-webkit-inner-spin-button{appearance:none;margin:0}
+#autothink .bt-in span:last-child{font:900 42px Merriweather,serif}
+#autothink .bt-go{margin-top:8px;font:800 26px Inter,sans-serif;color:#fdfbf5;background:var(--accent);border:0;border-radius:999px;padding:16px 28px;cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1),filter .16s}
+#autothink .bt-go:hover{filter:brightness(.9)}#autothink .bt-go:active{transform:scale(.97)}
+#autothink .bt-go:disabled{background:#d7d1c2;color:#5d6663;cursor:default;filter:none;transform:none}
+#autothink .bt-priv,#autothink .bt-sub{margin:4px 0 0;font:italic 400 21px/1.4 Merriweather,serif;color:#55576a}
+#autothink .bt-val{font:900 76px/1 Merriweather,serif;color:#23253b}
+#autothink .bt-hm{margin:6px 0 0;font:400 24px/1.45 Merriweather,serif;color:#2a2c3c}
+#autothink .bt-hm b{color:var(--accent)}
+#autothink .bt-bar{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font:700 22px Merriweather,serif;color:#23253b}
+#autothink .bt-bar.ok{color:#2c6b5f}#autothink .bt-bar.bad{color:#9c3a4a}
+#autothink .bt-src{margin:8px 0 0;font:italic 400 18px/1.4 Merriweather,serif;color:#86847a}
+#autothink .bt-pr{font:900 26px Merriweather,serif;fill:#23253b}
+#autothink .bt-pr2{font:italic 400 13px Merriweather,serif;fill:#55576a}
+#autothink .bt-note{font:italic 400 19px Merriweather,serif;fill:#3f4152}
+#autothink .bt-lab{font:italic 700 15px Merriweather,serif}
+#autothink .bt-tk{font:600 12px Inter,sans-serif;fill:#6d6b78}
+#autothink .bt-dot{transition:cy .7s cubic-bezier(.2,1.3,.4,1),opacity .3s}
+#autothink .bt-chk{transition:opacity .8s}
+#autothink .bt-ck{font:400 16px Merriweather,serif;fill:#9c3a4a}
+#autothink .bt-ck.ok{fill:#2c6b5f;font-weight:700}
+@media (prefers-reduced-motion:reduce){#autothink .bt-dot,#autothink .bt-chk,#autothink .bt-go{transition:none}}
 .ref h2{font-size:66px}
 .ref .lead{top:140px;width:980px;font-size:30px}
 .ref .body{position:absolute;left:74px;top:268px;width:1000px;bottom:14px;display:flex;flex-direction:column}
@@ -173,26 +206,31 @@
   </div>
 </section>
 
-<!-- automatic thinking -->
+<!-- automatic thinking · slide copied from Ryan Cornell's SOS110 Chapter 18 deck, answers stay in the browser -->
 <section class="slide" id="autothink">
   <div class="rail"><b>21</b><span>Automatic thinking</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>Quick puzzle · about 3 minutes · not recorded</div>
-    <h2 class="reveal d2" style="font-size:62px">A bat and a ball: <em>go with your first answer</em></h2>
-    <div class="two reveal d3" style="grid-template-columns:1fr 1fr;gap:40px">
-      <div class="mini">
-        <div class="card accent"><span class="tag">The puzzle</span><p style="font-size:32px">A bat and a ball cost <b>$1.10</b> in total. The bat costs <b>$1.00 more</b> than the ball.</p></div>
-        <div class="card gold"><span class="tag">Step 1</span><p style="font-size:30px">How many cents does the ball cost? Do not do any math. Type the first number that comes to mind.</p></div>
-        <div class="go-row"><input class="field" id="ba-in" inputmode="numeric" maxlength="3" placeholder="cents" style="width:200px;font-size:34px" aria-label="Ball cost in cents"><button class="btn" type="button" id="ba-check">Lock it in</button></div>
-        <div class="status" id="ba-fb" aria-live="polite" style="font-size:28px"></div>
-      </div>
-      <div class="mini">
-        <div class="rq" data-def><h3>Step 2: test your answer. If the ball costs 10 cents, what does the bat cost?</h3><p class="think">Tap to check.</p><p class="ans-text">The bat costs $1.00 more, so $1.10. Then the two together cost $1.20, not $1.10.</p></div>
-        <div class="rq" data-def><h3>Step 3: what is the right answer?</h3><p class="think">Tap to check.</p><p class="ans-text">The ball costs 5 cents and the bat costs $1.05. Together that is $1.10, and the bat is exactly $1.00 more.</p></div>
-        <div class="rq" data-def><h3>Step 4: why do so many people say 10 cents?</h3><p class="think">Tap to check.</p><p class="ans-text">That is automatic thinking. The answer feels easy and right, so we stop. Slowing down and checking is how we catch it.</p></div>
-        <p class="src">After the puzzle, discuss with your partner: where else do you go with the first answer? Puzzle from Frederick (2005), Journal of Economic Perspectives. Your answer is checked in your browser only.</p>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>Automatic thinking</div>
+    <h2 class="reveal d2" style="font-size:62px">A Bat and a Ball</h2>
+    <p class="bt-q reveal d2">A bat and a ball cost <b>$1.10</b> in total. The bat costs <b>$1.00 more</b> than the ball. How much does the ball cost?</p>
+    <div class="bt-split reveal d3">
+      <div class="bt-stage"><svg class="bt-svg" viewBox="0 0 1000 520" role="img" aria-label="A baseball bat and a ball, with a price tag of $1.10 for both" data-bt-svg>
+<defs><filter id="btr" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.7"/></filter><filter id="btw" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".024" numOctaves="3" seed="13"/><feDisplacementMap in="SourceGraphic" scale="8"/><feGaussianBlur stdDeviation=".7"/></filter><filter id="btg" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .22  0 0 0 0 .2  0 0 0 0 .3  0 0 0 .07 0"/></filter><filter id="bts" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter><pattern id="bth" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0 V5" stroke="#23253b" stroke-width=".8" opacity=".32"/></pattern><marker id="btm23253b" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#23253b"/></marker><marker id="btmb0483e" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#b0483e"/></marker><marker id="btm5b4a8b" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#5b4a8b"/></marker><marker id="btm2c6b5f" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#2c6b5f"/></marker><marker id="btma3722a" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#a3722a"/></marker><marker id="btm9c3a4a" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#9c3a4a"/></marker><marker id="btm2f5c84" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#2f5c84"/></marker><marker id="btm6d6b78" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1,1.2 L9,5 L1,8.8 L3,5 Z" fill="#6d6b78"/></marker><linearGradient id="btW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2b77d"/><stop offset=".45" stop-color="#c9935a"/><stop offset="1" stop-color="#9a6a3c"/></linearGradient><radialGradient id="btB" cx=".38" cy=".34" r=".8"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#efe9dc"/><stop offset="1" stop-color="#cfc6b3"/></radialGradient></defs>
+<rect width="1000" height="520" rx="12" fill="#fdfbf5"/>
+<g data-bt-life><path d="M40,420 H960" stroke="#23253b" stroke-width="1.4" opacity=".5"/><rect x="14" y="420" width="972" height="86" fill="#efe6d2" opacity=".55"/><path d="M150.0,404.0 L159.0,416.9 L163.5,415.5 L168.0,414.1 L172.0,411.3 L175.5,406.5 L179.5,403.7 L184.0,402.4 L188.5,401.0 L193.1,399.6 L197.6,398.2 L202.1,396.9 L206.6,395.5 L211.1,394.1 L215.6,392.8 L220.1,391.4 L224.6,390.0 L229.1,388.6 L233.6,387.3 L238.1,385.9 L242.7,384.5 L247.2,383.2 L251.7,381.8 L256.2,380.4 L260.7,379.0 L265.2,377.7 L269.7,376.3 L274.2,374.9 L278.7,373.5 L283.2,372.2 L287.7,370.8 L292.2,369.4 L296.8,368.1 L301.3,366.7 L305.8,365.3 L310.3,363.9 L314.8,362.6 L319.3,361.2 L323.8,359.8 L328.3,358.5 L332.8,357.1 L337.4,355.9 L341.9,354.7 L346.5,353.4 L351.0,352.2 L355.6,351.0 L360.1,349.7 L364.7,348.5 L369.2,347.2 L373.8,346.0 L378.3,344.8 L382.9,343.5 L387.5,342.3 L392.0,341.1 L396.6,339.8 L401.1,338.6 L405.7,337.3 L410.2,336.1 L414.8,334.9 L419.3,333.6 L423.9,332.4 L428.4,331.2 L433.0,329.9 L437.5,328.7 L442.1,327.4 L446.6,326.2 L451.2,325.0 L455.8,323.9 L460.4,322.9 L465.0,321.9 L469.6,320.9 L474.3,319.9 L478.9,318.9 L483.5,317.8 L488.1,316.8 L492.7,315.8 L497.3,314.8 L502.0,313.8 L506.6,312.7 L511.2,311.7 L515.8,310.7 L520.4,309.7 L525.1,308.7 L529.7,307.6 L534.3,306.6 L538.9,305.6 L543.5,304.6 L548.1,303.6 L552.8,302.5 L557.4,301.5 L562.0,300.5 L566.6,299.5 L571.2,298.5 L575.9,297.4 L580.4,296.3 L585.0,295.0 L589.5,293.7 L594.0,292.4 L598.5,291.0 L603.1,289.7 L607.6,288.4 L612.1,287.1 L616.6,285.8 L621.2,284.5 L625.7,283.1 L630.2,281.8 L634.7,280.5 L639.3,279.2 L643.8,277.9 L648.3,276.6 L652.9,275.2 L657.4,273.9 L661.9,272.6 L666.4,271.3 L671.0,270.0 L675.5,268.7 L680.0,267.3 L684.3,265.2 L688.4,262.5 L692.4,259.7 L696.5,257.0 L683.5,215.0 L678.6,215.1 L673.6,215.1 L668.7,215.2 L664.0,215.9 L659.5,217.3 L655.0,218.8 L650.6,220.3 L646.1,221.8 L641.6,223.3 L637.1,224.8 L632.7,226.2 L628.2,227.7 L623.7,229.2 L619.3,230.7 L614.8,232.2 L610.3,233.7 L605.8,235.1 L601.4,236.6 L596.9,238.1 L592.4,239.6 L587.9,241.1 L583.5,242.6 L579.0,244.0 L574.5,245.5 L570.0,247.0 L565.6,248.5 L561.1,250.2 L556.8,251.9 L552.4,253.7 L548.0,255.5 L543.6,257.3 L539.2,259.1 L534.9,260.8 L530.5,262.6 L526.1,264.4 L521.7,266.2 L517.3,268.0 L512.9,269.7 L508.6,271.5 L504.2,273.3 L499.8,275.1 L495.4,276.9 L491.0,278.6 L486.7,280.4 L482.3,282.2 L477.9,284.0 L473.5,285.8 L469.1,287.5 L464.7,289.3 L460.4,291.1 L456.0,292.9 L451.6,294.7 L447.2,296.5 L442.8,298.2 L438.4,299.8 L433.9,301.4 L429.5,302.9 L425.0,304.5 L420.6,306.0 L416.1,307.6 L411.7,309.2 L407.2,310.7 L402.8,312.3 L398.3,313.9 L393.9,315.4 L389.4,317.0 L385.0,318.5 L380.5,320.1 L376.1,321.7 L371.7,323.2 L367.2,324.8 L362.8,326.4 L358.3,327.9 L353.9,329.5 L349.4,331.0 L345.0,332.6 L340.5,334.2 L336.1,335.7 L331.6,337.3 L327.2,338.9 L322.7,340.3 L318.2,341.8 L313.7,343.2 L309.2,344.6 L304.7,346.1 L300.2,347.5 L295.7,348.9 L291.2,350.3 L286.8,351.8 L282.3,353.2 L277.8,354.6 L273.3,356.1 L268.8,357.5 L264.3,358.9 L259.8,360.3 L255.3,361.8 L250.8,363.2 L246.3,364.6 L241.8,366.0 L237.3,367.5 L232.9,368.9 L228.4,370.3 L223.9,371.8 L219.4,373.2 L214.9,374.6 L210.4,376.0 L205.9,377.5 L201.4,378.9 L196.9,380.3 L192.4,381.8 L187.9,383.2 L183.5,384.6 L179.0,386.0 L174.5,387.5 L169.5,387.5 L164.0,385.5 L159.0,385.5 L154.5,386.9 L150.0,388.3 L150.0,404.0 Z" fill="#000" opacity=".16" transform="translate(10 18)" filter="url(#bts)"/><path d="M150.0,404.0 L159.0,416.9 L163.5,415.5 L168.0,414.1 L172.0,411.3 L175.5,406.5 L179.5,403.7 L184.0,402.4 L188.5,401.0 L193.1,399.6 L197.6,398.2 L202.1,396.9 L206.6,395.5 L211.1,394.1 L215.6,392.8 L220.1,391.4 L224.6,390.0 L229.1,388.6 L233.6,387.3 L238.1,385.9 L242.7,384.5 L247.2,383.2 L251.7,381.8 L256.2,380.4 L260.7,379.0 L265.2,377.7 L269.7,376.3 L274.2,374.9 L278.7,373.5 L283.2,372.2 L287.7,370.8 L292.2,369.4 L296.8,368.1 L301.3,366.7 L305.8,365.3 L310.3,363.9 L314.8,362.6 L319.3,361.2 L323.8,359.8 L328.3,358.5 L332.8,357.1 L337.4,355.9 L341.9,354.7 L346.5,353.4 L351.0,352.2 L355.6,351.0 L360.1,349.7 L364.7,348.5 L369.2,347.2 L373.8,346.0 L378.3,344.8 L382.9,343.5 L387.5,342.3 L392.0,341.1 L396.6,339.8 L401.1,338.6 L405.7,337.3 L410.2,336.1 L414.8,334.9 L419.3,333.6 L423.9,332.4 L428.4,331.2 L433.0,329.9 L437.5,328.7 L442.1,327.4 L446.6,326.2 L451.2,325.0 L455.8,323.9 L460.4,322.9 L465.0,321.9 L469.6,320.9 L474.3,319.9 L478.9,318.9 L483.5,317.8 L488.1,316.8 L492.7,315.8 L497.3,314.8 L502.0,313.8 L506.6,312.7 L511.2,311.7 L515.8,310.7 L520.4,309.7 L525.1,308.7 L529.7,307.6 L534.3,306.6 L538.9,305.6 L543.5,304.6 L548.1,303.6 L552.8,302.5 L557.4,301.5 L562.0,300.5 L566.6,299.5 L571.2,298.5 L575.9,297.4 L580.4,296.3 L585.0,295.0 L589.5,293.7 L594.0,292.4 L598.5,291.0 L603.1,289.7 L607.6,288.4 L612.1,287.1 L616.6,285.8 L621.2,284.5 L625.7,283.1 L630.2,281.8 L634.7,280.5 L639.3,279.2 L643.8,277.9 L648.3,276.6 L652.9,275.2 L657.4,273.9 L661.9,272.6 L666.4,271.3 L671.0,270.0 L675.5,268.7 L680.0,267.3 L684.3,265.2 L688.4,262.5 L692.4,259.7 L696.5,257.0 L683.5,215.0 L678.6,215.1 L673.6,215.1 L668.7,215.2 L664.0,215.9 L659.5,217.3 L655.0,218.8 L650.6,220.3 L646.1,221.8 L641.6,223.3 L637.1,224.8 L632.7,226.2 L628.2,227.7 L623.7,229.2 L619.3,230.7 L614.8,232.2 L610.3,233.7 L605.8,235.1 L601.4,236.6 L596.9,238.1 L592.4,239.6 L587.9,241.1 L583.5,242.6 L579.0,244.0 L574.5,245.5 L570.0,247.0 L565.6,248.5 L561.1,250.2 L556.8,251.9 L552.4,253.7 L548.0,255.5 L543.6,257.3 L539.2,259.1 L534.9,260.8 L530.5,262.6 L526.1,264.4 L521.7,266.2 L517.3,268.0 L512.9,269.7 L508.6,271.5 L504.2,273.3 L499.8,275.1 L495.4,276.9 L491.0,278.6 L486.7,280.4 L482.3,282.2 L477.9,284.0 L473.5,285.8 L469.1,287.5 L464.7,289.3 L460.4,291.1 L456.0,292.9 L451.6,294.7 L447.2,296.5 L442.8,298.2 L438.4,299.8 L433.9,301.4 L429.5,302.9 L425.0,304.5 L420.6,306.0 L416.1,307.6 L411.7,309.2 L407.2,310.7 L402.8,312.3 L398.3,313.9 L393.9,315.4 L389.4,317.0 L385.0,318.5 L380.5,320.1 L376.1,321.7 L371.7,323.2 L367.2,324.8 L362.8,326.4 L358.3,327.9 L353.9,329.5 L349.4,331.0 L345.0,332.6 L340.5,334.2 L336.1,335.7 L331.6,337.3 L327.2,338.9 L322.7,340.3 L318.2,341.8 L313.7,343.2 L309.2,344.6 L304.7,346.1 L300.2,347.5 L295.7,348.9 L291.2,350.3 L286.8,351.8 L282.3,353.2 L277.8,354.6 L273.3,356.1 L268.8,357.5 L264.3,358.9 L259.8,360.3 L255.3,361.8 L250.8,363.2 L246.3,364.6 L241.8,366.0 L237.3,367.5 L232.9,368.9 L228.4,370.3 L223.9,371.8 L219.4,373.2 L214.9,374.6 L210.4,376.0 L205.9,377.5 L201.4,378.9 L196.9,380.3 L192.4,381.8 L187.9,383.2 L183.5,384.6 L179.0,386.0 L174.5,387.5 L169.5,387.5 L164.0,385.5 L159.0,385.5 L154.5,386.9 L150.0,388.3 L150.0,404.0 Z" fill="url(#btW)" stroke="#23253b" stroke-width="2" stroke-linejoin="round"/><path d="M461.2,300.3 L670.9,231.9" stroke="#8a5a2e" stroke-width="1" opacity=".45"/><path d="M473.3,301.1 L672.8,238.0" stroke="#8a5a2e" stroke-width="1" opacity=".45"/><path d="M485.6,302.5 L675.0,244.9" stroke="#8a5a2e" stroke-width="1" opacity=".45"/><path d="M497.7,303.3 L676.9,251.0" stroke="#8a5a2e" stroke-width="1" opacity=".45"/><path d="M195.9,399.2 l0.4,-19.0" stroke="#23253b" stroke-width="2.2" opacity=".55"/><path d="M212.1,394.1 l0.4,-19.0" stroke="#23253b" stroke-width="2.2" opacity=".55"/><path d="M228.3,389.1 l0.4,-19.0" stroke="#23253b" stroke-width="2.2" opacity=".55"/><path d="M244.5,384.0 l0.4,-19.0" stroke="#23253b" stroke-width="2.2" opacity=".55"/><path d="M260.7,379.0 l0.4,-19.0" stroke="#23253b" stroke-width="2.2" opacity=".55"/><ellipse cx="796" cy="420" rx="56" ry="9" fill="#000" opacity=".2" filter="url(#bts)"/><circle cx="790" cy="366" r="52" fill="url(#btB)" stroke="#23253b" stroke-width="2"/><path d="M756,328 C784,352 784,380 756,404" fill="none" stroke="#b0483e" stroke-width="1.6"/><path d="M824,328 C796,352 796,380 824,404" fill="none" stroke="#b0483e" stroke-width="1.6"/><path d="M760.4,335.8 l6,-3 M760.4,335.8 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M768.7,343.3 l6,-3 M768.7,343.3 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M775.5,350.9 l6,-3 M775.5,350.9 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M779.9,358.4 l6,-3 M779.9,358.4 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M781.5,366.0 l6,-3 M781.5,366.0 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M779.9,373.6 l6,-3 M779.9,373.6 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M775.5,381.1 l6,-3 M775.5,381.1 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M768.7,388.7 l6,-3 M768.7,388.7 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M760.4,396.2 l6,-3 M760.4,396.2 l6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M819.6,335.8 l-6,-3 M819.6,335.8 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M811.3,343.3 l-6,-3 M811.3,343.3 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M804.5,350.9 l-6,-3 M804.5,350.9 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M800.1,358.4 l-6,-3 M800.1,358.4 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M798.5,366.0 l-6,-3 M798.5,366.0 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M800.1,373.6 l-6,-3 M800.1,373.6 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M804.5,381.1 l-6,-3 M804.5,381.1 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M811.3,388.7 l-6,-3 M811.3,388.7 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M819.6,396.2 l-6,-3 M819.6,396.2 l-6,3" stroke="#b0483e" stroke-width="1.3"/><path d="M700,226 C730,190 770,168 806,160" fill="none" stroke="#23253b" stroke-width="1.2"/><g transform="translate(800 128) rotate(-8)"><path d="M0,0 h132 v62 h-132 l-16,-31 z" fill="#fff6d8" stroke="#23253b" stroke-width="1.6"/><circle cx="2" cy="31" r="4" fill="none" stroke="#23253b" stroke-width="1.3"/><text x="70" y="30" text-anchor="middle" class="bt-pr">$1.10</text><text x="70" y="50" text-anchor="middle" class="bt-pr2">for both</text></g><text x="500" y="474" text-anchor="middle" class="bt-note">The bat costs $1.00 more than the ball.</text></g>
+<g data-bt-plot style="display:none"></g>
+<rect width="1000" height="520" fill="#000" filter="url(#btg)" pointer-events="none"/><rect x="4" y="4" width="992" height="512" rx="12" fill="none" stroke="#23253b" stroke-width="1.8" pointer-events="none"/><rect x="12" y="12" width="976" height="496" rx="7" fill="none" stroke="#b0483e" stroke-opacity=".55" stroke-width="1" pointer-events="none"/><path d="M12,12 h10 M12,12 v10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M988,12 h-10 M988,12 v10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M12,508 h10 M12,508 v-10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M988,508 h-10 M988,508 v-10" stroke="#b0483e" stroke-width="2" pointer-events="none"/></svg></div>
+      <div class="bt-side">
+        <div class="bt-card" data-bt-ask><div class="bt-lbl">Your answer</div>
+          <label class="bt-in"><span>The ball costs</span><input type="number" min="0" max="110" step="1" inputmode="numeric" placeholder="?" data-bt-in aria-label="cents"><span>¢</span></label>
+          <button type="button" class="bt-go" data-bt-lock disabled>Lock it in</button>
+          <p class="bt-priv">Go with your first answer. Your answer stays in your browser.</p></div>
+        <div class="bt-card" data-bt-done hidden><div class="bt-lbl">Locked in</div><div class="bt-val" data-bt-mine></div><p class="bt-sub">Wait for your instructor to show the answer.</p>
+          <button type="button" class="bt-go" data-reveal="bat" data-bt-show>Show the answer</button></div>
+        <div class="bt-card" data-bt-res hidden></div>
       </div>
     </div>
+    <p class="bt-src">Frederick, S. (2005). Cognitive reflection and decision making. <i>Journal of Economic Perspectives</i>, 19(4), 25–42. Kahneman, D. (2011). <i>Thinking, Fast and Slow</i>, ch. 3. Slide design by Ryan Cornell.</p>
   </div>
 </section>
 
@@ -413,12 +451,50 @@ $('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow();
 sortShow();
 
 
-/* === AUTOMATIC THINKING PUZZLE === checked in the browser only */
-$('#ba-check').addEventListener('click', () => {
-  const v = parseFloat(String($('#ba-in').value).replace(/[^0-9.]/g, '')), fb = $('#ba-fb');
-  if (isNaN(v)) { say(fb, 'Type a number of cents first.', 'err'); return; }
-  say(fb, v === 5 ? 'That is the careful answer: 5 cents. Did you slow down?' : v === 10 ? 'Locked in. Now work through steps 2 to 4 to test it.' : 'Locked in. Now work through steps 2 to 4 to test it.', v === 5 ? 'ok' : '');
-});
+/* === AUTOMATIC THINKING: bat and ball === copied from Ryan Cornell's Chapter 18 deck; the answer is checked in the browser only */
+{
+  const NSV = 'http://www.w3.org/2000/svg';
+  const E = (t, a, p) => { const e = document.createElementNS(NSV, t); for (const k in a || {}) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  const T = (x, y, s, cls, p, an) => { const e = E('text', { x, y, class: cls || '', 'text-anchor': an || 'middle' }, p); e.textContent = s; return e; };
+  const sec = $('#autothink'), inp = $('[data-bt-in]', sec), lock = $('[data-bt-lock]', sec), ask = $('[data-bt-ask]', sec), done = $('[data-bt-done]', sec), res = $('[data-bt-res]', sec), life = $('[data-bt-life]', sec), plot = $('[data-bt-plot]', sec);
+  let mine = null;
+  ['keydown', 'keyup'].forEach(ev => inp.addEventListener(ev, e => e.stopPropagation()));
+  inp.addEventListener('input', () => { const v = parseFloat(inp.value); lock.disabled = !(v >= 0 && v <= 110); });
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !lock.disabled) lock.click(); });
+  lock.addEventListener('click', e => {
+    e.currentTarget.blur();
+    mine = Math.round(Math.max(0, Math.min(110, parseFloat(inp.value))));
+    ask.hidden = true; done.hidden = false; $('[data-bt-mine]', sec).textContent = mine + '¢';
+  });
+  function draw(v) {
+    plot.textContent = '';
+    const X0 = 120, X1 = 820, AX = 362, TOP = 25, MORE = 900, xs = a => a > TOP ? MORE : X0 + a / TOP * (X1 - X0);
+    E('path', { d: `M${X0},${AX} H${X1 + 20}`, stroke: '#23253b', 'stroke-width': 1.6 }, plot);
+    for (let t = 0; t <= TOP; t += 5) { E('path', { d: `M${xs(t)},${AX - 5} v10`, stroke: '#23253b', 'stroke-width': 1.2 }, plot); T(xs(t), AX + 26, t + '¢', 'bt-tk', plot); }
+    T(MORE, AX + 26, 'more', 'bt-tk', plot);
+    const ten = E('g', {}, plot), five = E('g', {}, plot);
+    E('rect', { x: xs(10) - 19, y: AX - 250, width: 38, height: 250, rx: 6, fill: '#9c3a4a', opacity: .08 }, ten);
+    E('rect', { x: xs(5) - 19, y: AX - 250, width: 38, height: 250, rx: 6, fill: '#2c6b5f', opacity: .1 }, five);
+    T(xs(10) - 19, AX - 262, '10¢: the answer that jumps to mind', 'bt-lab', ten, 'start').setAttribute('fill', '#9c3a4a');
+    T(xs(5) + 19, AX - 262, '5¢: correct', 'bt-lab', five, 'end').setAttribute('fill', '#2c6b5f');
+    const x = xs(v), y = AX - 12, col = v === 10 ? '#9c3a4a' : (v === 5 ? '#2c6b5f' : '#8b87a6');
+    const c = E('circle', { cx: x, cy: y - 40, r: 8.5, fill: col, stroke: '#fdfbf5', 'stroke-width': 1.4, class: 'bt-dot', style: 'opacity:0' }, plot);
+    setTimeout(() => { c.style.opacity = 1; c.setAttribute('cy', y); }, 200);
+    const chk = E('g', { class: 'bt-chk', style: 'opacity:0' }, plot);
+    E('rect', { x: 110, y: 418, width: 780, height: 74, rx: 10, fill: '#fdfbf5', stroke: '#23253b', 'stroke-opacity': .25 }, chk);
+    T(130, 448, 'Check 10¢: the bat would cost $1.10, and together they would cost $1.20.', 'bt-ck', chk, 'start');
+    T(130, 476, 'The ball costs 5¢ and the bat $1.05: a $1.00 difference, $1.10 in total.', 'bt-ck ok', chk, 'start');
+    setTimeout(() => { chk.style.opacity = 1; }, 900);
+  }
+  $('[data-bt-show]', sec).addEventListener('click', e => {
+    e.currentTarget.blur();
+    if (mine === null) return;
+    life.style.display = 'none'; plot.style.display = ''; done.hidden = true; res.hidden = false;
+    const cls = mine === 5 ? 'ok' : mine === 10 ? 'bad' : '', txt = mine === 5 ? '5¢ (correct)' : mine === 10 ? '10¢ (the quick answer)' : mine + '¢ (not quite)';
+    res.innerHTML = `<div class="bt-lbl">Your answer</div><div class="bt-bar ${cls}"><span>${esc(txt)}</span></div><p class="bt-hm">More than half of students at <b>Harvard, MIT and Princeton</b> answer 10¢. The quick answer feels so right that most of us never check it. That is <b>automatic thinking</b>.</p>`;
+    draw(mine);
+  });
+}
 
 /* tap-to-explore: count the three read-only icons */
 const seen = new Set();
