@@ -156,6 +156,24 @@
   </div>
 </section>
 
+<!-- fridge -->
+<section class="slide" id="fridge">
+  <div class="rail"><b>21</b><span>Collective action problem</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Setting the scene · a shared fridge</div>
+    <h2 class="reveal d2" style="font-size:68px">Whose job is it to <em>clean the fridge</em>?</h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <figure class="fig pic"><img src="../m7-l2-collective-action/img/fridge.jpg" alt="A crowded shared fridge with notes asking people to remove their food" style="width:100%;height:100%;max-height:680px;object-fit:cover;object-position:center 40%"><figcaption>Photo: Ross Anania / Getty Images, from the instructor's slides</figcaption></figure>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Everyone gains</b>A clean fridge helps all of us.</div>
+        <div class="sc gold"><b>Each person's choice</b>Skip the cleaning and still use the fridge.</div>
+        <div class="rq" data-def><h3>Quick question: what usually happens, and why?</h3><p class="think">Tap to check.</p><p class="ans-text">Everyone waits for someone else, so the fridge gets worse. Each person's best private choice leaves the group worse off. That is a collective action problem.</p></div>
+        <div class="rq" data-def><h3>Quick question: how could an office fix it?</h3><p class="think">Tap to check.</p><p class="ans-text">A rule and a rotation (government-style), a cleaning fee that hires someone (market), or a team agreement everyone keeps (civil society).</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
 <!-- 3 -->
 <section class="slide" id="places">
   <div class="rail"><b>21</b><span>The two places</span></div>
@@ -240,10 +258,12 @@
 import { connect } from '../../shared/live.js';
 import { initPace } from '../../shared/pace.js';
 import { loadSession, fill } from '../../shared/course.js';
-import { esc, $, $$, say } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
+import { esc, $, $$, say, wireReveals } from '../m5-l2-fews-nexus-energy/lecture.js?v=2026-10-21';
 
 const LECTURE = 'm7-s2';
 loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); }).catch(() => {});
+
+wireReveals();
 
 /* tap-to-explore: count the three read-only icons */
 const seen = new Set();
