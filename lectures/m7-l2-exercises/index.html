@@ -19,13 +19,23 @@
 #autothink [hidden]{display:none!important}
 #autothink .bt-card{padding:22px 26px;background:#fdfbf5;border:1px solid rgba(176,72,62,.42);border-top:6px solid var(--accent);border-radius:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 24px -16px rgba(30,30,55,.5)}
 #autothink .bt-lbl{font:800 17px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#a5574d}
-#autothink .bt-in{display:flex;align-items:center;gap:12px;margin:6px 0 2px;font:700 28px Merriweather,serif;color:#23253b}
-#autothink .bt-in input{width:130px;font:900 44px Merriweather,serif;color:#23253b;background:#fff6d8;border:2px solid #23253b;border-radius:10px;padding:4px 12px;text-align:right}
-#autothink .bt-in input::-webkit-outer-spin-button,#autothink .bt-in input::-webkit-inner-spin-button{appearance:none;margin:0}
-#autothink .bt-in span:last-child{font:900 42px Merriweather,serif}
 #autothink .bt-go{margin-top:8px;font:800 26px Inter,sans-serif;color:#fdfbf5;background:var(--accent);border:0;border-radius:999px;padding:16px 28px;cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1),filter .16s}
 #autothink .bt-go:hover{filter:brightness(.9)}#autothink .bt-go:active{transform:scale(.97)}
 #autothink .bt-go:disabled{background:#d7d1c2;color:#5d6663;cursor:default;filter:none;transform:none}
+#autothink .bt-help{margin:0;font:400 24px/1.4 Merriweather,serif;color:#2a2c3c}
+#autothink .bt-help b{color:var(--accent)}
+#autothink .bt-row{display:flex;gap:12px;flex-wrap:wrap}
+#autothink .bt-go.alt{background:#23253b}
+#autothink .bt-col{cursor:pointer;outline:none}
+#autothink .bt-col .tile{fill:#efe9dc;stroke:#23253b;stroke-opacity:.35;stroke-width:1.5;transition:y .6s cubic-bezier(.23,1,.32,1),height .6s cubic-bezier(.23,1,.32,1),fill .2s}
+#autothink .bt-col:hover .tile,#autothink .bt-col:focus-visible .tile{stroke-opacity:1}
+#autothink .bt-col.on .tile{fill:#C4851C;stroke-opacity:1}
+#autothink .bt-col.locked{cursor:default}
+#autothink .bt-xl{font:700 20px Merriweather,serif;fill:#23253b}
+#autothink .bt-pct{font:900 22px Merriweather,serif;fill:#23253b}
+#autothink .bt-bar-r{transition:y .8s cubic-bezier(.23,1,.32,1),height .8s cubic-bezier(.23,1,.32,1)}
+#autothink [data-bt-life]{transition:opacity .35s,transform .35s cubic-bezier(.23,1,.32,1)}
+#autothink [data-bt-life].out{opacity:0;transform:translateY(-14px)}
 #autothink .bt-priv,#autothink .bt-sub{margin:4px 0 0;font:italic 400 21px/1.4 Merriweather,serif;color:#55576a}
 #autothink .bt-val{font:900 76px/1 Merriweather,serif;color:#23253b}
 #autothink .bt-hm{margin:6px 0 0;font:400 24px/1.45 Merriweather,serif;color:#2a2c3c}
@@ -42,7 +52,7 @@
 #autothink .bt-chk{transition:opacity .8s}
 #autothink .bt-ck{font:400 16px Merriweather,serif;fill:#9c3a4a}
 #autothink .bt-ck.ok{fill:#2c6b5f;font-weight:700}
-@media (prefers-reduced-motion:reduce){#autothink .bt-dot,#autothink .bt-chk,#autothink .bt-go{transition:none}}
+@media (prefers-reduced-motion:reduce){#autothink .bt-dot,#autothink .bt-chk,#autothink .bt-go,#autothink .bt-col .tile,#autothink .bt-bar-r,#autothink [data-bt-life]{transition:none}}
 .ref h2{font-size:66px}
 .ref .lead{top:140px;width:980px;font-size:30px}
 .ref .body{position:absolute;left:74px;top:268px;width:1000px;bottom:14px;display:flex;flex-direction:column}
@@ -222,10 +232,10 @@
 <rect width="1000" height="520" fill="#000" filter="url(#btg)" pointer-events="none"/><rect x="4" y="4" width="992" height="512" rx="12" fill="none" stroke="#23253b" stroke-width="1.8" pointer-events="none"/><rect x="12" y="12" width="976" height="496" rx="7" fill="none" stroke="#b0483e" stroke-opacity=".55" stroke-width="1" pointer-events="none"/><path d="M12,12 h10 M12,12 v10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M988,12 h-10 M988,12 v10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M12,508 h10 M12,508 v-10" stroke="#b0483e" stroke-width="2" pointer-events="none"/><path d="M988,508 h-10 M988,508 v-10" stroke="#b0483e" stroke-width="2" pointer-events="none"/></svg></div>
       <div class="bt-side">
         <div class="bt-card" data-bt-ask><div class="bt-lbl">Your answer</div>
-          <label class="bt-in"><span>The ball costs</span><input type="number" min="0" max="110" step="1" inputmode="numeric" placeholder="?" data-bt-in aria-label="cents"><span>¢</span></label>
-          <button type="button" class="bt-go" data-bt-lock disabled>Lock it in</button>
-          <p class="bt-priv">Go with your first answer. Your answer stays in your browser.</p></div>
-        <div class="bt-card" data-bt-done hidden><div class="bt-lbl">Locked in</div><div class="bt-val" data-bt-mine></div><p class="bt-sub">Wait for your instructor to show the answer.</p>
+          <p class="bt-help">Tap <b>Animate</b> to see the answer choices. Then tap the bar you think is the price of the ball.</p>
+          <div class="bt-row"><button type="button" class="bt-go alt" data-bt-anim>Animate</button><button type="button" class="bt-go" data-bt-lock disabled>Submit anonymously</button></div>
+          <p class="bt-priv" data-bt-msg>Go with your first answer. Your answer is anonymous.</p></div>
+        <div class="bt-card" data-bt-done hidden><div class="bt-lbl">Submitted</div><div class="bt-val" data-bt-mine></div><p class="bt-sub">Wait for your instructor to show the class results.</p>
           <button type="button" class="bt-go" data-reveal="bat" data-bt-show>Show the answer</button></div>
         <div class="bt-card" data-bt-res hidden></div>
       </div>
@@ -451,49 +461,85 @@ $('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow();
 sortShow();
 
 
-/* === AUTOMATIC THINKING: bat and ball === copied from Ryan Cornell's Chapter 18 deck; the answer is checked in the browser only */
+/* === AUTOMATIC THINKING: bat and ball === puzzle and drawing from Ryan Cornell's Chapter 18 deck.
+   Students tap Animate, pick a bar, submit anonymously (poll "bat": 0 = 0¢, 1 = 5¢, 2 = 10¢, 3 = 15¢, 4 = more).
+   The class results show when the instructor releases the answer on the Pace page. */
 {
   const NSV = 'http://www.w3.org/2000/svg';
   const E = (t, a, p) => { const e = document.createElementNS(NSV, t); for (const k in a || {}) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
   const T = (x, y, s, cls, p, an) => { const e = E('text', { x, y, class: cls || '', 'text-anchor': an || 'middle' }, p); e.textContent = s; return e; };
-  const sec = $('#autothink'), inp = $('[data-bt-in]', sec), lock = $('[data-bt-lock]', sec), ask = $('[data-bt-ask]', sec), done = $('[data-bt-done]', sec), res = $('[data-bt-res]', sec), life = $('[data-bt-life]', sec), plot = $('[data-bt-plot]', sec);
-  let mine = null;
-  ['keydown', 'keyup'].forEach(ev => inp.addEventListener(ev, e => e.stopPropagation()));
-  inp.addEventListener('input', () => { const v = parseFloat(inp.value); lock.disabled = !(v >= 0 && v <= 110); });
-  inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !lock.disabled) lock.click(); });
-  lock.addEventListener('click', e => {
-    e.currentTarget.blur();
-    mine = Math.round(Math.max(0, Math.min(110, parseFloat(inp.value))));
-    ask.hidden = true; done.hidden = false; $('[data-bt-mine]', sec).textContent = mine + '¢';
-  });
-  function draw(v) {
+  const sec = $('#autothink'), ask = $('[data-bt-ask]', sec), done = $('[data-bt-done]', sec), res = $('[data-bt-res]', sec), life = $('[data-bt-life]', sec), plot = $('[data-bt-plot]', sec);
+  const anim = $('[data-bt-anim]', sec), lock = $('[data-bt-lock]', sec), msg = $('[data-bt-msg]', sec);
+  const LAB = ['0¢', '5¢', '10¢', '15¢', 'More'], CX = [160, 340, 520, 700, 880], AX = 362, W = 120;
+  let picked = null, sent = false, revealed = false, results = window.__paceResults || {};
+  const base = () => {
     plot.textContent = '';
-    const X0 = 120, X1 = 820, AX = 362, TOP = 25, MORE = 900, xs = a => a > TOP ? MORE : X0 + a / TOP * (X1 - X0);
-    E('path', { d: `M${X0},${AX} H${X1 + 20}`, stroke: '#23253b', 'stroke-width': 1.6 }, plot);
-    for (let t = 0; t <= TOP; t += 5) { E('path', { d: `M${xs(t)},${AX - 5} v10`, stroke: '#23253b', 'stroke-width': 1.2 }, plot); T(xs(t), AX + 26, t + '¢', 'bt-tk', plot); }
-    T(MORE, AX + 26, 'more', 'bt-tk', plot);
+    E('path', { d: `M80,${AX} H960`, stroke: '#23253b', 'stroke-width': 1.6 }, plot);
+    LAB.forEach((l, i) => T(CX[i], AX + 34, l, 'bt-xl', plot));
+  };
+  function drawChoices() {
+    base();
+    CX.forEach((x, i) => {
+      const g = E('g', { class: 'bt-col' + (picked === i ? ' on' : ''), role: 'button', tabindex: 0, 'aria-label': LAB[i].replace('¢', ' cents') }, plot);
+      E('rect', { x: x - W / 2, y: AX - 250, width: W, height: 250, fill: 'transparent' }, g);
+      const t = E('rect', { class: 'tile', x: x - W / 2 + 6, y: AX, width: W - 12, height: 0, rx: 8 }, g);
+      setTimeout(() => { t.setAttribute('y', AX - 210); t.setAttribute('height', 210); }, 60 + i * 90);
+      const pick = () => {
+        if (sent) return;
+        picked = i; $$('.bt-col', plot).forEach((c, k) => c.classList.toggle('on', k === i));
+        lock.disabled = false; msg.textContent = `You chose ${LAB[i]}. Submit when you are ready.`;
+      };
+      g.addEventListener('click', pick);
+      g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); pick(); } });
+    });
+  }
+  anim.addEventListener('click', e => {
+    e.currentTarget.blur();
+    life.classList.add('out');
+    setTimeout(() => { life.style.display = 'none'; plot.style.display = ''; drawChoices(); }, 300);
+    anim.disabled = true; msg.textContent = 'Tap the bar you think is the price of the ball.';
+  });
+  lock.addEventListener('click', async e => {
+    e.currentTarget.blur();
+    if (picked === null || sent) return;
+    lock.disabled = true; msg.textContent = 'Sending…';
+    try { await live.vote('bat', picked); }
+    catch (err) { lock.disabled = false; msg.textContent = err instanceof ReferenceError ? 'Could not reach the class server. Try again.' : err.message; return; }
+    sent = true; $$('.bt-col', plot).forEach(c => c.classList.add('locked'));
+    ask.hidden = true; done.hidden = false; $('[data-bt-mine]', sec).textContent = LAB[picked];
+  });
+  function drawResults() {
+    base();
+    const r = results.bat, n = r ? r.reduce((a, b) => a + (+b || 0), 0) : 0, mx = Math.max(1, ...(r || [0]));
     const ten = E('g', {}, plot), five = E('g', {}, plot);
-    E('rect', { x: xs(10) - 19, y: AX - 250, width: 38, height: 250, rx: 6, fill: '#9c3a4a', opacity: .08 }, ten);
-    E('rect', { x: xs(5) - 19, y: AX - 250, width: 38, height: 250, rx: 6, fill: '#2c6b5f', opacity: .1 }, five);
-    T(xs(10) - 19, AX - 262, '10¢: the answer that jumps to mind', 'bt-lab', ten, 'start').setAttribute('fill', '#9c3a4a');
-    T(xs(5) + 19, AX - 262, '5¢: correct', 'bt-lab', five, 'end').setAttribute('fill', '#2c6b5f');
-    const x = xs(v), y = AX - 12, col = v === 10 ? '#9c3a4a' : (v === 5 ? '#2c6b5f' : '#8b87a6');
-    const c = E('circle', { cx: x, cy: y - 40, r: 8.5, fill: col, stroke: '#fdfbf5', 'stroke-width': 1.4, class: 'bt-dot', style: 'opacity:0' }, plot);
-    setTimeout(() => { c.style.opacity = 1; c.setAttribute('cy', y); }, 200);
+    E('rect', { x: CX[2] - W / 2, y: AX - 250, width: W, height: 250, rx: 6, fill: '#9c3a4a', opacity: .08 }, ten);
+    E('rect', { x: CX[1] - W / 2, y: AX - 250, width: W, height: 250, rx: 6, fill: '#2c6b5f', opacity: .1 }, five);
+    T(CX[2] - W / 2, AX - 262, '10¢: the answer that jumps to mind', 'bt-lab', ten, 'start').setAttribute('fill', '#9c3a4a');
+    T(CX[1] + W / 2, AX - 262, '5¢: correct', 'bt-lab', five, 'end').setAttribute('fill', '#2c6b5f');
+    CX.forEach((x, i) => {
+      const col = i === 2 ? '#9c3a4a' : i === 1 ? '#2c6b5f' : '#8b87a6', h = r && n ? Math.round(r[i] / mx * 220) : 0;
+      const bar = E('rect', { class: 'bt-bar-r', x: x - 36, y: AX, width: 72, height: 0, rx: 6, fill: col, stroke: '#fdfbf5', 'stroke-width': 1.4 }, plot);
+      setTimeout(() => { bar.setAttribute('y', AX - h); bar.setAttribute('height', h); }, 120 + i * 90);
+      if (r && n) T(x, AX - h - 10, Math.round(r[i] / n * 100) + '%', 'bt-pct', plot);
+      if (picked === i) { E('circle', { cx: x, cy: AX + 54, r: 8, fill: '#C4851C', stroke: '#fdfbf5', 'stroke-width': 1.4 }, plot); T(x + 16, AX + 59, 'you', 'bt-tk', plot, 'start'); }
+    });
     const chk = E('g', { class: 'bt-chk', style: 'opacity:0' }, plot);
-    E('rect', { x: 110, y: 418, width: 780, height: 74, rx: 10, fill: '#fdfbf5', stroke: '#23253b', 'stroke-opacity': .25 }, chk);
-    T(130, 448, 'Check 10¢: the bat would cost $1.10, and together they would cost $1.20.', 'bt-ck', chk, 'start');
-    T(130, 476, 'The ball costs 5¢ and the bat $1.05: a $1.00 difference, $1.10 in total.', 'bt-ck ok', chk, 'start');
+    E('rect', { x: 110, y: 446, width: 780, height: 62, rx: 10, fill: '#fdfbf5', stroke: '#23253b', 'stroke-opacity': .25 }, chk);
+    T(130, 471, 'Check 10¢: the bat would cost $1.10, and together they would cost $1.20.', 'bt-ck', chk, 'start');
+    T(130, 496, 'The ball costs 5¢ and the bat $1.05: a $1.00 difference, $1.10 in total.', 'bt-ck ok', chk, 'start');
     setTimeout(() => { chk.style.opacity = 1; }, 900);
+    const pc = i => n ? Math.round(r[i] / n * 100) : 0;
+    res.innerHTML = '<div class="bt-lbl">Your class</div>' + (n
+      ? `<div class="bt-bar bad"><span>10¢ (the quick answer)</span><span>${pc(2)}%</span></div><div class="bt-bar ok"><span>5¢ (correct)</span><span>${pc(1)}%</span></div><div class="bt-bar"><span>Something else</span><span>${100 - pc(1) - pc(2)}%</span></div><p class="bt-sub">${n} ${n === 1 ? 'answer' : 'answers'}</p>`
+      : '<p class="bt-sub">Class results show here when your instructor shares them.</p>')
+      + '<p class="bt-hm">More than half of students at <b>Harvard, MIT and Princeton</b> answer 10¢. The quick answer feels so right that most of us never check it. That is <b>automatic thinking</b>.</p>';
   }
   $('[data-bt-show]', sec).addEventListener('click', e => {
     e.currentTarget.blur();
-    if (mine === null) return;
-    life.style.display = 'none'; plot.style.display = ''; done.hidden = true; res.hidden = false;
-    const cls = mine === 5 ? 'ok' : mine === 10 ? 'bad' : '', txt = mine === 5 ? '5¢ (correct)' : mine === 10 ? '10¢ (the quick answer)' : mine + '¢ (not quite)';
-    res.innerHTML = `<div class="bt-lbl">Your answer</div><div class="bt-bar ${cls}"><span>${esc(txt)}</span></div><p class="bt-hm">More than half of students at <b>Harvard, MIT and Princeton</b> answer 10¢. The quick answer feels so right that most of us never check it. That is <b>automatic thinking</b>.</p>`;
-    draw(mine);
+    if (!sent) return;
+    revealed = true; life.style.display = 'none'; plot.style.display = ''; done.hidden = true; res.hidden = false; drawResults();
   });
+  window.addEventListener('pace:results', e => { results = e.detail || {}; if (revealed) drawResults(); });
 }
 
 /* tap-to-explore: count the three read-only icons */
