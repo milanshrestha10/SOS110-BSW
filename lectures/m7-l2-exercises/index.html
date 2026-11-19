@@ -84,6 +84,23 @@
 .ref .pop .chips{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
 .ref .pop .chips button{font:700 28px var(--rbody);border:3px solid #2b2b2b;background:#fff;color:#2b2b2b;border-radius:999px;padding:10px 26px;cursor:pointer}
 .ref .pop .chips button.on{background:var(--red);border-color:var(--red);color:#fff}
+.srt{display:grid;grid-template-columns:600px 1fr;gap:44px;flex:1;min-height:0;align-items:stretch}
+.srt-def{display:grid;gap:16px;align-content:start}.srt-def .sc{font-size:27px}
+.srt-score{font:400 48px var(--display);color:var(--Blue)}.srt-score span{color:var(--accent)}
+.srt-card{background:var(--card);border:3px solid var(--paper-2);border-radius:20px;padding:34px 44px;display:flex;flex-direction:column;gap:22px}
+.srt-no{font:700 20px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.srt-q{font:400 52px/1.2 var(--display);min-height:200px}
+.srt-btns{display:flex;gap:18px;flex-wrap:wrap}
+.srt-btns .btn{font-size:30px;padding:16px 36px}
+.srt-btns .btn.right{background:#2e7d5b;border-color:#2e7d5b;color:#fff}.srt-btns .btn.wrong{background:#b3452c;border-color:#b3452c;color:#fff}
+.srt-fb{font-size:29px;line-height:1.38;min-height:120px}.srt-fb b{color:var(--Blue)}
+#srt-next{align-self:flex-start;font-size:26px}
+#thinkpair .stp{grid-template-columns:700px 1fr}
+#thinkpair .stp .fld{font-family:var(--body);width:100%;font-size:28px;resize:none;margin-bottom:6px}
+#thinkpair .stp textarea.fld{height:150px}
+#thinkpair .stp label{display:block;font:700 28px/1.25 var(--body);margin:8px 0 6px}
+#thinkpair .go-row{display:flex;gap:16px;align-items:center;margin-top:12px}
+#thinkpair .go-row .status{margin:0;font-size:24px}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -170,6 +187,74 @@
         <div class="rq" data-def><h3>Quick question: what usually happens, and why?</h3><p class="think">Tap to check.</p><p class="ans-text">Everyone waits for someone else, so the fridge gets worse. Each person's best private choice leaves the group worse off. That is a collective action problem.</p></div>
         <div class="rq" data-def><h3>Quick question: how could an office fix it?</h3><p class="think">Tap to check.</p><p class="ans-text">A rule and a rotation (government-style), a cleaning fee that hires someone (market), or a team agreement everyone keeps (civil society).</p></div>
       </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- sort -->
+<section class="slide" id="sort">
+  <div class="rail"><b>21</b><span>Check your understanding</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Sorting game · tap a button for each card</div>
+    <h2 class="reveal d2" style="font-size:62px">Which <em>collective action problem</em> is it?</h2>
+    <div class="srt reveal d3">
+      <div class="srt-def">
+        <div class="sc"><b>Free riding</b>Getting the benefit without paying your share.</div>
+        <div class="sc green"><b>Tragedy of the commons</b>Everyone over-uses a shared resource.</div>
+        <div class="sc gold"><b>Prisoner's dilemma</b>Each does better acting alone, but both lose.</div>
+        <div class="srt-score"><span id="srt-n">0</span> of 6 right</div>
+        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
+      </div>
+      <div class="srt-card" id="srt-card" aria-live="polite">
+        <div class="srt-no" id="srt-no"></div>
+        <div class="srt-q" id="srt-q" style="font-size:44px;min-height:240px"></div>
+        <div class="srt-btns"><button class="btn" type="button" data-a="f">Free riding</button><button class="btn" type="button" data-a="t">Tragedy of the commons</button><button class="btn" type="button" data-a="p">Prisoner's dilemma</button></div>
+        <div class="srt-fb" id="srt-fb"></div>
+        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
+      </div>
+    </div>
+    <p class="src reveal d4">Teaching examples made up for this lecture. Your answers are checked in your browser and are not recorded.</p>
+  </div>
+</section>
+
+<!-- league -->
+<section class="slide">
+  <div class="rail"><b>21</b><span>Collective action in sports</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Setting the scene · the NBA as a shared resource</div>
+    <h2 class="reveal d2" style="font-size:66px">Thirty rivals who <em>agree on rules</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 1100 560" role="img" aria-label="A loop: private teams compete, league rules share the load, competitive balance keeps fans interested, and team value stays high"><defs><marker id="arl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b2b2b"/></marker></defs><path d="M296 140L796 140" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M910 246L910 316" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M804 430L304 430" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><path d="M190 324L190 254" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arl)"/><circle cx="190" cy="140" r="100" fill="#42a8bf" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="190" y="134">30 private</text><text x="190" y="166">teams compete</text></g><circle cx="910" cy="140" r="100" fill="#C4851C" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="910" y="134">League rules</text><text x="910" y="166">draft and cap</text></g><circle cx="910" cy="430" r="100" fill="#2e7d5b" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="910" y="424">Any team can</text><text x="910" y="456">win someday</text></g><circle cx="190" cy="430" r="100" fill="#7b5ea7" stroke="#2b2b2b" stroke-width="4"/><g font-weight="700" fill="#fff" text-anchor="middle" font-size="26"><text x="190" y="424">Fans, TV deals</text><text x="190" y="456">and team value</text></g></svg></div>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Private owners</b>Each team is a privately owned business trying to make a profit and win.</div>
+        <div class="sc gold"><b>The shared resource</b>A league where any team has a chance. If the same few teams always won, fans and TV money would drift away.</div>
+        <div class="sc green"><b>The rules</b>The draft gives weaker teams the best odds at top young players. A salary cap and revenue sharing work the same way.</div>
+        <p class="src">Rules as described in public NBA materials and may change. Check the current NBA rules before class.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- think and pair -->
+<section class="slide" id="thinkpair">
+  <div class="rail"><b>21</b><span>Think and pair</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Think and pair · about 6 minutes · submit one answer each</div>
+    <h2 class="reveal d2" style="font-size:60px">Suppose the Suns finish <em>last</em> in 2028</h2>
+    <div class="stp reveal d3">
+      <div class="mini">
+        <div class="card accent"><span class="tag">The scene</span><p style="font-size:29px">In the 2028 season, the Phoenix Suns end with the worst record in the league. Under the draft rules, that gives them the best odds of a top pick. This is a made-up case.</p></div>
+        <div class="card gold"><span class="tag">Think first (1 minute), then pair up</span><p style="font-size:29px"><b>1.</b> How is the draft a collective action?<br><b>2.</b> How does it help a private-ownership, market-based system in the US?</p></div>
+        <p class="src" style="font-size:22px">Hint: think of 30 owners, one shared league, and what would happen to fans and team values if the same teams always won.</p>
+      </div>
+      <div>
+        <label for="tp-pair">Your pair (both names)</label><input class="field" id="tp-pair" maxlength="160" placeholder="Name and partner's name" style="width:100%;font-size:28px">
+        <label for="tp-1">1. How is this a collective action?</label>
+        <textarea class="fld" id="tp-1" maxlength="600" placeholder="Type your answer here."></textarea>
+        <label for="tp-2">2. How does it help a private-ownership market system in the US?</label>
+        <textarea class="fld" id="tp-2" maxlength="600" placeholder="Type your answer here."></textarea>
+        <div class="go-row"><button class="btn" type="button" id="tp-save">Submit</button><span class="status" id="tp-status"></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -266,6 +351,45 @@ loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); }).catch
 
 wireReveals();
 
+/* === SORT: WHICH COLLECTIVE ACTION PROBLEM === teaching examples, checked in the browser only */
+const NAME = { f: 'Free riding', t: 'The tragedy of the commons', p: "The prisoner's dilemma" };
+const SORT = [
+  ['Five roommates in a Tempe apartment all enjoy a clean kitchen, but only two ever clean it.', 'f', 'Three people get the benefit without paying their share of the work.'],
+  ['Farms and cities all pump from one shared aquifer. Each pumps more, because if they stop, someone else will take the water, and the water table keeps falling.', 't', 'A shared resource is used up because each user takes a little too much.'],
+  ['Two nearby cities each offer big tax breaks to land a new factory. Both lose tax money, but each fears the other will offer more.', 'p', 'Each does better acting alone, yet both end up worse off than if they had agreed.'],
+  ['On a popular Phoenix mountain trail, hikers each cut a switchback to save a minute, and the hillside washes away.', 't', 'Each shortcut seems small, but together they wear out a shared resource.'],
+  ['Some riders skip paying the light rail fare, while everyone else’s fares keep the system running.', 'f', 'They enjoy the service without paying their share.'],
+  ['Two coffee shops near campus each cut prices to win customers. Both would earn more if both kept prices high, but each fears the other cuts first.', 'p', 'Cooperating would help both, but acting alone seems safer, so both lose.'],
+];
+let si = 0, score = 0, answered = false;
+const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
+function sortShow() {
+  answered = false;
+  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
+  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
+  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; b.hidden = false; });
+  $('#srt-n').textContent = score;
+}
+$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
+  if (answered) return;
+  answered = true;
+  const ok = b.dataset.a === SORT[si][1];
+  if (ok) score++;
+  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
+  $('#srt-n').textContent = score;
+  snext.hidden = false;
+  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+}));
+snext.addEventListener('click', () => {
+  if (si < SORT.length - 1) { si++; sortShow(); return; }
+  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
+  sfb.innerHTML = ''; snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.hidden = true; });
+});
+$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
+sortShow();
+
+
 /* tap-to-explore: count the three read-only icons */
 const seen = new Set();
 const slide = $('#explore');
@@ -299,6 +423,14 @@ $('#dc-save').addEventListener('click', async () => {
   if (!await ensureUser(st)) return;
   say(st, 'Sending…');
   try { await live.saveSim('housing-decision', { choice, sentences: n, text }); Deck.sent($('#dc-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+$('#tp-save').addEventListener('click', async () => {
+  const st = $('#tp-status'), a = $('#tp-1').value.trim(), c = $('#tp-2').value.trim();
+  if (a.split(/\s+/).filter(Boolean).length < 4 || c.split(/\s+/).filter(Boolean).length < 4) { say(st, 'Write at least a short sentence for each question.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  say(st, 'Sending…');
+  try { await live.saveSim('suns-think-pair', { pair: $('#tp-pair').value.trim(), collective: a, market: c }); Deck.sent($('#tp-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>
