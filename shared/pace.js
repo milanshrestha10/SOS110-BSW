@@ -42,6 +42,9 @@ export function initPace(live, deck) {
     const p = lec?.pace?.[deck];
     if (!p) { answers = null; D.setLimit(null); return; } // pacing not started: everything open
     answers = Array.isArray(p.answers) ? p.answers : [];
+    /* class results the instructor released with an answer: { pollId: [count per choice] } */
+    window.__paceResults = p.results || {};
+    window.dispatchEvent(new CustomEvent('pace:results', { detail: window.__paceResults }));
     D.setLimit(Math.max(1, Number(p.open) || 1) - 1);
     answers.filter(id => !done.has(id)).forEach(id => { done.add(id); reveal(id); });
   });
