@@ -103,6 +103,8 @@ p,li{text-wrap:pretty}
 .vocab.eight .vcard .f,.vocab.eight .vcard .b{padding:20px 24px}
 .vocab.eight .vcard h4{font-size:34px;margin-bottom:8px}
 .vocab.eight .vcard p{font-size:21px;line-height:1.34}
+.vocab.eight.six{grid-template-columns:repeat(3,1fr)}
+.vocab.eight.six .vcard p{font-size:23px}
 .tlg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0;align-content:stretch}
 .tlg .tc{background:var(--card);border:2px solid var(--paper-2);border-top:10px solid var(--Sky);border-radius:16px;padding:16px 22px;display:flex;flex-direction:column;gap:6px}
 .tlg .tc .y{font:400 62px/1 var(--display);color:var(--Blue)}
@@ -313,8 +315,8 @@ p,li{text-wrap:pretty}
   <div class="rail"><b>22</b><span>Key terms</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
-    <h2 class="reveal d2">Four institutional <em>building blocks</em></h2>
-    <div class="vocab four reveal d3" data-vocab></div>
+    <h2 class="reveal d2">Six institutional <em>building blocks</em></h2>
+    <div class="vocab eight six reveal d3" data-vocab></div>
   </div>
 </section>
 
@@ -645,8 +647,8 @@ import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews
 const LECTURE = 'm7-s3';
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
-/* === KEY TERMS === four glossary terms the instructor lists for this lecture */
-const KEY_TERMS = [['Institution', 'scale', 'gold'], ['Governance', 'users', 'sky'], ['Property Rights', 'home', 'green'], ['Stakeholder', 'users', 'green']];
+/* === KEY TERMS === six glossary terms the instructor lists for this lecture */
+const KEY_TERMS = [['Institution', 'building', 'gold'], ['Governance', 'map', 'sky'], ['Property Rights', 'home', 'green'], ['Regulation', 'scale', 'sky'], ['Public Policy', 'vote', 'gold'], ['Stakeholder', 'users', 'green']];
 function showTerms({ course }) {
   const gloss = course.glossary.flatMap(g => g.terms);
   $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name); return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
