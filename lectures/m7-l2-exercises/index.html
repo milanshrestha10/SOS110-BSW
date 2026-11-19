@@ -173,6 +173,29 @@
   </div>
 </section>
 
+<!-- automatic thinking -->
+<section class="slide" id="autothink">
+  <div class="rail"><b>21</b><span>Automatic thinking</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>Quick puzzle · about 3 minutes · not recorded</div>
+    <h2 class="reveal d2" style="font-size:62px">A bat and a ball: <em>go with your first answer</em></h2>
+    <div class="two reveal d3" style="grid-template-columns:1fr 1fr;gap:40px">
+      <div class="mini">
+        <div class="card accent"><span class="tag">The puzzle</span><p style="font-size:32px">A bat and a ball cost <b>$1.10</b> in total. The bat costs <b>$1.00 more</b> than the ball.</p></div>
+        <div class="card gold"><span class="tag">Step 1</span><p style="font-size:30px">How many cents does the ball cost? Do not do any math. Type the first number that comes to mind.</p></div>
+        <div class="go-row"><input class="field" id="ba-in" inputmode="numeric" maxlength="3" placeholder="cents" style="width:200px;font-size:34px" aria-label="Ball cost in cents"><button class="btn" type="button" id="ba-check">Lock it in</button></div>
+        <div class="status" id="ba-fb" aria-live="polite" style="font-size:28px"></div>
+      </div>
+      <div class="mini">
+        <div class="rq" data-def><h3>Step 2: test your answer. If the ball costs 10 cents, what does the bat cost?</h3><p class="think">Tap to check.</p><p class="ans-text">The bat costs $1.00 more, so $1.10. Then the two together cost $1.20, not $1.10.</p></div>
+        <div class="rq" data-def><h3>Step 3: what is the right answer?</h3><p class="think">Tap to check.</p><p class="ans-text">The ball costs 5 cents and the bat costs $1.05. Together that is $1.10, and the bat is exactly $1.00 more.</p></div>
+        <div class="rq" data-def><h3>Step 4: why do so many people say 10 cents?</h3><p class="think">Tap to check.</p><p class="ans-text">That is automatic thinking. The answer feels easy and right, so we stop. Slowing down and checking is how we catch it.</p></div>
+        <p class="src">After the puzzle, discuss with your partner: where else do you go with the first answer? Puzzle from Frederick (2005), Journal of Economic Perspectives. Your answer is checked in your browser only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- fridge -->
 <section class="slide" id="fridge">
   <div class="rail"><b>21</b><span>Collective action problem</span></div>
@@ -389,6 +412,13 @@ snext.addEventListener('click', () => {
 $('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
 sortShow();
 
+
+/* === AUTOMATIC THINKING PUZZLE === checked in the browser only */
+$('#ba-check').addEventListener('click', () => {
+  const v = parseFloat(String($('#ba-in').value).replace(/[^0-9.]/g, '')), fb = $('#ba-fb');
+  if (isNaN(v)) { say(fb, 'Type a number of cents first.', 'err'); return; }
+  say(fb, v === 5 ? 'That is the careful answer: 5 cents. Did you slow down?' : v === 10 ? 'Locked in. Now work through steps 2 to 4 to test it.' : 'Locked in. Now work through steps 2 to 4 to test it.', v === 5 ? 'ok' : '');
+});
 
 /* tap-to-explore: count the three read-only icons */
 const seen = new Set();
