@@ -240,32 +240,21 @@ p,li{text-wrap:pretty}
 .ie h3{font:400 56px var(--display)}
 .ie ul{margin:0;padding-left:34px;font-size:34px;line-height:1.5}
 .ie .i{background:#e8f2ee;border:3px solid #2e7d5b}.ie .c{background:#fbf1dc;border:3px solid var(--accent)}
-/* === LECTURE 22 === institutions and governance (M7 L3) */
-.pc2{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;min-height:0}
-.pc2 figure{margin:0;display:flex;flex-direction:column;gap:8px;min-height:0}
-.pc2 img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:14px;display:block;flex:1}
-.pc2 figcaption{font:700 24px var(--body);color:var(--mute)}
-.rv{display:grid;grid-template-columns:640px 1fr;gap:34px;flex:1;min-height:0;align-items:start}
-.rv-l{display:grid;gap:12px;align-content:start}
-.rv-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--card);border:2px solid var(--paper-2);border-radius:14px;padding:10px 18px}
-.rv-row h3{font:400 34px var(--display);margin:0}.rv-row small{display:block;font:400 21px var(--body);color:var(--mute)}
-.rv-row .sw{display:flex;gap:6px}
-.rv-row .sw button{font:700 24px var(--body);padding:8px 16px;border-radius:10px;border:2px solid var(--Blue);background:#fff;color:var(--Blue);cursor:pointer;transition:transform .16s var(--out),background-color .16s ease,color .16s ease}
-.rv-row .sw button:active{transform:scale(.97)}.rv-row .sw button.on{background:var(--Blue);color:#fff}
-.rv-go{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.rv-go .btn{font-size:28px;padding:12px 30px}
-.rv-r{display:grid;gap:12px;align-content:start}
-.rv-chart{background:#fff;border:2px solid var(--paper-2);border-radius:16px;padding:8px}
-.rv-chart svg{width:100%;height:auto;display:block}.rv-chart svg text{font-family:var(--body)}
-.rv-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.rv-stats div{background:var(--card);border:2px solid var(--paper-2);border-radius:12px;padding:8px 14px;font-size:22px;line-height:1.2}
-.rv-stats b{display:block;font:400 40px var(--display);color:var(--Blue)}
-.rv-stats .bad b{color:#b3452c}.rv-stats .good b{color:#2e7d5b}
-.rv-msg{font-size:27px;line-height:1.35;min-height:80px}.rv-msg b{color:var(--Blue)}
-.sc4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1;min-height:0;align-content:stretch}
-.tbl{width:100%;border-collapse:collapse;font-size:37px;background:#fff}
-.tbl th{background:#087b97;color:#fff;font:700 26px/1.2 var(--body);text-align:left;padding:16px 20px}
-.tbl td{padding:20px 20px;border-top:2px solid var(--paper-2);vertical-align:top;line-height:1.3}
-.tbl td:first-child{font-weight:700;white-space:nowrap}
+/* === LECTURE 22 === institutional approach (M7 L3) */
+.c4{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;min-height:0;align-content:stretch}
+.c4 .card{display:flex;flex-direction:column;justify-content:center}
+.c4 .card h3{font:400 44px/1.12 var(--display);margin:4px 0 10px}
+.c4 .card p{font-size:31px;line-height:1.35;margin:0}
+.c4.sm .card h3{font-size:40px}.c4.sm .card p{font-size:28px}
+.tbl{width:100%;border-collapse:collapse;font-size:31px;background:#fff}
+.tbl th{background:#087b97;color:#fff;font:700 28px/1.2 var(--body);text-align:left;padding:16px 20px}
+.tbl td{padding:18px 20px;border-top:2px solid var(--paper-2);vertical-align:top;line-height:1.3}
+.tbl tr:first-child td{border-top:0}
+.ex2{display:grid;grid-template-columns:760px 1fr;gap:40px;flex:1;min-height:0;align-items:start}
+.ex2 .fld{width:100%;font-size:27px;resize:none;margin-bottom:4px}
+.ex2 textarea.fld{height:120px}
+.ex2 label{display:block;font:700 27px/1.25 var(--body);margin:6px 0 4px}
+.ex2 .tm{display:flex;gap:12px;margin:4px 0 8px}.ex2 .tm .btn{font-size:26px;padding:10px 24px}.ex2 .tm .btn.on{background:var(--Blue);border-color:var(--Blue);color:#fff}
 </style>
 <link rel="stylesheet" href="../../shared/webapp.css?v=2026-10-30">
 </head>
@@ -308,13 +297,13 @@ p,li{text-wrap:pretty}
 
 <!-- 1 -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center 55%" src="img/vegas-mead-2022.jpg" alt="Satellite view of Las Vegas and Lake Mead in 2022, with pale rock exposed around the shore of a lower lake">
+  <img class="hero-img" style="object-position:center 40%" src="img/solar-installers.jpg" alt="Two workers in orange safety gear and harnesses kneel on a roof to install blue solar panels">
   <div class="hero-scrim"></div>
   <div class="hero-text">
     <div class="hero-badge reveal"><b>M<em>07</em></b><span data-fill="module-title">Institutional Change for Sustainability</span></div>
     <div class="title-k reveal d2">Lecture 22 · Reading: S&amp;M Chapter 19</div>
-    <h1 class="reveal d2" style="font-size:104px">Institutions and <em>governance</em></h1>
-    <p class="hero-sub reveal d3" style="max-width:900px">The rules, rights and decision systems that shape who can use a shared resource, and how much.</p>
+    <h1 class="reveal d2" style="font-size:96px">Institutional approach to <em>sustainability</em></h1>
+    <p class="hero-sub reveal d3" style="max-width:900px">How groups, organizations and institutions scale up collective action.</p>
     <div class="goldline"></div>
   </div>
 </section>
@@ -324,7 +313,7 @@ p,li{text-wrap:pretty}
   <div class="rail"><b>22</b><span>Key terms</span></div>
   <div class="content fill">
     <div class="k reveal ih"><span class="ico sm"><svg aria-hidden="true"><use href="#i-book"/></svg></span>Key terms · tap a card to see an example</div>
-    <h2 class="reveal d2">Key <em>terms</em> for today</h2>
+    <h2 class="reveal d2">Four institutional <em>building blocks</em></h2>
     <div class="vocab four reveal d3" data-vocab></div>
   </div>
 </section>
@@ -334,8 +323,8 @@ p,li{text-wrap:pretty}
   <div class="rail"><b>22</b><span>Warm-up poll</span></div>
   <div class="content center">
     <div class="k reveal">Warm-up · make your best guess, we will check it soon</div>
-    <h2 class="reveal d2" style="font-size:62px;max-width:1600px">Your company buys land next to a river. Can it take <em>all the water</em> it wants?</h2>
-    <div class="poll reveal d3" data-poll="warmup"><button class="opt" type="button"><b>A</b>Yes, owning the land means owning the water</button><button class="opt" type="button"><b>B</b>Only as far as the law and shared agreements allow</button><button class="opt" type="button"><b>C</b>Yes, as long as it pays a small fee</button><button class="opt" type="button"><b>D</b>No, nobody may ever take river water</button></div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">Which can do more to shrink a large university's <em>footprint</em>?</h2>
+    <div class="poll reveal d3" data-poll="warmup"><button class="opt" type="button"><b>A</b>One student who recycles carefully</button><button class="opt" type="button"><b>B</b>The university changing its buying and building rules</button><button class="opt" type="button"><b>C</b>Ten students who turn off their lights</button><button class="opt" type="button"><b>D</b>Neither, a footprint cannot change</button></div>
     <div class="status" data-poll-status="warmup"></div>
   </div>
 </section>
@@ -344,14 +333,14 @@ p,li{text-wrap:pretty}
 <section class="slide">
   <div class="rail"><b>22</b><span>Big ideas</span></div>
   <div class="content center">
-    <div class="k reveal">Big ideas · the rules behind the resources</div>
+    <div class="k reveal">Big ideas · from my choices to our rules</div>
     <h2 class="reveal d2">Today's big <em>ideas</em></h2>
     <div class="grid g3 bigs reveal d3">
-      <div class="card accent"><span class="ico"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><span class="tag">1 · Institutions</span><h3>What are the "rules in use"?</h3><p>Laws, customs and organizations that shape how people and businesses act.</p></div>
-      <div class="card green"><span class="ico green"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="tag">2 · Rights and rules</span><h3>Who may use what, and how much?</h3><p>Property rights say who can use a resource. Regulation sets limits on how.</p></div>
-      <div class="card gold"><span class="ico gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span><span class="tag">3 · Governance</span><h3>Who decides, and can the rules change?</h3><p>Many levels share decisions, and good rules adjust as conditions change.</p></div>
+      <div class="card accent"><span class="ico"><svg aria-hidden="true"><use href="#i-building"/></svg></span><span class="tag">1 · Organizations</span><h3>Why do groups matter?</h3><p>Organizations pool money, skills and trust, so one decision reaches thousands of people.</p></div>
+      <div class="card green"><span class="ico green"><svg aria-hidden="true"><use href="#i-users"/></svg></span><span class="tag">2 · Inside and outside</span><h3>How does an organization change?</h3><p>Insiders push from within, and outsiders add pressure. The best change uses both.</p></div>
+      <div class="card gold"><span class="ico gold"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span><span class="tag">3 · Adaptive rules</span><h3>How do rules keep up?</h3><p>Institutions that learn from new data handle a changing world better.</p></div>
     </div>
-    <div class="take reveal d4"><b>Takeaway</b>A shared resource is only as safe as the rules people actually follow.</div>
+    <div class="take reveal d4"><b>Takeaway</b>You do not need to be the boss to change an organization.</div>
   </div>
 </section>
 
@@ -382,27 +371,24 @@ p,li{text-wrap:pretty}
   <div class="rail"><b>22</b><span>Review quiz</span></div>
   <div class="content center">
     <div class="k reveal">Review question · from the last lecture · pick one answer</div>
-    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">Several farms and cities all pump from one shared aquifer, and each takes a little too much. Which problem is this?</h2>
-    <div class="poll reveal d3" data-poll="review" data-correct="1"><button class="opt" type="button"><b>A</b>Free riding</button><button class="opt" type="button"><b>B</b>The tragedy of the commons</button><button class="opt" type="button"><b>C</b>The prisoner's dilemma</button><button class="opt" type="button"><b>D</b>A perverse result</button></div>
+    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">A city offers a <em>tax rebate</em> to people who install solar panels. Which government tool is that?</h2>
+    <div class="poll reveal d3" data-poll="review" data-correct="1"><button class="opt" type="button"><b>A</b>Prescriptive regulation</button><button class="opt" type="button"><b>B</b>Payments</button><button class="opt" type="button"><b>C</b>Penalties</button><button class="opt" type="button"><b>D</b>Persuasion</button></div>
     <div class="status" data-poll-status="review"></div><div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="review">Show the answer</button></div>
   </div>
 </section>
 
 <!-- 7 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Setting the scene</span></div>
+  <div class="rail"><b>22</b><span>The structural ceiling</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Setting the scene · one river, many users</div>
-    <h2 class="reveal d2" style="font-size:68px">Who decides how much <em>each user</em> takes?</h2>
-    <div class="two l reveal d3" style="grid-template-columns:1100px 1fr">
-      <div class="pc2">
-        <figure><img src="img/vegas-mead-1984.jpg" alt="Satellite view of Las Vegas and Lake Mead in May 1984: a small city and a fuller lake"><figcaption>May 1984</figcaption></figure>
-        <figure><img src="img/vegas-mead-2022.jpg" alt="Satellite view of Las Vegas and Lake Mead in June 2022: a larger city and a lower lake"><figcaption>June 2022</figcaption></figure>
-      </div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Setting the scene · why choices hit a ceiling</div>
+    <h2 class="reveal d2" style="font-size:66px">Why individual choices hit a <em>structural ceiling</em></h2>
+    <div class="two l reveal d3" style="grid-template-columns:900px 1fr">
+      <figure class="fig pic"><img src="img/orbit-cng-bus.jpg" alt="A blue and white Tempe Orbit circulator bus parked at a stop" style="width:100%;height:100%;max-height:680px;object-fit:cover"><figcaption>A Tempe Orbit circulator bus.</figcaption></figure>
       <div class="side"><div class="mini">
-        <div class="sc"><b>Las Vegas and Lake Mead</b>Cities, farms and other users in the Southwest all draw on the Colorado River system.</div>
-        <div class="rq" data-def><h3>Quick question: who decides who gets how much?</h3><p class="think">Tap to check.</p><p class="ans-text">Not one person. A mix of laws, agreements between states and countries, courts and agencies carries the rules out. These are institutions.</p></div>
-        <p class="src">Images: Landsat 5 (USGS) and Sentinel-2 (Copernicus, ESA).</p>
+        <div class="sc"><b>Last lecture</b>Habits, defaults and nudges shape personal choices.</div>
+        <div class="sc gold"><b>The limit</b>Even a motivated student cannot build a light-rail line, rewrite a building code or decarbonize a hospital supply chain alone.</div>
+        <div class="rq" data-def><h3>Quick question: what decides if you can commute without a car?</h3><p class="think">Tap to check.</p><p class="ans-text">Not only willpower. Transit boards, zoning rules and campus shuttle systems decide which choices are realistic and affordable. These are institutions.</p></div>
       </div></div>
     </div>
   </div>
@@ -410,297 +396,242 @@ p,li{text-wrap:pretty}
 
 <!-- 8 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Institutions</span></div>
+  <div class="rail"><b>22</b><span>Social capital</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Big idea 1 · rules in use</div>
-    <h2 class="reveal d2" style="font-size:68px">An <em>institution</em> is a set of rules people follow</h2>
-    <div class="ie reveal d3">
-      <div class="i"><h3>Formal</h3><ul><li>Laws and regulations</li><li>Courts and agencies</li><li>Permits and contracts</li></ul></div>
-      <div class="c"><h3>Informal</h3><ul><li>Customs and norms</li><li>Handshake agreements</li><li>What neighbors expect</li></ul></div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 1 · S&amp;M 19.1 · how are we connected?</div>
+    <h2 class="reveal d2" style="font-size:68px"><em>Social capital</em> lets groups act together</h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">Inside a group</span><h3>Bonding capital</h3><p>Tight trust among similar people, like your dorm floor or a club. It builds loyalty.</p></div>
+      <div class="card green"><span class="tag">Across groups</span><h3>Bridging capital</h3><p>Links between different majors, neighborhoods or sectors. It is essential for complex problems.</p></div>
+      <div class="card gold"><span class="tag">The commons</span><h3>Rules beat collapse</h3><p>Without shared rules, people drain open resources like aquifers and fisheries.</p></div>
+      <div class="card sky"><span class="tag">Elinor Ostrom</span><h3>Communities can manage</h3><p>Her research showed local groups avoid collapse with clear boundaries, monitoring and fair penalties.</p></div>
     </div>
-    <div class="rq reveal d4" data-def style="margin-top:22px"><h3>Quick question: is a business an institution?</h3><p class="think">Tap to check.</p><p class="ans-text">The word has two uses. An organization, like a water district or a company, can be called an institution. In this lecture the key point is the rules that shape how people act, with or without a building.</p></div>
+    <div class="rq reveal d4" data-def style="margin-top:22px"><h3>Quick question: why does bridging matter on campus?</h3><p class="think">Tap to check.</p><p class="ans-text">A nursing student flags heat risk, an engineer designs a shaded bus stop, and a business student models the cost. Each sees only part of the answer.</p></div>
   </div>
 </section>
 
 <!-- 9 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>How rules shape outcomes</span></div>
+  <div class="rail"><b>22</b><span>Why organizations matter</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 1 · the rule loop</div>
-    <h2 class="reveal d2" style="font-size:68px">Rules shape choices, and results <em>shape the rules</em></h2>
-    <div class="two l reveal d3" style="grid-template-columns:1000px 1fr">
-      <div class="dia" style="padding:10px"><svg viewBox="0 0 1000 620" role="img" aria-label="A loop: people and firms make choices, choices change the shared resource, the results lead to new or revised rules, and rules guide people and firms"><defs><marker id="ar9" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#2b2b2b"/></marker></defs>
-        <rect width="1000" height="620" fill="#f7f5ef"/>
-        <g fill="none" stroke="#2b2b2b" stroke-width="7" marker-end="url(#ar9)"><path d="M382 160H600"/><path d="M800 250V360"/><path d="M618 490H400"/><path d="M200 380V270"/></g>
-        <g stroke="#2b2b2b" stroke-width="4"><circle cx="200" cy="160" r="100" fill="#0d7397"/><circle cx="800" cy="160" r="100" fill="#2e7d5b"/><circle cx="800" cy="490" r="100" fill="#C4851C"/><circle cx="200" cy="490" r="100" fill="#42a8bf"/></g>
-        <g font-family="PT Serif,Georgia,serif" font-weight="700" font-size="28" fill="#fff" text-anchor="middle"><text x="200" y="152">People</text><text x="200" y="186">and firms</text><text x="800" y="152">Shared</text><text x="800" y="186">resource</text><text x="800" y="482">Results</text><text x="800" y="516">appear</text><text x="200" y="482">Rules</text><text x="200" y="516">adjust</text></g>
-        <g font-family="PT Serif,Georgia,serif" font-weight="700" font-size="26" fill="#2b2b2b" text-anchor="middle"><text x="492" y="140">make choices</text><text x="822" y="300" text-anchor="start">use it up</text><text x="822" y="332" text-anchor="start">or keep it</text><text x="505" y="536">fix what failed</text><text x="182" y="318" text-anchor="end">guide</text><text x="182" y="350" text-anchor="end">behavior</text></g>
-      </svg></div>
-      <div class="side"><div class="mini">
-        <div class="sc"><b>Rules guide</b>Limits, rights and customs steer what people and firms choose.</div>
-        <div class="sc green"><b>Results show</b>A river that runs low or a market that fails tells us a rule is not working.</div>
-        <div class="sc gold"><b>Rules adjust</b>Institutions that learn can change. Ones that never change get dodged.</div>
-      </div></div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 1 · S&amp;M 19.2 · leverage points</div>
+    <h2 class="reveal d2" style="font-size:66px">Organizations are <em>multipliers</em></h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Pool resources</h3><p>They combine money, skills and buying power, like a university signing one large solar contract.</p></div>
+      <div class="card green"><span class="tag">2</span><h3>Keep memory</h3><p>Students graduate and staff move on, but policies, budgets and procedures stay.</p></div>
+      <div class="card sky"><span class="tag">3</span><h3>Lower the cost of choosing</h3><p>One buying standard covers thousands of people, so nobody researches suppliers alone.</p></div>
+      <div class="card gold"><span class="tag">4</span><h3>Amplify voice</h3><p>Coalitions of hospitals, schools or trade groups carry more weight than lone consumers.</p></div>
     </div>
+    <p class="src reveal d4">Buying power example: U.S. universities, school districts, hospitals and city governments together spend more than $1.5 trillion a year, according to the instructor's slides.</p>
   </div>
 </section>
 
 <!-- 10 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Property rights</span></div>
+  <div class="rail"><b>22</b><span>Four sectors</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Big idea 2 · who may use a resource?</div>
-    <h2 class="reveal d2" style="font-size:68px">Four kinds of <em>property rights</em></h2>
-    <div class="lg4 reveal d3">
-      <div class="card accent"><span class="tag">1</span><h3>Private</h3><p>One owner decides, like a house, a shop or a farm.</p></div>
-      <div class="card green"><span class="tag">2</span><h3>Common</h3><p>A group owns it together and sets its own rules, like a shared irrigation canal.</p></div>
-      <div class="card sky"><span class="tag">3</span><h3>State</h3><p>The public owns it and a government manages it, like a national forest.</p></div>
-      <div class="card gold"><span class="tag">4</span><h3>Open access</h3><p>Nobody has rights, so anyone can use it, like fish in open ocean.</p></div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 1 · S&amp;M 19.2 · who drives change?</div>
+    <h2 class="reveal d2" style="font-size:68px">Four <em>sectors</em>, one transition</h2>
+    <div class="two l reveal d3" style="grid-template-columns:960px 1fr">
+      <div class="dia" style="padding:10px"><svg viewBox="0 0 1000 640" role="img" aria-label="Collective action in the center, linked in both directions to anchor institutions, businesses, civil society and peer and civic networks"><defs><marker id="ar10" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#2b2b2b"/></marker></defs>
+        <rect width="1000" height="640" fill="#f7f5ef"/>
+        <g fill="none" stroke="#2b2b2b" stroke-width="7" marker-start="url(#ar10)" marker-end="url(#ar10)"><path d="M410 255 295 195"/><path d="M590 255 705 195"/><path d="M410 385 295 445"/><path d="M590 385 705 445"/></g>
+        <g stroke="#2b2b2b" stroke-width="4"><circle cx="500" cy="320" r="120" fill="#0d7397"/><circle cx="210" cy="150" r="105" fill="#2e7d5b"/><circle cx="790" cy="150" r="105" fill="#C4851C"/><circle cx="210" cy="490" r="105" fill="#42a8bf"/><circle cx="790" cy="490" r="105" fill="#75a29f"/></g>
+        <g font-family="PT Serif,Georgia,serif" font-weight="700" fill="#fff" text-anchor="middle" font-size="34"><text x="500" y="312">Collective</text><text x="500" y="354">action</text></g>
+        <g font-family="PT Serif,Georgia,serif" font-weight="700" fill="#fff" text-anchor="middle" font-size="28"><text x="210" y="142">Anchor</text><text x="210" y="176">institutions</text><text x="790" y="158">Businesses</text><text x="210" y="482">Civil</text><text x="210" y="516">society</text><text x="790" y="482">Peer and</text><text x="790" y="516">civic groups</text></g>
+      </svg></div>
+      <div class="side"><div class="mini">
+        <div class="sc"><b>Anchor institutions</b>Universities, hospitals and schools. They stay in place, train workers and pilot new ideas.</div>
+        <div class="sc gold"><b>Businesses</b>Control supply chains and design, and respond to customers, risk and investors.</div>
+        <div class="sc sky"><b>Civil society</b>Nonprofits and NGOs advocate, watch for abuses and deliver aid.</div>
+        <div class="sc green"><b>Peer and civic groups</b>Professional, labor and faith groups set ethics codes and mobilize neighbors.</div>
+      </div></div>
     </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Why it matters</b>Open access is where the tragedy of the commons happens. Clear rights, of any kind, give someone a reason and the power to protect the resource.</div>
   </div>
 </section>
 
 <!-- 11 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Bundle of rights</span></div>
+  <div class="rail"><b>22</b><span>Integrating sustainability</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 2 · owning is not all or nothing</div>
-    <h2 class="reveal d2" style="font-size:68px">Ownership is a <em>bundle</em> of rights</h2>
-    <div class="lg4 reveal d3">
-      <div class="card accent"><span class="tag">Right 1</span><h3>Use</h3><p>Live on it, farm it, build on it.</p></div>
-      <div class="card green"><span class="tag">Right 2</span><h3>Exclude</h3><p>Keep others off or out.</p></div>
-      <div class="card sky"><span class="tag">Right 3</span><h3>Manage</h3><p>Decide how and when it is used.</p></div>
-      <div class="card gold"><span class="tag">Right 4</span><h3>Transfer</h3><p>Sell it, rent it or pass it on.</p></div>
-    </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Real estate view</b>A deed rarely gives all four with no limits. Zoning, easements and water rules can narrow what an owner may use, manage or sell.</div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>Big idea 1 · S&amp;M 19.3 · strategy, audits and metrics</div>
+    <h2 class="reveal d2" style="font-size:66px">From compliance to the <em>triple bottom line</em></h2>
+    <div class="dia tall reveal d3"><svg viewBox="0 0 1600 430" role="img" aria-label="Four stages: audit, goals, redesign, report, in a row with arrows"><defs><marker id="ar11" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#2b2b2b"/></marker></defs>
+      <rect width="1600" height="430" fill="#f7f5ef"/>
+      <g fill="none" stroke="#2b2b2b" stroke-width="7" marker-end="url(#ar11)"><path d="M300 150H480"/><path d="M700 150H880"/><path d="M1100 150H1280"/></g>
+      <g stroke="#2b2b2b" stroke-width="4"><circle cx="190" cy="150" r="105" fill="#0d7397"/><circle cx="590" cy="150" r="105" fill="#2e7d5b"/><circle cx="990" cy="150" r="105" fill="#C4851C"/><circle cx="1390" cy="150" r="105" fill="#42a8bf"/></g>
+      <g font-family="PT Serif,Georgia,serif" font-weight="700" fill="#fff" text-anchor="middle" font-size="36"><text x="190" y="140">1</text><text x="190" y="184">Audit</text><text x="590" y="140">2</text><text x="590" y="184">Goals</text><text x="990" y="140">3</text><text x="990" y="184">Redesign</text><text x="1390" y="140">4</text><text x="1390" y="184">Report</text></g>
+      <g font-family="PT Serif,Georgia,serif" font-weight="700" fill="#2b2b2b" text-anchor="middle" font-size="27"><text x="190" y="305">Measure carbon,</text><text x="190" y="338">water and waste</text><text x="590" y="305">Set science-based</text><text x="590" y="338">targets and an owner</text><text x="990" y="305">Rework suppliers,</text><text x="990" y="338">fleets and energy use</text><text x="1390" y="305">Publish results with</text><text x="1390" y="338">a standard format</text></g>
+    </svg></div>
+    <div class="take reveal d4" style="margin-top:22px"><b>Key insight</b>Emissions from suppliers and product use (Scope 3) are often 70 to 90 percent of an organization's footprint, so change must reach whole networks. Figure from the instructor's slides.</div>
   </div>
 </section>
 
 <!-- 12 -->
-<section class="slide" id="sort">
-  <div class="rail"><b>22</b><span>Check your understanding</span></div>
+<section class="slide">
+  <div class="rail"><b>22</b><span>Greenwashing</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>Sorting game · tap a button for each card</div>
-    <h2 class="reveal d2" style="font-size:62px">Which kind of <em>property right</em> is it?</h2>
-    <div class="srt reveal d3">
-      <div class="srt-def">
-        <div class="sc"><b>Private</b>One owner decides.</div>
-        <div class="sc green"><b>Common</b>A group sets the rules together.</div>
-        <div class="sc sky"><b>State</b>The public owns it, a government manages it.</div>
-        <div class="sc gold"><b>Open access</b>Nobody has rights, anyone can use it.</div>
-        <div class="srt-score"><span id="srt-n">0</span> of 6 right</div>
-        <button class="btn ghost" type="button" id="srt-reset">Start over</button>
-      </div>
-      <div class="srt-card" id="srt-card" aria-live="polite">
-        <div class="srt-no" id="srt-no"></div>
-        <div class="srt-q" id="srt-q" style="font-size:42px;min-height:230px"></div>
-        <div class="srt-btns"><button class="btn" type="button" data-a="p">Private</button><button class="btn" type="button" data-a="c">Common</button><button class="btn" type="button" data-a="s">State</button><button class="btn" type="button" data-a="o">Open access</button></div>
-        <div class="srt-fb" id="srt-fb"></div>
-        <button class="btn ghost" type="button" id="srt-next" hidden>Next card</button>
-      </div>
-    </div>
-    <p class="src reveal d4">Teaching examples made up for this lecture. Your answers are checked in your browser and are not recorded.</p>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>Big idea 1 · S&amp;M 19.3 · accountability</div>
+    <h2 class="reveal d2" style="font-size:66px"><em>Greenwashing</em> or real change?</h2>
+    <table class="tbl reveal d3"><thead><tr><th style="width:50%">Red flags</th><th>Signs of the real thing</th></tr></thead><tbody>
+      <tr><td><b>Vague buzzwords.</b> Labels like "all-natural" with no numbers.</td><td><b>Third-party checks.</b> Independent audits such as B Corp, LEED, Energy Star or Fair Trade.</td></tr>
+      <tr><td><b>Hidden trade-offs.</b> One recyclable cap, toxic waste ignored.</td><td><b>Full life-cycle data.</b> Total water, carbon, labor and waste, shared openly.</td></tr>
+      <tr><td><b>Distant pledges.</b> "Net zero by 2050" while lobbying against rules today.</td><td><b>Near-term targets.</b> Verified 2030 milestones backed by budgets.</td></tr>
+    </tbody></table>
+    <div class="rq reveal d4" data-def style="margin-top:22px"><h3>Quick question: what is a certified B Corporation?</h3><p class="think">Tap to check.</p><p class="ans-text">A company that changes its legal charter to balance profit with purpose, and is scored on workers, community, customers and the environment.</p></div>
   </div>
 </section>
 
 <!-- 13 -->
-<section class="slide" id="rq1">
-  <div class="rail"><b>22</b><span>Review question 22.1</span></div>
-  <div class="content center">
-    <div class="k reveal">Review question 22.1 · pick one answer</div>
-    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">A farm sells its legal share of river water to a city. Which <em>right</em> in the bundle is that?</h2>
-    <div class="poll reveal d3" data-poll="rq1" data-correct="3"><button class="opt" type="button"><b>A</b>The right to use</button><button class="opt" type="button"><b>B</b>The right to exclude</button><button class="opt" type="button"><b>C</b>The right to manage</button><button class="opt" type="button"><b>D</b>The right to transfer</button></div>
-    <div class="status" data-poll-status="rq1"></div><div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq1">Show the answer</button></div>
+<section class="slide" id="audit">
+  <div class="rail"><b>22</b><span>Exercise 1</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Exercise 1 · about 5 minutes · submit one answer each</div>
+    <h2 class="reveal d2" style="font-size:60px">Audit an <em>organization</em> in your field</h2>
+    <div class="ex2 reveal d3">
+      <div class="mini">
+        <div class="card accent"><span class="tag">Pick one</span><p style="font-size:29px">An organization tied to your major or career, such as a hospital, an engineering firm, a tech company, a school district, a sports venue or a campus department.</p></div>
+        <div class="card gold"><span class="tag">Your two steps</span><p style="font-size:29px"><b>1.</b> Find one rule, budget habit or custom that locks in an unsustainable result.<br><b>2.</b> Propose one change to its rules, buying or measures that would shift behavior on its own.</p></div>
+      </div>
+      <div>
+        <label for="a-org">The organization and your major</label><input class="field" id="a-org" maxlength="160" placeholder="For example: a hospital, nursing" style="width:100%;font-size:27px">
+        <label for="a-bar">1. The hidden barrier</label>
+        <textarea class="fld" id="a-bar" maxlength="600" placeholder="Type your answer here."></textarea>
+        <label for="a-chg">2. The rule change</label>
+        <textarea class="fld" id="a-chg" maxlength="600" placeholder="Type your answer here."></textarea>
+        <div class="go-row"><button class="btn" type="button" id="a-save">Submit</button><span class="status" id="a-status"></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- 14 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Regulation</span></div>
+  <div class="rail"><b>22</b><span>Change from inside</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Big idea 2 · setting the limits</div>
-    <h2 class="reveal d2" style="font-size:68px">Three styles of <em>regulation</em></h2>
-    <div class="lg3 reveal d3">
-      <div class="card accent"><span class="tag">Mandatory</span><h3>Set a limit</h3><p>A legal cap on exhaust or a required filter. Break it and you are fined.</p></div>
-      <div class="card gold"><span class="tag">Price based</span><h3>Use the market</h3><p>A fee per unit of pollution, or permits that firms can trade.</p></div>
-      <div class="card green"><span class="tag">Voluntary</span><h3>Set a standard</h3><p>A label or code a firm chooses to follow, such as a green building rating.</p></div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Big idea 2 · S&amp;M 19.4 · change from the inside</div>
+    <h2 class="reveal d2" style="font-size:68px">You do not need to be the <em>CEO</em></h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Build a green team</h3><p>A team across facilities, finance, HR and frontline staff earns trust and shares the work.</p></div>
+      <div class="card gold"><span class="tag">2</span><h3>Speak their language</h3><p>Frame it as cost savings, risk reduction, keeping talent or patient and student health.</p></div>
+      <div class="card sky"><span class="tag">3</span><h3>Start with a pilot</h3><p>Try six months in one building. Gather real savings data before asking for more.</p></div>
+      <div class="card green"><span class="tag">4</span><h3>Make it the default</h3><p>Double-sided printing, plant-forward catering and green buying checklists work without asking.</p></div>
     </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Takeaway</b>All three need someone to measure and enforce, or the rule stays on paper.</div>
+    <div class="take reveal d4" style="margin-top:22px"><b>Intrapreneurs</b>Employees, nurses, engineers, teachers and students who drive change from within.</div>
   </div>
 </section>
 
 <!-- 15 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>What a rule costs</span></div>
+  <div class="rail"><b>22</b><span>Case: ASU</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>Big idea 2 · the business view</div>
-    <h2 class="reveal d2" style="font-size:68px">Every rule has <em>costs and benefits</em></h2>
-    <div class="ie reveal d3">
-      <div class="c"><h3>Costs</h3><ul><li>Compliance is a line in the budget</li><li>Prices may rise</li><li>Small firms feel it most</li></ul></div>
-      <div class="i"><h3>Benefits</h3><ul><li>Cleaner air and water</li><li>Every competitor follows the same rule</li><li>Certainty for planning and investing</li></ul></div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Case · a large university as a living laboratory</div>
+    <h2 class="reveal d2" style="font-size:66px">ASU as an <em>institutional</em> laboratory</h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">Charter</span><h3>Responsibility to the community</h3><p>ASU's charter commits it to take fundamental responsibility for the economic, social, cultural and overall health of the communities it serves.</p></div>
+      <div class="card green"><span class="tag">Operations</span><h3>Energy, waste and buildings</h3><p>Large solar arrays, campus zero waste sorting, green building standards and sustainable food buying.</p></div>
+      <div class="card sky"><span class="tag">Students</span><h3>Student-led change</h3><p>Student government, campus sustainability groups and student-voted fees have helped fund solar, bike co-ops, hydration stations and gardens.</p></div>
+      <div class="card gold"><span class="tag">Milestone</span><h3>Carbon neutral buildings</h3><p>ASU reports carbon neutrality for Scope 1 and 2 building emissions in 2019, ahead of its original 2025 goal.</p></div>
     </div>
-    <div class="rq reveal d4" data-def style="margin-top:22px"><h3>Quick question: why might a business support a rule?</h3><p class="think">Tap to check.</p><p class="ans-text">A level playing field. If everyone must meet the same standard, nobody wins by cutting corners, and customers can trust the market.</p></div>
+    <p class="src reveal d4">Facts from the instructor's slides. Check the numbers against ASU sources.</p>
   </div>
 </section>
 
 <!-- 16 -->
-<section class="slide" id="rq2">
-  <div class="rail"><b>22</b><span>Review question 22.2</span></div>
-  <div class="content center">
-    <div class="k reveal">Review question 22.2 · pick one answer</div>
-    <h2 class="reveal d2" style="font-size:60px;max-width:1600px">A law sets a mandatory limit on the exhaust a factory may release. Which key term is that?</h2>
-    <div class="poll reveal d3" data-poll="rq2" data-correct="1"><button class="opt" type="button"><b>A</b>Property right</button><button class="opt" type="button"><b>B</b>Regulation</button><button class="opt" type="button"><b>C</b>Informal norm</button><button class="opt" type="button"><b>D</b>Incentive</button></div>
-    <div class="status" data-poll-status="rq2"></div><div class="reveal d4" style="margin-top:20px"><button class="btn ghost" type="button" data-reveal="rq2">Show the answer</button></div>
+<section class="slide">
+  <div class="rail"><b>22</b><span>Change from outside</span></div>
+  <div class="content fill">
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-volume"/></svg></span>Big idea 2 · S&amp;M 19.5 · change from the outside</div>
+    <h2 class="reveal d2" style="font-size:66px">When reform is <em>resisted</em>, stakeholders push</h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Investors and divestment</h3><p>Pension funds and endowments file resolutions demanding climate disclosure, or sell fossil fuel holdings.</p></div>
+      <div class="card gold"><span class="tag">2</span><h3>Boycotts and buycotts</h3><p>Boycotts withhold spending from harmful brands. Buycotts reward verified sustainable ones.</p></div>
+      <div class="card green"><span class="tag">3</span><h3>Watchdogs and scorecards</h3><p>Independent groups publish public rankings that expose deforestation or labor abuse.</p></div>
+      <div class="card sky"><span class="tag">4</span><h3>Coalitions and lawsuits</h3><p>Neighborhoods organize hearings, media campaigns and justice lawsuits to block polluting facilities.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- 17 -->
-<section class="slide">
-  <div class="rail"><b>22</b><span>Governance</span></div>
+<section class="slide" id="insideout">
+  <div class="rail"><b>22</b><span>Exercise 2</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>Big idea 3 · many levels, one system</div>
-    <h2 class="reveal d2" style="font-size:68px"><em>Governance</em> shares decisions across levels</h2>
-    <div class="dia tall reveal d3"><svg viewBox="0 0 1500 400" role="img" aria-label="Five levels of governance from international treaties to local districts, firms and residents, each linked to its neighbors in both directions"><defs><marker id="ar17" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#2b2b2b"/></marker></defs>
-      <rect width="1500" height="400" fill="#f7f5ef"/>
-      <g fill="none" stroke="#2b2b2b" stroke-width="7" marker-start="url(#ar17)" marker-end="url(#ar17)"><path d="M262 170H322"/><path d="M562 170H622"/><path d="M862 170H922"/><path d="M1162 170H1222"/></g>
-      <g stroke="#2b2b2b" stroke-width="4"><circle cx="150" cy="170" r="110" fill="#0d7397"/><circle cx="450" cy="170" r="110" fill="#42a8bf"/><circle cx="750" cy="170" r="110" fill="#2e7d5b"/><circle cx="1050" cy="170" r="110" fill="#C4851C"/><circle cx="1350" cy="170" r="110" fill="#75a29f"/></g>
-      <g font-family="PT Serif,Georgia,serif" font-weight="700" font-size="34" fill="#fff" text-anchor="middle"><text x="150" y="182">Treaty</text><text x="450" y="182">Federal</text><text x="750" y="182">State</text><text x="1050" y="182">City</text><text x="1350" y="182">Local</text></g>
-      <g font-family="PT Serif,Georgia,serif" font-weight="700" font-size="26" fill="#2b2b2b" text-anchor="middle"><text x="150" y="340">Agreements between</text><text x="150" y="372">countries</text><text x="450" y="340">National laws</text><text x="450" y="372">and agencies</text><text x="750" y="340">State water and</text><text x="750" y="372">land law</text><text x="1050" y="340">Permits, zoning</text><text x="1050" y="372">and codes</text><text x="1350" y="340">Districts, firms</text><text x="1350" y="372">and residents</text></g>
-    </svg></div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Polycentric</b>Many decision centers can respond faster to local conditions, but they must still fit together.</div>
+    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Exercise 2 · about 6 minutes · submit your team's pitch</div>
+    <h2 class="reveal d2" style="font-size:58px">Inside or outside: a <em>Phoenix employer</em></h2>
+    <div class="ex2 reveal d3">
+      <div class="mini">
+        <div class="card accent"><span class="tag">The scene</span><p style="font-size:28px">A large Phoenix health care or retail employer has heavy delivery emissions and unshaded parking lots. Outdoor workers and customers face 115°F heat. This is a made-up case.</p></div>
+        <div class="card green"><span class="tag">Team A · left side</span><p style="font-size:28px"><b>Insider coalition.</b> You work there. Pitch a profitable, risk-reducing plan to the CFO, such as cool roofs, solar canopies or electric delivery.</p></div>
+        <div class="card gold"><span class="tag">Team B · right side</span><p style="font-size:28px"><b>Outsider stakeholders.</b> You are residents, customers and health advocates. Design a campaign to compel action.</p></div>
+      </div>
+      <div>
+        <label>Your team</label>
+        <div class="tm" id="io-team"><button class="btn ghost" type="button" data-v="Insider coalition">Team A · Insider</button><button class="btn ghost" type="button" data-v="Outsider stakeholders">Team B · Outsider</button></div>
+        <label for="io-arg">Your key argument and the leverage you use</label>
+        <textarea class="fld" id="io-arg" maxlength="600" placeholder="Type your answer here."></textarea>
+        <label for="io-act">The concrete action you demand</label>
+        <textarea class="fld" id="io-act" maxlength="600" placeholder="Type your answer here."></textarea>
+        <div class="go-row"><button class="btn" type="button" id="io-save">Submit</button><span class="status" id="io-status"></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- 18 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Four governance questions</span></div>
+  <div class="rail"><b>22</b><span>Adaptive governance</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Big idea 3 · how to judge governance</div>
-    <h2 class="reveal d2" style="font-size:68px">Four <em>questions</em> to ask about any rule</h2>
-    <div class="lg4 reveal d3">
-      <div class="card accent"><span class="tag">1</span><h3>Who decides?</h3><p>Who has the power to write or change the rule?</p></div>
-      <div class="card green"><span class="tag">2</span><h3>Who is heard?</h3><p>Do the people affected get a voice, including those with less power?</p></div>
-      <div class="card sky"><span class="tag">3</span><h3>Who enforces?</h3><p>Who checks that the rule is followed, and what happens if it is not?</p></div>
-      <div class="card gold"><span class="tag">4</span><h3>Can it adapt?</h3><p>Does it change when the river, the market or the climate changes?</p></div>
+    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-cycle"/></svg></span>Big idea 3 · rules that keep learning</div>
+    <h2 class="reveal d2" style="font-size:66px"><em>Adaptive governance</em> and leadership</h2>
+    <div class="claim reveal d3" style="background:var(--Blue);color:#fff;border-radius:18px;padding:22px 34px;font:400 38px/1.25 var(--display);margin-bottom:22px">A flexible, learning-focused way of governing that updates rules and plans as new environmental data arrives.</div>
+    <div class="c4 sm reveal d3" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="card green"><span class="tag">Example</span><h3>Colorado River water</h3><p>Seasonal water amounts adjust to snowpack and reservoir levels, not to old assumptions.</p></div>
+      <div class="card gold"><span class="tag">Glossary</span><h3>Sustainable transition</h3><p>A long-term shift in society, technology and industry, such as buses, rail and bike lanes replacing car trips.</p></div>
+      <div class="card accent"><span class="tag">Glossary</span><h3>Sustainability leadership</h3><p>Guiding and organizing people and businesses toward responsible, fair choices.</p></div>
     </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Adaptive governance</b>Rules that update with new data, such as river levels each season, handle surprises better than rules fixed once and forgotten.</div>
   </div>
 </section>
 
 <!-- 19 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>The Colorado River</span></div>
+  <div class="rail"><b>22</b><span>What can I do?</span></div>
   <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Case · governing one shared river</div>
-    <h2 class="reveal d2" style="font-size:68px">One river, <em>layers of rules</em></h2>
-    <div class="lg3 reveal d3">
-      <div class="card accent"><span class="tag">Agreements</span><h3>States and countries share</h3><p>Seven U.S. states divide the river under a compact first signed in the 1920s, and a treaty gives Mexico a share.</p></div>
-      <div class="card green"><span class="tag">Rights</span><h3>Water rights set the order</h3><p>Water rights decide who gets water first when there is not enough for everyone.</p></div>
-      <div class="card gold"><span class="tag">Agencies</span><h3>Others carry it out</h3><p>Federal agencies, state departments and local districts deliver the water and track the lake levels.</p></div>
+    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>S&amp;M 19.6 · from personal to institutional action</div>
+    <h2 class="reveal d2" style="font-size:68px">What can <em>I</em> do?</h2>
+    <div class="c4 sm reveal d3">
+      <div class="card accent"><span class="tag">1</span><h3>Shape groups you already join</h3><p>Bring sustainability into engineering societies, business clubs, pre-health groups, teams and hall councils.</p></div>
+      <div class="card gold"><span class="tag">2</span><h3>Ask in interviews</h3><p>Ask employers about sustainability measures, heat safety and community commitments.</p></div>
+      <div class="card green"><span class="tag">3</span><h3>Align money and voice</h3><p>Choose banks that avoid fossil expansion, back local businesses and speak at public comment sessions.</p></div>
+      <div class="card sky"><span class="tag">4</span><h3>Link to public policy</h3><p>Organizations do best when government sets fair ground rules, which is the next topic.</p></div>
     </div>
-    <p class="src reveal d4">Summary of public descriptions of the Colorado River agreements. Details and numbers change, so check current sources such as the U.S. Bureau of Reclamation before class.</p>
   </div>
 </section>
 
 <!-- 20 -->
 <section class="slide">
-  <div class="rail"><b>22</b><span>Water and building in Arizona</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Case · a rule that links growth to water</div>
-    <h2 class="reveal d2" style="font-size:66px">Prove the water <em>before</em> you build</h2>
-    <div class="claim reveal d3" style="background:var(--Blue);color:#fff;border-radius:18px;padding:22px 34px;font:400 40px/1.25 var(--display);margin-bottom:22px">In the Phoenix area, builders of new neighborhoods generally have to show they have a long-term water supply first.</div>
-    <div class="lg4 reveal d3">
-      <div class="card accent"><span class="tag">Developers</span><h3>Pay and plan</h3><p>Water proof is a cost and a step in the schedule.</p></div>
-      <div class="card green"><span class="tag">Buyers</span><h3>Gain trust</h3><p>A home with proven water is a safer purchase.</p></div>
-      <div class="card sky"><span class="tag">Cities</span><h3>Guide growth</h3><p>Water supply sets where and how fast the city can grow.</p></div>
-      <div class="card gold"><span class="tag">Farms</span><h3>Hold rights</h3><p>Water rights can shift as land turns into neighborhoods.</p></div>
-    </div>
-    <p class="src reveal d4">Rule as commonly described. Its details change, so check the Arizona Department of Water Resources before class.</p>
-  </div>
-</section>
-
-<!-- 21 -->
-<section class="slide">
-  <div class="rail"><b>22</b><span>Stadium case</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm gold"><svg aria-hidden="true"><use href="#i-building"/></svg></span>Business case · a made-up stadium project</div>
-    <h2 class="reveal d2" style="font-size:66px">One new stadium, many <em>institutions</em></h2>
-    <table class="tbl reveal d3"><thead><tr><th>Institution</th><th>What it does</th><th>What it means for the stadium</th></tr></thead><tbody>
-      <tr><td>Property rights</td><td>Say who owns the land and what the deed allows</td><td>Who can sell the site, and what limits come with it</td></tr>
-      <tr><td>Zoning</td><td>Regulates what may be built where</td><td>Height, parking and use of the site</td></tr>
-      <tr><td>Building codes</td><td>Mandatory rules for safety and efficiency</td><td>Cooling, lighting and water-saving features</td></tr>
-      <tr><td>Green labels</td><td>Voluntary standards a firm chooses</td><td>A way to show fans and sponsors it is efficient</td></tr>
-      <tr><td>Public agreements</td><td>Contracts with a city or agency</td><td>Who pays, who benefits, and who is accountable</td></tr>
-      <tr><td>Norms</td><td>Unwritten expectations</td><td>What neighbors accept for noise and game-day traffic</td></tr>
-    </tbody></table>
-    <p class="src reveal d4">A teaching scenario, not a real project.</p>
-  </div>
-</section>
-
-<!-- 22 -->
-<section class="slide" id="river">
-  <div class="rail"><b>22</b><span>Rule or no rule?</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm sky"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>Game · about 8 minutes · design the rules for a shared river</div>
-    <h2 class="reveal d2" style="font-size:58px">Four businesses share <em>one river</em></h2>
-    <div class="rv reveal d3">
-      <div class="rv-l">
-        <div class="sc" style="font-size:25px"><b>The setup</b>A farm, a stadium, a housing developer and a hotel each want 8 units of water a season. The river refills 16 units a season, and starts with 100. Pick your rules, then run 10 seasons.</div>
-        <div class="rv-row"><div><h3>Cap per business</h3><small>Most any one business may take</small></div><div class="sw" data-g="cap"><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6</button><button type="button" data-v="7">7</button><button type="button" data-v="8" class="on">None</button></div></div>
-        <div class="rv-row"><div><h3>Enforcement</h3><small>Who checks that the cap is followed</small></div><div class="sw" data-g="enf"><button type="button" data-v="none" class="on">None</button><button type="button" data-v="weak">Weak</button><button type="button" data-v="strong">Strong</button></div></div>
-        <div class="rv-row"><div><h3>Adaptive rule</h3><small>Cap drops by 2 when the river is low</small></div><div class="sw" data-g="adapt"><button type="button" data-v="0" class="on">Off</button><button type="button" data-v="1">On</button></div></div>
-        <div class="rv-go"><button class="btn" type="button" id="rv-run">Run 10 seasons</button><button class="btn ghost" type="button" id="rv-save" hidden>Submit my rules</button><span class="status" id="rv-status"></span></div>
-      </div>
-      <div class="rv-r">
-        <div class="rv-chart"><svg id="rv-svg" viewBox="0 0 620 300" role="img" aria-label="River level over ten seasons, with and without your rules"></svg></div>
-        <div class="rv-stats"><div id="rv-s1"><b>–</b>Lowest river level</div><div id="rv-s2"><b>–</b>Water delivered</div><div id="rv-s3"><b>–</b>Result</div></div>
-        <div class="rv-msg" id="rv-msg" aria-live="polite">Start with no rules to see the river without them. Then try a cap.</div>
-      </div>
-    </div>
-    <p class="src reveal d4">Teaching numbers, made up for this game. Goal: the river never falls below 30 and the businesses receive at least 180 units in total.</p>
-  </div>
-</section>
-
-<!-- 23 -->
-<section class="slide">
-  <div class="rail"><b>22</b><span>What the game shows</span></div>
-  <div class="content fill">
-    <div class="k reveal ih"><span class="ico sm green"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Debrief · what the river taught us</div>
-    <h2 class="reveal d2" style="font-size:68px">A rule on paper is <em>not enough</em></h2>
-    <div class="lg3 reveal d3">
-      <div class="card accent"><span class="tag">1 · Limits</span><h3>Limits protect the river</h3><p>Caps kept the river alive, but they cost every business some water.</p></div>
-      <div class="card green"><span class="tag">2 · Enforcement</span><h3>Someone must check</h3><p>A cap nobody checks did nothing. Weak checking let a few firms ruin it for all.</p></div>
-      <div class="card gold"><span class="tag">3 · Adapting</span><h3>Rules must adjust</h3><p>An adaptive rule tightened the cap only when the river ran low.</p></div>
-    </div>
-    <div class="take reveal d4" style="margin-top:22px"><b>Common mistake</b>Passing a rule is not the same as solving the problem. An institution works only when the rule is in use.</div>
-  </div>
-</section>
-
-<!-- 24 -->
-<section class="slide">
   <div class="rail"><b>22</b><span>Exit poll</span></div>
   <div class="content center">
     <div class="k reveal">Exit poll · one answer</div>
-    <h2 class="reveal d2" style="font-size:58px;max-width:1600px">Which statement best describes an <em>institution</em>?</h2>
-    <div class="poll reveal d3" data-poll="exit" data-correct="1"><button class="opt" type="button"><b>A</b>A building where government workers sit</button><button class="opt" type="button"><b>B</b>The rules in use, formal and informal, that shape how people act</button><button class="opt" type="button"><b>C</b>A business that earns a profit</button><button class="opt" type="button"><b>D</b>A one-time decision by one leader</button></div>
+    <h2 class="reveal d2" style="font-size:56px;max-width:1600px">A company calls a product "eco-friendly" with no numbers or certification. Which <em>red flag</em> is this?</h2>
+    <div class="poll reveal d3" data-poll="exit" data-correct="1"><button class="opt" type="button"><b>A</b>A third-party certification</button><button class="opt" type="button"><b>B</b>A vague buzzword</button><button class="opt" type="button"><b>C</b>Full life-cycle data</button><button class="opt" type="button"><b>D</b>A near-term science-based target</button></div>
     <div class="status" data-poll-status="exit"></div>
   </div>
 </section>
 
-<!-- 25 -->
+<!-- 21 -->
 <section class="slide hero">
-  <img class="hero-img" style="object-position:center 55%" src="img/vegas-mead-1984.jpg" alt="Satellite view of Las Vegas and Lake Mead in 1984" aria-hidden="true">
+  <img class="hero-img" style="object-position:center 30%" src="img/solar-installers.jpg" alt="Workers installing solar panels on a roof" aria-hidden="true">
   <div class="hero-scrim"></div>
   <div class="hero-text" style="width:1140px">
-    <div class="hero-badge reveal"><b>L<em>22</em></b><span>Institutions and governance</span></div>
+    <div class="hero-badge reveal"><b>L<em>22</em></b><span>Institutional approach</span></div>
     <div class="title-k reveal d2">Takeaway</div>
-    <p class="hero-lead reveal d2" style="font-size:54px">Good rules, <em>followed and adjusted</em>, protect what we share.</p>
-    <ol class="num reveal d3" style="font-size:31px">
-      <li>Institutions are the rules in use, formal and informal, that shape how people act.</li>
-      <li>Property rights say who may use a resource, and regulation sets the limits.</li>
-      <li>Governance spreads decisions across levels, and the best rules enforce and adapt.</li>
+    <p class="hero-lead reveal d2" style="font-size:52px">Organizations turn scattered intentions into <em>lasting change</em>.</p>
+    <ol class="num reveal d3" style="font-size:30px">
+      <li>Institutions are the laws, organizations and customs that shape how we use resources.</li>
+      <li>Social capital and collective action overcome the tragedy of the commons.</li>
+      <li>Change needs insiders and outsiders, guided by adaptive governance.</li>
     </ol>
+    <p class="reveal d4" style="font-size:26px;margin-top:18px">For your final project, name the institutions, rules, incentives and stakeholders your solution needs. Review Exercise 3 is due today.</p>
   </div>
 </section>
 
@@ -714,8 +645,8 @@ import { flipCard, wireFlips, wireReveals, esc, $, $$, say } from '../m5-l2-fews
 const LECTURE = 'm7-s3';
 const icon = (i, tone = '', sm = 'sm') => `<span class="ico ${sm} ${tone}"><svg aria-hidden="true"><use href="#i-${i}"/></svg></span>`;
 
-/* === KEY TERMS === the four glossary terms for this session */
-const KEY_TERMS = [['Institution', 'scale', 'gold'], ['Governance', 'users', 'sky'], ['Property Rights', 'home', 'green'], ['Regulation', 'building', 'accent']];
+/* === KEY TERMS === four glossary terms the instructor lists for this lecture */
+const KEY_TERMS = [['Institution', 'scale', 'gold'], ['Governance', 'users', 'sky'], ['Property Rights', 'home', 'green'], ['Stakeholder', 'users', 'green']];
 function showTerms({ course }) {
   const gloss = course.glossary.flatMap(g => g.terms);
   $('[data-vocab]').innerHTML = KEY_TERMS.map(([name, i, tone]) => { const t = gloss.find(x => x.term === name); return flipCard({ term: t.term, definition: `<p>${esc(t.definition)}</p>`, example: t.example, significance: t.significance }, icon(i, tone)); }).join('');
@@ -727,107 +658,14 @@ loadSession(LECTURE).then(d => { $$('.slide').forEach(s => fill(s, d)); showTerm
 
 wireReveals();
 
-/* === SORT: WHICH PROPERTY RIGHT === teaching examples, checked in the browser only */
-const NAME = { p: 'Private property', c: 'Common property', s: 'State property', o: 'Open access' };
-const SORT = [
-  ['You own your house and yard, and you may sell them or rent them out.', 'p', 'One owner decides, so it is private property.'],
-  ['A neighborhood irrigation group, run by its members, shares one canal and sets turns for the water.', 'c', 'A group owns and manages it together and makes its own rules.'],
-  ['A national forest is managed by a federal agency for the public.', 's', 'The public owns it and a government agency manages it.'],
-  ['Any boat may catch as many fish as it wants in open ocean, with no limits and no permits.', 'o', 'Nobody has rights or limits, so each boat takes what it can. This is where the tragedy of the commons appears.'],
-  ['A homeowners association owns a pool that only members use and every member helps maintain.', 'c', 'A group shares ownership and sets rules for its members.'],
-  ['A city owns a park that is open to everyone, with posted rules and city staff to care for it.', 's', 'The city holds it for the public and manages it.'],
-];
-let si = 0, score = 0, answered = false;
-const sq = $('#srt-q'), sfb = $('#srt-fb'), snext = $('#srt-next');
-function sortShow() {
-  answered = false;
-  $('#srt-no').textContent = `Card ${si + 1} of ${SORT.length}`;
-  sq.textContent = SORT[si][0]; sfb.innerHTML = ''; snext.hidden = true;
-  $$('#srt-card [data-a]').forEach(b => { b.disabled = false; b.className = 'btn'; b.hidden = false; });
-  $('#srt-n').textContent = score;
-}
-$$('#srt-card [data-a]').forEach(b => b.addEventListener('click', () => {
-  if (answered) return;
-  answered = true;
-  const ok = b.dataset.a === SORT[si][1];
-  if (ok) score++;
-  $$('#srt-card [data-a]').forEach(x => { x.disabled = true; if (x.dataset.a === SORT[si][1]) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
-  sfb.innerHTML = `<b>${ok ? 'Yes.' : 'Not quite.'}</b> ${esc(NAME[SORT[si][1]])}. ${esc(SORT[si][2])}`;
-  $('#srt-n').textContent = score;
-  snext.hidden = false;
-  snext.textContent = si === SORT.length - 1 ? 'See score' : 'Next card';
+/* === TEAM CHOICE FOR EXERCISE 2 === */
+let team = '';
+$$('#io-team .btn').forEach(b => b.addEventListener('click', () => {
+  team = b.dataset.v;
+  $$('#io-team .btn').forEach(x => x.classList.toggle('on', x === b));
 }));
-snext.addEventListener('click', () => {
-  if (si < SORT.length - 1) { si++; sortShow(); return; }
-  sq.textContent = `You got ${score} of ${SORT.length}.`; $('#srt-no').textContent = 'Done';
-  sfb.innerHTML = ''; snext.hidden = true; $$('#srt-card [data-a]').forEach(b => { b.hidden = true; });
-});
-$('#srt-reset').addEventListener('click', () => { si = 0; score = 0; sortShow(); });
-sortShow();
 
-/* === GAME: RULE OR NO RULE? === four businesses share one river; teaching numbers */
-const SEASONS = 10, START = 100, REFILL = 16, WANT = 8, LOW = 30, TARGET = 180;
-function runRiver({ cap, enf, adapt }) {
-  let S = START, tight = false, total = 0, min = START;
-  const levels = [START];
-  for (let t = 0; t < SEASONS; t++) {
-    if (adapt) { if (S < 50) tight = true; else if (S >= 70) tight = false; }
-    const c = adapt && tight ? Math.max(2, cap - 2) : cap;
-    let want = 0;
-    for (let i = 0; i < 4; i++) {
-      const follows = enf === 'strong' || (enf === 'weak' && i < 2);
-      want += follows ? Math.min(WANT, c) : WANT;
-    }
-    const use = Math.min(S, want);
-    total += use;
-    S = Math.min(START, S - use + REFILL);
-    levels.push(S); min = Math.min(min, S);
-  }
-  return { levels, min, total, ok: min >= LOW && total >= TARGET };
-}
-const BASE = runRiver({ cap: 8, enf: 'none', adapt: 0 });
-const pick = { cap: 8, enf: 'none', adapt: 0 };
-$$('.rv .sw').forEach(g => $$('button', g).forEach(b => b.addEventListener('click', () => {
-  $$('button', g).forEach(x => x.classList.toggle('on', x === b));
-  pick[g.dataset.g] = g.dataset.g === 'enf' ? b.dataset.v : Number(b.dataset.v);
-  $('#rv-save').hidden = true;
-})));
-let last = null;
-function drawRiver(res) {
-  const W = 620, H = 300, L = 54, R = 16, T = 16, B = 40;
-  const x = i => L + (W - L - R) * i / SEASONS, y = v => T + (H - T - B) * (1 - v / 100);
-  const path = lv => lv.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join('');
-  let s = `<rect width="${W}" height="${H}" fill="#fff"/>`;
-  [0, 25, 50, 75, 100].forEach(v => { s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e6e1d3" stroke-width="2"/><text x="${L - 8}" y="${y(v) + 7}" font-size="20" text-anchor="end" fill="#4c6670">${v}</text>`; });
-  for (let i = 0; i <= SEASONS; i += 2) s += `<text x="${x(i)}" y="${H - 14}" font-size="20" text-anchor="middle" fill="#4c6670">${i}</text>`;
-  s += `<text x="${(L + W - R) / 2}" y="${H - 0}" font-size="19" text-anchor="middle" fill="#4c6670">Season</text>`;
-  s += `<line x1="${L}" x2="${W - R}" y1="${y(LOW)}" y2="${y(LOW)}" stroke="#b3452c" stroke-width="3" stroke-dasharray="8 6"/><text x="${W - R - 4}" y="${y(LOW) - 8}" font-size="19" text-anchor="end" fill="#b3452c" font-weight="700">Danger line (30)</text>`;
-  s += `<path d="${path(BASE.levels)}" fill="none" stroke="#2b2b2b" stroke-width="4" stroke-dasharray="10 7"/>`;
-  if (res) s += `<path d="${path(res.levels)}" fill="none" stroke="#0d7397" stroke-width="7" stroke-linejoin="round"/>`;
-  s += `<g font-size="20" font-weight="700"><text x="${W - R - 330}" y="${T + 24}" fill="#2b2b2b">- - No rules</text>${res ? `<text x="${W - R - 170}" y="${T + 24}" fill="#0d7397">— Your rules</text>` : ''}</g>`;
-  $('#rv-svg').innerHTML = s;
-}
-function showRiver(res, label) {
-  drawRiver(res);
-  const set = (id, v, cls) => { const el = $(id); el.className = cls || ''; el.querySelector('b').textContent = v; };
-  set('#rv-s1', res.min, res.min >= LOW ? 'good' : 'bad');
-  set('#rv-s2', res.total, res.total >= TARGET ? 'good' : 'bad');
-  set('#rv-s3', res.ok ? 'Goal met' : 'Not yet', res.ok ? 'good' : 'bad');
-}
-function explain(p, r) {
-  if (r.ok) return `<b>It works.</b> The river stays above the danger line and the businesses still get ${r.total} units. ${p.adapt ? 'The adaptive rule tightened the cap only when needed.' : 'Try the adaptive rule to see if you can give businesses even more.'}`;
-  if (p.cap < 8 && p.enf === 'none') return '<b>A rule nobody enforces.</b> Every business still takes 8, so the river falls just as with no rules. A rule on paper is not an institution in use.';
-  if (p.enf === 'weak' && r.min < LOW) return '<b>Weak enforcement.</b> Two businesses ignore the cap and keep taking 8. Try a tighter cap with the adaptive rule, or stronger checking.';
-  if (r.min >= LOW && r.total < TARGET) return `<b>Too tight.</b> The river is safe, but the businesses get only ${r.total} units. A rule that costs too much is hard to keep. Loosen the cap a little.`;
-  return '<b>The river still falls too low.</b> The total demand is above what the river refills. Lower the cap, enforce it, or let it adapt.';
-}
-$('#rv-run').addEventListener('click', () => {
-  last = { ...pick }; const r = runRiver(last); last.res = r;
-  showRiver(r); $('#rv-msg').innerHTML = explain(last, r); $('#rv-save').hidden = false; $('#rv-status').textContent = '';
-});
-drawRiver(null);
-
-/* === ATTENDANCE, POLLS AND THE GAME ANSWER === */
+/* === ATTENDANCE, POLLS AND EXERCISE ANSWERS === */
 const live = await connect(LECTURE);
 const note = $('[data-mode-note]');
 if (live.mode === 'demo') note.textContent = 'Demo mode: check-ins and answers stay in this browser until Firebase is connected.';
@@ -854,12 +692,21 @@ $$('[data-reveal]').forEach(b => b.addEventListener('click', () => {
   const right = Number(poll.dataset.correct);
   $$('.opt', poll).forEach((o, i) => { o.classList.toggle('right', i === right); o.classList.toggle('wrong', o.classList.contains('picked') && i !== right); });
 }));
-$('#rv-save').addEventListener('click', async () => {
-  const st = $('#rv-status');
-  if (!last) return;
+const words = v => v.trim().split(/\s+/).filter(Boolean).length;
+$('#a-save').addEventListener('click', async () => {
+  const st = $('#a-status'), org = $('#a-org').value.trim(), bar = $('#a-bar').value.trim(), chg = $('#a-chg').value.trim();
+  if (!org || words(bar) < 4 || words(chg) < 4) { say(st, 'Name an organization and write a short sentence for each step.', 'err'); return; }
   if (!await ensureUser(st)) return;
   say(st, 'Sending…');
-  try { await live.saveSim('river-rules', { cap: last.cap, enforce: last.enf, adapt: last.adapt, minLevel: last.res.min, total: last.res.total, ok: last.res.ok }); Deck.sent($('#rv-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  try { await live.saveSim('institution-audit', { org, barrier: bar, change: chg }); Deck.sent($('#a-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
+  catch (e) { say(st, e.message, 'err'); }
+});
+$('#io-save').addEventListener('click', async () => {
+  const st = $('#io-status'), arg = $('#io-arg').value.trim(), act = $('#io-act').value.trim();
+  if (!team || words(arg) < 4 || words(act) < 4) { say(st, 'Pick your team and write a short sentence for each question.', 'err'); return; }
+  if (!await ensureUser(st)) return;
+  say(st, 'Sending…');
+  try { await live.saveSim('inside-outside', { team, argument: arg, action: act }); Deck.sent($('#io-save'), 'Submitted'); say(st, 'Submitted. Thanks!', 'ok'); }
   catch (e) { say(st, e.message, 'err'); }
 });
 </script>
