@@ -86,7 +86,7 @@ const CLOUDS = [
   { at: [80, 0, 172], puffs: [[0, 0, 0, 19], [20, 6, -3, 15], [-19, 2, -3, 15], [6, -14, 4, 13], [-6, 16, -4, 12], [30, -6, -6, 10]], mat: "storm" },
   { at: [-10, -80, 166], puffs: [[0, 0, 0, 12], [13, 3, -2, 9], [-12, 2, -2, 9]], mat: "cloud" },
 ];
-const SUN = [-150, -96, 196];
+const SUN = [-176, 64, 168];
 
 const P = k.fitProjection(
   [...k.boxCorners(BLOCK, -50, 0), [MOUNTAINS[0].at[0], MOUNTAINS[0].at[1], MOUNTAINS[0].H], [SUN[0], SUN[1], SUN[2] + 20], [80, 0, 192]],
@@ -123,7 +123,7 @@ function surface() {
   out.push([0.78, 0.55].map((f) => `<path class="lake-ripple" d="${path(LAKE.map(([x, y]) => [LAKE_C[0] + (x - LAKE_C[0]) * f, LAKE_C[1] + (y - LAKE_C[1]) * f, 0]))}Z"/>`).join(""));
   const river = G.fillet(RIVER.map(([x, y]) => [x, y, 0]), 10);
   out.push(`<path class="river" d="${path(river)}"/>`);
-  out.push(`<g data-stage="5"><path class="iso-line flowline" data-flow="" d="${path(river)}"/></g>`);
+  out.push(`<g data-stage="5"><path class="iso-line flowline" data-flow="" marker-end="url(#wc-head)" d="${path(river)}"/></g>`);
   return out.join("");
 }
 
@@ -173,12 +173,12 @@ const wave = (from, to, amp, n = 24) => Array.from({ length: n + 1 }, (_, i) => 
 const evap = [[-98, 4], [-72, 30], [-58, -2], [-84, 40]].map(([x, y]) => wave([x, y, 0.2], [x + 12, y - 28, 132], 3));
 const transpire = trees.filter((_, i) => i % 4 === 0).slice(0, 5).map((t) => wave(t.top, [-48, -44, 136], 2));
 const drift = [wave([-48, -30, 152], [56, -2, 170], 0, 12), wave([-46, -18, 146], [58, 10, 164], 0, 12)];
-const flows = (paths, n) => `<g data-stage="${n}">${paths.map((p) => `<path class="iso-line flowline" data-flow="" d="${path(p)}"/>`).join("")}</g>`;
+const flows = (paths, n) => `<g data-stage="${n}">${paths.map((p) => `<path class="iso-line flowline" data-flow="" marker-end="url(#wc-head)" d="${path(p)}"/>`).join("")}</g>`;
 // groundwater: seeps along the aquifer on both visible faces toward the lake side, and soaks down beside the river
 const yF = BLOCK.y + BLOCK.d, xF = BLOCK.x + BLOCK.w;
 const ground1 = [[xF, -80, -29], [xF, 90, -29]], ground2 = [[150, yF, -29], [-150, yF, -29]];
 const soak = [30, 60, 90, 120].map((x) => [[x, yF, -4], [x, yF, -22]]);
-const groundFlow = `<g data-stage="6">${[ground1, ground2].map((p) => `<path class="iso-line flowline gw" data-flow="" d="${path(p)}"/>`).join("")}${soak.map((p) => `<path class="iso-line flowline gw" data-flow="" d="${path(p)}"/>`).join("")}</g>`;
+const groundFlow = `<g data-stage="6">${[ground1, ground2].map((p) => `<path class="iso-line flowline gw" data-flow="" marker-end="url(#wc-head-gw)" d="${path(p)}"/>`).join("")}${soak.map((p) => `<path class="iso-line flowline gw" data-flow="" marker-end="url(#wc-head-gw)" d="${path(p)}"/>`).join("")}</g>`;
 
 // rain falls from the storm cloud onto the mountains and the land below it
 const RAIN = [];
@@ -189,12 +189,52 @@ for (let i = 0; i < 26; i++) { const x = 52 + rr() * 64, y = -20 + rr() * 44; RA
 const LABELS = [
   { n: 1, text: "Evaporation", p: [-120, 44, 70], anchor: "end" },
   { n: 2, text: "Transpiration", p: [-150, -84, 34], anchor: "end" },
-  { n: 3, text: "Condensation", p: [-70, -30, 178], anchor: "middle" },
+  { n: 3, text: "Condensation", p: [-70, -30, 132], anchor: "middle", dy: 16 },
   { n: 4, text: "Precipitation", p: [130, 0, 150], anchor: "start" },
   { n: 5, text: "Surface runoff", p: [-2, 62, 0], anchor: "middle", dy: 16 },
   { n: 6, text: "Groundwater", p: [xF, 40, -29], anchor: "start", dy: 4, dx: 10 },
 ];
 const labels = LABELS.map(({ n, text, p, anchor, dy = 0, dx = 0 }) => { const [x, y] = at(p); return `<text class="lbl" data-label="${n}" x="${(x + dx).toFixed(1)}" y="${(y + dy).toFixed(1)}" text-anchor="${anchor}">${text}</text>`; }).join("");
+
+// Feature labels: smaller, always shown, not interactive.
+const FEATURES = [
+  { text: "Sun", p: [SUN[0], SUN[1], SUN[2] + 24], anchor: "middle" },
+  { text: "Rain cloud", p: [80, 0, 196], anchor: "middle", dy: -4 },
+  { text: "Clouds", p: [-10, -80, 152], anchor: "middle", dy: 14 },
+  { text: "Lake", p: [LAKE_C[0], LAKE_C[1], 0], anchor: "middle", dy: 4 },
+  { text: "River", p: [30, 24, 0], anchor: "end", dx: -6, dy: -6 },
+  { text: "Forest", p: [-60, -50, 34], anchor: "middle" },
+  { text: "Snowpack", p: [112, 30, 84], anchor: "start", dx: 14, dy: -8 },
+  { text: "Soil", p: [-110, yF, -13], anchor: "middle", dy: 4 },
+  { text: "Aquifer", p: [-110, yF, -29], anchor: "middle", dy: 4 },
+  { text: "Bedrock", p: [-110, yF, -43], anchor: "middle", dy: 4 },
+];
+const features = FEATURES.map(({ text, p, anchor, dy = 0, dx = 0 }) => { const [x, y] = at(p); return `<text class="lbl2" x="${(x + dx).toFixed(1)}" y="${(y + dy).toFixed(1)}" text-anchor="${anchor}">${text}</text>`; }).join("");
+
+// Big cycle arrows: four arcs of one ellipse round the whole scene, clockwise on screen, each lit with its stages.
+const ext = [...k.boxCorners(BLOCK, -50, 0), SUN, [80, 0, 192]].map(at);
+const ex0 = Math.min(...ext.map((p) => p[0])), ex1 = Math.max(...ext.map((p) => p[0]));
+const ey0 = Math.min(...ext.map((p) => p[1])), ey1 = Math.max(...ext.map((p) => p[1]));
+const EC = [(ex0 + ex1) / 2, (ey0 + ey1) / 2 + 6];
+const ERX = Math.min(WIDTH / 2 - 14, (ex1 - ex0) / 2 + 26), ERY = Math.min(HEIGHT / 2 - 14, (ey1 - ey0) / 2 + 4);
+const onE = (deg) => { const t = (deg * Math.PI) / 180; return [EC[0] + ERX * Math.cos(t), EC[1] + ERY * Math.sin(t)]; };
+const f1 = (p) => p.map((v) => v.toFixed(1)).join(" ");
+function bigArrow(a0, a1, stages, id) {
+  const head = 9; // degrees of arc given to the arrowhead
+  const end = a1 - head, p0 = onE(a0), p1 = onE(end), tip = onE(a1);
+  const large = ((end - a0 + 360) % 360) > 180 ? 1 : 0;
+  const t = (end * Math.PI) / 180, tan = [-ERX * Math.sin(t), ERY * Math.cos(t)], len = Math.hypot(...tan);
+  const n = [-tan[1] / len, tan[0] / len], w = 13;
+  const arc = `M${f1(p0)}A${ERX.toFixed(1)} ${ERY.toFixed(1)} 0 ${large} 1 ${f1(p1)}`;
+  return `<g class="cycle" data-arrow="${stages.join(" ")}"><path id="${id}" class="cycle-band" d="${arc}"/><path class="cycle-head" d="M${f1([p1[0] + n[0] * w, p1[1] + n[1] * w])}L${f1(tip)}L${f1([p1[0] - n[0] * w, p1[1] - n[1] * w])}Z"/></g>`;
+}
+const cycle = [
+  bigArrow(150, 212, [1, 2], "arc-up"),
+  bigArrow(226, 318, [3], "arc-top"),
+  bigArrow(332, 392, [4], "arc-down"),
+  bigArrow(46, 136, [5, 6], "arc-back"),
+].join("") + `<text class="cycle-title"><textPath href="#arc-top" startOffset="50%" text-anchor="middle">WATER CYCLE</textPath></text>`;
+const defs = `<defs>${[["wc-head", "head"], ["wc-head-gw", "head gw"]].map(([id, c]) => `<marker id="${id}" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" markerUnits="strokeWidth" orient="auto"><path class="${c}" d="M0 1L10 5L0 9Z"/></marker>`).join("")}</defs>`;
 
 const sun = `<g data-glow="1"><circle class="sun-glow" cx="${at(SUN)[0].toFixed(1)}" cy="${at(SUN)[1].toFixed(1)}" r="34"/>${S(G.sphereOf(SUN, 16, P), "sun")}</g>`;
 
@@ -202,7 +242,7 @@ const svg = k.figureSvg({
   width: WIDTH,
   height: HEIGHT,
   label: "An isometric block of land cut away to show grass, soil, a water-bearing aquifer and bedrock. On top are a lake, a forest, a river and two snow-capped mountains, with the sun and three clouds above. Flowing lines show water evaporating from the lake, transpiring from trees, drifting as cloud, falling as rain on the mountains, running off down the river and seeping through the aquifer.",
-  body: [sun, block(), surface(), groundFlow, ground, flows(evap, 1), flows(transpire, 2), flows(drift, 3), `<g data-stage="4" data-part="rain"></g>`, CLOUDS.map(cloud).join(""), labels],
+  body: [defs, cycle, sun, block(), surface(), groundFlow, ground, flows(evap, 1), flows(transpire, 2), flows(drift, 3), `<g data-stage="4" data-part="rain"></g>`, CLOUDS.map(cloud).join(""), features, labels],
 });
 
 const live = `
@@ -222,6 +262,7 @@ function setStage(i) {
   svg.querySelectorAll("[data-stage]").forEach((g) => g.toggleAttribute("data-on", Number(g.dataset.stage) === i + 1));
   svg.querySelectorAll("[data-label]").forEach((g) => g.toggleAttribute("data-on", Number(g.dataset.label) === i + 1));
   svg.querySelectorAll("[data-glow]").forEach((g) => g.toggleAttribute("data-on", Number(g.dataset.glow) === i + 1));
+  svg.querySelectorAll("[data-arrow]").forEach((g) => g.toggleAttribute("data-on", g.dataset.arrow.split(" ").includes(String(i + 1))));
   const text = (i + 1) + " · " + STAGES[i].name + " — " + STAGES[i].text;
   if (readout.textContent !== text) readout.textContent = text;
   stage.setAttribute("aria-valuenow", String(i + 1));
@@ -289,6 +330,15 @@ ${matCss}
 .lbl{paint-order:stroke;stroke:var(--anatomy-card);stroke-width:3.5px;stroke-linejoin:round;font:600 12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--anatomy-muted);letter-spacing:.02em;cursor:pointer;transition:fill .4s}
 .lbl[data-on]{fill:var(--anatomy-strong)}
 .iso-plate{--anatomy-paper:var(--anatomy-card)}
+.cycle-band{fill:none;stroke:#3f8fd6;stroke-width:22;stroke-linecap:butt;opacity:.22;transition:opacity .6s}
+.cycle-head{fill:#3f8fd6;opacity:.22;transition:opacity .6s}
+.cycle[data-on] .cycle-band,.cycle[data-on] .cycle-head{opacity:.85}
+.cycle-title{font:800 15px system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.28em;fill:#fff;dominant-baseline:central}
+.iso[data-theme="light"] .cycle-band,.iso[data-theme="light"] .cycle-head{opacity:.3}
+.iso[data-theme="light"] .cycle[data-on] .cycle-band,.iso[data-theme="light"] .cycle[data-on] .cycle-head{opacity:.9}
+.head{fill:var(--anatomy-strong)}.head.gw{fill:#bfe0ff}
+.iso[data-theme="light"] .head{fill:#1d3d5c}.iso[data-theme="light"] .head.gw{fill:#0e4f8f}
+.lbl2{paint-order:stroke;stroke:var(--anatomy-card);stroke-width:3px;stroke-linejoin:round;font:italic 500 10.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--anatomy-text);pointer-events:none}
 </style>`;
 
 const body = css + k.plateHtml({
@@ -299,6 +349,7 @@ const body = css + k.plateHtml({
   keys: [
     { mark: "blue", label: "Water: lake, river and the aquifer layer underground" },
     { mark: "lit", label: "The flow of the current stage" },
+    { mark: "blue", label: "Big arrows: the loop, lit for the current stage" },
   ],
   caption: `The sun lifts ${fmt(FLUX.oceanEvap)} km³ of water a year off oceans and lakes, and plants add ${fmt(FLUX.landET)} km³ by transpiration. Rising vapour cools and condenses into clouds, which drift inland and fall as ${fmt(FLUX.oceanRain + FLUX.landRain)} km³ of rain and snow, 77% of it over the ocean. On land, water runs off downhill into rivers and lakes or soaks through the soil into the aquifer, where groundwater holds about 30% of Earth's fresh water, and seeps back to the sea. Fluxes: Trenberth et al. (2007); groundwater share: USGS.`,
   body: `<div class="iso-stage" tabindex="0" role="slider" aria-label="Water cycle: arrow keys step through the six stages" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">${svg}</div>`,
